@@ -1,7 +1,7 @@
 # Welcome to GitHub Page for the Workshop in Applied Bioinformatics using R and Phyton 
 ## (St. John's University: BIO/BIT 209: Bioinformatics)
 
-You can access the [BIO/BIT 209 bookdown](https://corytophanes.github.io/bioinformatics_class/intro.html) that includes our class manual and examples.
+You can access the [BIO/BIT 209 bookdown](https://corytophanes.github.io/BIO_BIT_Bionformatics_209/intro.html) that includes our class manual and examples.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
