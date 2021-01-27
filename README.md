@@ -1,39 +1,9 @@
 # Welcome to GitHub Page for the Workshop in Applied Bioinformatics using R and Phyton 
 ## (St. John's University: BIO/BIT 209: Bioinformatics)
 
-You can access the [BIO/BIT 209 bookdown](https://corytophanes.github.io/BIO_BIT_Bionformatics_209/intro.html) that includes our class manual and examples.
+### Course Description: 
+Biology is becoming a data science where high-throughput methodologies produce vast amounts of heterogeneous data that require analysis, mining, synthesis and effective delivery of such results (e.g., papers, presentations, reports). This course is a workshop designed to introduce graduate students in biology and biotechnology to practical applications of bioinformatics. As any workshop, this class consists of hands-on and practical training experiences, and it is not a regular course where the professor feed you with pieces of information. For this purpose, we will use R as our standard coding language, but we will introduce Python at later stage of this class. During this workshop, students will follow recipes and worked examples in a dedicate online resource (an online book designed specifically for this class).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+You can access this [**BIO/BIT 209 bookdown**](https://corytophanes.github.io/BIO_BIT_Bionformatics_209/intro.html).
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/corytophanes/test/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
-
+This online book aims to illustrate how you can implement bioinformatic code to perform data manipulation, exploration, mining, statistics and graphics. However, this is not a fixed document, and I will add more units or change those as you explore your datasets and request new tools or recipes. Also, you might suggest adding a particular set of tools to help you in your course-long project. Therefore, this workshop is designed for active participation from the students with their computers following our code recipes under the instructor’s guidance. To achieve this, I will show you an example of how the code is implemented and you (as a student) will emulate such code on your computer. Next, you will try to come up with your own example, and you can expand your exploration by creating applications of the code learned up to that point. You are encouraged to challenge yourself on more complicated exercises; I will give you hints on how to further develop your practice. 
