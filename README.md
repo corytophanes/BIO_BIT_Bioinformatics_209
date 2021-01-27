@@ -1,5 +1,5 @@
-# Welcome to GitHub Page for the Workshop in Applied Bioinformatics using R and Phyton 
-## (St. John's University: BIO/BIT 209: Bioinformatics)
+# Workshop in Applied Bioinformatics using R and Phyton 
+## St. John's University: BIO/BIT 209: Bioinformatics
 
 ### Course Description: 
 Biology is becoming a data science where high-throughput methodologies produce vast amounts of heterogeneous data that require analysis, mining, synthesis and effective delivery of such results (e.g., papers, presentations, reports). This course is a workshop designed to introduce graduate students in biology and biotechnology to practical applications of bioinformatics. As any workshop, this class consists of hands-on and practical training experiences, and it is not a regular course where the instructor feeds you with pieces of information. For this purpose, we will use R as our standard coding language, but we will introduce Python at later stage of this class. During this workshop, students will follow recipes and worked examples in a dedicate resource (an online book designed specifically for this class).
