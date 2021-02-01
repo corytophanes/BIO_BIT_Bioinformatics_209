@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Session 6 – Basic Statistics in R | Bioinformatics Workshop Gitbook</title>
+  <meta name="description" content="none" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Session 6 – Basic Statistics in R | Bioinformatics Workshop Gitbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="none" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Session 6 – Basic Statistics in R | Bioinformatics Workshop Gitbook" />
+  
+  <meta name="twitter:description" content="none" />
+  
+
+<meta name="author" content="Juan C. Santos" />
+
+
+<meta name="date" content="2021-01-31" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="getting-biological-data-from-public-repositories.html"/>
+<link rel="next" href="regressions-and-anova-in-r.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Bioinformatics Workshop Gitbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>1</b> – Getting Started with R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#why-we-use-r-in-this-workshop"><i class="fa fa-check"></i><b>1.1</b> Why we use R in this workshop?</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#get-a-good-text-editor"><i class="fa fa-check"></i><b>1.2</b> Get a good text editor</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#r-studio"><i class="fa fa-check"></i><b>1.3</b> R studio</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-r"><i class="fa fa-check"></i><b>1.4</b> Installing R</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#annotating-code-in-r"><i class="fa fa-check"></i><b>1.5</b> Annotating code in R</a></li>
+<li class="chapter" data-level="1.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#defining-a-working-directory-in-r"><i class="fa fa-check"></i><b>1.6</b> Defining a working directory in R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="your-first-r-session-installing-packages-and-importingexporting-data.html"><a href="your-first-r-session-installing-packages-and-importingexporting-data.html"><i class="fa fa-check"></i><b>2</b> – Your First R Session, Installing Packages and Importing/Exporting Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="your-first-r-session-installing-packages-and-importingexporting-data.html"><a href="your-first-r-session-installing-packages-and-importingexporting-data.html#your-first-session-with-r"><i class="fa fa-check"></i><b>2.1</b> Your first session with R</a></li>
+<li class="chapter" data-level="2.2" data-path="your-first-r-session-installing-packages-and-importingexporting-data.html"><a href="your-first-r-session-installing-packages-and-importingexporting-data.html#doing-some-base-functions-and-getting-help"><i class="fa fa-check"></i><b>2.2</b> Doing some base functions and getting help</a></li>
+<li class="chapter" data-level="2.3" data-path="your-first-r-session-installing-packages-and-importingexporting-data.html"><a href="your-first-r-session-installing-packages-and-importingexporting-data.html#about-r-packages"><i class="fa fa-check"></i><b>2.3</b> About R-packages</a></li>
+<li class="chapter" data-level="2.4" data-path="your-first-r-session-installing-packages-and-importingexporting-data.html"><a href="your-first-r-session-installing-packages-and-importingexporting-data.html#installing-packages-in-r"><i class="fa fa-check"></i><b>2.4</b> Installing packages in R</a></li>
+<li class="chapter" data-level="2.5" data-path="your-first-r-session-installing-packages-and-importingexporting-data.html"><a href="your-first-r-session-installing-packages-and-importingexporting-data.html#importing-and-exporting-data-into-r"><i class="fa fa-check"></i><b>2.5</b> Importing and exporting data into R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html"><i class="fa fa-check"></i><b>3</b> – Basic Data Structures in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#scalars-and-vectors"><i class="fa fa-check"></i><b>3.1</b> Scalars and vectors</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#matrices"><i class="fa fa-check"></i><b>3.2</b> Matrices</a></li>
+<li class="chapter" data-level="3.3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-frames"><i class="fa fa-check"></i><b>3.3</b> Data Frames</a></li>
+<li class="chapter" data-level="3.4" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tables"><i class="fa fa-check"></i><b>3.4</b> Tables</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#lists"><i class="fa fa-check"></i><b>3.5</b> Lists</a></li>
+<li class="chapter" data-level="3.6" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-tables"><i class="fa fa-check"></i><b>3.6</b> Data Tables</a></li>
+<li class="chapter" data-level="3.7" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tibbles"><i class="fa fa-check"></i><b>3.7</b> Tibbles</a></li>
+<li class="chapter" data-level="3.8" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#dnastringsets-rnastringsets-and-aastringsets"><i class="fa fa-check"></i><b>3.8</b> DNAStringSets, RNAStringSets and AAStringSets</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html"><i class="fa fa-check"></i><b>4</b> – Text Editing, Applying Transformations and Functions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html#working-with-character-strings"><i class="fa fa-check"></i><b>4.1</b> Working with character strings</a></li>
+<li class="chapter" data-level="4.2" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html#regular-expressions-regex"><i class="fa fa-check"></i><b>4.2</b> Regular expressions (Regex)</a></li>
+<li class="chapter" data-level="4.3" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html#comparing-ordering-and-simplifying-vectors"><i class="fa fa-check"></i><b>4.3</b> Comparing, ordering and simplifying vectors</a></li>
+<li class="chapter" data-level="4.4" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html#some-useful-functions-of-the-r-package-stringr"><i class="fa fa-check"></i><b>4.4</b> Some useful functions of the R-package ‘stringr’</a></li>
+<li class="chapter" data-level="4.5" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html#data-transformations"><i class="fa fa-check"></i><b>4.5</b> Data transformations</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html"><i class="fa fa-check"></i><b>5</b> – Getting Biological Data from Public Repositories</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#ncbi-databases-genbank-and-uniprot"><i class="fa fa-check"></i><b>5.1</b> NCBI databases: GenBank and UniProt</a></li>
+<li class="chapter" data-level="5.2" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-sequence-databases-uniprot"><i class="fa fa-check"></i><b>5.2</b> Other sequence databases: UniProt</a></li>
+<li class="chapter" data-level="5.3" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-sequence-databases-ensembl"><i class="fa fa-check"></i><b>5.3</b> Other sequence databases: Ensembl</a></li>
+<li class="chapter" data-level="5.4" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-biological-databases-taxonomy-phylogenetic-trees-and-species-distributions"><i class="fa fa-check"></i><b>5.4</b> Other biological databases: Taxonomy, phylogenetic trees and species distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html"><i class="fa fa-check"></i><b>6</b> – Basic Statistics in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#exploring-your-data"><i class="fa fa-check"></i><b>6.1</b> Exploring your data</a></li>
+<li class="chapter" data-level="6.2" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#normalizing-your-data"><i class="fa fa-check"></i><b>6.2</b> Normalizing your data</a></li>
+<li class="chapter" data-level="6.3" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-means"><i class="fa fa-check"></i><b>6.3</b> Comparing means</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html"><i class="fa fa-check"></i><b>7</b> – Regressions and ANOVA in R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#linear-regressions-in-r"><i class="fa fa-check"></i><b>7.1</b> Linear regressions in R</a></li>
+<li class="chapter" data-level="7.2" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#selecting-predictors-for-regressions-in-r"><i class="fa fa-check"></i><b>7.2</b> Selecting predictors for regressions in R</a></li>
+<li class="chapter" data-level="7.3" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#logistic-regressions"><i class="fa fa-check"></i><b>7.3</b> Logistic regressions</a></li>
+<li class="chapter" data-level="7.4" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#non-linear-regressions"><i class="fa fa-check"></i><b>7.4</b> Non-linear regressions</a></li>
+<li class="chapter" data-level="7.5" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#anova"><i class="fa fa-check"></i><b>7.5</b> ANOVA</a></li>
+<li class="chapter" data-level="7.6" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#one-way-anova"><i class="fa fa-check"></i><b>7.6</b> One-way ANOVA</a></li>
+<li class="chapter" data-level="7.7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#two-way-anova"><i class="fa fa-check"></i><b>7.7</b> Two-way ANOVA</a></li>
+<li class="chapter" data-level="7.8" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#post-hoc-tests"><i class="fa fa-check"></i><b>7.8</b> Post-hoc tests</a></li>
+<li class="chapter" data-level="7.9" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#alternative-to-anova-kruskal-wallis-test"><i class="fa fa-check"></i><b>7.9</b> Alternative to ANOVA: Kruskal-Wallis Test</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html"><i class="fa fa-check"></i><b>8</b> – Exploring Multidimensional Data in R</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#principal-component-analysis-pca"><i class="fa fa-check"></i><b>8.1</b> Principal Component Analysis (PCA)</a></li>
+<li class="chapter" data-level="8.2" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#multidimensional-scaling-mds"><i class="fa fa-check"></i><b>8.2</b> Multidimensional scaling (MDS)</a></li>
+<li class="chapter" data-level="8.3" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#cluster-analysis-using-dfa"><i class="fa fa-check"></i><b>8.3</b> Cluster analysis using DFA</a></li>
+<li class="chapter" data-level="8.4" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#cluster-analysis-using-k-means-unsupervised"><i class="fa fa-check"></i><b>8.4</b> Cluster analysis using <em>k</em>-means (unsupervised)</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html"><i class="fa fa-check"></i><b>9</b> – Graphics in R – ggplot2</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html#preparing-dataset-for-plot"><i class="fa fa-check"></i><b>9.1</b> Preparing dataset for plot</a></li>
+<li class="chapter" data-level="9.2" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html#colors-packages"><i class="fa fa-check"></i><b>9.2</b> Colors packages</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bioinformatics Workshop Gitbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="basic-statistics-in-r" class="section level1" number="6">
+<h1><span class="header-section-number">Session 6</span> – Basic Statistics in R</h1>
+<p>This workshop is not designed to give you an extensive overview on all statistical methods that can be performed in R. Yet, this computing environment was born to provide a comprehensive platform for the implementation of statistical methods. We will overview of some basic and advanced methods with some illustrative graphs (these will be expanded in the session devoted to graphics). However, you can ask me if you want to explore a specific method that you would me to add to this gitbook.</p>
+<div id="exploring-your-data" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Exploring your data</h2>
+<p><strong>1)</strong> To start, we need to import a dataset that we want to explore and analyze. As graduate students, you are encouraged to use your own datasets (i.e., this is ideal as you will know more about its contents, metrics and intended use). For this exercise, I will use two previously show datasets: (1) the small preloaded <code>mtcars</code> dataset and (2) the large <code>airway_scaledcounts.csv</code> dataset (it can be downloaded from the <code>examples</code> folder).</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="basic-statistics-in-r.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="co">#define a working directory</span></span>
+<span id="cb247-2"><a href="basic-statistics-in-r.html#cb247-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory&quot;</span>)</span>
+<span id="cb247-3"><a href="basic-statistics-in-r.html#cb247-3" aria-hidden="true" tabindex="-1"></a><span class="co">#load get mtcars dataset -- this a preloaded dataset in R</span></span>
+<span id="cb247-4"><a href="basic-statistics-in-r.html#cb247-4" aria-hidden="true" tabindex="-1"></a>cars_data <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb247-5"><a href="basic-statistics-in-r.html#cb247-5" aria-hidden="true" tabindex="-1"></a>cars_data</span>
+<span id="cb247-6"><a href="basic-statistics-in-r.html#cb247-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb</span></span>
+<span id="cb247-7"><a href="basic-statistics-in-r.html#cb247-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4</span></span>
+<span id="cb247-8"><a href="basic-statistics-in-r.html#cb247-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4</span></span>
+<span id="cb247-9"><a href="basic-statistics-in-r.html#cb247-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1</span></span>
+<span id="cb247-10"><a href="basic-statistics-in-r.html#cb247-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1</span></span>
+<span id="cb247-11"><a href="basic-statistics-in-r.html#cb247-11" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
+<span id="cb247-12"><a href="basic-statistics-in-r.html#cb247-12" aria-hidden="true" tabindex="-1"></a><span class="co">#load get &#39;airway_scaledcounts.csv&#39; dataset </span></span>
+<span id="cb247-13"><a href="basic-statistics-in-r.html#cb247-13" aria-hidden="true" tabindex="-1"></a>airway_data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory/airway_scaledcounts.csv&quot;</span>,</span>
+<span id="cb247-14"><a href="basic-statistics-in-r.html#cb247-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb247-15"><a href="basic-statistics-in-r.html#cb247-15" aria-hidden="true" tabindex="-1"></a><span class="co">#          ensgene SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
+<span id="cb247-16"><a href="basic-statistics-in-r.html#cb247-16" aria-hidden="true" tabindex="-1"></a><span class="co">#1 ENSG00000000003        723        486        904        445       1170       1097        806        604</span></span>
+<span id="cb247-17"><a href="basic-statistics-in-r.html#cb247-17" aria-hidden="true" tabindex="-1"></a><span class="co">#2 ENSG00000000005          0          0          0          0          0          0          0          0</span></span>
+<span id="cb247-18"><a href="basic-statistics-in-r.html#cb247-18" aria-hidden="true" tabindex="-1"></a><span class="co">#3 ENSG00000000419        467        523        616        371        582        781        417        509</span></span>
+<span id="cb247-19"><a href="basic-statistics-in-r.html#cb247-19" aria-hidden="true" tabindex="-1"></a><span class="co">#4 ENSG00000000457        347        258        364        237        318        447        330        324</span></span>
+<span id="cb247-20"><a href="basic-statistics-in-r.html#cb247-20" aria-hidden="true" tabindex="-1"></a><span class="co">#5 ENSG00000000460         96         81         73         66        118         94        102         74</span></span>
+<span id="cb247-21"><a href="basic-statistics-in-r.html#cb247-21" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000000938          0          0          1          0          2          0          0          0</span></span>
+<span id="cb247-22"><a href="basic-statistics-in-r.html#cb247-22" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
+<p><strong>2)</strong> We can get some basic descriptive parameters of each data set including number of entries, number and names of the columns (i.e., variables), type of variables (e.g., numbers or characters), number of <code>NA</code> values.</p>
+<p>For this purpose, the easiest approach is to use the function <code>summary()</code></p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="basic-statistics-in-r.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars_data)</span>
+<span id="cb248-2"><a href="basic-statistics-in-r.html#cb248-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     mpg             cyl             disp             hp             drat             wt             qsec             vs        </span></span>
+<span id="cb248-3"><a href="basic-statistics-in-r.html#cb248-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0   Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  </span></span>
+<span id="cb248-4"><a href="basic-statistics-in-r.html#cb248-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5   1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  </span></span>
+<span id="cb248-5"><a href="basic-statistics-in-r.html#cb248-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Median :19.20   Median :6.000   Median :196.3   Median :123.0   Median :3.695   Median :3.325   Median :17.71   Median :0.0000  </span></span>
+<span id="cb248-6"><a href="basic-statistics-in-r.html#cb248-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7   Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  </span></span>
+<span id="cb248-7"><a href="basic-statistics-in-r.html#cb248-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0   3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  </span></span>
+<span id="cb248-8"><a href="basic-statistics-in-r.html#cb248-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0   Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  </span></span>
+<span id="cb248-9"><a href="basic-statistics-in-r.html#cb248-9" aria-hidden="true" tabindex="-1"></a><span class="co">#       am              gear            carb      </span></span>
+<span id="cb248-10"><a href="basic-statistics-in-r.html#cb248-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Min.   :0.0000   Min.   :3.000   Min.   :1.000  </span></span>
+<span id="cb248-11"><a href="basic-statistics-in-r.html#cb248-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  </span></span>
+<span id="cb248-12"><a href="basic-statistics-in-r.html#cb248-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Median :0.0000   Median :4.000   Median :2.000  </span></span>
+<span id="cb248-13"><a href="basic-statistics-in-r.html#cb248-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean   :0.4062   Mean   :3.688   Mean   :2.812  </span></span>
+<span id="cb248-14"><a href="basic-statistics-in-r.html#cb248-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  </span></span>
+<span id="cb248-15"><a href="basic-statistics-in-r.html#cb248-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Max.   :1.0000   Max.   :5.000   Max.   :8.000  </span></span>
+<span id="cb248-16"><a href="basic-statistics-in-r.html#cb248-16" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(airway_data)</span>
+<span id="cb248-17"><a href="basic-statistics-in-r.html#cb248-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   ensgene            SRR1039508         SRR1039509         SRR1039512         SRR1039513         SRR1039516    </span></span>
+<span id="cb248-18"><a href="basic-statistics-in-r.html#cb248-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Length:38694       Min.   :     0.0   Min.   :     0.0   Min.   :     0.0   Min.   :     0.0   Min.   :     0  </span></span>
+<span id="cb248-19"><a href="basic-statistics-in-r.html#cb248-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Class :character   1st Qu.:     0.0   1st Qu.:     0.0   1st Qu.:     0.0   1st Qu.:     0.0   1st Qu.:     0  </span></span>
+<span id="cb248-20"><a href="basic-statistics-in-r.html#cb248-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Mode  :character   Median :     1.0   Median :     1.0   Median :     1.0   Median :     0.0   Median :     1  </span></span>
+<span id="cb248-21"><a href="basic-statistics-in-r.html#cb248-21" aria-hidden="true" tabindex="-1"></a><span class="co">#                    Mean   :   546.5   Mean   :   501.1   Mean   :   673.6   Mean   :   405.3   Mean   :   649  </span></span>
+<span id="cb248-22"><a href="basic-statistics-in-r.html#cb248-22" aria-hidden="true" tabindex="-1"></a><span class="co">#                    3rd Qu.:   203.0   3rd Qu.:   172.0   3rd Qu.:   237.0   3rd Qu.:   128.0   3rd Qu.:   228  </span></span>
+<span id="cb248-23"><a href="basic-statistics-in-r.html#cb248-23" aria-hidden="true" tabindex="-1"></a><span class="co">#                    Max.   :287372.0   Max.   :244921.0   Max.   :510107.0   Max.   :304818.0   Max.   :410979  </span></span>
+<span id="cb248-24"><a href="basic-statistics-in-r.html#cb248-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   SRR1039517         SRR1039520         SRR1039521      </span></span>
+<span id="cb248-25"><a href="basic-statistics-in-r.html#cb248-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Min.   :     0.0   Min.   :     0.0   Min.   :     0.0  </span></span>
+<span id="cb248-26"><a href="basic-statistics-in-r.html#cb248-26" aria-hidden="true" tabindex="-1"></a><span class="co"># 1st Qu.:     0.0   1st Qu.:     0.0   1st Qu.:     0.0  </span></span>
+<span id="cb248-27"><a href="basic-statistics-in-r.html#cb248-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Median :     1.0   Median :     1.0   Median :     1.0  </span></span>
+<span id="cb248-28"><a href="basic-statistics-in-r.html#cb248-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean   :   822.5   Mean   :   509.0   Mean   :   565.7  </span></span>
+<span id="cb248-29"><a href="basic-statistics-in-r.html#cb248-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 3rd Qu.:   261.0   3rd Qu.:   185.8   3rd Qu.:   183.0  </span></span>
+<span id="cb248-30"><a href="basic-statistics-in-r.html#cb248-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Max.   :416837.0   Max.   :378108.0   Max.   :372973.0  </span></span></code></pre></div>
+<p>These summary output provide a general descriptive and summary statistics of data distribution of the values on each column (variable). For continuous variables, minimum and maximum values are provided. Other statistics include mean and median that provide a general measurement of central location (i.e., average). The 1st quartile (Q1) is the middle value between the minimum and the median; and it also represents measurement that marks where 25% of the data is below this point. The 3rd quartile (Q3) is the middle value between the median and the maximum; and also represents 75% of the data is below this point. Notice the column named <code>ensgene</code> is a discrete (character) variable and only provides the number of elements in that column.</p>
+<p>We can visualize these summaries using boxplots. The base package has the function <code>boxplot()</code>.</p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="basic-statistics-in-r.html#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="co">#car data boxplot</span></span>
+<span id="cb249-2"><a href="basic-statistics-in-r.html#cb249-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(mpg<span class="sc">~</span>cyl, <span class="at">data=</span>cars_data, <span class="at">col=</span>(<span class="fu">c</span>(<span class="st">&quot;#DA291CFF&quot;</span>, <span class="st">&quot;#56A8CBFF&quot;</span>, <span class="st">&quot;#53A567FF&quot;</span>)), <span class="at">main=</span><span class="st">&quot;car data boxplots&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;cylinders&quot;</span>) </span></code></pre></div>
+<p><img src="figures/session_6_figs/1_1_boxplot_cars.png" width="100%" /></p>
+<p>You can also visualize these summaries using boxplots for all variables using the R-package <a href="https://cran.r-project.org/web/packages/reshape2/index.html" target="_blank"><strong>reshape2</strong></a> and its function <code>melt()</code>. This will reshape the data frame to be more amenable for boxplots.</p>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="basic-statistics-in-r.html#cb250-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you might need to install R-package &#39;reshape2&#39; </span></span>
+<span id="cb250-2"><a href="basic-statistics-in-r.html#cb250-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;reshape2&quot;</span>)</span>
+<span id="cb250-3"><a href="basic-statistics-in-r.html#cb250-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb250-4"><a href="basic-statistics-in-r.html#cb250-4" aria-hidden="true" tabindex="-1"></a><span class="co"># reduce the &quot;airway_data&quot; to only the continuous variables.</span></span>
+<span id="cb250-5"><a href="basic-statistics-in-r.html#cb250-5" aria-hidden="true" tabindex="-1"></a>airway_data_reduced2 <span class="ot">&lt;-</span> airway_data[,<span class="dv">2</span><span class="sc">:</span><span class="fu">ncol</span>(airway_data_very_high_low)]</span>
+<span id="cb250-6"><a href="basic-statistics-in-r.html#cb250-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data_reduced2)</span>
+<span id="cb250-7"><a href="basic-statistics-in-r.html#cb250-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
+<span id="cb250-8"><a href="basic-statistics-in-r.html#cb250-8" aria-hidden="true" tabindex="-1"></a><span class="co">#1        723        486        904        445       1170       1097        806        604</span></span>
+<span id="cb250-9"><a href="basic-statistics-in-r.html#cb250-9" aria-hidden="true" tabindex="-1"></a><span class="co">#2          0          0          0          0          0          0          0          0</span></span>
+<span id="cb250-10"><a href="basic-statistics-in-r.html#cb250-10" aria-hidden="true" tabindex="-1"></a><span class="co">#3        467        523        616        371        582        781        417        509</span></span>
+<span id="cb250-11"><a href="basic-statistics-in-r.html#cb250-11" aria-hidden="true" tabindex="-1"></a><span class="co">#4        347        258        364        237        318        447        330        324</span></span>
+<span id="cb250-12"><a href="basic-statistics-in-r.html#cb250-12" aria-hidden="true" tabindex="-1"></a><span class="co">#5         96         81         73         66        118         94        102         74</span></span>
+<span id="cb250-13"><a href="basic-statistics-in-r.html#cb250-13" aria-hidden="true" tabindex="-1"></a><span class="co">#6          0          0          1          0          2          0          0          0</span></span>
+<span id="cb250-14"><a href="basic-statistics-in-r.html#cb250-14" aria-hidden="true" tabindex="-1"></a>airway_data_reduced2_melted <span class="ot">&lt;-</span> <span class="fu">melt</span>(airway_data_reduced2)</span>
+<span id="cb250-15"><a href="basic-statistics-in-r.html#cb250-15" aria-hidden="true" tabindex="-1"></a><span class="co">#No id variables; using all as measure variables</span></span>
+<span id="cb250-16"><a href="basic-statistics-in-r.html#cb250-16" aria-hidden="true" tabindex="-1"></a><span class="co"># we will change the names of the columns to reflect what they represent.</span></span>
+<span id="cb250-17"><a href="basic-statistics-in-r.html#cb250-17" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(airway_data_reduced2_melted) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;sample&quot;</span>, <span class="st">&quot;expression&quot;</span>)</span>
+<span id="cb250-18"><a href="basic-statistics-in-r.html#cb250-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data_reduced2_melted)</span>
+<span id="cb250-19"><a href="basic-statistics-in-r.html#cb250-19" aria-hidden="true" tabindex="-1"></a><span class="co">#    sample expression</span></span>
+<span id="cb250-20"><a href="basic-statistics-in-r.html#cb250-20" aria-hidden="true" tabindex="-1"></a><span class="co">#1 SRR1039508   723</span></span>
+<span id="cb250-21"><a href="basic-statistics-in-r.html#cb250-21" aria-hidden="true" tabindex="-1"></a><span class="co">#2 SRR1039508     0</span></span>
+<span id="cb250-22"><a href="basic-statistics-in-r.html#cb250-22" aria-hidden="true" tabindex="-1"></a><span class="co">#3 SRR1039508   467</span></span>
+<span id="cb250-23"><a href="basic-statistics-in-r.html#cb250-23" aria-hidden="true" tabindex="-1"></a><span class="co">#4 SRR1039508   347</span></span>
+<span id="cb250-24"><a href="basic-statistics-in-r.html#cb250-24" aria-hidden="true" tabindex="-1"></a><span class="co">#5 SRR1039508    96</span></span>
+<span id="cb250-25"><a href="basic-statistics-in-r.html#cb250-25" aria-hidden="true" tabindex="-1"></a><span class="co">#6 SRR1039508     0</span></span>
+<span id="cb250-26"><a href="basic-statistics-in-r.html#cb250-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb250-27"><a href="basic-statistics-in-r.html#cb250-27" aria-hidden="true" tabindex="-1"></a><span class="co">#airway_data boxplots</span></span>
+<span id="cb250-28"><a href="basic-statistics-in-r.html#cb250-28" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(expression<span class="sc">~</span>sample, <span class="at">data=</span>airway_data_reduced2_melted, <span class="at">main=</span><span class="st">&quot;airway_data boxplots&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;samples&quot;</span>) </span></code></pre></div>
+<p><img src="figures/session_6_figs/1_2_boxplot_airway_sample.png" width="100%" /></p>
+<p>This figure is not very elegant (we will work with graph in that section). However, these boxplots are extremely skewed to low expression values.</p>
+<p><strong>3)</strong> We can discretize our data by creating groups based on criterium (e.g., threshold value). Such discrete groups can help us to define if a treatment or condition is reflected in our data or experimental groups. We will create a binary data frame for <code>airway_data</code> for the columns (variables) that represent the normalized gene expression for the samples that start with<code>SRR</code>. For this example, we will consider an arbitrary scale to divide into groups as: <strong>very high</strong> (x =&gt; 10000), <strong>high</strong> (10000 &gt; x =&gt; 100) and <strong>low</strong> (x &lt; 100) expression levels.</p>
+<p>This task can be perform using a specialized R-package: <a href="https://purrr.tidyverse.org/" target="_blank"><strong>purrr</strong></a> and its function <code>modify()</code> with a conditional <code>ifelse()</code>. We already introduce <strong>purrr</strong> on previous sessions. Notice that when we close some of the commands we use complex punctuation (i.e., <code>(</code>, <code>)</code>, <code>{</code>, <code>}</code>) and many mistakes can happen if you forget to close such punctuation pairs (i.e., missing one is a very common error)..</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="basic-statistics-in-r.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we already installed R-package &#39;purrr&#39; </span></span>
+<span id="cb251-2"><a href="basic-statistics-in-r.html#cb251-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb251-3"><a href="basic-statistics-in-r.html#cb251-3" aria-hidden="true" tabindex="-1"></a><span class="co"># we create an alternative object, so we original raw data airway_data</span></span>
+<span id="cb251-4"><a href="basic-statistics-in-r.html#cb251-4" aria-hidden="true" tabindex="-1"></a>airway_data_very_high_low <span class="ot">&lt;-</span> airway_data</span>
+<span id="cb251-5"><a href="basic-statistics-in-r.html#cb251-5" aria-hidden="true" tabindex="-1"></a><span class="co"># We will apply a the conditional</span></span>
+<span id="cb251-6"><a href="basic-statistics-in-r.html#cb251-6" aria-hidden="true" tabindex="-1"></a>airway_data_very_high_low <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">modify</span>(airway_data_very_high_low,<span class="cf">function</span>(x) {<span class="fu">ifelse</span>(x <span class="sc">&gt;=</span> <span class="dv">10000</span>, <span class="st">&quot;very_high&quot;</span>,</span>
+<span id="cb251-7"><a href="basic-statistics-in-r.html#cb251-7" aria-hidden="true" tabindex="-1"></a>                                                                                     <span class="fu">ifelse</span>( x <span class="sc">&gt;=</span> <span class="dv">1000</span>, <span class="st">&quot;high&quot;</span>, <span class="st">&quot;low&quot;</span>))})</span>
+<span id="cb251-8"><a href="basic-statistics-in-r.html#cb251-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data_very_high_low)</span>
+<span id="cb251-9"><a href="basic-statistics-in-r.html#cb251-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    ensgene SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
+<span id="cb251-10"><a href="basic-statistics-in-r.html#cb251-10" aria-hidden="true" tabindex="-1"></a><span class="co">#1 very_high        low        low        low        low       high       high        low        low</span></span>
+<span id="cb251-11"><a href="basic-statistics-in-r.html#cb251-11" aria-hidden="true" tabindex="-1"></a><span class="co">#2 very_high        low        low        low        low        low        low        low        low</span></span>
+<span id="cb251-12"><a href="basic-statistics-in-r.html#cb251-12" aria-hidden="true" tabindex="-1"></a><span class="co">#3 very_high        low        low        low        low        low        low        low        low</span></span>
+<span id="cb251-13"><a href="basic-statistics-in-r.html#cb251-13" aria-hidden="true" tabindex="-1"></a><span class="co">#4 very_high        low        low        low        low        low        low        low        low</span></span>
+<span id="cb251-14"><a href="basic-statistics-in-r.html#cb251-14" aria-hidden="true" tabindex="-1"></a><span class="co">#5 very_high        low        low        low        low        low        low        low        low</span></span>
+<span id="cb251-15"><a href="basic-statistics-in-r.html#cb251-15" aria-hidden="true" tabindex="-1"></a><span class="co">#6 very_high        low        low        low        low        low        low        low        low</span></span>
+<span id="cb251-16"><a href="basic-statistics-in-r.html#cb251-16" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
+<p>During the process above, we have “lost” the values of our variable <code>ensgene</code> that contains the names of the loci. We can add it back from our original data frame <code>airway_data</code> as indicated next.</p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="basic-statistics-in-r.html#cb252-1" aria-hidden="true" tabindex="-1"></a>airway_data_very_high_low<span class="sc">$</span>ensgene <span class="ot">&lt;-</span> airway_data<span class="sc">$</span>ensgene</span>
+<span id="cb252-2"><a href="basic-statistics-in-r.html#cb252-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data_very_high_low)</span>
+<span id="cb252-3"><a href="basic-statistics-in-r.html#cb252-3" aria-hidden="true" tabindex="-1"></a><span class="co">#          ensgene SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
+<span id="cb252-4"><a href="basic-statistics-in-r.html#cb252-4" aria-hidden="true" tabindex="-1"></a><span class="co">#1 ENSG00000000003        low        low        low        low       high       high        low        low</span></span>
+<span id="cb252-5"><a href="basic-statistics-in-r.html#cb252-5" aria-hidden="true" tabindex="-1"></a><span class="co">#2 ENSG00000000005        low        low        low        low        low        low        low        low</span></span>
+<span id="cb252-6"><a href="basic-statistics-in-r.html#cb252-6" aria-hidden="true" tabindex="-1"></a><span class="co">#3 ENSG00000000419        low        low        low        low        low        low        low        low</span></span>
+<span id="cb252-7"><a href="basic-statistics-in-r.html#cb252-7" aria-hidden="true" tabindex="-1"></a><span class="co">#4 ENSG00000000457        low        low        low        low        low        low        low        low</span></span>
+<span id="cb252-8"><a href="basic-statistics-in-r.html#cb252-8" aria-hidden="true" tabindex="-1"></a><span class="co">#5 ENSG00000000460        low        low        low        low        low        low        low        low</span></span>
+<span id="cb252-9"><a href="basic-statistics-in-r.html#cb252-9" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000000938        low        low        low        low        low        low        low        low</span></span>
+<span id="cb252-10"><a href="basic-statistics-in-r.html#cb252-10" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
+<p><strong>4)</strong> With this discretized data frame <code>airway_data_very_high_low</code>, we can perform contingency tables. These are a type of table in a matrix format that displays the frequency distribution of the variables tested. We will exclude the first column <code>ensgene</code> because it has unique values.</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="basic-statistics-in-r.html#cb253-1" aria-hidden="true" tabindex="-1"></a>airway_data_reduced <span class="ot">&lt;-</span> airway_data_very_high_low[,<span class="dv">2</span><span class="sc">:</span><span class="fu">ncol</span>(airway_data_very_high_low)]</span>
+<span id="cb253-2"><a href="basic-statistics-in-r.html#cb253-2" aria-hidden="true" tabindex="-1"></a><span class="co"># collect frequencies on samples</span></span>
+<span id="cb253-3"><a href="basic-statistics-in-r.html#cb253-3" aria-hidden="true" tabindex="-1"></a>summary_frequencies_airway_data <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb253-4"><a href="basic-statistics-in-r.html#cb253-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(airway_data_reduced)) {</span>
+<span id="cb253-5"><a href="basic-statistics-in-r.html#cb253-5" aria-hidden="true" tabindex="-1"></a>                    sample_name <span class="ot">&lt;-</span> <span class="fu">names</span>(airway_data_reduced[i])</span>
+<span id="cb253-6"><a href="basic-statistics-in-r.html#cb253-6" aria-hidden="true" tabindex="-1"></a>                      one_table <span class="ot">&lt;-</span> <span class="fu">table</span>(airway_data_reduced[i])</span>
+<span id="cb253-7"><a href="basic-statistics-in-r.html#cb253-7" aria-hidden="true" tabindex="-1"></a>                      <span class="co"># from table to vector</span></span>
+<span id="cb253-8"><a href="basic-statistics-in-r.html#cb253-8" aria-hidden="true" tabindex="-1"></a>          one_contigency_vector <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(one_table)</span>
+<span id="cb253-9"><a href="basic-statistics-in-r.html#cb253-9" aria-hidden="true" tabindex="-1"></a>                      <span class="co"># add names of categories</span></span>
+<span id="cb253-10"><a href="basic-statistics-in-r.html#cb253-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">names</span>(one_contigency_vector) <span class="ot">&lt;-</span> <span class="fu">names</span>(one_table)</span>
+<span id="cb253-11"><a href="basic-statistics-in-r.html#cb253-11" aria-hidden="true" tabindex="-1"></a>                 one_data_frame <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(one_contigency_vector)</span>
+<span id="cb253-12"><a href="basic-statistics-in-r.html#cb253-12" aria-hidden="true" tabindex="-1"></a>                     <span class="co"># add name of sample</span></span>
+<span id="cb253-13"><a href="basic-statistics-in-r.html#cb253-13" aria-hidden="true" tabindex="-1"></a>          <span class="fu">names</span>(one_data_frame) <span class="ot">&lt;-</span> sample_name</span>
+<span id="cb253-14"><a href="basic-statistics-in-r.html#cb253-14" aria-hidden="true" tabindex="-1"></a>                     <span class="co"># collect results in list</span></span>
+<span id="cb253-15"><a href="basic-statistics-in-r.html#cb253-15" aria-hidden="true" tabindex="-1"></a>    summary_frequencies_airway_data[[i]] <span class="ot">&lt;-</span> one_data_frame     </span>
+<span id="cb253-16"><a href="basic-statistics-in-r.html#cb253-16" aria-hidden="true" tabindex="-1"></a>                                }</span>
+<span id="cb253-17"><a href="basic-statistics-in-r.html#cb253-17" aria-hidden="true" tabindex="-1"></a>summary_frequencies_airway_data</span>
+<span id="cb253-18"><a href="basic-statistics-in-r.html#cb253-18" aria-hidden="true" tabindex="-1"></a><span class="co">#[[1]]</span></span>
+<span id="cb253-19"><a href="basic-statistics-in-r.html#cb253-19" aria-hidden="true" tabindex="-1"></a><span class="co">#          SRR1039508</span></span>
+<span id="cb253-20"><a href="basic-statistics-in-r.html#cb253-20" aria-hidden="true" tabindex="-1"></a><span class="co">#high            3732</span></span>
+<span id="cb253-21"><a href="basic-statistics-in-r.html#cb253-21" aria-hidden="true" tabindex="-1"></a><span class="co">#low            34691</span></span>
+<span id="cb253-22"><a href="basic-statistics-in-r.html#cb253-22" aria-hidden="true" tabindex="-1"></a><span class="co">#very_high        271</span></span>
+<span id="cb253-23"><a href="basic-statistics-in-r.html#cb253-23" aria-hidden="true" tabindex="-1"></a><span class="co">#[[2]]</span></span>
+<span id="cb253-24"><a href="basic-statistics-in-r.html#cb253-24" aria-hidden="true" tabindex="-1"></a><span class="co">#          SRR1039509</span></span>
+<span id="cb253-25"><a href="basic-statistics-in-r.html#cb253-25" aria-hidden="true" tabindex="-1"></a><span class="co">#high            3444</span></span>
+<span id="cb253-26"><a href="basic-statistics-in-r.html#cb253-26" aria-hidden="true" tabindex="-1"></a><span class="co">#low            34986</span></span>
+<span id="cb253-27"><a href="basic-statistics-in-r.html#cb253-27" aria-hidden="true" tabindex="-1"></a><span class="co">#very_high        264</span></span>
+<span id="cb253-28"><a href="basic-statistics-in-r.html#cb253-28" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
+<p>With the list <code>summary_frequencies_airway_data</code>, we can cover it to a data frame by binding each vector as a column using two functions <code>do.call()</code> and <code>cbind()</code>.</p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="basic-statistics-in-r.html#cb254-1" aria-hidden="true" tabindex="-1"></a>final_summary_all_samples_df <span class="ot">&lt;-</span> <span class="fu">do.call</span>(cbind, summary_frequencies_airway_data)</span>
+<span id="cb254-2"><a href="basic-statistics-in-r.html#cb254-2" aria-hidden="true" tabindex="-1"></a>final_summary_all_samples_df</span>
+<span id="cb254-3"><a href="basic-statistics-in-r.html#cb254-3" aria-hidden="true" tabindex="-1"></a><span class="co">#          SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
+<span id="cb254-4"><a href="basic-statistics-in-r.html#cb254-4" aria-hidden="true" tabindex="-1"></a><span class="co">#high            3732       3444       4118       2607       4155       4703       3432       3683</span></span>
+<span id="cb254-5"><a href="basic-statistics-in-r.html#cb254-5" aria-hidden="true" tabindex="-1"></a><span class="co">#low            34691      34986      34216      35902      34196      33500      35024      34725</span></span>
+<span id="cb254-6"><a href="basic-statistics-in-r.html#cb254-6" aria-hidden="true" tabindex="-1"></a><span class="co">#very_high        271        264        360        185        343        491        238        286</span></span></code></pre></div>
+<p><strong>5)</strong> With this data frame, we can test these discretized variables for independence using a chi-squared test with the function <code>summary()</code>.</p>
+<p>For example, we can compare two of the <code>airway_data_reduced</code> samples (i.e., columns). Notice that I use a <code>;</code> command at the end of one line of commands, this allows you to paste several commands next to each other as if they were in new lines.</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="basic-statistics-in-r.html#cb255-1" aria-hidden="true" tabindex="-1"></a>sample_names <span class="ot">&lt;-</span> <span class="fu">names</span>(airway_data_reduced)[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb255-2"><a href="basic-statistics-in-r.html#cb255-2" aria-hidden="true" tabindex="-1"></a>title_test <span class="ot">&lt;-</span> <span class="fu">paste0</span>(sample_names, <span class="at">collapse =</span><span class="st">&quot;..vs..&quot;</span>)</span>
+<span id="cb255-3"><a href="basic-statistics-in-r.html#cb255-3" aria-hidden="true" tabindex="-1"></a>contigency_result <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">table</span>(airway_data_reduced[,<span class="dv">1</span>], airway_data_reduced[,<span class="dv">2</span>]))</span>
+<span id="cb255-4"><a href="basic-statistics-in-r.html#cb255-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(title_test, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>); <span class="fu">print</span>(contigency_result)</span>
+<span id="cb255-5"><a href="basic-statistics-in-r.html#cb255-5" aria-hidden="true" tabindex="-1"></a><span class="co">#SRR1039508..vs..SRR1039509 </span></span>
+<span id="cb255-6"><a href="basic-statistics-in-r.html#cb255-6" aria-hidden="true" tabindex="-1"></a><span class="co">#ENumber of cases in table: 38694 </span></span>
+<span id="cb255-7"><a href="basic-statistics-in-r.html#cb255-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Number of factors: 2 </span></span>
+<span id="cb255-8"><a href="basic-statistics-in-r.html#cb255-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Test for independence of all factors:</span></span>
+<span id="cb255-9"><a href="basic-statistics-in-r.html#cb255-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Chisq = 58193, df = 4, p-value = 0</span></span>
+<span id="cb255-10"><a href="basic-statistics-in-r.html#cb255-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Chi-squared approximation may be incorrect</span></span></code></pre></div>
+<p>These results indicate that we can conclude that these samples are likely independent, but the large number of cases <strong>38694</strong> might have inflated the Chisq statistic.</p>
+<p>Next we have an interesting loop for you to dissect, it will run all pairwise contingency tests, report the process, and add names of the pairs being compared. Notice the iterative variable <code>counter</code> and function <code>break</code> that breaks the loop when it has finished.</p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="basic-statistics-in-r.html#cb256-1" aria-hidden="true" tabindex="-1"></a>counter <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb256-2"><a href="basic-statistics-in-r.html#cb256-2" aria-hidden="true" tabindex="-1"></a>collect_test_independence <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb256-3"><a href="basic-statistics-in-r.html#cb256-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb256-4"><a href="basic-statistics-in-r.html#cb256-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(airway_data_reduced)) {</span>
+<span id="cb256-5"><a href="basic-statistics-in-r.html#cb256-5" aria-hidden="true" tabindex="-1"></a>               <span class="co"># i &lt;- 1</span></span>
+<span id="cb256-6"><a href="basic-statistics-in-r.html#cb256-6" aria-hidden="true" tabindex="-1"></a>               names_sample_i <span class="ot">&lt;-</span> <span class="fu">names</span>(airway_data_reduced)[i]</span>
+<span id="cb256-7"><a href="basic-statistics-in-r.html#cb256-7" aria-hidden="true" tabindex="-1"></a>                n <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb256-8"><a href="basic-statistics-in-r.html#cb256-8" aria-hidden="true" tabindex="-1"></a>      upper_limit <span class="ot">&lt;-</span> <span class="fu">ncol</span>(airway_data_reduced)<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb256-9"><a href="basic-statistics-in-r.html#cb256-9" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span>(n <span class="sc">&lt;</span> upper_limit) {</span>
+<span id="cb256-10"><a href="basic-statistics-in-r.html#cb256-10" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">cat</span>(<span class="st">&quot;sample:&quot;</span>,names_sample_i, <span class="st">&quot;..vs..&quot;</span>)</span>
+<span id="cb256-11"><a href="basic-statistics-in-r.html#cb256-11" aria-hidden="true" tabindex="-1"></a>                      <span class="cf">for</span>(j <span class="cf">in</span> n<span class="sc">:</span><span class="fu">ncol</span>(airway_data_reduced)) {</span>
+<span id="cb256-12"><a href="basic-statistics-in-r.html#cb256-12" aria-hidden="true" tabindex="-1"></a>                                    counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb256-13"><a href="basic-statistics-in-r.html#cb256-13" aria-hidden="true" tabindex="-1"></a>                                    names_sample_j <span class="ot">&lt;-</span> <span class="fu">names</span>(airway_data_reduced)[j]</span>
+<span id="cb256-14"><a href="basic-statistics-in-r.html#cb256-14" aria-hidden="true" tabindex="-1"></a>                                    <span class="fu">cat</span>(names_sample_j, <span class="st">&quot;....&quot;</span>)</span>
+<span id="cb256-15"><a href="basic-statistics-in-r.html#cb256-15" aria-hidden="true" tabindex="-1"></a>                                  list_name <span class="ot">&lt;-</span> <span class="fu">paste0</span>(names_sample_i,<span class="st">&quot;..vs..&quot;</span>, names_sample_j)</span>
+<span id="cb256-16"><a href="basic-statistics-in-r.html#cb256-16" aria-hidden="true" tabindex="-1"></a>       collect_test_independence[[counter]] <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">table</span>(airway_data_reduced[,i], airway_data_reduced[,j]))</span>
+<span id="cb256-17"><a href="basic-statistics-in-r.html#cb256-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(collect_test_independence)[counter] <span class="ot">&lt;-</span> list_name</span>
+<span id="cb256-18"><a href="basic-statistics-in-r.html#cb256-18" aria-hidden="true" tabindex="-1"></a>                                                             }</span>
+<span id="cb256-19"><a href="basic-statistics-in-r.html#cb256-19" aria-hidden="true" tabindex="-1"></a>                                                           <span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)                                             </span>
+<span id="cb256-20"><a href="basic-statistics-in-r.html#cb256-20" aria-hidden="true" tabindex="-1"></a>                                   } <span class="cf">else</span> {<span class="cf">break</span>}</span>
+<span id="cb256-21"><a href="basic-statistics-in-r.html#cb256-21" aria-hidden="true" tabindex="-1"></a>                                        }</span>
+<span id="cb256-22"><a href="basic-statistics-in-r.html#cb256-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb256-23"><a href="basic-statistics-in-r.html#cb256-23" aria-hidden="true" tabindex="-1"></a><span class="co">#sample: SRR1039508 ..vs..SRR1039509 ....SRR1039512 ....SRR1039513 ....SRR1039516 ....SRR1039517 ....SRR1039520 ....SRR1039521 ....</span></span>
+<span id="cb256-24"><a href="basic-statistics-in-r.html#cb256-24" aria-hidden="true" tabindex="-1"></a><span class="co">#sample: SRR1039509 ..vs..SRR1039512 ....SRR1039513 ....SRR1039516 ....SRR1039517 ....SRR1039520 ....SRR1039521 ....</span></span>
+<span id="cb256-25"><a href="basic-statistics-in-r.html#cb256-25" aria-hidden="true" tabindex="-1"></a><span class="co">#sample: SRR1039512 ..vs..SRR1039513 ....SRR1039516 ....SRR1039517 ....SRR1039520 ....SRR1039521 ....</span></span>
+<span id="cb256-26"><a href="basic-statistics-in-r.html#cb256-26" aria-hidden="true" tabindex="-1"></a><span class="co">#sample: SRR1039513 ..vs..SRR1039516 ....SRR1039517 ....SRR1039520 ....SRR1039521 ....</span></span>
+<span id="cb256-27"><a href="basic-statistics-in-r.html#cb256-27" aria-hidden="true" tabindex="-1"></a><span class="co">#sample: SRR1039516 ..vs..SRR1039517 ....SRR1039520 ....SRR1039521 ....</span></span>
+<span id="cb256-28"><a href="basic-statistics-in-r.html#cb256-28" aria-hidden="true" tabindex="-1"></a><span class="co">#sample: SRR1039517 ..vs..SRR1039520 ....SRR1039521 ....</span></span>
+<span id="cb256-29"><a href="basic-statistics-in-r.html#cb256-29" aria-hidden="true" tabindex="-1"></a><span class="co">#sample: SRR1039520 ..vs..SRR1039521 ....</span></span>
+<span id="cb256-30"><a href="basic-statistics-in-r.html#cb256-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb256-31"><a href="basic-statistics-in-r.html#cb256-31" aria-hidden="true" tabindex="-1"></a><span class="co"># if you call the collect_test_independence, you will get the statistics for independence</span></span>
+<span id="cb256-32"><a href="basic-statistics-in-r.html#cb256-32" aria-hidden="true" tabindex="-1"></a>collect_test_independence</span>
+<span id="cb256-33"><a href="basic-statistics-in-r.html#cb256-33" aria-hidden="true" tabindex="-1"></a><span class="co">#$SRR1039508..vs..SRR1039509</span></span>
+<span id="cb256-34"><a href="basic-statistics-in-r.html#cb256-34" aria-hidden="true" tabindex="-1"></a><span class="co">#Number of cases in table: 38694 </span></span>
+<span id="cb256-35"><a href="basic-statistics-in-r.html#cb256-35" aria-hidden="true" tabindex="-1"></a><span class="co">#Number of factors: 2 </span></span>
+<span id="cb256-36"><a href="basic-statistics-in-r.html#cb256-36" aria-hidden="true" tabindex="-1"></a><span class="co">#Test for independence of all factors:</span></span>
+<span id="cb256-37"><a href="basic-statistics-in-r.html#cb256-37" aria-hidden="true" tabindex="-1"></a><span class="co">#   Chisq = 58193, df = 4, p-value = 0</span></span>
+<span id="cb256-38"><a href="basic-statistics-in-r.html#cb256-38" aria-hidden="true" tabindex="-1"></a><span class="co">#   Chi-squared approximation may be incorrect</span></span>
+<span id="cb256-39"><a href="basic-statistics-in-r.html#cb256-39" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb256-40"><a href="basic-statistics-in-r.html#cb256-40" aria-hidden="true" tabindex="-1"></a><span class="co">#$SRR1039508..vs..SRR1039512</span></span>
+<span id="cb256-41"><a href="basic-statistics-in-r.html#cb256-41" aria-hidden="true" tabindex="-1"></a><span class="co">#Number of cases in table: 38694 </span></span>
+<span id="cb256-42"><a href="basic-statistics-in-r.html#cb256-42" aria-hidden="true" tabindex="-1"></a><span class="co">#Number of factors: 2 </span></span>
+<span id="cb256-43"><a href="basic-statistics-in-r.html#cb256-43" aria-hidden="true" tabindex="-1"></a><span class="co">#Test for independence of all factors:</span></span>
+<span id="cb256-44"><a href="basic-statistics-in-r.html#cb256-44" aria-hidden="true" tabindex="-1"></a><span class="co">#   Chisq = 58274, df = 4, p-value = 0</span></span>
+<span id="cb256-45"><a href="basic-statistics-in-r.html#cb256-45" aria-hidden="true" tabindex="-1"></a><span class="co">#   Chi-squared approximation may be incorrect</span></span></code></pre></div>
+</div>
+<div id="normalizing-your-data" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Normalizing your data</h2>
+<p><strong>6)</strong> Normalizing or scaling your data is sometimes useful when you are trying to compare datasets that might have extremely different units (e.g., tiny fractions and others in the hundreds of thousands). This can be done with the function <code>scale()</code>.</p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="basic-statistics-in-r.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cars_data)</span>
+<span id="cb257-2"><a href="basic-statistics-in-r.html#cb257-2" aria-hidden="true" tabindex="-1"></a><span class="co">#                   mpg cyl disp  hp drat    wt  qsec vs am gear carb</span></span>
+<span id="cb257-3"><a href="basic-statistics-in-r.html#cb257-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4</span></span>
+<span id="cb257-4"><a href="basic-statistics-in-r.html#cb257-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4</span></span>
+<span id="cb257-5"><a href="basic-statistics-in-r.html#cb257-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1</span></span>
+<span id="cb257-6"><a href="basic-statistics-in-r.html#cb257-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1</span></span>
+<span id="cb257-7"><a href="basic-statistics-in-r.html#cb257-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2</span></span>
+<span id="cb257-8"><a href="basic-statistics-in-r.html#cb257-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</span></span>
+<span id="cb257-9"><a href="basic-statistics-in-r.html#cb257-9" aria-hidden="true" tabindex="-1"></a>cars_data_scaled <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">modify</span>(cars_data, scale)</span>
+<span id="cb257-10"><a href="basic-statistics-in-r.html#cb257-10" aria-hidden="true" tabindex="-1"></a><span class="co"># head(cars_data_scaled)</span></span>
+<span id="cb257-11"><a href="basic-statistics-in-r.html#cb257-11" aria-hidden="true" tabindex="-1"></a><span class="co">#                        mpg        cyl        disp         hp       drat           wt       qsec         vs         am       gear       carb</span></span>
+<span id="cb257-12"><a href="basic-statistics-in-r.html#cb257-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4          0.1508848 -0.1049878 -0.57061982 -0.5350928  0.5675137 -0.610399567 -0.7771651 -0.8680278  1.1899014  0.4235542  0.7352031</span></span>
+<span id="cb257-13"><a href="basic-statistics-in-r.html#cb257-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4 Wag      0.1508848 -0.1049878 -0.57061982 -0.5350928  0.5675137 -0.349785269 -0.4637808 -0.8680278  1.1899014  0.4235542  0.7352031</span></span>
+<span id="cb257-14"><a href="basic-statistics-in-r.html#cb257-14" aria-hidden="true" tabindex="-1"></a><span class="co">#Datsun 710         0.4495434 -1.2248578 -0.99018209 -0.7830405  0.4739996 -0.917004624  0.4260068  1.1160357  1.1899014  0.4235542 -1.1221521</span></span>
+<span id="cb257-15"><a href="basic-statistics-in-r.html#cb257-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Hornet 4 Drive     0.2172534 -0.1049878  0.22009369 -0.5350928 -0.9661175 -0.002299538  0.8904872  1.1160357 -0.8141431 -0.9318192 -1.1221521</span></span>
+<span id="cb257-16"><a href="basic-statistics-in-r.html#cb257-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Hornet Sportabout -0.2307345  1.0148821  1.04308123  0.4129422 -0.8351978  0.227654255 -0.4637808 -0.8680278 -0.8141431 -0.9318192 -0.5030337</span></span>
+<span id="cb257-17"><a href="basic-statistics-in-r.html#cb257-17" aria-hidden="true" tabindex="-1"></a><span class="co">#Valiant           -0.3302874 -0.1049878 -0.04616698 -0.6080186 -1.5646078  0.248094592  1.3269868  1.1160357 -0.8141431 -0.9318192 -1.1221521</span></span></code></pre></div>
+<p><strong>7)</strong> Common statistical tests are parametric and most of them assume that your data has a normal (Gaussian) distribution, i.e., a typical bell-shaped curve. In other words, the distribution of values of variable that has a normal distribution will produce values (as they are being measured) with an equal chance to fall above and below the mean value of all measurements. The normal distribution is expected to have very close values for its mean (average of all values), median (mid-point value at the center of the distribution) and mode (the most frequent value). If a distribution is not normal, these three parameters will differ and the distribution is considered skewed (i.e., not normal).</p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="basic-statistics-in-r.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a sequence of numbers between 0 and 100 by 1</span></span>
+<span id="cb258-2"><a href="basic-statistics-in-r.html#cb258-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb258-3"><a href="basic-statistics-in-r.html#cb258-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Choose the mean as 50 and standard deviation as 17.5</span></span>
+<span id="cb258-4"><a href="basic-statistics-in-r.html#cb258-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="fl">17.5</span>)</span>
+<span id="cb258-5"><a href="basic-statistics-in-r.html#cb258-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot this distribution</span></span>
+<span id="cb258-6"><a href="basic-statistics-in-r.html#cb258-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y)</span></code></pre></div>
+<p><img src="figures/session_6_figs/2_normal_distribution.png" width="100%" /></p>
+<p><strong>8)</strong> We can test for normal (Gaussian) distribution of our data using a normality test. We can use the Shapiro-Wilk’s test that determines if the null hypothesis (i.e., the sample has normal distribution) versus the alternative that it does not. If the test is significant, the distribution has a non-normal distribution. This test is sensitive to sample size, which means that large samples most often do not pass normality tests (i.e., show to be significant). Therefore, it’s important that you use visual inspection of your data distribution before you decide to transform your data.</p>
+<p>The Shapiro-Wilk’s test is a build-in function and can be call as <code>shapiro.test()</code>. However, this test cannot be applied to large vectors (i.e., &gt; 5000 entries).</p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="basic-statistics-in-r.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we can perfome in a variable of a data frame applying it as vector</span></span>
+<span id="cb259-2"><a href="basic-statistics-in-r.html#cb259-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(cars_data<span class="sc">$</span>hp)</span>
+<span id="cb259-3"><a href="basic-statistics-in-r.html#cb259-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Shapiro-Wilk normality test</span></span>
+<span id="cb259-4"><a href="basic-statistics-in-r.html#cb259-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb259-5"><a href="basic-statistics-in-r.html#cb259-5" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  cars_data$hp</span></span>
+<span id="cb259-6"><a href="basic-statistics-in-r.html#cb259-6" aria-hidden="true" tabindex="-1"></a><span class="co">#W = 0.93342, p-value = 0.04881</span></span>
+<span id="cb259-7"><a href="basic-statistics-in-r.html#cb259-7" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(cars_data<span class="sc">$</span>qsec)</span>
+<span id="cb259-8"><a href="basic-statistics-in-r.html#cb259-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Shapiro-Wilk normality test</span></span>
+<span id="cb259-9"><a href="basic-statistics-in-r.html#cb259-9" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb259-10"><a href="basic-statistics-in-r.html#cb259-10" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  cars_data$qsec</span></span>
+<span id="cb259-11"><a href="basic-statistics-in-r.html#cb259-11" aria-hidden="true" tabindex="-1"></a><span class="co">#W = 0.97325, p-value = 0.5935</span></span></code></pre></div>
+<p>Based on these results, we can conclude that the variable <code>hp</code> has not normal distribution, while <code>qsec</code> has normal one. If you want to apply the <code>shapiro.test()</code> to all you variables in your data frame use <code>apply</code> with <code>2</code> argument for columns.</p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="basic-statistics-in-r.html#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(cars_data,<span class="dv">2</span>,shapiro.test)</span></code></pre></div>
+<p><strong>9)</strong> In most cases, you might like to apply a transformation to your data before you apply a parametric statistical test. One of the most frequent transformations for continuous data is to <strong>normalize</strong> them, this means that change the distribution of the data to a quasinormal or normal one. Such transformations will make our data more amenable for parametric tests. However, the interpretation of the results has to be framed using the units of the transformed data (i.e., if log-transformed, you have to interpret in log-transformed unit).</p>
+<p>To determine how if your data need to be normalized, it is a good idea to visualize its distribution. To exemplify this, we will describe this using the <code>hp</code> variable of the <code>car_data</code>.</p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="basic-statistics-in-r.html#cb261-1" aria-hidden="true" tabindex="-1"></a>hp_vector <span class="ot">&lt;-</span> cars_data<span class="sc">$</span>hp</span>
+<span id="cb261-2"><a href="basic-statistics-in-r.html#cb261-2" aria-hidden="true" tabindex="-1"></a>hp_vector</span>
+<span id="cb261-3"><a href="basic-statistics-in-r.html#cb261-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 110 110  93 110 175 105 245  62  95 123 123 180 180 180 205 215 230  66  52  65  97 150 150 245 175  66  91 113 264 175 335 109</span></span>
+<span id="cb261-4"><a href="basic-statistics-in-r.html#cb261-4" aria-hidden="true" tabindex="-1"></a><span class="co"># we test for normality</span></span>
+<span id="cb261-5"><a href="basic-statistics-in-r.html#cb261-5" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(hp_vector)</span>
+<span id="cb261-6"><a href="basic-statistics-in-r.html#cb261-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Shapiro-Wilk normality test</span></span>
+<span id="cb261-7"><a href="basic-statistics-in-r.html#cb261-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb261-8"><a href="basic-statistics-in-r.html#cb261-8" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  cars_data$hp</span></span>
+<span id="cb261-9"><a href="basic-statistics-in-r.html#cb261-9" aria-hidden="true" tabindex="-1"></a><span class="co">#W = 0.93342, p-value = 0.04881</span></span>
+<span id="cb261-10"><a href="basic-statistics-in-r.html#cb261-10" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(hp_vector, <span class="at">xlab =</span> <span class="st">&quot;hp&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;values&quot;</span>)</span></code></pre></div>
+<p><img src="figures/session_6_figs/3_hp_raw.png" width="100%" />
+In this boxplot, we can see an outlier and it is skewed towards lower values of <code>hp</code>. Some of the most common transformations are to square root the data using the function <code>sqrt()</code> and to perform logarithms using <code>log10()</code> with base 10 or natural logarithms ‘log().’</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="basic-statistics-in-r.html#cb262-1" aria-hidden="true" tabindex="-1"></a>hp_vector_sqrt <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(hp_vector)</span>
+<span id="cb262-2"><a href="basic-statistics-in-r.html#cb262-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(hp_vector_sqrt)</span>
+<span id="cb262-3"><a href="basic-statistics-in-r.html#cb262-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Shapiro-Wilk normality test</span></span>
+<span id="cb262-4"><a href="basic-statistics-in-r.html#cb262-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb262-5"><a href="basic-statistics-in-r.html#cb262-5" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  hp_vector_sqrt</span></span>
+<span id="cb262-6"><a href="basic-statistics-in-r.html#cb262-6" aria-hidden="true" tabindex="-1"></a><span class="co">#W = 0.96456, p-value = 0.3642</span></span>
+<span id="cb262-7"><a href="basic-statistics-in-r.html#cb262-7" aria-hidden="true" tabindex="-1"></a>hp_vector_log10 <span class="ot">&lt;-</span> <span class="fu">log10</span>(hp_vector)</span>
+<span id="cb262-8"><a href="basic-statistics-in-r.html#cb262-8" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(hp_vector_log10)</span>
+<span id="cb262-9"><a href="basic-statistics-in-r.html#cb262-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Shapiro-Wilk normality test</span></span>
+<span id="cb262-10"><a href="basic-statistics-in-r.html#cb262-10" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb262-11"><a href="basic-statistics-in-r.html#cb262-11" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  hp_vector_log10</span></span>
+<span id="cb262-12"><a href="basic-statistics-in-r.html#cb262-12" aria-hidden="true" tabindex="-1"></a><span class="co">#W = 0.97026, p-value = 0.5065</span></span>
+<span id="cb262-13"><a href="basic-statistics-in-r.html#cb262-13" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(hp_vector_log10, <span class="at">xlab =</span> <span class="st">&quot;hp&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;values_transformed_by_log10&quot;</span>)</span></code></pre></div>
+<p>Here is the resulting boxplot after<code>log10()</code> transformation.
+<img src="figures/session_6_figs/4_hp_log10.png" width="100%" /></p>
+<p>In some extreme cases, there are several R-packages that can help you to transform your data to have a normal distribution. One of these is <a href="https://cran.r-project.org/web/packages/bestNormalize/index.html" target="_blank"><strong>bestNormalize</strong></a> and its function <code>boxcox()</code>. This provides a Box-Cox power transformation that can be useful for extremely skewed distributions. Likewise, this function returns, by default, transformed values that are also centered and scaled.</p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="basic-statistics-in-r.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if you need to install the R-package bestNormalize</span></span>
+<span id="cb263-2"><a href="basic-statistics-in-r.html#cb263-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;bestNormalize&quot;</span>)</span>
+<span id="cb263-3"><a href="basic-statistics-in-r.html#cb263-3" aria-hidden="true" tabindex="-1"></a><span class="co"># load library</span></span>
+<span id="cb263-4"><a href="basic-statistics-in-r.html#cb263-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bestNormalize)</span>
+<span id="cb263-5"><a href="basic-statistics-in-r.html#cb263-5" aria-hidden="true" tabindex="-1"></a><span class="co"># perform Box-Cox power tranformation.</span></span>
+<span id="cb263-6"><a href="basic-statistics-in-r.html#cb263-6" aria-hidden="true" tabindex="-1"></a>hp_vector_boxcox_list <span class="ot">&lt;-</span> bestNormalize<span class="sc">::</span><span class="fu">boxcox</span>(hp_vector)</span>
+<span id="cb263-7"><a href="basic-statistics-in-r.html#cb263-7" aria-hidden="true" tabindex="-1"></a>hp_vector_boxcox_list</span>
+<span id="cb263-8"><a href="basic-statistics-in-r.html#cb263-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Standardized Box Cox Transformation with 32 nonmissing obs.:</span></span>
+<span id="cb263-9"><a href="basic-statistics-in-r.html#cb263-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimated statistics:</span></span>
+<span id="cb263-10"><a href="basic-statistics-in-r.html#cb263-10" aria-hidden="true" tabindex="-1"></a><span class="co"># - lambda = 0.0940865 </span></span>
+<span id="cb263-11"><a href="basic-statistics-in-r.html#cb263-11" aria-hidden="true" tabindex="-1"></a><span class="co"># - mean (before standardization) = 6.21272 </span></span>
+<span id="cb263-12"><a href="basic-statistics-in-r.html#cb263-12" aria-hidden="true" tabindex="-1"></a><span class="co"># - sd (before standardization) = 0.7515468 </span></span>
+<span id="cb263-13"><a href="basic-statistics-in-r.html#cb263-13" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(hp_vector_boxcox_list)</span>
+<span id="cb263-14"><a href="basic-statistics-in-r.html#cb263-14" aria-hidden="true" tabindex="-1"></a><span class="co">#List of 8</span></span>
+<span id="cb263-15"><a href="basic-statistics-in-r.html#cb263-15" aria-hidden="true" tabindex="-1"></a><span class="co"># $ x.t        : num [1:32] -0.401 -0.401 -0.745 -0.401 0.582 ...</span></span>
+<span id="cb263-16"><a href="basic-statistics-in-r.html#cb263-16" aria-hidden="true" tabindex="-1"></a><span class="co">#$ x          : num [1:32] 110 110 93 110 175 105 245 62 95 123 ...</span></span>
+<span id="cb263-17"><a href="basic-statistics-in-r.html#cb263-17" aria-hidden="true" tabindex="-1"></a><span class="co">#$ mean       : num 6.21</span></span>
+<span id="cb263-18"><a href="basic-statistics-in-r.html#cb263-18" aria-hidden="true" tabindex="-1"></a><span class="co">#$ sd         : num 0.752</span></span>
+<span id="cb263-19"><a href="basic-statistics-in-r.html#cb263-19" aria-hidden="true" tabindex="-1"></a><span class="co">#$ lambda     : num 0.0941</span></span>
+<span id="cb263-20"><a href="basic-statistics-in-r.html#cb263-20" aria-hidden="true" tabindex="-1"></a><span class="co">#$ n          : int 32</span></span>
+<span id="cb263-21"><a href="basic-statistics-in-r.html#cb263-21" aria-hidden="true" tabindex="-1"></a><span class="co">#$ norm_stat  : num 1.4</span></span>
+<span id="cb263-22"><a href="basic-statistics-in-r.html#cb263-22" aria-hidden="true" tabindex="-1"></a><span class="co">#$ standardize: logi TRUE</span></span>
+<span id="cb263-23"><a href="basic-statistics-in-r.html#cb263-23" aria-hidden="true" tabindex="-1"></a><span class="co">#- attr(*, &quot;class&quot;)= chr [1:2] &quot;boxcox&quot; &quot;list&quot;</span></span>
+<span id="cb263-24"><a href="basic-statistics-in-r.html#cb263-24" aria-hidden="true" tabindex="-1"></a>hp_vector_boxcox <span class="ot">&lt;-</span> hp_vector_boxcox_list<span class="sc">$</span>x.t</span>
+<span id="cb263-25"><a href="basic-statistics-in-r.html#cb263-25" aria-hidden="true" tabindex="-1"></a><span class="co">#(1] -0.4005863 -0.4005863 -0.7454816 -0.4005863  0.5821478 -0.4967035  1.3216259 -1.5563448 -0.7020701 -0.1680641 -0.1680641  0.6431660  0.6431660  0.6431660  0.9269679</span></span>
+<span id="cb263-26"><a href="basic-statistics-in-r.html#cb263-26" aria-hidden="true" tabindex="-1"></a><span class="co">#[16]  1.0317736  1.1809841 -1.4333227 -1.8985905 -1.4634315 -0.6594788  0.2511055  0.2511055  1.3216259  0.5821478 -1.4333227 -0.7897473 -0.3447992  1.4889763  0.5821478</span></span>
+<span id="cb263-27"><a href="basic-statistics-in-r.html#cb263-27" aria-hidden="true" tabindex="-1"></a><span class="co">#[31]  2.0305623 -0.4194885</span></span>
+<span id="cb263-28"><a href="basic-statistics-in-r.html#cb263-28" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(hp_vector_boxcox, <span class="at">xlab =</span> <span class="st">&quot;hp&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;values_transformed_by_boxcox&quot;</span>)</span></code></pre></div>
+<p><img src="figures/session_6_figs/5_hp_boxcox.png" width="100%" /></p>
+</div>
+<div id="comparing-means" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Comparing means</h2>
+<p><strong>9)</strong> We can perform one and two sample <a href="https://en.wikipedia.org/wiki/Student%27s_t-test" target="_blank"><strong>t-tests</strong></a> on vectors using the function <code>t.test()</code>. For a single sample, you can test if its mean is statistically different from a given value specified by the <code>mu</code> argument equal such value.</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="basic-statistics-in-r.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we will test the mean of sample SRR1039508 equal to mu = 546.5 for </span></span>
+<span id="cb264-2"><a href="basic-statistics-in-r.html#cb264-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(cars_data)[<span class="dv">7</span>]</span>
+<span id="cb264-3"><a href="basic-statistics-in-r.html#cb264-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;qsec&quot;</span></span>
+<span id="cb264-4"><a href="basic-statistics-in-r.html#cb264-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(cars_data<span class="sc">$</span>qsec, <span class="at">mu =</span> <span class="dv">11</span>)</span>
+<span id="cb264-5"><a href="basic-statistics-in-r.html#cb264-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb264-6"><a href="basic-statistics-in-r.html#cb264-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   One Sample t-test</span></span>
+<span id="cb264-7"><a href="basic-statistics-in-r.html#cb264-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb264-8"><a href="basic-statistics-in-r.html#cb264-8" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  cars_data$qsec</span></span>
+<span id="cb264-9"><a href="basic-statistics-in-r.html#cb264-9" aria-hidden="true" tabindex="-1"></a><span class="co">#t = 21.681, df = 31, p-value &lt; 2.2e-16</span></span>
+<span id="cb264-10"><a href="basic-statistics-in-r.html#cb264-10" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true mean is not equal to 11</span></span>
+<span id="cb264-11"><a href="basic-statistics-in-r.html#cb264-11" aria-hidden="true" tabindex="-1"></a><span class="co">#95 percent confidence interval:</span></span>
+<span id="cb264-12"><a href="basic-statistics-in-r.html#cb264-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 17.20449 18.49301</span></span>
+<span id="cb264-13"><a href="basic-statistics-in-r.html#cb264-13" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
+<span id="cb264-14"><a href="basic-statistics-in-r.html#cb264-14" aria-hidden="true" tabindex="-1"></a><span class="co">#mean of x </span></span>
+<span id="cb264-15"><a href="basic-statistics-in-r.html#cb264-15" aria-hidden="true" tabindex="-1"></a><span class="co">#17.84875 </span></span>
+<span id="cb264-16"><a href="basic-statistics-in-r.html#cb264-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb264-17"><a href="basic-statistics-in-r.html#cb264-17" aria-hidden="true" tabindex="-1"></a><span class="co"># we will test the mean of sample SRR1039508 equal to mu = 546.5 for </span></span>
+<span id="cb264-18"><a href="basic-statistics-in-r.html#cb264-18" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(airway_data)[<span class="dv">2</span>]</span>
+<span id="cb264-19"><a href="basic-statistics-in-r.html#cb264-19" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;SRR1039508&quot;</span></span>
+<span id="cb264-20"><a href="basic-statistics-in-r.html#cb264-20" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(airway_data[,<span class="dv">2</span>], <span class="at">mu =</span> <span class="fl">546.5</span>)</span>
+<span id="cb264-21"><a href="basic-statistics-in-r.html#cb264-21" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb264-22"><a href="basic-statistics-in-r.html#cb264-22" aria-hidden="true" tabindex="-1"></a><span class="co">#   One Sample t-test</span></span>
+<span id="cb264-23"><a href="basic-statistics-in-r.html#cb264-23" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb264-24"><a href="basic-statistics-in-r.html#cb264-24" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  airway_data[, 2]</span></span>
+<span id="cb264-25"><a href="basic-statistics-in-r.html#cb264-25" aria-hidden="true" tabindex="-1"></a><span class="co">#t = -0.00053579, df = 38693, p-value = 0.9996</span></span>
+<span id="cb264-26"><a href="basic-statistics-in-r.html#cb264-26" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true mean is not equal to 546.5</span></span>
+<span id="cb264-27"><a href="basic-statistics-in-r.html#cb264-27" aria-hidden="true" tabindex="-1"></a><span class="co">#95 percent confidence interval:</span></span>
+<span id="cb264-28"><a href="basic-statistics-in-r.html#cb264-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 501.7696 591.2060</span></span>
+<span id="cb264-29"><a href="basic-statistics-in-r.html#cb264-29" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
+<span id="cb264-30"><a href="basic-statistics-in-r.html#cb264-30" aria-hidden="true" tabindex="-1"></a><span class="co">#mean of x </span></span>
+<span id="cb264-31"><a href="basic-statistics-in-r.html#cb264-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 546.4878 </span></span></code></pre></div>
+<p>These result indicate that the mean of <code>qsec</code> from the <code>cars_data</code> is statically different form 11, while the mean for sample <code>SRR1039508</code> from the <code>airway_data</code> is not different from the value <code>546.6</code> (this value was derived from the summary see <strong>2)</strong>). One sample t-test does not assume that the population is normally distributed. However, it is better to have a normalized distribution in our data when we apply parametric test like this one.</p>
+<p>The output of the function <code>t.test()</code> also provides 95% confidence interval of the mean value. In these examples, <code>qsec</code> has a mean 17.84875 with 95CI (17.20449, 18.49301) and the <code>SRR1039508</code> sample mean is 546.4878 with 95CI (501.7696, 591.2060). Our interpretation is that the true value for the mean of the measurements of each of these variables is in the proposed range with a 95% confidence level.</p>
+<p><strong>10)</strong> For two samples, we can also perform t-tests with two vectors using the same function <code>t.test()</code>. In this case, you are testing if two samples each from different populations (e.g., control and experimental) have the same mean. If the test is significant, you can conclude that the difference might derive from a treatment (as long as you have controlled for other causal agents). These t-tests can be consider as paired (i.e., argument <code>paired = TRUE</code>) or unpaired (i.e., argument <code>paired = FALSE</code>). For paired, the t-test will compare the means of the same group under two separate conditions. In contrast, an unpaired t-test compares the means of two independent groups. In an unpaired t-test, the variance between groups is assumed to be equal.</p>
+<p>We will test this for <code>airway_data</code> data that have several samples from the same group the argument <code>paired = TRUE</code>.</p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="basic-statistics-in-r.html#cb265-1" aria-hidden="true" tabindex="-1"></a>names_pairs <span class="ot">&lt;-</span> <span class="fu">names</span>(airway_data)[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb265-2"><a href="basic-statistics-in-r.html#cb265-2" aria-hidden="true" tabindex="-1"></a>names_pairs <span class="ot">&lt;-</span> <span class="fu">paste0</span>(names_pairs, <span class="at">collapse =</span> <span class="st">&quot;..vs..&quot;</span>)</span>
+<span id="cb265-3"><a href="basic-statistics-in-r.html#cb265-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;SRR1039508..vs..SRR1039509&quot;</span></span>
+<span id="cb265-4"><a href="basic-statistics-in-r.html#cb265-4" aria-hidden="true" tabindex="-1"></a>out_put_ttest_paired <span class="ot">&lt;-</span> <span class="fu">t.test</span>(airway_data[,<span class="dv">2</span>], airway_data[,<span class="dv">3</span>], <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb265-5"><a href="basic-statistics-in-r.html#cb265-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(names_pairs); <span class="fu">print</span>(out_put_ttest_paired)</span>
+<span id="cb265-6"><a href="basic-statistics-in-r.html#cb265-6" aria-hidden="true" tabindex="-1"></a><span class="co">#SRR1039508..vs..SRR1039509</span></span>
+<span id="cb265-7"><a href="basic-statistics-in-r.html#cb265-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Paired t-test</span></span>
+<span id="cb265-8"><a href="basic-statistics-in-r.html#cb265-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb265-9"><a href="basic-statistics-in-r.html#cb265-9" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  airway_data[, 2] and airway_data[, 3]</span></span>
+<span id="cb265-10"><a href="basic-statistics-in-r.html#cb265-10" aria-hidden="true" tabindex="-1"></a><span class="co">#t = 6.9876, df = 38693, p-value = 2.842e-12</span></span>
+<span id="cb265-11"><a href="basic-statistics-in-r.html#cb265-11" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true difference in means is not equal to 0</span></span>
+<span id="cb265-12"><a href="basic-statistics-in-r.html#cb265-12" aria-hidden="true" tabindex="-1"></a><span class="co">#95 percent confidence interval:</span></span>
+<span id="cb265-13"><a href="basic-statistics-in-r.html#cb265-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 32.66123 58.12758</span></span>
+<span id="cb265-14"><a href="basic-statistics-in-r.html#cb265-14" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
+<span id="cb265-15"><a href="basic-statistics-in-r.html#cb265-15" aria-hidden="true" tabindex="-1"></a><span class="co">#mean of the differences </span></span>
+<span id="cb265-16"><a href="basic-statistics-in-r.html#cb265-16" aria-hidden="true" tabindex="-1"></a><span class="co">#               45.3944 </span></span></code></pre></div>
+<p>The above results suggest that there is strong difference between these two samples of the same group.</p>
+<p>Now, we will also consider the case of unpaired for comparison.</p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="basic-statistics-in-r.html#cb266-1" aria-hidden="true" tabindex="-1"></a>out_put_ttest_unpaired <span class="ot">&lt;-</span> <span class="fu">t.test</span>(airway_data[,<span class="dv">2</span>], airway_data[,<span class="dv">3</span>], <span class="at">paired =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb266-2"><a href="basic-statistics-in-r.html#cb266-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(names_pairs); <span class="fu">print</span>(out_put_ttest_unpaired)</span>
+<span id="cb266-3"><a href="basic-statistics-in-r.html#cb266-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SRR1039508..vs..SRR1039509</span></span>
+<span id="cb266-4"><a href="basic-statistics-in-r.html#cb266-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Welch Two Sample t-test</span></span>
+<span id="cb266-5"><a href="basic-statistics-in-r.html#cb266-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb266-6"><a href="basic-statistics-in-r.html#cb266-6" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  airway_data[, 2] and airway_data[, 3]</span></span>
+<span id="cb266-7"><a href="basic-statistics-in-r.html#cb266-7" aria-hidden="true" tabindex="-1"></a><span class="co">#t = 1.5108, df = 75614, p-value = 0.1309</span></span>
+<span id="cb266-8"><a href="basic-statistics-in-r.html#cb266-8" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true difference in means is not equal to 0</span></span>
+<span id="cb266-9"><a href="basic-statistics-in-r.html#cb266-9" aria-hidden="true" tabindex="-1"></a><span class="co">#95 percent confidence interval:</span></span>
+<span id="cb266-10"><a href="basic-statistics-in-r.html#cb266-10" aria-hidden="true" tabindex="-1"></a><span class="co"># -13.49803 104.28683</span></span>
+<span id="cb266-11"><a href="basic-statistics-in-r.html#cb266-11" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
+<span id="cb266-12"><a href="basic-statistics-in-r.html#cb266-12" aria-hidden="true" tabindex="-1"></a><span class="co">#mean of x mean of y </span></span>
+<span id="cb266-13"><a href="basic-statistics-in-r.html#cb266-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 546.4878  501.0934 </span></span></code></pre></div>
+<p>In this case, the result is the opposite and there is no evidence of a difference in the mean values if these samples were considered of different groups.</p>
+<p>Note that a careful determination of what parametrization of the t-test is determined by your experimental group and other considerations. Likewise, a t-test is invalid for small samples from non-normal distributions, but it is valid for large samples from non-normal distributions (like our example above with &gt;30,000 entries). These considerations are beyond this bioinformatics workshop and are the topic of a biostatistics course.</p>
+<p><strong>11)</strong> Alternatives to the parametric t-test exist, one of the most common are the <a href="https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test" target="_blank"><strong>Wilcoxon signed rank test</strong></a>. This test is used to compare two unpaired and paired samples or repeated measurements on a single sample to assess whether their population mean ranks differ.</p>
+<p>The Wilcoxon signed rank test is implemented with the function <code>wilcox.test()</code> in a similar fashion as is in a <code>t.test()</code>.</p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="basic-statistics-in-r.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="co"># test for mean of sample</span></span>
+<span id="cb267-2"><a href="basic-statistics-in-r.html#cb267-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(airway_data[,<span class="dv">2</span>], <span class="at">mu =</span> <span class="fl">546.5</span>)</span>
+<span id="cb267-3"><a href="basic-statistics-in-r.html#cb267-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb267-4"><a href="basic-statistics-in-r.html#cb267-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Wilcoxon signed rank test with continuity correction</span></span>
+<span id="cb267-5"><a href="basic-statistics-in-r.html#cb267-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb267-6"><a href="basic-statistics-in-r.html#cb267-6" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  airway_data[, 2]</span></span>
+<span id="cb267-7"><a href="basic-statistics-in-r.html#cb267-7" aria-hidden="true" tabindex="-1"></a><span class="co">#V = 145919557, p-value &lt; 2.2e-16</span></span>
+<span id="cb267-8"><a href="basic-statistics-in-r.html#cb267-8" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true location is not equal to 546.5</span></span>
+<span id="cb267-9"><a href="basic-statistics-in-r.html#cb267-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb267-10"><a href="basic-statistics-in-r.html#cb267-10" aria-hidden="true" tabindex="-1"></a><span class="co"># test for two samples of different group</span></span>
+<span id="cb267-11"><a href="basic-statistics-in-r.html#cb267-11" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(airway_data[,<span class="dv">2</span>], airway_data[,<span class="dv">3</span>], <span class="at">paired =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb267-12"><a href="basic-statistics-in-r.html#cb267-12" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb267-13"><a href="basic-statistics-in-r.html#cb267-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Wilcoxon rank sum test with continuity correction</span></span>
+<span id="cb267-14"><a href="basic-statistics-in-r.html#cb267-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb267-15"><a href="basic-statistics-in-r.html#cb267-15" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  airway_data[, 2] and airway_data[, 3]</span></span>
+<span id="cb267-16"><a href="basic-statistics-in-r.html#cb267-16" aria-hidden="true" tabindex="-1"></a><span class="co">#W = 753579582, p-value = 0.08979</span></span>
+<span id="cb267-17"><a href="basic-statistics-in-r.html#cb267-17" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true location shift is not equal to 0</span></span>
+<span id="cb267-18"><a href="basic-statistics-in-r.html#cb267-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb267-19"><a href="basic-statistics-in-r.html#cb267-19" aria-hidden="true" tabindex="-1"></a><span class="co"># test for two samples of same group, paired-test</span></span>
+<span id="cb267-20"><a href="basic-statistics-in-r.html#cb267-20" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(airway_data[,<span class="dv">2</span>], airway_data[,<span class="dv">3</span>], <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb267-21"><a href="basic-statistics-in-r.html#cb267-21" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb267-22"><a href="basic-statistics-in-r.html#cb267-22" aria-hidden="true" tabindex="-1"></a><span class="co">#   Wilcoxon signed rank test with continuity correction</span></span>
+<span id="cb267-23"><a href="basic-statistics-in-r.html#cb267-23" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb267-24"><a href="basic-statistics-in-r.html#cb267-24" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  airway_data[, 2] and airway_data[, 3]</span></span>
+<span id="cb267-25"><a href="basic-statistics-in-r.html#cb267-25" aria-hidden="true" tabindex="-1"></a><span class="co">#V = 147963112, p-value &lt; 2.2e-16</span></span>
+<span id="cb267-26"><a href="basic-statistics-in-r.html#cb267-26" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true location shift is not equal to 0</span></span></code></pre></div>
+<p><strong>12)</strong> We can determine correlation between two variables using <code>cor()</code> and test for its significance using <code>cor.test()</code>. Correlation is the dependence or association between variables and it usually refers to the degree to which a pair of variables are linearly related. For practical uses, correlations can provide a predictive relationship that can derived from one variable on the other. However, the evidence of correlation does not mean a causal relationship (i.e., A does not necessarily cause B). Likewise, it is important to determine if such correlations are significant and these can be performed for normal or non-normal distributions (in this case use the use argument <code>method = "spearman"</code>).</p>
+<p>We will determine a correlation and test for its significance between two samples of the <code>airway_data</code>.</p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="basic-statistics-in-r.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(airway_data[,<span class="dv">2</span>], airway_data[,<span class="dv">3</span>])</span>
+<span id="cb268-2"><a href="basic-statistics-in-r.html#cb268-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.9646265</span></span>
+<span id="cb268-3"><a href="basic-statistics-in-r.html#cb268-3" aria-hidden="true" tabindex="-1"></a><span class="co"># we will assume that these are not normal</span></span>
+<span id="cb268-4"><a href="basic-statistics-in-r.html#cb268-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(airway_data[,<span class="dv">2</span>], airway_data[,<span class="dv">3</span>], <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span>
+<span id="cb268-5"><a href="basic-statistics-in-r.html#cb268-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb268-6"><a href="basic-statistics-in-r.html#cb268-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Spearman&#39;s rank correlation rho</span></span>
+<span id="cb268-7"><a href="basic-statistics-in-r.html#cb268-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb268-8"><a href="basic-statistics-in-r.html#cb268-8" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  airway_data[, 2] and airway_data[, 3]</span></span>
+<span id="cb268-9"><a href="basic-statistics-in-r.html#cb268-9" aria-hidden="true" tabindex="-1"></a><span class="co">#S = 4.8345e+11, p-value &lt; 2.2e-16</span></span>
+<span id="cb268-10"><a href="basic-statistics-in-r.html#cb268-10" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true rho is not equal to 0</span></span>
+<span id="cb268-11"><a href="basic-statistics-in-r.html#cb268-11" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
+<span id="cb268-12"><a href="basic-statistics-in-r.html#cb268-12" aria-hidden="true" tabindex="-1"></a><span class="co">#      rho </span></span>
+<span id="cb268-13"><a href="basic-statistics-in-r.html#cb268-13" aria-hidden="true" tabindex="-1"></a><span class="co">#0.9499302 </span></span></code></pre></div>
+<p><strong>13)</strong> We can also determine if two variables come from the same distribution using Kolmogorov-Smirnov test <code>ks.test()</code>. The data does not require to be normal.</p>
+<p>We will determine if two samples of the <code>airway_data</code> have the same distribution.</p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="basic-statistics-in-r.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(airway_data[,<span class="dv">2</span>], airway_data[,<span class="dv">3</span>])</span>
+<span id="cb269-2"><a href="basic-statistics-in-r.html#cb269-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb269-3"><a href="basic-statistics-in-r.html#cb269-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Two-sample Kolmogorov-Smirnov test</span></span>
+<span id="cb269-4"><a href="basic-statistics-in-r.html#cb269-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb269-5"><a href="basic-statistics-in-r.html#cb269-5" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  airway_data[, 2] and airway_data[, 3]</span></span>
+<span id="cb269-6"><a href="basic-statistics-in-r.html#cb269-6" aria-hidden="true" tabindex="-1"></a><span class="co">#D = 0.013413, p-value = 0.001896</span></span>
+<span id="cb269-7"><a href="basic-statistics-in-r.html#cb269-7" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: two-sided</span></span>
+<span id="cb269-8"><a href="basic-statistics-in-r.html#cb269-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb269-9"><a href="basic-statistics-in-r.html#cb269-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Warning message:</span></span>
+<span id="cb269-10"><a href="basic-statistics-in-r.html#cb269-10" aria-hidden="true" tabindex="-1"></a><span class="co">#In ks.test(airway_data[, 2], airway_data[, 3]) :</span></span>
+<span id="cb269-11"><a href="basic-statistics-in-r.html#cb269-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  p-value will be approximate in the presence of ties</span></span></code></pre></div>
+<p>We can conclude that these two samples do not have the same distribution (i.e., <code>p-value = 0.001896</code>).</p>
+<p><strong>14)</strong> We can compare two groups that have some individuals in such grops being exposed treatment verus control using</p>
+<p>from the R-package <a href="https://cran.r-project.org/web/packages/pROC/index.html" target="_blank"><strong>pROC</strong></a> using the functions <code>roc()</code> and <code>roc.test()</code>.
+This test will compare the AUC (area under the curve) of two <a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Basic_concept" target="_blank">ROC</a> (receiver operating characteristic) curves.
+These are graphical plots useful in the diagnostic of a binary classifier (e.g., “control-0” or “exposed-1”) as its discrimination threshold is varied (i.e., what is the cutoff to consider a measurement as “exposed-1”).</p>
+<p>We will illustrate this test using two <code>airway_data</code> by assigning “control” and “exposed” to sample of rows.</p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="basic-statistics-in-r.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you need to instal the package &quot;pROC&quot;</span></span>
+<span id="cb270-2"><a href="basic-statistics-in-r.html#cb270-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;pROC&quot;</span>)</span>
+<span id="cb270-3"><a href="basic-statistics-in-r.html#cb270-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span></code></pre></div>
+<p>We can prepare two samples of <code>airway_data</code> and asign some of elements of each as “control” and “exposed.”</p>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="basic-statistics-in-r.html#cb271-1" aria-hidden="true" tabindex="-1"></a><span class="do">## set two samples</span></span>
+<span id="cb271-2"><a href="basic-statistics-in-r.html#cb271-2" aria-hidden="true" tabindex="-1"></a>sample_SRR1039508 <span class="ot">&lt;-</span> airway_data<span class="sc">$</span>SRR1039508 </span>
+<span id="cb271-3"><a href="basic-statistics-in-r.html#cb271-3" aria-hidden="true" tabindex="-1"></a>sample_SRR1039509 <span class="ot">&lt;-</span> airway_data<span class="sc">$</span>SRR1039509</span>
+<span id="cb271-4"><a href="basic-statistics-in-r.html#cb271-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb271-5"><a href="basic-statistics-in-r.html#cb271-5" aria-hidden="true" tabindex="-1"></a><span class="do">## get summaries of each</span></span>
+<span id="cb271-6"><a href="basic-statistics-in-r.html#cb271-6" aria-hidden="true" tabindex="-1"></a>summary_SRR1039508 <span class="ot">&lt;-</span> <span class="fu">summary</span>(sample_SRR1039508)</span>
+<span id="cb271-7"><a href="basic-statistics-in-r.html#cb271-7" aria-hidden="true" tabindex="-1"></a>summary_SRR1039508</span>
+<span id="cb271-8"><a href="basic-statistics-in-r.html#cb271-8" aria-hidden="true" tabindex="-1"></a><span class="co">#    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. </span></span>
+<span id="cb271-9"><a href="basic-statistics-in-r.html#cb271-9" aria-hidden="true" tabindex="-1"></a><span class="co">#     0.0      0.0      1.0    546.5    203.0 287372.0 </span></span>
+<span id="cb271-10"><a href="basic-statistics-in-r.html#cb271-10" aria-hidden="true" tabindex="-1"></a>summary_SRR1039509 <span class="ot">&lt;-</span> <span class="fu">summary</span>(sample_SRR1039509)</span>
+<span id="cb271-11"><a href="basic-statistics-in-r.html#cb271-11" aria-hidden="true" tabindex="-1"></a>summary_SRR1039509</span>
+<span id="cb271-12"><a href="basic-statistics-in-r.html#cb271-12" aria-hidden="true" tabindex="-1"></a><span class="co">#    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. </span></span>
+<span id="cb271-13"><a href="basic-statistics-in-r.html#cb271-13" aria-hidden="true" tabindex="-1"></a><span class="co">#     0.0      0.0      1.0    501.1    172.0 244921.0</span></span>
+<span id="cb271-14"><a href="basic-statistics-in-r.html#cb271-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb271-15"><a href="basic-statistics-in-r.html#cb271-15" aria-hidden="true" tabindex="-1"></a><span class="do">## assign  &quot;control&quot; if less than 3rd quartile of each</span></span>
+<span id="cb271-16"><a href="basic-statistics-in-r.html#cb271-16" aria-hidden="true" tabindex="-1"></a>SRR1039508_binary <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(sample_SRR1039508 <span class="sc">&gt;</span> summary_SRR1039508[<span class="dv">5</span>], <span class="st">&quot;exposed&quot;</span>, <span class="st">&quot;control&quot;</span>)</span>
+<span id="cb271-17"><a href="basic-statistics-in-r.html#cb271-17" aria-hidden="true" tabindex="-1"></a><span class="do">## assign  &quot;control&quot; if more than 3rd quartile of each -- a reverse from last sample</span></span>
+<span id="cb271-18"><a href="basic-statistics-in-r.html#cb271-18" aria-hidden="true" tabindex="-1"></a>SRR1039509_binary <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(sample_SRR1039509 <span class="sc">&gt;</span> summary_SRR1039509[<span class="dv">5</span>], <span class="st">&quot;control&quot;</span>, <span class="st">&quot;exposed&quot;</span>)</span>
+<span id="cb271-19"><a href="basic-statistics-in-r.html#cb271-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb271-20"><a href="basic-statistics-in-r.html#cb271-20" aria-hidden="true" tabindex="-1"></a><span class="do">## create a roc object for each sample</span></span>
+<span id="cb271-21"><a href="basic-statistics-in-r.html#cb271-21" aria-hidden="true" tabindex="-1"></a>roc_SRR1039508 <span class="ot">&lt;-</span> <span class="fu">roc</span>(SRR1039508_binary, sample_SRR1039508, <span class="at">direction =</span> <span class="st">&quot;&lt;&quot;</span>)</span>
+<span id="cb271-22"><a href="basic-statistics-in-r.html#cb271-22" aria-hidden="true" tabindex="-1"></a><span class="co">#Setting levels: control = control, case = exposed</span></span>
+<span id="cb271-23"><a href="basic-statistics-in-r.html#cb271-23" aria-hidden="true" tabindex="-1"></a>roc_SRR1039509 <span class="ot">&lt;-</span> <span class="fu">roc</span>(SRR1039509_binary, sample_SRR1039509, <span class="at">direction =</span> <span class="st">&quot;&lt;&quot;</span>)</span>
+<span id="cb271-24"><a href="basic-statistics-in-r.html#cb271-24" aria-hidden="true" tabindex="-1"></a><span class="co">#Setting levels: control = control, case = exposed</span></span>
+<span id="cb271-25"><a href="basic-statistics-in-r.html#cb271-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb271-26"><a href="basic-statistics-in-r.html#cb271-26" aria-hidden="true" tabindex="-1"></a><span class="do">## perform the roc.test and increase boot.n for a more precise p-value:</span></span>
+<span id="cb271-27"><a href="basic-statistics-in-r.html#cb271-27" aria-hidden="true" tabindex="-1"></a><span class="fu">roc.test</span>(roc_SRR1039508, roc_SRR1039509, <span class="at">method=</span><span class="st">&quot;bootstrap&quot;</span>, <span class="at">boot.n=</span><span class="dv">1000</span>)</span>
+<span id="cb271-28"><a href="basic-statistics-in-r.html#cb271-28" aria-hidden="true" tabindex="-1"></a><span class="co">#    |=========================================================================================================================================================================| 100%</span></span>
+<span id="cb271-29"><a href="basic-statistics-in-r.html#cb271-29" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb271-30"><a href="basic-statistics-in-r.html#cb271-30" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bootstrap test for two ROC curves</span></span>
+<span id="cb271-31"><a href="basic-statistics-in-r.html#cb271-31" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb271-32"><a href="basic-statistics-in-r.html#cb271-32" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  roc_SRR1039508 and roc_SRR1039509</span></span>
+<span id="cb271-33"><a href="basic-statistics-in-r.html#cb271-33" aria-hidden="true" tabindex="-1"></a><span class="co">#D = Inf, boot.n = 1000, boot.stratified = 1, p-value &lt; 2.2e-16</span></span>
+<span id="cb271-34"><a href="basic-statistics-in-r.html#cb271-34" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true difference in AUC is not equal to 0</span></span>
+<span id="cb271-35"><a href="basic-statistics-in-r.html#cb271-35" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
+<span id="cb271-36"><a href="basic-statistics-in-r.html#cb271-36" aria-hidden="true" tabindex="-1"></a><span class="co">#AUC of roc1 AUC of roc2 </span></span>
+<span id="cb271-37"><a href="basic-statistics-in-r.html#cb271-37" aria-hidden="true" tabindex="-1"></a><span class="co">#          1           0 </span></span></code></pre></div>
+<p>We can conclude that for SRR1039508 and SRR1039509 are different in their distribution in reference to outcomes for “control” versus “exposed.”</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="getting-biological-data-from-public-repositories.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regressions-and-anova-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-General-Statistics_v10.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
