@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos" />
 
 
-<meta name="date" content="2021-01-31" />
+<meta name="date" content="2021-02-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -205,7 +205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html"><i class="fa fa-check"></i><b>9</b> – Graphics in R – ggplot2</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html#preparing-dataset-for-plot"><i class="fa fa-check"></i><b>9.1</b> Preparing dataset for plot</a></li>
-<li class="chapter" data-level="9.2" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html#colors-packages"><i class="fa fa-check"></i><b>9.2</b> Colors packages</a></li>
+<li class="chapter" data-level="9.2" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html#color-r-packages"><i class="fa fa-check"></i><b>9.2</b> Color R-packages</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -281,29 +281,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb337-16"><a href="graphics-in-r-ggplot2.html#cb337-16" aria-hidden="true" tabindex="-1"></a><span class="co">#4     BACHDCG        Ala    0.9012986</span></span>
 <span id="cb337-17"><a href="graphics-in-r-ggplot2.html#cb337-17" aria-hidden="true" tabindex="-1"></a><span class="co">#5     BACSUCG        Ala    1.0314722</span></span>
 <span id="cb337-18"><a href="graphics-in-r-ggplot2.html#cb337-18" aria-hidden="true" tabindex="-1"></a><span class="co">#6     BORBUCG        Ala   -0.7597170</span></span></code></pre></div>
-<p><strong>3)</strong> A more complex dataset for color schemes, we will use the <code>airway_scaledcounts.csv</code> that has expression analysis data for several RNAseq experiments.</p>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="graphics-in-r-ggplot2.html#cb338-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load get &#39;airway_scaledcounts.csv&#39; dataset </span></span>
-<span id="cb338-2"><a href="graphics-in-r-ggplot2.html#cb338-2" aria-hidden="true" tabindex="-1"></a>airway_data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory/airway_scaledcounts.csv&quot;</span>,</span>
-<span id="cb338-3"><a href="graphics-in-r-ggplot2.html#cb338-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb338-4"><a href="graphics-in-r-ggplot2.html#cb338-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data)</span>
-<span id="cb338-5"><a href="graphics-in-r-ggplot2.html#cb338-5" aria-hidden="true" tabindex="-1"></a><span class="co">#          ensgene SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
-<span id="cb338-6"><a href="graphics-in-r-ggplot2.html#cb338-6" aria-hidden="true" tabindex="-1"></a><span class="co">#1 ENSG00000000003        723        486        904        445       1170       1097        806        604</span></span>
-<span id="cb338-7"><a href="graphics-in-r-ggplot2.html#cb338-7" aria-hidden="true" tabindex="-1"></a><span class="co">#2 ENSG00000000005          0          0          0          0          0          0          0          0</span></span>
-<span id="cb338-8"><a href="graphics-in-r-ggplot2.html#cb338-8" aria-hidden="true" tabindex="-1"></a><span class="co">#3 ENSG00000000419        467        523        616        371        582        781        417        509</span></span>
-<span id="cb338-9"><a href="graphics-in-r-ggplot2.html#cb338-9" aria-hidden="true" tabindex="-1"></a><span class="co">#4 ENSG00000000457        347        258        364        237        318        447        330        324</span></span>
-<span id="cb338-10"><a href="graphics-in-r-ggplot2.html#cb338-10" aria-hidden="true" tabindex="-1"></a><span class="co">#5 ENSG00000000460         96         81         73         66        118         94        102         74</span></span>
-<span id="cb338-11"><a href="graphics-in-r-ggplot2.html#cb338-11" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000000938          0          0          1          0          2          0          0          0</span></span>
-<span id="cb338-12"><a href="graphics-in-r-ggplot2.html#cb338-12" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(airway_data)</span>
-<span id="cb338-13"><a href="graphics-in-r-ggplot2.html#cb338-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  38694 obs. of  9 variables:</span></span>
-<span id="cb338-14"><a href="graphics-in-r-ggplot2.html#cb338-14" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ensgene   : chr  &quot;ENSG00000000003&quot; &quot;ENSG00000000005&quot; &quot;ENSG00000000419&quot; &quot;ENSG00000000457&quot; ...</span></span>
-<span id="cb338-15"><a href="graphics-in-r-ggplot2.html#cb338-15" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039508: num  723 0 467 347 96 ...</span></span>
-<span id="cb338-16"><a href="graphics-in-r-ggplot2.html#cb338-16" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039509: num  486 0 523 258 81 ...</span></span>
-<span id="cb338-17"><a href="graphics-in-r-ggplot2.html#cb338-17" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039512: num  904 0 616 364 73 1 6000 2640 692 531 ...</span></span>
-<span id="cb338-18"><a href="graphics-in-r-ggplot2.html#cb338-18" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039513: num  445 0 371 237 66 ...</span></span>
-<span id="cb338-19"><a href="graphics-in-r-ggplot2.html#cb338-19" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039516: num  1170 0 582 318 118 ...</span></span>
-<span id="cb338-20"><a href="graphics-in-r-ggplot2.html#cb338-20" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039517: num  1097 0 781 447 94 ...</span></span>
-<span id="cb338-21"><a href="graphics-in-r-ggplot2.html#cb338-21" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039520: num  806 0 417 330 102 ...</span></span>
-<span id="cb338-22"><a href="graphics-in-r-ggplot2.html#cb338-22" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039521: num  604 0 509 324 74 ...</span></span></code></pre></div>
+<p><strong>3)</strong> A more complex dataset for color schemes, we will use the <code>airway_scaledcounts.csv</code> that has expression analysis data for several RNAseq experiments. This dataset is in our class <a href="https://github.com/corytophanes/BIO_BIT_Bioinformatics_209/tree/main/ref_files_pdfs" target="_blank"><strong>GitHub repository</strong></a>.</p>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="graphics-in-r-ggplot2.html#cb338-1" aria-hidden="true" tabindex="-1"></a><span class="do">## remeber to update the path to file with the datset where you downloaded in your computer -- THIS IS EXCLUSIVE FOR YOUR COMPUTER</span></span>
+<span id="cb338-2"><a href="graphics-in-r-ggplot2.html#cb338-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb338-3"><a href="graphics-in-r-ggplot2.html#cb338-3" aria-hidden="true" tabindex="-1"></a><span class="do">## load get &#39;airway_scaledcounts.csv&#39; dataset </span></span>
+<span id="cb338-4"><a href="graphics-in-r-ggplot2.html#cb338-4" aria-hidden="true" tabindex="-1"></a>airway_data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory/airway_scaledcounts.csv&quot;</span>,</span>
+<span id="cb338-5"><a href="graphics-in-r-ggplot2.html#cb338-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb338-6"><a href="graphics-in-r-ggplot2.html#cb338-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data)</span>
+<span id="cb338-7"><a href="graphics-in-r-ggplot2.html#cb338-7" aria-hidden="true" tabindex="-1"></a><span class="co">#          ensgene SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
+<span id="cb338-8"><a href="graphics-in-r-ggplot2.html#cb338-8" aria-hidden="true" tabindex="-1"></a><span class="co">#1 ENSG00000000003        723        486        904        445       1170       1097        806        604</span></span>
+<span id="cb338-9"><a href="graphics-in-r-ggplot2.html#cb338-9" aria-hidden="true" tabindex="-1"></a><span class="co">#2 ENSG00000000005          0          0          0          0          0          0          0          0</span></span>
+<span id="cb338-10"><a href="graphics-in-r-ggplot2.html#cb338-10" aria-hidden="true" tabindex="-1"></a><span class="co">#3 ENSG00000000419        467        523        616        371        582        781        417        509</span></span>
+<span id="cb338-11"><a href="graphics-in-r-ggplot2.html#cb338-11" aria-hidden="true" tabindex="-1"></a><span class="co">#4 ENSG00000000457        347        258        364        237        318        447        330        324</span></span>
+<span id="cb338-12"><a href="graphics-in-r-ggplot2.html#cb338-12" aria-hidden="true" tabindex="-1"></a><span class="co">#5 ENSG00000000460         96         81         73         66        118         94        102         74</span></span>
+<span id="cb338-13"><a href="graphics-in-r-ggplot2.html#cb338-13" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000000938          0          0          1          0          2          0          0          0</span></span>
+<span id="cb338-14"><a href="graphics-in-r-ggplot2.html#cb338-14" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(airway_data)</span>
+<span id="cb338-15"><a href="graphics-in-r-ggplot2.html#cb338-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  38694 obs. of  9 variables:</span></span>
+<span id="cb338-16"><a href="graphics-in-r-ggplot2.html#cb338-16" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ensgene   : chr  &quot;ENSG00000000003&quot; &quot;ENSG00000000005&quot; &quot;ENSG00000000419&quot; &quot;ENSG00000000457&quot; ...</span></span>
+<span id="cb338-17"><a href="graphics-in-r-ggplot2.html#cb338-17" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039508: num  723 0 467 347 96 ...</span></span>
+<span id="cb338-18"><a href="graphics-in-r-ggplot2.html#cb338-18" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039509: num  486 0 523 258 81 ...</span></span>
+<span id="cb338-19"><a href="graphics-in-r-ggplot2.html#cb338-19" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039512: num  904 0 616 364 73 1 6000 2640 692 531 ...</span></span>
+<span id="cb338-20"><a href="graphics-in-r-ggplot2.html#cb338-20" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039513: num  445 0 371 237 66 ...</span></span>
+<span id="cb338-21"><a href="graphics-in-r-ggplot2.html#cb338-21" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039516: num  1170 0 582 318 118 ...</span></span>
+<span id="cb338-22"><a href="graphics-in-r-ggplot2.html#cb338-22" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039517: num  1097 0 781 447 94 ...</span></span>
+<span id="cb338-23"><a href="graphics-in-r-ggplot2.html#cb338-23" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039520: num  806 0 417 330 102 ...</span></span>
+<span id="cb338-24"><a href="graphics-in-r-ggplot2.html#cb338-24" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039521: num  604 0 509 324 74 ...</span></span></code></pre></div>
 <p>We then scale this dataset using the function <code>modify()</code> from the package <code>purrr</code>. We needed to remove and add again the names of the genes in column <code>ensgene</code>.</p>
 <div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="graphics-in-r-ggplot2.html#cb339-1" aria-hidden="true" tabindex="-1"></a>ensgene <span class="ot">&lt;-</span> airway_data[,<span class="dv">1</span>]</span>
 <span id="cb339-2"><a href="graphics-in-r-ggplot2.html#cb339-2" aria-hidden="true" tabindex="-1"></a>airway_data_numeric <span class="ot">&lt;-</span> airway_data[,<span class="sc">-</span><span class="dv">1</span>]</span>
@@ -405,9 +407,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb342-19"><a href="graphics-in-r-ggplot2.html#cb342-19" aria-hidden="true" tabindex="-1"></a><span class="co">#5 ENSG00000188603 SRR1039508 -0.0001086865</span></span>
 <span id="cb342-20"><a href="graphics-in-r-ggplot2.html#cb342-20" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000125398 SRR1039508  0.0698569896</span></span></code></pre></div>
 </div>
-<div id="colors-packages" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> Colors packages</h2>
-<p><strong>4)</strong> One of the “hardest” parts before or after doing graphics is choosing colors. Many colors can be called by name (e.g., <code>firebrick4</code>) and I have added a pdf for R-colors in <a href="https://purrr.tidyverse.org/" target="_blank"><strong>here</strong></a>. Any color also can be included by their hex color codes (e.g., <code>#005f3f</code>). These codes and the colors can be found in many online color palette websites like following:</p>
+<div id="color-r-packages" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Color R-packages</h2>
+<p><strong>4)</strong> One of the “hardest” parts before or after doing graphics is choosing colors. Many colors can be called by name (e.g., <code>firebrick4</code>) and I have added a pdf for R-colors in this class <a href="https://github.com/corytophanes/BIO_BIT_Bioinformatics_209/tree/main/ref_files_pdfs" target="_blank"><strong>GitHub repository</strong></a>. Any color also can be included by their hex color codes (e.g., <code>#005f3f</code>). These codes and the colors can be found in many online color palette websites like following:</p>
 <ol style="list-style-type: lower-alpha">
 <li><a href="https://www.color-hex.com/" target="_blank"><strong>https://www.color-hex.com/</strong></a></li>
 <li><a href="https://www.colourlovers.com/" target="_blank"><strong>https://www.colourlovers.com/</strong></a></li>
