@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos" />
 
 
-<meta name="date" content="2021-01-31" />
+<meta name="date" content="2021-02-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -205,7 +205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html"><i class="fa fa-check"></i><b>9</b> – Graphics in R – ggplot2</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html#preparing-dataset-for-plot"><i class="fa fa-check"></i><b>9.1</b> Preparing dataset for plot</a></li>
-<li class="chapter" data-level="9.2" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html#colors-packages"><i class="fa fa-check"></i><b>9.2</b> Colors packages</a></li>
+<li class="chapter" data-level="9.2" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html#color-r-packages"><i class="fa fa-check"></i><b>9.2</b> Color R-packages</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -474,16 +474,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="basic-data-structures-in-r.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the object &#39;my_dataframe&#39; has 5 rows and 3 columns</span></span>
 <span id="cb101-2"><a href="basic-data-structures-in-r.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(my_dataframe)</span>
 <span id="cb101-3"><a href="basic-data-structures-in-r.html#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 5 3</span></span></code></pre></div>
-<p><strong>5)</strong> You can also import <code>txt</code> files (comma delimited <code>*.csv</code> files or tab delimited <code>*.txt</code> files) as data frames. More on this the section how to import data</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="basic-data-structures-in-r.html#cb102-1" aria-hidden="true" tabindex="-1"></a>my_dataframe <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;~/Desktop/Teach_R/my_dataframe_csv.csv&quot;</span>, </span>
-<span id="cb102-2"><a href="basic-data-structures-in-r.html#cb102-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb102-3"><a href="basic-data-structures-in-r.html#cb102-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>,</span>
-<span id="cb102-4"><a href="basic-data-structures-in-r.html#cb102-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb102-5"><a href="basic-data-structures-in-r.html#cb102-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-6"><a href="basic-data-structures-in-r.html#cb102-6" aria-hidden="true" tabindex="-1"></a>my_dataframe <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;~/Desktop/Teach_R/my_dataframe_tab.txt&quot;</span>, </span>
-<span id="cb102-7"><a href="basic-data-structures-in-r.html#cb102-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb102-8"><a href="basic-data-structures-in-r.html#cb102-8" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
-<span id="cb102-9"><a href="basic-data-structures-in-r.html#cb102-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><strong>5)</strong> You can also import <code>txt</code> files (comma delimited <code>*.csv</code> files or tab delimited <code>*.txt</code> files) as data frames. More on this the section how to import data.</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="basic-data-structures-in-r.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: remember to update the path to file with your dataset in your computer -- THIS IS EXCLUSIVE TO YOUR COMPUTER AND IT IS NOT THE PATH SHOWN BELOW</span></span>
+<span id="cb102-2"><a href="basic-data-structures-in-r.html#cb102-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-3"><a href="basic-data-structures-in-r.html#cb102-3" aria-hidden="true" tabindex="-1"></a>my_dataframe <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;~/Desktop/Teach_R/my_dataframe_csv.csv&quot;</span>, </span>
+<span id="cb102-4"><a href="basic-data-structures-in-r.html#cb102-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb102-5"><a href="basic-data-structures-in-r.html#cb102-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>,</span>
+<span id="cb102-6"><a href="basic-data-structures-in-r.html#cb102-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb102-7"><a href="basic-data-structures-in-r.html#cb102-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-8"><a href="basic-data-structures-in-r.html#cb102-8" aria-hidden="true" tabindex="-1"></a>my_dataframe <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;~/Desktop/Teach_R/my_dataframe_tab.txt&quot;</span>, </span>
+<span id="cb102-9"><a href="basic-data-structures-in-r.html#cb102-9" aria-hidden="true" tabindex="-1"></a>                         <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb102-10"><a href="basic-data-structures-in-r.html#cb102-10" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb102-11"><a href="basic-data-structures-in-r.html#cb102-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>Notice that argument <code>sep =</code> has either a <code>,</code> or <code>\t</code> and this indicates to separate columns using commas or a tabs, respectively.</p>
 <p><strong>6)</strong> As mentioned, data frames are extremely flexible and you can call columns, rows or specific elements.</p>
 <p>This returns a vector of the column named <code>my_ boroughs</code>.</p>
@@ -978,7 +980,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb147-15"><a href="basic-data-structures-in-r.html#cb147-15" aria-hidden="true" tabindex="-1"></a><span class="co">#mitochondrial\nCCTGATTAACCATAAGAGGTCAAGCCTGCCCAGTGACATTTGTTTAACGGCCGCGGTATCCTAACCGTGC\nGAAGGTAGCGTAATCACTTGTCCTT</span></span>
 <span id="cb147-16"><a href="basic-data-structures-in-r.html#cb147-16" aria-hidden="true" tabindex="-1"></a><span class="co">#TAAATGAGGACTAGTATGAACGGCTTCACGAAGGCTATGCTGTCT\nCCTTTATCTAATCAGTTAAACTAATCTCCCCGTGAAGAAGCGGGGATACACCTATAAGACGAGAA</span></span></code></pre></div>
 <p>We can save these sequences in a text file in your working directory.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="basic-data-structures-in-r.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is exclusive for your OWN COMPUTER change it accordingly</span></span>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="basic-data-structures-in-r.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is exclusive to your OWN COMPUTER change it accordingly</span></span>
 <span id="cb148-2"><a href="basic-data-structures-in-r.html#cb148-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory&quot;</span>)</span>
 <span id="cb148-3"><a href="basic-data-structures-in-r.html#cb148-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(froggy_seqs_fasta, <span class="st">&quot;my_froggy_seqs_fasta.txt&quot;</span>)</span></code></pre></div>
 <p>Now we can import the nucleotide sequences from this file that are in fasta format into R.</p>
@@ -1017,7 +1019,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb150-16"><a href="basic-data-structures-in-r.html#cb150-16" aria-hidden="true" tabindex="-1"></a><span class="co">#TRSMGTDTEERLVEFLLDPSQYNKLIRPATNGSEQVTVQLMVSLAQLISVHERE\nQIMTTNVWLTQEWXXXXXXXXXXXXXXXXXXXXXXXXXWLPDVVLYNNADGMY</span></span>
 <span id="cb150-17"><a href="basic-data-structures-in-r.html#cb150-17" aria-hidden="true" tabindex="-1"></a><span class="co">#EVSFYSNAVVSHDGSIF\nWLPPAIYKSACKIEVKHFPFDQQNCTMKFRSWTYDRTELDLVLKSDVASLDDFTPSGEWDIIALPGRRNE\nNPEDSTYVDITYDFIIRRKPL</span></span></code></pre></div>
 <p>We can save this AA sequences in a text file in your working directory.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="basic-data-structures-in-r.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is exclusive for your OWN COMPUTER change it accordingly</span></span>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="basic-data-structures-in-r.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is exclusive to your OWN COMPUTER change it accordingly</span></span>
 <span id="cb151-2"><a href="basic-data-structures-in-r.html#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory&quot;</span>)</span>
 <span id="cb151-3"><a href="basic-data-structures-in-r.html#cb151-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(froggy_AA_fasta, <span class="st">&quot;my_froggy_AA_fasta.txt&quot;</span>)</span></code></pre></div>
 <p>Now we can import the amino acid sequences of this file that are in fasta format.</p>

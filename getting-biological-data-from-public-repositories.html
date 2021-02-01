@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos" />
 
 
-<meta name="date" content="2021-01-31" />
+<meta name="date" content="2021-02-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -205,7 +205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html"><i class="fa fa-check"></i><b>9</b> – Graphics in R – ggplot2</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html#preparing-dataset-for-plot"><i class="fa fa-check"></i><b>9.1</b> Preparing dataset for plot</a></li>
-<li class="chapter" data-level="9.2" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html#colors-packages"><i class="fa fa-check"></i><b>9.2</b> Colors packages</a></li>
+<li class="chapter" data-level="9.2" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html#color-r-packages"><i class="fa fa-check"></i><b>9.2</b> Color R-packages</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -254,9 +254,9 @@ In the <strong>Proteins</strong> database, it will return 11 results in both the
 <p><img src="figures/session_5_figs/7_FASTA_seq_to_copy.png" width="100%" /></p>
 <p><strong>5)</strong> The above approach could be tedious and depended on lots of copy-and-paste actions. However, this can be streamlined using <strong>rentrez</strong> as long as you know what accession numbers you want to download.</p>
 <p>We will proceed to get all the sequences associated to the corresponding poison frog PopSet <code>1248341763</code>. For this purpose, we start by installing (if necesseray) or load <strong>rentrez</strong> in to the R environment.</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="getting-biological-data-from-public-repositories.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we have downloaded this R-package before, so you just need to load it in the R environment.</span></span>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="getting-biological-data-from-public-repositories.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We have downloaded this R-package before, so you just need to load it in the R environment.</span></span>
 <span id="cb225-2"><a href="getting-biological-data-from-public-repositories.html#cb225-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rentrez)</span>
-<span id="cb225-3"><a href="getting-biological-data-from-public-repositories.html#cb225-3" aria-hidden="true" tabindex="-1"></a><span class="co"># we define our working folder, where we can download our retrieved sequences</span></span>
+<span id="cb225-3"><a href="getting-biological-data-from-public-repositories.html#cb225-3" aria-hidden="true" tabindex="-1"></a><span class="do">## We define our working folder, where we can download our retrieved sequences -- THIS IS EXCLUSIVE FOR YOUR COMPUTER AND IT IS NOT THE PATH SHOWN BELOW</span></span>
 <span id="cb225-4"><a href="getting-biological-data-from-public-repositories.html#cb225-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory&quot;</span>)</span></code></pre></div>
 <p>Second, we can get an idea of the databases that <strong>rentrez</strong> can access from the NCBI using the EUtils API. As mentioned on <strong>1)</strong>, the NCBI provides extensive documentation for each of their databases. The information about these databases can be easily accessed using the function <code>entrez_dbs()</code> of <strong>rentrez</strong>.</p>
 <div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="getting-biological-data-from-public-repositories.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="fu">entrez_dbs</span>()</span>
@@ -375,9 +375,9 @@ In the <strong>Proteins</strong> database, it will return 11 results in both the
 <span id="cb232-14"><a href="getting-biological-data-from-public-repositories.html#cb232-14" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(my_popset_protein, <span class="at">file =</span> name_of_file)</span></code></pre></div>
 <p><strong>7)</strong> To import these data back to R , we need the path to the files that contain the data using the R-package <a href="https://bioconductor.org/packages/release/bioc/html/Biostrings.html" target="_blank"><strong>Biostrings</strong></a>.</p>
 <p>We can import the nucleotide sequences as DNAstrings.</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="getting-biological-data-from-public-repositories.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you might have already installed the library Biostrings</span></span>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="getting-biological-data-from-public-repositories.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="do">## you might have already installed the library Biostrings</span></span>
 <span id="cb233-2"><a href="getting-biological-data-from-public-repositories.html#cb233-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Biostrings)</span>
-<span id="cb233-3"><a href="getting-biological-data-from-public-repositories.html#cb233-3" aria-hidden="true" tabindex="-1"></a><span class="co"># get the path to the file with the nucleotide sequences</span></span>
+<span id="cb233-3"><a href="getting-biological-data-from-public-repositories.html#cb233-3" aria-hidden="true" tabindex="-1"></a><span class="do">## get the path to the file with the nucleotide sequences -- THIS IS EXCLUSIVE FOR YOUR COMPUTER AND IT IS NOT THE PATH SHOWN BELOW</span></span>
 <span id="cb233-4"><a href="getting-biological-data-from-public-repositories.html#cb233-4" aria-hidden="true" tabindex="-1"></a>my_popset_as_dna_stringset <span class="ot">&lt;-</span> <span class="fu">readDNAStringSet</span>(<span class="at">filepath =</span> <span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory/acetylcholine_receptor_popset_1248341763.txt&quot;</span>, </span>
 <span id="cb233-5"><a href="getting-biological-data-from-public-repositories.html#cb233-5" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">format =</span> <span class="st">&quot;fasta&quot;</span>)</span>
 <span id="cb233-6"><a href="getting-biological-data-from-public-repositories.html#cb233-6" aria-hidden="true" tabindex="-1"></a>my_popset_as_dna_stringset</span>
@@ -395,7 +395,7 @@ In the <strong>Proteins</strong> database, it will return 11 results in both the
 <span id="cb233-18"><a href="getting-biological-data-from-public-repositories.html#cb233-18" aria-hidden="true" tabindex="-1"></a><span class="co">#[29]  1506 ATGACGGCTCTCCTCCTCGTCCTGCACCTCAGCCTGCTCGGCC...ACGTTAATACAGCTGAACCATGGGACCCCCGCCTCCAACTAA MF580108.1 Phyllo...</span></span>
 <span id="cb233-19"><a href="getting-biological-data-from-public-repositories.html#cb233-19" aria-hidden="true" tabindex="-1"></a><span class="co">#[30]   195 GCTGATGGGATGTATGAGGTCTCCTTCTACTCTAACGCGGTGG...CGCTCGTGGACTTATGACCGCACCGAGCTGGACCTGGTGCTG MF580109.1 Phyllo...</span></span></code></pre></div>
 <p>We can also import the amino acid sequences as AAstrings.</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="getting-biological-data-from-public-repositories.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the path to the file with the amino acid sequences</span></span>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="getting-biological-data-from-public-repositories.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the path to the file with the amino acid sequences -- THIS IS EXCLUSIVE FOR YOUR COMPUTER AND IT IS NOT THE PATH SHOWN BELOW</span></span>
 <span id="cb234-2"><a href="getting-biological-data-from-public-repositories.html#cb234-2" aria-hidden="true" tabindex="-1"></a>my_popset_as_aa_stringset <span class="ot">&lt;-</span> <span class="fu">readAAStringSet</span>(<span class="at">filepath =</span> <span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory/acetylcholine_receptor_popset_1248341763_protein.txt&quot;</span>, </span>
 <span id="cb234-3"><a href="getting-biological-data-from-public-repositories.html#cb234-3" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">format =</span> <span class="st">&quot;fasta&quot;</span>)</span>
 <span id="cb234-4"><a href="getting-biological-data-from-public-repositories.html#cb234-4" aria-hidden="true" tabindex="-1"></a>my_popset_as_aa_stringset</span>
@@ -489,13 +489,13 @@ We will use the function <code>GetSequences()</code>.</p>
 <span id="cb239-9"><a href="getting-biological-data-from-public-repositories.html#cb239-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;chicken_P09484</span></span>
 <span id="cb239-10"><a href="getting-biological-data-from-public-repositories.html#cb239-10" aria-hidden="true" tabindex="-1"></a><span class="co">#MALLRVLCLLAALRRSLCTDTEERLVEYLLDPTRYNKLIRPATNGSQLVTVQLMVSLAQLISVHEREQIMTTNVWLTQEWEDYRLTWKPEDFDNMKKVRLPSKHIWLPDVVLYNNADGMYEVSFYSN...</span></span>
 <span id="cb239-11"><a href="getting-biological-data-from-public-repositories.html#cb239-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb239-12"><a href="getting-biological-data-from-public-repositories.html#cb239-12" aria-hidden="true" tabindex="-1"></a><span class="co"># we write the output to a text file</span></span>
+<span id="cb239-12"><a href="getting-biological-data-from-public-repositories.html#cb239-12" aria-hidden="true" tabindex="-1"></a><span class="co"># we write the output to a text file -- REMEMBER TO SET A PATH TO THE FOLDER THAT YOU WANT IN YOUR COMPUTER</span></span>
 <span id="cb239-13"><a href="getting-biological-data-from-public-repositories.html#cb239-13" aria-hidden="true" tabindex="-1"></a>name_of_file <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;acetylcholine_receptor_Uniprot.txt&quot;</span>)</span>
 <span id="cb239-14"><a href="getting-biological-data-from-public-repositories.html#cb239-14" aria-hidden="true" tabindex="-1"></a>name_of_file</span>
 <span id="cb239-15"><a href="getting-biological-data-from-public-repositories.html#cb239-15" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;acetylcholine_receptor_popset_1248341763.txt&quot;</span></span>
 <span id="cb239-16"><a href="getting-biological-data-from-public-repositories.html#cb239-16" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(end_uniprot_fasta, <span class="at">file =</span> name_of_file)</span></code></pre></div>
 <p>Finally, we can import this updated file into R using <strong>Biostrings</strong>.</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="getting-biological-data-from-public-repositories.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the path to the uniprot file with the amino acid sequences</span></span>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="getting-biological-data-from-public-repositories.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the path to the uniprot file with the amino acid sequences -- THIS IS EXCLUSIVE FOR YOUR COMPUTER AND IT IS NOT THE PATH SHOWN BELOW</span></span>
 <span id="cb240-2"><a href="getting-biological-data-from-public-repositories.html#cb240-2" aria-hidden="true" tabindex="-1"></a>my_uniprot_as_aa_stringset <span class="ot">&lt;-</span> <span class="fu">readAAStringSet</span>(<span class="at">filepath =</span> <span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory/acetylcholine_receptor_Uniprot.txt&quot;</span>, </span>
 <span id="cb240-3"><a href="getting-biological-data-from-public-repositories.html#cb240-3" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">format =</span> <span class="st">&quot;fasta&quot;</span>)</span>
 <span id="cb240-4"><a href="getting-biological-data-from-public-repositories.html#cb240-4" aria-hidden="true" tabindex="-1"></a>my_uniprot_as_aa_stringset</span>

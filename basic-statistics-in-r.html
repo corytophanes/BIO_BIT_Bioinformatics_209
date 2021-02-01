@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos" />
 
 
-<meta name="date" content="2021-01-31" />
+<meta name="date" content="2021-02-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -205,7 +205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html"><i class="fa fa-check"></i><b>9</b> – Graphics in R – ggplot2</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html#preparing-dataset-for-plot"><i class="fa fa-check"></i><b>9.1</b> Preparing dataset for plot</a></li>
-<li class="chapter" data-level="9.2" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html#colors-packages"><i class="fa fa-check"></i><b>9.2</b> Colors packages</a></li>
+<li class="chapter" data-level="9.2" data-path="graphics-in-r-ggplot2.html"><a href="graphics-in-r-ggplot2.html#color-r-packages"><i class="fa fa-check"></i><b>9.2</b> Color R-packages</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -232,29 +232,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This workshop is not designed to give you an extensive overview on all statistical methods that can be performed in R. Yet, this computing environment was born to provide a comprehensive platform for the implementation of statistical methods. We will overview of some basic and advanced methods with some illustrative graphs (these will be expanded in the session devoted to graphics). However, you can ask me if you want to explore a specific method that you would me to add to this gitbook.</p>
 <div id="exploring-your-data" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Exploring your data</h2>
-<p><strong>1)</strong> To start, we need to import a dataset that we want to explore and analyze. As graduate students, you are encouraged to use your own datasets (i.e., this is ideal as you will know more about its contents, metrics and intended use). For this exercise, I will use two previously show datasets: (1) the small preloaded <code>mtcars</code> dataset and (2) the large <code>airway_scaledcounts.csv</code> dataset (it can be downloaded from the <code>examples</code> folder).</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="basic-statistics-in-r.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="co">#define a working directory</span></span>
-<span id="cb247-2"><a href="basic-statistics-in-r.html#cb247-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory&quot;</span>)</span>
-<span id="cb247-3"><a href="basic-statistics-in-r.html#cb247-3" aria-hidden="true" tabindex="-1"></a><span class="co">#load get mtcars dataset -- this a preloaded dataset in R</span></span>
-<span id="cb247-4"><a href="basic-statistics-in-r.html#cb247-4" aria-hidden="true" tabindex="-1"></a>cars_data <span class="ot">&lt;-</span> mtcars</span>
-<span id="cb247-5"><a href="basic-statistics-in-r.html#cb247-5" aria-hidden="true" tabindex="-1"></a>cars_data</span>
-<span id="cb247-6"><a href="basic-statistics-in-r.html#cb247-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb</span></span>
-<span id="cb247-7"><a href="basic-statistics-in-r.html#cb247-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4</span></span>
-<span id="cb247-8"><a href="basic-statistics-in-r.html#cb247-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4</span></span>
-<span id="cb247-9"><a href="basic-statistics-in-r.html#cb247-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1</span></span>
-<span id="cb247-10"><a href="basic-statistics-in-r.html#cb247-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1</span></span>
-<span id="cb247-11"><a href="basic-statistics-in-r.html#cb247-11" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
-<span id="cb247-12"><a href="basic-statistics-in-r.html#cb247-12" aria-hidden="true" tabindex="-1"></a><span class="co">#load get &#39;airway_scaledcounts.csv&#39; dataset </span></span>
-<span id="cb247-13"><a href="basic-statistics-in-r.html#cb247-13" aria-hidden="true" tabindex="-1"></a>airway_data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory/airway_scaledcounts.csv&quot;</span>,</span>
-<span id="cb247-14"><a href="basic-statistics-in-r.html#cb247-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb247-15"><a href="basic-statistics-in-r.html#cb247-15" aria-hidden="true" tabindex="-1"></a><span class="co">#          ensgene SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
-<span id="cb247-16"><a href="basic-statistics-in-r.html#cb247-16" aria-hidden="true" tabindex="-1"></a><span class="co">#1 ENSG00000000003        723        486        904        445       1170       1097        806        604</span></span>
-<span id="cb247-17"><a href="basic-statistics-in-r.html#cb247-17" aria-hidden="true" tabindex="-1"></a><span class="co">#2 ENSG00000000005          0          0          0          0          0          0          0          0</span></span>
-<span id="cb247-18"><a href="basic-statistics-in-r.html#cb247-18" aria-hidden="true" tabindex="-1"></a><span class="co">#3 ENSG00000000419        467        523        616        371        582        781        417        509</span></span>
-<span id="cb247-19"><a href="basic-statistics-in-r.html#cb247-19" aria-hidden="true" tabindex="-1"></a><span class="co">#4 ENSG00000000457        347        258        364        237        318        447        330        324</span></span>
-<span id="cb247-20"><a href="basic-statistics-in-r.html#cb247-20" aria-hidden="true" tabindex="-1"></a><span class="co">#5 ENSG00000000460         96         81         73         66        118         94        102         74</span></span>
-<span id="cb247-21"><a href="basic-statistics-in-r.html#cb247-21" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000000938          0          0          1          0          2          0          0          0</span></span>
-<span id="cb247-22"><a href="basic-statistics-in-r.html#cb247-22" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
+<p><strong>1)</strong> To start, we need to import a dataset that we want to explore and analyze.
+As graduate students, you are encouraged to use your own datasets (i.e., this is ideal as you will know more about its contents, metrics and intended use). For this exercise, I will use two previously show datasets: (1) the small preloaded <code>mtcars</code> dataset and (2) the large <code>airway_scaledcounts.csv</code> dataset. These datasets are in our class <a href="https://github.com/corytophanes/BIO_BIT_Bioinformatics_209/tree/main/ref_files_pdfs" target="_blank"><strong>GitHub repository</strong></a> and you can donwload those to your computer.</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="basic-statistics-in-r.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: remember to update the path to files with the datasets where you downloaded in your computer -- THIS IS EXCLUSIVE TO YOUR COMPUTER AND IT IS NOT THE PATH SHOWN BELOW</span></span>
+<span id="cb247-2"><a href="basic-statistics-in-r.html#cb247-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb247-3"><a href="basic-statistics-in-r.html#cb247-3" aria-hidden="true" tabindex="-1"></a><span class="co">#define a working directory</span></span>
+<span id="cb247-4"><a href="basic-statistics-in-r.html#cb247-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory&quot;</span>)</span>
+<span id="cb247-5"><a href="basic-statistics-in-r.html#cb247-5" aria-hidden="true" tabindex="-1"></a><span class="co">#load get mtcars dataset -- this a preloaded dataset in R</span></span>
+<span id="cb247-6"><a href="basic-statistics-in-r.html#cb247-6" aria-hidden="true" tabindex="-1"></a>cars_data <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb247-7"><a href="basic-statistics-in-r.html#cb247-7" aria-hidden="true" tabindex="-1"></a>cars_data</span>
+<span id="cb247-8"><a href="basic-statistics-in-r.html#cb247-8" aria-hidden="true" tabindex="-1"></a><span class="co">#                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb</span></span>
+<span id="cb247-9"><a href="basic-statistics-in-r.html#cb247-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4</span></span>
+<span id="cb247-10"><a href="basic-statistics-in-r.html#cb247-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4</span></span>
+<span id="cb247-11"><a href="basic-statistics-in-r.html#cb247-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1</span></span>
+<span id="cb247-12"><a href="basic-statistics-in-r.html#cb247-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1</span></span>
+<span id="cb247-13"><a href="basic-statistics-in-r.html#cb247-13" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
+<span id="cb247-14"><a href="basic-statistics-in-r.html#cb247-14" aria-hidden="true" tabindex="-1"></a><span class="co">#load get &#39;airway_scaledcounts.csv&#39; dataset </span></span>
+<span id="cb247-15"><a href="basic-statistics-in-r.html#cb247-15" aria-hidden="true" tabindex="-1"></a>airway_data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory/airway_scaledcounts.csv&quot;</span>,</span>
+<span id="cb247-16"><a href="basic-statistics-in-r.html#cb247-16" aria-hidden="true" tabindex="-1"></a>               <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb247-17"><a href="basic-statistics-in-r.html#cb247-17" aria-hidden="true" tabindex="-1"></a><span class="co">#          ensgene SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
+<span id="cb247-18"><a href="basic-statistics-in-r.html#cb247-18" aria-hidden="true" tabindex="-1"></a><span class="co">#1 ENSG00000000003        723        486        904        445       1170       1097        806        604</span></span>
+<span id="cb247-19"><a href="basic-statistics-in-r.html#cb247-19" aria-hidden="true" tabindex="-1"></a><span class="co">#2 ENSG00000000005          0          0          0          0          0          0          0          0</span></span>
+<span id="cb247-20"><a href="basic-statistics-in-r.html#cb247-20" aria-hidden="true" tabindex="-1"></a><span class="co">#3 ENSG00000000419        467        523        616        371        582        781        417        509</span></span>
+<span id="cb247-21"><a href="basic-statistics-in-r.html#cb247-21" aria-hidden="true" tabindex="-1"></a><span class="co">#4 ENSG00000000457        347        258        364        237        318        447        330        324</span></span>
+<span id="cb247-22"><a href="basic-statistics-in-r.html#cb247-22" aria-hidden="true" tabindex="-1"></a><span class="co">#5 ENSG00000000460         96         81         73         66        118         94        102         74</span></span>
+<span id="cb247-23"><a href="basic-statistics-in-r.html#cb247-23" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000000938          0          0          1          0          2          0          0          0</span></span>
+<span id="cb247-24"><a href="basic-statistics-in-r.html#cb247-24" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
 <p><strong>2)</strong> We can get some basic descriptive parameters of each data set including number of entries, number and names of the columns (i.e., variables), type of variables (e.g., numbers or characters), number of <code>NA</code> values.</p>
 <p>For this purpose, the easiest approach is to use the function <code>summary()</code></p>
 <div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="basic-statistics-in-r.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars_data)</span>
