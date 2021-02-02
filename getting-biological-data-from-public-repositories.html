@@ -418,14 +418,55 @@ In the <strong>Proteins</strong> database, it will return 11 results in both the
 <h2><span class="header-section-number">5.2</span> NCBI - BLAST</h2>
 <p>One of the most important tools of the NCBI is the Basic Local Alignment Search Tool (BLAST). This tool finds regions of local similarity between sequences by comparing nucleotide or protein sequences to sequence databases and calculates the statistical significance of matches. <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi" target="_blank"><strong>BLAST</strong></a> can be accessed form the NCBI website or link provided. It also has a friendly <a href="ftp://ftp.ncbi.nlm.nih.gov/pub/factsheets/HowTo_BLASTGuide.pdf" target="_blank"><strong>guide</strong></a>.</p>
 <p><img src="figures/session_5_figs/10_NCBI_blast_intro.png" width="100%" /></p>
-<p>Here is a table from the reference manual that provide you with key features of the BLAST search pages in the “Basic BLAST” category.
-|Search page|Query &amp; database|Alignment|Programs &amp; functions (default program in bold)|
-|———–|—————-|———|———————————————-|
-|nucleotide blast|nucleotide vs nucleotide|Nucleotide|<strong>megablast:</strong> for sequence identification, intra-species comparison, <strong>discontiguous megablast:</strong> for cross-species comparison, searching with coding sequences; <strong>blastn:</strong> for searching with shorter queries, cross-species comparison|
-|protein blast|Protein vs protein|protein|<strong>blastp:</strong> general sequence identification and similarity searches; <strong>Quick BLASTP:</strong> with a kmer match to accelerate search speed for very similar proteins; <strong>DELTA-BLAST[3]:</strong> protein similarity search with higher sensitivity than blastp; <strong>PSI-BLAST:</strong> iterative search for position-specific score matrix (PSSM) to identify distant relatives for a protein family; <strong>PHI-BLAST:</strong> protein alignment with input pattern as anchor_constraint|
-|blastx|nucleotide (tr) vs protein|protein|<strong>blastx:</strong> for identifying potential protein products encoded by a nucleotide query|
-|tblastn|protein vs nucleotide (tr)|protein|<strong>tblastn:</strong> for identifying database sequences encoding proteins similar to the query|
-|tblastx|nucleotide (tr) vs nucleotide (tr)|protein|<strong>tblastx:</strong> for identifying nucleotide sequences similar to the query based on their coding potential|</p>
+<p>Here is a table from the reference manual that provide you with key features of the BLAST search pages in the “Basic BLAST” category.</p>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="19%" />
+<col width="10%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Search page</th>
+<th>Query &amp; database</th>
+<th>Alignment</th>
+<th>Programs &amp; functions (default program in bold)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>nucleotide blast</td>
+<td>nucleotide vs nucleotide</td>
+<td>Nucleotide</td>
+<td><strong>megablast:</strong> for sequence identification, intra-species comparison, <strong>discontiguous megablast:</strong> for cross-species comparison, searching with coding sequences; <strong>blastn:</strong> for searching with shorter queries, cross-species comparison</td>
+</tr>
+<tr class="even">
+<td>protein blast</td>
+<td>Protein vs protein</td>
+<td>protein</td>
+<td><strong>blastp:</strong> general sequence identification and similarity searches; <strong>Quick BLASTP:</strong> with a kmer match to accelerate search speed for very similar proteins; <strong>DELTA-BLAST[3]:</strong> protein similarity search with higher sensitivity than blastp; <strong>PSI-BLAST:</strong> iterative search for position-specific score matrix (PSSM) to identify distant relatives for a protein family; <strong>PHI-BLAST:</strong> protein alignment with input pattern as anchor_constraint</td>
+</tr>
+<tr class="odd">
+<td>blastx</td>
+<td>nucleotide (tr) vs protein</td>
+<td>protein</td>
+<td><strong>blastx:</strong> for identifying potential protein products encoded by a nucleotide query</td>
+</tr>
+<tr class="even">
+<td>tblastn</td>
+<td>protein vs nucleotide (tr)</td>
+<td>protein</td>
+<td><strong>tblastn:</strong> for identifying database sequences encoding proteins similar to the query</td>
+</tr>
+<tr class="odd">
+<td>tblastx</td>
+<td>nucleotide (tr) vs nucleotide (tr)</td>
+<td>protein</td>
+<td><strong>tblastx:</strong> for identifying nucleotide sequences similar to the query based on their coding potential</td>
+</tr>
+</tbody>
+</table>
 <p>We will focus on nucleotide blast.</p>
 <p><strong>8)</strong> If you are interested in comparing a nucleotide query against the nucleotide reference collection. You can use [<strong>blastn</strong>] or standard nucleotide BLAST.</p>
 <p>For a simple query, you usually start by copying and pasting the nucleotide sequence that you want to <code>BLAST</code>. We will use a short sequence of the <code>MF580102.1</code> NCBI accession number of the nicotinic acetylcholine receptor beta-2 (chrnb2) from <em>Allobates kingsburyi</em>.</p>
