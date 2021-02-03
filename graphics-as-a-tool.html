@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Session 9 – Graphics as a Tool | Bioinformatics Workshop Gitbook</title>
+  <meta name="description" content="none" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Session 9 – Graphics as a Tool | Bioinformatics Workshop Gitbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="none" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Session 9 – Graphics as a Tool | Bioinformatics Workshop Gitbook" />
+  
+  <meta name="twitter:description" content="none" />
+  
+
+<meta name="author" content="Juan C. Santos" />
+
+
+<meta name="date" content="2021-02-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="exploring-multidimensional-data-in-r.html"/>
+
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Bioinformatics Workshop Gitbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>1</b> – Getting Started with R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#why-do-we-use-r"><i class="fa fa-check"></i><b>1.1</b> Why do we use R?</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#get-a-good-text-editor"><i class="fa fa-check"></i><b>1.2</b> Get a good text editor</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#r-studio"><i class="fa fa-check"></i><b>1.3</b> R studio</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-r"><i class="fa fa-check"></i><b>1.4</b> Installing R</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#annotating-code"><i class="fa fa-check"></i><b>1.5</b> Annotating code</a></li>
+<li class="chapter" data-level="1.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#defining-a-working-directory-in-r"><i class="fa fa-check"></i><b>1.6</b> Defining a working directory in R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html"><i class="fa fa-check"></i><b>2</b> – Using R, Installing Packages and Importing/Exporting Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#your-first-session"><i class="fa fa-check"></i><b>2.1</b> Your first session</a></li>
+<li class="chapter" data-level="2.2" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#doing-some-base-functions-and-getting-help"><i class="fa fa-check"></i><b>2.2</b> Doing some base functions and getting help</a></li>
+<li class="chapter" data-level="2.3" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#about-r-packages"><i class="fa fa-check"></i><b>2.3</b> About R-packages</a></li>
+<li class="chapter" data-level="2.4" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#installing-packages"><i class="fa fa-check"></i><b>2.4</b> Installing packages</a></li>
+<li class="chapter" data-level="2.5" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#importing-and-exporting-data"><i class="fa fa-check"></i><b>2.5</b> Importing and exporting data</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html"><i class="fa fa-check"></i><b>3</b> – Basic Data Structures in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#scalars-and-vectors"><i class="fa fa-check"></i><b>3.1</b> Scalars and vectors</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#matrices"><i class="fa fa-check"></i><b>3.2</b> Matrices</a></li>
+<li class="chapter" data-level="3.3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-frames"><i class="fa fa-check"></i><b>3.3</b> Data Frames</a></li>
+<li class="chapter" data-level="3.4" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tables"><i class="fa fa-check"></i><b>3.4</b> Tables</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#lists"><i class="fa fa-check"></i><b>3.5</b> Lists</a></li>
+<li class="chapter" data-level="3.6" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-tables"><i class="fa fa-check"></i><b>3.6</b> Data Tables</a></li>
+<li class="chapter" data-level="3.7" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tibbles"><i class="fa fa-check"></i><b>3.7</b> Tibbles</a></li>
+<li class="chapter" data-level="3.8" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#dnastringsets-rnastringsets-and-aastringsets"><i class="fa fa-check"></i><b>3.8</b> DNAStringSets, RNAStringSets and AAStringSets</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html"><i class="fa fa-check"></i><b>4</b> – Text Editing, Applying Transformations and Functions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html#working-with-character-strings"><i class="fa fa-check"></i><b>4.1</b> Working with character strings</a></li>
+<li class="chapter" data-level="4.2" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html#regular-expressions-regex"><i class="fa fa-check"></i><b>4.2</b> Regular expressions (Regex)</a></li>
+<li class="chapter" data-level="4.3" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html#comparing-ordering-and-simplifying-vectors"><i class="fa fa-check"></i><b>4.3</b> Comparing, ordering and simplifying vectors</a></li>
+<li class="chapter" data-level="4.4" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html#useful-functions-of-stringr"><i class="fa fa-check"></i><b>4.4</b> Useful functions of ‘stringr’</a></li>
+<li class="chapter" data-level="4.5" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html#data-transformations"><i class="fa fa-check"></i><b>4.5</b> Data transformations</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html"><i class="fa fa-check"></i><b>5</b> – Getting Biological Data from Public Repositories</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#ncbi-databases-genbank-and-others"><i class="fa fa-check"></i><b>5.1</b> NCBI databases: GenBank and others</a></li>
+<li class="chapter" data-level="5.2" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#accessing-ncbi-within-r-rentrez"><i class="fa fa-check"></i><b>5.2</b> Accessing NCBI within R: rentrez</a></li>
+<li class="chapter" data-level="5.3" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#comparing-sequences-blast"><i class="fa fa-check"></i><b>5.3</b> Comparing sequences: BLAST</a></li>
+<li class="chapter" data-level="5.4" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-uniprot"><i class="fa fa-check"></i><b>5.4</b> Other databases: UniProt</a></li>
+<li class="chapter" data-level="5.5" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-ensembl"><i class="fa fa-check"></i><b>5.5</b> Other databases: Ensembl</a></li>
+<li class="chapter" data-level="5.6" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-taxonomy-phylogenetic-trees-and-species-distributions"><i class="fa fa-check"></i><b>5.6</b> Other databases: Taxonomy, phylogenetic trees and species distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html"><i class="fa fa-check"></i><b>6</b> – Basic Statistics in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#exploring-your-data"><i class="fa fa-check"></i><b>6.1</b> Exploring your data</a></li>
+<li class="chapter" data-level="6.2" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#normalizing-your-data"><i class="fa fa-check"></i><b>6.2</b> Normalizing your data</a></li>
+<li class="chapter" data-level="6.3" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-means-t-test"><i class="fa fa-check"></i><b>6.3</b> Comparing means: t-test</a></li>
+<li class="chapter" data-level="6.4" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>6.4</b> Beyond t-test: Wilcoxon signed rank test</a></li>
+<li class="chapter" data-level="6.5" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.5</b> Correlations</a></li>
+<li class="chapter" data-level="6.6" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.6</b> Comparing distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html"><i class="fa fa-check"></i><b>7</b> – Regressions and ANOVA in R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#linear-regressions"><i class="fa fa-check"></i><b>7.1</b> Linear regressions</a></li>
+<li class="chapter" data-level="7.2" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#selecting-predictors"><i class="fa fa-check"></i><b>7.2</b> Selecting predictors</a></li>
+<li class="chapter" data-level="7.3" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#logistic-regressions"><i class="fa fa-check"></i><b>7.3</b> Logistic regressions</a></li>
+<li class="chapter" data-level="7.4" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#non-linear-regressions"><i class="fa fa-check"></i><b>7.4</b> Non-linear regressions</a></li>
+<li class="chapter" data-level="7.5" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#anova"><i class="fa fa-check"></i><b>7.5</b> ANOVA</a></li>
+<li class="chapter" data-level="7.6" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#one-way-anova"><i class="fa fa-check"></i><b>7.6</b> One-way ANOVA</a></li>
+<li class="chapter" data-level="7.7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#two-way-anova"><i class="fa fa-check"></i><b>7.7</b> Two-way ANOVA</a></li>
+<li class="chapter" data-level="7.8" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#post-hoc-tests"><i class="fa fa-check"></i><b>7.8</b> Post-hoc tests</a></li>
+<li class="chapter" data-level="7.9" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#beyond-anova-kruskal-wallis-test"><i class="fa fa-check"></i><b>7.9</b> Beyond ANOVA: Kruskal-Wallis Test</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html"><i class="fa fa-check"></i><b>8</b> – Exploring Multidimensional Data in R</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#principal-component-analysis"><i class="fa fa-check"></i><b>8.1</b> Principal Component Analysis</a></li>
+<li class="chapter" data-level="8.2" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#multidimensional-scaling"><i class="fa fa-check"></i><b>8.2</b> Multidimensional scaling</a></li>
+<li class="chapter" data-level="8.3" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#cluster-analysis-dfa"><i class="fa fa-check"></i><b>8.3</b> Cluster analysis: DFA</a></li>
+<li class="chapter" data-level="8.4" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#cluster-analysis-k-means-unsupervised"><i class="fa fa-check"></i><b>8.4</b> Cluster analysis: <em>k</em>-means (unsupervised)</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="graphics-as-a-tool.html"><a href="graphics-as-a-tool.html"><i class="fa fa-check"></i><b>9</b> – Graphics as a Tool</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="graphics-as-a-tool.html"><a href="graphics-as-a-tool.html#avoid-bad-graphics"><i class="fa fa-check"></i><b>9.1</b> Avoid bad graphics</a></li>
+<li class="chapter" data-level="9.2" data-path="graphics-as-a-tool.html"><a href="graphics-as-a-tool.html#graphics-in-r-ggplot2"><i class="fa fa-check"></i><b>9.2</b> Graphics in R – ggplot2</a></li>
+<li class="chapter" data-level="9.3" data-path="graphics-as-a-tool.html"><a href="graphics-as-a-tool.html#preparing-your-dataset"><i class="fa fa-check"></i><b>9.3</b> Preparing your dataset</a></li>
+<li class="chapter" data-level="9.4" data-path="graphics-as-a-tool.html"><a href="graphics-as-a-tool.html#color-palettes-online"><i class="fa fa-check"></i><b>9.4</b> Color palettes online</a></li>
+<li class="chapter" data-level="9.5" data-path="graphics-as-a-tool.html"><a href="graphics-as-a-tool.html#r-packages-about-color"><i class="fa fa-check"></i><b>9.5</b> R-packages about color</a></li>
+<li class="chapter" data-level="9.6" data-path="graphics-as-a-tool.html"><a href="graphics-as-a-tool.html#making-your-own-palette"><i class="fa fa-check"></i><b>9.6</b> Making your own palette</a></li>
+<li class="chapter" data-level="9.7" data-path="graphics-as-a-tool.html"><a href="graphics-as-a-tool.html#boxplots"><i class="fa fa-check"></i><b>9.7</b> Boxplots</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bioinformatics Workshop Gitbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="graphics-as-a-tool" class="section level1" number="9">
+<h1><span class="header-section-number">Session 9</span> – Graphics as a Tool</h1>
+<p>Plots, graphs and other visual representations of data and central to bioinformatics. Such illustrations summarize year/months of data collection and complex statistical analyzes. The main goal of such visual representations is to improve the observer, reader or researcher his/her understanding of the data and his/her abilities to compare with other datasets and reveal trends in the data collected, compiled or analyzed. However, you might have seen good, bad and ugly graphs. Yet, an effective graph is easier to decode or understand than others, by virtue of this, it is likely to be beautiful.</p>
+<div id="avoid-bad-graphics" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> Avoid bad graphics</h2>
+<p>I think it is a good idea to review about effective graphics. Here is a list of suggestions, mostly summarized, from the <a href="https://stat545.com/effective-graphs.html" target="_blank"><strong>graphics section</strong></a> by Jenny Bryan STAT 545 class at UBC.</p>
+<p><strong>A) No 3D or overdone plots:</strong> Our current format to visualize data is paper or screen (a 2D surfaces) by adding another dimension makes information difficult to visualize. Likewise, eliminating clutter and de-emphasizing supporting elements make reduce the attention exhaustion of the reader (i.e., every aspect of a figure should add if needed). <strong>Suggestions:</strong> Try to keep graphics simple and make most of them as 2D, no shadows or excess ornamentation.</p>
+<p>Here is a visual animation that transforms an overdone bar chart into one that is just right with the information that it wants to communicate.
+<img src="figures/session_9_figs/10_bad_chart_bar.gif" width="70%" />
+<strong>Source</strong> <a href="https://www.darkhorseanalytics.com/blog/data-looks-better-naked" target="_blank">https://www.darkhorseanalytics.com</a>.</p>
+<p><strong>B) No Pie Charts:</strong> This type of infographic is probably the least effective when encoding quantitative data (e.g., percentages or fractions) because pie charts use angles and areas, which are very hard for visualize or compare. <strong>Suggestions:</strong> Use bar charts and dotplot for proportions and percentages. These graphs make comparisons easier by positioning objects along a common scale.
+<img src="figures/session_9_figs/11_bad_pie.gif" width="70%" />
+<strong>Source</strong> <a href="https://www.darkhorseanalytics.com/blog/salvaging-the-pie" target="_blank">https://www.darkhorseanalytics.com</a>.</p>
+<p><strong>C) Careful about scale of things:</strong> Some data need to be scaled or transformed (e.g., logarithms) before plotting to allow the reader to visualize the data distribution. For example, some variables show a multiplicative or exponential scales that jumps from tens to hundreds or thousands. ** Suggestions:** Explore you data first and determine if it needs transformation.</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="graphics-as-a-tool.html#cb335-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load mammal dataset from &#39;MASS&#39; and transform them with modify() from &#39;purrr&#39;</span></span>
+<span id="cb335-2"><a href="graphics-as-a-tool.html#cb335-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb335-3"><a href="graphics-as-a-tool.html#cb335-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb335-4"><a href="graphics-as-a-tool.html#cb335-4" aria-hidden="true" tabindex="-1"></a>mammals_raw <span class="ot">&lt;-</span> mammals</span>
+<span id="cb335-5"><a href="graphics-as-a-tool.html#cb335-5" aria-hidden="true" tabindex="-1"></a>mammals_log <span class="ot">&lt;-</span> <span class="fu">modify</span>(mammals_raw,log10)</span>
+<span id="cb335-6"><a href="graphics-as-a-tool.html#cb335-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb335-7"><a href="graphics-as-a-tool.html#cb335-7" aria-hidden="true" tabindex="-1"></a><span class="do">## plot them side to side into a 1*2 array</span></span>
+<span id="cb335-8"><a href="graphics-as-a-tool.html#cb335-8" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))   </span>
+<span id="cb335-9"><a href="graphics-as-a-tool.html#cb335-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb335-10"><a href="graphics-as-a-tool.html#cb335-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> mammals_raw<span class="sc">$</span>body, <span class="at">y =</span> mammals_raw<span class="sc">$</span>brain)</span>
+<span id="cb335-11"><a href="graphics-as-a-tool.html#cb335-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">side=</span><span class="dv">3</span>, <span class="at">line=</span><span class="fl">0.5</span>, <span class="at">adj=</span><span class="dv">0</span>, <span class="st">&quot;raw data from mammal -- body vs brain&quot;</span>)</span>
+<span id="cb335-12"><a href="graphics-as-a-tool.html#cb335-12" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(brain <span class="sc">~</span> body, <span class="at">data =</span> mammals_raw), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb335-13"><a href="graphics-as-a-tool.html#cb335-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb335-14"><a href="graphics-as-a-tool.html#cb335-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> mammals_log<span class="sc">$</span>body, <span class="at">y =</span> mammals_log<span class="sc">$</span>brain)</span>
+<span id="cb335-15"><a href="graphics-as-a-tool.html#cb335-15" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">side=</span><span class="dv">3</span>, <span class="at">line=</span><span class="fl">0.5</span>, <span class="at">adj=</span><span class="dv">0</span>, <span class="st">&quot;Log10 data from mammal -- body vs brain&quot;</span>)</span>
+<span id="cb335-16"><a href="graphics-as-a-tool.html#cb335-16" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(brain <span class="sc">~</span> body, <span class="at">data =</span> mammals_log), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p><img src="figures/session_9_figs/12_plot_transformed.png" width="100%" /></p>
+<p><strong>D) Avoid Microsoft Excel default plots:</strong> Most people use Excel at some point to store their data, then comes the temptation to use their reduced offer of plots and charts. In general, these tend to be plain and less customizable than those derived from R graphics. ** Suggestions:** You already are taking this workshop.</p>
+<p><strong>E) Careful with the figure legend:</strong> Most graphics need a legend when they are in paper, reports or other divulgation source as these images should stand alone from the main text of the article. Then, the accompanying legend should not contradict what the graphic is showing (i.e., self-contradiction). This is a common mistake and can be used against your paper and thesis by reviewers that will consider that your work is careless and sloppy. ** Suggestions:** Always proofread your manuscripts.</p>
+</div>
+<div id="graphics-in-r-ggplot2" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Graphics in R – ggplot2</h2>
+<p>The preloaded <code>graphics</code> package of R helps the easy access plots, bar charts, boxplots and other. However, with the development of the <a href="https://ggplot2.tidyverse.org/" target="_blank"><strong>ggplot2</strong></a> package that is part of the tidyverse collection. This package and its growing collection of add-ons, which include at least <a href="https://exts.ggplot2.tidyverse.org/gallery/" target="_blank"><strong>81</strong></a>, has made <a href="https://ggplot2.tidyverse.org/" target="_blank"><strong>ggplot2</strong></a> a dominant, flexible, and beautiful R graphics package. Therefore, we will explore graphics in R using this package. Like most visualizations, it would be ideal to start with installing <strong>ggplot2</strong> and datasets that will serve as examples.</p>
+<p><strong>1)</strong> If you have not installed <a href="https://ggplot2.tidyverse.org/" target="_blank"><strong>ggplot2</strong></a>, you should follow these instructions before we explore graphics and plots.</p>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="graphics-as-a-tool.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb336-2"><a href="graphics-as-a-tool.html#cb336-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+</div>
+<div id="preparing-your-dataset" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Preparing your dataset</h2>
+<p><strong>2)</strong> We also need some reference datasets to use and plot for our graphics. We will use <code>cars</code> and the <code>airway_scaledcounts.csv</code> datasets.</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="graphics-as-a-tool.html#cb337-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we will load &#39;ade4&#39; package to get the bacteria dataset</span></span>
+<span id="cb337-2"><a href="graphics-as-a-tool.html#cb337-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)</span>
+<span id="cb337-3"><a href="graphics-as-a-tool.html#cb337-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(bacteria)</span>
+<span id="cb337-4"><a href="graphics-as-a-tool.html#cb337-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb337-5"><a href="graphics-as-a-tool.html#cb337-5" aria-hidden="true" tabindex="-1"></a><span class="do">## we get the espaa dataframe with number of the 21 amino acids present in 43 species of bacteria</span></span>
+<span id="cb337-6"><a href="graphics-as-a-tool.html#cb337-6" aria-hidden="true" tabindex="-1"></a>bacteria_espaa <span class="ot">&lt;-</span> bacteria<span class="sc">$</span>espaa</span></code></pre></div>
+<p>We then scale this dataset using the function <code>modify()</code> from the package <code>purrr</code>.</p>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="graphics-as-a-tool.html#cb338-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load purrr package and scale the values</span></span>
+<span id="cb338-2"><a href="graphics-as-a-tool.html#cb338-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(purrr)</span>
+<span id="cb338-3"><a href="graphics-as-a-tool.html#cb338-3" aria-hidden="true" tabindex="-1"></a>bacteria_espaa_scaled <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">modify</span>(bacteria_espaa, scale)</span>
+<span id="cb338-4"><a href="graphics-as-a-tool.html#cb338-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bacteria_espaa_scaled)</span>
+<span id="cb338-5"><a href="graphics-as-a-tool.html#cb338-5" aria-hidden="true" tabindex="-1"></a><span class="co">#               Ala        Arg         Asn        Asp        Cys        Gln        Glu        Gly        His         Ile         Leu</span></span>
+<span id="cb338-6"><a href="graphics-as-a-tool.html#cb338-6" aria-hidden="true" tabindex="-1"></a><span class="co">#AERPECG  0.3285668  0.7317790 -0.57189998 -0.1194444  0.1648422 -0.3942439  0.2871196  0.4766228  0.1461376 -0.04383607  0.39172834</span></span>
+<span id="cb338-7"><a href="graphics-as-a-tool.html#cb338-7" aria-hidden="true" tabindex="-1"></a><span class="co">#AQUAECG -0.4008694 -0.2034641 -0.22356528 -0.3025407 -0.3950725 -0.5262848  0.4634441 -0.1820602 -0.3947798  0.06415029 -0.09928685</span></span>
+<span id="cb338-8"><a href="graphics-as-a-tool.html#cb338-8" aria-hidden="true" tabindex="-1"></a><span class="co">#ARCFUCG  0.1073331  0.2833748  0.04401802  0.2066524  0.5498823 -0.4297732  0.8885965  0.2463444 -0.1330163  0.57892747  0.12987680</span></span>
+<span id="cb338-9"><a href="graphics-as-a-tool.html#cb338-9" aria-hidden="true" tabindex="-1"></a><span class="co">#BACHDCG  0.9012986  0.9875656  1.72105862  1.5171379  0.8224654  1.6598743  2.2634710  1.2984007  1.9400648  2.16751418  1.40433248</span></span>
+<span id="cb338-10"><a href="graphics-as-a-tool.html#cb338-10" aria-hidden="true" tabindex="-1"></a><span class="co">#BACSUCG  1.0314722  0.7271505  2.09337260  1.6457327  1.0718724  1.5394241  2.0612524  1.3252195  1.8173099  2.49733951  1.38291228</span></span>
+<span id="cb338-11"><a href="graphics-as-a-tool.html#cb338-11" aria-hidden="true" tabindex="-1"></a><span class="co">#BORBUCG -0.7597170 -0.7465478  0.01654507 -0.6016028 -0.9081081 -0.7293261 -0.6491864 -0.7234675 -0.8524967 -0.18035597 -0.60867882</span></span>
+<span id="cb338-12"><a href="graphics-as-a-tool.html#cb338-12" aria-hidden="true" tabindex="-1"></a><span class="co">#                Lys         Met        Phe         Pro        Ser        Stp          Thr         Trp        Tyr         Val</span></span>
+<span id="cb338-13"><a href="graphics-as-a-tool.html#cb338-13" aria-hidden="true" tabindex="-1"></a><span class="co">#AERPECG -0.36413421  0.09017282 -0.3275198  0.89114307  0.7319805  0.7113529  0.152094962  0.38406553  0.4369524  0.61086466</span></span>
+<span id="cb338-14"><a href="graphics-as-a-tool.html#cb338-14" aria-hidden="true" tabindex="-1"></a><span class="co">#AQUAECG  0.88477099 -0.28951403  0.1851469 -0.17796712 -0.4145196 -0.2123879 -0.323609531 -0.26598780  0.3076040  0.01812197</span></span>
+<span id="cb338-15"><a href="graphics-as-a-tool.html#cb338-15" aria-hidden="true" tabindex="-1"></a><span class="co">#ARCFUCG  0.79679827  0.48462587  0.5156315  0.08558657  0.1583118  0.2768920  0.008319353  0.09800132  0.6381195  0.61451548</span></span>
+<span id="cb338-16"><a href="graphics-as-a-tool.html#cb338-16" aria-hidden="true" tabindex="-1"></a><span class="co">#BACHDCG  2.08829038  2.07351272  2.0439218  1.06116153  1.5330792  1.4796369  1.887894271  1.20439921  2.0999898  1.67959246</span></span>
+<span id="cb338-17"><a href="graphics-as-a-tool.html#cb338-17" aria-hidden="true" tabindex="-1"></a><span class="co">#BACSUCG  2.95243158  2.18339064  2.1725251  1.03849240  1.9769142  1.5369105  1.887693467  1.04854940  2.2918176  1.46336710</span></span>
+<span id="cb338-18"><a href="graphics-as-a-tool.html#cb338-18" aria-hidden="true" tabindex="-1"></a><span class="co">#BORBUCG -0.02590849 -0.72066544 -0.3193467 -0.80668435 -0.5156512 -0.7990328 -0.785609156 -0.79075009 -0.4463524 -0.78199455</span></span></code></pre></div>
+<p>We can also create a more easy to map plot with using the function <code>melt()</code> of the package <a href="https://cran.r-project.org/web/packages/reshape2/index.html" target="_blank"><strong>reshape2</strong></a>.</p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="graphics-as-a-tool.html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load reshape</span></span>
+<span id="cb339-2"><a href="graphics-as-a-tool.html#cb339-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb339-3"><a href="graphics-as-a-tool.html#cb339-3" aria-hidden="true" tabindex="-1"></a><span class="co"># use melt() to transform</span></span>
+<span id="cb339-4"><a href="graphics-as-a-tool.html#cb339-4" aria-hidden="true" tabindex="-1"></a>bacteria_espaa_for_heatmap <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="fu">as.matrix</span>(bacteria_espaa_scaled))</span>
+<span id="cb339-5"><a href="graphics-as-a-tool.html#cb339-5" aria-hidden="true" tabindex="-1"></a><span class="co"># transform factor variables to character</span></span>
+<span id="cb339-6"><a href="graphics-as-a-tool.html#cb339-6" aria-hidden="true" tabindex="-1"></a>factor_columns <span class="ot">&lt;-</span> <span class="fu">sapply</span>(bacteria_espaa_for_heatmap, is.factor)</span>
+<span id="cb339-7"><a href="graphics-as-a-tool.html#cb339-7" aria-hidden="true" tabindex="-1"></a>bacteria_espaa_for_heatmap[factor_columns] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(bacteria_espaa_for_heatmap[factor_columns], as.character)</span>
+<span id="cb339-8"><a href="graphics-as-a-tool.html#cb339-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb339-9"><a href="graphics-as-a-tool.html#cb339-9" aria-hidden="true" tabindex="-1"></a><span class="do">## we can rename the columns in this data frame</span></span>
+<span id="cb339-10"><a href="graphics-as-a-tool.html#cb339-10" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(bacteria_espaa_for_heatmap) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;bacteria_sp&quot;</span>, <span class="st">&quot;Amino_acid&quot;</span>, <span class="st">&quot;scaled_value&quot;</span>)</span>
+<span id="cb339-11"><a href="graphics-as-a-tool.html#cb339-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bacteria_espaa_for_heatmap)</span>
+<span id="cb339-12"><a href="graphics-as-a-tool.html#cb339-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  bacteria_sp Amino_acid scaled_value</span></span>
+<span id="cb339-13"><a href="graphics-as-a-tool.html#cb339-13" aria-hidden="true" tabindex="-1"></a><span class="co">#1     AERPECG        Ala    0.3285668</span></span>
+<span id="cb339-14"><a href="graphics-as-a-tool.html#cb339-14" aria-hidden="true" tabindex="-1"></a><span class="co">#2     AQUAECG        Ala   -0.4008694</span></span>
+<span id="cb339-15"><a href="graphics-as-a-tool.html#cb339-15" aria-hidden="true" tabindex="-1"></a><span class="co">#3     ARCFUCG        Ala    0.1073331</span></span>
+<span id="cb339-16"><a href="graphics-as-a-tool.html#cb339-16" aria-hidden="true" tabindex="-1"></a><span class="co">#4     BACHDCG        Ala    0.9012986</span></span>
+<span id="cb339-17"><a href="graphics-as-a-tool.html#cb339-17" aria-hidden="true" tabindex="-1"></a><span class="co">#5     BACSUCG        Ala    1.0314722</span></span>
+<span id="cb339-18"><a href="graphics-as-a-tool.html#cb339-18" aria-hidden="true" tabindex="-1"></a><span class="co">#6     BORBUCG        Ala   -0.7597170</span></span></code></pre></div>
+<p><strong>3)</strong> A more complex dataset for color schemes, we will use the <code>airway_scaledcounts.csv</code> that has expression analysis data for several RNAseq experiments. This dataset is in our class <a href="https://github.com/corytophanes/BIO_BIT_Bioinformatics_209/tree/main/ref_files_pdfs" target="_blank"><strong>GitHub repository</strong></a>.</p>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="graphics-as-a-tool.html#cb340-1" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: remember to update the path to file with the dataset where you downloaded in your computer -- THIS IS EXCLUSIVE TO YOUR COMPUTER AND IT IS NOT THE PATH SHOWN BELOW</span></span>
+<span id="cb340-2"><a href="graphics-as-a-tool.html#cb340-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb340-3"><a href="graphics-as-a-tool.html#cb340-3" aria-hidden="true" tabindex="-1"></a><span class="do">## load get &#39;airway_scaledcounts.csv&#39; dataset </span></span>
+<span id="cb340-4"><a href="graphics-as-a-tool.html#cb340-4" aria-hidden="true" tabindex="-1"></a>airway_data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory/airway_scaledcounts.csv&quot;</span>,</span>
+<span id="cb340-5"><a href="graphics-as-a-tool.html#cb340-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb340-6"><a href="graphics-as-a-tool.html#cb340-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data)</span>
+<span id="cb340-7"><a href="graphics-as-a-tool.html#cb340-7" aria-hidden="true" tabindex="-1"></a><span class="co">#          ensgene SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
+<span id="cb340-8"><a href="graphics-as-a-tool.html#cb340-8" aria-hidden="true" tabindex="-1"></a><span class="co">#1 ENSG00000000003        723        486        904        445       1170       1097        806        604</span></span>
+<span id="cb340-9"><a href="graphics-as-a-tool.html#cb340-9" aria-hidden="true" tabindex="-1"></a><span class="co">#2 ENSG00000000005          0          0          0          0          0          0          0          0</span></span>
+<span id="cb340-10"><a href="graphics-as-a-tool.html#cb340-10" aria-hidden="true" tabindex="-1"></a><span class="co">#3 ENSG00000000419        467        523        616        371        582        781        417        509</span></span>
+<span id="cb340-11"><a href="graphics-as-a-tool.html#cb340-11" aria-hidden="true" tabindex="-1"></a><span class="co">#4 ENSG00000000457        347        258        364        237        318        447        330        324</span></span>
+<span id="cb340-12"><a href="graphics-as-a-tool.html#cb340-12" aria-hidden="true" tabindex="-1"></a><span class="co">#5 ENSG00000000460         96         81         73         66        118         94        102         74</span></span>
+<span id="cb340-13"><a href="graphics-as-a-tool.html#cb340-13" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000000938          0          0          1          0          2          0          0          0</span></span>
+<span id="cb340-14"><a href="graphics-as-a-tool.html#cb340-14" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(airway_data)</span>
+<span id="cb340-15"><a href="graphics-as-a-tool.html#cb340-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  38694 obs. of  9 variables:</span></span>
+<span id="cb340-16"><a href="graphics-as-a-tool.html#cb340-16" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ensgene   : chr  &quot;ENSG00000000003&quot; &quot;ENSG00000000005&quot; &quot;ENSG00000000419&quot; &quot;ENSG00000000457&quot; ...</span></span>
+<span id="cb340-17"><a href="graphics-as-a-tool.html#cb340-17" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039508: num  723 0 467 347 96 ...</span></span>
+<span id="cb340-18"><a href="graphics-as-a-tool.html#cb340-18" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039509: num  486 0 523 258 81 ...</span></span>
+<span id="cb340-19"><a href="graphics-as-a-tool.html#cb340-19" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039512: num  904 0 616 364 73 1 6000 2640 692 531 ...</span></span>
+<span id="cb340-20"><a href="graphics-as-a-tool.html#cb340-20" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039513: num  445 0 371 237 66 ...</span></span>
+<span id="cb340-21"><a href="graphics-as-a-tool.html#cb340-21" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039516: num  1170 0 582 318 118 ...</span></span>
+<span id="cb340-22"><a href="graphics-as-a-tool.html#cb340-22" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039517: num  1097 0 781 447 94 ...</span></span>
+<span id="cb340-23"><a href="graphics-as-a-tool.html#cb340-23" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039520: num  806 0 417 330 102 ...</span></span>
+<span id="cb340-24"><a href="graphics-as-a-tool.html#cb340-24" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SRR1039521: num  604 0 509 324 74 ...</span></span></code></pre></div>
+<p>We then scale this dataset using the function <code>modify()</code> from the package <code>purrr</code>. We needed to remove and add again the names of the genes in column <code>ensgene</code>.</p>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="graphics-as-a-tool.html#cb341-1" aria-hidden="true" tabindex="-1"></a>ensgene <span class="ot">&lt;-</span> airway_data[,<span class="dv">1</span>]</span>
+<span id="cb341-2"><a href="graphics-as-a-tool.html#cb341-2" aria-hidden="true" tabindex="-1"></a>airway_data_numeric <span class="ot">&lt;-</span> airway_data[,<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb341-3"><a href="graphics-as-a-tool.html#cb341-3" aria-hidden="true" tabindex="-1"></a><span class="co"># load purrr package</span></span>
+<span id="cb341-4"><a href="graphics-as-a-tool.html#cb341-4" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(purrr)</span>
+<span id="cb341-5"><a href="graphics-as-a-tool.html#cb341-5" aria-hidden="true" tabindex="-1"></a>airway_data_scaled <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">modify</span>(airway_data_numeric, scale)</span>
+<span id="cb341-6"><a href="graphics-as-a-tool.html#cb341-6" aria-hidden="true" tabindex="-1"></a><span class="co"># cbind the name of the genes from vector &#39;ensgene&#39;</span></span>
+<span id="cb341-7"><a href="graphics-as-a-tool.html#cb341-7" aria-hidden="true" tabindex="-1"></a>airway_data_scaled <span class="ot">&lt;-</span> <span class="fu">cbind</span>(ensgene, airway_data_scaled, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb341-8"><a href="graphics-as-a-tool.html#cb341-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data_scaled)</span>
+<span id="cb341-9"><a href="graphics-as-a-tool.html#cb341-9" aria-hidden="true" tabindex="-1"></a><span class="co">#          ensgene  SRR1039508   SRR1039509   SRR1039512   SRR1039513  SRR1039516   SRR1039517  SRR1039520   SRR1039521</span></span>
+<span id="cb341-10"><a href="graphics-as-a-tool.html#cb341-10" aria-hidden="true" tabindex="-1"></a><span class="co">#1 ENSG00000000003  0.03933056 -0.003924270  0.036555187  0.011021618  0.09101424  0.041361372  0.06313763  0.007896859</span></span>
+<span id="cb341-11"><a href="graphics-as-a-tool.html#cb341-11" aria-hidden="true" tabindex="-1"></a><span class="co">#2 ENSG00000000005 -0.12176875 -0.130284028 -0.106887175 -0.112547703 -0.11339060 -0.123910392 -0.10822243 -0.116658738</span></span>
+<span id="cb341-12"><a href="graphics-as-a-tool.html#cb341-12" aria-hidden="true" tabindex="-1"></a><span class="co">#3 ENSG00000000419 -0.01771152  0.005695712 -0.009143265 -0.009526988 -0.01171230 -0.006246538 -0.01956592 -0.011693839</span></span>
+<span id="cb341-13"><a href="graphics-as-a-tool.html#cb341-13" aria-hidden="true" tabindex="-1"></a><span class="co">#4 ENSG00000000457 -0.04444999 -0.063204156 -0.049129410 -0.046736626 -0.05783441 -0.056566291 -0.03806261 -0.049844146</span></span>
+<span id="cb341-14"><a href="graphics-as-a-tool.html#cb341-14" aria-hidden="true" tabindex="-1"></a><span class="co">#5 ENSG00000000460 -0.10037797 -0.109224069 -0.095303887 -0.094220568 -0.09277541 -0.109748545 -0.08653667 -0.101398615</span></span>
+<span id="cb341-15"><a href="graphics-as-a-tool.html#cb341-15" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000000938 -0.12176875 -0.130284028 -0.106728500 -0.112547703 -0.11304119 -0.123910392 -0.10822243 -0.116658738</span></span></code></pre></div>
+<p>We can also create a more easy to map plot with using the function <code>melt()</code> of the package <a href="https://cran.r-project.org/web/packages/reshape2/index.html" target="_blank"><strong>reshape2</strong></a>.</p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="graphics-as-a-tool.html#cb342-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load reshape</span></span>
+<span id="cb342-2"><a href="graphics-as-a-tool.html#cb342-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb342-3"><a href="graphics-as-a-tool.html#cb342-3" aria-hidden="true" tabindex="-1"></a><span class="co"># prepare other data frame</span></span>
+<span id="cb342-4"><a href="graphics-as-a-tool.html#cb342-4" aria-hidden="true" tabindex="-1"></a>airway_data_scaled2 <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">modify</span>(airway_data_numeric, scale)</span>
+<span id="cb342-5"><a href="graphics-as-a-tool.html#cb342-5" aria-hidden="true" tabindex="-1"></a><span class="co"># add ensgene as rownames</span></span>
+<span id="cb342-6"><a href="graphics-as-a-tool.html#cb342-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(airway_data_scaled2) <span class="ot">&lt;-</span> ensgene</span>
+<span id="cb342-7"><a href="graphics-as-a-tool.html#cb342-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data_scaled2)</span>
+<span id="cb342-8"><a href="graphics-as-a-tool.html#cb342-8" aria-hidden="true" tabindex="-1"></a><span class="co">#                 SRR1039508   SRR1039509   SRR1039512   SRR1039513  SRR1039516   SRR1039517  SRR1039520   SRR1039521</span></span>
+<span id="cb342-9"><a href="graphics-as-a-tool.html#cb342-9" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000000003  0.03933056 -0.003924270  0.036555187  0.011021618  0.09101424  0.041361372  0.06313763  0.007896859</span></span>
+<span id="cb342-10"><a href="graphics-as-a-tool.html#cb342-10" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000000005 -0.12176875 -0.130284028 -0.106887175 -0.112547703 -0.11339060 -0.123910392 -0.10822243 -0.116658738</span></span>
+<span id="cb342-11"><a href="graphics-as-a-tool.html#cb342-11" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000000419 -0.01771152  0.005695712 -0.009143265 -0.009526988 -0.01171230 -0.006246538 -0.01956592 -0.011693839</span></span>
+<span id="cb342-12"><a href="graphics-as-a-tool.html#cb342-12" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000000457 -0.04444999 -0.063204156 -0.049129410 -0.046736626 -0.05783441 -0.056566291 -0.03806261 -0.049844146</span></span>
+<span id="cb342-13"><a href="graphics-as-a-tool.html#cb342-13" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000000460 -0.10037797 -0.109224069 -0.095303887 -0.094220568 -0.09277541 -0.109748545 -0.08653667 -0.101398615</span></span>
+<span id="cb342-14"><a href="graphics-as-a-tool.html#cb342-14" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000000938 -0.12176875 -0.130284028 -0.106728500 -0.112547703 -0.11304119 -0.123910392 -0.10822243 -0.116658738</span></span>
+<span id="cb342-15"><a href="graphics-as-a-tool.html#cb342-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb342-16"><a href="graphics-as-a-tool.html#cb342-16" aria-hidden="true" tabindex="-1"></a><span class="do">## get matrix dimensions</span></span>
+<span id="cb342-17"><a href="graphics-as-a-tool.html#cb342-17" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(airway_data_scaled2)</span>
+<span id="cb342-18"><a href="graphics-as-a-tool.html#cb342-18" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 38694     8</span></span></code></pre></div>
+<p>As indicated by the output of the function <code>dim()</code> this is a very large matrix (38,694 rows). This is a huge table; however, most genes will have similar levels of expression across SRR samples. We will search for the ensgenes that have the most dispersion around the mean expression by estimating the coefficient of variation <a href="https://en.wikipedia.org/wiki/Coefficient_of_variation" target="_blank"><strong>CV</strong></a>. This statistic represents the ratio of the standard deviation to the mean. Then, we will extract those ensgenes with the 100 highest values.</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="graphics-as-a-tool.html#cb343-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Create a function to valculate coefficient of variation </span></span>
+<span id="cb343-2"><a href="graphics-as-a-tool.html#cb343-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb343-3"><a href="graphics-as-a-tool.html#cb343-3" aria-hidden="true" tabindex="-1"></a>co.var <span class="ot">&lt;-</span> <span class="cf">function</span>(x) ( <span class="dv">100</span><span class="sc">*</span><span class="fu">sd</span>(x)<span class="sc">/</span><span class="fu">mean</span>(x) )</span>
+<span id="cb343-4"><a href="graphics-as-a-tool.html#cb343-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb343-5"><a href="graphics-as-a-tool.html#cb343-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  we estimate row-wise coefficient of variation </span></span>
+<span id="cb343-6"><a href="graphics-as-a-tool.html#cb343-6" aria-hidden="true" tabindex="-1"></a>airway_data_scaled2<span class="sc">$</span>coVar<span class="ot">&lt;-</span><span class="fu">apply</span>(airway_data_scaled2[,<span class="fu">names</span>(airway_data_scaled2)],<span class="dv">1</span>,co.var)</span>
+<span id="cb343-7"><a href="graphics-as-a-tool.html#cb343-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data_scaled2)</span>
+<span id="cb343-8"><a href="graphics-as-a-tool.html#cb343-8" aria-hidden="true" tabindex="-1"></a><span class="co">#                 SRR1039508   SRR1039509   SRR1039512   SRR1039513  SRR1039516   SRR1039517  SRR1039520   SRR1039521      coVar</span></span>
+<span id="cb343-9"><a href="graphics-as-a-tool.html#cb343-9" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000000003  0.03933056 -0.003924270  0.036555187  0.011021618  0.09101424  0.041361372  0.06313763  0.007896859  87.129966</span></span>
+<span id="cb343-10"><a href="graphics-as-a-tool.html#cb343-10" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000000005 -0.12176875 -0.130284028 -0.106887175 -0.112547703 -0.11339060 -0.123910392 -0.10822243 -0.116658738  -6.935013</span></span>
+<span id="cb343-11"><a href="graphics-as-a-tool.html#cb343-11" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000000419 -0.01771152  0.005695712 -0.009143265 -0.009526988 -0.01171230 -0.006246538 -0.01956592 -0.011693839 -77.383502</span></span>
+<span id="cb343-12"><a href="graphics-as-a-tool.html#cb343-12" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000000457 -0.04444999 -0.063204156 -0.049129410 -0.046736626 -0.05783441 -0.056566291 -0.03806261 -0.049844146 -15.968492</span></span>
+<span id="cb343-13"><a href="graphics-as-a-tool.html#cb343-13" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000000460 -0.10037797 -0.109224069 -0.095303887 -0.094220568 -0.09277541 -0.109748545 -0.08653667 -0.101398615  -8.191639</span></span>
+<span id="cb343-14"><a href="graphics-as-a-tool.html#cb343-14" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000000938 -0.12176875 -0.130284028 -0.106728500 -0.112547703 -0.11304119 -0.123910392 -0.10822243 -0.116658738  -6.980658</span></span>
+<span id="cb343-15"><a href="graphics-as-a-tool.html#cb343-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb343-16"><a href="graphics-as-a-tool.html#cb343-16" aria-hidden="true" tabindex="-1"></a><span class="do">## descresing order by coVar</span></span>
+<span id="cb343-17"><a href="graphics-as-a-tool.html#cb343-17" aria-hidden="true" tabindex="-1"></a>airway_data_scaled2_order <span class="ot">&lt;-</span> airway_data_scaled2[<span class="fu">order</span>(airway_data_scaled2<span class="sc">$</span>coVar,  <span class="at">decreasing =</span> <span class="cn">TRUE</span>),]</span>
+<span id="cb343-18"><a href="graphics-as-a-tool.html#cb343-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data_scaled2_order)</span>
+<span id="cb343-19"><a href="graphics-as-a-tool.html#cb343-19" aria-hidden="true" tabindex="-1"></a><span class="co">#                   SRR1039508    SRR1039509   SRR1039512   SRR1039513   SRR1039516   SRR1039517   SRR1039520   SRR1039521    coVar</span></span>
+<span id="cb343-20"><a href="graphics-as-a-tool.html#cb343-20" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000126709  0.0313090216 -0.0005442761 -0.006445787  0.049897360 -0.012760526 -0.030050493 -0.019778529 -0.011075185 39115.82</span></span>
+<span id="cb343-21"><a href="graphics-as-a-tool.html#cb343-21" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000278270  0.1077364958  0.1148955034 -0.015648947 -0.035906955 -0.042285668 -0.052950501 -0.036574367 -0.037471074 30921.30</span></span>
+<span id="cb343-22"><a href="graphics-as-a-tool.html#cb343-22" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000041802 -0.0043422784  0.0150556941 -0.007239162 -0.015080665  0.012746403  0.017406759 -0.008723041 -0.009425442 25810.60</span></span>
+<span id="cb343-23"><a href="graphics-as-a-tool.html#cb343-23" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000086712 -0.0116953590  0.0098557040 -0.021678604 -0.008138569  0.004535268 -0.034570232  0.038475388  0.023981854 25111.84</span></span>
+<span id="cb343-24"><a href="graphics-as-a-tool.html#cb343-24" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000188603 -0.0001086865  0.0116757006 -0.020567877  0.002413418 -0.009441131 -0.004739959 -0.004258325  0.025631597 18384.05</span></span>
+<span id="cb343-25"><a href="graphics-as-a-tool.html#cb343-25" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000125398  0.0698569896 -0.0096442587  0.058928387 -0.045348207 -0.017652265 -0.093326829  0.090138534 -0.049637928 15830.54</span></span>
+<span id="cb343-26"><a href="graphics-as-a-tool.html#cb343-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb343-27"><a href="graphics-as-a-tool.html#cb343-27" aria-hidden="true" tabindex="-1"></a><span class="do">## retain the first 100 genes</span></span>
+<span id="cb343-28"><a href="graphics-as-a-tool.html#cb343-28" aria-hidden="true" tabindex="-1"></a>airway_data_scaled_red <span class="ot">&lt;-</span> airway_data_scaled2_order[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,]</span>
+<span id="cb343-29"><a href="graphics-as-a-tool.html#cb343-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb343-30"><a href="graphics-as-a-tool.html#cb343-30" aria-hidden="true" tabindex="-1"></a><span class="do">## remove sd column</span></span>
+<span id="cb343-31"><a href="graphics-as-a-tool.html#cb343-31" aria-hidden="true" tabindex="-1"></a>airway_data_scaled_red <span class="ot">&lt;-</span> airway_data_scaled_red[,<span class="sc">-</span><span class="fu">length</span>(airway_data_scaled_red)]</span>
+<span id="cb343-32"><a href="graphics-as-a-tool.html#cb343-32" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data_scaled_red)</span>
+<span id="cb343-33"><a href="graphics-as-a-tool.html#cb343-33" aria-hidden="true" tabindex="-1"></a><span class="co">#                   SRR1039508    SRR1039509   SRR1039512   SRR1039513   SRR1039516   SRR1039517   SRR1039520   SRR1039521</span></span>
+<span id="cb343-34"><a href="graphics-as-a-tool.html#cb343-34" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000126709  0.0313090216 -0.0005442761 -0.006445787  0.049897360 -0.012760526 -0.030050493 -0.019778529 -0.011075185</span></span>
+<span id="cb343-35"><a href="graphics-as-a-tool.html#cb343-35" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000278270  0.1077364958  0.1148955034 -0.015648947 -0.035906955 -0.042285668 -0.052950501 -0.036574367 -0.037471074</span></span>
+<span id="cb343-36"><a href="graphics-as-a-tool.html#cb343-36" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000041802 -0.0043422784  0.0150556941 -0.007239162 -0.015080665  0.012746403  0.017406759 -0.008723041 -0.009425442</span></span>
+<span id="cb343-37"><a href="graphics-as-a-tool.html#cb343-37" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000086712 -0.0116953590  0.0098557040 -0.021678604 -0.008138569  0.004535268 -0.034570232  0.038475388  0.023981854</span></span>
+<span id="cb343-38"><a href="graphics-as-a-tool.html#cb343-38" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000188603 -0.0001086865  0.0116757006 -0.020567877  0.002413418 -0.009441131 -0.004739959 -0.004258325  0.025631597</span></span>
+<span id="cb343-39"><a href="graphics-as-a-tool.html#cb343-39" aria-hidden="true" tabindex="-1"></a><span class="co">#ENSG00000125398  0.0698569896 -0.0096442587  0.058928387 -0.045348207 -0.017652265 -0.093326829  0.090138534 -0.049637928</span></span>
+<span id="cb343-40"><a href="graphics-as-a-tool.html#cb343-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb343-41"><a href="graphics-as-a-tool.html#cb343-41" aria-hidden="true" tabindex="-1"></a><span class="do">## get dimensions</span></span>
+<span id="cb343-42"><a href="graphics-as-a-tool.html#cb343-42" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(airway_data_scaled_red)</span>
+<span id="cb343-43"><a href="graphics-as-a-tool.html#cb343-43" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 100     8</span></span></code></pre></div>
+<p>With this reduced matrix, we can use melt() to create a heatmap amenable data frame.</p>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="graphics-as-a-tool.html#cb344-1" aria-hidden="true" tabindex="-1"></a>airway_data_for_heatmap <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="fu">as.matrix</span>(airway_data_scaled_red))</span>
+<span id="cb344-2"><a href="graphics-as-a-tool.html#cb344-2" aria-hidden="true" tabindex="-1"></a><span class="co"># transform factor variables to character</span></span>
+<span id="cb344-3"><a href="graphics-as-a-tool.html#cb344-3" aria-hidden="true" tabindex="-1"></a>factor_columns <span class="ot">&lt;-</span> <span class="fu">sapply</span>(airway_data_for_heatmap, is.factor)</span>
+<span id="cb344-4"><a href="graphics-as-a-tool.html#cb344-4" aria-hidden="true" tabindex="-1"></a>airway_data_for_heatmap[factor_columns] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(airway_data_for_heatmap[factor_columns], as.character)</span>
+<span id="cb344-5"><a href="graphics-as-a-tool.html#cb344-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(airway_data_for_heatmap)</span>
+<span id="cb344-6"><a href="graphics-as-a-tool.html#cb344-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  800 obs. of  3 variables:</span></span>
+<span id="cb344-7"><a href="graphics-as-a-tool.html#cb344-7" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Var1 : chr  &quot;ENSG00000126709&quot; &quot;ENSG00000278270&quot; &quot;ENSG00000041802&quot; &quot;ENSG00000086712&quot; ...</span></span>
+<span id="cb344-8"><a href="graphics-as-a-tool.html#cb344-8" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Var2 : chr  &quot;SRR1039508&quot; &quot;SRR1039508&quot; &quot;SRR1039508&quot; &quot;SRR1039508&quot; ...</span></span>
+<span id="cb344-9"><a href="graphics-as-a-tool.html#cb344-9" aria-hidden="true" tabindex="-1"></a><span class="co"># $ value: num  0.031309 0.107736 -0.004342 -0.011695 -0.000109 ...</span></span>
+<span id="cb344-10"><a href="graphics-as-a-tool.html#cb344-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb344-11"><a href="graphics-as-a-tool.html#cb344-11" aria-hidden="true" tabindex="-1"></a><span class="do">## we can rename the columns in this data frame</span></span>
+<span id="cb344-12"><a href="graphics-as-a-tool.html#cb344-12" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(airway_data_for_heatmap) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;ensgene&quot;</span>, <span class="st">&quot;SRR&quot;</span>, <span class="st">&quot;expression&quot;</span>)</span>
+<span id="cb344-13"><a href="graphics-as-a-tool.html#cb344-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data_for_heatmap)</span>
+<span id="cb344-14"><a href="graphics-as-a-tool.html#cb344-14" aria-hidden="true" tabindex="-1"></a><span class="co">#          ensgene        SRR    expression</span></span>
+<span id="cb344-15"><a href="graphics-as-a-tool.html#cb344-15" aria-hidden="true" tabindex="-1"></a><span class="co">#1 ENSG00000126709 SRR1039508  0.0313090216</span></span>
+<span id="cb344-16"><a href="graphics-as-a-tool.html#cb344-16" aria-hidden="true" tabindex="-1"></a><span class="co">#2 ENSG00000278270 SRR1039508  0.1077364958</span></span>
+<span id="cb344-17"><a href="graphics-as-a-tool.html#cb344-17" aria-hidden="true" tabindex="-1"></a><span class="co">#3 ENSG00000041802 SRR1039508 -0.0043422784</span></span>
+<span id="cb344-18"><a href="graphics-as-a-tool.html#cb344-18" aria-hidden="true" tabindex="-1"></a><span class="co">#4 ENSG00000086712 SRR1039508 -0.0116953590</span></span>
+<span id="cb344-19"><a href="graphics-as-a-tool.html#cb344-19" aria-hidden="true" tabindex="-1"></a><span class="co">#5 ENSG00000188603 SRR1039508 -0.0001086865</span></span>
+<span id="cb344-20"><a href="graphics-as-a-tool.html#cb344-20" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000125398 SRR1039508  0.0698569896</span></span></code></pre></div>
+</div>
+<div id="color-palettes-online" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> Color palettes online</h2>
+<p><strong>4)</strong> One of the “hardest” parts before or after doing graphics is choosing colors. Many colors can be called by name (e.g., <code>firebrick4</code>) and I have added a file named <code>Rcolor.pdf</code> in this class <a href="https://github.com/corytophanes/BIO_BIT_Bioinformatics_209/tree/main/ref_files_pdfs" target="_blank"><strong>GitHub repository</strong></a>. Any color also can be included by their hexadecimal color codes (e.g., <code>#005f3f</code>). These codes and the colors can be found in many online color palette websites like following:</p>
+<ol style="list-style-type: lower-alpha">
+<li><a href="https://www.color-hex.com/" target="_blank"><strong>https://www.color-hex.com</strong></a></li>
+<li><a href="https://www.colourlovers.com/" target="_blank"><strong>https://www.colourlovers.com</strong></a></li>
+<li><a href="https://colorbrewer2.org/" target="_blank"><strong>https://colorbrewer2.org</strong></a></li>
+<li><a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/" target="_blank"><strong>http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/</strong></a></li>
+</ol>
+<p>Thankfully, there are some R base color palettes (rainbow, heat.colors, cm.color). These are called as functions, e.g., <code>rainbow()</code> and it will return in hexadecimal color code the number of colors that you want.</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="graphics-as-a-tool.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="do">## get 5 colors of rainbow()</span></span>
+<span id="cb345-2"><a href="graphics-as-a-tool.html#cb345-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rainbow</span>(<span class="dv">5</span>)</span>
+<span id="cb345-3"><a href="graphics-as-a-tool.html#cb345-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#FF0000FF&quot; &quot;#CCFF00FF&quot; &quot;#00FF66FF&quot; &quot;#0066FFFF&quot; &quot;#CC00FFFF&quot;</span></span></code></pre></div>
+<p>Yet, there are several R-packages can also help you in choosing colors. I will list some of those that I found useful.</p>
+</div>
+<div id="r-packages-about-color" class="section level2" number="9.5">
+<h2><span class="header-section-number">9.5</span> R-packages about color</h2>
+<p><strong>5)</strong> The package <a href="https://cran.r-project.org/web/packages/viridis/index.html" target="_blank"><strong>viridis</strong></a> can create color scales including palettes for those persons with colorblindness. This package has a <a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html" target="_blank"><strong>vignette</strong></a> that help you with more examples.</p>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="graphics-as-a-tool.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install R-package &#39;viridis&#39; </span></span>
+<span id="cb346-2"><a href="graphics-as-a-tool.html#cb346-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;viridis&quot;</span>)</span>
+<span id="cb346-3"><a href="graphics-as-a-tool.html#cb346-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="graphics-as-a-tool.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if ggplot2 is loaded</span></span>
+<span id="cb347-2"><a href="graphics-as-a-tool.html#cb347-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
+<span id="cb347-3"><a href="graphics-as-a-tool.html#cb347-3" aria-hidden="true" tabindex="-1"></a><span class="do">## we can plot a heatmap with the expression values</span></span>
+<span id="cb347-4"><a href="graphics-as-a-tool.html#cb347-4" aria-hidden="true" tabindex="-1"></a>heatmap_viridis_bac_magma <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(bacteria_espaa_for_heatmap,<span class="fu">aes</span>(<span class="at">x=</span>Amino_acid,<span class="at">y=</span>bacteria_sp,<span class="at">fill=</span>scaled_value))<span class="sc">+</span></span>
+<span id="cb347-5"><a href="graphics-as-a-tool.html#cb347-5" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_tile</span>()<span class="sc">+</span></span>
+<span id="cb347-6"><a href="graphics-as-a-tool.html#cb347-6" aria-hidden="true" tabindex="-1"></a>          <span class="fu">scale_fill_viridis</span>(<span class="at">option=</span><span class="st">&quot;A&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb347-7"><a href="graphics-as-a-tool.html#cb347-7" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb347-8"><a href="graphics-as-a-tool.html#cb347-8" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fu">rel</span>(<span class="fl">0.5</span>)),</span>
+<span id="cb347-9"><a href="graphics-as-a-tool.html#cb347-9" aria-hidden="true" tabindex="-1"></a>                          <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fu">rel</span>(<span class="fl">0.7</span>),<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span>
+<span id="cb347-10"><a href="graphics-as-a-tool.html#cb347-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-11"><a href="graphics-as-a-tool.html#cb347-11" aria-hidden="true" tabindex="-1"></a>heatmap_viridis_bac_magma</span>
+<span id="cb347-12"><a href="graphics-as-a-tool.html#cb347-12" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: you might need to run the plot &#39;heatmap_viridis_bac_magma&#39;, if it gives you an error</span></span></code></pre></div>
+<p><img src="figures/session_9_figs/1_bacteria_heatmap.png" width="100%" /></p>
+<p>We can also run this color example with <code>airway_data_for_heatmap</code>.</p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="graphics-as-a-tool.html#cb348-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if ggplot2 is loaded</span></span>
+<span id="cb348-2"><a href="graphics-as-a-tool.html#cb348-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
+<span id="cb348-3"><a href="graphics-as-a-tool.html#cb348-3" aria-hidden="true" tabindex="-1"></a><span class="do">## we can plot a heatmap with the expression values</span></span>
+<span id="cb348-4"><a href="graphics-as-a-tool.html#cb348-4" aria-hidden="true" tabindex="-1"></a>heatmap_viridis <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(airway_data_for_heatmap,<span class="fu">aes</span>(<span class="at">x=</span>SRR,<span class="at">y=</span>ensgene,<span class="at">fill=</span>expression))<span class="sc">+</span></span>
+<span id="cb348-5"><a href="graphics-as-a-tool.html#cb348-5" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_tile</span>()<span class="sc">+</span></span>
+<span id="cb348-6"><a href="graphics-as-a-tool.html#cb348-6" aria-hidden="true" tabindex="-1"></a>          <span class="fu">scale_fill_viridis</span>()<span class="sc">+</span> </span>
+<span id="cb348-7"><a href="graphics-as-a-tool.html#cb348-7" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb348-8"><a href="graphics-as-a-tool.html#cb348-8" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fu">rel</span>(<span class="fl">0.5</span>)),</span>
+<span id="cb348-9"><a href="graphics-as-a-tool.html#cb348-9" aria-hidden="true" tabindex="-1"></a>                          <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fu">rel</span>(<span class="fl">0.7</span>),<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span>
+<span id="cb348-10"><a href="graphics-as-a-tool.html#cb348-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb348-11"><a href="graphics-as-a-tool.html#cb348-11" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: this will require time to load (if it is huge) -- you might not want to run this plot</span></span>
+<span id="cb348-12"><a href="graphics-as-a-tool.html#cb348-12" aria-hidden="true" tabindex="-1"></a>heatmap_viridis</span></code></pre></div>
+<p><img src="figures/session_9_figs/2_ensgene_heatmap.png" width="100%" /></p>
+<p><strong>6)</strong> The package <a href="https://cran.r-project.org/web/packages/RColorBrewer/index.html" target="_blank"><strong>RColorBrewer</strong></a>. This package is a collection of color palettes that can be easily incorporated in plots.</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="graphics-as-a-tool.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install R-package &#39;RColorBrewer&#39; </span></span>
+<span id="cb349-2"><a href="graphics-as-a-tool.html#cb349-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;RColorBrewer&quot;</span>)</span>
+<span id="cb349-3"><a href="graphics-as-a-tool.html#cb349-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span></code></pre></div>
+<p>We can display available color palettes. Notice that names on the row can be call when using ggplot2.</p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="graphics-as-a-tool.html#cb350-1" aria-hidden="true" tabindex="-1"></a><span class="fu">display.brewer.all</span>()</span></code></pre></div>
+<p><img src="figures/session_9_figs/3_colorbrewer_all_palettes.png" width="100%" /></p>
+<p>This image provides three types of palettes: diverging, qualitative, and sequential color. The top group are colors for gradient <strong>quantitative</strong> and <strong>sequential</strong> data that progresses from low to higher values (e.g., temperature measurements). The middle group are colors for <strong>discrete</strong> or <strong>categorical</strong> data that do not imply magnitude differences between values or states in the data (e.g., types of fruits). The lower group are colors for <strong>quantitative</strong> and <strong>diverting</strong> data that increases in magnitude toward opposites or extremes (e.g., above and below sea level).</p>
+<p><strong>7)</strong> The package [<strong>RColorBrewer</strong>] also provides colorblind-friendly palettes and these can be call with the argument <code>colorblindFriendly = TRUE</code>.</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="graphics-as-a-tool.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="fu">display.brewer.all</span>(<span class="at">colorblindFriendly =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="figures/session_9_figs/4_colorbrewer_all_colorblind.png" width="100%" /></p>
+<p><strong>8)</strong> For most practical uses, you will need only few colors based on your requirements and <strong>RColorBrewer</strong> allows to select specific palettes and the number of colors that you want.</p>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="graphics-as-a-tool.html#cb352-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we will load &#39;ade4&#39; and the ‘ichtyo’ dataset</span></span>
+<span id="cb352-2"><a href="graphics-as-a-tool.html#cb352-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)</span>
+<span id="cb352-3"><a href="graphics-as-a-tool.html#cb352-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ichtyo)</span>
+<span id="cb352-4"><a href="graphics-as-a-tool.html#cb352-4" aria-hidden="true" tabindex="-1"></a>ichtyo_data <span class="ot">&lt;-</span> ichtyo<span class="sc">$</span>tab</span>
+<span id="cb352-5"><a href="graphics-as-a-tool.html#cb352-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ichtyo_data)</span>
+<span id="cb352-6"><a href="graphics-as-a-tool.html#cb352-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  HOT VAN CHE SPI GOU BAF GAR ABL PER</span></span>
+<span id="cb352-7"><a href="graphics-as-a-tool.html#cb352-7" aria-hidden="true" tabindex="-1"></a><span class="co">#1  57  47  60  11  27  17  10   9  21</span></span>
+<span id="cb352-8"><a href="graphics-as-a-tool.html#cb352-8" aria-hidden="true" tabindex="-1"></a><span class="co">#2   9  25  19   6   2   5   0   4   6</span></span>
+<span id="cb352-9"><a href="graphics-as-a-tool.html#cb352-9" aria-hidden="true" tabindex="-1"></a><span class="co">#3  48  60  52  16  25  24  17   8  12</span></span>
+<span id="cb352-10"><a href="graphics-as-a-tool.html#cb352-10" aria-hidden="true" tabindex="-1"></a><span class="co">#4  26  50  32   8   6  11   2  10   5</span></span>
+<span id="cb352-11"><a href="graphics-as-a-tool.html#cb352-11" aria-hidden="true" tabindex="-1"></a><span class="co">#5  26  43  31  14   9  18  13  14   2</span></span>
+<span id="cb352-12"><a href="graphics-as-a-tool.html#cb352-12" aria-hidden="true" tabindex="-1"></a><span class="co">#6  62  43  47  16  11   9  15  16   3</span></span>
+<span id="cb352-13"><a href="graphics-as-a-tool.html#cb352-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb352-14"><a href="graphics-as-a-tool.html#cb352-14" aria-hidden="true" tabindex="-1"></a><span class="do">## we use the function &#39;melt()&#39;&#39; of the package &#39;reshape2&#39; to arrange on the &#39;ggplot2&#39; format</span></span>
+<span id="cb352-15"><a href="graphics-as-a-tool.html#cb352-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb352-16"><a href="graphics-as-a-tool.html#cb352-16" aria-hidden="true" tabindex="-1"></a>ichtyo_data_ggplot <span class="ot">&lt;-</span> <span class="fu">melt</span>(ichtyo_data)</span>
+<span id="cb352-17"><a href="graphics-as-a-tool.html#cb352-17" aria-hidden="true" tabindex="-1"></a><span class="co">#No id variables; using all as measure variables</span></span>
+<span id="cb352-18"><a href="graphics-as-a-tool.html#cb352-18" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(ichtyo_data_ggplot) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;faunistic_array&quot;</span>, <span class="st">&quot;counts&quot;</span>)</span>
+<span id="cb352-19"><a href="graphics-as-a-tool.html#cb352-19" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ichtyo_data_ggplot)</span>
+<span id="cb352-20"><a href="graphics-as-a-tool.html#cb352-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  288 obs. of  2 variables:</span></span>
+<span id="cb352-21"><a href="graphics-as-a-tool.html#cb352-21" aria-hidden="true" tabindex="-1"></a><span class="co"># $ faunistic_array: Factor w/ 9 levels &quot;HOT&quot;,&quot;VAN&quot;,&quot;CHE&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span id="cb352-22"><a href="graphics-as-a-tool.html#cb352-22" aria-hidden="true" tabindex="-1"></a><span class="co"># $ counts         : num  57 9 48 26 26 62 17 18 9 12 ...</span></span>
+<span id="cb352-23"><a href="graphics-as-a-tool.html#cb352-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb352-24"><a href="graphics-as-a-tool.html#cb352-24" aria-hidden="true" tabindex="-1"></a><span class="do">## View a single RColorBrewer palette by specifying its name (e.g., &#39;Paired&#39;) and 9 colors for each faunistic_array</span></span>
+<span id="cb352-25"><a href="graphics-as-a-tool.html#cb352-25" aria-hidden="true" tabindex="-1"></a><span class="fu">display.brewer.pal</span>(<span class="at">n =</span> <span class="dv">9</span>, <span class="at">name =</span> <span class="st">&#39;Paired&#39;</span>)</span>
+<span id="cb352-26"><a href="graphics-as-a-tool.html#cb352-26" aria-hidden="true" tabindex="-1"></a><span class="co"># you can also request the hexadecimal color code</span></span>
+<span id="cb352-27"><a href="graphics-as-a-tool.html#cb352-27" aria-hidden="true" tabindex="-1"></a><span class="fu">brewer.pal</span>(<span class="at">n =</span> <span class="dv">9</span>, <span class="at">name =</span> <span class="st">&#39;Paired&#39;</span>)</span>
+<span id="cb352-28"><a href="graphics-as-a-tool.html#cb352-28" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#A6CEE3&quot; &quot;#1F78B4&quot; &quot;#B2DF8A&quot; &quot;#33A02C&quot; &quot;#FB9A99&quot; &quot;#E31A1C&quot; &quot;#FDBF6F&quot; &quot;#FF7F00&quot; &quot;#CAB2D6&quot;</span></span>
+<span id="cb352-29"><a href="graphics-as-a-tool.html#cb352-29" aria-hidden="true" tabindex="-1"></a>my_paired_palette <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="at">n =</span> <span class="dv">9</span>, <span class="at">name =</span> <span class="st">&#39;Paired&#39;</span>)</span></code></pre></div>
+<p><img src="figures/session_9_figs/5_colorbrewer_paired_9colors.png" width="100%" />
+<strong>9)</strong> To implement the color palette selected, we then can call if from the ggplot2 function <code>ggplot()</code>. However, <strong>ggplot2</strong> has an standard palette so we will start with that for comparison.</p>
+<p>This is the boxplot with <strong>ggplot2</strong> with its default colors.</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="graphics-as-a-tool.html#cb353-1" aria-hidden="true" tabindex="-1"></a><span class="do">## check that ggplot2 has been loaded</span></span>
+<span id="cb353-2"><a href="graphics-as-a-tool.html#cb353-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb353-3"><a href="graphics-as-a-tool.html#cb353-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Box plot with counts on y-axis and faunistic_array on x-axis and color by faunistic_array</span></span>
+<span id="cb353-4"><a href="graphics-as-a-tool.html#cb353-4" aria-hidden="true" tabindex="-1"></a>my_ichtyo_boxplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> ichtyo_data_ggplot, <span class="at">mapping =</span> <span class="fu">aes</span>(faunistic_array, counts)) <span class="sc">+</span> </span>
+<span id="cb353-5"><a href="graphics-as-a-tool.html#cb353-5" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> faunistic_array)) <span class="sc">+</span></span>
+<span id="cb353-6"><a href="graphics-as-a-tool.html#cb353-6" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb353-7"><a href="graphics-as-a-tool.html#cb353-7" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb353-8"><a href="graphics-as-a-tool.html#cb353-8" aria-hidden="true" tabindex="-1"></a>my_ichtyo_boxplot</span></code></pre></div>
+<p><img src="figures/session_9_figs/6_colorbrew_paired_ggplot2_std.png" width="100%" /></p>
+<p>This is the boxplot with <strong>ggplot2</strong> with our RColorBrewer <code>Paired</code> color palette using the function <code>scale_fill_brewer()</code>.</p>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="graphics-as-a-tool.html#cb354-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_boxplot2 <span class="ot">&lt;-</span> my_ichtyo_boxplot <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&#39;Paired&#39;</span>)</span>
+<span id="cb354-2"><a href="graphics-as-a-tool.html#cb354-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_boxplot2</span></code></pre></div>
+<p><img src="figures/session_9_figs/7_colorbrew_paired_ggplot2_Paired.png" width="100%" /></p>
+<p>This is a scatter plot with <strong>ggplot2</strong> with its default colors.</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="graphics-as-a-tool.html#cb355-1" aria-hidden="true" tabindex="-1"></a><span class="do">## check that ggplot2 has been loaded</span></span>
+<span id="cb355-2"><a href="graphics-as-a-tool.html#cb355-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb355-3"><a href="graphics-as-a-tool.html#cb355-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Scatter plot with counts on y-axis and faunistic_array on x-axis and color by faunistic_array</span></span>
+<span id="cb355-4"><a href="graphics-as-a-tool.html#cb355-4" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> ichtyo_data_ggplot, <span class="at">mapping =</span> <span class="fu">aes</span>(faunistic_array, counts)) <span class="sc">+</span> </span>
+<span id="cb355-5"><a href="graphics-as-a-tool.html#cb355-5" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb355-6"><a href="graphics-as-a-tool.html#cb355-6" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> faunistic_array)) <span class="sc">+</span></span>
+<span id="cb355-7"><a href="graphics-as-a-tool.html#cb355-7" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb355-8"><a href="graphics-as-a-tool.html#cb355-8" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb355-9"><a href="graphics-as-a-tool.html#cb355-9" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter</span>
+<span id="cb355-10"><a href="graphics-as-a-tool.html#cb355-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Notice the violin shapes under the scatter plot.</span></span>
+<span id="cb355-11"><a href="graphics-as-a-tool.html#cb355-11" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(my_ichtyo_scatter)</span>
+<span id="cb355-12"><a href="graphics-as-a-tool.html#cb355-12" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;gg&quot;     &quot;ggplot&quot;</span></span></code></pre></div>
+<p><img src="figures/session_9_figs/8_colorbrew_scatter_std.png" width="100%" /></p>
+<p>This is the scatter plot with <strong>ggplot2</strong> with 9 colors form RColorBrewer <code>Paired</code> and using <code>scale_colour_manual()</code>.</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="graphics-as-a-tool.html#cb356-1" aria-hidden="true" tabindex="-1"></a>my_paired_palette <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="at">n =</span> <span class="dv">9</span>, <span class="at">name =</span> <span class="st">&#39;Paired&#39;</span>)</span>
+<span id="cb356-2"><a href="graphics-as-a-tool.html#cb356-2" aria-hidden="true" tabindex="-1"></a>my_paired_palette</span>
+<span id="cb356-3"><a href="graphics-as-a-tool.html#cb356-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#A6CEE3&quot; &quot;#1F78B4&quot; &quot;#B2DF8A&quot; &quot;#33A02C&quot; &quot;#FB9A99&quot; &quot;#E31A1C&quot; &quot;#FDBF6F&quot; &quot;#FF7F00&quot; &quot;#CAB2D6&quot;</span></span>
+<span id="cb356-4"><a href="graphics-as-a-tool.html#cb356-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb356-5"><a href="graphics-as-a-tool.html#cb356-5" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter2 <span class="ot">&lt;-</span> my_ichtyo_scatter <span class="sc">+</span> <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> my_paired_palette)</span>
+<span id="cb356-6"><a href="graphics-as-a-tool.html#cb356-6" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter2</span>
+<span id="cb356-7"><a href="graphics-as-a-tool.html#cb356-7" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(my_ichtyo_scatter2)</span>
+<span id="cb356-8"><a href="graphics-as-a-tool.html#cb356-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;gg&quot;     &quot;ggplot&quot;</span></span></code></pre></div>
+<p><img src="figures/session_9_figs/9_colorbrew_scatter_Paired.png" width="100%" />
+<strong>Notice</strong> how easy is to change colors from existing <strong>ggplot</strong> object, in this case <code>my_ichtyo_scatter</code>. We will explore this further as we progress on this session.</p>
+<p><strong>10)</strong> The package <a href="https://cran.r-project.org/web/packages/ggsci/index.html" target="_blank"><strong>ggsci</strong></a> is general collection of scientific journal and sci-fi themed color palettes for <strong>ggplot2</strong>.</p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="graphics-as-a-tool.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install R-package &#39;ggsci&#39; </span></span>
+<span id="cb357-2"><a href="graphics-as-a-tool.html#cb357-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggsci&quot;</span>)</span>
+<span id="cb357-3"><a href="graphics-as-a-tool.html#cb357-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggsci)</span></code></pre></div>
+<p>The <strong>ggsci</strong> has its own <a href="https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html" target="_blank"><strong>vignette</strong></a>. The palettes in this package are diverse and here is a list from their vignette.</p>
+<table>
+<colgroup>
+<col width="8%" />
+<col width="18%" />
+<col width="36%" />
+<col width="36%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Scales</th>
+<th>Palette Types</th>
+<th>Palette Generator</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NPG</td>
+<td>scale_color_npg() scale_fill_npg()</td>
+<td>“nrc”</td>
+<td>pal_npg()</td>
+</tr>
+<tr class="even">
+<td>AAAS</td>
+<td>scale_color_aaas() scale_fill_aaas()</td>
+<td>“default”</td>
+<td>pal_aaas()</td>
+</tr>
+<tr class="odd">
+<td>NEJM</td>
+<td>scale_color_nejm() scale_fill_nejm()</td>
+<td>“default”</td>
+<td>pal_nejm()</td>
+</tr>
+<tr class="even">
+<td>Lancet</td>
+<td>scale_color_lancet() scale_fill_lancet()</td>
+<td>“lanonc”</td>
+<td>pal_lancet()</td>
+</tr>
+<tr class="odd">
+<td>JAMA</td>
+<td>scale_color_jama() scale_fill_jama()</td>
+<td>“default”</td>
+<td>pal_jama()</td>
+</tr>
+<tr class="even">
+<td>JCO</td>
+<td>scale_color_jco() scale_fill_jco()</td>
+<td>“default”</td>
+<td>pal_jco()</td>
+</tr>
+<tr class="odd">
+<td>UCSCGB</td>
+<td>scale_color_ucscgb() scale_fill_ucscgb()</td>
+<td>“default”</td>
+<td>pal_ucscgb()</td>
+</tr>
+<tr class="even">
+<td>D3</td>
+<td>scale_color_d3() scale_fill_d3()</td>
+<td>“category10” “category20” “category20b” “category20c”</td>
+<td>pal_d3()</td>
+</tr>
+<tr class="odd">
+<td>LocusZoom</td>
+<td>scale_color_locuszoom() scale_fill_locuszoom()</td>
+<td>“default”</td>
+<td>pal_locuszoom()</td>
+</tr>
+<tr class="even">
+<td>IGV</td>
+<td>scale_color_igv() scale_fill_igv()</td>
+<td>“default”“alternating”</td>
+<td>pal_igv()</td>
+</tr>
+<tr class="odd">
+<td>UChicago</td>
+<td>scale_color_uchicago() scale_fill_uchicago()</td>
+<td>“default”“light” “dark”</td>
+<td>pal_uchicago()</td>
+</tr>
+<tr class="even">
+<td>Star Trek</td>
+<td>scale_color_startrek() scale_fill_startrek()</td>
+<td>“uniform”</td>
+<td>pal_startrek()</td>
+</tr>
+<tr class="odd">
+<td>Tron Legacy</td>
+<td>scale_color_tron() scale_fill_tron()</td>
+<td>“legacy”</td>
+<td>pal_tron()</td>
+</tr>
+<tr class="even">
+<td>Futurama</td>
+<td>scale_color_futurama() scale_fill_futurama()</td>
+<td>“planetexpress”</td>
+<td>pal_futurama()</td>
+</tr>
+<tr class="odd">
+<td>Rick and Morty</td>
+<td>scale_color_rickandmorty() scale_fill_rickandmorty()</td>
+<td>“schwifty”</td>
+<td>pal_rickandmorty()</td>
+</tr>
+<tr class="even">
+<td>The Simpsons</td>
+<td>scale_color_simpsons() scale_fill_simpsons()</td>
+<td>“springfield”</td>
+<td>pal_simpsons()</td>
+</tr>
+<tr class="odd">
+<td>GSEA</td>
+<td>scale_color_gsea() scale_fill_gsea()</td>
+<td>“default”</td>
+<td>pal_gsea()</td>
+</tr>
+<tr class="even">
+<td>Material Design</td>
+<td>scale_color_material() scale_fill_material()</td>
+<td>“red” “pink” “purple” “deep-purple” “indigo” “blue” “light-blue” “cyan” “teal” “green” “light-green” “lime” “yellow” “amber” “orange” “deep-orange” “brown” “grey” “blue-grey”</td>
+<td>pal_material()</td>
+</tr>
+</tbody>
+</table>
+<p><strong>11)</strong> You apply this palettes as we did in <strong>9)</strong> using <code>scale_color_XXX()</code> or <code>scale_fill_XXX()</code>.</p>
+<p>For example, we will use <code>my_ichtyo_boxplot</code> the <code>aaas</code> palette.</p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="graphics-as-a-tool.html#cb358-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_ggsci_aaas <span class="ot">&lt;-</span> my_ichtyo_boxplot <span class="sc">+</span> <span class="fu">scale_fill_aaas</span>()</span>
+<span id="cb358-2"><a href="graphics-as-a-tool.html#cb358-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_ggsci_aaas</span></code></pre></div>
+<p><img src="figures/session_9_figs/13_plot_aaas.png" width="100%" /></p>
+<p>We can use <code>my_ichtyo_scatter</code> the <code>uchicago</code> palette.</p>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="graphics-as-a-tool.html#cb359-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_ggsci_uchicago <span class="ot">&lt;-</span> my_ichtyo_scatter <span class="sc">+</span> <span class="fu">scale_fill_uchicago</span>()</span>
+<span id="cb359-2"><a href="graphics-as-a-tool.html#cb359-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_ggsci_uchicago</span></code></pre></div>
+<p><img src="figures/session_9_figs/14_plot_uchicago.png" width="100%" /></p>
+<p><strong>12)</strong> The package <a href="https://cran.r-project.org/web/packages/wesanderson/index.html" target="_blank"><strong>wesanderson</strong></a> is a collection of palettes generated mostly from ‘Wes Anderson’ movies that can be incorporated in <strong>ggplot2</strong>.</p>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="graphics-as-a-tool.html#cb360-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install R-package &#39;wesanderson&#39; </span></span>
+<span id="cb360-2"><a href="graphics-as-a-tool.html#cb360-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;wesanderson&quot;</span>)</span>
+<span id="cb360-3"><a href="graphics-as-a-tool.html#cb360-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span></code></pre></div>
+<p>The list of the palettes present include: BottleRocket1,BottleRocket2,Rushmore1,Royal1,Royal2,Zissou1,Darjeeling1,Darjeeling2,Chevalier1,FantasticFox1,Moonrise1,Moonrise2,Moonrise3,Cavalcanti1,GrandBudapest1,GrandBudapest2,IsleofDogs1,IsleofDogs2.</p>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="graphics-as-a-tool.html#cb361-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I will need 9 colors in a discrete scale for &#39;my_ichtyo_boxplot&#39;</span></span>
+<span id="cb361-2"><a href="graphics-as-a-tool.html#cb361-2" aria-hidden="true" tabindex="-1"></a>my_wes_palette <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;IsleofDogs2&quot;</span>, <span class="dv">9</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span>
+<span id="cb361-3"><a href="graphics-as-a-tool.html#cb361-3" aria-hidden="true" tabindex="-1"></a>my_wes_palette</span>
+<span id="cb361-4"><a href="graphics-as-a-tool.html#cb361-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(my_wes_palette)</span>
+<span id="cb361-5"><a href="graphics-as-a-tool.html#cb361-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;palette&#39; chr [1:9] &quot;#EAD3BF&quot; &quot;#CAB3A2&quot; &quot;#AA9486&quot; &quot;#B08C69&quot; &quot;#B6854D&quot; &quot;#775B3E&quot; &quot;#39312F&quot; &quot;#2A2423&quot; &quot;#1C1718&quot;</span></span>
+<span id="cb361-6"><a href="graphics-as-a-tool.html#cb361-6" aria-hidden="true" tabindex="-1"></a><span class="co"># - attr(*, &quot;name&quot;)= chr &quot;IsleofDogs2&quot;</span></span></code></pre></div>
+<p><img src="figures/session_9_figs/15_plot_wes_palette.png" width="100%" /></p>
+<p>We can apply the <code>my_ichtyo_scatter</code> with <strong>ggplot2</strong> with these 9 colors using <code>scale_colour_manual()</code>.</p>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="graphics-as-a-tool.html#cb362-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_wes <span class="ot">&lt;-</span> my_ichtyo_scatter <span class="sc">+</span> <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> my_wes_palette)</span>
+<span id="cb362-2"><a href="graphics-as-a-tool.html#cb362-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_wes</span></code></pre></div>
+<p><img src="figures/session_9_figs/16_plot_wes_scatter.png" width="100%" /></p>
+</div>
+<div id="making-your-own-palette" class="section level2" number="9.6">
+<h2><span class="header-section-number">9.6</span> Making your own palette</h2>
+<p><strong>13)</strong> In many instances, you want your own palette and this can be done with the base function <code>colorRampPalette()</code>.</p>
+<p>You have to pick your colors by name as in the <a href="https://github.com/corytophanes/BIO_BIT_Bioinformatics_209/tree/main/ref_files_pdfs" target="_blank"><strong>Rcolor.pdf</strong></a>. Alternatively, you can get the names by <code>colors()</code>.</p>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="graphics-as-a-tool.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="do">## get a vector of all colors by name</span></span>
+<span id="cb363-2"><a href="graphics-as-a-tool.html#cb363-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colors</span>()</span>
+<span id="cb363-3"><a href="graphics-as-a-tool.html#cb363-3" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;white&quot;                &quot;aliceblue&quot;            &quot;antiquewhite&quot;         &quot;antiquewhite1&quot;        &quot;antiquewhite2&quot;        &quot;antiquewhite3&quot;       </span></span>
+<span id="cb363-4"><a href="graphics-as-a-tool.html#cb363-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [7] &quot;antiquewhite4&quot;        &quot;aquamarine&quot;           &quot;aquamarine1&quot;          &quot;aquamarine2&quot;          &quot;aquamarine3&quot;          &quot;aquamarine4&quot;         </span></span>
+<span id="cb363-5"><a href="graphics-as-a-tool.html#cb363-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[13] &quot;azure&quot;                &quot;azure1&quot;               &quot;azure2&quot;               &quot;azure3&quot;               &quot;azure4&quot;               &quot;beige&quot;               </span></span>
+<span id="cb363-6"><a href="graphics-as-a-tool.html#cb363-6" aria-hidden="true" tabindex="-1"></a><span class="co">#[19] &quot;bisque&quot;               &quot;bisque1&quot;              &quot;bisque2&quot;              &quot;bisque3&quot;              &quot;bisque4&quot;              &quot;black&quot;               </span></span>
+<span id="cb363-7"><a href="graphics-as-a-tool.html#cb363-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb363-8"><a href="graphics-as-a-tool.html#cb363-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb363-9"><a href="graphics-as-a-tool.html#cb363-9" aria-hidden="true" tabindex="-1"></a><span class="do">## the total number of colors by name</span></span>
+<span id="cb363-10"><a href="graphics-as-a-tool.html#cb363-10" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">colors</span>())</span>
+<span id="cb363-11"><a href="graphics-as-a-tool.html#cb363-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 657</span></span>
+<span id="cb363-12"><a href="graphics-as-a-tool.html#cb363-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb363-13"><a href="graphics-as-a-tool.html#cb363-13" aria-hidden="true" tabindex="-1"></a><span class="do">## for our example, we will get three colors by name in a vector</span></span>
+<span id="cb363-14"><a href="graphics-as-a-tool.html#cb363-14" aria-hidden="true" tabindex="-1"></a>my_colors_by_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;firebrick4&quot;</span>, <span class="st">&quot;gray89&quot;</span>, <span class="st">&quot;navyblue&quot;</span>)</span></code></pre></div>
+<p>Likewise, you can get some hexadecimal colors codes for those that you want, e.g., <code>#EEBD91</code>, <code>#F5A2A2</code>, <code>#40CB63</code>, <code>#4682B4</code> and <code>#862185</code>.</p>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="graphics-as-a-tool.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="do">## for our example, we will get these 5 hex colors in a vector</span></span>
+<span id="cb364-2"><a href="graphics-as-a-tool.html#cb364-2" aria-hidden="true" tabindex="-1"></a>my_colors_by_hex <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#EEBD91&quot;</span>, <span class="st">&quot;#F5A2A2&quot;</span>, <span class="st">&quot;#40CB63&quot;</span>, <span class="st">&quot;#4682B4&quot;</span>, <span class="st">&quot;#862185&quot;</span>)</span></code></pre></div>
+<p>To generate your palette, you use the function <code>colorRampPalette()</code>.</p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="graphics-as-a-tool.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="do">##NOTE: the vector of colors that you want to generate in this case 9 and this number is in parenthesis, so it is (9)</span></span>
+<span id="cb365-2"><a href="graphics-as-a-tool.html#cb365-2" aria-hidden="true" tabindex="-1"></a>my_colors_by_name_ramp <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(my_colors_by_name)(<span class="dv">9</span>)</span>
+<span id="cb365-3"><a href="graphics-as-a-tool.html#cb365-3" aria-hidden="true" tabindex="-1"></a>my_colors_by_name_ramp</span>
+<span id="cb365-4"><a href="graphics-as-a-tool.html#cb365-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#8B1A1A&quot; &quot;#A14C4C&quot; &quot;#B67E7E&quot; &quot;#CCB0B0&quot; &quot;#E3E3E3&quot; &quot;#AAAACA&quot; &quot;#7171B1&quot; &quot;#383898&quot; &quot;#000080&quot;</span></span>
+<span id="cb365-5"><a href="graphics-as-a-tool.html#cb365-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb365-6"><a href="graphics-as-a-tool.html#cb365-6" aria-hidden="true" tabindex="-1"></a>my_colors_by_hex_ramp <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(my_colors_by_hex)(<span class="dv">9</span>)</span>
+<span id="cb365-7"><a href="graphics-as-a-tool.html#cb365-7" aria-hidden="true" tabindex="-1"></a>my_colors_by_hex_ramp</span>
+<span id="cb365-8"><a href="graphics-as-a-tool.html#cb365-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#EEBD91&quot; &quot;#F1AF99&quot; &quot;#F5A2A2&quot; &quot;#9AB682&quot; &quot;#40CB63&quot; &quot;#43A68B&quot; &quot;#4682B4&quot; &quot;#66519C&quot; &quot;#862185&quot;</span></span></code></pre></div>
+<p>Finally, we can apply these color ramps to <code>my_ichtyo_scatter</code> with <strong>ggplot2</strong> using <code>scale_colour_manual()</code>.</p>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="graphics-as-a-tool.html#cb366-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_by_name <span class="ot">&lt;-</span> my_ichtyo_scatter <span class="sc">+</span> <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> my_colors_by_name_ramp)</span>
+<span id="cb366-2"><a href="graphics-as-a-tool.html#cb366-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_by_name</span></code></pre></div>
+<p><img src="figures/session_9_figs/17_plot_ramp_3.png" width="100%" /></p>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="graphics-as-a-tool.html#cb367-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_by_hex <span class="ot">&lt;-</span> my_ichtyo_scatter <span class="sc">+</span> <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> my_colors_by_hex_ramp)</span>
+<span id="cb367-2"><a href="graphics-as-a-tool.html#cb367-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_by_hex</span></code></pre></div>
+<p><img src="figures/session_9_figs/18_plot_ramp_5.png" width="100%" /></p>
+</div>
+<div id="boxplots" class="section level2" number="9.7">
+<h2><span class="header-section-number">9.7</span> Boxplots</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="exploring-multidimensional-data-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-Graphics_up_v11.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
