@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Session 10 – Basic Graphics | Bioinformatics Workshop Gitbook</title>
+  <meta name="description" content="none" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Session 10 – Basic Graphics | Bioinformatics Workshop Gitbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="none" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Session 10 – Basic Graphics | Bioinformatics Workshop Gitbook" />
+  
+  <meta name="twitter:description" content="none" />
+  
+
+<meta name="author" content="Juan C. Santos" />
+
+
+<meta name="date" content="2021-02-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="graphics-and-colors.html"/>
+
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Bioinformatics Workshop Gitbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>1</b> – Getting Started with R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#why-do-we-use-r"><i class="fa fa-check"></i><b>1.1</b> Why do we use R?</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#get-a-good-text-editor"><i class="fa fa-check"></i><b>1.2</b> Get a good text editor</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#r-studio"><i class="fa fa-check"></i><b>1.3</b> R studio</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-r"><i class="fa fa-check"></i><b>1.4</b> Installing R</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#annotating-code"><i class="fa fa-check"></i><b>1.5</b> Annotating code</a></li>
+<li class="chapter" data-level="1.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#defining-a-working-directory-in-r"><i class="fa fa-check"></i><b>1.6</b> Defining a working directory in R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html"><i class="fa fa-check"></i><b>2</b> – Using R, Installing Packages and Importing/Exporting Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#your-first-session"><i class="fa fa-check"></i><b>2.1</b> Your first session</a></li>
+<li class="chapter" data-level="2.2" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#doing-some-base-functions-and-getting-help"><i class="fa fa-check"></i><b>2.2</b> Doing some base functions and getting help</a></li>
+<li class="chapter" data-level="2.3" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#about-r-packages"><i class="fa fa-check"></i><b>2.3</b> About R-packages</a></li>
+<li class="chapter" data-level="2.4" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#installing-packages"><i class="fa fa-check"></i><b>2.4</b> Installing packages</a></li>
+<li class="chapter" data-level="2.5" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#importing-and-exporting-data"><i class="fa fa-check"></i><b>2.5</b> Importing and exporting data</a></li>
+<li class="chapter" data-level="2.6" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#saving-data-as-rdata-.rdata-.rda"><i class="fa fa-check"></i><b>2.6</b> Saving data as Rdata (.rdata, .rda)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html"><i class="fa fa-check"></i><b>3</b> – Basic Data Structures in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#scalars-and-vectors"><i class="fa fa-check"></i><b>3.1</b> Scalars and vectors</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#matrices"><i class="fa fa-check"></i><b>3.2</b> Matrices</a></li>
+<li class="chapter" data-level="3.3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#arrays"><i class="fa fa-check"></i><b>3.3</b> Arrays</a></li>
+<li class="chapter" data-level="3.4" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-frames"><i class="fa fa-check"></i><b>3.4</b> Data Frames</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tables"><i class="fa fa-check"></i><b>3.5</b> Tables</a></li>
+<li class="chapter" data-level="3.6" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#lists"><i class="fa fa-check"></i><b>3.6</b> Lists</a></li>
+<li class="chapter" data-level="3.7" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-tables"><i class="fa fa-check"></i><b>3.7</b> Data Tables</a></li>
+<li class="chapter" data-level="3.8" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tibbles"><i class="fa fa-check"></i><b>3.8</b> Tibbles</a></li>
+<li class="chapter" data-level="3.9" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#dnastringsets-rnastringsets-and-aastringsets"><i class="fa fa-check"></i><b>3.9</b> DNAStringSets, RNAStringSets and AAStringSets</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html"><i class="fa fa-check"></i><b>4</b> – Text Editing, Applying Transformations and Functions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html#working-with-character-strings"><i class="fa fa-check"></i><b>4.1</b> Working with character strings</a></li>
+<li class="chapter" data-level="4.2" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html#regular-expressions-regex"><i class="fa fa-check"></i><b>4.2</b> Regular expressions (Regex)</a></li>
+<li class="chapter" data-level="4.3" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html#comparing-ordering-and-simplifying-vectors"><i class="fa fa-check"></i><b>4.3</b> Comparing, ordering and simplifying vectors</a></li>
+<li class="chapter" data-level="4.4" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html#useful-functions-of-stringr"><i class="fa fa-check"></i><b>4.4</b> Useful functions of ‘stringr’</a></li>
+<li class="chapter" data-level="4.5" data-path="text-editing-applying-transformations-and-functions.html"><a href="text-editing-applying-transformations-and-functions.html#data-transformations"><i class="fa fa-check"></i><b>4.5</b> Data transformations</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html"><i class="fa fa-check"></i><b>5</b> – Getting Biological Data from Public Repositories</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#ncbi-databases-genbank-and-others"><i class="fa fa-check"></i><b>5.1</b> NCBI databases: GenBank and others</a></li>
+<li class="chapter" data-level="5.2" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#accessing-ncbi-within-r-rentrez"><i class="fa fa-check"></i><b>5.2</b> Accessing NCBI within R: rentrez</a></li>
+<li class="chapter" data-level="5.3" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#comparing-sequences-blast"><i class="fa fa-check"></i><b>5.3</b> Comparing sequences: BLAST</a></li>
+<li class="chapter" data-level="5.4" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-uniprot"><i class="fa fa-check"></i><b>5.4</b> Other databases: UniProt</a></li>
+<li class="chapter" data-level="5.5" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-ensembl"><i class="fa fa-check"></i><b>5.5</b> Other databases: Ensembl</a></li>
+<li class="chapter" data-level="5.6" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-taxonomy-phylogenetic-trees-and-species-distributions"><i class="fa fa-check"></i><b>5.6</b> Other databases: Taxonomy, phylogenetic trees and species distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html"><i class="fa fa-check"></i><b>6</b> – Basic Statistics in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#exploring-your-data"><i class="fa fa-check"></i><b>6.1</b> Exploring your data</a></li>
+<li class="chapter" data-level="6.2" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#normalizing-your-data"><i class="fa fa-check"></i><b>6.2</b> Normalizing your data</a></li>
+<li class="chapter" data-level="6.3" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-means-t-test"><i class="fa fa-check"></i><b>6.3</b> Comparing means: t-test</a></li>
+<li class="chapter" data-level="6.4" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>6.4</b> Beyond t-test: Wilcoxon signed rank test</a></li>
+<li class="chapter" data-level="6.5" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.5</b> Correlations</a></li>
+<li class="chapter" data-level="6.6" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.6</b> Comparing distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html"><i class="fa fa-check"></i><b>7</b> – Regressions and ANOVA in R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#linear-regressions"><i class="fa fa-check"></i><b>7.1</b> Linear regressions</a></li>
+<li class="chapter" data-level="7.2" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#selecting-predictors"><i class="fa fa-check"></i><b>7.2</b> Selecting predictors</a></li>
+<li class="chapter" data-level="7.3" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#logistic-regressions"><i class="fa fa-check"></i><b>7.3</b> Logistic regressions</a></li>
+<li class="chapter" data-level="7.4" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#non-linear-regressions"><i class="fa fa-check"></i><b>7.4</b> Non-linear regressions</a></li>
+<li class="chapter" data-level="7.5" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#anova"><i class="fa fa-check"></i><b>7.5</b> ANOVA</a></li>
+<li class="chapter" data-level="7.6" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#one-way-anova"><i class="fa fa-check"></i><b>7.6</b> One-way ANOVA</a></li>
+<li class="chapter" data-level="7.7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#two-way-anova"><i class="fa fa-check"></i><b>7.7</b> Two-way ANOVA</a></li>
+<li class="chapter" data-level="7.8" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#post-hoc-tests"><i class="fa fa-check"></i><b>7.8</b> Post-hoc tests</a></li>
+<li class="chapter" data-level="7.9" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#beyond-anova-kruskal-wallis-test"><i class="fa fa-check"></i><b>7.9</b> Beyond ANOVA: Kruskal-Wallis Test</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html"><i class="fa fa-check"></i><b>8</b> – Exploring Multidimensional Data in R</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#principal-component-analysis"><i class="fa fa-check"></i><b>8.1</b> Principal Component Analysis</a></li>
+<li class="chapter" data-level="8.2" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#multidimensional-scaling"><i class="fa fa-check"></i><b>8.2</b> Multidimensional scaling</a></li>
+<li class="chapter" data-level="8.3" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#cluster-analysis-dfa"><i class="fa fa-check"></i><b>8.3</b> Cluster analysis: DFA</a></li>
+<li class="chapter" data-level="8.4" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#cluster-analysis-k-means-unsupervised"><i class="fa fa-check"></i><b>8.4</b> Cluster analysis: <em>k</em>-means (unsupervised)</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html"><i class="fa fa-check"></i><b>9</b> – Graphics and Colors</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#avoid-bad-graphics"><i class="fa fa-check"></i><b>9.1</b> Avoid bad graphics</a></li>
+<li class="chapter" data-level="9.2" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#graphics-in-r-ggplot2"><i class="fa fa-check"></i><b>9.2</b> Graphics in R – ggplot2</a></li>
+<li class="chapter" data-level="9.3" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#preparing-your-dataset"><i class="fa fa-check"></i><b>9.3</b> Preparing your dataset</a></li>
+<li class="chapter" data-level="9.4" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#color-palettes-online"><i class="fa fa-check"></i><b>9.4</b> Color palettes online</a></li>
+<li class="chapter" data-level="9.5" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#ggplot2-default-palette"><i class="fa fa-check"></i><b>9.5</b> <code>ggplot2</code> default palette</a></li>
+<li class="chapter" data-level="9.6" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#heatmaps-or-tiled-charts"><i class="fa fa-check"></i><b>9.6</b> Heatmaps or tiled charts</a></li>
+<li class="chapter" data-level="9.7" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#r-packages-about-color"><i class="fa fa-check"></i><b>9.7</b> R-packages about color</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#viridis-package"><i class="fa fa-check"></i><b>9.7.1</b> <code>viridis</code> package</a></li>
+<li class="chapter" data-level="9.7.2" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#rcolorbrewer-package"><i class="fa fa-check"></i><b>9.7.2</b> <code>RColorBrewer</code> package</a></li>
+<li class="chapter" data-level="9.7.3" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#ggsci-package"><i class="fa fa-check"></i><b>9.7.3</b> <code>ggsci</code> package</a></li>
+<li class="chapter" data-level="9.7.4" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#wesanderson-package"><i class="fa fa-check"></i><b>9.7.4</b> <code>wesanderson</code> package</a></li>
+<li class="chapter" data-level="9.7.5" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#rcartocolor-package"><i class="fa fa-check"></i><b>9.7.5</b> <code>rcartocolor</code> package</a></li>
+<li class="chapter" data-level="9.7.6" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#colorspace-package"><i class="fa fa-check"></i><b>9.7.6</b> <code>colorspace</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#making-your-own-palette"><i class="fa fa-check"></i><b>9.8</b> Making your own palette</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="basic-graphics.html"><a href="basic-graphics.html"><i class="fa fa-check"></i><b>10</b> – Basic Graphics</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="basic-graphics.html"><a href="basic-graphics.html#bar-charts"><i class="fa fa-check"></i><b>10.1</b> Bar charts</a></li>
+<li class="chapter" data-level="10.2" data-path="basic-graphics.html"><a href="basic-graphics.html#histograms"><i class="fa fa-check"></i><b>10.2</b> Histograms</a></li>
+<li class="chapter" data-level="10.3" data-path="basic-graphics.html"><a href="basic-graphics.html#multiple-histograms"><i class="fa fa-check"></i><b>10.3</b> Multiple histograms</a></li>
+<li class="chapter" data-level="10.4" data-path="basic-graphics.html"><a href="basic-graphics.html#density-plots"><i class="fa fa-check"></i><b>10.4</b> Density plots</a></li>
+<li class="chapter" data-level="10.5" data-path="basic-graphics.html"><a href="basic-graphics.html#box-plots"><i class="fa fa-check"></i><b>10.5</b> Box plots</a></li>
+<li class="chapter" data-level="10.6" data-path="basic-graphics.html"><a href="basic-graphics.html#violin-plots"><i class="fa fa-check"></i><b>10.6</b> Violin plots</a></li>
+<li class="chapter" data-level="10.7" data-path="basic-graphics.html"><a href="basic-graphics.html#scatterplots"><i class="fa fa-check"></i><b>10.7</b> Scatterplots</a></li>
+<li class="chapter" data-level="10.8" data-path="basic-graphics.html"><a href="basic-graphics.html#lines-and-scatterplots"><i class="fa fa-check"></i><b>10.8</b> Lines and Scatterplots</a></li>
+<li class="chapter" data-level="10.9" data-path="basic-graphics.html"><a href="basic-graphics.html#multiple-graphs-at-once-with-cowplot"><i class="fa fa-check"></i><b>10.9</b> Multiple graphs at once with <code>cowplot</code></a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bioinformatics Workshop Gitbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="basic-graphics" class="section level1" number="10">
+<h1><span class="header-section-number">Session 10</span> – Basic Graphics</h1>
+<div id="bar-charts" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Bar charts</h2>
+<p>One of the most basic graphs is those that illustrate counts or mean values of discrete variables or ranges of values as groups in a continuous variable. For counts, the x-axis includes discrete variables and the y-axis are the counts assigned to each these variables (this is a bar graph). For a continuous variable, values on this variable can be divided into groups or ranges (e.g., 0-5, 6-10, 11-15, 16-20, etc) in the x-axis and then the number of times that individual values of the continuous variable fall in the ranges are represented in the y-axis (this is a histogram).</p>
+<p><strong>17)</strong> To do a bar chart, we need a dataset of discrete variables that include count and in the correct format to <strong>ggplot2</strong>.</p>
+<p>We will use the ‘ichtyo’ dataset of the package ‘ade4.’</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="basic-graphics.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we will load &#39;ade4&#39; and the ‘ichtyo’ dataset</span></span>
+<span id="cb382-2"><a href="basic-graphics.html#cb382-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)</span>
+<span id="cb382-3"><a href="basic-graphics.html#cb382-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ichtyo)</span>
+<span id="cb382-4"><a href="basic-graphics.html#cb382-4" aria-hidden="true" tabindex="-1"></a>ichtyo_data <span class="ot">&lt;-</span> ichtyo<span class="sc">$</span>tab</span>
+<span id="cb382-5"><a href="basic-graphics.html#cb382-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ichtyo_data)</span>
+<span id="cb382-6"><a href="basic-graphics.html#cb382-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  HOT VAN CHE SPI GOU BAF GAR ABL PER</span></span>
+<span id="cb382-7"><a href="basic-graphics.html#cb382-7" aria-hidden="true" tabindex="-1"></a><span class="co">#1  57  47  60  11  27  17  10   9  21</span></span>
+<span id="cb382-8"><a href="basic-graphics.html#cb382-8" aria-hidden="true" tabindex="-1"></a><span class="co">#2   9  25  19   6   2   5   0   4   6</span></span>
+<span id="cb382-9"><a href="basic-graphics.html#cb382-9" aria-hidden="true" tabindex="-1"></a><span class="co">#3  48  60  52  16  25  24  17   8  12</span></span>
+<span id="cb382-10"><a href="basic-graphics.html#cb382-10" aria-hidden="true" tabindex="-1"></a><span class="co">#4  26  50  32   8   6  11   2  10   5</span></span>
+<span id="cb382-11"><a href="basic-graphics.html#cb382-11" aria-hidden="true" tabindex="-1"></a><span class="co">#5  26  43  31  14   9  18  13  14   2</span></span>
+<span id="cb382-12"><a href="basic-graphics.html#cb382-12" aria-hidden="true" tabindex="-1"></a><span class="co">#6  62  43  47  16  11   9  15  16   3</span></span>
+<span id="cb382-13"><a href="basic-graphics.html#cb382-13" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ichtyo_data)</span>
+<span id="cb382-14"><a href="basic-graphics.html#cb382-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  32 obs. of  9 variables:</span></span>
+<span id="cb382-15"><a href="basic-graphics.html#cb382-15" aria-hidden="true" tabindex="-1"></a><span class="co"># $ HOT: num  57 9 48 26 26 62 17 18 9 12 ...</span></span>
+<span id="cb382-16"><a href="basic-graphics.html#cb382-16" aria-hidden="true" tabindex="-1"></a><span class="co"># $ VAN: num  47 25 60 50 43 43 34 22 14 9 ...</span></span>
+<span id="cb382-17"><a href="basic-graphics.html#cb382-17" aria-hidden="true" tabindex="-1"></a><span class="co"># $ CHE: num  60 19 52 32 31 47 28 18 8 9 ...</span></span>
+<span id="cb382-18"><a href="basic-graphics.html#cb382-18" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SPI: num  11 6 16 8 14 16 13 9 5 10 ...</span></span>
+<span id="cb382-19"><a href="basic-graphics.html#cb382-19" aria-hidden="true" tabindex="-1"></a><span class="co"># $ GOU: num  27 2 25 6 9 11 8 3 8 2 ...</span></span>
+<span id="cb382-20"><a href="basic-graphics.html#cb382-20" aria-hidden="true" tabindex="-1"></a><span class="co"># $ BAF: num  17 5 24 11 18 9 13 7 8 2 ...</span></span>
+<span id="cb382-21"><a href="basic-graphics.html#cb382-21" aria-hidden="true" tabindex="-1"></a><span class="co"># $ GAR: num  10 0 17 2 13 15 14 6 1 10 ...</span></span>
+<span id="cb382-22"><a href="basic-graphics.html#cb382-22" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ABL: num  9 4 8 10 14 16 5 8 1 5 ...</span></span>
+<span id="cb382-23"><a href="basic-graphics.html#cb382-23" aria-hidden="true" tabindex="-1"></a><span class="co"># $ PER: num  21 6 12 5 2 3 4 4 0 0 ...</span></span></code></pre></div>
+<p>For a bar chart, we need total counts. Therefore, we need to get the total sums per each column using <code>colSums()</code> and as a data frame using <code>as.data.frame()</code>.</p>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="basic-graphics.html#cb383-1" aria-hidden="true" tabindex="-1"></a><span class="do">## colum sum as data frame</span></span>
+<span id="cb383-2"><a href="basic-graphics.html#cb383-2" aria-hidden="true" tabindex="-1"></a>ichtyo_sum_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colSums</span> (ichtyo_data, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb383-3"><a href="basic-graphics.html#cb383-3" aria-hidden="true" tabindex="-1"></a>ichtyo_sum_df</span>
+<span id="cb383-4"><a href="basic-graphics.html#cb383-4" aria-hidden="true" tabindex="-1"></a><span class="co">#    colSums(ichtyo_data, na.rm = TRUE)</span></span>
+<span id="cb383-5"><a href="basic-graphics.html#cb383-5" aria-hidden="true" tabindex="-1"></a><span class="co">#HOT                                936</span></span>
+<span id="cb383-6"><a href="basic-graphics.html#cb383-6" aria-hidden="true" tabindex="-1"></a><span class="co">#VAN                                995</span></span>
+<span id="cb383-7"><a href="basic-graphics.html#cb383-7" aria-hidden="true" tabindex="-1"></a><span class="co">#CHE                               1741</span></span>
+<span id="cb383-8"><a href="basic-graphics.html#cb383-8" aria-hidden="true" tabindex="-1"></a><span class="co">#SPI                                491</span></span>
+<span id="cb383-9"><a href="basic-graphics.html#cb383-9" aria-hidden="true" tabindex="-1"></a><span class="co">#GOU                                951</span></span>
+<span id="cb383-10"><a href="basic-graphics.html#cb383-10" aria-hidden="true" tabindex="-1"></a><span class="co">#BAF                                658</span></span>
+<span id="cb383-11"><a href="basic-graphics.html#cb383-11" aria-hidden="true" tabindex="-1"></a><span class="co">#GAR                               1007</span></span>
+<span id="cb383-12"><a href="basic-graphics.html#cb383-12" aria-hidden="true" tabindex="-1"></a><span class="co">#ABL                                337</span></span>
+<span id="cb383-13"><a href="basic-graphics.html#cb383-13" aria-hidden="true" tabindex="-1"></a><span class="co">#PER                                625</span></span>
+<span id="cb383-14"><a href="basic-graphics.html#cb383-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb383-15"><a href="basic-graphics.html#cb383-15" aria-hidden="true" tabindex="-1"></a><span class="do">## build a nicer data frame and add column of site_names</span></span>
+<span id="cb383-16"><a href="basic-graphics.html#cb383-16" aria-hidden="true" tabindex="-1"></a>ichtyo_sum_df<span class="sc">$</span>site_names <span class="ot">&lt;-</span> <span class="fu">rownames</span>(ichtyo_sum_df)</span>
+<span id="cb383-17"><a href="basic-graphics.html#cb383-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb383-18"><a href="basic-graphics.html#cb383-18" aria-hidden="true" tabindex="-1"></a><span class="do">## upgrade column names</span></span>
+<span id="cb383-19"><a href="basic-graphics.html#cb383-19" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(ichtyo_sum_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;counts&quot;</span>, <span class="st">&quot;site_names&quot;</span>)</span>
+<span id="cb383-20"><a href="basic-graphics.html#cb383-20" aria-hidden="true" tabindex="-1"></a>ichtyo_sum_df</span>
+<span id="cb383-21"><a href="basic-graphics.html#cb383-21" aria-hidden="true" tabindex="-1"></a><span class="co">#    counts site_names</span></span>
+<span id="cb383-22"><a href="basic-graphics.html#cb383-22" aria-hidden="true" tabindex="-1"></a><span class="co">#HOT    936        HOT</span></span>
+<span id="cb383-23"><a href="basic-graphics.html#cb383-23" aria-hidden="true" tabindex="-1"></a><span class="co">#VAN    995        VAN</span></span>
+<span id="cb383-24"><a href="basic-graphics.html#cb383-24" aria-hidden="true" tabindex="-1"></a><span class="co">#CHE   1741        CHE</span></span>
+<span id="cb383-25"><a href="basic-graphics.html#cb383-25" aria-hidden="true" tabindex="-1"></a><span class="co">#SPI    491        SPI</span></span>
+<span id="cb383-26"><a href="basic-graphics.html#cb383-26" aria-hidden="true" tabindex="-1"></a><span class="co">#GOU    951        GOU</span></span>
+<span id="cb383-27"><a href="basic-graphics.html#cb383-27" aria-hidden="true" tabindex="-1"></a><span class="co">#BAF    658        BAF</span></span>
+<span id="cb383-28"><a href="basic-graphics.html#cb383-28" aria-hidden="true" tabindex="-1"></a><span class="co">#GAR   1007        GAR</span></span>
+<span id="cb383-29"><a href="basic-graphics.html#cb383-29" aria-hidden="true" tabindex="-1"></a><span class="co">#ABL    337        ABL</span></span>
+<span id="cb383-30"><a href="basic-graphics.html#cb383-30" aria-hidden="true" tabindex="-1"></a><span class="co">#PER    625        PER</span></span>
+<span id="cb383-31"><a href="basic-graphics.html#cb383-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb383-32"><a href="basic-graphics.html#cb383-32" aria-hidden="true" tabindex="-1"></a><span class="do">## add count labels for later use</span></span>
+<span id="cb383-33"><a href="basic-graphics.html#cb383-33" aria-hidden="true" tabindex="-1"></a>ichtyo_sum_df<span class="sc">$</span>count_label <span class="ot">&lt;-</span> <span class="fu">as.character</span>(ichtyo_sum_df<span class="sc">$</span>counts)</span>
+<span id="cb383-34"><a href="basic-graphics.html#cb383-34" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ichtyo_sum_df)</span>
+<span id="cb383-35"><a href="basic-graphics.html#cb383-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  9 obs. of  3 variables:</span></span>
+<span id="cb383-36"><a href="basic-graphics.html#cb383-36" aria-hidden="true" tabindex="-1"></a><span class="co"># $ counts     : num  936 995 1741 491 951 ...</span></span>
+<span id="cb383-37"><a href="basic-graphics.html#cb383-37" aria-hidden="true" tabindex="-1"></a><span class="co"># $ site_names : chr  &quot;HOT&quot; &quot;VAN&quot; &quot;CHE&quot; &quot;SPI&quot; ...</span></span>
+<span id="cb383-38"><a href="basic-graphics.html#cb383-38" aria-hidden="true" tabindex="-1"></a><span class="co"># $ count_label: chr  &quot;936&quot; &quot;995&quot; &quot;1741&quot; &quot;491&quot; ...</span></span></code></pre></div>
+<p>We can now plot our bar chart with <code>site_names</code> in the x-axis and <code>counts</code> in the y-axis. A series the options to the ggplot are added: <code>ggplot()</code> is the main scaffold of the plot and includes the argument <code>data = ichtyo_sum_df</code> as source of data,<code>aes()</code> defines axis in the 2D ggplot, <code>x</code> is the x-axis and we defined <code>site_names</code> as the variable for that axis,<code>y</code> is the y-axis and we defined <code>counts</code> as the variable for that axis, <code>fill</code> is the variable that will define groups to color the bars in the plot.<code>geom_bar()</code> is the option for bar charts, the argument <code>colour = black</code> is for black countour of the bars, the argument <code>stat = "identity"</code> basically says that we want the values of the y-axis (i.e., counts) as the heights of the bars.<code>guides(fill = FALSE)</code> indicagtes that we do not want legends. <code>theme_minimal()</code> is a present style of the plot that is simple. <code>xlab()</code>, <code>ylab()</code> and <code>ggtitle()</code> are labels for the axis and title, you can put in there whatever you want.</p>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="basic-graphics.html#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if ggplot2 is loaded</span></span>
+<span id="cb384-2"><a href="basic-graphics.html#cb384-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
+<span id="cb384-3"><a href="basic-graphics.html#cb384-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggsci)</span>
+<span id="cb384-4"><a href="basic-graphics.html#cb384-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb384-5"><a href="basic-graphics.html#cb384-5" aria-hidden="true" tabindex="-1"></a><span class="co"># base plot</span></span>
+<span id="cb384-6"><a href="basic-graphics.html#cb384-6" aria-hidden="true" tabindex="-1"></a>ichtyo_barchart <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>ichtyo_sum_df, <span class="fu">aes</span>(<span class="at">x=</span>site_names, <span class="at">y=</span>counts, <span class="at">fill =</span> site_names)) <span class="sc">+</span></span>
+<span id="cb384-7"><a href="basic-graphics.html#cb384-7" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">geom_bar</span>(<span class="at">colour=</span><span class="st">&quot;black&quot;</span>, <span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb384-8"><a href="basic-graphics.html#cb384-8" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">guides</span>(<span class="at">fill=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb384-9"><a href="basic-graphics.html#cb384-9" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb384-10"><a href="basic-graphics.html#cb384-10" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">xlab</span>(<span class="st">&quot;Sites on a place&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb384-11"><a href="basic-graphics.html#cb384-11" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">ylab</span>(<span class="st">&quot;Total counts&quot;</span>) <span class="sc">+</span></span>
+<span id="cb384-12"><a href="basic-graphics.html#cb384-12" aria-hidden="true" tabindex="-1"></a>                <span class="fu">ggtitle</span>(<span class="st">&quot;My First Bar Chart&quot;</span>)</span>
+<span id="cb384-13"><a href="basic-graphics.html#cb384-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb384-14"><a href="basic-graphics.html#cb384-14" aria-hidden="true" tabindex="-1"></a>ichtyo_barchart</span></code></pre></div>
+<p><img src="figures/session_9_figs/19_barchart_example_v1.png" width="90%" /></p>
+<p>We can simplify this plot with adding the counts on top of the bars with the <code>count_label</code> of the <code>ichtyo_sum_df</code> and remove the background grids. A series the options to the ggplot are added: <code>geom_text()</code> will add the text of the <code>count_label</code> using the <code>site_names</code> and <code>counts</code> as x and y coordinates and the argument <code>vjust=-1</code> will move it a bit above the x/y coordinate.<code>theme()</code> will remove some unwanted elements by assigning them as <code>element_blank()</code> these include the y-axis text and all the grids.</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="basic-graphics.html#cb385-1" aria-hidden="true" tabindex="-1"></a>ichtyo_barchart <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>ichtyo_sum_df, <span class="fu">aes</span>(<span class="at">x=</span>site_names, <span class="at">y=</span>counts, <span class="at">fill =</span> site_names)) <span class="sc">+</span></span>
+<span id="cb385-2"><a href="basic-graphics.html#cb385-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">geom_bar</span>(<span class="at">colour=</span><span class="st">&quot;black&quot;</span>, <span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb385-3"><a href="basic-graphics.html#cb385-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">guides</span>(<span class="at">fill=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb385-4"><a href="basic-graphics.html#cb385-4" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb385-5"><a href="basic-graphics.html#cb385-5" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">xlab</span>(<span class="st">&quot;Sites on a place&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb385-6"><a href="basic-graphics.html#cb385-6" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">ylab</span>(<span class="st">&quot;Total counts&quot;</span>) <span class="sc">+</span></span>
+<span id="cb385-7"><a href="basic-graphics.html#cb385-7" aria-hidden="true" tabindex="-1"></a>                <span class="fu">ggtitle</span>(<span class="st">&quot;My First Bar Chart&quot;</span>) <span class="sc">+</span></span>
+<span id="cb385-8"><a href="basic-graphics.html#cb385-8" aria-hidden="true" tabindex="-1"></a>              <span class="fu">geom_text</span>(<span class="at">data=</span>ichtyo_sum_df,<span class="fu">aes</span>(<span class="at">x=</span>site_names,<span class="at">y=</span>counts,<span class="at">label=</span>count_label),<span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb385-9"><a href="basic-graphics.html#cb385-9" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb385-10"><a href="basic-graphics.html#cb385-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb385-11"><a href="basic-graphics.html#cb385-11" aria-hidden="true" tabindex="-1"></a>                    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb385-12"><a href="basic-graphics.html#cb385-12" aria-hidden="true" tabindex="-1"></a>ichtyo_barchart</span></code></pre></div>
+<p><img src="figures/session_9_figs/20_barchart_example_v2.png" width="90%" /></p>
+<p>The base colors of this plot are becoming cliché as the enormous popularity of ggplot2, so we can change it to something more original using the color packages that we presented on previous section.</p>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="basic-graphics.html#cb386-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot with futurama fill colors</span></span>
+<span id="cb386-2"><a href="basic-graphics.html#cb386-2" aria-hidden="true" tabindex="-1"></a>ichtyo_barchart <span class="ot">&lt;-</span> ichtyo_barchart <span class="sc">+</span> <span class="fu">scale_fill_futurama</span>()</span>
+<span id="cb386-3"><a href="basic-graphics.html#cb386-3" aria-hidden="true" tabindex="-1"></a>ichtyo_barchart</span></code></pre></div>
+<p><img src="figures/session_9_figs/21_barchart_example_v3.png" width="90%" /></p>
+</div>
+<div id="histograms" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Histograms</h2>
+<p><strong>18)</strong> To do a histogram, we need a dataset with continuous variables and we will divide into ranges and format them into <strong>ggplot2</strong>.</p>
+<p>We will use two samples of the <code>airway_scaledcounts.csv</code> dataset that indicates gene expression.</p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="basic-graphics.html#cb387-1" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: remember to update the path to file with the dataset where you downloaded in your computer -- THIS IS EXCLUSIVE TO YOUR COMPUTER AND IT IS NOT THE PATH SHOWN BELOW</span></span>
+<span id="cb387-2"><a href="basic-graphics.html#cb387-2" aria-hidden="true" tabindex="-1"></a><span class="do">## load get &#39;airway_scaledcounts.csv&#39; dataset </span></span>
+<span id="cb387-3"><a href="basic-graphics.html#cb387-3" aria-hidden="true" tabindex="-1"></a>airway_data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/ref_files_pdfs/airway_scaledcounts.csv&quot;</span>,</span>
+<span id="cb387-4"><a href="basic-graphics.html#cb387-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb387-5"><a href="basic-graphics.html#cb387-5" aria-hidden="true" tabindex="-1"></a><span class="co"># remove &#39;ensgene&#39; variable</span></span>
+<span id="cb387-6"><a href="basic-graphics.html#cb387-6" aria-hidden="true" tabindex="-1"></a>airway_data_red <span class="ot">&lt;-</span> airway_data[,<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb387-7"><a href="basic-graphics.html#cb387-7" aria-hidden="true" tabindex="-1"></a><span class="co"># select two sample: &quot;SRR1039509&quot; and &quot;SRR1039517&quot;</span></span>
+<span id="cb387-8"><a href="basic-graphics.html#cb387-8" aria-hidden="true" tabindex="-1"></a>airway_data_red <span class="ot">&lt;-</span> <span class="fu">subset</span>(airway_data_red, <span class="at">select =</span> <span class="fu">c</span>(SRR1039509,SRR1039517))</span>
+<span id="cb387-9"><a href="basic-graphics.html#cb387-9" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(airway_data_red)</span>
+<span id="cb387-10"><a href="basic-graphics.html#cb387-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  38694 obs. of  2 variables:</span></span>
+<span id="cb387-11"><a href="basic-graphics.html#cb387-11" aria-hidden="true" tabindex="-1"></a><span class="co">#$ SRR1039509: num  486 0 523 258 81 ...</span></span>
+<span id="cb387-12"><a href="basic-graphics.html#cb387-12" aria-hidden="true" tabindex="-1"></a><span class="co">#$ SRR1039517: num  1097 0 781 447 94 ...</span></span></code></pre></div>
+<p>We estimate a histogram for sample <code>SRR1039509</code>, for this we need to explore this with <code>summary()</code>.</p>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="basic-graphics.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="do">## summary</span></span>
+<span id="cb388-2"><a href="basic-graphics.html#cb388-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(airway_data_red<span class="sc">$</span>SRR1039509)</span>
+<span id="cb388-3"><a href="basic-graphics.html#cb388-3" aria-hidden="true" tabindex="-1"></a><span class="co">#    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. </span></span>
+<span id="cb388-4"><a href="basic-graphics.html#cb388-4" aria-hidden="true" tabindex="-1"></a><span class="co">#     0.0      0.0      1.0    501.1    172.0 244921.0 </span></span></code></pre></div>
+<p>For a regular histogram in ggplot2 we want <code>geom_histogram()</code> with the <code>airway_data_red</code> data frame that includes sample <code>SRR1039509</code>. Next, we need to define some parameters: (1) how often we want the bins to be separated with the argument <code>breaks()</code>, it usually will be a sequence called by function <code>seq()</code> and in this case from a minimum (i.e., 0) and maximum (i.e., 244921 - 250000) and width argument <code>by=</code> for example 1000. (2) you can choose the color of the boundary of the histogram with <code>col=</code> like red, its fill color <code>fill=</code> like green and transparency <code>alpha</code> where 0 is transparent and 1 completely opaque.</p>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="basic-graphics.html#cb389-1" aria-hidden="true" tabindex="-1"></a>SRR1039509_histogram <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>airway_data_red, <span class="fu">aes</span>(<span class="at">x=</span>SRR1039509)) <span class="sc">+</span> </span>
+<span id="cb389-2"><a href="basic-graphics.html#cb389-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_histogram</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">250000</span>, <span class="at">by=</span><span class="dv">1000</span>), </span>
+<span id="cb389-3"><a href="basic-graphics.html#cb389-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">col=</span><span class="st">&quot;red&quot;</span>, </span>
+<span id="cb389-4"><a href="basic-graphics.html#cb389-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fill=</span><span class="st">&quot;green&quot;</span>, </span>
+<span id="cb389-5"><a href="basic-graphics.html#cb389-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb389-6"><a href="basic-graphics.html#cb389-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Histogram for SRR1039509&quot;</span>, <span class="at">x=</span><span class="st">&quot;Expression range&quot;</span>, <span class="at">y=</span><span class="st">&quot;Count&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb389-7"><a href="basic-graphics.html#cb389-7" aria-hidden="true" tabindex="-1"></a>                <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">250000</span>))<span class="sc">+</span></span>
+<span id="cb389-8"><a href="basic-graphics.html#cb389-8" aria-hidden="true" tabindex="-1"></a>                <span class="fu">theme_minimal</span>()</span>
+<span id="cb389-9"><a href="basic-graphics.html#cb389-9" aria-hidden="true" tabindex="-1"></a>SRR1039509_histogram</span></code></pre></div>
+<p><img src="figures/session_9_figs/22_histogram_raw_1.png" width="90%" /></p>
+<p>This histogram is quite skewed to the right and we notice the maximum of the sample (i.e., 244921) is ~500 x mean value. Some genes are highly overexpressed and most of these are rare (low count). We can modify the <code>breaks()</code> argument to series of individual breaks every 100 (e.g., 100,200,..,2000), in this last break it we want to include all genes +2000 expression units.</p>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="basic-graphics.html#cb390-1" aria-hidden="true" tabindex="-1"></a>SRR1039509_histogram <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>airway_data_red, <span class="fu">aes</span>(<span class="at">x=</span>SRR1039509)) <span class="sc">+</span> </span>
+<span id="cb390-2"><a href="basic-graphics.html#cb390-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_histogram</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2000</span>, <span class="at">by=</span><span class="dv">100</span>), </span>
+<span id="cb390-3"><a href="basic-graphics.html#cb390-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">col=</span><span class="st">&quot;red&quot;</span>, </span>
+<span id="cb390-4"><a href="basic-graphics.html#cb390-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fill=</span><span class="st">&quot;green&quot;</span>, </span>
+<span id="cb390-5"><a href="basic-graphics.html#cb390-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb390-6"><a href="basic-graphics.html#cb390-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Histogram for SRR1039509&quot;</span>, <span class="at">x=</span><span class="st">&quot;Expression range&quot;</span>, <span class="at">y=</span><span class="st">&quot;Count&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb390-7"><a href="basic-graphics.html#cb390-7" aria-hidden="true" tabindex="-1"></a>                <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2000</span>))<span class="sc">+</span></span>
+<span id="cb390-8"><a href="basic-graphics.html#cb390-8" aria-hidden="true" tabindex="-1"></a>                <span class="fu">theme_minimal</span>()</span>
+<span id="cb390-9"><a href="basic-graphics.html#cb390-9" aria-hidden="true" tabindex="-1"></a>SRR1039509_histogram</span></code></pre></div>
+<p><img src="figures/session_9_figs/23_histogram_ver_2.png" width="90%" /></p>
+<p>This histogram is better, yet not ideal. First, it still is right skewed and count values &gt;2000 were excluded from the graph. This suggest that we need to simplify our data and bin all values more 2000 to that maximum. We can do this by creating an small function that we create and named <code>cap_2000_fun</code> that uses <code>ifelse()</code>.</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="basic-graphics.html#cb391-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a small function to cap values to 2000</span></span>
+<span id="cb391-2"><a href="basic-graphics.html#cb391-2" aria-hidden="true" tabindex="-1"></a>cap_2000_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {cap <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(x<span class="sc">&gt;</span><span class="dv">2000</span>,<span class="dv">2000</span>, x)</span>
+<span id="cb391-3"><a href="basic-graphics.html#cb391-3" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">return</span>(cap)}</span>
+<span id="cb391-4"><a href="basic-graphics.html#cb391-4" aria-hidden="true" tabindex="-1"></a><span class="do">## we can test our function</span></span>
+<span id="cb391-5"><a href="basic-graphics.html#cb391-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cap_2000_fun</span>(<span class="dv">1</span>)</span>
+<span id="cb391-6"><a href="basic-graphics.html#cb391-6" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 1</span></span>
+<span id="cb391-7"><a href="basic-graphics.html#cb391-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cap_2000_fun</span>(<span class="dv">10000</span>)</span>
+<span id="cb391-8"><a href="basic-graphics.html#cb391-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 2000</span></span></code></pre></div>
+<p>Now, we can apply this function to <code>airway_data_red</code> using the <code>modify()</code> from the package <code>purrr</code>.</p>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="basic-graphics.html#cb392-1" aria-hidden="true" tabindex="-1"></a><span class="do">## modify values with function so all values &gt;2000 will be cap to 2000</span></span>
+<span id="cb392-2"><a href="basic-graphics.html#cb392-2" aria-hidden="true" tabindex="-1"></a>airway_data_red_capped <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">modify</span>(airway_data_red, cap_2000_fun)</span>
+<span id="cb392-3"><a href="basic-graphics.html#cb392-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb392-4"><a href="basic-graphics.html#cb392-4" aria-hidden="true" tabindex="-1"></a><span class="do">## plot histogram</span></span>
+<span id="cb392-5"><a href="basic-graphics.html#cb392-5" aria-hidden="true" tabindex="-1"></a>SRR1039509_histogram_capped <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>airway_data_red_capped, <span class="fu">aes</span>(<span class="at">x=</span>SRR1039509)) <span class="sc">+</span> </span>
+<span id="cb392-6"><a href="basic-graphics.html#cb392-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_histogram</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2000</span>, <span class="at">by=</span><span class="dv">100</span>), </span>
+<span id="cb392-7"><a href="basic-graphics.html#cb392-7" aria-hidden="true" tabindex="-1"></a>                       <span class="at">col=</span><span class="st">&quot;red&quot;</span>, </span>
+<span id="cb392-8"><a href="basic-graphics.html#cb392-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fill=</span><span class="st">&quot;green&quot;</span>, </span>
+<span id="cb392-9"><a href="basic-graphics.html#cb392-9" aria-hidden="true" tabindex="-1"></a>                    <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb392-10"><a href="basic-graphics.html#cb392-10" aria-hidden="true" tabindex="-1"></a>                <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Histogram for SRR1039509&quot;</span>, <span class="at">x=</span><span class="st">&quot;Expression range with capped values to 2000 if more than this value&quot;</span>, <span class="at">y=</span><span class="st">&quot;Count&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb392-11"><a href="basic-graphics.html#cb392-11" aria-hidden="true" tabindex="-1"></a>                <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2000</span>))<span class="sc">+</span></span>
+<span id="cb392-12"><a href="basic-graphics.html#cb392-12" aria-hidden="true" tabindex="-1"></a>                <span class="fu">theme_minimal</span>()</span>
+<span id="cb392-13"><a href="basic-graphics.html#cb392-13" aria-hidden="true" tabindex="-1"></a>SRR1039509_histogram_capped</span></code></pre></div>
+<p><img src="figures/session_9_figs/24_histogram_ver_3.png" width="90%" /></p>
+<p>This histogram still looks skewed to the right. We can try bin all values above 500 by creating a new function and use shorter breaks every 10 on ggplot2.</p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="basic-graphics.html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a small function to cap values to 500</span></span>
+<span id="cb393-2"><a href="basic-graphics.html#cb393-2" aria-hidden="true" tabindex="-1"></a>cap_500_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {cap <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(x<span class="sc">&gt;</span><span class="dv">500</span>,<span class="dv">500</span>, x)</span>
+<span id="cb393-3"><a href="basic-graphics.html#cb393-3" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">return</span>(cap)}</span>
+<span id="cb393-4"><a href="basic-graphics.html#cb393-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb393-5"><a href="basic-graphics.html#cb393-5" aria-hidden="true" tabindex="-1"></a><span class="do">## modify values with function so all values &gt;500 will be cap to 500 </span></span>
+<span id="cb393-6"><a href="basic-graphics.html#cb393-6" aria-hidden="true" tabindex="-1"></a>airway_data_red_capped <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">modify</span>(airway_data_red, cap_500_fun)</span>
+<span id="cb393-7"><a href="basic-graphics.html#cb393-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb393-8"><a href="basic-graphics.html#cb393-8" aria-hidden="true" tabindex="-1"></a><span class="do">## plot histogram and modify breaks</span></span>
+<span id="cb393-9"><a href="basic-graphics.html#cb393-9" aria-hidden="true" tabindex="-1"></a>SRR1039509_histogram_capped <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>airway_data_red_capped, <span class="fu">aes</span>(<span class="at">x=</span>SRR1039509)) <span class="sc">+</span> </span>
+<span id="cb393-10"><a href="basic-graphics.html#cb393-10" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_histogram</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">500</span>, <span class="at">by=</span><span class="dv">10</span>), </span>
+<span id="cb393-11"><a href="basic-graphics.html#cb393-11" aria-hidden="true" tabindex="-1"></a>                       <span class="at">col=</span><span class="st">&quot;red&quot;</span>, </span>
+<span id="cb393-12"><a href="basic-graphics.html#cb393-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fill=</span><span class="st">&quot;green&quot;</span>, </span>
+<span id="cb393-13"><a href="basic-graphics.html#cb393-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb393-14"><a href="basic-graphics.html#cb393-14" aria-hidden="true" tabindex="-1"></a>                <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Histogram for SRR1039509&quot;</span>, <span class="at">x=</span><span class="st">&quot;Expression range with capped&quot;</span>, <span class="at">y=</span><span class="st">&quot;Count&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb393-15"><a href="basic-graphics.html#cb393-15" aria-hidden="true" tabindex="-1"></a>                <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">500</span>))<span class="sc">+</span></span>
+<span id="cb393-16"><a href="basic-graphics.html#cb393-16" aria-hidden="true" tabindex="-1"></a>                <span class="fu">theme_minimal</span>()</span>
+<span id="cb393-17"><a href="basic-graphics.html#cb393-17" aria-hidden="true" tabindex="-1"></a>SRR1039509_histogram_capped</span></code></pre></div>
+<p><img src="figures/session_9_figs/25_histogram_ver_4.png" width="90%" />
+We can also remove some low expressed genes (e.g., values less than 100) and over expressed genes (e.g., values more than 500). This can be done just by defining the argument <code>xlim()</code> between 100 and 400.</p>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="basic-graphics.html#cb394-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot histogram and modify breaks</span></span>
+<span id="cb394-2"><a href="basic-graphics.html#cb394-2" aria-hidden="true" tabindex="-1"></a>SRR1039509_histogram_capped <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>airway_data_red_capped, <span class="fu">aes</span>(<span class="at">x=</span>SRR1039509)) <span class="sc">+</span> </span>
+<span id="cb394-3"><a href="basic-graphics.html#cb394-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_histogram</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">500</span>, <span class="at">by=</span><span class="dv">10</span>), </span>
+<span id="cb394-4"><a href="basic-graphics.html#cb394-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">col=</span><span class="st">&quot;red&quot;</span>, </span>
+<span id="cb394-5"><a href="basic-graphics.html#cb394-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fill=</span><span class="st">&quot;green&quot;</span>, </span>
+<span id="cb394-6"><a href="basic-graphics.html#cb394-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb394-7"><a href="basic-graphics.html#cb394-7" aria-hidden="true" tabindex="-1"></a>                <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Histogram for SRR1039509&quot;</span>, <span class="at">x=</span><span class="st">&quot;Expression range with capped -- yet be dropped less 100 and more 400 counts&quot;</span>, <span class="at">y=</span><span class="st">&quot;Count&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb394-8"><a href="basic-graphics.html#cb394-8" aria-hidden="true" tabindex="-1"></a>                <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">100</span>,<span class="dv">400</span>))<span class="sc">+</span></span>
+<span id="cb394-9"><a href="basic-graphics.html#cb394-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">theme_minimal</span>()</span>
+<span id="cb394-10"><a href="basic-graphics.html#cb394-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb394-11"><a href="basic-graphics.html#cb394-11" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTICE</span><span class="do">: the warning about dropping rows outside the xlim().</span></span>
+<span id="cb394-12"><a href="basic-graphics.html#cb394-12" aria-hidden="true" tabindex="-1"></a>SRR1039509_histogram_capped</span>
+<span id="cb394-13"><a href="basic-graphics.html#cb394-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Warning messages:</span></span>
+<span id="cb394-14"><a href="basic-graphics.html#cb394-14" aria-hidden="true" tabindex="-1"></a><span class="co">#1: Removed 34710 rows containing non-finite values (stat_bin). </span></span>
+<span id="cb394-15"><a href="basic-graphics.html#cb394-15" aria-hidden="true" tabindex="-1"></a><span class="co">#2: Removed 20 rows containing missing values (geom_bar). </span></span></code></pre></div>
+<p><img src="figures/session_9_figs/26_histogram_ver_5.png" width="90%" /></p>
+</div>
+<div id="multiple-histograms" class="section level2" number="10.3">
+<h2><span class="header-section-number">10.3</span> Multiple histograms</h2>
+<p><strong>19)</strong> To plot multiple histogram, we need two or more samples or populations with measurements on the same variable.</p>
+<p>For this example, we will use the <code>crabs</code> database of the package <code>MASS</code>. We will compare the two species based on their <code>CL</code> carapace length (mm).</p>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="basic-graphics.html#cb395-1" aria-hidden="true" tabindex="-1"></a><span class="do">## check is MASS is loaded and get &#39;crabs&#39; database</span></span>
+<span id="cb395-2"><a href="basic-graphics.html#cb395-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(MASS)</span>
+<span id="cb395-3"><a href="basic-graphics.html#cb395-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(crabs)</span>
+<span id="cb395-4"><a href="basic-graphics.html#cb395-4" aria-hidden="true" tabindex="-1"></a>crabs_data <span class="ot">&lt;-</span> crabs</span>
+<span id="cb395-5"><a href="basic-graphics.html#cb395-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(crabs_data)</span>
+<span id="cb395-6"><a href="basic-graphics.html#cb395-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  200 obs. of  8 variables:</span></span>
+<span id="cb395-7"><a href="basic-graphics.html#cb395-7" aria-hidden="true" tabindex="-1"></a><span class="co"># $ sp   : Factor w/ 2 levels &quot;B&quot;,&quot;O&quot;: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span id="cb395-8"><a href="basic-graphics.html#cb395-8" aria-hidden="true" tabindex="-1"></a><span class="co"># $ sex  : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 2 2 2 2 2 2 2 2 2 2 ...</span></span>
+<span id="cb395-9"><a href="basic-graphics.html#cb395-9" aria-hidden="true" tabindex="-1"></a><span class="co"># $ index: int  1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span id="cb395-10"><a href="basic-graphics.html#cb395-10" aria-hidden="true" tabindex="-1"></a><span class="co"># $ FL   : num  8.1 8.8 9.2 9.6 9.8 10.8 11.1 11.6 11.8 11.8 ...</span></span>
+<span id="cb395-11"><a href="basic-graphics.html#cb395-11" aria-hidden="true" tabindex="-1"></a><span class="co"># $ RW   : num  6.7 7.7 7.8 7.9 8 9 9.9 9.1 9.6 10.5 ...</span></span>
+<span id="cb395-12"><a href="basic-graphics.html#cb395-12" aria-hidden="true" tabindex="-1"></a><span class="co"># $ CL   : num  16.1 18.1 19 20.1 20.3 23 23.8 24.5 24.2 25.2 ...</span></span>
+<span id="cb395-13"><a href="basic-graphics.html#cb395-13" aria-hidden="true" tabindex="-1"></a><span class="co"># $ CW   : num  19 20.8 22.4 23.1 23 26.5 27.1 28.4 27.8 29.3 ...</span></span>
+<span id="cb395-14"><a href="basic-graphics.html#cb395-14" aria-hidden="true" tabindex="-1"></a><span class="co"># $ BD   : num  7 7.4 7.7 8.2 8.2 9.8 9.8 10.4 9.7 10.3 ...</span></span></code></pre></div>
+<p>We can plot overlaid histograms with its x-axis as <code>x = CL</code> and grouped by species as <code>fill = sp</code> and using <code>geom_histogram()</code>. You can control the width of the bins of the histogram with the argument <code>binwidth</code> and we selected 2.5.</p>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="basic-graphics.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Overlaid histograms</span></span>
+<span id="cb396-2"><a href="basic-graphics.html#cb396-2" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(crabs_data, <span class="fu">aes</span>(<span class="at">x=</span>CL, <span class="at">fill=</span>sp)) <span class="sc">+</span></span>
+<span id="cb396-3"><a href="basic-graphics.html#cb396-3" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">1</span>, <span class="at">alpha=</span>.<span class="dv">4</span>, <span class="at">position=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb396-4"><a href="basic-graphics.html#cb396-4" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">ggtitle</span>(<span class="st">&quot;Crab species CL overlap -- histograms&quot;</span>) <span class="sc">+</span></span>
+<span id="cb396-5"><a href="basic-graphics.html#cb396-5" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme_minimal</span>()</span>
+<span id="cb396-6"><a href="basic-graphics.html#cb396-6" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_plot</span></code></pre></div>
+<p><img src="figures/session_9_figs/27_two_his_ver_1.png" width="90%" /></p>
+<p>You can add a line to indicate the mean of each species, but you have to determine such values in a separated data frame. We use function <code>split()</code> and indicate that is by species with <code>crabs_data_CL$sp</code>. This will create a list with two data frames each one per species.</p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="basic-graphics.html#cb397-1" aria-hidden="true" tabindex="-1"></a><span class="do">## get mean per species</span></span>
+<span id="cb397-2"><a href="basic-graphics.html#cb397-2" aria-hidden="true" tabindex="-1"></a>crabs_data_CL <span class="ot">&lt;-</span> <span class="fu">subset</span>(crabs_data, <span class="at">select =</span> <span class="fu">c</span>(sp, CL))</span>
+<span id="cb397-3"><a href="basic-graphics.html#cb397-3" aria-hidden="true" tabindex="-1"></a>crabs_data_CL_sp_list <span class="ot">&lt;-</span><span class="fu">split</span>(crabs_data_CL, crabs_data_CL<span class="sc">$</span>sp)</span>
+<span id="cb397-4"><a href="basic-graphics.html#cb397-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(crabs_data_CL_sp_list)</span>
+<span id="cb397-5"><a href="basic-graphics.html#cb397-5" aria-hidden="true" tabindex="-1"></a><span class="co">#List of 2</span></span>
+<span id="cb397-6"><a href="basic-graphics.html#cb397-6" aria-hidden="true" tabindex="-1"></a><span class="co"># $ B:&#39;data.frame&#39;: 100 obs. of  2 variables:</span></span>
+<span id="cb397-7"><a href="basic-graphics.html#cb397-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  ..$ sp: Factor w/ 2 levels &quot;B&quot;,&quot;O&quot;: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span id="cb397-8"><a href="basic-graphics.html#cb397-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  ..$ CL: num [1:100] 16.1 18.1 19 20.1 20.3 23 23.8 24.5 24.2 25.2 ...</span></span>
+<span id="cb397-9"><a href="basic-graphics.html#cb397-9" aria-hidden="true" tabindex="-1"></a><span class="co"># $ O:&#39;data.frame&#39;: 100 obs. of  2 variables:</span></span>
+<span id="cb397-10"><a href="basic-graphics.html#cb397-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  ..$ sp: Factor w/ 2 levels &quot;B&quot;,&quot;O&quot;: 2 2 2 2 2 2 2 2 2 2 ...</span></span>
+<span id="cb397-11"><a href="basic-graphics.html#cb397-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  ..$ CL: num [1:100] 16.7 20.2 20.7 22.7 23.2 24.2 26 27.1 26.6 27.5 ...</span></span></code></pre></div>
+<p>Here are two forms that we get the mean of each species.</p>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="basic-graphics.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="do">## first form</span></span>
+<span id="cb398-2"><a href="basic-graphics.html#cb398-2" aria-hidden="true" tabindex="-1"></a>means_out_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb398-3"><a href="basic-graphics.html#cb398-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(crabs_data_CL_sp_list)) {</span>
+<span id="cb398-4"><a href="basic-graphics.html#cb398-4" aria-hidden="true" tabindex="-1"></a>                        one_species_name <span class="ot">&lt;-</span> <span class="fu">names</span>(crabs_data_CL_sp_list[i])</span>
+<span id="cb398-5"><a href="basic-graphics.html#cb398-5" aria-hidden="true" tabindex="-1"></a>                      one_species_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(crabs_data_CL_sp_list[[i]][,<span class="dv">2</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb398-6"><a href="basic-graphics.html#cb398-6" aria-hidden="true" tabindex="-1"></a>                            one_sp_out <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sp =</span> one_species_name, <span class="at">sp_mean =</span> one_species_mean, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb398-7"><a href="basic-graphics.html#cb398-7" aria-hidden="true" tabindex="-1"></a>                     means_out_list[[i]] <span class="ot">&lt;-</span> one_sp_out</span>
+<span id="cb398-8"><a href="basic-graphics.html#cb398-8" aria-hidden="true" tabindex="-1"></a>                                        }</span>
+<span id="cb398-9"><a href="basic-graphics.html#cb398-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb398-10"><a href="basic-graphics.html#cb398-10" aria-hidden="true" tabindex="-1"></a>means_out_df <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, means_out_list)</span>
+<span id="cb398-11"><a href="basic-graphics.html#cb398-11" aria-hidden="true" tabindex="-1"></a>means_out_df</span>
+<span id="cb398-12"><a href="basic-graphics.html#cb398-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  sp sp_mean</span></span>
+<span id="cb398-13"><a href="basic-graphics.html#cb398-13" aria-hidden="true" tabindex="-1"></a><span class="co">#1  B  30.058</span></span>
+<span id="cb398-14"><a href="basic-graphics.html#cb398-14" aria-hidden="true" tabindex="-1"></a><span class="co">#2  O  34.153</span></span>
+<span id="cb398-15"><a href="basic-graphics.html#cb398-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb398-16"><a href="basic-graphics.html#cb398-16" aria-hidden="true" tabindex="-1"></a><span class="do">## second form</span></span>
+<span id="cb398-17"><a href="basic-graphics.html#cb398-17" aria-hidden="true" tabindex="-1"></a>crab_removed_sp_column_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(crabs_data_CL_sp_list, <span class="cf">function</span>(x) { x[,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NULL</span>; x })</span>
+<span id="cb398-18"><a href="basic-graphics.html#cb398-18" aria-hidden="true" tabindex="-1"></a>crab_sp_means <span class="ot">&lt;-</span> <span class="fu">lapply</span>(crab_removed_sp_column_list, colMeans, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb398-19"><a href="basic-graphics.html#cb398-19" aria-hidden="true" tabindex="-1"></a>means_out_df <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, crab_sp_means)</span>
+<span id="cb398-20"><a href="basic-graphics.html#cb398-20" aria-hidden="true" tabindex="-1"></a>means_out_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(means_out_df)</span>
+<span id="cb398-21"><a href="basic-graphics.html#cb398-21" aria-hidden="true" tabindex="-1"></a>means_out_df<span class="sc">$</span>sp <span class="ot">&lt;-</span> <span class="fu">rownames</span>(means_out_df)</span>
+<span id="cb398-22"><a href="basic-graphics.html#cb398-22" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(means_out_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;sp_mean&quot;</span>, <span class="st">&quot;sp&quot;</span>)</span>
+<span id="cb398-23"><a href="basic-graphics.html#cb398-23" aria-hidden="true" tabindex="-1"></a>means_out_df</span>
+<span id="cb398-24"><a href="basic-graphics.html#cb398-24" aria-hidden="true" tabindex="-1"></a><span class="co">#  sp_mean sp</span></span>
+<span id="cb398-25"><a href="basic-graphics.html#cb398-25" aria-hidden="true" tabindex="-1"></a><span class="co">#B  30.058  B</span></span>
+<span id="cb398-26"><a href="basic-graphics.html#cb398-26" aria-hidden="true" tabindex="-1"></a><span class="co">#O  34.153  O</span></span></code></pre></div>
+<p>We can add a line to indicate the location of the mean of the histogram of each species with <code>geom_vline()</code>.</p>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="basic-graphics.html#cb399-1" aria-hidden="true" tabindex="-1"></a><span class="do">## add mean line</span></span>
+<span id="cb399-2"><a href="basic-graphics.html#cb399-2" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_plot <span class="ot">&lt;-</span> crabs_sp_CL_plot <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="at">data=</span>means_out_df, </span>
+<span id="cb399-3"><a href="basic-graphics.html#cb399-3" aria-hidden="true" tabindex="-1"></a>                                            <span class="fu">aes</span>(<span class="at">xintercept=</span>sp_mean,  <span class="at">colour=</span>sp),</span>
+<span id="cb399-4"><a href="basic-graphics.html#cb399-4" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">size=</span><span class="fl">0.5</span>)</span>
+<span id="cb399-5"><a href="basic-graphics.html#cb399-5" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_plot</span></code></pre></div>
+<p><img src="figures/session_9_figs/28_two_his_ver_2.png" width="90%" /></p>
+</div>
+<div id="density-plots" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> Density plots</h2>
+<p><strong>20)</strong> These graphics are similar to histograms, but they are called <code>geom_density()</code>. We will use the same crab dataset to illustrate this example.</p>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="basic-graphics.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="do">## check is MASS is loaded and get &#39;crabs&#39; database</span></span>
+<span id="cb400-2"><a href="basic-graphics.html#cb400-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(MASS)</span>
+<span id="cb400-3"><a href="basic-graphics.html#cb400-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(crabs)</span>
+<span id="cb400-4"><a href="basic-graphics.html#cb400-4" aria-hidden="true" tabindex="-1"></a>crabs_data <span class="ot">&lt;-</span> crabs</span>
+<span id="cb400-5"><a href="basic-graphics.html#cb400-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(crabs_data)</span>
+<span id="cb400-6"><a href="basic-graphics.html#cb400-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  200 obs. of  8 variables:</span></span>
+<span id="cb400-7"><a href="basic-graphics.html#cb400-7" aria-hidden="true" tabindex="-1"></a><span class="co"># $ sp   : Factor w/ 2 levels &quot;B&quot;,&quot;O&quot;: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span id="cb400-8"><a href="basic-graphics.html#cb400-8" aria-hidden="true" tabindex="-1"></a><span class="co"># $ sex  : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 2 2 2 2 2 2 2 2 2 2 ...</span></span>
+<span id="cb400-9"><a href="basic-graphics.html#cb400-9" aria-hidden="true" tabindex="-1"></a><span class="co"># $ index: int  1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span id="cb400-10"><a href="basic-graphics.html#cb400-10" aria-hidden="true" tabindex="-1"></a><span class="co"># $ FL   : num  8.1 8.8 9.2 9.6 9.8 10.8 11.1 11.6 11.8 11.8 ...</span></span>
+<span id="cb400-11"><a href="basic-graphics.html#cb400-11" aria-hidden="true" tabindex="-1"></a><span class="co"># $ RW   : num  6.7 7.7 7.8 7.9 8 9 9.9 9.1 9.6 10.5 ...</span></span>
+<span id="cb400-12"><a href="basic-graphics.html#cb400-12" aria-hidden="true" tabindex="-1"></a><span class="co"># $ CL   : num  16.1 18.1 19 20.1 20.3 23 23.8 24.5 24.2 25.2 ...</span></span>
+<span id="cb400-13"><a href="basic-graphics.html#cb400-13" aria-hidden="true" tabindex="-1"></a><span class="co"># $ CW   : num  19 20.8 22.4 23.1 23 26.5 27.1 28.4 27.8 29.3 ...</span></span>
+<span id="cb400-14"><a href="basic-graphics.html#cb400-14" aria-hidden="true" tabindex="-1"></a><span class="co"># $ BD   : num  7 7.4 7.7 8.2 8.2 9.8 9.8 10.4 9.7 10.3 ...</span></span></code></pre></div>
+<p>We can plot overlaid densities with its x-axis as <code>x = CL</code> and grouped by species as <code>fill = sp</code>.</p>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="basic-graphics.html#cb401-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Overlaid densities</span></span>
+<span id="cb401-2"><a href="basic-graphics.html#cb401-2" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_plot_den <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(crabs_data, <span class="fu">aes</span>(<span class="at">x=</span>CL, <span class="at">fill=</span>sp)) <span class="sc">+</span></span>
+<span id="cb401-3"><a href="basic-graphics.html#cb401-3" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">geom_density</span>(<span class="at">alpha=</span>.<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb401-4"><a href="basic-graphics.html#cb401-4" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">ggtitle</span>(<span class="st">&quot;Crab species CL overlap -- density plots&quot;</span>) <span class="sc">+</span></span>
+<span id="cb401-5"><a href="basic-graphics.html#cb401-5" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme_minimal</span>()</span>
+<span id="cb401-6"><a href="basic-graphics.html#cb401-6" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_plot_den</span></code></pre></div>
+<p><img src="figures/session_9_figs/29_two_density_plots_1.png" width="90%" /></p>
+<p><strong>21)</strong> The flexibility of <strong>ggplot2</strong> can be evidenced by combining histograms and density plots with the mean values.</p>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="basic-graphics.html#cb402-1" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_plot_his_den <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(crabs_data, <span class="fu">aes</span>(<span class="at">x=</span>CL, <span class="at">fill=</span>sp)) <span class="sc">+</span> </span>
+<span id="cb402-2"><a href="basic-graphics.html#cb402-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span>..density.., <span class="at">fill=</span>sp), </span>
+<span id="cb402-3"><a href="basic-graphics.html#cb402-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">binwidth =</span> <span class="dv">1</span>,</span>
+<span id="cb402-4"><a href="basic-graphics.html#cb402-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">alpha =</span> .<span class="dv">6</span>, </span>
+<span id="cb402-5"><a href="basic-graphics.html#cb402-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb402-6"><a href="basic-graphics.html#cb402-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb402-7"><a href="basic-graphics.html#cb402-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_density</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>CL, <span class="at">fill=</span>sp),</span>
+<span id="cb402-8"><a href="basic-graphics.html#cb402-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">alpha =</span> .<span class="dv">4</span>,</span>
+<span id="cb402-9"><a href="basic-graphics.html#cb402-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb402-10"><a href="basic-graphics.html#cb402-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">&quot;Crab species CL overlap -- histograms and density plots&quot;</span>) <span class="sc">+</span></span>
+<span id="cb402-11"><a href="basic-graphics.html#cb402-11" aria-hidden="true" tabindex="-1"></a>          <span class="fu">theme_minimal</span>()</span>
+<span id="cb402-12"><a href="basic-graphics.html#cb402-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb402-13"><a href="basic-graphics.html#cb402-13" aria-hidden="true" tabindex="-1"></a><span class="co"># change some colors</span></span>
+<span id="cb402-14"><a href="basic-graphics.html#cb402-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb402-15"><a href="basic-graphics.html#cb402-15" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_plot_his_den <span class="ot">&lt;-</span> crabs_sp_CL_plot_his_den <span class="sc">+</span></span>
+<span id="cb402-16"><a href="basic-graphics.html#cb402-16" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Set3&quot;</span>)<span class="sc">+</span></span>
+<span id="cb402-17"><a href="basic-graphics.html#cb402-17" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Set3&quot;</span>)</span>
+<span id="cb402-18"><a href="basic-graphics.html#cb402-18" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_plot_his_den</span></code></pre></div>
+<p><img src="figures/session_9_figs/30_two_histo_denstity.png" width="90%" /></p>
+</div>
+<div id="box-plots" class="section level2" number="10.5">
+<h2><span class="header-section-number">10.5</span> Box plots</h2>
+<p>These graphics are similar to histograms and density plots that summarizes a distribution. In these plots, the graphics show the following summaries: (1) First quartile (Q1) or 25th Percentile, which is the middle value between the smallest value and the median of the dataset; (2) Median (Q2) or 50th Percentile, which is the middle value of the dataset; (3) Third quartile (Q3) or 75th Percentile, which is the middle value between the median and the highest value of the dataset; (4) A “box” named the interquartile range (IQR) that is bounded between the 25th and 75th percentiles; (5) Line or whisker that extend to a “minimum” equal to Q1 - 1.5xIQR, (6) Line or whisker that extend to a “maximum” equal to Q3 + 1.5xIQR; and (7) Outliers or values that fall below the “minimum” and above the “maximum.”</p>
+<p><img src="figures/session_9_figs/31_boxplot_exaplained.png" width="90%" /></p>
+<p>Source: <a href="https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51" target="_blank">Understanding Boxplots</a> by Michael Galarnyk.</p>
+<p><strong>22)</strong> We can use the same <code>crabs</code> dataset to revise how to construct boxplots in <strong>ggplot2</strong>.</p>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="basic-graphics.html#cb403-1" aria-hidden="true" tabindex="-1"></a><span class="do">## check is MASS is loaded and get &#39;crabs&#39; database</span></span>
+<span id="cb403-2"><a href="basic-graphics.html#cb403-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(MASS)</span>
+<span id="cb403-3"><a href="basic-graphics.html#cb403-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(crabs)</span>
+<span id="cb403-4"><a href="basic-graphics.html#cb403-4" aria-hidden="true" tabindex="-1"></a>crabs_data <span class="ot">&lt;-</span> crabs</span>
+<span id="cb403-5"><a href="basic-graphics.html#cb403-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(crabs_data)</span>
+<span id="cb403-6"><a href="basic-graphics.html#cb403-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  200 obs. of  8 variables:</span></span>
+<span id="cb403-7"><a href="basic-graphics.html#cb403-7" aria-hidden="true" tabindex="-1"></a><span class="co"># $ sp   : Factor w/ 2 levels &quot;B&quot;,&quot;O&quot;: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span id="cb403-8"><a href="basic-graphics.html#cb403-8" aria-hidden="true" tabindex="-1"></a><span class="co"># $ sex  : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 2 2 2 2 2 2 2 2 2 2 ...</span></span>
+<span id="cb403-9"><a href="basic-graphics.html#cb403-9" aria-hidden="true" tabindex="-1"></a><span class="co"># $ index: int  1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span id="cb403-10"><a href="basic-graphics.html#cb403-10" aria-hidden="true" tabindex="-1"></a><span class="co"># $ FL   : num  8.1 8.8 9.2 9.6 9.8 10.8 11.1 11.6 11.8 11.8 ...</span></span>
+<span id="cb403-11"><a href="basic-graphics.html#cb403-11" aria-hidden="true" tabindex="-1"></a><span class="co"># $ RW   : num  6.7 7.7 7.8 7.9 8 9 9.9 9.1 9.6 10.5 ...</span></span>
+<span id="cb403-12"><a href="basic-graphics.html#cb403-12" aria-hidden="true" tabindex="-1"></a><span class="co"># $ CL   : num  16.1 18.1 19 20.1 20.3 23 23.8 24.5 24.2 25.2 ...</span></span>
+<span id="cb403-13"><a href="basic-graphics.html#cb403-13" aria-hidden="true" tabindex="-1"></a><span class="co"># $ CW   : num  19 20.8 22.4 23.1 23 26.5 27.1 28.4 27.8 29.3 ...</span></span>
+<span id="cb403-14"><a href="basic-graphics.html#cb403-14" aria-hidden="true" tabindex="-1"></a><span class="co"># $ BD   : num  7 7.4 7.7 8.2 8.2 9.8 9.8 10.4 9.7 10.3 ...</span></span></code></pre></div>
+<p>We can present boxplots with its x-axis by species <code>x = sp</code>, y-axis by the CL measurement <code>y = CL</code> and box color as <code>fill = sp</code>.</p>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="basic-graphics.html#cb404-1" aria-hidden="true" tabindex="-1"></a><span class="do">## check ig ggplot2 is loaded</span></span>
+<span id="cb404-2"><a href="basic-graphics.html#cb404-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
+<span id="cb404-3"><a href="basic-graphics.html#cb404-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb404-4"><a href="basic-graphics.html#cb404-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Boxplots with standard color without legend -- guides(fill=FALSE)</span></span>
+<span id="cb404-5"><a href="basic-graphics.html#cb404-5" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_boxplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(crabs_data, <span class="fu">aes</span>(<span class="at">x=</span>sp, <span class="at">y=</span>CL, <span class="at">fill=</span>sp)) <span class="sc">+</span> </span>
+<span id="cb404-6"><a href="basic-graphics.html#cb404-6" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb404-7"><a href="basic-graphics.html#cb404-7" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Crab species CL overlap -- boxplots&quot;</span>, <span class="at">x=</span><span class="st">&quot;Species&quot;</span>, <span class="at">y=</span><span class="st">&quot;CL - carapace length (mm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb404-8"><a href="basic-graphics.html#cb404-8" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">guides</span>(<span class="at">fill=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb404-9"><a href="basic-graphics.html#cb404-9" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme_minimal</span>()</span>
+<span id="cb404-10"><a href="basic-graphics.html#cb404-10" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_boxplot_v1 <span class="ot">&lt;-</span> crabs_sp_CL_boxplot <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span><span class="fu">c</span>(<span class="st">&quot;#C7A76C&quot;</span>, <span class="st">&quot;#99B56B&quot;</span>))</span>
+<span id="cb404-11"><a href="basic-graphics.html#cb404-11" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_boxplot_v1</span></code></pre></div>
+<p><img src="figures/session_9_figs/40_boxplot_base.png" width="70%" /></p>
+<p>You can flip coordinates with <code>coord_flip()</code> and changed the colors of the plots using <code>scale_fill_manual()</code>.</p>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="basic-graphics.html#cb405-1" aria-hidden="true" tabindex="-1"></a><span class="do">## flip coordinates</span></span>
+<span id="cb405-2"><a href="basic-graphics.html#cb405-2" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_boxplot_v2 <span class="ot">&lt;-</span> crabs_sp_CL_boxplot <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span><span class="fu">c</span>(<span class="st">&quot;#8C241B&quot;</span>, <span class="st">&quot;#29809E&quot;</span>))</span>
+<span id="cb405-3"><a href="basic-graphics.html#cb405-3" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_boxplot_v2</span></code></pre></div>
+<p><img src="figures/session_9_figs/41_boxplot_flip.png" width="70%" /></p>
+</div>
+<div id="violin-plots" class="section level2" number="10.6">
+<h2><span class="header-section-number">10.6</span> Violin plots</h2>
+<p><strong>23)</strong> We can use again the <code>crabs</code> dataset for violin plots containing its corresponding boxplot and <code>mean</code> value marker. Notice that we can stack different plots on a ggplot object. For violin plots, we selected a white color with <code>fill= "white"</code> and thinner silhouette with <code>width = 0.5</code>. For box plots, we selected a <code>width = 0.3</code> and also added a diamond symbol for the mean value with <code>stat_summar()</code>.</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="basic-graphics.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="do">## check is MASS is loaded and get &#39;crabs&#39; database</span></span>
+<span id="cb406-2"><a href="basic-graphics.html#cb406-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(MASS)</span>
+<span id="cb406-3"><a href="basic-graphics.html#cb406-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(crabs)</span>
+<span id="cb406-4"><a href="basic-graphics.html#cb406-4" aria-hidden="true" tabindex="-1"></a>crabs_data <span class="ot">&lt;-</span> crabs</span>
+<span id="cb406-5"><a href="basic-graphics.html#cb406-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(crabs_data)</span>
+<span id="cb406-6"><a href="basic-graphics.html#cb406-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  200 obs. of  8 variables:</span></span>
+<span id="cb406-7"><a href="basic-graphics.html#cb406-7" aria-hidden="true" tabindex="-1"></a><span class="co"># $ sp   : Factor w/ 2 levels &quot;B&quot;,&quot;O&quot;: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span id="cb406-8"><a href="basic-graphics.html#cb406-8" aria-hidden="true" tabindex="-1"></a><span class="co"># $ sex  : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 2 2 2 2 2 2 2 2 2 2 ...</span></span>
+<span id="cb406-9"><a href="basic-graphics.html#cb406-9" aria-hidden="true" tabindex="-1"></a><span class="co"># $ index: int  1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span id="cb406-10"><a href="basic-graphics.html#cb406-10" aria-hidden="true" tabindex="-1"></a><span class="co"># $ FL   : num  8.1 8.8 9.2 9.6 9.8 10.8 11.1 11.6 11.8 11.8 ...</span></span>
+<span id="cb406-11"><a href="basic-graphics.html#cb406-11" aria-hidden="true" tabindex="-1"></a><span class="co"># $ RW   : num  6.7 7.7 7.8 7.9 8 9 9.9 9.1 9.6 10.5 ...</span></span>
+<span id="cb406-12"><a href="basic-graphics.html#cb406-12" aria-hidden="true" tabindex="-1"></a><span class="co"># $ CL   : num  16.1 18.1 19 20.1 20.3 23 23.8 24.5 24.2 25.2 ...</span></span>
+<span id="cb406-13"><a href="basic-graphics.html#cb406-13" aria-hidden="true" tabindex="-1"></a><span class="co"># $ CW   : num  19 20.8 22.4 23.1 23 26.5 27.1 28.4 27.8 29.3 ...</span></span>
+<span id="cb406-14"><a href="basic-graphics.html#cb406-14" aria-hidden="true" tabindex="-1"></a><span class="co"># $ BD   : num  7 7.4 7.7 8.2 8.2 9.8 9.8 10.4 9.7 10.3 ...</span></span>
+<span id="cb406-15"><a href="basic-graphics.html#cb406-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb406-16"><a href="basic-graphics.html#cb406-16" aria-hidden="true" tabindex="-1"></a><span class="do">## violin and boxplots with mean indicated</span></span>
+<span id="cb406-17"><a href="basic-graphics.html#cb406-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb406-18"><a href="basic-graphics.html#cb406-18" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_violin <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(crabs_data, <span class="fu">aes</span>(<span class="at">x=</span>sp, <span class="at">y=</span>CL, <span class="at">fill=</span>sp)) <span class="sc">+</span> </span>
+<span id="cb406-19"><a href="basic-graphics.html#cb406-19" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">geom_violin</span>(<span class="at">trim=</span><span class="cn">FALSE</span>, <span class="at">width=</span><span class="fl">0.5</span>, <span class="at">fill=</span> <span class="st">&quot;white&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb406-20"><a href="basic-graphics.html#cb406-20" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb406-21"><a href="basic-graphics.html#cb406-21" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom=</span><span class="st">&quot;point&quot;</span>, <span class="at">shape=</span><span class="dv">5</span>, <span class="at">size=</span><span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb406-22"><a href="basic-graphics.html#cb406-22" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Crab species CL overlap -- violin and box plots&quot;</span>, <span class="at">x=</span><span class="st">&quot;Species&quot;</span>, <span class="at">y=</span><span class="st">&quot;CL - carapace length (mm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb406-23"><a href="basic-graphics.html#cb406-23" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">guides</span>(<span class="at">fill=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb406-24"><a href="basic-graphics.html#cb406-24" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">scale_fill_manual</span>(<span class="at">values =</span><span class="fu">c</span>(<span class="st">&quot;#8C241B&quot;</span>, <span class="st">&quot;#29809E&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb406-25"><a href="basic-graphics.html#cb406-25" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme_minimal</span>()</span>
+<span id="cb406-26"><a href="basic-graphics.html#cb406-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb406-27"><a href="basic-graphics.html#cb406-27" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_violin</span></code></pre></div>
+<p><img src="figures/session_9_figs/42_violin_boxplot.png" width="70%" /></p>
+</div>
+<div id="scatterplots" class="section level2" number="10.7">
+<h2><span class="header-section-number">10.7</span> Scatterplots</h2>
+<p>These are graphics where the relationship of two variables presented in cartesian (x versus y) coordinates to display values. In <strong>ggplot2</strong>, such data points are presented with <code>geom_point()</code> and, in most cases, tendency and regression lines are added with <code>geom_smooth()</code>.</p>
+<p>As in the case of choices of colors, there are several types of point shapes (markers) and lines. These can be explored with options of the R package <a href="https://cran.r-project.org/web/packages/ggpubr/" target="_blank"><strong>ggpubr</strong></a>. This package provides some easy-to-use functions for creating and customizing <strong>ggplot2</strong>- based publication ready plots.</p>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="basic-graphics.html#cb407-1" aria-hidden="true" tabindex="-1"></a><span class="do">## intall ggpubr</span></span>
+<span id="cb407-2"><a href="basic-graphics.html#cb407-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggpubr&quot;</span>)</span>
+<span id="cb407-3"><a href="basic-graphics.html#cb407-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb407-4"><a href="basic-graphics.html#cb407-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb407-5"><a href="basic-graphics.html#cb407-5" aria-hidden="true" tabindex="-1"></a><span class="do">## we can select from these types of point shapes; the number indicates the shape code.</span></span>
+<span id="cb407-6"><a href="basic-graphics.html#cb407-6" aria-hidden="true" tabindex="-1"></a><span class="fu">show_point_shapes</span>()<span class="sc">+</span><span class="fu">theme_minimal</span>()<span class="sc">+</span><span class="fu">labs</span>(<span class="at">y=</span><span class="st">&quot;&quot;</span>)<span class="sc">+</span><span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<p><img src="figures/session_10_figs/43_shape_forms.png" width="90%" /></p>
+<p>We can control the line type with <code>geom_line()</code> and its argument <code>linetype</code>. Lines can also be modified manually with <code>scale_linetype_manual()</code> and it argument <code>values</code>.</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="basic-graphics.html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we can select from these types of lines, the number indicates the line code.</span></span>
+<span id="cb408-2"><a href="basic-graphics.html#cb408-2" aria-hidden="true" tabindex="-1"></a><span class="fu">show_line_types</span>()<span class="sc">+</span><span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="figures/session_10_figs/44_line_forms.png" width="90%" /></p>
+<p>Notice that you can also determine the type of line with argument <code>lty</code> that can be used in special type of <strong>ggplot</strong> function like <code>geom_smooth</code>. These codes are <code>lty = 1</code> for “solid,” <code>lty = 2</code> “dashed,” <code>lty = 3</code> “dotted,” <code>lty = 4</code> “dotdash,” <code>lty = 5</code> “longdash” and <code>lty = 6</code> “twodash.”</p>
+<p><strong>23)</strong> We will use the <code>oribatid</code> dataset from the R package <code>ade4</code>. This data set contains information about environmental control and spatial structure in ecological communities of Oribatid mites. The environmental variables include <code>substrate</code> a factor with seven levels that describes the nature of the substratum, <code>shrubs</code> a factor with three levels that describes the absence/presence of shrubs, <code>topo</code> a factor with two levels that describes the microtopography, <code>density</code> substratum density (g.L−1) and <code>water</code> content of the substratum (g.L−1). We will merge in a single data frame the environmental data and fauna information of these 70 sites to explore several types of scatterplots.</p>
+<p>We can prepare <code>oribatid</code> dataset for the scatterplot.</p>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="basic-graphics.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="do">## check is ade4 is loaded and get &#39;oribatid&#39; database</span></span>
+<span id="cb409-2"><a href="basic-graphics.html#cb409-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ade4)</span>
+<span id="cb409-3"><a href="basic-graphics.html#cb409-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(oribatid)</span>
+<span id="cb409-4"><a href="basic-graphics.html#cb409-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-5"><a href="basic-graphics.html#cb409-5" aria-hidden="true" tabindex="-1"></a><span class="do">## environmental and genetic data</span></span>
+<span id="cb409-6"><a href="basic-graphics.html#cb409-6" aria-hidden="true" tabindex="-1"></a>envir_data <span class="ot">&lt;-</span> oribatid<span class="sc">$</span>envir</span>
+<span id="cb409-7"><a href="basic-graphics.html#cb409-7" aria-hidden="true" tabindex="-1"></a>fauna_data <span class="ot">&lt;-</span> oribatid<span class="sc">$</span>fau</span>
+<span id="cb409-8"><a href="basic-graphics.html#cb409-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-9"><a href="basic-graphics.html#cb409-9" aria-hidden="true" tabindex="-1"></a><span class="do">## total number of oribatid mites</span></span>
+<span id="cb409-10"><a href="basic-graphics.html#cb409-10" aria-hidden="true" tabindex="-1"></a>fauna_data<span class="sc">$</span>total_mites <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(fauna_data)</span>
+<span id="cb409-11"><a href="basic-graphics.html#cb409-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-12"><a href="basic-graphics.html#cb409-12" aria-hidden="true" tabindex="-1"></a><span class="do">## we add a common column in both data frames, in this case the &#39;site&#39;</span></span>
+<span id="cb409-13"><a href="basic-graphics.html#cb409-13" aria-hidden="true" tabindex="-1"></a>envir_data<span class="sc">$</span>site <span class="ot">&lt;-</span> <span class="fu">rownames</span>(envir_data)</span>
+<span id="cb409-14"><a href="basic-graphics.html#cb409-14" aria-hidden="true" tabindex="-1"></a>fauna_data<span class="sc">$</span>site <span class="ot">&lt;-</span> <span class="fu">rownames</span>(fauna_data)</span>
+<span id="cb409-15"><a href="basic-graphics.html#cb409-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-16"><a href="basic-graphics.html#cb409-16" aria-hidden="true" tabindex="-1"></a><span class="do">## merge both data frames using &#39;site&#39;</span></span>
+<span id="cb409-17"><a href="basic-graphics.html#cb409-17" aria-hidden="true" tabindex="-1"></a>oribatid_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(envir_data, fauna_data, <span class="at">by =</span><span class="st">&quot;site&quot;</span>)</span>
+<span id="cb409-18"><a href="basic-graphics.html#cb409-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oribatid_data)</span>
+<span id="cb409-19"><a href="basic-graphics.html#cb409-19" aria-hidden="true" tabindex="-1"></a><span class="co"># you can explore this data frame content</span></span>
+<span id="cb409-20"><a href="basic-graphics.html#cb409-20" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(oribatid_data)</span>
+<span id="cb409-21"><a href="basic-graphics.html#cb409-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  70 obs. of  41 variables:</span></span>
+<span id="cb409-22"><a href="basic-graphics.html#cb409-22" aria-hidden="true" tabindex="-1"></a><span class="co"># $ site         : chr  &quot;1&quot; &quot;10&quot; &quot;11&quot; &quot;12&quot; ...</span></span>
+<span id="cb409-23"><a href="basic-graphics.html#cb409-23" aria-hidden="true" tabindex="-1"></a><span class="co"># $ substrate    : Factor w/ 7 levels &quot;inter&quot;,&quot;litter&quot;,..: 4 4 6 4 4 1 1 1 1 4 ...</span></span>
+<span id="cb409-24"><a href="basic-graphics.html#cb409-24" aria-hidden="true" tabindex="-1"></a><span class="co"># $ shrubs       : Factor w/ 3 levels &quot;few&quot;,&quot;many&quot;,&quot;none&quot;: 1 2 2 1 2 2 2 1 2 2 ...</span></span>
+<span id="cb409-25"><a href="basic-graphics.html#cb409-25" aria-hidden="true" tabindex="-1"></a><span class="co"># $ topo         : Factor w/ 2 levels &quot;blanket&quot;,&quot;hummock&quot;: 2 2 1 2 2 1 1 2 2 2 ...</span></span>
+<span id="cb409-26"><a href="basic-graphics.html#cb409-26" aria-hidden="true" tabindex="-1"></a><span class="co"># $ density      : num  39.2 32.1 35.6 46.8 28 ...</span></span>
+<span id="cb409-27"><a href="basic-graphics.html#cb409-27" aria-hidden="true" tabindex="-1"></a><span class="co"># $ water        : num  350 221 134 406 244 ...</span></span>
+<span id="cb409-28"><a href="basic-graphics.html#cb409-28" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Brachy       : int  17 22 36 28 3 41 6 7 9 19 ...</span></span>
+<span id="cb409-29"><a href="basic-graphics.html#cb409-29" aria-hidden="true" tabindex="-1"></a><span class="co"># $ PHTH         : int  5 4 7 2 2 5 0 2 0 3 ...</span></span>
+<span id="cb409-30"><a href="basic-graphics.html#cb409-30" aria-hidden="true" tabindex="-1"></a><span class="co"># $ HPAV         : int  5 5 35 12 4 12 6 3 1 7 ...</span></span>
+<span id="cb409-31"><a href="basic-graphics.html#cb409-31" aria-hidden="true" tabindex="-1"></a><span class="co"># $ RARD         : int  3 3 9 13 12 0 0 2 2 0 ...</span></span>
+<span id="cb409-32"><a href="basic-graphics.html#cb409-32" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SSTR         : int  2 0 0 0 0 2 0 0 0 0 ...</span></span>
+<span id="cb409-33"><a href="basic-graphics.html#cb409-33" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Protopl      : int  1 0 2 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb409-34"><a href="basic-graphics.html#cb409-34" aria-hidden="true" tabindex="-1"></a><span class="co"># ... </span></span></code></pre></div>
+<p>We can explore the relationship between <code>density</code> and <code>total_mites</code> with a simple scatterplot.</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="basic-graphics.html#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="do">## make sure that ggplot2 is loaded</span></span>
+<span id="cb410-2"><a href="basic-graphics.html#cb410-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
+<span id="cb410-3"><a href="basic-graphics.html#cb410-3" aria-hidden="true" tabindex="-1"></a><span class="do">## basic scatterplot</span></span>
+<span id="cb410-4"><a href="basic-graphics.html#cb410-4" aria-hidden="true" tabindex="-1"></a>my_scatterplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> oribatid_data, <span class="fu">aes</span>(<span class="at">x =</span> water, <span class="at">y =</span> total_mites)) <span class="sc">+</span></span>
+<span id="cb410-5"><a href="basic-graphics.html#cb410-5" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb410-6"><a href="basic-graphics.html#cb410-6" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Oribatid data -- simple scatterplot&quot;</span>, <span class="at">x=</span><span class="st">&quot;water content of the substratum (g/L)&quot;</span>, <span class="at">y=</span><span class="st">&quot;total mites&quot;</span>) <span class="sc">+</span></span>
+<span id="cb410-7"><a href="basic-graphics.html#cb410-7" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">theme_minimal</span>()</span>
+<span id="cb410-8"><a href="basic-graphics.html#cb410-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb410-9"><a href="basic-graphics.html#cb410-9" aria-hidden="true" tabindex="-1"></a>my_scatterplot</span></code></pre></div>
+<p><img src="figures/session_10_figs/45_scatterplot_v1.png" width="90%" /></p>
+<p>We see and outlier, so we can label the point by the sites that each point represents by adding argument <code>label</code> and <code>geom_text</code></p>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="basic-graphics.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="do">## labeled scatterplot</span></span>
+<span id="cb411-2"><a href="basic-graphics.html#cb411-2" aria-hidden="true" tabindex="-1"></a>my_scatterplot_l <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> oribatid_data, <span class="fu">aes</span>(<span class="at">x =</span> water, <span class="at">y =</span> total_mites, <span class="at">label=</span>site)) <span class="sc">+</span></span>
+<span id="cb411-3"><a href="basic-graphics.html#cb411-3" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb411-4"><a href="basic-graphics.html#cb411-4" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Oribatid data -- simple scatterplot labeled&quot;</span>, <span class="at">x=</span><span class="st">&quot;water content of the substratum (g/L)&quot;</span>, <span class="at">y=</span><span class="st">&quot;total mites&quot;</span>) <span class="sc">+</span></span>
+<span id="cb411-5"><a href="basic-graphics.html#cb411-5" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>site),<span class="at">hjust=</span><span class="dv">0</span>, <span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb411-6"><a href="basic-graphics.html#cb411-6" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">theme_minimal</span>()</span>
+<span id="cb411-7"><a href="basic-graphics.html#cb411-7" aria-hidden="true" tabindex="-1"></a>my_scatterplot_l</span></code></pre></div>
+<p><img src="figures/session_10_figs/46_scatterplot_labeled.png" width="90%" /></p>
+<p>We identify that point or site <code>67</code> as an outlier. We can determine why this site is an outlier, yet we can exclude it in our dataset.</p>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="basic-graphics.html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="do">## search the site &quot;67&quot;</span></span>
+<span id="cb412-2"><a href="basic-graphics.html#cb412-2" aria-hidden="true" tabindex="-1"></a>oribatid_data[oribatid_data<span class="sc">$</span>site <span class="sc">==</span> <span class="st">&quot;67&quot;</span>, ]</span>
+<span id="cb412-3"><a href="basic-graphics.html#cb412-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   site substrate shrubs    topo density   water Brachy PHTH HPAV RARD SSTR Protopl MEGR MPRO TVIE HMIN HMIN2 NPRA TVEL ONOV SUCT LCIL</span></span>
+<span id="cb412-4"><a href="basic-graphics.html#cb412-4" aria-hidden="true" tabindex="-1"></a><span class="co">#64   67      sph1   none blanket  52.123 826.958      4    0    3    0    0       0    0    0    0    0     0    0    0    0    0  723</span></span>
+<span id="cb412-5"><a href="basic-graphics.html#cb412-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   Oribatul1 Ceratoz1 PWIL Galumna1 Steganacarus2 HRUF Trhypochth1 PPEL NCOR SLAT FSET Lepidozetes Eupelops Minigalumna LRUG PLAG2 Ceratoz3</span></span>
+<span id="cb412-6"><a href="basic-graphics.html#cb412-6" aria-hidden="true" tabindex="-1"></a><span class="co">#64         0        0    0        0             0    0           7    0    0    0    0           0        0           0   11     0        0</span></span>
+<span id="cb412-7"><a href="basic-graphics.html#cb412-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Oppia.minus Trimalaco2 total_mites</span></span>
+<span id="cb412-8"><a href="basic-graphics.html#cb412-8" aria-hidden="true" tabindex="-1"></a><span class="co">#64           0         33         781</span></span>
+<span id="cb412-9"><a href="basic-graphics.html#cb412-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb412-10"><a href="basic-graphics.html#cb412-10" aria-hidden="true" tabindex="-1"></a><span class="do">## this site has an unusual high numbers of LCIL mites. We can delete or remove this row by its number indicated by 64 at the row number</span></span>
+<span id="cb412-11"><a href="basic-graphics.html#cb412-11" aria-hidden="true" tabindex="-1"></a>oribatid_data_2 <span class="ot">&lt;-</span> oribatid_data[<span class="sc">-</span><span class="dv">64</span>,]</span>
+<span id="cb412-12"><a href="basic-graphics.html#cb412-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb412-13"><a href="basic-graphics.html#cb412-13" aria-hidden="true" tabindex="-1"></a><span class="do">## labeled scatterplot</span></span>
+<span id="cb412-14"><a href="basic-graphics.html#cb412-14" aria-hidden="true" tabindex="-1"></a>my_scatterplot_l2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> oribatid_data_2, <span class="fu">aes</span>(<span class="at">x =</span> water, <span class="at">y =</span> total_mites, <span class="at">label=</span>site)) <span class="sc">+</span></span>
+<span id="cb412-15"><a href="basic-graphics.html#cb412-15" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb412-16"><a href="basic-graphics.html#cb412-16" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Oribatid data -- simple scatterplot labeled&quot;</span>, <span class="at">x=</span><span class="st">&quot;water content of the substratum (g/L)&quot;</span>, <span class="at">y=</span><span class="st">&quot;total mites&quot;</span>) <span class="sc">+</span></span>
+<span id="cb412-17"><a href="basic-graphics.html#cb412-17" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>site),<span class="at">hjust=</span><span class="dv">0</span>, <span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb412-18"><a href="basic-graphics.html#cb412-18" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">theme_minimal</span>()</span>
+<span id="cb412-19"><a href="basic-graphics.html#cb412-19" aria-hidden="true" tabindex="-1"></a>my_scatterplot_l2</span></code></pre></div>
+<p><img src="figures/session_10_figs/47_scatterplot_labeled_v2.png" width="90%" /></p>
+<p><strong>24)</strong> We can modify this scatterplot with different shapes, colors and sizes. These increase the amount of information provided by the plot.</p>
+<p>We can change the shape and color of the points in the scatterplot.</p>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="basic-graphics.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load color library &#39;ggsci&#39;</span></span>
+<span id="cb413-2"><a href="basic-graphics.html#cb413-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggsci)</span>
+<span id="cb413-3"><a href="basic-graphics.html#cb413-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb413-4"><a href="basic-graphics.html#cb413-4" aria-hidden="true" tabindex="-1"></a><span class="do">## scatterplot with different shape and color palette</span></span>
+<span id="cb413-5"><a href="basic-graphics.html#cb413-5" aria-hidden="true" tabindex="-1"></a>my_scatterplot_l3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> oribatid_data_2, <span class="fu">aes</span>(<span class="at">x =</span> water, <span class="at">y =</span> total_mites, <span class="at">label=</span>site)) <span class="sc">+</span></span>
+<span id="cb413-6"><a href="basic-graphics.html#cb413-6" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> substrate), <span class="at">alpha =</span> <span class="fl">0.9</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">shape =</span> <span class="dv">18</span>) <span class="sc">+</span></span>
+<span id="cb413-7"><a href="basic-graphics.html#cb413-7" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Oribatid data -- scatterplot by substrate -- jco palette &quot;</span>, <span class="at">x=</span><span class="st">&quot;water content of the substratum (g/L)&quot;</span>, <span class="at">y=</span><span class="st">&quot;total mites&quot;</span>) <span class="sc">+</span></span>
+<span id="cb413-8"><a href="basic-graphics.html#cb413-8" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">scale_color_jco</span>() <span class="sc">+</span></span>
+<span id="cb413-9"><a href="basic-graphics.html#cb413-9" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">theme_minimal</span>()</span>
+<span id="cb413-10"><a href="basic-graphics.html#cb413-10" aria-hidden="true" tabindex="-1"></a>my_scatterplot_l3</span></code></pre></div>
+<p><img src="figures/session_10_figs/48_scatterplot_color_v2.png" width="90%" /></p>
+<p>We can change the size of points in the scatterplot based on another continuous variable. For example, number of <code>LCIL</code> mite species.</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="basic-graphics.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="do">## scatterplot with size of points by LCIL numbers </span></span>
+<span id="cb414-2"><a href="basic-graphics.html#cb414-2" aria-hidden="true" tabindex="-1"></a>my_scatterplot_l4 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> oribatid_data_2, <span class="fu">aes</span>(<span class="at">x =</span> water, <span class="at">y =</span> total_mites, <span class="at">label=</span>site)) <span class="sc">+</span></span>
+<span id="cb414-3"><a href="basic-graphics.html#cb414-3" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> substrate, <span class="at">size =</span> LCIL), <span class="at">alpha =</span> <span class="fl">0.9</span>, <span class="at">shape =</span> <span class="dv">18</span>) <span class="sc">+</span></span>
+<span id="cb414-4"><a href="basic-graphics.html#cb414-4" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Oribatid data -- scatterplot by substrate and size by LCIL mite species -- npg palette &quot;</span>, <span class="at">x=</span><span class="st">&quot;water content of the substratum (g/L)&quot;</span>, <span class="at">y=</span><span class="st">&quot;total mites&quot;</span>) <span class="sc">+</span></span>
+<span id="cb414-5"><a href="basic-graphics.html#cb414-5" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">scale_color_npg</span>() <span class="sc">+</span></span>
+<span id="cb414-6"><a href="basic-graphics.html#cb414-6" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">theme_minimal</span>()</span>
+<span id="cb414-7"><a href="basic-graphics.html#cb414-7" aria-hidden="true" tabindex="-1"></a>my_scatterplot_l4</span></code></pre></div>
+<p><img src="figures/session_10_figs/49_scatterplot_color_size_v3.png" width="90%" /></p>
+<p><strong>25)</strong> We might be interested in separating a group from the rest of data points in this scatterplot. We will try the <code>sph1</code> different from the others. We can change manually the points colors with <code>scale_colour_manual()</code> and shapes with <code>scale_colour_manual()</code>.</p>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="basic-graphics.html#cb415-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a vector for manual colors bases on substrate</span></span>
+<span id="cb415-2"><a href="basic-graphics.html#cb415-2" aria-hidden="true" tabindex="-1"></a>names_substrates <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unique</span>(oribatid_data_2<span class="sc">$</span>substrate))</span>
+<span id="cb415-3"><a href="basic-graphics.html#cb415-3" aria-hidden="true" tabindex="-1"></a>names_substrates</span>
+<span id="cb415-4"><a href="basic-graphics.html#cb415-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;sph1&quot;   &quot;sph3&quot;   &quot;inter&quot;  &quot;litter&quot; &quot;sph4&quot;   &quot;sph2&quot;   &quot;peat&quot;</span></span>
+<span id="cb415-5"><a href="basic-graphics.html#cb415-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb415-6"><a href="basic-graphics.html#cb415-6" aria-hidden="true" tabindex="-1"></a><span class="do">## create a vector for colors by substrate type, but binary</span></span>
+<span id="cb415-7"><a href="basic-graphics.html#cb415-7" aria-hidden="true" tabindex="-1"></a>colors_substrate <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(names_substrates <span class="sc">==</span> <span class="st">&quot;sph1&quot;</span>, <span class="st">&quot;firebrick1&quot;</span>, <span class="st">&quot;darkgrey&quot;</span>)</span>
+<span id="cb415-8"><a href="basic-graphics.html#cb415-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(colors_substrate) <span class="ot">&lt;-</span> names_substrates</span>
+<span id="cb415-9"><a href="basic-graphics.html#cb415-9" aria-hidden="true" tabindex="-1"></a>colors_substrate</span>
+<span id="cb415-10"><a href="basic-graphics.html#cb415-10" aria-hidden="true" tabindex="-1"></a><span class="co">#      sph1       sph3      inter     litter       sph4       sph2       peat </span></span>
+<span id="cb415-11"><a href="basic-graphics.html#cb415-11" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;darkred&quot; &quot;darkgrey&quot; &quot;darkgrey&quot; &quot;darkgrey&quot; &quot;darkgrey&quot; &quot;darkgrey&quot; &quot;darkgrey&quot; </span></span>
+<span id="cb415-12"><a href="basic-graphics.html#cb415-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb415-13"><a href="basic-graphics.html#cb415-13" aria-hidden="true" tabindex="-1"></a><span class="do">## scatterplot for &#39;sph1&#39; substrate only color</span></span>
+<span id="cb415-14"><a href="basic-graphics.html#cb415-14" aria-hidden="true" tabindex="-1"></a>my_scatterplot_l4 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> oribatid_data_2, <span class="fu">aes</span>(<span class="at">x =</span> water, <span class="at">y =</span> total_mites)) <span class="sc">+</span></span>
+<span id="cb415-15"><a href="basic-graphics.html#cb415-15" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> substrate), <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">shape =</span> <span class="dv">18</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb415-16"><a href="basic-graphics.html#cb415-16" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Oribatid data -- scatterplot with emphasis on &#39;sph1&#39; substrate &quot;</span>, <span class="at">x=</span><span class="st">&quot;water content of the substratum (g/L)&quot;</span>, <span class="at">y=</span><span class="st">&quot;total mites&quot;</span>) <span class="sc">+</span></span>
+<span id="cb415-17"><a href="basic-graphics.html#cb415-17" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> colors_substrate) <span class="sc">+</span></span>
+<span id="cb415-18"><a href="basic-graphics.html#cb415-18" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">theme_minimal</span>()</span>
+<span id="cb415-19"><a href="basic-graphics.html#cb415-19" aria-hidden="true" tabindex="-1"></a>my_scatterplot_l4</span></code></pre></div>
+<p><img src="figures/session_10_figs/50_scatterplot_color_substrate_v4.png" width="90%" /></p>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="basic-graphics.html#cb416-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a vector for shapes by substrate type, but binary</span></span>
+<span id="cb416-2"><a href="basic-graphics.html#cb416-2" aria-hidden="true" tabindex="-1"></a>shape_substrate <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(names_substrates <span class="sc">==</span> <span class="st">&quot;sph1&quot;</span>, <span class="dv">16</span>, <span class="dv">18</span>)</span>
+<span id="cb416-3"><a href="basic-graphics.html#cb416-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(shape_substrate) <span class="ot">&lt;-</span> names_substrates</span>
+<span id="cb416-4"><a href="basic-graphics.html#cb416-4" aria-hidden="true" tabindex="-1"></a>shape_substrate</span>
+<span id="cb416-5"><a href="basic-graphics.html#cb416-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   sph1   sph3  inter litter   sph4   sph2   peat </span></span>
+<span id="cb416-6"><a href="basic-graphics.html#cb416-6" aria-hidden="true" tabindex="-1"></a><span class="co">#    16     18     18     18     18     18     18</span></span>
+<span id="cb416-7"><a href="basic-graphics.html#cb416-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb416-8"><a href="basic-graphics.html#cb416-8" aria-hidden="true" tabindex="-1"></a><span class="do">## scatterplot for &#39;sph1&#39; substrate with color and shape</span></span>
+<span id="cb416-9"><a href="basic-graphics.html#cb416-9" aria-hidden="true" tabindex="-1"></a>my_scatterplot_l5 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> oribatid_data_2, <span class="fu">aes</span>(<span class="at">x =</span> water, <span class="at">y =</span> total_mites)) <span class="sc">+</span></span>
+<span id="cb416-10"><a href="basic-graphics.html#cb416-10" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> substrate , <span class="at">shape =</span> substrate), <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb416-11"><a href="basic-graphics.html#cb416-11" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Oribatid data -- scatterplot with emphasis on &#39;sph1&#39; substrate &quot;</span>, <span class="at">x=</span><span class="st">&quot;water content of the substratum (g/L)&quot;</span>, <span class="at">y=</span><span class="st">&quot;total mites&quot;</span>) <span class="sc">+</span></span>
+<span id="cb416-12"><a href="basic-graphics.html#cb416-12" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> colors_substrate) <span class="sc">+</span></span>
+<span id="cb416-13"><a href="basic-graphics.html#cb416-13" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> shape_substrate) <span class="sc">+</span> </span>
+<span id="cb416-14"><a href="basic-graphics.html#cb416-14" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">theme_minimal</span>()</span>
+<span id="cb416-15"><a href="basic-graphics.html#cb416-15" aria-hidden="true" tabindex="-1"></a>my_scatterplot_l5</span></code></pre></div>
+<p><img src="figures/session_10_figs/51_scatterplot_color_shape_substrate_v5.png" width="90%" /></p>
+</div>
+<div id="lines-and-scatterplots" class="section level2" number="10.8">
+<h2><span class="header-section-number">10.8</span> Lines and Scatterplots</h2>
+<p>In most cases, you would be interested on plotting trends on your scatterplots and these can be easily added with functions like <code>geom_line()</code> and <code>geom_sooth()</code>.</p>
+<p><strong>26)</strong> For lines, we will use again the <code>oribatid</code> dataset. As mentioned, this data set contains information about environment and diversity in communities of Oribatid mites.</p>
+<p>We can prepare <code>oribatid</code> dataset for the scatterplot.</p>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="basic-graphics.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="do">## check is ade4 is loaded and get &#39;oribatid&#39; database</span></span>
+<span id="cb417-2"><a href="basic-graphics.html#cb417-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ade4)</span>
+<span id="cb417-3"><a href="basic-graphics.html#cb417-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(oribatid)</span>
+<span id="cb417-4"><a href="basic-graphics.html#cb417-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb417-5"><a href="basic-graphics.html#cb417-5" aria-hidden="true" tabindex="-1"></a><span class="do">## enviromental and genetic data</span></span>
+<span id="cb417-6"><a href="basic-graphics.html#cb417-6" aria-hidden="true" tabindex="-1"></a>envir_data <span class="ot">&lt;-</span> oribatid<span class="sc">$</span>envir</span>
+<span id="cb417-7"><a href="basic-graphics.html#cb417-7" aria-hidden="true" tabindex="-1"></a>fauna_data <span class="ot">&lt;-</span> oribatid<span class="sc">$</span>fau</span>
+<span id="cb417-8"><a href="basic-graphics.html#cb417-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb417-9"><a href="basic-graphics.html#cb417-9" aria-hidden="true" tabindex="-1"></a><span class="do">## total number of oribatid mites</span></span>
+<span id="cb417-10"><a href="basic-graphics.html#cb417-10" aria-hidden="true" tabindex="-1"></a>fauna_data<span class="sc">$</span>total_mites <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(fauna_data)</span>
+<span id="cb417-11"><a href="basic-graphics.html#cb417-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb417-12"><a href="basic-graphics.html#cb417-12" aria-hidden="true" tabindex="-1"></a><span class="do">## we add a common column in both data frames, in this case the &#39;site&#39;</span></span>
+<span id="cb417-13"><a href="basic-graphics.html#cb417-13" aria-hidden="true" tabindex="-1"></a>envir_data<span class="sc">$</span>site <span class="ot">&lt;-</span> <span class="fu">rownames</span>(envir_data)</span>
+<span id="cb417-14"><a href="basic-graphics.html#cb417-14" aria-hidden="true" tabindex="-1"></a>fauna_data<span class="sc">$</span>site <span class="ot">&lt;-</span> <span class="fu">rownames</span>(fauna_data)</span>
+<span id="cb417-15"><a href="basic-graphics.html#cb417-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb417-16"><a href="basic-graphics.html#cb417-16" aria-hidden="true" tabindex="-1"></a><span class="do">## merge both data frames using &#39;site&#39;</span></span>
+<span id="cb417-17"><a href="basic-graphics.html#cb417-17" aria-hidden="true" tabindex="-1"></a>oribatid_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(envir_data, fauna_data, <span class="at">by =</span><span class="st">&quot;site&quot;</span>)</span>
+<span id="cb417-18"><a href="basic-graphics.html#cb417-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oribatid_data)</span>
+<span id="cb417-19"><a href="basic-graphics.html#cb417-19" aria-hidden="true" tabindex="-1"></a><span class="co"># you can explore this data frame content</span></span>
+<span id="cb417-20"><a href="basic-graphics.html#cb417-20" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(oribatid_data)</span>
+<span id="cb417-21"><a href="basic-graphics.html#cb417-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  70 obs. of  41 variables:</span></span>
+<span id="cb417-22"><a href="basic-graphics.html#cb417-22" aria-hidden="true" tabindex="-1"></a><span class="co"># $ site         : chr  &quot;1&quot; &quot;10&quot; &quot;11&quot; &quot;12&quot; ...</span></span>
+<span id="cb417-23"><a href="basic-graphics.html#cb417-23" aria-hidden="true" tabindex="-1"></a><span class="co"># $ substrate    : Factor w/ 7 levels &quot;inter&quot;,&quot;litter&quot;,..: 4 4 6 4 4 1 1 1 1 4 ...</span></span>
+<span id="cb417-24"><a href="basic-graphics.html#cb417-24" aria-hidden="true" tabindex="-1"></a><span class="co"># $ shrubs       : Factor w/ 3 levels &quot;few&quot;,&quot;many&quot;,&quot;none&quot;: 1 2 2 1 2 2 2 1 2 2 ...</span></span>
+<span id="cb417-25"><a href="basic-graphics.html#cb417-25" aria-hidden="true" tabindex="-1"></a><span class="co"># $ topo         : Factor w/ 2 levels &quot;blanket&quot;,&quot;hummock&quot;: 2 2 1 2 2 1 1 2 2 2 ...</span></span>
+<span id="cb417-26"><a href="basic-graphics.html#cb417-26" aria-hidden="true" tabindex="-1"></a><span class="co"># $ density      : num  39.2 32.1 35.6 46.8 28 ...</span></span>
+<span id="cb417-27"><a href="basic-graphics.html#cb417-27" aria-hidden="true" tabindex="-1"></a><span class="co"># $ water        : num  350 221 134 406 244 ...</span></span>
+<span id="cb417-28"><a href="basic-graphics.html#cb417-28" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Brachy       : int  17 22 36 28 3 41 6 7 9 19 ...</span></span>
+<span id="cb417-29"><a href="basic-graphics.html#cb417-29" aria-hidden="true" tabindex="-1"></a><span class="co"># $ PHTH         : int  5 4 7 2 2 5 0 2 0 3 ...</span></span>
+<span id="cb417-30"><a href="basic-graphics.html#cb417-30" aria-hidden="true" tabindex="-1"></a><span class="co"># $ HPAV         : int  5 5 35 12 4 12 6 3 1 7 ...</span></span>
+<span id="cb417-31"><a href="basic-graphics.html#cb417-31" aria-hidden="true" tabindex="-1"></a><span class="co"># $ RARD         : int  3 3 9 13 12 0 0 2 2 0 ...</span></span>
+<span id="cb417-32"><a href="basic-graphics.html#cb417-32" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SSTR         : int  2 0 0 0 0 2 0 0 0 0 ...</span></span>
+<span id="cb417-33"><a href="basic-graphics.html#cb417-33" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Protopl      : int  1 0 2 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb417-34"><a href="basic-graphics.html#cb417-34" aria-hidden="true" tabindex="-1"></a><span class="co"># ... </span></span>
+<span id="cb417-35"><a href="basic-graphics.html#cb417-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb417-36"><a href="basic-graphics.html#cb417-36" aria-hidden="true" tabindex="-1"></a><span class="do">## as mentioned before, we will remove unusual site 67</span></span>
+<span id="cb417-37"><a href="basic-graphics.html#cb417-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb417-38"><a href="basic-graphics.html#cb417-38" aria-hidden="true" tabindex="-1"></a>oribatid_data_2 <span class="ot">&lt;-</span> oribatid_data[<span class="sc">-</span><span class="dv">64</span>,]</span></code></pre></div>
+<p>We can explore the relationship between <code>water</code> and <code>total_mites</code> by <code>shrubs</code> groups with <code>geom_line()</code>. Notice that you can change groups based on the argument <code>group</code>.</p>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="basic-graphics.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="do">## make sure that ggplot2 is loaded</span></span>
+<span id="cb418-2"><a href="basic-graphics.html#cb418-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
+<span id="cb418-3"><a href="basic-graphics.html#cb418-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb418-4"><a href="basic-graphics.html#cb418-4" aria-hidden="true" tabindex="-1"></a><span class="do">## add a line for each shrubs group</span></span>
+<span id="cb418-5"><a href="basic-graphics.html#cb418-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb418-6"><a href="basic-graphics.html#cb418-6" aria-hidden="true" tabindex="-1"></a>substrate_plots <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> oribatid_data_2, <span class="fu">aes</span>(<span class="at">x =</span> water, <span class="at">y =</span> total_mites, <span class="at">group =</span> shrubs)) <span class="sc">+</span></span>
+<span id="cb418-7"><a href="basic-graphics.html#cb418-7" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> shrubs))<span class="sc">+</span></span>
+<span id="cb418-8"><a href="basic-graphics.html#cb418-8" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> shrubs), <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb418-9"><a href="basic-graphics.html#cb418-9" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Oribatid data -- scatterplot with lines by shrub density&quot;</span>, <span class="at">x=</span><span class="st">&quot;water content of the substratum (g/L)&quot;</span>, <span class="at">y=</span><span class="st">&quot;total mites&quot;</span>) <span class="sc">+</span></span>
+<span id="cb418-10"><a href="basic-graphics.html#cb418-10" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">theme_minimal</span>()</span>
+<span id="cb418-11"><a href="basic-graphics.html#cb418-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb418-12"><a href="basic-graphics.html#cb418-12" aria-hidden="true" tabindex="-1"></a>substrate_plots</span></code></pre></div>
+<p><img src="figures/session_10_figs/56_scatterplot_shurb_v1.png" width="90%" /></p>
+<p>You can also change the type of line and color manually as long as you provide a vector with the same number of groups using <code>scale_linetype_manual()</code> and <code>scale_color_manual()</code>. For our example, <code>group = shrubs</code> has to have vector of 3 elements.</p>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="basic-graphics.html#cb419-1" aria-hidden="true" tabindex="-1"></a><span class="do">## change line type manually for each shrubs group</span></span>
+<span id="cb419-2"><a href="basic-graphics.html#cb419-2" aria-hidden="true" tabindex="-1"></a>substrate_plots <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> oribatid_data_2, <span class="fu">aes</span>(<span class="at">x =</span> water, <span class="at">y =</span> total_mites, <span class="at">group =</span> shrubs)) <span class="sc">+</span></span>
+<span id="cb419-3"><a href="basic-graphics.html#cb419-3" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> shrubs, <span class="at">linetype =</span> shrubs))<span class="sc">+</span></span>
+<span id="cb419-4"><a href="basic-graphics.html#cb419-4" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> shrubs), <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb419-5"><a href="basic-graphics.html#cb419-5" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Oribatid data -- scatterplot with lines by shrub density&quot;</span>, <span class="at">x=</span><span class="st">&quot;water content of the substratum (g/L)&quot;</span>, <span class="at">y=</span><span class="st">&quot;total mites&quot;</span>) <span class="sc">+</span></span>
+<span id="cb419-6"><a href="basic-graphics.html#cb419-6" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">theme_minimal</span>()</span>
+<span id="cb419-7"><a href="basic-graphics.html#cb419-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb419-8"><a href="basic-graphics.html#cb419-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb419-9"><a href="basic-graphics.html#cb419-9" aria-hidden="true" tabindex="-1"></a>substrate_plots <span class="ot">&lt;-</span> substrate_plots <span class="sc">+</span> <span class="fu">scale_linetype_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;solid&quot;</span>, <span class="st">&quot;dashed&quot;</span>, <span class="st">&quot;solid&quot;</span>))</span>
+<span id="cb419-10"><a href="basic-graphics.html#cb419-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb419-11"><a href="basic-graphics.html#cb419-11" aria-hidden="true" tabindex="-1"></a>substrate_plots</span></code></pre></div>
+<p><img src="figures/session_10_figs/57_scatterplot_shurb_v2.png" width="90%" />
+<strong>27)</strong> We an explore a line and adding a confidence region to a line. For this example, we will use the NYC Central Park temperature record from <a href="https://www.weather.gov/okx/CentralParkHistorical" target="_blank"><strong>here</strong></a>. This <code>nyc_temps.txt</code> dataset is also in our class <a href="https://github.com/corytophanes/BIO_BIT_Bioinformatics_209/tree/main/ref_files_pdfs" target="_blank"><strong>GitHub repository</strong></a>.</p>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="basic-graphics.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: remember to update the path to file with the dataset where you downloaded in your computer -- THIS IS EXCLUSIVE TO YOUR COMPUTER AND IT IS NOT THE PATH SHOWN BELOW</span></span>
+<span id="cb420-2"><a href="basic-graphics.html#cb420-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb420-3"><a href="basic-graphics.html#cb420-3" aria-hidden="true" tabindex="-1"></a><span class="do">## load get &#39;nyc_temps.txt&#39; dataset </span></span>
+<span id="cb420-4"><a href="basic-graphics.html#cb420-4" aria-hidden="true" tabindex="-1"></a>nyc_temps <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/ref_files_pdfs/nyc_temps.txt&quot;</span>,</span>
+<span id="cb420-5"><a href="basic-graphics.html#cb420-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb420-6"><a href="basic-graphics.html#cb420-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(nyc_temps)</span>
+<span id="cb420-7"><a href="basic-graphics.html#cb420-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  YEAR  JAN  FEB  MAR  APR  MAY  JUN  JUL  AUG  SEP  OCT  NOV  DEC ANNUAL</span></span>
+<span id="cb420-8"><a href="basic-graphics.html#cb420-8" aria-hidden="true" tabindex="-1"></a><span class="co">#1 1869 35.1 34.5 34.8 49.2 57.7 69.3 72.8 71.8 65.6 50.9 40.3 34.7   51.4</span></span>
+<span id="cb420-9"><a href="basic-graphics.html#cb420-9" aria-hidden="true" tabindex="-1"></a><span class="co">#2 1870 37.5 31.3 34.1 50.7 60.9 72.9 76.6 75.3 67.6 56.7 45.5 34.1   53.6</span></span>
+<span id="cb420-10"><a href="basic-graphics.html#cb420-10" aria-hidden="true" tabindex="-1"></a><span class="co">#3 1871 28.3 30.2 44.2 52.0 60.4 68.2 72.3 73.6 60.8 55.6 38.8 29.2   51.1</span></span>
+<span id="cb420-11"><a href="basic-graphics.html#cb420-11" aria-hidden="true" tabindex="-1"></a><span class="co">#4 1872 28.8 29.9 30.5 49.4 61.5 71.2 77.5 75.6 66.4 53.2 41.0 26.7   51.0</span></span>
+<span id="cb420-12"><a href="basic-graphics.html#cb420-12" aria-hidden="true" tabindex="-1"></a><span class="co">#5 1873 28.6 29.5 35.7 46.7 58.8 70.3 75.4 72.0 65.4 55.8 37.0 36.5   51.0</span></span>
+<span id="cb420-13"><a href="basic-graphics.html#cb420-13" aria-hidden="true" tabindex="-1"></a><span class="co">#6 1874 34.2 31.3 37.1 41.1 58.8 70.1 73.9 70.3 67.0 55.1 43.4 33.8   51.3</span></span>
+<span id="cb420-14"><a href="basic-graphics.html#cb420-14" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nyc_temps)</span>
+<span id="cb420-15"><a href="basic-graphics.html#cb420-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;: 151 obs. of  14 variables:</span></span>
+<span id="cb420-16"><a href="basic-graphics.html#cb420-16" aria-hidden="true" tabindex="-1"></a><span class="co"># $ YEAR  : int  1869 1870 1871 1872 1873 1874 1875 1876 1877 1878 ...</span></span>
+<span id="cb420-17"><a href="basic-graphics.html#cb420-17" aria-hidden="true" tabindex="-1"></a><span class="co"># $ JAN   : num  35.1 37.5 28.3 28.8 28.6 34.2 23.8 36.6 27.7 30.3 ...</span></span>
+<span id="cb420-18"><a href="basic-graphics.html#cb420-18" aria-hidden="true" tabindex="-1"></a><span class="co"># $ FEB   : num  34.5 31.3 30.2 29.9 29.5 31.3 25.2 31.8 37 32.2 ...</span></span>
+<span id="cb420-19"><a href="basic-graphics.html#cb420-19" aria-hidden="true" tabindex="-1"></a><span class="co"># $ MAR   : num  34.8 34.1 44.2 30.5 35.7 37.1 34.1 34.4 35.8 44.1 ...</span></span>
+<span id="cb420-20"><a href="basic-graphics.html#cb420-20" aria-hidden="true" tabindex="-1"></a><span class="co"># $ APR   : num  49.2 50.7 52 49.4 46.7 41.1 43.1 47 47.7 53.3 ...</span></span>
+<span id="cb420-21"><a href="basic-graphics.html#cb420-21" aria-hidden="true" tabindex="-1"></a><span class="co"># $ MAY   : num  57.7 60.9 60.4 61.5 58.8 58.8 60.1 60.2 59.6 59.4 ...</span></span>
+<span id="cb420-22"><a href="basic-graphics.html#cb420-22" aria-hidden="true" tabindex="-1"></a><span class="co"># $ JUN   : num  69.3 72.9 68.2 71.2 70.3 70.1 69.2 73.5 70.2 67.7 ...</span></span>
+<span id="cb420-23"><a href="basic-graphics.html#cb420-23" aria-hidden="true" tabindex="-1"></a><span class="co"># $ JUL   : num  72.8 76.6 72.3 77.5 75.4 73.9 74 79.4 75 77.8 ...</span></span>
+<span id="cb420-24"><a href="basic-graphics.html#cb420-24" aria-hidden="true" tabindex="-1"></a><span class="co"># $ AUG   : num  71.8 75.3 73.6 75.6 72 70.3 72.9 75.2 75.4 74.2 ...</span></span>
+<span id="cb420-25"><a href="basic-graphics.html#cb420-25" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SEP   : num  65.6 67.6 60.8 66.4 65.4 67 64 63.7 66.9 68.3 ...</span></span>
+<span id="cb420-26"><a href="basic-graphics.html#cb420-26" aria-hidden="true" tabindex="-1"></a><span class="co"># $ OCT   : num  50.9 56.7 55.6 53.2 55.8 55.1 53.6 50.6 55.8 58.7 ...</span></span>
+<span id="cb420-27"><a href="basic-graphics.html#cb420-27" aria-hidden="true" tabindex="-1"></a><span class="co"># $ NOV   : num  40.3 45.5 38.8 41 37 43.4 39.3 45.2 44.5 43.8 ...</span></span>
+<span id="cb420-28"><a href="basic-graphics.html#cb420-28" aria-hidden="true" tabindex="-1"></a><span class="co"># $ DEC   : num  34.7 34.1 29.2 26.7 36.5 33.8 33.9 24.9 37.4 32.8 ...</span></span>
+<span id="cb420-29"><a href="basic-graphics.html#cb420-29" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ANNUAL: num  51.4 53.6 51.1 51 51 51.3 49.4 51.9 52.8 53.6 ...</span></span>
+<span id="cb420-30"><a href="basic-graphics.html#cb420-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb420-31"><a href="basic-graphics.html#cb420-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb420-32"><a href="basic-graphics.html#cb420-32" aria-hidden="true" tabindex="-1"></a><span class="do">## we need to create a confidence level by determining the max and min temperature values per year</span></span>
+<span id="cb420-33"><a href="basic-graphics.html#cb420-33" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTICE</span><span class="do"> that we need to exclude the YEAR and ANNUAL columns</span></span>
+<span id="cb420-34"><a href="basic-graphics.html#cb420-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb420-35"><a href="basic-graphics.html#cb420-35" aria-hidden="true" tabindex="-1"></a><span class="do">## max</span></span>
+<span id="cb420-36"><a href="basic-graphics.html#cb420-36" aria-hidden="true" tabindex="-1"></a>nyc_temps[, <span class="st">&quot;max_temp&quot;</span>] <span class="ot">&lt;-</span> <span class="fu">apply</span>(nyc_temps[, <span class="dv">2</span><span class="sc">:</span><span class="dv">13</span>], <span class="dv">1</span>, max)</span>
+<span id="cb420-37"><a href="basic-graphics.html#cb420-37" aria-hidden="true" tabindex="-1"></a><span class="do">## min</span></span>
+<span id="cb420-38"><a href="basic-graphics.html#cb420-38" aria-hidden="true" tabindex="-1"></a>nyc_temps[, <span class="st">&quot;min_temp&quot;</span>] <span class="ot">&lt;-</span> <span class="fu">apply</span>(nyc_temps[, <span class="dv">2</span><span class="sc">:</span><span class="dv">13</span>], <span class="dv">1</span>, min)</span>
+<span id="cb420-39"><a href="basic-graphics.html#cb420-39" aria-hidden="true" tabindex="-1"></a><span class="do">## standard deviation</span></span>
+<span id="cb420-40"><a href="basic-graphics.html#cb420-40" aria-hidden="true" tabindex="-1"></a>nyc_temps[, <span class="st">&quot;sd_temp&quot;</span>] <span class="ot">&lt;-</span> <span class="fu">apply</span>(nyc_temps[, <span class="dv">2</span><span class="sc">:</span><span class="dv">13</span>], <span class="dv">1</span>, sd)</span>
+<span id="cb420-41"><a href="basic-graphics.html#cb420-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb420-42"><a href="basic-graphics.html#cb420-42" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(nyc_temps)</span>
+<span id="cb420-43"><a href="basic-graphics.html#cb420-43" aria-hidden="true" tabindex="-1"></a><span class="co">#  YEAR  JAN  FEB  MAR  APR  MAY  JUN  JUL  AUG  SEP  OCT  NOV  DEC ANNUAL max_temp min_temp  sd_temp</span></span>
+<span id="cb420-44"><a href="basic-graphics.html#cb420-44" aria-hidden="true" tabindex="-1"></a><span class="co">#1 1869 35.1 34.5 34.8 49.2 57.7 69.3 72.8 71.8 65.6 50.9 40.3 34.7   51.4     72.8     34.5 15.57944</span></span>
+<span id="cb420-45"><a href="basic-graphics.html#cb420-45" aria-hidden="true" tabindex="-1"></a><span class="co">#2 1870 37.5 31.3 34.1 50.7 60.9 72.9 76.6 75.3 67.6 56.7 45.5 34.1   53.6     76.6     31.3 17.11538</span></span>
+<span id="cb420-46"><a href="basic-graphics.html#cb420-46" aria-hidden="true" tabindex="-1"></a><span class="co">#3 1871 28.3 30.2 44.2 52.0 60.4 68.2 72.3 73.6 60.8 55.6 38.8 29.2   51.1     73.6     28.3 16.74647</span></span>
+<span id="cb420-47"><a href="basic-graphics.html#cb420-47" aria-hidden="true" tabindex="-1"></a><span class="co">#4 1872 28.8 29.9 30.5 49.4 61.5 71.2 77.5 75.6 66.4 53.2 41.0 26.7   51.0     77.5     26.7 19.35093</span></span>
+<span id="cb420-48"><a href="basic-graphics.html#cb420-48" aria-hidden="true" tabindex="-1"></a><span class="co">#5 1873 28.6 29.5 35.7 46.7 58.8 70.3 75.4 72.0 65.4 55.8 37.0 36.5   51.0     75.4     28.6 17.38056</span></span>
+<span id="cb420-49"><a href="basic-graphics.html#cb420-49" aria-hidden="true" tabindex="-1"></a><span class="co">#6 1874 34.2 31.3 37.1 41.1 58.8 70.1 73.9 70.3 67.0 55.1 43.4 33.8   51.3     73.9     31.3 16.26236</span></span></code></pre></div>
+<p>We now can plot the temperature trends in NYC until 2019. For the confidence plot, we use the function <code>geom_ribbon()</code>.</p>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="basic-graphics.html#cb421-1" aria-hidden="true" tabindex="-1"></a><span class="do">## NYC temperatures plot</span></span>
+<span id="cb421-2"><a href="basic-graphics.html#cb421-2" aria-hidden="true" tabindex="-1"></a>nyc_temp_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(nyc_temps, <span class="fu">aes</span>(<span class="at">x =</span> YEAR, <span class="at">y =</span> ANNUAL)) <span class="sc">+</span></span>
+<span id="cb421-3"><a href="basic-graphics.html#cb421-3" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> ANNUAL <span class="sc">-</span> sd_temp, <span class="at">ymax =</span> ANNUAL <span class="sc">+</span> sd_temp), <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb421-4"><a href="basic-graphics.html#cb421-4" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> YEAR, <span class="at">y =</span> max_temp), <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span></span>
+<span id="cb421-5"><a href="basic-graphics.html#cb421-5" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> YEAR, <span class="at">y =</span> min_temp), <span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span></span>
+<span id="cb421-6"><a href="basic-graphics.html#cb421-6" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb421-7"><a href="basic-graphics.html#cb421-7" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;NYC temperature Central Park&quot;</span>, <span class="at">x=</span><span class="st">&quot;Year&quot;</span>, <span class="at">y=</span><span class="st">&quot;Temp (F)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb421-8"><a href="basic-graphics.html#cb421-8" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">90</span>) <span class="sc">+</span></span>
+<span id="cb421-9"><a href="basic-graphics.html#cb421-9" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">theme_minimal</span>()</span>
+<span id="cb421-10"><a href="basic-graphics.html#cb421-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb421-11"><a href="basic-graphics.html#cb421-11" aria-hidden="true" tabindex="-1"></a>nyc_temp_plot</span></code></pre></div>
+<p><img src="figures/session_10_figs/58_scatterplot_nyc.png" width="90%" /></p>
+<p><strong>28)</strong> We can explore by fitting a line to the scatterplot using <code>geom_smooth()</code> to our NYC climate data.</p>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="basic-graphics.html#cb422-1" aria-hidden="true" tabindex="-1"></a><span class="do">## NYC temperatures plot and fit line loess</span></span>
+<span id="cb422-2"><a href="basic-graphics.html#cb422-2" aria-hidden="true" tabindex="-1"></a>nyc_temp_plot_smooth <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(nyc_temps, <span class="fu">aes</span>(<span class="at">x =</span> YEAR, <span class="at">y =</span> ANNUAL)) <span class="sc">+</span></span>
+<span id="cb422-3"><a href="basic-graphics.html#cb422-3" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb422-4"><a href="basic-graphics.html#cb422-4" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb422-5"><a href="basic-graphics.html#cb422-5" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;NYC temperature Central Park&quot;</span>, <span class="at">x=</span><span class="st">&quot;Year&quot;</span>, <span class="at">y=</span><span class="st">&quot;Temp (F)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb422-6"><a href="basic-graphics.html#cb422-6" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">ylim</span>(<span class="dv">35</span>, <span class="dv">65</span>) <span class="sc">+</span></span>
+<span id="cb422-7"><a href="basic-graphics.html#cb422-7" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">theme_minimal</span>()</span>
+<span id="cb422-8"><a href="basic-graphics.html#cb422-8" aria-hidden="true" tabindex="-1"></a>nyc_temp_plot_smooth</span>
+<span id="cb422-9"><a href="basic-graphics.html#cb422-9" aria-hidden="true" tabindex="-1"></a><span class="co">#`geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</span></span></code></pre></div>
+<p><img src="figures/session_10_figs/59_scatterplot_nyc_loess.png" width="90%" /></p>
+<p>Notice the upward trend in the temperature. We can plot using a curve with other methods like <code>lm</code>.</p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="basic-graphics.html#cb423-1" aria-hidden="true" tabindex="-1"></a><span class="do">## NYC temperatures plot and fit line with lm</span></span>
+<span id="cb423-2"><a href="basic-graphics.html#cb423-2" aria-hidden="true" tabindex="-1"></a>nyc_temp_plot_smooth_lm <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(nyc_temps, <span class="fu">aes</span>(<span class="at">x =</span> YEAR, <span class="at">y =</span> ANNUAL)) <span class="sc">+</span></span>
+<span id="cb423-3"><a href="basic-graphics.html#cb423-3" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb423-4"><a href="basic-graphics.html#cb423-4" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm, <span class="at">se=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb423-5"><a href="basic-graphics.html#cb423-5" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;NYC temperature Central Park - lm line and without se&quot;</span>, <span class="at">x=</span><span class="st">&quot;Year&quot;</span>, <span class="at">y=</span><span class="st">&quot;Temp (F)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb423-6"><a href="basic-graphics.html#cb423-6" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">ylim</span>(<span class="dv">35</span>, <span class="dv">65</span>) <span class="sc">+</span></span>
+<span id="cb423-7"><a href="basic-graphics.html#cb423-7" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">theme_minimal</span>()</span>
+<span id="cb423-8"><a href="basic-graphics.html#cb423-8" aria-hidden="true" tabindex="-1"></a><span class="do">## I removed the confidence line change by setting in geom_smooth() --&gt; se=FALSE</span></span>
+<span id="cb423-9"><a href="basic-graphics.html#cb423-9" aria-hidden="true" tabindex="-1"></a>nyc_temp_plot_smooth_lm</span>
+<span id="cb423-10"><a href="basic-graphics.html#cb423-10" aria-hidden="true" tabindex="-1"></a><span class="co">#`geom_smooth()` using formula &#39;y ~ x&#39;</span></span></code></pre></div>
+<p><img src="figures/session_10_figs/60_scatterplot_nyc_lm.png" width="90%" /></p>
+<p><strong>29)</strong> We can also plot multiple lines when we provide groupings. We need to prepare our data.</p>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="basic-graphics.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we need to prepare our data</span></span>
+<span id="cb424-2"><a href="basic-graphics.html#cb424-2" aria-hidden="true" tabindex="-1"></a>nyc_average <span class="ot">&lt;-</span> <span class="fu">subset</span>(nyc_temps, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">&quot;YEAR&quot;</span>, <span class="st">&quot;ANNUAL&quot;</span>))</span>
+<span id="cb424-3"><a href="basic-graphics.html#cb424-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(nyc_average) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;YEAR&quot;</span>, <span class="st">&quot;TEMP&quot;</span>)</span>
+<span id="cb424-4"><a href="basic-graphics.html#cb424-4" aria-hidden="true" tabindex="-1"></a>nyc_average<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="st">&quot;average&quot;</span></span>
+<span id="cb424-5"><a href="basic-graphics.html#cb424-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb424-6"><a href="basic-graphics.html#cb424-6" aria-hidden="true" tabindex="-1"></a>nyc_max <span class="ot">&lt;-</span> <span class="fu">subset</span>(nyc_temps, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">&quot;YEAR&quot;</span>, <span class="st">&quot;max_temp&quot;</span>))</span>
+<span id="cb424-7"><a href="basic-graphics.html#cb424-7" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(nyc_max) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;YEAR&quot;</span>, <span class="st">&quot;TEMP&quot;</span>)</span>
+<span id="cb424-8"><a href="basic-graphics.html#cb424-8" aria-hidden="true" tabindex="-1"></a>nyc_max<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="st">&quot;max&quot;</span></span>
+<span id="cb424-9"><a href="basic-graphics.html#cb424-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb424-10"><a href="basic-graphics.html#cb424-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb424-11"><a href="basic-graphics.html#cb424-11" aria-hidden="true" tabindex="-1"></a>nyc_min <span class="ot">&lt;-</span> <span class="fu">subset</span>(nyc_temps, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">&quot;YEAR&quot;</span>, <span class="st">&quot;min_temp&quot;</span>))</span>
+<span id="cb424-12"><a href="basic-graphics.html#cb424-12" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(nyc_min) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;YEAR&quot;</span>, <span class="st">&quot;TEMP&quot;</span>)</span>
+<span id="cb424-13"><a href="basic-graphics.html#cb424-13" aria-hidden="true" tabindex="-1"></a>nyc_min<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="st">&quot;min&quot;</span></span>
+<span id="cb424-14"><a href="basic-graphics.html#cb424-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb424-15"><a href="basic-graphics.html#cb424-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb424-16"><a href="basic-graphics.html#cb424-16" aria-hidden="true" tabindex="-1"></a><span class="do">## all data together</span></span>
+<span id="cb424-17"><a href="basic-graphics.html#cb424-17" aria-hidden="true" tabindex="-1"></a>nyc_all <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">list</span>(nyc_average,nyc_max, nyc_min))</span>
+<span id="cb424-18"><a href="basic-graphics.html#cb424-18" aria-hidden="true" tabindex="-1"></a>nyc_all<span class="sc">$</span>group2 <span class="ot">&lt;-</span> nyc_all<span class="sc">$</span>group</span>
+<span id="cb424-19"><a href="basic-graphics.html#cb424-19" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nyc_all)</span>
+<span id="cb424-20"><a href="basic-graphics.html#cb424-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  453 obs. of  4 variables:</span></span>
+<span id="cb424-21"><a href="basic-graphics.html#cb424-21" aria-hidden="true" tabindex="-1"></a><span class="co"># $ YEAR  : int  1869 1870 1871 1872 1873 1874 1875 1876 1877 1878 ...</span></span>
+<span id="cb424-22"><a href="basic-graphics.html#cb424-22" aria-hidden="true" tabindex="-1"></a><span class="co"># $ TEMP  : num  51.4 53.6 51.1 51 51 51.3 49.4 51.9 52.8 53.6 ...</span></span>
+<span id="cb424-23"><a href="basic-graphics.html#cb424-23" aria-hidden="true" tabindex="-1"></a><span class="co"># $ group : chr  &quot;average&quot; &quot;average&quot; &quot;average&quot; &quot;average&quot; ...</span></span>
+<span id="cb424-24"><a href="basic-graphics.html#cb424-24" aria-hidden="true" tabindex="-1"></a><span class="co"># $ group2: chr  &quot;average&quot; &quot;average&quot; &quot;average&quot; &quot;average&quot; ...</span></span></code></pre></div>
+<p>We now have the data ready and now we can plot the trends on average, maximum and minimum temperatures in NYC.</p>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="basic-graphics.html#cb425-1" aria-hidden="true" tabindex="-1"></a><span class="do">## NYC temperatures plot and fit line loess</span></span>
+<span id="cb425-2"><a href="basic-graphics.html#cb425-2" aria-hidden="true" tabindex="-1"></a>nyc_temp_plot_smooth_3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(nyc_all, <span class="fu">aes</span>(<span class="at">x =</span> YEAR, <span class="at">y =</span> TEMP, <span class="at">color =</span> group)) <span class="sc">+</span></span>
+<span id="cb425-3"><a href="basic-graphics.html#cb425-3" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> group), <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb425-4"><a href="basic-graphics.html#cb425-4" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">color =</span> group2), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb425-5"><a href="basic-graphics.html#cb425-5" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;NYC temperature Central Park&quot;</span>, <span class="at">x=</span><span class="st">&quot;Year&quot;</span>, <span class="at">y=</span><span class="st">&quot;Temp (F)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb425-6"><a href="basic-graphics.html#cb425-6" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">ylim</span>(<span class="dv">15</span>, <span class="dv">90</span>) <span class="sc">+</span></span>
+<span id="cb425-7"><a href="basic-graphics.html#cb425-7" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">theme_minimal</span>()</span>
+<span id="cb425-8"><a href="basic-graphics.html#cb425-8" aria-hidden="true" tabindex="-1"></a>nyc_temp_plot_smooth_3</span>
+<span id="cb425-9"><a href="basic-graphics.html#cb425-9" aria-hidden="true" tabindex="-1"></a><span class="co">#`geom_smooth()` using formula &#39;y ~ x&#39;</span></span></code></pre></div>
+<p><img src="figures/session_10_figs/61_scatterplot_nyc_3lines.png" width="90%" /></p>
+<p>A more elaborated plot of the same temperature trends.</p>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="basic-graphics.html#cb426-1" aria-hidden="true" tabindex="-1"></a><span class="do">## NYC temperatures plot and fit line loess</span></span>
+<span id="cb426-2"><a href="basic-graphics.html#cb426-2" aria-hidden="true" tabindex="-1"></a>color_points <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;green&quot;</span>,<span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb426-3"><a href="basic-graphics.html#cb426-3" aria-hidden="true" tabindex="-1"></a>color_lines <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;black&quot;</span>,<span class="st">&quot;black&quot;</span>)</span>
+<span id="cb426-4"><a href="basic-graphics.html#cb426-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb426-5"><a href="basic-graphics.html#cb426-5" aria-hidden="true" tabindex="-1"></a>nyc_temp_plot_smooth_4 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(nyc_all, <span class="fu">aes</span>(<span class="at">x =</span> YEAR, <span class="at">y =</span> TEMP)) <span class="sc">+</span></span>
+<span id="cb426-6"><a href="basic-graphics.html#cb426-6" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">fill=</span><span class="fu">factor</span>(group)),<span class="at">size=</span><span class="dv">4</span>, <span class="at">shape=</span><span class="dv">21</span>, <span class="at">stroke=</span><span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb426-7"><a href="basic-graphics.html#cb426-7" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">color =</span> group2), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb426-8"><a href="basic-graphics.html#cb426-8" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;NYC temperature Central Park&quot;</span>, <span class="at">x=</span><span class="st">&quot;Year&quot;</span>, <span class="at">y=</span><span class="st">&quot;Temp (F)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb426-9"><a href="basic-graphics.html#cb426-9" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>color_points) <span class="sc">+</span></span>
+<span id="cb426-10"><a href="basic-graphics.html#cb426-10" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">scale_colour_manual</span>(<span class="at">values=</span>color_lines) <span class="sc">+</span></span>
+<span id="cb426-11"><a href="basic-graphics.html#cb426-11" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">ylim</span>(<span class="dv">15</span>, <span class="dv">90</span>) <span class="sc">+</span></span>
+<span id="cb426-12"><a href="basic-graphics.html#cb426-12" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">theme_minimal</span>()</span>
+<span id="cb426-13"><a href="basic-graphics.html#cb426-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb426-14"><a href="basic-graphics.html#cb426-14" aria-hidden="true" tabindex="-1"></a>nyc_temp_plot_smooth_4 </span>
+<span id="cb426-15"><a href="basic-graphics.html#cb426-15" aria-hidden="true" tabindex="-1"></a><span class="co">#`geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</span></span></code></pre></div>
+<p><img src="figures/session_10_figs/62_scatterplot_nyc_3lines_r.png" width="90%" /></p>
+</div>
+<div id="multiple-graphs-at-once-with-cowplot" class="section level2" number="10.9">
+<h2><span class="header-section-number">10.9</span> Multiple graphs at once with <code>cowplot</code></h2>
+<p>In most cases, you might want multiple plots at once before we print our graphics. We will use the R package <a href="https://cran.r-project.org/web/packages/cowplot/index.html" target="_blank"><strong>cowplot</strong></a> that provides various features that help with creating publication-quality figures with ‘ggplot2,’ such as a set of themes, functions to align plots and arrange them into complex compound figures. This R package has a <a href="https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html" target="_blank"><strong>vignette</strong></a>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="graphics-and-colors.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/10-Basic_Graphics_v6.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
