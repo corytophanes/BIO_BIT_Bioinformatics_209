@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Session 4 – Text Editing and Data Transformations | Bioinformatics Workshop Gitbook</title>
+  <meta name="description" content="none" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Session 4 – Text Editing and Data Transformations | Bioinformatics Workshop Gitbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="none" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Session 4 – Text Editing and Data Transformations | Bioinformatics Workshop Gitbook" />
+  
+  <meta name="twitter:description" content="none" />
+  
+
+<meta name="author" content="Juan C. Santos" />
+
+
+<meta name="date" content="2021-02-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="basic-data-structures-in-r.html"/>
+<link rel="next" href="getting-biological-data-from-public-repositories.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Bioinformatics Workshop Gitbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>1</b> – Getting Started with R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#why-do-we-use-r"><i class="fa fa-check"></i><b>1.1</b> Why do we use R?</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#get-a-good-text-editor"><i class="fa fa-check"></i><b>1.2</b> Get a good text editor</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#r-studio"><i class="fa fa-check"></i><b>1.3</b> R studio</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-r"><i class="fa fa-check"></i><b>1.4</b> Installing R</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#annotating-code"><i class="fa fa-check"></i><b>1.5</b> Annotating code</a></li>
+<li class="chapter" data-level="1.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#defining-a-working-directory-in-r"><i class="fa fa-check"></i><b>1.6</b> Defining a working directory in R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html"><i class="fa fa-check"></i><b>2</b> – Using R, Installing Packages and Importing/Exporting Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#your-first-session"><i class="fa fa-check"></i><b>2.1</b> Your first session</a></li>
+<li class="chapter" data-level="2.2" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#doing-some-base-functions-and-getting-help"><i class="fa fa-check"></i><b>2.2</b> Doing some base functions and getting help</a></li>
+<li class="chapter" data-level="2.3" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#about-r-packages"><i class="fa fa-check"></i><b>2.3</b> About R-packages</a></li>
+<li class="chapter" data-level="2.4" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#installing-packages"><i class="fa fa-check"></i><b>2.4</b> Installing packages</a></li>
+<li class="chapter" data-level="2.5" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#importing-and-exporting-data"><i class="fa fa-check"></i><b>2.5</b> Importing and exporting data</a></li>
+<li class="chapter" data-level="2.6" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#saving-data-as-rdata-.rdata-.rda"><i class="fa fa-check"></i><b>2.6</b> Saving data as Rdata (.rdata, .rda)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html"><i class="fa fa-check"></i><b>3</b> – Basic Data Structures in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#scalars-and-vectors"><i class="fa fa-check"></i><b>3.1</b> Scalars and vectors</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#matrices"><i class="fa fa-check"></i><b>3.2</b> Matrices</a></li>
+<li class="chapter" data-level="3.3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#arrays"><i class="fa fa-check"></i><b>3.3</b> Arrays</a></li>
+<li class="chapter" data-level="3.4" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-frames"><i class="fa fa-check"></i><b>3.4</b> Data Frames</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tables"><i class="fa fa-check"></i><b>3.5</b> Tables</a></li>
+<li class="chapter" data-level="3.6" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#lists"><i class="fa fa-check"></i><b>3.6</b> Lists</a></li>
+<li class="chapter" data-level="3.7" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-tables"><i class="fa fa-check"></i><b>3.7</b> Data Tables</a></li>
+<li class="chapter" data-level="3.8" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tibbles"><i class="fa fa-check"></i><b>3.8</b> Tibbles</a></li>
+<li class="chapter" data-level="3.9" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#dnastringsets-rnastringsets-and-aastringsets"><i class="fa fa-check"></i><b>3.9</b> DNAStringSets, RNAStringSets and AAStringSets</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html"><i class="fa fa-check"></i><b>4</b> – Text Editing and Data Transformations</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#working-with-character-strings"><i class="fa fa-check"></i><b>4.1</b> Working with character strings</a></li>
+<li class="chapter" data-level="4.2" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#regular-expressions-regex"><i class="fa fa-check"></i><b>4.2</b> Regular expressions (Regex)</a></li>
+<li class="chapter" data-level="4.3" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#comparing-ordering-and-simplifying-vectors"><i class="fa fa-check"></i><b>4.3</b> Comparing, ordering and simplifying vectors</a></li>
+<li class="chapter" data-level="4.4" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#useful-functions-of-stringr"><i class="fa fa-check"></i><b>4.4</b> Useful functions of ‘stringr’</a></li>
+<li class="chapter" data-level="4.5" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#data-transformations"><i class="fa fa-check"></i><b>4.5</b> Data transformations</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html"><i class="fa fa-check"></i><b>5</b> – Getting Biological Data from Public Repositories</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#ncbi-databases-genbank-and-others"><i class="fa fa-check"></i><b>5.1</b> NCBI databases: GenBank and others</a></li>
+<li class="chapter" data-level="5.2" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#accessing-ncbi-within-r-rentrez"><i class="fa fa-check"></i><b>5.2</b> Accessing NCBI within R: rentrez</a></li>
+<li class="chapter" data-level="5.3" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#comparing-sequences-blast"><i class="fa fa-check"></i><b>5.3</b> Comparing sequences: BLAST</a></li>
+<li class="chapter" data-level="5.4" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-uniprot"><i class="fa fa-check"></i><b>5.4</b> Other databases: UniProt</a></li>
+<li class="chapter" data-level="5.5" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-ensembl"><i class="fa fa-check"></i><b>5.5</b> Other databases: Ensembl</a></li>
+<li class="chapter" data-level="5.6" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-taxonomy-phylogenetic-trees-and-species-distributions"><i class="fa fa-check"></i><b>5.6</b> Other databases: Taxonomy, phylogenetic trees and species distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html"><i class="fa fa-check"></i><b>6</b> – Basic Statistics in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#exploring-your-data"><i class="fa fa-check"></i><b>6.1</b> Exploring your data</a></li>
+<li class="chapter" data-level="6.2" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#normalizing-your-data"><i class="fa fa-check"></i><b>6.2</b> Normalizing your data</a></li>
+<li class="chapter" data-level="6.3" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#what-test-should-i-use"><i class="fa fa-check"></i><b>6.3</b> What test should I use?</a></li>
+<li class="chapter" data-level="6.4" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-means-t-test"><i class="fa fa-check"></i><b>6.4</b> Comparing means: t-test</a></li>
+<li class="chapter" data-level="6.5" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>6.5</b> Beyond t-test: Wilcoxon signed rank test</a></li>
+<li class="chapter" data-level="6.6" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-binomial-test"><i class="fa fa-check"></i><b>6.6</b> Beyond t-test: Binomial test</a></li>
+<li class="chapter" data-level="6.7" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-chi-square-goodness-of-fit"><i class="fa fa-check"></i><b>6.7</b> Beyond t-test: Chi-square goodness of fit</a></li>
+<li class="chapter" data-level="6.8" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-fishers-exact-test"><i class="fa fa-check"></i><b>6.8</b> Beyond t-test: Fisher’s exact test</a></li>
+<li class="chapter" data-level="6.9" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.9</b> Correlations</a></li>
+<li class="chapter" data-level="6.10" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.10</b> Comparing distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html"><i class="fa fa-check"></i><b>7</b> – Regressions and ANOVA in R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#linear-regressions"><i class="fa fa-check"></i><b>7.1</b> Linear regressions</a></li>
+<li class="chapter" data-level="7.2" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#selecting-predictors"><i class="fa fa-check"></i><b>7.2</b> Selecting predictors</a></li>
+<li class="chapter" data-level="7.3" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#logistic-regressions"><i class="fa fa-check"></i><b>7.3</b> Logistic regressions</a></li>
+<li class="chapter" data-level="7.4" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#non-linear-regressions"><i class="fa fa-check"></i><b>7.4</b> Non-linear regressions</a></li>
+<li class="chapter" data-level="7.5" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#anova"><i class="fa fa-check"></i><b>7.5</b> ANOVA</a></li>
+<li class="chapter" data-level="7.6" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#one-way-anova"><i class="fa fa-check"></i><b>7.6</b> One-way ANOVA</a></li>
+<li class="chapter" data-level="7.7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#two-way-anova"><i class="fa fa-check"></i><b>7.7</b> Two-way ANOVA</a></li>
+<li class="chapter" data-level="7.8" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#post-hoc-tests"><i class="fa fa-check"></i><b>7.8</b> Post-hoc tests</a></li>
+<li class="chapter" data-level="7.9" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#beyond-anova-kruskal-wallis-test"><i class="fa fa-check"></i><b>7.9</b> Beyond ANOVA: Kruskal-Wallis Test</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html"><i class="fa fa-check"></i><b>8</b> – Exploring Multidimensional Data in R</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#principal-component-analysis"><i class="fa fa-check"></i><b>8.1</b> Principal Component Analysis</a></li>
+<li class="chapter" data-level="8.2" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#multidimensional-scaling"><i class="fa fa-check"></i><b>8.2</b> Multidimensional scaling</a></li>
+<li class="chapter" data-level="8.3" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#cluster-analysis-dfa"><i class="fa fa-check"></i><b>8.3</b> Cluster analysis: DFA</a></li>
+<li class="chapter" data-level="8.4" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#cluster-analysis-k-means-unsupervised"><i class="fa fa-check"></i><b>8.4</b> Cluster analysis: <em>k</em>-means (unsupervised)</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html"><i class="fa fa-check"></i><b>9</b> – Graphics and Colors</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#avoid-bad-graphics"><i class="fa fa-check"></i><b>9.1</b> Avoid bad graphics</a></li>
+<li class="chapter" data-level="9.2" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#graphics-in-r-ggplot2"><i class="fa fa-check"></i><b>9.2</b> Graphics in R – ggplot2</a></li>
+<li class="chapter" data-level="9.3" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#preparing-your-dataset"><i class="fa fa-check"></i><b>9.3</b> Preparing your dataset</a></li>
+<li class="chapter" data-level="9.4" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#color-palettes-online"><i class="fa fa-check"></i><b>9.4</b> Color palettes online</a></li>
+<li class="chapter" data-level="9.5" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#ggplot2-default-palette"><i class="fa fa-check"></i><b>9.5</b> <code>ggplot2</code> default palette</a></li>
+<li class="chapter" data-level="9.6" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#heatmaps-or-tiled-charts"><i class="fa fa-check"></i><b>9.6</b> Heatmaps or tiled charts</a></li>
+<li class="chapter" data-level="9.7" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#r-packages-about-color"><i class="fa fa-check"></i><b>9.7</b> R-packages about color</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#viridis-package"><i class="fa fa-check"></i><b>9.7.1</b> <code>viridis</code> package</a></li>
+<li class="chapter" data-level="9.7.2" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#rcolorbrewer-package"><i class="fa fa-check"></i><b>9.7.2</b> <code>RColorBrewer</code> package</a></li>
+<li class="chapter" data-level="9.7.3" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#ggsci-package"><i class="fa fa-check"></i><b>9.7.3</b> <code>ggsci</code> package</a></li>
+<li class="chapter" data-level="9.7.4" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#wesanderson-package"><i class="fa fa-check"></i><b>9.7.4</b> <code>wesanderson</code> package</a></li>
+<li class="chapter" data-level="9.7.5" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#rcartocolor-package"><i class="fa fa-check"></i><b>9.7.5</b> <code>rcartocolor</code> package</a></li>
+<li class="chapter" data-level="9.7.6" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#colorspace-package"><i class="fa fa-check"></i><b>9.7.6</b> <code>colorspace</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#making-your-own-palette"><i class="fa fa-check"></i><b>9.8</b> Making your own palette</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="basic-graphics.html"><a href="basic-graphics.html"><i class="fa fa-check"></i><b>10</b> – Basic Graphics</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="basic-graphics.html"><a href="basic-graphics.html#bar-charts"><i class="fa fa-check"></i><b>10.1</b> Bar charts</a></li>
+<li class="chapter" data-level="10.2" data-path="basic-graphics.html"><a href="basic-graphics.html#stacked-bar-charts"><i class="fa fa-check"></i><b>10.2</b> Stacked bar charts</a></li>
+<li class="chapter" data-level="10.3" data-path="basic-graphics.html"><a href="basic-graphics.html#histograms"><i class="fa fa-check"></i><b>10.3</b> Histograms</a></li>
+<li class="chapter" data-level="10.4" data-path="basic-graphics.html"><a href="basic-graphics.html#multiple-histograms"><i class="fa fa-check"></i><b>10.4</b> Multiple histograms</a></li>
+<li class="chapter" data-level="10.5" data-path="basic-graphics.html"><a href="basic-graphics.html#density-plots"><i class="fa fa-check"></i><b>10.5</b> Density plots</a></li>
+<li class="chapter" data-level="10.6" data-path="basic-graphics.html"><a href="basic-graphics.html#box-plots"><i class="fa fa-check"></i><b>10.6</b> Box plots</a></li>
+<li class="chapter" data-level="10.7" data-path="basic-graphics.html"><a href="basic-graphics.html#violin-plots"><i class="fa fa-check"></i><b>10.7</b> Violin plots</a></li>
+<li class="chapter" data-level="10.8" data-path="basic-graphics.html"><a href="basic-graphics.html#scatterplots"><i class="fa fa-check"></i><b>10.8</b> Scatterplots</a></li>
+<li class="chapter" data-level="10.9" data-path="basic-graphics.html"><a href="basic-graphics.html#lines-and-scatterplots"><i class="fa fa-check"></i><b>10.9</b> Lines and Scatterplots</a></li>
+<li class="chapter" data-level="10.10" data-path="basic-graphics.html"><a href="basic-graphics.html#multiple-graphs-at-once-with-cowplot"><i class="fa fa-check"></i><b>10.10</b> Multiple graphs at once with <code>cowplot</code></a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bioinformatics Workshop Gitbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="text-editing-and-data-transformations" class="section level1" number="4">
+<h1><span class="header-section-number">Session 4</span> – Text Editing and Data Transformations</h1>
+<div id="working-with-character-strings" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Working with character strings</h2>
+<p><strong>1)</strong> A character vector contains text (e.g., nucleotide or amino acid sequence) that is represented by a sequence of characters (e.g., A, T, C, G, U, Met). A character vector can also contain numbers that will be considered as text (i.e., not quantities). For example, we will download sequence of a COX1 mitochondrial gene of a charismatic poison frog <a href="https://amphibiaweb.org/species/1654" target="_blank"><em>Ameerega bilinguis</em></a>.</p>
+<p>We will follow the example from previous sessions using the R-package <a href="https://cran.r-project.org/web/packages/rentrez/index.html" target="_blank"><strong>rentrez</strong></a>.</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="text-editing-and-data-transformations.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rentrez)</span>
+<span id="cb155-2"><a href="text-editing-and-data-transformations.html#cb155-2" aria-hidden="true" tabindex="-1"></a><span class="co"># if you need to install R-package &#39;rentrez&#39;, use install.packages(&quot;rentrez&quot;)</span></span>
+<span id="cb155-3"><a href="text-editing-and-data-transformations.html#cb155-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-4"><a href="text-editing-and-data-transformations.html#cb155-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Download some nucleotide sequences from NCBI for Ameerega bilinguis[Organism] that correspond to the gene COI</span></span>
+<span id="cb155-5"><a href="text-editing-and-data-transformations.html#cb155-5" aria-hidden="true" tabindex="-1"></a>froggy_name_COX1 <span class="ot">&lt;-</span> <span class="st">&quot;Ameerega bilinguis[Organism] AND COI[Gene]&quot;</span></span>
+<span id="cb155-6"><a href="text-editing-and-data-transformations.html#cb155-6" aria-hidden="true" tabindex="-1"></a>froggy_seq_IDs <span class="ot">&lt;-</span> <span class="fu">entrez_search</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">term=</span> froggy_name_COX1)</span>
+<span id="cb155-7"><a href="text-editing-and-data-transformations.html#cb155-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Entrez search result with 1 hits (object contains 1 IDs and no web_history object)</span></span>
+<span id="cb155-8"><a href="text-editing-and-data-transformations.html#cb155-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Search term (as translated):  &quot;Ameerega bilinguis&quot;[Organism] AND COI[Gene] </span></span>
+<span id="cb155-9"><a href="text-editing-and-data-transformations.html#cb155-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-10"><a href="text-editing-and-data-transformations.html#cb155-10" aria-hidden="true" tabindex="-1"></a><span class="co"># revising the structure of &#39;froggy_seq_IDs&#39; that there are 1 sequence in NCBI nuccore database</span></span>
+<span id="cb155-11"><a href="text-editing-and-data-transformations.html#cb155-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(froggy_seq_IDs)</span>
+<span id="cb155-12"><a href="text-editing-and-data-transformations.html#cb155-12" aria-hidden="true" tabindex="-1"></a><span class="co">#List of 5</span></span>
+<span id="cb155-13"><a href="text-editing-and-data-transformations.html#cb155-13" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ids             : chr &quot;1952638358&quot;</span></span>
+<span id="cb155-14"><a href="text-editing-and-data-transformations.html#cb155-14" aria-hidden="true" tabindex="-1"></a><span class="co"># $ count           : int 1</span></span>
+<span id="cb155-15"><a href="text-editing-and-data-transformations.html#cb155-15" aria-hidden="true" tabindex="-1"></a><span class="co"># $ retmax          : int 1</span></span>
+<span id="cb155-16"><a href="text-editing-and-data-transformations.html#cb155-16" aria-hidden="true" tabindex="-1"></a><span class="co"># $ QueryTranslation: chr &quot;\&quot;Ameerega bilinguis\&quot;[Organism] AND COI[Gene]&quot;</span></span>
+<span id="cb155-17"><a href="text-editing-and-data-transformations.html#cb155-17" aria-hidden="true" tabindex="-1"></a><span class="co"># $ file            :Classes &#39;XMLInternalDocument&#39;, &#39;XMLAbstractDocument&#39; &lt;externalptr&gt; </span></span>
+<span id="cb155-18"><a href="text-editing-and-data-transformations.html#cb155-18" aria-hidden="true" tabindex="-1"></a><span class="co"># - attr(*, &quot;class&quot;)= chr [1:2] &quot;esearch&quot; &quot;list&quot;</span></span>
+<span id="cb155-19"><a href="text-editing-and-data-transformations.html#cb155-19" aria-hidden="true" tabindex="-1"></a>froggy_seqs_fasta <span class="ot">&lt;-</span> <span class="fu">entrez_fetch</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">id=</span>froggy_seq_IDs<span class="sc">$</span>ids, <span class="at">rettype=</span><span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb155-20"><a href="text-editing-and-data-transformations.html#cb155-20" aria-hidden="true" tabindex="-1"></a>froggy_seqs_fasta</span>
+<span id="cb155-21"><a href="text-editing-and-data-transformations.html#cb155-21" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;&gt;MW042030.1 Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial\nGTGATAATTACTCGATGATTATTTTCTACCAACCACAAAGACATCGGAACTTTATACCTAGTGTTTGGGG\nCATGAGCAGGCATAGTCGGCACTGCTCTTAGCCTTTTAATTCGAGCCGAATTAAGCCAGCCCGGGTCCTT\nACTAGGCGATGACCAGATCTACAACGTTATTGTTACCGCCCATGCTTTCGTTATAATCTTTTTTATAGTA\nATGCCAATTCTAATCGGTGGCTTTGGGAATTGATTAGTGCCCCTAATAATTGGAGCCCCAGACATAGCTT\nTTCCCCGAATAAACAATATGAGCTTTTGGCTTCTTCCCCCCTCTTTCCTACTACTCCTAGCATCCGCAGG\nCGTTGAAGCAGGCGCCGGTACTGGCTGAACTGTGTACCCTCCCCTTGCAGGCAACCTAGCTCATGCTGGC\nCCATCAGTTGATTTAACTATTTTTTCACTTCATCTCGCCGGTGTTTCTTCTATTCTAGGGGCAATTAACT\nTTATTACAACAACCTTAAACATAAAACCCCCTTCATTAACACAATATCAAACCCCATTATTTGTCTGATC\nTGTATTAATTACTGCAGTCCTTCTTCTTCTCTCCCTCCCAGTTCTGGCTGCCGGAATCACTATACTCTTG\nACTGACCGAAACCTAAACACCACCTTCTTTGACCCAGCAGGTGGAGGCGACCCTGTCCTGTACCAACACC\nTGTTCTGATTCTTTGGTCACCCCGAAGTCTACATCCTTATCCTGCCTGGATTTGGTATCATCTCCCATGT\nTGTCACATTCTACTCTAGCAAAAAAGAACCCTTCGGCTATATAGGAATAGTCTGAGCTATAATATCGATT\nGGTCTCCTAGGTTTCATTGTTTGAGCTCACCACATATTCACAACAGACCTTAATGTAGACACTCGAGCCT\nACTTTACCTCAGCTACTATAATCATCGCTATCCCAACAGGTGTCAAAGTCTTTAGCTGACTTGCCACCAT\nGCACGGAGGAATTATTAAATGAGACGCCGCCATATTATGGGCTCTCGGATTCATCTTTTTATTTACAGTT\nGGAGGACTAACTGGAATCGTTTTAGCCAACTCCTCTTTAGACATTGTTTTGCATGATACATATTATGTAG\nTAGCCCACTTTCACTACGTTCTTTCTATGGGGGCAGTATTTGCCATTATAGCCGGCTTCGTACACTGATT\nTCCTCTCTTTTCCGGATTTACCCTTCATGAAGCCTGAACAAAAATTCAATTTGGCGTCATATTTACCGGC\nGTAAATTTAACATTCTTCCCCCAGCATTTCTTAGGTCTCGCAGGCATGCCTCGACGTTATTCAGACTACC\nCTGACGCCTACACATTATGAAACACCGTTTCATCAATCGGCTCTTTAATCTCTCTAGTTGCAGTAATCAT\nTATGATGTTTATCATTTGAGAAGCTTTCTCTTCCAAACGCCTACCTCTACCTGCAGAAATAACCCCAACT\nAATGTAGAATGATTATACGGATCCCCCCCACCTTACCACACTTTTGAGGAAGCCGTTTACTCCAAAATT\n\n&quot;</span></span></code></pre></div>
+<p>The <code>froggy_seqs_fasta</code> object is a character vector as indicated by the sequence of characters (i.e., letters and numbers) contained between quotes <code>" "</code>. Likewise, we can identify that this vector contains a sequence in a fasta format. We will dissect this character vector.</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="text-editing-and-data-transformations.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) A fasta header starting with &#39;&gt;&#39;, the NCBI accession number &#39;MW042030.1&#39;</span></span>
+<span id="cb156-2"><a href="text-editing-and-data-transformations.html#cb156-2" aria-hidden="true" tabindex="-1"></a><span class="co"># &gt;MW042030.1</span></span>
+<span id="cb156-3"><a href="text-editing-and-data-transformations.html#cb156-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) A defition as is present in the GenBank format for this sequence &#39;Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial&#39;</span></span>
+<span id="cb156-4"><a href="text-editing-and-data-transformations.html#cb156-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial</span></span>
+<span id="cb156-5"><a href="text-editing-and-data-transformations.html#cb156-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) A new line coding indicated by &#39;\n&#39;</span></span>
+<span id="cb156-6"><a href="text-editing-and-data-transformations.html#cb156-6" aria-hidden="true" tabindex="-1"></a><span class="co"># \n</span></span>
+<span id="cb156-7"><a href="text-editing-and-data-transformations.html#cb156-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) The actual nucleotide sequence in capital letters with some new line characters &#39;\n&#39; interspersed in the sequence</span></span>
+<span id="cb156-8"><a href="text-editing-and-data-transformations.html#cb156-8" aria-hidden="true" tabindex="-1"></a><span class="co"># GTGATAATTACTCGATGATTATTTTCTACCAACCACAAAGACATCGGAACTTTATACCTAGTGTTTGGGG\nCATGAGCAGGCATAGTCGGCACTGCTCTTAGCCTTTTAATTCGAGCCGAATTAAGCCAGCCCGGGTCCTT\nACTAGGCGATGACCAGATCTACAACGTTATTGTTACCGCCCATGCTTTCGTTATAATCTTTTTTATAGTA\nATGCCAATTCTAATCGGTGGCTTTGGGAATTGATTAGTGCCCCTAATAATTGGAGCCCCAGACATAGCTT\nTTCCCCGAATAAACAATATGAGCTTTTGGCTTCTTCCCCCCTCTTTCCTACTACTCCTAGCATCCGCAGG\nCGTTGAAGCAGGCGCCGGTACTGGCTGAACTGTGTACCCTCCCCTTGCAGGCAACCTAGCTCATGCTGGC\nCCATCAGTTGATTTAACTATTTTTTCACTTCATCTCGCCGGTGTTTCTTCTATTCTAGGGGCAATTAACT\nTTATTACAACAACCTTAAACATAAAACCCCCTTCATTAACACAATATCAAACCCCATTATTTGTCTGATC\nTGTATTAATTACTGCAGTCCTTCTTCTTCTCTCCCTCCCAGTTCTGGCTGCCGGAATCACTATACTCTTG\nACTGACCGAAACCTAAACACCACCTTCTTTGACCCAGCAGGTGGAGGCGACCCTGTCCTGTACCAACACC\nTGTTCTGATTCTTTGGTCACCCCGAAGTCTACATCCTTATCCTGCCTGGATTTGGTATCATCTCCCATGT\nTGTCACATTCTACTCTAGCAAAAAAGAACCCTTCGGCTATATAGGAATAGTCTGAGCTATAATATCGATT\nGGTCTCCTAGGTTTCATTGTTTGAGCTCACCACATATTCACAACAGACCTTAATGTAGACACTCGAGCCT\nACTTTACCTCAGCTACTATAATCATCGCTATCCCAACAGGTGTCAAAGTCTTTAGCTGACTTGCCACCAT\nGCACGGAGGAATTATTAAATGAGACGCCGCCATATTATGGGCTCTCGGATTCATCTTTTTATTTACAGTT\nGGAGGACTAACTGGAATCGTTTTAGCCAACTCCTCTTTAGACATTGTTTTGCATGATACATATTATGTAG\nTAGCCCACTTTCACTACGTTCTTTCTATGGGGGCAGTATTTGCCATTATAGCCGGCTTCGTACACTGATT\nTCCTCTCTTTTCCGGATTTACCCTTCATGAAGCCTGAACAAAAATTCAATTTGGCGTCATATTTACCGGC\nGTAAATTTAACATTCTTCCCCCAGCATTTCTTAGGTCTCGCAGGCATGCCTCGACGTTATTCAGACTACC\nCTGACGCCTACACATTATGAAACACCGTTTCATCAATCGGCTCTTTAATCTCTCTAGTTGCAGTAATCAT\nTATGATGTTTATCATTTGAGAAGCTTTCTCTTCCAAACGCCTACCTCTACCTGCAGAAATAACCCCAACT\nAATGTAGAATGATTATACGGATCCCCCCCACCTTACCACACTTTTGAGGAAGCCGTTTACTCCAAAATT</span></span>
+<span id="cb156-9"><a href="text-editing-and-data-transformations.html#cb156-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 5) Final a couple of new line &#39;\n&#39; at the end of the vector</span></span>
+<span id="cb156-10"><a href="text-editing-and-data-transformations.html#cb156-10" aria-hidden="true" tabindex="-1"></a><span class="co"># \n\n</span></span></code></pre></div>
+<p><strong>2)</strong> We can explore the character vector <code>froggy_seqs_fasta</code> with several functions.</p>
+<p>We can check the length of this vector (i.e., how many elements this vector contains) with the function <code>length()</code>. It should just 1 element, the COX1 of <em>Ameerega bilinguis</em>.</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="text-editing-and-data-transformations.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(froggy_seqs_fasta)</span>
+<span id="cb157-2"><a href="text-editing-and-data-transformations.html#cb157-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 1</span></span></code></pre></div>
+<p>We can explore other properties of this vector using the functions <code>class()</code> and <code>str()</code>.</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="text-editing-and-data-transformations.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(froggy_seqs_fasta)</span>
+<span id="cb158-2"><a href="text-editing-and-data-transformations.html#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;character&quot;</span></span>
+<span id="cb158-3"><a href="text-editing-and-data-transformations.html#cb158-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(froggy_seqs_fasta)</span>
+<span id="cb158-4"><a href="text-editing-and-data-transformations.html#cb158-4" aria-hidden="true" tabindex="-1"></a><span class="co">#chr &quot;&gt;MW042030.1 Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) gene, partial cds; mitochon&quot;| __truncated__</span></span></code></pre></div>
+<p>We can also test if this vector is character vector using the function <code>is.character()</code>. The result is a logical TRUE or FALSE. We expect to be TRUE.</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="text-editing-and-data-transformations.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(froggy_seqs_fasta) </span>
+<span id="cb159-2"><a href="text-editing-and-data-transformations.html#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] TRUE</span></span></code></pre></div>
+<p>We can also determine the actual number characters in this vector (i.e., the total number of letters, symbols, spaces, numbers) using the function <code>nchar()</code>.</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="text-editing-and-data-transformations.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nchar</span>(froggy_seqs_fasta)</span>
+<span id="cb160-2"><a href="text-editing-and-data-transformations.html#cb160-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 1679</span></span></code></pre></div>
+<p><strong>3)</strong> We see that the vector <code>froggy_seqs_fasta</code> has other text than the actual nucleotide sequence. We will extract this sequence using a combination of functions that work with character vectors.</p>
+<p>First, we can split this vector by the new line ‘’ using the function <code>strsplit()</code> and test what type of data structure we obtain using <code>class()</code>.</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="text-editing-and-data-transformations.html#cb161-1" aria-hidden="true" tabindex="-1"></a>froggy_seq_split <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(froggy_seqs_fasta, <span class="at">split =</span> <span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>)</span>
+<span id="cb161-2"><a href="text-editing-and-data-transformations.html#cb161-2" aria-hidden="true" tabindex="-1"></a>froggy_seq_split</span>
+<span id="cb161-3"><a href="text-editing-and-data-transformations.html#cb161-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[[1]]</span></span>
+<span id="cb161-4"><a href="text-editing-and-data-transformations.html#cb161-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;&gt;MW042030.1 Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial&quot;</span></span>
+<span id="cb161-5"><a href="text-editing-and-data-transformations.html#cb161-5" aria-hidden="true" tabindex="-1"></a><span class="co"># [2] &quot;GTGATAATTACTCGATGATTATTTTCTACCAACCACAAAGACATCGGAACTTTATACCTAGTGTTTGGGG&quot;                                              </span></span>
+<span id="cb161-6"><a href="text-editing-and-data-transformations.html#cb161-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [3] &quot;CATGAGCAGGCATAGTCGGCACTGCTCTTAGCCTTTTAATTCGAGCCGAATTAAGCCAGCCCGGGTCCTT&quot;                                              </span></span>
+<span id="cb161-7"><a href="text-editing-and-data-transformations.html#cb161-7" aria-hidden="true" tabindex="-1"></a><span class="co"># [4] &quot;ACTAGGCGATGACCAGATCTACAACGTTATTGTTACCGCCCATGCTTTCGTTATAATCTTTTTTATAGTA&quot;                                              </span></span>
+<span id="cb161-8"><a href="text-editing-and-data-transformations.html#cb161-8" aria-hidden="true" tabindex="-1"></a><span class="co"># [5] &quot;ATGCCAATTCTAATCGGTGGCTTTGGGAATTGATTAGTGCCCCTAATAATTGGAGCCCCAGACATAGCTT&quot;                                              </span></span>
+<span id="cb161-9"><a href="text-editing-and-data-transformations.html#cb161-9" aria-hidden="true" tabindex="-1"></a><span class="co"># [6] &quot;TTCCCCGAATAAACAATATGAGCTTTTGGCTTCTTCCCCCCTCTTTCCTACTACTCCTAGCATCCGCAGG&quot;                                              </span></span>
+<span id="cb161-10"><a href="text-editing-and-data-transformations.html#cb161-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [7] &quot;CGTTGAAGCAGGCGCCGGTACTGGCTGAACTGTGTACCCTCCCCTTGCAGGCAACCTAGCTCATGCTGGC&quot;                                              </span></span>
+<span id="cb161-11"><a href="text-editing-and-data-transformations.html#cb161-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [8] &quot;CCATCAGTTGATTTAACTATTTTTTCACTTCATCTCGCCGGTGTTTCTTCTATTCTAGGGGCAATTAACT&quot;                                              </span></span>
+<span id="cb161-12"><a href="text-editing-and-data-transformations.html#cb161-12" aria-hidden="true" tabindex="-1"></a><span class="co"># [9] &quot;TTATTACAACAACCTTAAACATAAAACCCCCTTCATTAACACAATATCAAACCCCATTATTTGTCTGATC&quot;                                              </span></span>
+<span id="cb161-13"><a href="text-editing-and-data-transformations.html#cb161-13" aria-hidden="true" tabindex="-1"></a><span class="co">#[10] &quot;TGTATTAATTACTGCAGTCCTTCTTCTTCTCTCCCTCCCAGTTCTGGCTGCCGGAATCACTATACTCTTG&quot;                                              </span></span>
+<span id="cb161-14"><a href="text-editing-and-data-transformations.html#cb161-14" aria-hidden="true" tabindex="-1"></a><span class="co">#[11] &quot;ACTGACCGAAACCTAAACACCACCTTCTTTGACCCAGCAGGTGGAGGCGACCCTGTCCTGTACCAACACC&quot;                                              </span></span>
+<span id="cb161-15"><a href="text-editing-and-data-transformations.html#cb161-15" aria-hidden="true" tabindex="-1"></a><span class="co">#[12] &quot;TGTTCTGATTCTTTGGTCACCCCGAAGTCTACATCCTTATCCTGCCTGGATTTGGTATCATCTCCCATGT&quot;                                              </span></span>
+<span id="cb161-16"><a href="text-editing-and-data-transformations.html#cb161-16" aria-hidden="true" tabindex="-1"></a><span class="co">#[13] &quot;TGTCACATTCTACTCTAGCAAAAAAGAACCCTTCGGCTATATAGGAATAGTCTGAGCTATAATATCGATT&quot;                                              </span></span>
+<span id="cb161-17"><a href="text-editing-and-data-transformations.html#cb161-17" aria-hidden="true" tabindex="-1"></a><span class="co">#[14] &quot;GGTCTCCTAGGTTTCATTGTTTGAGCTCACCACATATTCACAACAGACCTTAATGTAGACACTCGAGCCT&quot;                                              </span></span>
+<span id="cb161-18"><a href="text-editing-and-data-transformations.html#cb161-18" aria-hidden="true" tabindex="-1"></a><span class="co">#[15] &quot;ACTTTACCTCAGCTACTATAATCATCGCTATCCCAACAGGTGTCAAAGTCTTTAGCTGACTTGCCACCAT&quot;                                              </span></span>
+<span id="cb161-19"><a href="text-editing-and-data-transformations.html#cb161-19" aria-hidden="true" tabindex="-1"></a><span class="co">#[16] &quot;GCACGGAGGAATTATTAAATGAGACGCCGCCATATTATGGGCTCTCGGATTCATCTTTTTATTTACAGTT&quot;                                              </span></span>
+<span id="cb161-20"><a href="text-editing-and-data-transformations.html#cb161-20" aria-hidden="true" tabindex="-1"></a><span class="co">#[17] &quot;GGAGGACTAACTGGAATCGTTTTAGCCAACTCCTCTTTAGACATTGTTTTGCATGATACATATTATGTAG&quot;                                              </span></span>
+<span id="cb161-21"><a href="text-editing-and-data-transformations.html#cb161-21" aria-hidden="true" tabindex="-1"></a><span class="co">#[18] &quot;TAGCCCACTTTCACTACGTTCTTTCTATGGGGGCAGTATTTGCCATTATAGCCGGCTTCGTACACTGATT&quot;                                              </span></span>
+<span id="cb161-22"><a href="text-editing-and-data-transformations.html#cb161-22" aria-hidden="true" tabindex="-1"></a><span class="co">#[19] &quot;TCCTCTCTTTTCCGGATTTACCCTTCATGAAGCCTGAACAAAAATTCAATTTGGCGTCATATTTACCGGC&quot;                                              </span></span>
+<span id="cb161-23"><a href="text-editing-and-data-transformations.html#cb161-23" aria-hidden="true" tabindex="-1"></a><span class="co">#[20] &quot;GTAAATTTAACATTCTTCCCCCAGCATTTCTTAGGTCTCGCAGGCATGCCTCGACGTTATTCAGACTACC&quot;                                              </span></span>
+<span id="cb161-24"><a href="text-editing-and-data-transformations.html#cb161-24" aria-hidden="true" tabindex="-1"></a><span class="co">#[21] &quot;CTGACGCCTACACATTATGAAACACCGTTTCATCAATCGGCTCTTTAATCTCTCTAGTTGCAGTAATCAT&quot;                                              </span></span>
+<span id="cb161-25"><a href="text-editing-and-data-transformations.html#cb161-25" aria-hidden="true" tabindex="-1"></a><span class="co">#[22] &quot;TATGATGTTTATCATTTGAGAAGCTTTCTCTTCCAAACGCCTACCTCTACCTGCAGAAATAACCCCAACT&quot;                                              </span></span>
+<span id="cb161-26"><a href="text-editing-and-data-transformations.html#cb161-26" aria-hidden="true" tabindex="-1"></a><span class="co">#[23] &quot;AATGTAGAATGATTATACGGATCCCCCCCACCTTACCACACTTTTGAGGAAGCCGTTTACTCCAAAATT&quot;                                               </span></span>
+<span id="cb161-27"><a href="text-editing-and-data-transformations.html#cb161-27" aria-hidden="true" tabindex="-1"></a><span class="co">#[24] &quot;&quot;                                                                                                                    </span></span>
+<span id="cb161-28"><a href="text-editing-and-data-transformations.html#cb161-28" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(froggy_seq_split)</span>
+<span id="cb161-29"><a href="text-editing-and-data-transformations.html#cb161-29" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;list&quot;</span></span></code></pre></div>
+<p>As you can see, the object is a list and its first element is a vector with 24 elements. The sequence of COX1 is contained in 22 elements with indices between <code>[2]</code> and <code>[23]</code>. We can paste all of these in a single character vector.</p>
+<p>For this purpose, we will use the function <code>paste()</code> or its variant <code>paste0()</code>. Notice how I indexed the elements that I want it to be <strong>collapsed in a single character vector</strong> using the argument <code>collapse = ""</code> (i.e., <code>""</code> indicates nothing). The <code>[[1]]</code> indicates that we want the first element of a list and the <code>[2:23]</code> indicates that we want the vector elements starting from <code>[2]</code> to <code>[23]</code> (i.e., 2, 3, 4, 5, …, 23).</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="text-editing-and-data-transformations.html#cb162-1" aria-hidden="true" tabindex="-1"></a>froggy_one_fasta <span class="ot">&lt;-</span> <span class="fu">paste</span>(froggy_seq_split[[<span class="dv">1</span>]][<span class="dv">2</span><span class="sc">:</span><span class="dv">23</span>], <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb162-2"><a href="text-editing-and-data-transformations.html#cb162-2" aria-hidden="true" tabindex="-1"></a>froggy_one_fasta</span>
+<span id="cb162-3"><a href="text-editing-and-data-transformations.html#cb162-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;GTGATAATTACTCGATGATTATTTTCTACCAACCACAAAGACATCGGAACTTTATACCTAGTGTTTGGGGCATGAGCAGGCATAGTCGGCACTGCTCTTAGCCTTTTAATTCGAG...&quot;</span></span></code></pre></div>
+<p>We can also name this vector with the corresponding accession number using the function <code>names()</code>.</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="text-editing-and-data-transformations.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(froggy_one_fasta) <span class="ot">&lt;-</span> froggy_seq_split[[<span class="dv">1</span>]][<span class="dv">1</span>]</span>
+<span id="cb163-2"><a href="text-editing-and-data-transformations.html#cb163-2" aria-hidden="true" tabindex="-1"></a>froggy_one_fasta</span>
+<span id="cb163-3"><a href="text-editing-and-data-transformations.html#cb163-3" aria-hidden="true" tabindex="-1"></a><span class="co"># &gt;MW042030.1 Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial </span></span>
+<span id="cb163-4"><a href="text-editing-and-data-transformations.html#cb163-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;GTGATAATTACTCGATGATTATTTTCTACCAACCACAAAGACATCGGAACTTTATACCTAGTGTTTGGGGCATGAGCAGGCATAGTCGGCACTGCTCTTAGCCTTTTAATTCGAGCCGAATT...&quot; </span></span></code></pre></div>
+<p><strong>4)</strong> We can make this vector more interesting by adding more COX1 sequences from three species with a similar procedure.</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="text-editing-and-data-transformations.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rentrez)</span>
+<span id="cb164-2"><a href="text-editing-and-data-transformations.html#cb164-2" aria-hidden="true" tabindex="-1"></a><span class="co"># if you need to install R-package &#39;rentrez&#39;, use install.packages(&quot;rentrez&quot;)</span></span>
+<span id="cb164-3"><a href="text-editing-and-data-transformations.html#cb164-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-4"><a href="text-editing-and-data-transformations.html#cb164-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Download more COX1 nucleotide sequences from NCBI for 3 more species (i.e., three terms)</span></span>
+<span id="cb164-5"><a href="text-editing-and-data-transformations.html#cb164-5" aria-hidden="true" tabindex="-1"></a>several_sepecies_COX1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Ameerega parvula[Organism] AND COI[Gene]&quot;</span>, </span>
+<span id="cb164-6"><a href="text-editing-and-data-transformations.html#cb164-6" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;Epipedobates anthonyi[Organism] AND COI[Gene]&quot;</span>,</span>
+<span id="cb164-7"><a href="text-editing-and-data-transformations.html#cb164-7" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;Oophaga sylvatica[Organism] AND COI[Gene]&quot;</span>)</span></code></pre></div>
+<p>We can only retrieve one term a time, we will use a loop to iterate between these three terms and save in an empty list <code>my_collected_sequences</code>. More on loops later.</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="text-editing-and-data-transformations.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we create an empty list to collect processed sequences</span></span>
+<span id="cb165-2"><a href="text-editing-and-data-transformations.html#cb165-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-3"><a href="text-editing-and-data-transformations.html#cb165-3" aria-hidden="true" tabindex="-1"></a>my_collected_sequences <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb165-4"><a href="text-editing-and-data-transformations.html#cb165-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-5"><a href="text-editing-and-data-transformations.html#cb165-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the loop to retrieve sequences</span></span>
+<span id="cb165-6"><a href="text-editing-and-data-transformations.html#cb165-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-7"><a href="text-editing-and-data-transformations.html#cb165-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(several_sepecies_COX1)) {</span>
+<span id="cb165-8"><a href="text-editing-and-data-transformations.html#cb165-8" aria-hidden="true" tabindex="-1"></a>                             one_seq_IDs <span class="ot">&lt;-</span> <span class="fu">entrez_search</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">term=</span> several_sepecies_COX1[i])</span>
+<span id="cb165-9"><a href="text-editing-and-data-transformations.html#cb165-9" aria-hidden="true" tabindex="-1"></a>                          one_seqs_fasta <span class="ot">&lt;-</span> <span class="fu">entrez_fetch</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">id=</span>one_seq_IDs<span class="sc">$</span>ids, <span class="at">rettype=</span><span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb165-10"><a href="text-editing-and-data-transformations.html#cb165-10" aria-hidden="true" tabindex="-1"></a>             my_collected_sequences[[i]] <span class="ot">&lt;-</span> one_seqs_fasta</span>
+<span id="cb165-11"><a href="text-editing-and-data-transformations.html#cb165-11" aria-hidden="true" tabindex="-1"></a>                                          }</span>
+<span id="cb165-12"><a href="text-editing-and-data-transformations.html#cb165-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-13"><a href="text-editing-and-data-transformations.html#cb165-13" aria-hidden="true" tabindex="-1"></a><span class="co"># we have a list &#39;my_collected_sequences&#39; of 3 elements; one per species.</span></span>
+<span id="cb165-14"><a href="text-editing-and-data-transformations.html#cb165-14" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(my_collected_sequences)</span>
+<span id="cb165-15"><a href="text-editing-and-data-transformations.html#cb165-15" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 3</span></span></code></pre></div>
+<p><strong>5)</strong> We need to process these retrieved sequences to the format that only contains the nucleotides and the GenBank accession numbers. We will start with the <code>my_collected_sequences[[2]]</code> that has two concatenated sequences and the create a function to process this automatically.</p>
+<p>Notice that <code>my_collected_sequences[[2]]</code> has two fasta sequences named <code>MW042033.1</code> and <code>DQ502853.1</code>.</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="text-editing-and-data-transformations.html#cb166-1" aria-hidden="true" tabindex="-1"></a>my_collected_sequences[[<span class="dv">2</span>]]</span>
+<span id="cb166-2"><a href="text-editing-and-data-transformations.html#cb166-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;&gt;MW042033.1 Epipedobates anthonyi voucher QCAZ16597 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial\nGTGATAA</span></span>
+<span id="cb166-3"><a href="text-editing-and-data-transformations.html#cb166-3" aria-hidden="true" tabindex="-1"></a><span class="co">#TTACCCGATGATTATTCTCCACAAACCATAAAGATATCGGAACCCTATATTTAGTATTTGGGG\nCATGAGCCGGAATAGTAGGAACAGCCCTAAGCCTCTTAATTCGAGCAGAATTAAGTCAACCTGGGTCC</span></span>
+<span id="cb166-4"><a href="text-editing-and-data-transformations.html#cb166-4" aria-hidden="true" tabindex="-1"></a><span class="co">#TT\nACTGGGCGATGACCAGATTTATAATGTAATCGTAACTGCCCATGCTTTCGTCATAATCTTCTTCATGGTT\nATGCCTATTCTAATTGGTGGATTTGGAAATTGACTGGTACCTTTAATAATTGGAGCC</span></span>
+<span id="cb166-5"><a href="text-editing-and-data-transformations.html#cb166-5" aria-hidden="true" tabindex="-1"></a><span class="co">#CCAGACATAGCCT\nTTCCCCGAATAAATAATATAAGTTTTTGACTTCTTCCGCCCTCATTCCTTCTTCTCTTAGCATCTGCAGG\nAGTAGAAGCAGGAGCTGGGACAGGTTGAACTGTTTATCCTCCTCTT</span></span>
+<span id="cb166-6"><a href="text-editing-and-data-transformations.html#cb166-6" aria-hidden="true" tabindex="-1"></a><span class="co">#GCTGGTAACCTAGCTCATGCAGGC\nCCATCAGTTGATTTAACCATTTTTTCACTCCATCTTGCAGGGGTCTCTTCAATTCTAGGAGCAATTAATT\nTTATTACAACCACATTAAACATAAAACCTCCTTCT</span></span>
+<span id="cb166-7"><a href="text-editing-and-data-transformations.html#cb166-7" aria-hidden="true" tabindex="-1"></a><span class="co">#TTAACTCAATACCAAACTCCTTTATTTGTCTGATC\nAGTTCTAATCACCGCAGTACTTCTTCTTCTTTCTCTTCCTGTCCTAGCTGCAGGAATTACAATGCTTTTA\nACTGATCGAAACCTTAACACCACT</span></span>
+<span id="cb166-8"><a href="text-editing-and-data-transformations.html#cb166-8" aria-hidden="true" tabindex="-1"></a><span class="co">#TTCTTTGACCCAGCAGGTGGAGGTGACCCCATTCTTTATCAACATC\nTCTTCTGATTTTTTGGACACCCAGAAGTTTATATTCTTATTCTCCCAGGGTTTGGAATTATCTCTCATGT\nTGTAACTTTTTAT</span></span>
+<span id="cb166-9"><a href="text-editing-and-data-transformations.html#cb166-9" aria-hidden="true" tabindex="-1"></a><span class="co">#TCTAGCAAAAAAGAACCTTTTGGATATATAGGAATGGTCTGAGCTATAATATCAATT\nGGCCTCTTAGGTTTTATTGTTTGAGCTCACCATATATTTACTACTGATCTTAACGTTGACACTCGAGCTT\nAC</span></span>
+<span id="cb166-10"><a href="text-editing-and-data-transformations.html#cb166-10" aria-hidden="true" tabindex="-1"></a><span class="co">#TTTACCTCAGCTACTATAATTATTGCCATCCCAACAGGCGTAAAAGTCTTTAGCTGACTTGCCACCAT\nGCATGGAGGAATTATTAAATGAGATGCTGCTATACTTTGAGCCTTAGGCTTTATTTTCTTGTT</span></span>
+<span id="cb166-11"><a href="text-editing-and-data-transformations.html#cb166-11" aria-hidden="true" tabindex="-1"></a><span class="co">#TACTGTT\nGGTGGACTAACTGGTATCGTTTTAGCTAATTCCTCTTTGGATATTGTTCTTCATGATACCTACTACGTTG\nTAGCCCACTTCCATTATGTTCTTTCTATAGGAGCAGTATTTGCCATTATAGC</span></span>
+<span id="cb166-12"><a href="text-editing-and-data-transformations.html#cb166-12" aria-hidden="true" tabindex="-1"></a><span class="co">#AGGATTTGTTCATTGATT\nTCCCTTATTTACCGGTTTTACTCTTCATGAAGCCTGAACAAAGATTCATTTTGGCGTCATATTTGCTGGT\nGTAAATTTAACTTTCTTCCCCCAACATTTTTTAGGATTAGC</span></span>
+<span id="cb166-13"><a href="text-editing-and-data-transformations.html#cb166-13" aria-hidden="true" tabindex="-1"></a><span class="co">#AGGAATACCTCGACGCTATTCAGATTATC\nCTGATGCCTACACCTTATGAAACACCGTTTCTTCTGTTGGCTCCCTAATCTCCCTTGTTGCAGTAATCAT\nCATGATATTCATTATTTGAGAAGCTTTTTC</span></span>
+<span id="cb166-14"><a href="text-editing-and-data-transformations.html#cb166-14" aria-hidden="true" tabindex="-1"></a><span class="co">#ATCTAAACGTCTATTTTTGAATGCAGAAATAACCCCTACT\nAATGTTGAATGATTATATGGCTCCCCTCCTCCTTATCACACATTTGAGGAAGCTGTTTATTCTAAAGTA\n\n</span></span>
+<span id="cb166-15"><a href="text-editing-and-data-transformations.html#cb166-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;DQ502853.1 Epipedobates anthonyi isolate 838 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial\nAACCCTATATTTAGTATTT</span></span>
+<span id="cb166-16"><a href="text-editing-and-data-transformations.html#cb166-16" aria-hidden="true" tabindex="-1"></a><span class="co">#GGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCCTCTTAATTCGAGCA\nGAATTAAGTCAACCTGGGTCCTTACTGGGCGATGACCAGATTTATAATGTAATCGTAACTGCCCATGCTT\nTCGTCATAA</span></span>
+<span id="cb166-17"><a href="text-editing-and-data-transformations.html#cb166-17" aria-hidden="true" tabindex="-1"></a><span class="co">#TCTTCTTCATGGTTATGCCTATTCTAATTGGTGGATTTGGAAATTGACTGGTACCTTTAAT\nAATTGGAGCCCCAGACATAGCCTTTCCCCGAATAAATAATATAAGTTTTTGACTTCTTCCGCCCTCATTC\</span></span>
+<span id="cb166-18"><a href="text-editing-and-data-transformations.html#cb166-18" aria-hidden="true" tabindex="-1"></a><span class="co">#nCTTCTTCTCTTAGCATCTACAGGAGTAGAAGCAGGAGCTGGGACAGGTTGAACTGTTTATCCTCCTCTTG\nCTGGTAACCTAGCTCATGCAGGCCCATCAGTTGATTTAACCATTTTTTCACTCCATCTTGC</span></span>
+<span id="cb166-19"><a href="text-editing-and-data-transformations.html#cb166-19" aria-hidden="true" tabindex="-1"></a><span class="co">#AGGGGTCTC\nTTCAATTCTAGGAGCAATTAATTTTATTACAACCACATTAAACATAAAACCTCCTTCTTTAACTCAATAC\nCAAACTCCTTTATTTGTCTGATCAGTTCTAATCACCGCAGTACTTCTTCTT</span></span>
+<span id="cb166-20"><a href="text-editing-and-data-transformations.html#cb166-20" aria-hidden="true" tabindex="-1"></a><span class="co">#CTTTCTCTTCCTGTCCTAG\nCTGCAGGAATTACAATGCTTTTAACTGATCGAAACCTTAACACCACTTTCTTTGACCCAGCAGGTGGAGG\nTGACCCCATTCTTTATCAACATCTCTTC\n\n&quot;</span></span></code></pre></div>
+<p>We will split this long character vector by the unique character that defines a new fasta entry which is indicated by the <code>&gt;</code>.</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="text-editing-and-data-transformations.html#cb167-1" aria-hidden="true" tabindex="-1"></a>one_species_all_fasta <span class="ot">&lt;-</span> my_collected_sequences[[<span class="dv">2</span>]]</span>
+<span id="cb167-2"><a href="text-editing-and-data-transformations.html#cb167-2" aria-hidden="true" tabindex="-1"></a>one_species_split_by_fasta <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(one_species_all_fasta, <span class="at">split =</span> <span class="st">&#39;&gt;&#39;</span>)</span>
+<span id="cb167-3"><a href="text-editing-and-data-transformations.html#cb167-3" aria-hidden="true" tabindex="-1"></a>one_species_split_by_fasta</span>
+<span id="cb167-4"><a href="text-editing-and-data-transformations.html#cb167-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[[1]]</span></span>
+<span id="cb167-5"><a href="text-editing-and-data-transformations.html#cb167-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-6"><a href="text-editing-and-data-transformations.html#cb167-6" aria-hidden="true" tabindex="-1"></a><span class="co">#[2] &quot;MW042033.1 Epipedobates anthonyi voucher QCAZ16597 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial\nGTGATAATTA...</span></span>
+<span id="cb167-7"><a href="text-editing-and-data-transformations.html#cb167-7" aria-hidden="true" tabindex="-1"></a><span class="co">#[3] &quot;DQ502853.1 Epipedobates anthonyi isolate 838 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial\nAACCCTATATTTAGTA...</span></span></code></pre></div>
+<p>We need to remove these character vectors from the list using the function <code>unlist()</code>.</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="text-editing-and-data-transformations.html#cb168-1" aria-hidden="true" tabindex="-1"></a>one_species_split_by_fasta_vector <span class="ot">&lt;-</span> <span class="fu">unlist</span>(one_species_split_by_fasta)</span>
+<span id="cb168-2"><a href="text-editing-and-data-transformations.html#cb168-2" aria-hidden="true" tabindex="-1"></a>one_species_split_by_fasta_vector</span>
+<span id="cb168-3"><a href="text-editing-and-data-transformations.html#cb168-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-4"><a href="text-editing-and-data-transformations.html#cb168-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[2] &quot;MW042033.1 Epipedobates anthonyi voucher QCAZ16597 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial\nGTGATAATTA...</span></span>
+<span id="cb168-5"><a href="text-editing-and-data-transformations.html#cb168-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[3] &quot;DQ502853.1 Epipedobates anthonyi isolate 838 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial\nAACCCTATATTTAGTA...</span></span></code></pre></div>
+<p>We can also remove the empty element <code>[1] ""</code> with the application of the logical condition <code>x[x != ""]</code> where <code>x</code> is our vector.</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="text-editing-and-data-transformations.html#cb169-1" aria-hidden="true" tabindex="-1"></a>one_species_split_by_fasta_vector <span class="ot">&lt;-</span> one_species_split_by_fasta_vector[one_species_split_by_fasta_vector <span class="sc">!=</span> <span class="st">&quot;&quot;</span>]</span>
+<span id="cb169-2"><a href="text-editing-and-data-transformations.html#cb169-2" aria-hidden="true" tabindex="-1"></a>one_species_split_by_fasta_vector</span>
+<span id="cb169-3"><a href="text-editing-and-data-transformations.html#cb169-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;MW042033.1 Epipedobates anthonyi voucher QCAZ16597 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial\nGTGATAATTA...</span></span>
+<span id="cb169-4"><a href="text-editing-and-data-transformations.html#cb169-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[2] &quot;DQ502853.1 Epipedobates anthonyi isolate 838 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial\nAACCCTATATTTAGTA...</span></span></code></pre></div>
+<p>We can now process each of these element as we did on step <strong>3)</strong>, but using a loop.</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="text-editing-and-data-transformations.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we create an empty list to collect processed sequences</span></span>
+<span id="cb170-2"><a href="text-editing-and-data-transformations.html#cb170-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-3"><a href="text-editing-and-data-transformations.html#cb170-3" aria-hidden="true" tabindex="-1"></a>one_species_processed_seq_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb170-4"><a href="text-editing-and-data-transformations.html#cb170-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-5"><a href="text-editing-and-data-transformations.html#cb170-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the loop to process sequences</span></span>
+<span id="cb170-6"><a href="text-editing-and-data-transformations.html#cb170-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-7"><a href="text-editing-and-data-transformations.html#cb170-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(one_species_split_by_fasta_vector)) {</span>
+<span id="cb170-8"><a href="text-editing-and-data-transformations.html#cb170-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># split and unlist</span></span>
+<span id="cb170-9"><a href="text-editing-and-data-transformations.html#cb170-9" aria-hidden="true" tabindex="-1"></a>                 one_species_clean_data <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">strsplit</span>(one_species_split_by_fasta_vector[i], <span class="at">split =</span> <span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>))</span>
+<span id="cb170-10"><a href="text-editing-and-data-transformations.html#cb170-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># remove empty element &quot;&quot;</span></span>
+<span id="cb170-11"><a href="text-editing-and-data-transformations.html#cb170-11" aria-hidden="true" tabindex="-1"></a>                 one_species_clean_data <span class="ot">&lt;-</span> one_species_clean_data[one_species_clean_data <span class="sc">!=</span> <span class="st">&quot;&quot;</span>]</span>
+<span id="cb170-12"><a href="text-editing-and-data-transformations.html#cb170-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># we know the first element will be always the accession number and the rest sequence but the length migh vary so we use length() to determine that.</span></span>
+<span id="cb170-13"><a href="text-editing-and-data-transformations.html#cb170-13" aria-hidden="true" tabindex="-1"></a>                   one_species_only_seq <span class="ot">&lt;-</span> <span class="fu">paste</span>(one_species_clean_data[<span class="dv">2</span><span class="sc">:</span><span class="fu">length</span>(one_species_clean_data)], <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>) </span>
+<span id="cb170-14"><a href="text-editing-and-data-transformations.html#cb170-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># we name that sequence with the corresponding accession number on the first element of &#39;one_species_clean_data&#39;.</span></span>
+<span id="cb170-15"><a href="text-editing-and-data-transformations.html#cb170-15" aria-hidden="true" tabindex="-1"></a>            <span class="fu">names</span>(one_species_only_seq) <span class="ot">&lt;-</span> one_species_clean_data[<span class="dv">1</span>]</span>
+<span id="cb170-16"><a href="text-editing-and-data-transformations.html#cb170-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># finally, collected the processed sequences</span></span>
+<span id="cb170-17"><a href="text-editing-and-data-transformations.html#cb170-17" aria-hidden="true" tabindex="-1"></a>    one_species_processed_seq_list[[i]] <span class="ot">&lt;-</span> one_species_only_seq</span>
+<span id="cb170-18"><a href="text-editing-and-data-transformations.html#cb170-18" aria-hidden="true" tabindex="-1"></a>                                        }</span>
+<span id="cb170-19"><a href="text-editing-and-data-transformations.html#cb170-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-20"><a href="text-editing-and-data-transformations.html#cb170-20" aria-hidden="true" tabindex="-1"></a><span class="co"># we the unlist this final output for species to a vector</span></span>
+<span id="cb170-21"><a href="text-editing-and-data-transformations.html#cb170-21" aria-hidden="true" tabindex="-1"></a>one_species_end <span class="ot">&lt;-</span> <span class="fu">unlist</span>(one_species_processed_seq_list)</span>
+<span id="cb170-22"><a href="text-editing-and-data-transformations.html#cb170-22" aria-hidden="true" tabindex="-1"></a>one_species_end</span>
+<span id="cb170-23"><a href="text-editing-and-data-transformations.html#cb170-23" aria-hidden="true" tabindex="-1"></a><span class="co">#MW042033.1 Epipedobates anthonyi voucher QCAZ16597 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial </span></span>
+<span id="cb170-24"><a href="text-editing-and-data-transformations.html#cb170-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;GTGATAATTACCCGATGATTATTCTCCACAAACCATAAAGATATCGGAACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCCTCTTAATTCGAGCAGAATT...&quot;</span></span>
+<span id="cb170-25"><a href="text-editing-and-data-transformations.html#cb170-25" aria-hidden="true" tabindex="-1"></a><span class="co">#DQ502853.1 Epipedobates anthonyi isolate 838 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial</span></span>
+<span id="cb170-26"><a href="text-editing-and-data-transformations.html#cb170-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;AACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCCTCTTAATTCGAGCAGAATTAAGTCAACCTGGGTCCTTACTGGGCGATGACCAGATTTATAATGTAA...&quot;</span></span></code></pre></div>
+<p>However, this was just applied to a single species, but we have three. Now, we will generalize this process into single process that show the beauty of automatization with R.</p>
+<p><strong>6)</strong> A generalization to create this sequence vectors with all previous steps together will use a more complex loop with two nested indices <code>j</code> and <code>i</code>. Yet, you are welcome to explore alternatives.</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="text-editing-and-data-transformations.html#cb171-1" aria-hidden="true" tabindex="-1"></a>list_final_fasta <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb171-2"><a href="text-editing-and-data-transformations.html#cb171-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-3"><a href="text-editing-and-data-transformations.html#cb171-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(my_collected_sequences)) {</span>
+<span id="cb171-4"><a href="text-editing-and-data-transformations.html#cb171-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># j &lt;- 3</span></span>
+<span id="cb171-5"><a href="text-editing-and-data-transformations.html#cb171-5" aria-hidden="true" tabindex="-1"></a>one_species_all_fasta <span class="ot">&lt;-</span> my_collected_sequences[[j]]</span>
+<span id="cb171-6"><a href="text-editing-and-data-transformations.html#cb171-6" aria-hidden="true" tabindex="-1"></a>one_species_split_by_fasta <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(one_species_all_fasta, <span class="at">split =</span> <span class="st">&#39;&gt;&#39;</span>)</span>
+<span id="cb171-7"><a href="text-editing-and-data-transformations.html#cb171-7" aria-hidden="true" tabindex="-1"></a>one_species_split_by_fasta_vector <span class="ot">&lt;-</span> <span class="fu">unlist</span>(one_species_split_by_fasta)</span>
+<span id="cb171-8"><a href="text-editing-and-data-transformations.html#cb171-8" aria-hidden="true" tabindex="-1"></a>one_species_split_by_fasta_vector <span class="ot">&lt;-</span> one_species_split_by_fasta_vector[one_species_split_by_fasta_vector <span class="sc">!=</span> <span class="st">&quot;&quot;</span>]</span>
+<span id="cb171-9"><a href="text-editing-and-data-transformations.html#cb171-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-10"><a href="text-editing-and-data-transformations.html#cb171-10" aria-hidden="true" tabindex="-1"></a>one_species_processed_seq_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb171-11"><a href="text-editing-and-data-transformations.html#cb171-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-12"><a href="text-editing-and-data-transformations.html#cb171-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(one_species_split_by_fasta_vector)) {</span>
+<span id="cb171-13"><a href="text-editing-and-data-transformations.html#cb171-13" aria-hidden="true" tabindex="-1"></a>                 one_species_clean_data <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">strsplit</span>(one_species_split_by_fasta_vector[i], <span class="at">split =</span> <span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>))</span>
+<span id="cb171-14"><a href="text-editing-and-data-transformations.html#cb171-14" aria-hidden="true" tabindex="-1"></a>                 one_species_clean_data <span class="ot">&lt;-</span> one_species_clean_data[one_species_clean_data <span class="sc">!=</span> <span class="st">&quot;&quot;</span>]</span>
+<span id="cb171-15"><a href="text-editing-and-data-transformations.html#cb171-15" aria-hidden="true" tabindex="-1"></a>                   one_species_only_seq <span class="ot">&lt;-</span> <span class="fu">paste</span>(one_species_clean_data[<span class="dv">2</span><span class="sc">:</span><span class="fu">length</span>(one_species_clean_data)], <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>) </span>
+<span id="cb171-16"><a href="text-editing-and-data-transformations.html#cb171-16" aria-hidden="true" tabindex="-1"></a>            <span class="fu">names</span>(one_species_only_seq) <span class="ot">&lt;-</span> one_species_clean_data[<span class="dv">1</span>]</span>
+<span id="cb171-17"><a href="text-editing-and-data-transformations.html#cb171-17" aria-hidden="true" tabindex="-1"></a>    one_species_processed_seq_list[[i]] <span class="ot">&lt;-</span> one_species_only_seq</span>
+<span id="cb171-18"><a href="text-editing-and-data-transformations.html#cb171-18" aria-hidden="true" tabindex="-1"></a>                                        }</span>
+<span id="cb171-19"><a href="text-editing-and-data-transformations.html#cb171-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-20"><a href="text-editing-and-data-transformations.html#cb171-20" aria-hidden="true" tabindex="-1"></a>list_final_fasta[[j]] <span class="ot">&lt;-</span> <span class="fu">unlist</span>(one_species_processed_seq_list)</span>
+<span id="cb171-21"><a href="text-editing-and-data-transformations.html#cb171-21" aria-hidden="true" tabindex="-1"></a>                                            }</span>
+<span id="cb171-22"><a href="text-editing-and-data-transformations.html#cb171-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-23"><a href="text-editing-and-data-transformations.html#cb171-23" aria-hidden="true" tabindex="-1"></a>final_fasta_vector <span class="ot">&lt;-</span> <span class="fu">unlist</span>(list_final_fasta)</span>
+<span id="cb171-24"><a href="text-editing-and-data-transformations.html#cb171-24" aria-hidden="true" tabindex="-1"></a>final_fasta_vector</span>
+<span id="cb171-25"><a href="text-editing-and-data-transformations.html#cb171-25" aria-hidden="true" tabindex="-1"></a><span class="co">#MW042033.1 Epipedobates anthonyi voucher QCAZ16597 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial </span></span>
+<span id="cb171-26"><a href="text-editing-and-data-transformations.html#cb171-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;GTGATAATTACCCGATGATTATTCTCCACAAACCATAAAGATATCGGAACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCCTCTTAATTCGAGCAGAATT...&quot;</span></span>
+<span id="cb171-27"><a href="text-editing-and-data-transformations.html#cb171-27" aria-hidden="true" tabindex="-1"></a><span class="co">#DQ502853.1 Epipedobates anthonyi isolate 838 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial</span></span>
+<span id="cb171-28"><a href="text-editing-and-data-transformations.html#cb171-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;AACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCCTCTTAATTCGAGCAGAATTAAGTCAACCTGGGTCCTTACTGGGCGATGACCAGATTTATAATGTAA...&quot;</span></span>
+<span id="cb171-29"><a href="text-editing-and-data-transformations.html#cb171-29" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
+<p><strong>7)</strong> We can append to the top the first processed sequence on step <strong>3)</strong> to this long vector.</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="text-editing-and-data-transformations.html#cb172-1" aria-hidden="true" tabindex="-1"></a>final_fasta_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(froggy_one_fasta, final_fasta_vector)</span>
+<span id="cb172-2"><a href="text-editing-and-data-transformations.html#cb172-2" aria-hidden="true" tabindex="-1"></a>final_fasta_vector</span>
+<span id="cb172-3"><a href="text-editing-and-data-transformations.html#cb172-3" aria-hidden="true" tabindex="-1"></a><span class="co"># &gt;MW042030.1 Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial </span></span>
+<span id="cb172-4"><a href="text-editing-and-data-transformations.html#cb172-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;GTGATAATTACTCGATGATTATTTTCTACCAACCACAAAGACATCGGAACTTTATACCTAGTGTTTGGGGCATGAGCAGGCATAGTCGGCACTGCTCTTAGCCTTTTAATTCGAGCCGAATT...&quot; </span></span>
+<span id="cb172-5"><a href="text-editing-and-data-transformations.html#cb172-5" aria-hidden="true" tabindex="-1"></a><span class="co">#MW042033.1 Epipedobates anthonyi voucher QCAZ16597 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial </span></span>
+<span id="cb172-6"><a href="text-editing-and-data-transformations.html#cb172-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;GTGATAATTACCCGATGATTATTCTCCACAAACCATAAAGATATCGGAACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCCTCTTAATTCGAGCAGAATT...&quot;</span></span>
+<span id="cb172-7"><a href="text-editing-and-data-transformations.html#cb172-7" aria-hidden="true" tabindex="-1"></a><span class="co">#DQ502853.1 Epipedobates anthonyi isolate 838 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial</span></span>
+<span id="cb172-8"><a href="text-editing-and-data-transformations.html#cb172-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;AACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCCTCTTAATTCGAGCAGAATTAAGTCAACCTGGGTCCTTACTGGGCGATGACCAGATTTATAATGTAA...&quot;</span></span>
+<span id="cb172-9"><a href="text-editing-and-data-transformations.html#cb172-9" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
+<p><strong>8)</strong> We will explore some properties of the resulting character vector.</p>
+<p>We can get how many elements (sequences) we have in the vector with the function <code>length()</code>. It has 24 sequences.</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="text-editing-and-data-transformations.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(final_fasta_vector)</span>
+<span id="cb173-2"><a href="text-editing-and-data-transformations.html#cb173-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">24</span></span></code></pre></div>
+<p>We can get the number of characters (i.e., letters or nucleotides) on each sequence the function <code>nchar()</code>.</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="text-editing-and-data-transformations.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nchar</span>(final_fasta_vector)</span>
+<span id="cb174-2"><a href="text-editing-and-data-transformations.html#cb174-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;MW042030.1 Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial </span></span>
+<span id="cb174-3"><a href="text-editing-and-data-transformations.html#cb174-3" aria-hidden="true" tabindex="-1"></a><span class="co">#                                                                                                                  1539 </span></span>
+<span id="cb174-4"><a href="text-editing-and-data-transformations.html#cb174-4" aria-hidden="true" tabindex="-1"></a><span class="co">#     MW042032.1 Ameerega parvula voucher QCAZ16584 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial </span></span>
+<span id="cb174-5"><a href="text-editing-and-data-transformations.html#cb174-5" aria-hidden="true" tabindex="-1"></a><span class="co">#                                                                                                                  1539 </span></span>
+<span id="cb174-6"><a href="text-editing-and-data-transformations.html#cb174-6" aria-hidden="true" tabindex="-1"></a><span class="co">#MW042033.1 Epipedobates anthonyi voucher QCAZ16597 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial </span></span>
+<span id="cb174-7"><a href="text-editing-and-data-transformations.html#cb174-7" aria-hidden="true" tabindex="-1"></a><span class="co">#                                                                                                                  1539 </span></span>
+<span id="cb174-8"><a href="text-editing-and-data-transformations.html#cb174-8" aria-hidden="true" tabindex="-1"></a><span class="co">#     DQ502853.1 Epipedobates anthonyi isolate 838 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial </span></span>
+<span id="cb174-9"><a href="text-editing-and-data-transformations.html#cb174-9" aria-hidden="true" tabindex="-1"></a><span class="co">#                                                                                                                   658 </span></span>
+<span id="cb174-10"><a href="text-editing-and-data-transformations.html#cb174-10" aria-hidden="true" tabindex="-1"></a><span class="co">#         MH589864.1 Oophaga sylvatica isolate CH2 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial </span></span>
+<span id="cb174-11"><a href="text-editing-and-data-transformations.html#cb174-11" aria-hidden="true" tabindex="-1"></a><span class="co">#                                                                                                                   523 </span></span>
+<span id="cb174-12"><a href="text-editing-and-data-transformations.html#cb174-12" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
+<p>We can get change the case characters using the function <code>tolower()</code> that converts any upper case characters into lower case. The opposite procedure can be achieved with the function <code>toupper()</code> that converts any lower case characters into upper case.</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="text-editing-and-data-transformations.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tolower</span>(final_fasta_vector)[<span class="dv">1</span>]</span>
+<span id="cb175-2"><a href="text-editing-and-data-transformations.html#cb175-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;MW042030.1 Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial </span></span>
+<span id="cb175-3"><a href="text-editing-and-data-transformations.html#cb175-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;gtgataattactcgatgattattttctaccaaccacaaagacatcggaactttatacctagtgtttggggcatgagcaggcatagtcggcactgctcttagcctttt...&quot;</span></span>
+<span id="cb175-4"><a href="text-editing-and-data-transformations.html#cb175-4" aria-hidden="true" tabindex="-1"></a><span class="fu">toupper</span>(final_fasta_vector)[<span class="dv">1</span>]</span>
+<span id="cb175-5"><a href="text-editing-and-data-transformations.html#cb175-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;MW042030.1 Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial </span></span>
+<span id="cb175-6"><a href="text-editing-and-data-transformations.html#cb175-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;GTGATAATTACTCGATGATTATTTTCTACCAACCACAAAGACATCGGAACTTTATACCTAGTGTTTGGGGCATGAGCAGGCATAGTCGGCACTGCTCTTAGCCTTTTA...&quot;</span></span></code></pre></div>
+<p><strong>9)</strong> We can split the character vector into chucks of a defined length using following function.</p>
+<p>We want to split the vector into individual nucleotides.</p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="text-editing-and-data-transformations.html#cb176-1" aria-hidden="true" tabindex="-1"></a>one_sequence <span class="ot">&lt;-</span> final_fasta_vector[<span class="dv">1</span>]</span>
+<span id="cb176-2"><a href="text-editing-and-data-transformations.html#cb176-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(one_sequence) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb176-3"><a href="text-editing-and-data-transformations.html#cb176-3" aria-hidden="true" tabindex="-1"></a>one_sequence_nucleotides <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">strsplit</span>(one_sequence, <span class="at">split =</span> <span class="st">&quot;&quot;</span>))</span>
+<span id="cb176-4"><a href="text-editing-and-data-transformations.html#cb176-4" aria-hidden="true" tabindex="-1"></a>one_sequence_nucleotides</span>
+<span id="cb176-5"><a href="text-editing-and-data-transformations.html#cb176-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] &quot;G&quot; &quot;T&quot; &quot;G&quot; &quot;A&quot; &quot;T&quot; &quot;A&quot; &quot;A&quot; &quot;T&quot; &quot;T&quot; &quot;A&quot; &quot;C&quot; &quot;T&quot; &quot;C&quot; &quot;G&quot; &quot;A&quot; &quot;T&quot; &quot;G&quot; &quot;A&quot; &quot;T&quot; &quot;T&quot; &quot;A&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;C&quot; &quot;T&quot; &quot;A&quot; &quot;C&quot; &quot;C&quot; &quot;A&quot; &quot;A&quot;</span></span>
+<span id="cb176-6"><a href="text-editing-and-data-transformations.html#cb176-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [33] &quot;C&quot; &quot;C&quot; &quot;A&quot; &quot;C&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;G&quot; &quot;A&quot; &quot;C&quot; &quot;A&quot; &quot;T&quot; &quot;C&quot; &quot;G&quot; &quot;G&quot; &quot;A&quot; &quot;A&quot; &quot;C&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;A&quot; &quot;T&quot; &quot;A&quot; &quot;C&quot; &quot;C&quot; &quot;T&quot; &quot;A&quot; &quot;G&quot; &quot;T&quot; &quot;G&quot; &quot;T&quot;</span></span>
+<span id="cb176-7"><a href="text-editing-and-data-transformations.html#cb176-7" aria-hidden="true" tabindex="-1"></a><span class="co"># [65] &quot;T&quot; &quot;T&quot; &quot;G&quot; &quot;G&quot; &quot;G&quot; &quot;G&quot; &quot;C&quot; &quot;A&quot; &quot;T&quot; &quot;G&quot; &quot;A&quot; &quot;G&quot; &quot;C&quot; &quot;A&quot; &quot;G&quot; &quot;G&quot; &quot;C&quot; &quot;A&quot; &quot;T&quot; &quot;A&quot; &quot;G&quot; &quot;T&quot; &quot;C&quot; &quot;G&quot; &quot;G&quot; &quot;C&quot; &quot;A&quot; &quot;C&quot; &quot;T&quot; &quot;G&quot; &quot;C&quot; &quot;T&quot;</span></span>
+<span id="cb176-8"><a href="text-editing-and-data-transformations.html#cb176-8" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
+<p>We can also split one continuous sequence into codons using a the function <code>sapply()</code>. This is a very useful function to process a function into recursively loop applied to a vector.</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="text-editing-and-data-transformations.html#cb177-1" aria-hidden="true" tabindex="-1"></a>one_sequence <span class="ot">&lt;-</span> final_fasta_vector[<span class="dv">1</span>]</span>
+<span id="cb177-2"><a href="text-editing-and-data-transformations.html#cb177-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(one_sequence) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb177-3"><a href="text-editing-and-data-transformations.html#cb177-3" aria-hidden="true" tabindex="-1"></a>one_sequence_codons <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="fu">seq</span>(<span class="at">from=</span><span class="dv">1</span>, <span class="at">to=</span><span class="fu">nchar</span>(one_sequence), <span class="at">by=</span><span class="dv">3</span>), </span>
+<span id="cb177-4"><a href="text-editing-and-data-transformations.html#cb177-4" aria-hidden="true" tabindex="-1"></a>                                   <span class="cf">function</span>(i) <span class="fu">substr</span>(one_sequence, i, i<span class="sc">+</span><span class="dv">2</span>))</span>
+<span id="cb177-5"><a href="text-editing-and-data-transformations.html#cb177-5" aria-hidden="true" tabindex="-1"></a>one_sequence_codons</span>
+<span id="cb177-6"><a href="text-editing-and-data-transformations.html#cb177-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;GTG&quot; &quot;ATA&quot; &quot;ATT&quot; &quot;ACT&quot; &quot;CGA&quot; &quot;TGA&quot; &quot;TTA&quot; &quot;TTT&quot; &quot;TCT&quot; &quot;ACC&quot; &quot;AAC&quot; &quot;CAC&quot; &quot;AAA&quot; &quot;GAC&quot; &quot;ATC&quot; &quot;GGA&quot; &quot;ACT&quot; &quot;TTA&quot; &quot;TAC&quot; &quot;CTA&quot; &quot;GTG&quot;</span></span>
+<span id="cb177-7"><a href="text-editing-and-data-transformations.html#cb177-7" aria-hidden="true" tabindex="-1"></a><span class="co">#[22] &quot;TTT&quot; &quot;GGG&quot; &quot;GCA&quot; &quot;TGA&quot; &quot;GCA&quot; &quot;GGC&quot; &quot;ATA&quot; &quot;GTC&quot; &quot;GGC&quot; &quot;ACT&quot; &quot;GCT&quot; &quot;CTT&quot; &quot;AGC&quot; &quot;CTT&quot; &quot;TTA&quot; &quot;ATT&quot; &quot;CGA&quot; &quot;GCC&quot; &quot;GAA&quot; &quot;TTA&quot; &quot;AGC&quot;</span></span>
+<span id="cb177-8"><a href="text-editing-and-data-transformations.html#cb177-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[43] &quot;CAG&quot; &quot;CCC&quot; &quot;GGG&quot; &quot;TCC&quot; &quot;TTA&quot; &quot;CTA&quot; &quot;GGC&quot; &quot;GAT&quot; &quot;GAC&quot; &quot;CAG&quot; &quot;ATC&quot; &quot;TAC&quot; &quot;AAC&quot; &quot;GTT&quot; &quot;ATT&quot; &quot;GTT&quot; &quot;ACC&quot; &quot;GCC&quot; &quot;CAT&quot; &quot;GCT&quot; &quot;TTC&quot;</span></span>
+<span id="cb177-9"><a href="text-editing-and-data-transformations.html#cb177-9" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
+<p><strong>10)</strong> We can transform some characters and replace between characters using the function <code>chartr()</code>. We can try to replace thymine (T) with uracil (U) for DNA to RNA sequences.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="text-editing-and-data-transformations.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chartr</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;U&quot;</span>, final_fasta_vector[<span class="dv">1</span>])</span>
+<span id="cb178-2"><a href="text-editing-and-data-transformations.html#cb178-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;MW042030.1 Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) &gt;MW042030.1 Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial </span></span>
+<span id="cb178-3"><a href="text-editing-and-data-transformations.html#cb178-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;GUGAUAAUUACUCGAUGAUUAUUUUCUACCAACCACAAAGACAUCGGAACUUUAUACCUAGUGUUUGGGGCAUGAGCAGGCAUAGUCGGCACUGCUCUUAGCCUUUUAAUUCG...&quot;</span></span></code></pre></div>
+</div>
+<div id="regular-expressions-regex" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Regular expressions (Regex)</h2>
+<p>Finding patterns of characters in strings can be done in many different ways, some are extremely useful, and many cases are tedious. In general, they follow a similar procedure that starts with finding a pattern and indexing it, replacing this pattern with other string, testing for the presence/absence of the pattern, and extracting characters nearby or between such known patterns. However, they can be hard to implement, and I will present some few applications that I find useful for bioinformatics while working with sequences.</p>
+<p><strong>1)</strong> Finding patterns with <code>grep()</code> and <code>grepl()</code>. These functions will search for matches to an argument <code>pattern</code> within each element of a character vector.</p>
+<p>We can try to find if any of our sequences have a particular set of characters (i.e., nucleotide sequences) and report which element has them within the <code>final_fasta_vector</code>.</p>
+<p>The result below indicate that only sequence with index <code>[1]</code> and <code>[2]</code> have such pattern.</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="text-editing-and-data-transformations.html#cb179-1" aria-hidden="true" tabindex="-1"></a>my_pattern <span class="ot">&lt;-</span> <span class="st">&quot;ACTGGCTGAACTGTGTACCC&quot;</span></span>
+<span id="cb179-2"><a href="text-editing-and-data-transformations.html#cb179-2" aria-hidden="true" tabindex="-1"></a>what_sequences <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="at">pattern =</span> my_pattern, final_fasta_vector, <span class="at">ignore.case =</span> <span class="cn">FALSE</span>, <span class="at">fixed =</span> <span class="cn">FALSE</span>, <span class="at">invert =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb179-3"><a href="text-editing-and-data-transformations.html#cb179-3" aria-hidden="true" tabindex="-1"></a>what_sequences</span>
+<span id="cb179-4"><a href="text-editing-and-data-transformations.html#cb179-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 1 2</span></span>
+<span id="cb179-5"><a href="text-editing-and-data-transformations.html#cb179-5" aria-hidden="true" tabindex="-1"></a>final_fasta_vector[what_sequences]</span>
+<span id="cb179-6"><a href="text-editing-and-data-transformations.html#cb179-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;MW042030.1 Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial</span></span>
+<span id="cb179-7"><a href="text-editing-and-data-transformations.html#cb179-7" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;GTGATAATTACTCGATGATTATTTTCTACCAACCACAAAGACATCGGAACTTTATACCTAGTGTTTGGGGCATGAGCAGGCATAGTCGGCACTGCTCTTAGCCTTTTAATTCGAGCCGAA...&quot;</span> </span>
+<span id="cb179-8"><a href="text-editing-and-data-transformations.html#cb179-8" aria-hidden="true" tabindex="-1"></a><span class="co">#MW042032.1 Ameerega parvula voucher QCAZ16584 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial</span></span>
+<span id="cb179-9"><a href="text-editing-and-data-transformations.html#cb179-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;GTGATAATTACTCGATGATTATTTTCCACCAACCATAAAGATATTGGAACCTTATACCTAGTGTTTGGGGCGTGAGCGGGCATAGTCGGCACTGCTCTTAGCCTCTTAATTCGAGCCGAG...&quot;</span></span></code></pre></div>
+<p>A similar result can be obtained with <code>grepl()</code>, but it will be a logical vector and only those elements that match will have a TRUE value and are returned when <code>what_sequences</code> is used to index the <code>final_fasta_vector</code>.</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="text-editing-and-data-transformations.html#cb180-1" aria-hidden="true" tabindex="-1"></a>my_pattern <span class="ot">&lt;-</span> <span class="st">&quot;ACTGGCTGAACTGTGTACCC&quot;</span></span>
+<span id="cb180-2"><a href="text-editing-and-data-transformations.html#cb180-2" aria-hidden="true" tabindex="-1"></a>what_sequences <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="at">pattern =</span> my_pattern, final_fasta_vector, <span class="at">ignore.case =</span> <span class="cn">FALSE</span>, <span class="at">fixed =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb180-3"><a href="text-editing-and-data-transformations.html#cb180-3" aria-hidden="true" tabindex="-1"></a>what_sequences</span>
+<span id="cb180-4"><a href="text-editing-and-data-transformations.html#cb180-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb180-5"><a href="text-editing-and-data-transformations.html#cb180-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[23] FALSE FALSE</span></span>
+<span id="cb180-6"><a href="text-editing-and-data-transformations.html#cb180-6" aria-hidden="true" tabindex="-1"></a>final_fasta_vector[what_sequences]</span>
+<span id="cb180-7"><a href="text-editing-and-data-transformations.html#cb180-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;MW042030.1 Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial</span></span>
+<span id="cb180-8"><a href="text-editing-and-data-transformations.html#cb180-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;GTGATAATTACTCGATGATTATTTTCTACCAACCACAAAGACATCGGAACTTTATACCTAGTGTTTGGGGCATGAGCAGGCATAGTCGGCACTGCTCTTAGCCTTTTAATTCGAGCCGAA...&quot; </span></span>
+<span id="cb180-9"><a href="text-editing-and-data-transformations.html#cb180-9" aria-hidden="true" tabindex="-1"></a><span class="co">#MW042032.1 Ameerega parvula voucher QCAZ16584 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial</span></span>
+<span id="cb180-10"><a href="text-editing-and-data-transformations.html#cb180-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;GTGATAATTACTCGATGATTATTTTCCACCAACCATAAAGATATTGGAACCTTATACCTAGTGTTTGGGGCGTGAGCGGGCATAGTCGGCACTGCTCTTAGCCTCTTAATTCGAGCCGAG...&quot;</span></span></code></pre></div>
+<p><strong>2)</strong> Replacing patterns with <code>sub()</code> and <code>gsub()</code>. These functions will search for matches to an argument <code>pattern</code> and <code>replace</code> them with a text that you must provide. The <code>sub()</code> will replace the first occurrence leaving the others as they are. On the other hand, the <code>gsub()</code> will replace all the strings or values with the input pattern.</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="text-editing-and-data-transformations.html#cb181-1" aria-hidden="true" tabindex="-1"></a>my_pattern <span class="ot">&lt;-</span> <span class="st">&quot;CAAACAAA&quot;</span></span>
+<span id="cb181-2"><a href="text-editing-and-data-transformations.html#cb181-2" aria-hidden="true" tabindex="-1"></a>my_replacement <span class="ot">&lt;-</span><span class="st">&quot;!!!found_it!!!&quot;</span></span>
+<span id="cb181-3"><a href="text-editing-and-data-transformations.html#cb181-3" aria-hidden="true" tabindex="-1"></a>fasta_vector_replacements <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="at">pattern =</span> my_pattern,</span>
+<span id="cb181-4"><a href="text-editing-and-data-transformations.html#cb181-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">replacement =</span> my_replacement,</span>
+<span id="cb181-5"><a href="text-editing-and-data-transformations.html#cb181-5" aria-hidden="true" tabindex="-1"></a>                            final_fasta_vector)</span>
+<span id="cb181-6"><a href="text-editing-and-data-transformations.html#cb181-6" aria-hidden="true" tabindex="-1"></a>fasta_vector_replacements</span>
+<span id="cb181-7"><a href="text-editing-and-data-transformations.html#cb181-7" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
+<span id="cb181-8"><a href="text-editing-and-data-transformations.html#cb181-8" aria-hidden="true" tabindex="-1"></a><span class="co">#DQ502853.1Epipedobatesanthonyiisolate838cytochromeoxidasesubunitI(COI)gene,partialcds;mitochondrial</span></span>
+<span id="cb181-9"><a href="text-editing-and-data-transformations.html#cb181-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;AACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCCTCTTAATTCGAGCAGAATTAAGTCAACCTGGGTCCTTACT...&quot;</span></span>
+<span id="cb181-10"><a href="text-editing-and-data-transformations.html#cb181-10" aria-hidden="true" tabindex="-1"></a><span class="co">#MH589864.1OophagasylvaticaisolateCH2cytochromeoxidasesubunitI(COI)gene,partialcds;mitochondrial</span></span>
+<span id="cb181-11"><a href="text-editing-and-data-transformations.html#cb181-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;TTACATTCTCATCCTCCCAGGCTTCGGAATCATCTCCCATGTAGTCACGTTTTACT!!!found_it!!!AAAGAGCCATTTGGCTACATAGGAAT...&quot;</span></span>
+<span id="cb181-12"><a href="text-editing-and-data-transformations.html#cb181-12" aria-hidden="true" tabindex="-1"></a><span class="co">#MH589863.1OophagasylvaticaisolateCH1cytochromeoxidasesubunitI(COI)gene,partialcds;mitochondrial</span></span>
+<span id="cb181-13"><a href="text-editing-and-data-transformations.html#cb181-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;TTACATTCTCATCCTCCCAGGCTTCGGAATCATCTCTCATGTAGTCACGTTTTACT!!!found_it!!!AAAGAGCCATTTGGCTACATAGGAAT...&quot;</span></span>
+<span id="cb181-14"><a href="text-editing-and-data-transformations.html#cb181-14" aria-hidden="true" tabindex="-1"></a><span class="co">#MH589862.1OophagasylvaticaisolateMC2cytochromeoxidasesubunitI(COI)gene,partialcds;mitochondrial</span></span>
+<span id="cb181-15"><a href="text-editing-and-data-transformations.html#cb181-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;TTACATTCTCATCCTCCCAGGGTTCGGAATCATCTCCCATGTAGTCACGTTTTACT!!!found_it!!!AAAGAGCCATTTGGTTACATAGGAAT...&quot;</span></span>
+<span id="cb181-16"><a href="text-editing-and-data-transformations.html#cb181-16" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
+<span id="cb181-17"><a href="text-editing-and-data-transformations.html#cb181-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-18"><a href="text-editing-and-data-transformations.html#cb181-18" aria-hidden="true" tabindex="-1"></a><span class="co"># using gsub</span></span>
+<span id="cb181-19"><a href="text-editing-and-data-transformations.html#cb181-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-20"><a href="text-editing-and-data-transformations.html#cb181-20" aria-hidden="true" tabindex="-1"></a>fasta_vector_replacements <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="at">pattern =</span> my_pattern,</span>
+<span id="cb181-21"><a href="text-editing-and-data-transformations.html#cb181-21" aria-hidden="true" tabindex="-1"></a>                              <span class="at">replacement =</span> my_replacement,</span>
+<span id="cb181-22"><a href="text-editing-and-data-transformations.html#cb181-22" aria-hidden="true" tabindex="-1"></a>                            final_fasta_vector)</span>
+<span id="cb181-23"><a href="text-editing-and-data-transformations.html#cb181-23" aria-hidden="true" tabindex="-1"></a>fasta_vector_replacements</span>
+<span id="cb181-24"><a href="text-editing-and-data-transformations.html#cb181-24" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
+<span id="cb181-25"><a href="text-editing-and-data-transformations.html#cb181-25" aria-hidden="true" tabindex="-1"></a><span class="co">#DQ502853.1Epipedobatesanthonyiisolate838cytochromeoxidasesubunitI(COI)gene,partialcds;mitochondrial</span></span>
+<span id="cb181-26"><a href="text-editing-and-data-transformations.html#cb181-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;AACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCCTCTTAATTCGAGCAGAATTAAGTCAACCTGGGTCCTTACT...&quot;</span></span>
+<span id="cb181-27"><a href="text-editing-and-data-transformations.html#cb181-27" aria-hidden="true" tabindex="-1"></a><span class="co">#MH589864.1OophagasylvaticaisolateCH2cytochromeoxidasesubunitI(COI)gene,partialcds;mitochondrial</span></span>
+<span id="cb181-28"><a href="text-editing-and-data-transformations.html#cb181-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;TTACATTCTCATCCTCCCAGGCTTCGGAATCATCTCCCATGTAGTCACGTTTTACT!!!found_it!!!AAAGAGCCATTTGGCTACATAGGAAT...&quot;</span></span>
+<span id="cb181-29"><a href="text-editing-and-data-transformations.html#cb181-29" aria-hidden="true" tabindex="-1"></a><span class="co">#MH589863.1OophagasylvaticaisolateCH1cytochromeoxidasesubunitI(COI)gene,partialcds;mitochondrial</span></span>
+<span id="cb181-30"><a href="text-editing-and-data-transformations.html#cb181-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;TTACATTCTCATCCTCCCAGGCTTCGGAATCATCTCTCATGTAGTCACGTTTTACT!!!found_it!!!AAAGAGCCATTTGGCTACATAGGAAT...&quot;</span></span>
+<span id="cb181-31"><a href="text-editing-and-data-transformations.html#cb181-31" aria-hidden="true" tabindex="-1"></a><span class="co">#MH589862.1OophagasylvaticaisolateMC2cytochromeoxidasesubunitI(COI)gene,partialcds;mitochondrial</span></span>
+<span id="cb181-32"><a href="text-editing-and-data-transformations.html#cb181-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;TTACATTCTCATCCTCCCAGGGTTCGGAATCATCTCCCATGTAGTCACGTTTTACT!!!found_it!!!AAAGAGCCATTTGGTTACATAGGAAT...&quot;</span></span>
+<span id="cb181-33"><a href="text-editing-and-data-transformations.html#cb181-33" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
+<p><strong>3)</strong> We can match multiple patterns using the <code>|</code> that signifies <code>or</code>. We will use <code>grepl()</code> to exemplify its use.</p>
+<p>Here we are testing if it matches any of two patterns. These might not need to be adjacent (i.e., there are some chucks of sequence between them).</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="text-editing-and-data-transformations.html#cb182-1" aria-hidden="true" tabindex="-1"></a>my_pattern <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;TCATCTCCCATGTA&quot;</span>, <span class="st">&quot;GTGATAATTACTCGATGATTATTTT&quot;</span>)</span>
+<span id="cb182-2"><a href="text-editing-and-data-transformations.html#cb182-2" aria-hidden="true" tabindex="-1"></a>my_pattern <span class="ot">&lt;-</span> <span class="fu">paste0</span>(my_pattern, <span class="at">collapse =</span> <span class="st">&quot;|&quot;</span>)</span>
+<span id="cb182-3"><a href="text-editing-and-data-transformations.html#cb182-3" aria-hidden="true" tabindex="-1"></a>my_pattern</span>
+<span id="cb182-4"><a href="text-editing-and-data-transformations.html#cb182-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;TCATCTCCCATGTA|GTGATAATTACTCGATGATTATTTT&quot;</span></span>
+<span id="cb182-5"><a href="text-editing-and-data-transformations.html#cb182-5" aria-hidden="true" tabindex="-1"></a>what_sequences <span class="ot">&lt;-</span> <span class="fu">grepl</span>(my_pattern, final_fasta_vector, <span class="at">ignore.case =</span> <span class="cn">FALSE</span>, <span class="at">fixed =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb182-6"><a href="text-editing-and-data-transformations.html#cb182-6" aria-hidden="true" tabindex="-1"></a>what_sequences</span>
+<span id="cb182-7"><a href="text-editing-and-data-transformations.html#cb182-7" aria-hidden="true" tabindex="-1"></a><span class="co">#[[1]  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</span></span>
+<span id="cb182-8"><a href="text-editing-and-data-transformations.html#cb182-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[23]  TRUE  TRUE</span></span></code></pre></div>
+<p>Here we are testing if the vector elements match both patterns at the same time. These are not necessarily adjacent (i.e., there could be a chuck sequence between them). We can use <code>wildcard</code> character <code>.</code> (i.e., it represents any character except <code>\n</code>, which is a new line) and <code>*</code> is a greedy character (i.e., the asterisk will always match the longest possible string).</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="text-editing-and-data-transformations.html#cb183-1" aria-hidden="true" tabindex="-1"></a>my_pattern <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;GTGATAATTACTCGATGATTATTTTCTA&quot;</span>, <span class="st">&quot;ACTTTATACCTAGTGTTTGGGGCA&quot;</span>)</span>
+<span id="cb183-2"><a href="text-editing-and-data-transformations.html#cb183-2" aria-hidden="true" tabindex="-1"></a>my_pattern <span class="ot">&lt;-</span> <span class="fu">paste0</span>(my_pattern, <span class="at">collapse =</span> <span class="st">&quot;.*&quot;</span>)</span>
+<span id="cb183-3"><a href="text-editing-and-data-transformations.html#cb183-3" aria-hidden="true" tabindex="-1"></a>my_pattern</span>
+<span id="cb183-4"><a href="text-editing-and-data-transformations.html#cb183-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;GTGATAATTACTCGATGATTATTTTCTA.*ACTTTATACCTAGTGTTTGGGGCA&quot;</span></span>
+<span id="cb183-5"><a href="text-editing-and-data-transformations.html#cb183-5" aria-hidden="true" tabindex="-1"></a>what_sequences <span class="ot">&lt;-</span> <span class="fu">grepl</span>(my_pattern, final_fasta_vector, <span class="at">ignore.case =</span> <span class="cn">FALSE</span>, <span class="at">fixed =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb183-6"><a href="text-editing-and-data-transformations.html#cb183-6" aria-hidden="true" tabindex="-1"></a>what_sequences</span>
+<span id="cb183-7"><a href="text-editing-and-data-transformations.html#cb183-7" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb183-8"><a href="text-editing-and-data-transformations.html#cb183-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[23] FALSE FALSE</span></span></code></pre></div>
+<p>Notice that we can overrun the <code>wildcard</code> nature of these characters by changing the argument <code>fixed = TRUE</code>. This means a <strong>literal</strong> match to <code>.*</code> in the sequence.</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="text-editing-and-data-transformations.html#cb184-1" aria-hidden="true" tabindex="-1"></a>my_pattern <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;GTGATAATTACTCGATGATTATTTTCTA&quot;</span>, <span class="st">&quot;ACTTTATACCTAGTGTTTGGGGCA&quot;</span>)</span>
+<span id="cb184-2"><a href="text-editing-and-data-transformations.html#cb184-2" aria-hidden="true" tabindex="-1"></a>my_pattern <span class="ot">&lt;-</span> <span class="fu">paste0</span>(my_pattern, <span class="at">collapse =</span> <span class="st">&quot;.*&quot;</span>)</span>
+<span id="cb184-3"><a href="text-editing-and-data-transformations.html#cb184-3" aria-hidden="true" tabindex="-1"></a>my_pattern</span>
+<span id="cb184-4"><a href="text-editing-and-data-transformations.html#cb184-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;GTGATAATTACTCGATGATTATTTTCTA.*ACTTTATACCTAGTGTTTGGGGCA&quot;</span></span>
+<span id="cb184-5"><a href="text-editing-and-data-transformations.html#cb184-5" aria-hidden="true" tabindex="-1"></a>what_sequences <span class="ot">&lt;-</span> <span class="fu">grepl</span>(my_pattern, final_fasta_vector, <span class="at">ignore.case =</span> <span class="cn">FALSE</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb184-6"><a href="text-editing-and-data-transformations.html#cb184-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-7"><a href="text-editing-and-data-transformations.html#cb184-7" aria-hidden="true" tabindex="-1"></a><span class="co"># This result in all cases as FALSE because we fixed to match EXACTLY the text pattern &quot;GTGATAATTACTCGATGATTATTTTCTA.*ACTTTATACCTAGTGTTTGGGGCA&quot;</span></span>
+<span id="cb184-8"><a href="text-editing-and-data-transformations.html#cb184-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-9"><a href="text-editing-and-data-transformations.html#cb184-9" aria-hidden="true" tabindex="-1"></a>what_sequences</span>
+<span id="cb184-10"><a href="text-editing-and-data-transformations.html#cb184-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb184-11"><a href="text-editing-and-data-transformations.html#cb184-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[23] FALSE FALSE</span></span></code></pre></div>
+<p><strong>4)</strong> We can use some characters to match only numbers, only lower case letters or special symbols. These can be used to find or replace text after or before these special characters.</p>
+<p>To illustrate some of their use we will construct a vector with random text. We will use the function <code>cat()</code> to concatenate and print this vector.</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="text-editing-and-data-transformations.html#cb185-1" aria-hidden="true" tabindex="-1"></a>my_random_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;text_file.txt&quot;</span>, <span class="st">&quot;text_file.csv&quot;</span>, <span class="st">&quot;text_file2.txt&quot;</span>, <span class="st">&quot;multiple</span><span class="sc">\n</span><span class="st">dots</span><span class="sc">\n</span><span class="st">in</span><span class="sc">\n</span><span class="st">this.line&quot;</span>, <span class="st">&quot;multiple</span><span class="sc">\t</span><span class="st">dots</span><span class="sc">\t</span><span class="st">in</span><span class="sc">\t</span><span class="st">this.line&quot;</span>, <span class="st">&quot;multiple.dots.in.this.line&quot;</span>, <span class="st">&quot;CaPiTaL_123_NYC&quot;</span>)</span>
+<span id="cb185-2"><a href="text-editing-and-data-transformations.html#cb185-2" aria-hidden="true" tabindex="-1"></a>my_random_vector</span>
+<span id="cb185-3"><a href="text-editing-and-data-transformations.html#cb185-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;text_file.txt&quot;                 &quot;text_file.csv&quot;                 &quot;text_file2.txt&quot;                &quot;multiple\ndots\nin\nthis.line&quot;</span></span>
+<span id="cb185-4"><a href="text-editing-and-data-transformations.html#cb185-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[5] &quot;multiple\tdots\tin\tthis.line&quot; &quot;multiple.dots.in.this.line&quot;    &quot;CaPiTaL_123_NYC&quot;              </span></span>
+<span id="cb185-5"><a href="text-editing-and-data-transformations.html#cb185-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(my_random_vector)</span>
+<span id="cb185-6"><a href="text-editing-and-data-transformations.html#cb185-6" aria-hidden="true" tabindex="-1"></a><span class="co">#text_file.txt text_file.csv text_file2.txt multiple</span></span>
+<span id="cb185-7"><a href="text-editing-and-data-transformations.html#cb185-7" aria-hidden="true" tabindex="-1"></a><span class="co">#dots</span></span>
+<span id="cb185-8"><a href="text-editing-and-data-transformations.html#cb185-8" aria-hidden="true" tabindex="-1"></a><span class="co">#in</span></span>
+<span id="cb185-9"><a href="text-editing-and-data-transformations.html#cb185-9" aria-hidden="true" tabindex="-1"></a><span class="co">#this.line multiple dots    in  this.line multiple.dots.in.this.line CaPiTaL_123_NYC</span></span></code></pre></div>
+<p>We can use <code>gsub()</code> to replace both <code>\n</code> (new line) and <code>\t</code> (tabs) using <code>|</code> that means an <code>or</code> condition with a <code>-</code> as a replacement. Compare output before and after the replacement.</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="text-editing-and-data-transformations.html#cb186-1" aria-hidden="true" tabindex="-1"></a>my_vector_processed <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">|</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;-&quot;</span>, my_random_vector)</span>
+<span id="cb186-2"><a href="text-editing-and-data-transformations.html#cb186-2" aria-hidden="true" tabindex="-1"></a>my_random_vector[<span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb186-3"><a href="text-editing-and-data-transformations.html#cb186-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;multiple\ndots\nin\nthis.line&quot; &quot;multiple\tdots\tin\tthis.line&quot;</span></span>
+<span id="cb186-4"><a href="text-editing-and-data-transformations.html#cb186-4" aria-hidden="true" tabindex="-1"></a>my_vector_processed[<span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb186-5"><a href="text-editing-and-data-transformations.html#cb186-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;multiple-dots-in-this.line&quot; &quot;multiple-dots-in-this.line&quot;          </span></span></code></pre></div>
+<p>We can use <code>gsub()</code> to replace all digits (i.e., 0 to 9) using <code>[[:digit:]]</code> with <code>-</code> replacement. Compare output before and after the replacement.</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="text-editing-and-data-transformations.html#cb187-1" aria-hidden="true" tabindex="-1"></a>my_vector_processed <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;[[:digit:]]&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;-&quot;</span>, my_random_vector)</span>
+<span id="cb187-2"><a href="text-editing-and-data-transformations.html#cb187-2" aria-hidden="true" tabindex="-1"></a>my_random_vector[<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">7</span>)]</span>
+<span id="cb187-3"><a href="text-editing-and-data-transformations.html#cb187-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;text_file2.txt&quot;  &quot;CaPiTaL_123_NYC&quot;</span></span>
+<span id="cb187-4"><a href="text-editing-and-data-transformations.html#cb187-4" aria-hidden="true" tabindex="-1"></a>my_vector_processed[<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">7</span>)]</span>
+<span id="cb187-5"><a href="text-editing-and-data-transformations.html#cb187-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;text_file-.txt&quot;  &quot;CaPiTaL_---_NYC&quot;</span></span></code></pre></div>
+<p>We can use <code>gsub()</code> to replace all non-digits using <code>\\D</code> or <code>[^[:digit:]]</code> with <code>-</code> replacement. Notice the <code>^</code> that is used to negate (i.e., the opposite of digits, will be non-digits). Compare output before and after the replacement.</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="text-editing-and-data-transformations.html#cb188-1" aria-hidden="true" tabindex="-1"></a>my_vector_processed <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">D&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;-&quot;</span>, my_random_vector)</span>
+<span id="cb188-2"><a href="text-editing-and-data-transformations.html#cb188-2" aria-hidden="true" tabindex="-1"></a>my_random_vector</span>
+<span id="cb188-3"><a href="text-editing-and-data-transformations.html#cb188-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;text_file.txt&quot;                 &quot;text_file.csv&quot;                 &quot;text_file2.txt&quot;                &quot;multiple\ndots\nin\nthis.line&quot;</span></span>
+<span id="cb188-4"><a href="text-editing-and-data-transformations.html#cb188-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[5] &quot;multiple\tdots\tin\tthis.line&quot; &quot;multiple.dots.in.this.line&quot;    &quot;CaPiTaL_123_NYC&quot;              </span></span>
+<span id="cb188-5"><a href="text-editing-and-data-transformations.html#cb188-5" aria-hidden="true" tabindex="-1"></a>my_vector_processed</span>
+<span id="cb188-6"><a href="text-editing-and-data-transformations.html#cb188-6" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;-------------&quot;              &quot;-------------&quot;              &quot;---------2----&quot;             &quot;--------------------------&quot;</span></span>
+<span id="cb188-7"><a href="text-editing-and-data-transformations.html#cb188-7" aria-hidden="true" tabindex="-1"></a><span class="co">#[5] &quot;--------------------------&quot; &quot;--------------------------&quot; &quot;--------123----&quot;</span></span>
+<span id="cb188-8"><a href="text-editing-and-data-transformations.html#cb188-8" aria-hidden="true" tabindex="-1"></a>my_vector_processed <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;[^[:digit:]]&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;-&quot;</span>, my_random_vector)</span>
+<span id="cb188-9"><a href="text-editing-and-data-transformations.html#cb188-9" aria-hidden="true" tabindex="-1"></a>my_vector_processed</span>
+<span id="cb188-10"><a href="text-editing-and-data-transformations.html#cb188-10" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;-------------&quot;              &quot;-------------&quot;              &quot;---------2----&quot;             &quot;--------------------------&quot;</span></span>
+<span id="cb188-11"><a href="text-editing-and-data-transformations.html#cb188-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[5] &quot;--------------------------&quot; &quot;--------------------------&quot; &quot;--------123----&quot;</span></span></code></pre></div>
+<p>We can use <code>gsub()</code> to replace all periods using<code>[.]</code> with spaces using <code></code> or with nothing as <code>""</code>. Compare output before and after the replacement.</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="text-editing-and-data-transformations.html#cb189-1" aria-hidden="true" tabindex="-1"></a>my_vector_processed <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;[.]&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot; &quot;</span>, my_random_vector)</span>
+<span id="cb189-2"><a href="text-editing-and-data-transformations.html#cb189-2" aria-hidden="true" tabindex="-1"></a>my_random_vector[<span class="dv">6</span>]</span>
+<span id="cb189-3"><a href="text-editing-and-data-transformations.html#cb189-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;multiple.dots.in.this.line&quot;</span></span>
+<span id="cb189-4"><a href="text-editing-and-data-transformations.html#cb189-4" aria-hidden="true" tabindex="-1"></a>my_vector_processed[<span class="dv">6</span>]</span>
+<span id="cb189-5"><a href="text-editing-and-data-transformations.html#cb189-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;multiple dots in this line&quot;</span></span>
+<span id="cb189-6"><a href="text-editing-and-data-transformations.html#cb189-6" aria-hidden="true" tabindex="-1"></a>my_vector_processed <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;[.]&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;&quot;</span>, my_random_vector)</span>
+<span id="cb189-7"><a href="text-editing-and-data-transformations.html#cb189-7" aria-hidden="true" tabindex="-1"></a>my_vector_processed[<span class="dv">6</span>]</span>
+<span id="cb189-8"><a href="text-editing-and-data-transformations.html#cb189-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;multipledotsinthisline&quot;</span></span></code></pre></div>
+<p><strong>5)</strong> We can use some anchor characters <code>^</code> (for START of the string) and <code>$</code> (for END of the string). These are especially characters if you want to replace or find a pattern like the extension of a file.</p>
+<p>These strings have the <code>text</code> pattern at the beginning.</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="text-editing-and-data-transformations.html#cb190-1" aria-hidden="true" tabindex="-1"></a>these_strings <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="at">pattern =</span> <span class="st">&quot;^text&quot;</span>, my_random_vector, <span class="at">ignore.case =</span> <span class="cn">FALSE</span>, <span class="at">fixed =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb190-2"><a href="text-editing-and-data-transformations.html#cb190-2" aria-hidden="true" tabindex="-1"></a>my_random_vector[these_strings]</span>
+<span id="cb190-3"><a href="text-editing-and-data-transformations.html#cb190-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;text_file.txt&quot;  &quot;text_file.csv&quot;  &quot;text_file2.txt&quot;</span></span></code></pre></div>
+<p>We can get the file names that end with <code>.txt</code> pattern.</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="text-editing-and-data-transformations.html#cb191-1" aria-hidden="true" tabindex="-1"></a>these_are_txt_files <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="at">pattern =</span> <span class="st">&quot;*.txt$&quot;</span>, my_random_vector, <span class="at">ignore.case =</span> <span class="cn">FALSE</span>, <span class="at">fixed =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb191-2"><a href="text-editing-and-data-transformations.html#cb191-2" aria-hidden="true" tabindex="-1"></a>my_random_vector[these_are_txt_files]</span>
+<span id="cb191-3"><a href="text-editing-and-data-transformations.html#cb191-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;text_file.txt&quot;  &quot;text_file2.txt&quot;</span></span></code></pre></div>
+<p><strong>6)</strong> An interesting application of regular expressions is to extract text (e.g., nucleotide sequence) between two patterns. This is a powerful demonstration of <code>grepl()</code> and <code>gsub()</code>.</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="text-editing-and-data-transformations.html#cb192-1" aria-hidden="true" tabindex="-1"></a>my_pattern <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;GTGATAATTACTCGATGATTATTTTCTA&quot;</span>, <span class="st">&quot;ACTTTATACCTAGTGTTTGGGGCA&quot;</span>)</span>
+<span id="cb192-2"><a href="text-editing-and-data-transformations.html#cb192-2" aria-hidden="true" tabindex="-1"></a>my_pattern <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;^.*&quot;</span>, my_pattern[<span class="dv">1</span>], <span class="st">&quot;</span><span class="sc">\\</span><span class="st">s*|</span><span class="sc">\\</span><span class="st">s*&quot;</span>, my_pattern[<span class="dv">2</span>], <span class="st">&quot;.*$&quot;</span>)</span>
+<span id="cb192-3"><a href="text-editing-and-data-transformations.html#cb192-3" aria-hidden="true" tabindex="-1"></a>my_pattern</span>
+<span id="cb192-4"><a href="text-editing-and-data-transformations.html#cb192-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;^.*GTGATAATTACTCGATGATTATTTTCTA\\s*|\\s*ACTTTATACCTAGTGTTTGGGGCA.*$&quot;</span></span>
+<span id="cb192-5"><a href="text-editing-and-data-transformations.html#cb192-5" aria-hidden="true" tabindex="-1"></a>is_the_pattern_present <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="at">pattern =</span> my_pattern, final_fasta_vector)</span>
+<span id="cb192-6"><a href="text-editing-and-data-transformations.html#cb192-6" aria-hidden="true" tabindex="-1"></a>is_the_pattern_present</span>
+<span id="cb192-7"><a href="text-editing-and-data-transformations.html#cb192-7" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb192-8"><a href="text-editing-and-data-transformations.html#cb192-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[23] FALSE FALSE</span></span>
+<span id="cb192-9"><a href="text-editing-and-data-transformations.html#cb192-9" aria-hidden="true" tabindex="-1"></a>sequences_that_have_pattern <span class="ot">&lt;-</span> final_fasta_vector[is_the_pattern_present]</span>
+<span id="cb192-10"><a href="text-editing-and-data-transformations.html#cb192-10" aria-hidden="true" tabindex="-1"></a>my_extracted_sequences <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="at">pattern =</span> my_pattern, <span class="at">replacement =</span> <span class="st">&#39;&#39;</span>, sequences_that_have_pattern)</span>
+<span id="cb192-11"><a href="text-editing-and-data-transformations.html#cb192-11" aria-hidden="true" tabindex="-1"></a>my_extracted_sequences</span>
+<span id="cb192-12"><a href="text-editing-and-data-transformations.html#cb192-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;MW042030.1 Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial </span></span>
+<span id="cb192-13"><a href="text-editing-and-data-transformations.html#cb192-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;CCAACCACAAAGACATCGGA&quot;</span></span></code></pre></div>
+</div>
+<div id="comparing-ordering-and-simplifying-vectors" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Comparing, ordering and simplifying vectors</h2>
+<p><strong>1)</strong> There are several operations that can be applied to vectors that can help you manage the information contained in them. They are applied to one or two vectors. We will illustrate some examples.</p>
+<p>We will build two relatively similar vectors.</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="text-editing-and-data-transformations.html#cb193-1" aria-hidden="true" tabindex="-1"></a>my_vector_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Allobates&quot;</span>, <span class="st">&quot;Epipedobates&quot;</span>, <span class="st">&quot;Dendrobates&quot;</span>, <span class="st">&quot;Hyloxalus&quot;</span>, <span class="st">&quot;Mannophryne&quot;</span>, <span class="st">&quot;Hyloxalus&quot;</span>, <span class="st">&quot;Silverstoneia&quot;</span>)</span>
+<span id="cb193-2"><a href="text-editing-and-data-transformations.html#cb193-2" aria-hidden="true" tabindex="-1"></a>my_vector_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Epipedobates&quot;</span>, <span class="st">&quot;Epipedobates&quot;</span>,<span class="st">&quot;Dendrobates&quot;</span>, <span class="st">&quot;Hyloxalus&quot;</span>, <span class="st">&quot;Mannophryne&quot;</span>, <span class="st">&quot;Hyloxalus&quot;</span>, <span class="st">&quot;Rheobates&quot;</span>)</span></code></pre></div>
+<p>We can remove duplicated entries using the function <code>unique()</code>.</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="text-editing-and-data-transformations.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(my_vector_1)</span>
+<span id="cb194-2"><a href="text-editing-and-data-transformations.html#cb194-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Allobates&quot;     &quot;Epipedobates&quot;  &quot;Dendrobates&quot;   &quot;Hyloxalus&quot;     &quot;Mannophryne&quot;   &quot;Silverstoneia&quot;</span></span>
+<span id="cb194-3"><a href="text-editing-and-data-transformations.html#cb194-3" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(my_vector_2)</span>
+<span id="cb194-4"><a href="text-editing-and-data-transformations.html#cb194-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Epipedobates&quot; &quot;Dendrobates&quot;  &quot;Hyloxalus&quot;    &quot;Mannophryne&quot;  &quot;Rheobates&quot;   </span></span></code></pre></div>
+<p><strong>2)</strong> The union of elements of two vectors is performed with <code>union()</code>. This function will result in a new vector that contain elements from both vectors even if they are not in common but discards any duplicated values.</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="text-editing-and-data-transformations.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="fu">union</span>(my_vector_1, my_vector_2)</span>
+<span id="cb195-2"><a href="text-editing-and-data-transformations.html#cb195-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Allobates&quot;     &quot;Epipedobates&quot;  &quot;Dendrobates&quot;   &quot;Hyloxalus&quot;     &quot;Mannophryne&quot;   &quot;Silverstoneia&quot; &quot;Rheobates&quot;  </span></span></code></pre></div>
+<p><strong>3)</strong> The intersection of elements of two vectors is determined with <code>intersect()</code>. This function will result in a new vector that contain elements from both vectors, and these are elements in common, but discards any duplicated values.</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="text-editing-and-data-transformations.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(my_vector_1, my_vector_2)</span>
+<span id="cb196-2"><a href="text-editing-and-data-transformations.html#cb196-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Epipedobates&quot; &quot;Dendrobates&quot;  &quot;Hyloxalus&quot;    &quot;Mannophryne&quot;</span></span></code></pre></div>
+<p><strong>4)</strong> The function <code>setdiff()</code> results in a vector of elements that has those that are not in common between the two vectors. However, it depends on vector that corresponds to <code>x</code> on the function as <code>setdiff(x, y)</code>.</p>
+<p>This will return elements unique to <code>my_vector_1</code> and not in common with <code>my_vector_2</code>.</p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="text-editing-and-data-transformations.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(my_vector_1, my_vector_2)</span>
+<span id="cb197-2"><a href="text-editing-and-data-transformations.html#cb197-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Allobates&quot;     &quot;Silverstoneia&quot;</span></span></code></pre></div>
+<p>This will return elements unique to <code>my_vector_2</code> and not in common with <code>my_vector_1</code>.</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="text-editing-and-data-transformations.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(my_vector_2, my_vector_1)</span>
+<span id="cb198-2"><a href="text-editing-and-data-transformations.html#cb198-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Rheobates&quot;</span></span></code></pre></div>
+<p><strong>5)</strong> The function <code>setequal()</code> results in a logical test (i.e., TRUE or FALSE) that determines if these two vector contain the same elements.</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="text-editing-and-data-transformations.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setequal</span>(my_vector_2, my_vector_1)</span>
+<span id="cb199-2"><a href="text-editing-and-data-transformations.html#cb199-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] FALSE</span></span></code></pre></div>
+<p><strong>6)</strong> The function <code>is.element()</code> results in logical test (i.e., TRUE or FALSE) that determines if an element is present in a vector.</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="text-editing-and-data-transformations.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.element</span>(<span class="fu">c</span>(<span class="st">&quot;Allobates&quot;</span>, <span class="st">&quot;Rheobates&quot;</span>), my_vector_1)</span>
+<span id="cb200-2"><a href="text-editing-and-data-transformations.html#cb200-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[[1]  TRUE FALSE</span></span>
+<span id="cb200-3"><a href="text-editing-and-data-transformations.html#cb200-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.element</span>(<span class="fu">c</span>(<span class="st">&quot;Allobates&quot;</span>, <span class="st">&quot;Rheobates&quot;</span>), my_vector_2)</span>
+<span id="cb200-4"><a href="text-editing-and-data-transformations.html#cb200-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] FALSE  TRUE</span></span></code></pre></div>
+<p>A similar, but more compact, form is the function <code>%in%</code>.</p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="text-editing-and-data-transformations.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;Allobates&quot;</span>, <span class="st">&quot;Rheobates&quot;</span>) <span class="sc">%in%</span> my_vector_1</span>
+<span id="cb201-2"><a href="text-editing-and-data-transformations.html#cb201-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[[1]  TRUE FALSE</span></span>
+<span id="cb201-3"><a href="text-editing-and-data-transformations.html#cb201-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;Allobates&quot;</span>, <span class="st">&quot;Rheobates&quot;</span>) <span class="sc">%in%</span> my_vector_2</span>
+<span id="cb201-4"><a href="text-editing-and-data-transformations.html#cb201-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] FALSE  TRUE</span></span></code></pre></div>
+<p><strong>7)</strong> We can organize the elements in a vector alphabetically or numerically using the function <code>sort()</code>. This ordering is by default increasing, but you can order in decreasing fashion by changing the argument <code>decreasing = TRUE</code>.</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="text-editing-and-data-transformations.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(my_vector_1)</span>
+<span id="cb202-2"><a href="text-editing-and-data-transformations.html#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Allobates&quot;     &quot;Dendrobates&quot;   &quot;Epipedobates&quot;  &quot;Hyloxalus&quot;     &quot;Hyloxalus&quot;     &quot;Mannophryne&quot;   &quot;Silverstoneia&quot;</span></span>
+<span id="cb202-3"><a href="text-editing-and-data-transformations.html#cb202-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(my_vector_1, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb202-4"><a href="text-editing-and-data-transformations.html#cb202-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Silverstoneia&quot; &quot;Mannophryne&quot;   &quot;Hyloxalus&quot;     &quot;Hyloxalus&quot;     &quot;Epipedobates&quot;  &quot;Dendrobates&quot;   &quot;Allobates&quot;</span></span></code></pre></div>
+<p><strong>8)</strong> We can concatenate two vectors with the function <code>c()</code>. We can also remove duplicated entries and order the final vector with the functions <code>unique()</code> and <code>sort()</code>.</p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="text-editing-and-data-transformations.html#cb203-1" aria-hidden="true" tabindex="-1"></a>my_vector_1_2 <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">unique</span>(<span class="fu">c</span>(my_vector_1,my_vector_2)))</span>
+<span id="cb203-2"><a href="text-editing-and-data-transformations.html#cb203-2" aria-hidden="true" tabindex="-1"></a>my_vector_1_2</span>
+<span id="cb203-3"><a href="text-editing-and-data-transformations.html#cb203-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Allobates&quot;     &quot;Dendrobates&quot;   &quot;Epipedobates&quot;  &quot;Hyloxalus&quot;     &quot;Mannophryne&quot;   &quot;Rheobates&quot;     &quot;Silverstoneia&quot;</span></span></code></pre></div>
+</div>
+<div id="useful-functions-of-stringr" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Useful functions of ‘stringr’</h2>
+<p><strong>9)</strong> There are several specialized R-packages that deal with strings and more or less simplify what we have demonstrated above. However, it forces you to be dependent on loading these packages in the R environment before you can use them.</p>
+<p>One of the most used is <a href="https://stringr.tidyverse.org/" target="_blank"><strong>stringr</strong></a> that is part of the ‘tidyverse’ family. This package has an extensive manual and some functions can make some of the processing of string or character vectors easier.</p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="text-editing-and-data-transformations.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to install R-package stringr</span></span>
+<span id="cb204-2"><a href="text-editing-and-data-transformations.html#cb204-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;stringr&quot;</span>)</span>
+<span id="cb204-3"><a href="text-editing-and-data-transformations.html#cb204-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span></code></pre></div>
+<p>One useful function is <code>str_count()</code> that can count the number of matches of a pattern in a string.</p>
+<p>We can construct a data frame with the total counts of each nucleotide bases.</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="text-editing-and-data-transformations.html#cb205-1" aria-hidden="true" tabindex="-1"></a>adenine   <span class="ot">&lt;-</span> <span class="fu">str_count</span>(final_fasta_vector, <span class="at">pattern =</span> <span class="st">&quot;A&quot;</span>)</span>
+<span id="cb205-2"><a href="text-editing-and-data-transformations.html#cb205-2" aria-hidden="true" tabindex="-1"></a>cytocine  <span class="ot">&lt;-</span> <span class="fu">str_count</span>(final_fasta_vector, <span class="at">pattern =</span> <span class="st">&quot;C&quot;</span>)</span>
+<span id="cb205-3"><a href="text-editing-and-data-transformations.html#cb205-3" aria-hidden="true" tabindex="-1"></a>guanine   <span class="ot">&lt;-</span> <span class="fu">str_count</span>(final_fasta_vector, <span class="at">pattern =</span> <span class="st">&quot;G&quot;</span>)</span>
+<span id="cb205-4"><a href="text-editing-and-data-transformations.html#cb205-4" aria-hidden="true" tabindex="-1"></a>thymidine <span class="ot">&lt;-</span> <span class="fu">str_count</span>(final_fasta_vector, <span class="at">pattern =</span> <span class="st">&quot;T&quot;</span>)</span>
+<span id="cb205-5"><a href="text-editing-and-data-transformations.html#cb205-5" aria-hidden="true" tabindex="-1"></a>nucleotide_numbers <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">n_adenine =</span> adenine,</span>
+<span id="cb205-6"><a href="text-editing-and-data-transformations.html#cb205-6" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">n_cytocine =</span> cytocine,</span>
+<span id="cb205-7"><a href="text-editing-and-data-transformations.html#cb205-7" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">n_guanine =</span> guanine,</span>
+<span id="cb205-8"><a href="text-editing-and-data-transformations.html#cb205-8" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">n_thymidine =</span> thymidine,</span>
+<span id="cb205-9"><a href="text-editing-and-data-transformations.html#cb205-9" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">genbank_accession =</span> <span class="fu">names</span>(final_fasta_vector),</span>
+<span id="cb205-10"><a href="text-editing-and-data-transformations.html#cb205-10" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb205-11"><a href="text-editing-and-data-transformations.html#cb205-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(nucleotide_numbers)</span>
+<span id="cb205-12"><a href="text-editing-and-data-transformations.html#cb205-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  n_adenine n_cytocine n_guanine n_thymidine</span></span>
+<span id="cb205-13"><a href="text-editing-and-data-transformations.html#cb205-13" aria-hidden="true" tabindex="-1"></a><span class="co">#1       384        410       256         489</span></span>
+<span id="cb205-14"><a href="text-editing-and-data-transformations.html#cb205-14" aria-hidden="true" tabindex="-1"></a><span class="co">#2       369        399       273         498</span></span>
+<span id="cb205-15"><a href="text-editing-and-data-transformations.html#cb205-15" aria-hidden="true" tabindex="-1"></a><span class="co">#3       395        340       250         554</span></span>
+<span id="cb205-16"><a href="text-editing-and-data-transformations.html#cb205-16" aria-hidden="true" tabindex="-1"></a><span class="co">#4       169        161       108         220</span></span>
+<span id="cb205-17"><a href="text-editing-and-data-transformations.html#cb205-17" aria-hidden="true" tabindex="-1"></a><span class="co">#5       136        116        94         177</span></span>
+<span id="cb205-18"><a href="text-editing-and-data-transformations.html#cb205-18" aria-hidden="true" tabindex="-1"></a><span class="co">#6       137        117        92         177</span></span>
+<span id="cb205-19"><a href="text-editing-and-data-transformations.html#cb205-19" aria-hidden="true" tabindex="-1"></a><span class="co">#                                                                                                       genbank_accession</span></span>
+<span id="cb205-20"><a href="text-editing-and-data-transformations.html#cb205-20" aria-hidden="true" tabindex="-1"></a><span class="co">#1   &gt;MW042030.1 Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial</span></span>
+<span id="cb205-21"><a href="text-editing-and-data-transformations.html#cb205-21" aria-hidden="true" tabindex="-1"></a><span class="co">#2      MW042032.1 Ameerega parvula voucher QCAZ16584 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial</span></span>
+<span id="cb205-22"><a href="text-editing-and-data-transformations.html#cb205-22" aria-hidden="true" tabindex="-1"></a><span class="co">#3 MW042033.1 Epipedobates anthonyi voucher QCAZ16597 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial</span></span>
+<span id="cb205-23"><a href="text-editing-and-data-transformations.html#cb205-23" aria-hidden="true" tabindex="-1"></a><span class="co">#4       DQ502853.1 Epipedobates anthonyi isolate 838 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial</span></span>
+<span id="cb205-24"><a href="text-editing-and-data-transformations.html#cb205-24" aria-hidden="true" tabindex="-1"></a><span class="co">#5           MH589864.1 Oophaga sylvatica isolate CH2 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial</span></span>
+<span id="cb205-25"><a href="text-editing-and-data-transformations.html#cb205-25" aria-hidden="true" tabindex="-1"></a><span class="co">#6           MH589863.1 Oophaga sylvatica isolate CH1 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial</span></span></code></pre></div>
+<p>Another useful function is <code>str_locate_all()</code> that can find where a pattern is located in the vector elements (i.e., the position of the characters that match the pattern).</p>
+<p>We can construct a data frame with the count number of each nucleotide bases.</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="text-editing-and-data-transformations.html#cb206-1" aria-hidden="true" tabindex="-1"></a>restriction_sites_to_cut_with_BFAL <span class="ot">&lt;-</span> <span class="fu">str_locate_all</span>(final_fasta_vector, <span class="at">pattern =</span> <span class="st">&quot;CTAG&quot;</span>)</span>
+<span id="cb206-2"><a href="text-editing-and-data-transformations.html#cb206-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(restriction_sites_to_cut_with_BFAL) <span class="ot">&lt;-</span> <span class="fu">names</span>(final_fasta_vector)</span>
+<span id="cb206-3"><a href="text-editing-and-data-transformations.html#cb206-3" aria-hidden="true" tabindex="-1"></a>restriction_sites_to_cut_with_BFAL[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb206-4"><a href="text-editing-and-data-transformations.html#cb206-4" aria-hidden="true" tabindex="-1"></a><span class="co">#`&gt;MW042030.1 Ameerega bilinguis voucher QCAZ28835 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial`</span></span>
+<span id="cb206-5"><a href="text-editing-and-data-transformations.html#cb206-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     start  end</span></span>
+<span id="cb206-6"><a href="text-editing-and-data-transformations.html#cb206-6" aria-hidden="true" tabindex="-1"></a><span class="co">#[1,]    58   61</span></span>
+<span id="cb206-7"><a href="text-editing-and-data-transformations.html#cb206-7" aria-hidden="true" tabindex="-1"></a><span class="co">#[2,]   142  145</span></span>
+<span id="cb206-8"><a href="text-editing-and-data-transformations.html#cb206-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[3,]   337  340</span></span>
+<span id="cb206-9"><a href="text-editing-and-data-transformations.html#cb206-9" aria-hidden="true" tabindex="-1"></a><span class="co">#[4,]   406  409</span></span>
+<span id="cb206-10"><a href="text-editing-and-data-transformations.html#cb206-10" aria-hidden="true" tabindex="-1"></a><span class="co">#[5,]   475  478</span></span>
+<span id="cb206-11"><a href="text-editing-and-data-transformations.html#cb206-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[6,]   785  788</span></span>
+<span id="cb206-12"><a href="text-editing-and-data-transformations.html#cb206-12" aria-hidden="true" tabindex="-1"></a><span class="co">#[7,]   847  850</span></span>
+<span id="cb206-13"><a href="text-editing-and-data-transformations.html#cb206-13" aria-hidden="true" tabindex="-1"></a><span class="co">#[8,]  1384 1387</span></span>
+<span id="cb206-14"><a href="text-editing-and-data-transformations.html#cb206-14" aria-hidden="true" tabindex="-1"></a><span class="co">#$`MW042032.1 Ameerega parvula voucher QCAZ16584 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial`</span></span>
+<span id="cb206-15"><a href="text-editing-and-data-transformations.html#cb206-15" aria-hidden="true" tabindex="-1"></a><span class="co">#     start  end</span></span>
+<span id="cb206-16"><a href="text-editing-and-data-transformations.html#cb206-16" aria-hidden="true" tabindex="-1"></a><span class="co">#[1,]    58   61</span></span>
+<span id="cb206-17"><a href="text-editing-and-data-transformations.html#cb206-17" aria-hidden="true" tabindex="-1"></a><span class="co">#[2,]   475  478</span></span>
+<span id="cb206-18"><a href="text-editing-and-data-transformations.html#cb206-18" aria-hidden="true" tabindex="-1"></a><span class="co">#[3,]   785  788</span></span>
+<span id="cb206-19"><a href="text-editing-and-data-transformations.html#cb206-19" aria-hidden="true" tabindex="-1"></a><span class="co">#[4,]   847  850</span></span>
+<span id="cb206-20"><a href="text-editing-and-data-transformations.html#cb206-20" aria-hidden="true" tabindex="-1"></a><span class="co">#[5,]  1024 1027</span></span>
+<span id="cb206-21"><a href="text-editing-and-data-transformations.html#cb206-21" aria-hidden="true" tabindex="-1"></a><span class="co">#[6,]  1072 1075</span></span>
+<span id="cb206-22"><a href="text-editing-and-data-transformations.html#cb206-22" aria-hidden="true" tabindex="-1"></a><span class="co">#[7,]  1384 1387</span></span></code></pre></div>
+</div>
+<div id="data-transformations" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Data transformations</h2>
+<p>An important application of R in data analyses is transformations (e.g., one data structure into another or merging data frames).</p>
+<p><strong>1)</strong> Transforming vectors into other data structures (e.g., list or data frame) are usually straightforward.</p>
+<p>From vector to list using the function <code>as.list()</code>.</p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="text-editing-and-data-transformations.html#cb207-1" aria-hidden="true" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb207-2"><a href="text-editing-and-data-transformations.html#cb207-2" aria-hidden="true" tabindex="-1"></a>my_vector</span>
+<span id="cb207-3"><a href="text-editing-and-data-transformations.html#cb207-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1  2  3  4  5  6  7  8  9 10</span></span>
+<span id="cb207-4"><a href="text-editing-and-data-transformations.html#cb207-4" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">as.list</span>(my_vector)</span>
+<span id="cb207-5"><a href="text-editing-and-data-transformations.html#cb207-5" aria-hidden="true" tabindex="-1"></a>my_list</span></code></pre></div>
+<p>From list to vector using the function <code>unlist()</code>.</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="text-editing-and-data-transformations.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unlist</span>(my_list)</span>
+<span id="cb208-2"><a href="text-editing-and-data-transformations.html#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1  2  3  4  5  6  7  8  9 10</span></span></code></pre></div>
+<p>From vector to a data frame using the function <code>as.data.frame()</code>.</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="text-editing-and-data-transformations.html#cb209-1" aria-hidden="true" tabindex="-1"></a>my_data_frame <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(my_vector, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb209-2"><a href="text-editing-and-data-transformations.html#cb209-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_data_frame)</span>
+<span id="cb209-3"><a href="text-editing-and-data-transformations.html#cb209-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  my_vector</span></span>
+<span id="cb209-4"><a href="text-editing-and-data-transformations.html#cb209-4" aria-hidden="true" tabindex="-1"></a><span class="co">#1         1</span></span>
+<span id="cb209-5"><a href="text-editing-and-data-transformations.html#cb209-5" aria-hidden="true" tabindex="-1"></a><span class="co">#2         2</span></span>
+<span id="cb209-6"><a href="text-editing-and-data-transformations.html#cb209-6" aria-hidden="true" tabindex="-1"></a><span class="co">#3         3</span></span>
+<span id="cb209-7"><a href="text-editing-and-data-transformations.html#cb209-7" aria-hidden="true" tabindex="-1"></a><span class="co">#4         4</span></span>
+<span id="cb209-8"><a href="text-editing-and-data-transformations.html#cb209-8" aria-hidden="true" tabindex="-1"></a><span class="co">#5         5</span></span>
+<span id="cb209-9"><a href="text-editing-and-data-transformations.html#cb209-9" aria-hidden="true" tabindex="-1"></a><span class="co">#6         6</span></span></code></pre></div>
+<p><strong>2)</strong> Apply a function as a loop to each element of a list using the function <code>lapply()</code>.</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="text-editing-and-data-transformations.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a list of two vectors of numbers</span></span>
+<span id="cb210-2"><a href="text-editing-and-data-transformations.html#cb210-2" aria-hidden="true" tabindex="-1"></a>my_list2 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">odd_numbers =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>),</span>
+<span id="cb210-3"><a href="text-editing-and-data-transformations.html#cb210-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">prime_numbers =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">17</span>))</span>
+<span id="cb210-4"><a href="text-editing-and-data-transformations.html#cb210-4" aria-hidden="true" tabindex="-1"></a>my_list2</span>
+<span id="cb210-5"><a href="text-editing-and-data-transformations.html#cb210-5" aria-hidden="true" tabindex="-1"></a><span class="co">#$odd_numbers</span></span>
+<span id="cb210-6"><a href="text-editing-and-data-transformations.html#cb210-6" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 1 3 5 7 9</span></span>
+<span id="cb210-7"><a href="text-editing-and-data-transformations.html#cb210-7" aria-hidden="true" tabindex="-1"></a><span class="co">#$prime_numbers</span></span>
+<span id="cb210-8"><a href="text-editing-and-data-transformations.html#cb210-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1  2  3  5  7 11 13 17</span></span></code></pre></div>
+<p>Then, we can apply the function <code>mean()</code> to both elements (the two numbers vectors) in <code>my_list2</code> using the loop function <code>lapply()</code> that it is used for lists.</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="text-editing-and-data-transformations.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(my_list2, mean)</span>
+<span id="cb211-2"><a href="text-editing-and-data-transformations.html#cb211-2" aria-hidden="true" tabindex="-1"></a><span class="co">#$odd_numbers</span></span>
+<span id="cb211-3"><a href="text-editing-and-data-transformations.html#cb211-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 5</span></span>
+<span id="cb211-4"><a href="text-editing-and-data-transformations.html#cb211-4" aria-hidden="true" tabindex="-1"></a><span class="co">#$prime_numbers</span></span>
+<span id="cb211-5"><a href="text-editing-and-data-transformations.html#cb211-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 7.375</span></span></code></pre></div>
+<p><strong>3)</strong> Apply a function to rows or columns of a data frame or matrix using the function <code>apply()</code>.</p>
+<p>We can create a data frame of numbers in columns.</p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="text-editing-and-data-transformations.html#cb212-1" aria-hidden="true" tabindex="-1"></a>my_data_frame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">A =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="cn">NA</span>,<span class="dv">3</span>,<span class="dv">4</span>), </span>
+<span id="cb212-2"><a href="text-editing-and-data-transformations.html#cb212-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">B =</span> <span class="fu">c</span>(<span class="cn">NA</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">67</span>,<span class="sc">-</span><span class="dv">2</span>), </span>
+<span id="cb212-3"><a href="text-editing-and-data-transformations.html#cb212-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">C =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">99</span>,<span class="cn">NA</span>), </span>
+<span id="cb212-4"><a href="text-editing-and-data-transformations.html#cb212-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">D =</span> <span class="fu">c</span>(<span class="dv">78</span>,<span class="dv">56</span>,<span class="dv">9</span>,<span class="dv">3</span>,<span class="cn">NA</span>), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>Then, we can add the name of the with the function <code>rownames()</code> to each row of the data frame.</p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="text-editing-and-data-transformations.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(my_data_frame) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;row_1&quot;</span>, <span class="st">&quot;row_2&quot;</span>, <span class="st">&quot;row_3&quot;</span>, <span class="st">&quot;row_4&quot;</span>, <span class="st">&quot;row_5&quot;</span>)</span>
+<span id="cb213-2"><a href="text-editing-and-data-transformations.html#cb213-2" aria-hidden="true" tabindex="-1"></a>my_data_frame</span>
+<span id="cb213-3"><a href="text-editing-and-data-transformations.html#cb213-3" aria-hidden="true" tabindex="-1"></a><span class="co">#         A  B  C  D</span></span>
+<span id="cb213-4"><a href="text-editing-and-data-transformations.html#cb213-4" aria-hidden="true" tabindex="-1"></a><span class="co">#  row_1  1 NA -2 78</span></span>
+<span id="cb213-5"><a href="text-editing-and-data-transformations.html#cb213-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  row_2  2  4  3 56</span></span>
+<span id="cb213-6"><a href="text-editing-and-data-transformations.html#cb213-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  row_3 NA  1  1  9</span></span>
+<span id="cb213-7"><a href="text-editing-and-data-transformations.html#cb213-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  row_4  3 67 99  3</span></span>
+<span id="cb213-8"><a href="text-editing-and-data-transformations.html#cb213-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  row_5  4 -2 NA NA</span></span></code></pre></div>
+<p>Now we can apply a function <code>max()</code> to every row. Notice the <code>1</code> in <code>apply()</code> that denotes that it will get the maximum value per each individual row.</p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="text-editing-and-data-transformations.html#cb214-1" aria-hidden="true" tabindex="-1"></a>names_columns <span class="ot">&lt;-</span> <span class="fu">names</span>(my_data_frame)</span>
+<span id="cb214-2"><a href="text-editing-and-data-transformations.html#cb214-2" aria-hidden="true" tabindex="-1"></a>max_values <span class="ot">&lt;-</span> <span class="fu">apply</span>(my_data_frame,<span class="dv">1</span>,max)</span>
+<span id="cb214-3"><a href="text-editing-and-data-transformations.html#cb214-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(max_values) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(my_data_frame)</span>
+<span id="cb214-4"><a href="text-editing-and-data-transformations.html#cb214-4" aria-hidden="true" tabindex="-1"></a>max_values</span>
+<span id="cb214-5"><a href="text-editing-and-data-transformations.html#cb214-5" aria-hidden="true" tabindex="-1"></a><span class="co">#row_1 row_2 row_3 row_4 row_5 </span></span>
+<span id="cb214-6"><a href="text-editing-and-data-transformations.html#cb214-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   NA    56    NA    99    NA </span></span></code></pre></div>
+<p>Notice that some values were <code>NA</code> (no data), to remove those <code>NA</code> while applying the function <code>max()</code>, we need the argument <code>na.rm = TRUE</code>.</p>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="text-editing-and-data-transformations.html#cb215-1" aria-hidden="true" tabindex="-1"></a>max_values_no_NA <span class="ot">&lt;-</span> <span class="fu">apply</span>(my_data_frame,<span class="dv">1</span>,max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb215-2"><a href="text-editing-and-data-transformations.html#cb215-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(max_values_no_NA) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(my_data_frame)</span>
+<span id="cb215-3"><a href="text-editing-and-data-transformations.html#cb215-3" aria-hidden="true" tabindex="-1"></a>max_values_no_NA</span>
+<span id="cb215-4"><a href="text-editing-and-data-transformations.html#cb215-4" aria-hidden="true" tabindex="-1"></a><span class="co">#row_1 row_2 row_3 row_4 row_5 </span></span>
+<span id="cb215-5"><a href="text-editing-and-data-transformations.html#cb215-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   78    56     9    99     4 </span></span></code></pre></div>
+<p>To apply a function <code>max()</code> to every column, we will use <code>2</code> in <code>apply()</code>.</p>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="text-editing-and-data-transformations.html#cb216-1" aria-hidden="true" tabindex="-1"></a>max_values_columns_no_NA <span class="ot">&lt;-</span> <span class="fu">apply</span>(my_data_frame,<span class="dv">2</span>,max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb216-2"><a href="text-editing-and-data-transformations.html#cb216-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(max_values_columns_no_NA) <span class="ot">&lt;-</span> <span class="fu">names</span>(my_data_frame)</span>
+<span id="cb216-3"><a href="text-editing-and-data-transformations.html#cb216-3" aria-hidden="true" tabindex="-1"></a>max_values_columns_no_NA</span>
+<span id="cb216-4"><a href="text-editing-and-data-transformations.html#cb216-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A  B  C  D </span></span>
+<span id="cb216-5"><a href="text-editing-and-data-transformations.html#cb216-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 67 99 78 </span></span></code></pre></div>
+<p><strong>4)</strong> Here are some build-in and useful functions that can be applied to rows and columns.</p>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="text-editing-and-data-transformations.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span> (my_data_frame, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb217-2"><a href="text-editing-and-data-transformations.html#cb217-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  A   B   C   D </span></span>
+<span id="cb217-3"><a href="text-editing-and-data-transformations.html#cb217-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 10  70 101 146 </span></span>
+<span id="cb217-4"><a href="text-editing-and-data-transformations.html#cb217-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rowSums</span> (my_data_frame, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb217-5"><a href="text-editing-and-data-transformations.html#cb217-5" aria-hidden="true" tabindex="-1"></a><span class="co">#row_1 row_2 row_3 row_4 row_5 </span></span>
+<span id="cb217-6"><a href="text-editing-and-data-transformations.html#cb217-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   77    65    11   172     2 </span></span>
+<span id="cb217-7"><a href="text-editing-and-data-transformations.html#cb217-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(my_data_frame, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb217-8"><a href="text-editing-and-data-transformations.html#cb217-8" aria-hidden="true" tabindex="-1"></a><span class="co">#    A     B     C     D </span></span>
+<span id="cb217-9"><a href="text-editing-and-data-transformations.html#cb217-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2.50 17.50 25.25 36.50 </span></span>
+<span id="cb217-10"><a href="text-editing-and-data-transformations.html#cb217-10" aria-hidden="true" tabindex="-1"></a><span class="fu">rowMeans</span>(my_data_frame, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb217-11"><a href="text-editing-and-data-transformations.html#cb217-11" aria-hidden="true" tabindex="-1"></a><span class="co">#    row_1     row_2     row_3     row_4     row_5 </span></span>
+<span id="cb217-12"><a href="text-editing-and-data-transformations.html#cb217-12" aria-hidden="true" tabindex="-1"></a><span class="co">#25.666667 16.250000  3.666667 43.000000  1.000000 </span></span></code></pre></div>
+<p><strong>5)</strong> We can apply a function to every cell in a data frame using the R-package <a href="https://purrr.tidyverse.org/" target="_blank"><strong>purrr</strong></a> that is part of the ‘tidyverse’ family and its function <code>modify()</code>.</p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="text-editing-and-data-transformations.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install R-package &#39;purrr&#39; if not present</span></span>
+<span id="cb218-2"><a href="text-editing-and-data-transformations.html#cb218-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;purrr&quot;</span>)</span>
+<span id="cb218-3"><a href="text-editing-and-data-transformations.html#cb218-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span></code></pre></div>
+<p>We will apply a function that assigns <code>1</code> to zero and positive numbers in the data frame and <code>0</code> to negative numbers. Notice we typed <code>purrr::modify</code> to indicate that we what the function <code>modify()</code> only from the <code>purrr</code> R-package. I also created a function that for every <code>x</code> (a cell value) will determine if this <code>x</code> is more or equal to <code>0</code>. This function will return <code>1</code> if TRUE or <code>0</code> if FALSE by using the function <code>ifelse()</code>. This function has three parts: a conditional test, output_1 if TRUE and output_2 if FALSE.</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="text-editing-and-data-transformations.html#cb219-1" aria-hidden="true" tabindex="-1"></a>my_data_frame_1_0 <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">modify</span>(my_data_frame,<span class="cf">function</span>(x)<span class="fu">ifelse</span>(x<span class="sc">&gt;=</span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))</span>
+<span id="cb219-2"><a href="text-editing-and-data-transformations.html#cb219-2" aria-hidden="true" tabindex="-1"></a>my_data_frame_1_0</span>
+<span id="cb219-3"><a href="text-editing-and-data-transformations.html#cb219-3" aria-hidden="true" tabindex="-1"></a><span class="co">#       A  B  C  D</span></span>
+<span id="cb219-4"><a href="text-editing-and-data-transformations.html#cb219-4" aria-hidden="true" tabindex="-1"></a><span class="co">#row_1  1 NA  0  1</span></span>
+<span id="cb219-5"><a href="text-editing-and-data-transformations.html#cb219-5" aria-hidden="true" tabindex="-1"></a><span class="co">#row_2  1  1  1  1</span></span>
+<span id="cb219-6"><a href="text-editing-and-data-transformations.html#cb219-6" aria-hidden="true" tabindex="-1"></a><span class="co">#row_3 NA  1  1  1</span></span>
+<span id="cb219-7"><a href="text-editing-and-data-transformations.html#cb219-7" aria-hidden="true" tabindex="-1"></a><span class="co">#row_4  1  1  1  1</span></span>
+<span id="cb219-8"><a href="text-editing-and-data-transformations.html#cb219-8" aria-hidden="true" tabindex="-1"></a><span class="co">#row_5  1  0 NA NA</span></span></code></pre></div>
+<p><strong>6)</strong> You can add a new column in a data frame to store the result of a calculation.</p>
+<p>As an example, we will create a sum of all values per row names into a column named <code>sum_of_my_rows</code>.</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="text-editing-and-data-transformations.html#cb220-1" aria-hidden="true" tabindex="-1"></a>my_data_frame<span class="sc">$</span>sum_of_my_rows <span class="ot">&lt;-</span> <span class="fu">rowSums</span> (my_data_frame, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb220-2"><a href="text-editing-and-data-transformations.html#cb220-2" aria-hidden="true" tabindex="-1"></a>my_data_frame</span>
+<span id="cb220-3"><a href="text-editing-and-data-transformations.html#cb220-3" aria-hidden="true" tabindex="-1"></a><span class="co">#       A  B  C  D sum_of_my_rows</span></span>
+<span id="cb220-4"><a href="text-editing-and-data-transformations.html#cb220-4" aria-hidden="true" tabindex="-1"></a><span class="co">#row_1  1 NA -2 78             77</span></span>
+<span id="cb220-5"><a href="text-editing-and-data-transformations.html#cb220-5" aria-hidden="true" tabindex="-1"></a><span class="co">#row_2  2  4  3 56             65</span></span>
+<span id="cb220-6"><a href="text-editing-and-data-transformations.html#cb220-6" aria-hidden="true" tabindex="-1"></a><span class="co">#row_3 NA  1  1  9             11</span></span>
+<span id="cb220-7"><a href="text-editing-and-data-transformations.html#cb220-7" aria-hidden="true" tabindex="-1"></a><span class="co">#row_4  3 67 99  3            172</span></span>
+<span id="cb220-8"><a href="text-editing-and-data-transformations.html#cb220-8" aria-hidden="true" tabindex="-1"></a><span class="co">#row_5  4 -2 NA NA              2</span></span></code></pre></div>
+<p><strong>7)</strong> You can also add a new row to the data frame and store the result of a calculation using the function <code>rbind()</code>.</p>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="text-editing-and-data-transformations.html#cb221-1" aria-hidden="true" tabindex="-1"></a>my_column_sums <span class="ot">&lt;-</span> <span class="fu">colSums</span> (my_data_frame, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb221-2"><a href="text-editing-and-data-transformations.html#cb221-2" aria-hidden="true" tabindex="-1"></a><span class="co"># we add this row using rbind() and modify my_data_frame</span></span>
+<span id="cb221-3"><a href="text-editing-and-data-transformations.html#cb221-3" aria-hidden="true" tabindex="-1"></a>my_data_frame <span class="ot">&lt;-</span> <span class="fu">rbind</span>(my_data_frame, my_column_sums)</span>
+<span id="cb221-4"><a href="text-editing-and-data-transformations.html#cb221-4" aria-hidden="true" tabindex="-1"></a>my_data_frame</span>
+<span id="cb221-5"><a href="text-editing-and-data-transformations.html#cb221-5" aria-hidden="true" tabindex="-1"></a><span class="co">#       A  B   C   D sum_of_my_rows</span></span>
+<span id="cb221-6"><a href="text-editing-and-data-transformations.html#cb221-6" aria-hidden="true" tabindex="-1"></a><span class="co">#row_1  1 NA  -2  78             77</span></span>
+<span id="cb221-7"><a href="text-editing-and-data-transformations.html#cb221-7" aria-hidden="true" tabindex="-1"></a><span class="co">#row_2  2  4   3  56             65</span></span>
+<span id="cb221-8"><a href="text-editing-and-data-transformations.html#cb221-8" aria-hidden="true" tabindex="-1"></a><span class="co">#row_3 NA  1   1   9             11</span></span>
+<span id="cb221-9"><a href="text-editing-and-data-transformations.html#cb221-9" aria-hidden="true" tabindex="-1"></a><span class="co">#row_4  3 67  99   3            172</span></span>
+<span id="cb221-10"><a href="text-editing-and-data-transformations.html#cb221-10" aria-hidden="true" tabindex="-1"></a><span class="co">#row_5  4 -2  NA  NA              2</span></span>
+<span id="cb221-11"><a href="text-editing-and-data-transformations.html#cb221-11" aria-hidden="true" tabindex="-1"></a><span class="co">#6     10 70 101 146            327</span></span></code></pre></div>
+<p>Next, we can update the names of the added rows following the format <code>row_x</code> where <code>x</code> is the number of the new row.</p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="text-editing-and-data-transformations.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(my_data_frame)[<span class="dv">6</span>] <span class="ot">&lt;-</span> <span class="st">&quot;row_6&quot;</span></span>
+<span id="cb222-2"><a href="text-editing-and-data-transformations.html#cb222-2" aria-hidden="true" tabindex="-1"></a>my_data_frame</span>
+<span id="cb222-3"><a href="text-editing-and-data-transformations.html#cb222-3" aria-hidden="true" tabindex="-1"></a><span class="co">#       A  B   C   D sum_of_my_rows</span></span>
+<span id="cb222-4"><a href="text-editing-and-data-transformations.html#cb222-4" aria-hidden="true" tabindex="-1"></a><span class="co">#row_1  1 NA  -2  78             77</span></span>
+<span id="cb222-5"><a href="text-editing-and-data-transformations.html#cb222-5" aria-hidden="true" tabindex="-1"></a><span class="co">#row_2  2  4   3  56             65</span></span>
+<span id="cb222-6"><a href="text-editing-and-data-transformations.html#cb222-6" aria-hidden="true" tabindex="-1"></a><span class="co">#row_3 NA  1   1   9             11</span></span>
+<span id="cb222-7"><a href="text-editing-and-data-transformations.html#cb222-7" aria-hidden="true" tabindex="-1"></a><span class="co">#row_4  3 67  99   3            172</span></span>
+<span id="cb222-8"><a href="text-editing-and-data-transformations.html#cb222-8" aria-hidden="true" tabindex="-1"></a><span class="co">#row_5  4 -2  NA  NA              2</span></span>
+<span id="cb222-9"><a href="text-editing-and-data-transformations.html#cb222-9" aria-hidden="true" tabindex="-1"></a><span class="co">#row_6 10 70 101 146            327</span></span></code></pre></div>
+<p><strong>8)</strong> Another very useful application that can modify data frames is the result of applying the function <code>merge()</code> that can concatenate two data frames using a common column that serves as an index.</p>
+<p>For example, we could merge <code>my_data_frame</code> and <code>my_data_frame_1_0</code>. For this purpose, we need to prepare to <code>my_data_frame_1_0</code> to have the same number of rows and different column names.</p>
+<p>First, add an extra row to <code>my_data_frame_1_0</code>, so both data frames have the same number of rows with the same row names.</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="text-editing-and-data-transformations.html#cb223-1" aria-hidden="true" tabindex="-1"></a>my_data_frame_1_0[<span class="dv">6</span>,] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)</span>
+<span id="cb223-2"><a href="text-editing-and-data-transformations.html#cb223-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(my_data_frame_1_0)[<span class="dv">6</span>] <span class="ot">&lt;-</span> <span class="st">&quot;row_6&quot;</span></span></code></pre></div>
+<p>Second, we will change the names of columns of <code>my_data_frame_1_0</code> so these do not overlap with those of <code>my_data_frame</code>.</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="text-editing-and-data-transformations.html#cb224-1" aria-hidden="true" tabindex="-1"></a>names_my_data_frame_1_0 <span class="ot">&lt;-</span> <span class="fu">names</span>(my_data_frame_1_0)</span>
+<span id="cb224-2"><a href="text-editing-and-data-transformations.html#cb224-2" aria-hidden="true" tabindex="-1"></a>new_names_my_data_frame_1_0 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(names_my_data_frame_1_0, <span class="st">&quot;_as_1_0&quot;</span>)</span>
+<span id="cb224-3"><a href="text-editing-and-data-transformations.html#cb224-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(my_data_frame_1_0) <span class="ot">&lt;-</span> new_names_my_data_frame_1_0</span>
+<span id="cb224-4"><a href="text-editing-and-data-transformations.html#cb224-4" aria-hidden="true" tabindex="-1"></a>my_data_frame_1_0</span>
+<span id="cb224-5"><a href="text-editing-and-data-transformations.html#cb224-5" aria-hidden="true" tabindex="-1"></a><span class="co">#      A_as_1_0 B_as_1_0 C_as_1_0 D_as_1_0</span></span>
+<span id="cb224-6"><a href="text-editing-and-data-transformations.html#cb224-6" aria-hidden="true" tabindex="-1"></a><span class="co">#row_1        1       NA        0        1</span></span>
+<span id="cb224-7"><a href="text-editing-and-data-transformations.html#cb224-7" aria-hidden="true" tabindex="-1"></a><span class="co">#row_2        1        1        1        1</span></span>
+<span id="cb224-8"><a href="text-editing-and-data-transformations.html#cb224-8" aria-hidden="true" tabindex="-1"></a><span class="co">#row_3       NA        1        1        1</span></span>
+<span id="cb224-9"><a href="text-editing-and-data-transformations.html#cb224-9" aria-hidden="true" tabindex="-1"></a><span class="co">#row_4        1        1        1        1</span></span>
+<span id="cb224-10"><a href="text-editing-and-data-transformations.html#cb224-10" aria-hidden="true" tabindex="-1"></a><span class="co">#row_5        1        0       NA       NA</span></span>
+<span id="cb224-11"><a href="text-editing-and-data-transformations.html#cb224-11" aria-hidden="true" tabindex="-1"></a><span class="co">#row_6       NA       NA       NA       NA</span></span></code></pre></div>
+<p>Third, we will create a common column with same name, i.e., <code>index</code>, in both data frames that we want to merge. In this case using the names of the rows as cell values for the common column named <code>index</code>.</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="text-editing-and-data-transformations.html#cb225-1" aria-hidden="true" tabindex="-1"></a>my_data_frame<span class="sc">$</span>index <span class="ot">&lt;-</span> <span class="fu">rownames</span>(my_data_frame)</span>
+<span id="cb225-2"><a href="text-editing-and-data-transformations.html#cb225-2" aria-hidden="true" tabindex="-1"></a>my_data_frame_1_0<span class="sc">$</span>index <span class="ot">&lt;-</span> <span class="fu">rownames</span>(my_data_frame_1_0)</span></code></pre></div>
+<p>Finally, we can now merge both data frames using the column named <code>index</code> using <code>merge()</code> with the argument <code>by = 'index'</code>.</p>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="text-editing-and-data-transformations.html#cb226-1" aria-hidden="true" tabindex="-1"></a>my_combined_data_frame <span class="ot">&lt;-</span> <span class="fu">merge</span>(my_data_frame, my_data_frame_1_0, <span class="at">by =</span> <span class="st">&#39;index&#39;</span>)</span>
+<span id="cb226-2"><a href="text-editing-and-data-transformations.html#cb226-2" aria-hidden="true" tabindex="-1"></a>my_combined_data_frame</span>
+<span id="cb226-3"><a href="text-editing-and-data-transformations.html#cb226-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  index  A  B   C   D sum_of_my_rows A_as_1_0 B_as_1_0 C_as_1_0 D_as_1_0</span></span>
+<span id="cb226-4"><a href="text-editing-and-data-transformations.html#cb226-4" aria-hidden="true" tabindex="-1"></a><span class="co">#1 row_1  1 NA  -2  78             77        1       NA        0        1</span></span>
+<span id="cb226-5"><a href="text-editing-and-data-transformations.html#cb226-5" aria-hidden="true" tabindex="-1"></a><span class="co">#2 row_2  2  4   3  56             65        1        1        1        1</span></span>
+<span id="cb226-6"><a href="text-editing-and-data-transformations.html#cb226-6" aria-hidden="true" tabindex="-1"></a><span class="co">#3 row_3 NA  1   1   9             11       NA        1        1        1</span></span>
+<span id="cb226-7"><a href="text-editing-and-data-transformations.html#cb226-7" aria-hidden="true" tabindex="-1"></a><span class="co">#4 row_4  3 67  99   3            172        1        1        1        1</span></span>
+<span id="cb226-8"><a href="text-editing-and-data-transformations.html#cb226-8" aria-hidden="true" tabindex="-1"></a><span class="co">#5 row_5  4 -2  NA  NA              2        1        0       NA       NA</span></span>
+<span id="cb226-9"><a href="text-editing-and-data-transformations.html#cb226-9" aria-hidden="true" tabindex="-1"></a><span class="co">#6 row_6 10 70 101 146            327       NA       NA       NA       NA</span></span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="basic-data-structures-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="getting-biological-data-from-public-repositories.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-String_regex_transformations_v1.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
