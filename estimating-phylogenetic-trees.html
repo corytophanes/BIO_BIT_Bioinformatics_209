@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos" />
 
 
-<meta name="date" content="2021-02-23" />
+<meta name="date" content="2021-03-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -819,8 +819,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb467-485"><a href="estimating-phylogenetic-trees.html#cb467-485" aria-hidden="true" tabindex="-1"></a>                                           }</span>
 <span id="cb467-486"><a href="estimating-phylogenetic-trees.html#cb467-486" aria-hidden="true" tabindex="-1"></a><span class="do">##    </span><span class="re">END</span><span class="do"> OF FUNCTION   </span></span></code></pre></div>
 <p>After you have copied and pasted the function <code>iqtree_runner_R()</code>, you will not get any result yet. However, the function will be in memory ready to run.</p>
-<p>~/Desktop/Teach_R/my_working_directory/Ameerega_aligned_end.fasta
-~/Desktop/Teach_R/my_working_directory/my_collected_COI_CYTB_DT_path_fasta.txt</p>
 </div>
 <div id="running-iqtree2-from-r" class="section level2" number="12.4">
 <h2><span class="header-section-number">12.4</span> Running <code>iqtree2</code> from R</h2>
@@ -833,7 +831,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>a)</strong> Set up your working directory (e.g., <code>my_phylogeny_1</code>) and get its path.</p>
 <div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="estimating-phylogenetic-trees.html#cb468-1" aria-hidden="true" tabindex="-1"></a><span class="do">## this is exclusive to your OWN COMPUTER change it accordingly</span></span>
 <span id="cb468-2"><a href="estimating-phylogenetic-trees.html#cb468-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory/my_phylogeny_1&quot;</span>)</span></code></pre></div>
-<p><strong>b)</strong> find the pfile with aligned sequences: <code>Ameerega_aligned_end.fasta</code> and copy that file to your working directory (e.g., <code>my_phylogeny_1</code>)</p>
+<p><strong>b)</strong> find the file with aligned sequences: <code>Ameerega_aligned_end.fasta</code> and copy that file to your working directory (e.g., <code>my_phylogeny_1</code>)</p>
 <div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="estimating-phylogenetic-trees.html#cb469-1" aria-hidden="true" tabindex="-1"></a><span class="do">## copy the file Ameerega_aligned_end.fasta to your working directory my_phylogeny_1</span></span>
 <span id="cb469-2"><a href="estimating-phylogenetic-trees.html#cb469-2" aria-hidden="true" tabindex="-1"></a><span class="do">## this is the path to that file and exclusive to your OWN COMPUTER change it accordingly</span></span>
 <span id="cb469-3"><a href="estimating-phylogenetic-trees.html#cb469-3" aria-hidden="true" tabindex="-1"></a>my_path_to_aligned_sequences <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/Teach_R/my_working_directory/my_phylogeny_1/Ameerega_aligned_end.fasta&quot;</span></span></code></pre></div>
@@ -1114,7 +1112,7 @@ The actual phylogenetic tree is in the file <code>Ameerega_aligned_end.fasta.tre
 <div id="one-marker-and-with-partitions" class="section level2" number="12.6">
 <h2><span class="header-section-number">12.6</span> One marker and with partitions</h2>
 <p>You provide a partition for your sequences based on information about it. For example, you can divide a protein coding gene in three sections based on the codon position. As it has been demonstrated, the codon code is redundant and variations in 3rd positions usually result in the same amino acid residue after translation, for more information see <a href="https://en.wikipedia.org/wiki/DNA_and_RNA_codon_tables" target="_blank"><strong>here</strong></a>. In our example, we can split our split our COI matrix by codon position.</p>
-<p><strong>4)</strong> We will use the COI aligned sequences in the file <code>Ameerega_aligned_end.fasta</code>. Notice the argument <code>iqtree_partition_user = list(COI = c("DNA",1,1539,3))</code>. We define it a <code>DNA</code> segment, starting on position <code>1</code>, ending on position <code>1539</code> (this number can be find in <strong>Session 11</strong> or just by counting the number of bases on the aligned matrix) and <code>3</code> that means to divide it by 3 for 1st, 2nd, and 3rd codon positions.</p>
+<p><strong>4)</strong> We will use the COI aligned sequences in the file <code>Ameerega_aligned_end.fasta</code>. Notice the argument <code>iqtree_partition_user = list(COI = c("DNA",1,1539,3))</code>. We define it a <code>DNA</code> segment, starting on position <code>1</code>, ending on position <code>1539</code> (this number can be find in <strong>Session 11.7</strong> or just by counting the number of bases on the aligned matrix) and <code>3</code> that means to divide it by 3 for 1st, 2nd, and 3rd codon positions.</p>
 <div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="estimating-phylogenetic-trees.html#cb473-1" aria-hidden="true" tabindex="-1"></a><span class="do">## set up a new working directory</span></span>
 <span id="cb473-2"><a href="estimating-phylogenetic-trees.html#cb473-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory/my_phylogeny_2&quot;</span>)</span>
 <span id="cb473-3"><a href="estimating-phylogenetic-trees.html#cb473-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1163,9 +1161,8 @@ The actual phylogenetic tree is in the file <code>Ameerega_aligned_end.fasta.tre
 <span id="cb474-15"><a href="estimating-phylogenetic-trees.html#cb474-15" aria-hidden="true" tabindex="-1"></a>                           <span class="at">iqtree_UFBoot_bnni_user =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb474-16"><a href="estimating-phylogenetic-trees.html#cb474-16" aria-hidden="true" tabindex="-1"></a>             <span class="at">iqtree_partition_user =</span> <span class="fu">list</span>(<span class="at">COI =</span> <span class="fu">c</span>(<span class="st">&quot;DNA&quot;</span>,<span class="dv">1</span>,<span class="dv">1539</span>,<span class="dv">3</span>)),</span>
 <span id="cb474-17"><a href="estimating-phylogenetic-trees.html#cb474-17" aria-hidden="true" tabindex="-1"></a>                       <span class="at">iqtree_partition_if_by_position_user =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p>The actual collection of bootstrap trees are in the file <code>Ameerega_aligned_end_fasta_partition.txt.ufboot</code> and its consensus is in the file <code>Ameerega_aligned_end_fasta_partition.txt.treefile</code> in our working folder.</p>
-<p><strong>6)</strong> I could not find an easy way to visualize these threes other than use the other program to visualize phylogenetic trees in general. You need to install <a href="http://tree.bio.ed.ac.uk/software/figtree/" target="_blank"><strong>figtree</strong></a>.
-To visualize your consensus tree after installing <strong>figtree</strong> you need open this program.</p>
+<p>The actual collection of bootstrap trees is in the file <code>Ameerega_aligned_end_fasta_partition.txt.ufboot</code> and its consensus is in the file <code>Ameerega_aligned_end_fasta_partition.txt.treefile</code> in our working folder.</p>
+<p><strong>6)</strong> I could not find an easy way to visualize these threes other than use the other program to visualize phylogenetic trees in general. You need to install <a href="http://tree.bio.ed.ac.uk/software/figtree/" target="_blank"><strong>figtree</strong></a>. To visualize your consensus tree after installing <strong>figtree</strong> you need open this program.</p>
 <p><img src="figures/session_12_figs/15_open_figtree.png" width="90%" /></p>
 <p>The <code>File&gt;Open...</code> find the bootstrap summary file <code>Ameerega_aligned_end_fasta_partition.txt.treefile</code> and allow to see labels.</p>
 <p><img src="figures/session_12_figs/16_open_figtree_labels.png" width="90%" /></p>
@@ -1178,14 +1175,49 @@ To visualize your consensus tree after installing <strong>figtree</strong> you n
 </div>
 <div id="many-markers-and-with-partitions" class="section level2" number="12.8">
 <h2><span class="header-section-number">12.8</span> Many markers and with partitions</h2>
+<p><strong>7)</strong> A phylogeny derived from two or more markers require some modifications to indicate the start and end of each marker.</p>
+<p>We start by defining the output directory.</p>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="estimating-phylogenetic-trees.html#cb475-1" aria-hidden="true" tabindex="-1"></a><span class="do">## set up a new working directory by creating one; this is exclusive to your OWN COMPUTER change it accordingly</span></span>
+<span id="cb475-2"><a href="estimating-phylogenetic-trees.html#cb475-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory/my_phylogeny_4&quot;</span>)</span></code></pre></div>
+<p>We find the file with aligned sequences: <code>my_collected_COI_CYTB_String_path_fasta</code> and copy that file to your working directory (e.g., <code>my_phylogeny_4</code>)</p>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="estimating-phylogenetic-trees.html#cb476-1" aria-hidden="true" tabindex="-1"></a><span class="do">## copy the file my_collected_COI_CYTB_String_path_fasta to your working directory my_phylogeny_4</span></span>
+<span id="cb476-2"><a href="estimating-phylogenetic-trees.html#cb476-2" aria-hidden="true" tabindex="-1"></a><span class="do">## this is the path to that file and exclusive to your OWN COMPUTER change it accordingly</span></span>
+<span id="cb476-3"><a href="estimating-phylogenetic-trees.html#cb476-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb476-4"><a href="estimating-phylogenetic-trees.html#cb476-4" aria-hidden="true" tabindex="-1"></a>my_path_to_aligned_COI_CYTB_sequences <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/Teach_R/my_working_directory/my_phylogeny_4/my_collected_COI_CYTB_String_path_fasta.txt&quot;</span></span></code></pre></div>
+<p>We run <code>iqtree2</code> and notice the <code>iqtree_partition_user</code> argument that defines the <code>COI</code> and <code>CYTB</code> markers. We define both as <code>DNA</code> segments. For COI, we define the starting on position of COI at <code>1</code> and the ending on position at <code>1539</code> (this number can be find in <strong>Session 11.7</strong> or just by counting the number of bases on the aligned matrix). For CYTB, we check first the that the length of this maker is 944 (see <strong>Session 11.9</strong>) and we concatenated this maker after COI, then we add 1539 + 944 = 2483. However, the CYTB gene does not start on base 1539 but on 1540, so we add 1. Therefore, we define the starting on position of CYTB at <code>1540</code> and the ending on position at <code>2483</code>. Finally, the <code>3</code> on the <code>iqtree_partition_user</code> argument means to divide it by 3 for 1st, 2nd, and 3rd codon positions.</p>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="estimating-phylogenetic-trees.html#cb477-1" aria-hidden="true" tabindex="-1"></a><span class="do">## this is exclusive to your OWN COMPUTER and we just need the path to the directory that contains iqtree2</span></span>
+<span id="cb477-2"><a href="estimating-phylogenetic-trees.html#cb477-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Note: the diffecent from path above and the one below.</span></span>
+<span id="cb477-3"><a href="estimating-phylogenetic-trees.html#cb477-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb477-4"><a href="estimating-phylogenetic-trees.html#cb477-4" aria-hidden="true" tabindex="-1"></a>my_path_to_iqtree2 <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_programs&quot;</span></span>
+<span id="cb477-5"><a href="estimating-phylogenetic-trees.html#cb477-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb477-6"><a href="estimating-phylogenetic-trees.html#cb477-6" aria-hidden="true" tabindex="-1"></a><span class="do">## iqtree2 run with defined codon positions</span></span>
+<span id="cb477-7"><a href="estimating-phylogenetic-trees.html#cb477-7" aria-hidden="true" tabindex="-1"></a>COI_CYTB_with_partitions_phylogeny <span class="ot">&lt;-</span> <span class="fu">iqtree_runner_R</span> (<span class="at">input_alignment_file_user =</span> my_path_to_aligned_COI_CYTB_sequences,</span>
+<span id="cb477-8"><a href="estimating-phylogenetic-trees.html#cb477-8" aria-hidden="true" tabindex="-1"></a>                           <span class="at">iqtree_bin_location_user =</span> my_path_to_iqtree2,</span>
+<span id="cb477-9"><a href="estimating-phylogenetic-trees.html#cb477-9" aria-hidden="true" tabindex="-1"></a>                           <span class="at">run_iqtree_call_user =</span> <span class="st">&quot;serial&quot;</span>,</span>
+<span id="cb477-10"><a href="estimating-phylogenetic-trees.html#cb477-10" aria-hidden="true" tabindex="-1"></a>                           <span class="at">iqtree_input_model_m_user =</span> <span class="st">&quot;MFP+MERGE&quot;</span>,</span>
+<span id="cb477-11"><a href="estimating-phylogenetic-trees.html#cb477-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">iqtree_partition_user =</span> <span class="fu">list</span>(<span class="at">COI =</span> <span class="fu">c</span>(<span class="st">&quot;DNA&quot;</span>,<span class="dv">1</span>,<span class="dv">1539</span>,<span class="dv">3</span>),</span>
+<span id="cb477-12"><a href="estimating-phylogenetic-trees.html#cb477-12" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">CYTB =</span> <span class="fu">c</span>(<span class="st">&quot;DNA&quot;</span>,<span class="dv">1540</span>,<span class="dv">2483</span>,<span class="dv">3</span>)),</span>
+<span id="cb477-13"><a href="estimating-phylogenetic-trees.html#cb477-13" aria-hidden="true" tabindex="-1"></a>                       <span class="at">iqtree_partition_if_by_position_user =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb477-14"><a href="estimating-phylogenetic-trees.html#cb477-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb477-15"><a href="estimating-phylogenetic-trees.html#cb477-15" aria-hidden="true" tabindex="-1"></a><span class="do">## see and plot new tre</span></span>
+<span id="cb477-16"><a href="estimating-phylogenetic-trees.html#cb477-16" aria-hidden="true" tabindex="-1"></a>COI_CYTB_with_partitions_phylogeny[[<span class="dv">1</span>]]</span>
+<span id="cb477-17"><a href="estimating-phylogenetic-trees.html#cb477-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb477-18"><a href="estimating-phylogenetic-trees.html#cb477-18" aria-hidden="true" tabindex="-1"></a><span class="co">#Phylogenetic tree with 12 tips and 10 internal nodes.</span></span>
+<span id="cb477-19"><a href="estimating-phylogenetic-trees.html#cb477-19" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb477-20"><a href="estimating-phylogenetic-trees.html#cb477-20" aria-hidden="true" tabindex="-1"></a><span class="co">#Tip labels:</span></span>
+<span id="cb477-21"><a href="estimating-phylogenetic-trees.html#cb477-21" aria-hidden="true" tabindex="-1"></a><span class="co">#  Ameerega_bilinguis, Ameerega_braccata, Ameerega_hahneli, Ameerega_trivittata, Ameerega_silverstonei, Ameerega_parvula, ...</span></span>
+<span id="cb477-22"><a href="estimating-phylogenetic-trees.html#cb477-22" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb477-23"><a href="estimating-phylogenetic-trees.html#cb477-23" aria-hidden="true" tabindex="-1"></a><span class="co">#Unrooted; includes branch lengths.</span></span>
+<span id="cb477-24"><a href="estimating-phylogenetic-trees.html#cb477-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb477-25"><a href="estimating-phylogenetic-trees.html#cb477-25" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(COI_CYTB_with_partitions_phylogeny[[<span class="dv">1</span>]])</span></code></pre></div>
+<p><img src="figures/session_12_figs/20_output_two_markers.png" width="90%" /></p>
+<p>The actual phylogenetic tree is in the file <code>my_collected_COI_CYTB_String_path_fasta_txt_partition.txt.treefile</code> in our working folder.</p>
 </div>
 <div id="other-sequence-phylogenetic-tree-estimation-software" class="section level2" number="12.9">
 <h2><span class="header-section-number">12.9</span> Other sequence phylogenetic tree estimation software</h2>
-<p><strong>17)</strong> Other widely used programs that can do alignments, but they are less efficient are listed below. We will not cover them here, but most require you to input your sequences as Ameerega_COI_seqs_fasta.txt</p>
-<p><strong>a)</strong> <a href="https://www.ebi.ac.uk/Tools/msa/clustalo/" target="_blank"><strong>Clustal Omega</strong></a>. This tool can run online, and you need just to paste your sequences in <code>fasta</code> format.</p>
-<p><strong>b)</strong> <a href="https://mafft.cbrc.jp/alignment/server/" target="_blank"><strong>MAFFT</strong></a>. This tool is a good as <strong>DECIPHER</strong>, it is best run on your computer. However, you can run MAFFT online and you need just to paste your sequences in <code>fasta</code> format.</p>
-<p><strong>c)</strong> <a href="https://www.ebi.ac.uk/Tools/msa/muscle/" target="_blank"><strong>MUSCLE</strong></a>. This tool can run online, and you need just to paste your sequences in <code>fasta</code> format.</p>
-<p><strong>d)</strong> <a href="http://prodata.swmed.edu/promals/promals.php" target="_blank"><strong>PROMALS</strong></a>. This tool can run online, and you need just to paste your sequences in <code>fasta</code> format.</p>
+<p><strong>8)</strong> Other widely used programs that can do phylogenetic estimations are as follows. You need to follow their vignettes and installation instructions.</p>
+<p><strong>a)</strong> <a href="https://github.com/stamatak/standard-RAxML" target="_blank"><strong>RAxML</strong></a>. A manual and tutorial is provided in <a href="https://cme.h-its.org/exelixis/resource/download/NewManual.pdf" target="_blank"><strong>here</strong></a>. General info, vignettes and a GUI interface are also provided <a href="https://cme.h-its.org/exelixis/web/software/raxml/" target="_blank"><strong>here</strong></a>. An online version is provided also <a href="https://raxml-ng.vital-it.ch/#/" target="_blank"><strong>here</strong></a>.</p>
+<p><strong>b)</strong> <a href="http://www.atgc-montpellier.fr/phyml/" target="_blank"><strong>PhyML 3.0</strong></a>. A GitHub repository associated is <a href="https://github.com/stephaneguindon/phyml" target="_blank"><strong>here</strong></a>. This software manual is <a href="https://github.com/stephaneguindon/phyml/blob/master/doc/phyml-manual.pdf" target="_blank"><strong>here</strong></a>.</p>
 
 </div>
 </div>
@@ -1226,7 +1258,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/12-Phylogenetic_trees_v4.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/12-Phylogenetic_trees_v5.Rmd",
 "text": "Edit"
 },
 "history": {
