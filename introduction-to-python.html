@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Bioinformatics Workshop Gitbook</title>
+  <title>Session 15 – Introduction to Python | Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Bioinformatics Workshop Gitbook" />
+  <meta property="og:title" content="Session 15 – Introduction to Python | Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Bioinformatics Workshop Gitbook" />
+  <meta name="twitter:title" content="Session 15 – Introduction to Python | Bioinformatics Workshop Gitbook" />
   
   <meta name="twitter:description" content="none" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="mining-from-a-reference-dataset.html"/>
 
-<link rel="next" href="using-r-installing-packages-and-importingexporting-data.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -323,147 +323,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Bioinformatics Workshop Gitbook</h1>
-<p class="author"><em>Juan C. Santos &amp; Randy Ortiz</em></p>
-<p class="date"><em>2021-03-24</em></p>
+<div id="introduction-to-python" class="section level1" number="15">
+<h1><span class="header-section-number">Session 15</span> – Introduction to Python</h1>
+<p><strong>Welcome to Python!</strong></p>
+<div id="why-python" class="section level2" number="15.1">
+<h2><span class="header-section-number">15.1</span> Why Python?</h2>
+<p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank"><strong>Python</strong></a> is relatively easy to learn compared to most programming languages and is vastly popular among both programmers and employers. Code written in Python is universal among operating systems; allowing code to be carried between Windows, Mac and Linux without the need to re-write the code.</p>
+<p>Python code is quite minimalist compared to other languages, making reading and writing code quicker and easier. Even non-programmers are able to read Python code with little issue. Because there is less to type, it is subsequently easier to debug and maintain Python code.</p>
+<p>Lastly, Python is highly desirable throughout many fields of work. Popular applications of Python include, but are not limited to: web development, machine learning, data science, and analytics. The possibilities with Python are further broadened by its ability to incorporate other languages with easy. Imagine building the foundation of code in Python and utilize other languages like R and Java in places where they exceed Python’s capabilities.</p>
 </div>
-<div id="getting-started-with-r" class="section level1" number="1">
-<h1><span class="header-section-number">Session 1</span> – Getting Started with R</h1>
-<div id="why-do-we-use-r" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Why do we use R?</h2>
-<p>At the core of modern bioinformatics that is the user friendly is <a href="https://www.r-project.org/" target="_blank"><strong>R</strong></a>. This is a programming language and free software environment for easy application of diverse methods for statistical, data mining, file processing and graphics. <a href="https://www.r-project.org/" target="_blank"><strong>R</strong></a> is extremely flexible and provides an easily customizable data processing that ranges from simple to very complex analyses. Here are some advantages of <a href="https://www.r-project.org/" target="_blank"><strong>R</strong></a>:</p>
-<ol style="list-style-type: decimal">
-<li>R is <strong>free</strong> to download and use while other similar environments (e.g., SAS, SPSS, Matlab) require licenses and fees.</li>
-<li>R is <strong>available across platforms</strong> including Windows, Mac and Linux</li>
-<li>R is <strong>always evolving</strong> and at its core nature is being open source. The <strong>R community is huge and global</strong>, yet the core base software tends to be relatively stable, the expanded functionality derived by add-ons packages expand the capabilities of core R.</li>
-<li>R provides easy and accessible data processing. You can import diverse types of datasets from text files, Excel sheets, sequence data, images, etc.</li>
-<li>R provides easy data manipulation including sub-setting (i.e., you filter your source data using filters), transformation, encryption, and export to other formats.</li>
-<li>R provides one of the <strong>most extensive data visualization tools</strong> that are freely available with extensive manuals, vignettes and online boards. Such graphics range from simple boxplots to multipaneled, tiling, and even GIS maps.</li>
-<li>R statistical applications are diverse and easy to implement. Many basic univariate methods are preloaded, and newest tools and models are provided usually as add-ons developed by authors of such methods.</li>
-<li>R provides an easy way to <strong>share your methods</strong> (scripts) and reproduce illustrative examples of their implementation. Many of these reside as add-on packages, others in GitHub pages and supplementary materials of peer-reviewed publications.</li>
-</ol>
-<p><strong>A) The R project:</strong></p>
-<p><a href="https://www.r-project.org/" target="_blank">https://www.r-project.org/</a></p>
-<p>This is the main repository of R, add-on packages, documentation, and source code</p>
-<p><strong>B) Looking for help when using R (searching websites):</strong></p>
-<p><a href="https://stackoverflow.com/questions" target="_blank">https://stackoverflow.com</a></p>
-<p>Probably one of the most useful Q/A sites for quick and practical responses to punctual questions about programming and R use. This site follows a format where someone ask or presents a problem and the community will try to respond with suggestions and practical applications of the R code to address the question. Some answers try to use the data in the question to fix the issue or problem to illustrate an answer the problem. The beauty of this approach is that the readers will vote on the provided answers and those with most votes move up among other competing responses (i.e., an answer with a 50 is considered better than one with a 10). Likewise, readers can provide discussions, comments, other examples to complement responses. Likewise, you can also “google” your questions and it is very likely that you would be pointed to a “stackoverflow” response, which furthers the value that most R users consider of the answers in that site.</p>
-<p>Moreover, the stackoverflow website is oriented to answer most questions from most other programing languages (i.e., Python, java, etc). Therefore, I suggest to finish your questions/queries with “… in R” or use the prefix [r] (e.g., “[r] weighted mean”), so it limits its search to R applicable answers.</p>
-<p><a href="https://stackoverflow.com/tags/r/info" target="_blank">https://stackoverflow.com/tags/r/info</a></p>
-<p>An excellent guide for R related, examples, references, index of answers relevant to R</p>
-<p><a href="http://rseek.org" target="_blank">http://rseek.org</a></p>
-<p>This is a search engine limited to mostly R based websites</p>
-<p><strong>C) Repositories for R-packages (add-ons to basic R):</strong></p>
-<p><a href="https://cran.r-project.org/" target="_blank">CRAN</a></p>
-<p>This is the main repository. To get the packages that you need, look on your left side for <strong>Software</strong> and then click on <strong>Packages</strong>. You can get packages by: <strong>Table of available packages, sorted by date of publication</strong> or <strong>Table of available packages, sorted by name</strong>.</p>
-<p><a href="http://www.bioconductor.org/" target="_blank">Bioconductor</a></p>
-<p>This archive provides tools for the analysis and comprehension of high-throughput genomic data. Bioconductor houses R-packages (i.e., open source and open development) as well as older packages that could not be found CRAN. Bioconductor provides two releases each year, and also have a very active user community.</p>
-<p><strong>D) Looking for suggestions of what R-packages to use:</strong></p>
-<p><a href="http://cran.r-project.org/web/views" target="_blank">http://cran.r-project.org/web/views</a></p>
-<p>This site provides guidance about which packages are available as R-add on libraries in the CRAN repository. Each topic will give a brief overview of the included packages and which packages should be included (or excluded) - and they are not meant to endorse the “best” packages for a given task.</p>
-<p><a href="http://search.bioconductor.jp/" target="_blank">http://search.bioconductor.jp/</a></p>
-<p>This provides a search tool for functions in Bioconductor packages.</p>
-<p><a href="https://www.r-bloggers.com/" target="_blank">R-bloggers</a></p>
-<p>This a standard repository where news, conferences and other summaries relevant to the R community are posted.</p>
-<p><a href="https://www.r-graph-gallery.com/" target="_blank">The R Graph Gallery</a></p>
-<p>This graphics gallery provides a collection of plots, charts and illustrations made with the R. As indicated by this website, hundreds of charts are displayed in several sections, always with their accompanying code. Likewise, this gallery makes a focus on the <a href="https://www.tidyverse.org/" target="_blank">tidyverse</a> and <a href="https://ggplot2.tidyverse.org/" target="_blank">ggplot2</a>.</p>
-</div>
-<div id="get-a-good-text-editor" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Get a good text editor</h2>
-<p>Any scripting language such as the R language requires you to write code that can be read and annotated (i.e., you add notes that will help you understand what that piece of code is doing). Therefore, finding a good text editor is essential.</p>
-<p>Here are several suggestions for free text editor:</p>
-<p><strong>1) Sublime (macOS, Windows, Linux):</strong></p>
-<p><a href="https://www.sublimetext.com/3" target="_blank">https://www.sublimetext.com/3</a></p>
-<p>It is free to download, but if once in while will remind you to pay for license (i.e., … Sublime Text may be downloaded and evaluated for free, however a license must be purchased for continued use. There is currently no enforced time limit for the evaluation)</p>
-<p>It is incredible customizable, and you can select the type of language that you are using to help you read your code. Personally, I use Sublime.</p>
-<p>To improve visualization, you can start by installing <strong>Install Package Control</strong> by clicking <strong>Tools</strong> in the menu and then select <strong>Install Package Control</strong>. You can change color on this text editor by clicking <strong>Preferences</strong> then <strong>Color Scheme…</strong> and pick from the available options (I use <strong>Monokai</strong>). On the right corner you can also select an extension by clicking on current (e.g., plain text) and change to R.</p>
-<p>You can further customize the color scheme with different add-on packages for Sublime. One of those is <strong>Rainglow</strong>, to install this package your start by clicking on the menu tab as follows:</p>
-<ol style="list-style-type: decimal">
-<li>Go <strong>Sublime Text</strong> -&gt; <strong>Preferences</strong> -&gt; <strong>Package Control</strong>.</li>
-<li>Select <strong>Package Control: Install Package </strong>.</li>
-<li>Type <strong>Rainglow</strong> and select it.</li>
-<li>Go to <strong>Sublime Text</strong> -&gt; <strong>Preferences</strong> -&gt; <strong>Package Control</strong> -&gt; <strong>Color Scheme…</strong>.</li>
-<li>You can now select from hundreds of color schemes and try one that is nice or makes your use of the text editor easy.</li>
-</ol>
-<p><strong>2) Atom (macOS, Windows, Linux):</strong></p>
-<p><a href="https://atom.io/" target="_blank">https://atom.io/</a></p>
-<p>It is free and customizable. I am not familiar with this one, but my students have found it more appealing for it truly free nature and open source.</p>
-<p><strong>3) BBEdit (macOS)</strong></p>
-<p><a href="https://www.barebones.com/products/bbedit/" target="_blank">https://www.barebones.com/products/bbedit/</a></p>
-<p>It is useful for lots of find and replace actions, or when you need a quick file exploration. It provides a free trial, this ends after 30 days. For my needs, I do not need the extra stuff after the trial has ended (i.e., this text editor will continue to work after trial, but not some of its more sophisticated features)</p>
-<p><strong>4) Notepad++ (Windows)</strong></p>
-<p><a href="https://notepad-plus-plus.org/" target="_blank">https://notepad-plus-plus.org/</a></p>
-<p>It is one of the best for windows and it is free. I am not very familiar with this editor yet it is one of the best for Windows (PC) computers.</p>
-</div>
-<div id="r-studio" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> R studio</h2>
-<p><a href="https://rstudio.com/products/rstudio/download/" target="_blank">https://rstudio.com/products/rstudio/download/</a></p>
-<p>This software application defied as an integrated development environment (IDE) is designed to work and interact with R. Many people that use R always prompts new users to use R-studio. Personally, I do not use such application as it obfuscates my coding. However, most of the applications and materials developed in this workshop should be easily implemented within R-studio. If you decide or are familiar with R-studio, you can use it. However, I will be less familiar on their implementation in such IDE and less helpful in fixing errors that prompts within R-studio. If you use this software, choose the free version.</p>
-</div>
-<div id="installing-r" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Installing R</h2>
-<p>Here is instructions to guide you in this process:</p>
-<p><strong>1)</strong> You need to define where you want to download R and your personalized R library (more on this later). I recommend the desktop or some easy to access folder (in the documents).</p>
-<p><strong>2)</strong> To install R you need to access the a repository by clicking on the mirrors page:</p>
-<p><a href="https://cran.r-project.org/mirrors.html" target="_blank">https://cran.r-project.org/mirrors.html</a></p>
-<p><strong>3)</strong> Try selecting the closets to your location. For NYC, you can chose</p>
-<p><strong>Case Western Reserve University, Cleveland, OH:</strong> <a href="https://cran.case.edu/" target="_blank">https://cran.case.edu/</a></p>
-<p><strong>0-Cloud:</strong> <a href="https://cloud.r-project.org/" target="_blank">https://cloud.r-project.org/</a></p>
-<p><strong>4)</strong> You will see a list of links understand <strong>Download and Install R</strong>. These include links to precompiled binary distributions of the base system for Windows and Mac.</p>
-<p><strong>5a) OSX:</strong> For MAC (macOS 10.13 – High Sierra and higher) click on <strong>Download R for (Mac) OS X</strong>. You will need to download the corresponding to latest version, e.g., R-4.0.3.pkg (notarized and signed) R 4.0.3 “Bunny-Wunnies Freak Out” released on 2020/10/10.</p>
-<p>For latest macs, you need to install also <strong>XQuartz</strong> since it is no longer part of OS X</p>
-<p><a href="https://www.xquartz.org/" target="_blank">https://www.xquartz.org/</a></p>
-<p>For older MACs (macOS 10.11 – El Capitan) click on <strong>Download R for (Mac) OS X</strong> and then on R-3.6.3.nn.pkg (signed).</p>
-<p><strong>5b) Windows:</strong> For computers running on Windows click on <strong>Download R for Windows</strong> and then on <strong>install R for the first time</strong> and then <strong>Download R 4.0.3 for Windows</strong></p>
-<p><strong>5c) Linux:</strong> For computers running on Linux (or its variants) click on <strong>Download R for Linux</strong> and choose your operative system. Ask Randy Ortiz (Santos Lab) for further help.</p>
-</div>
-<div id="annotating-code" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Annotating code</h2>
-<p>Throughout this gitbook, I will use <strong><code>#</code></strong> to indicate annotation for the user (you) to read what the computer will be doing, comments or results that you are expected obtain. The annotation of code is fundamental and good habit to have from the beginning. Annotation helps you to understand what a section of code is trying to accomplish. Any text after the <strong><code>#</code></strong> is ignored by the computer as you copy and paste your code on the console from the text editor.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="getting-started-with-r.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## the next chuck of code will print on the screen &quot;DO NOT FORGET TO ANNOTATE YOUR CODE&quot;</span></span>
-<span id="cb1-2"><a href="getting-started-with-r.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">DO NOT FORGET TO ANNOTATE YOUR CODE</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb1-3"><a href="getting-started-with-r.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#DO NOT FORGET TO ANNOTATE YOUR CODE</span></span></code></pre></div>
-</div>
-<div id="defining-a-working-directory-in-r" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Defining a working directory in R</h2>
-<p>R has a default directory on your computer, which can be one not easily accessible directory, or you might one specific for your project. You can get the information of the current output directory by typing <code>getwd()</code></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="getting-started-with-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Print my current working directory</span></span>
-<span id="cb2-2"><a href="getting-started-with-r.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb2-3"><a href="getting-started-with-r.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/santosj&quot; </span></span></code></pre></div>
-<p>In most cases, you might want to use another directory as your working directory. The usual way to change the working directory with different approaches and some are operating system specific.</p>
-<p>You can create your desired directory or select a specific directory as your output by:</p>
-<p><strong>macOS using R menu:</strong> On R console, click on <strong>Misc</strong> then <strong>Change Working Directory…</strong> or pressing <strong>command-D</strong>.</p>
-<p>To make sure that the working directory has change use:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="getting-started-with-r.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb3-2"><a href="getting-started-with-r.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/santosj/Desktop/Teach_R/my_working_directory&quot;</span></span></code></pre></div>
-<p><strong>macOS using drag &amp; drop:</strong> Select you output directory and <strong>drag &amp; drop</strong> this folder in the R console to get its path (i.e., specific address of the folder in your hard drive). For example, you will see the path of the selected working directory</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="getting-started-with-r.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span><span class="er">/</span>Desktop<span class="sc">/</span>Teach_R<span class="sc">/</span>my_working_directory</span>
-<span id="cb4-2"><a href="getting-started-with-r.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Error: unexpected &#39;/&#39; in &quot;~/&quot;</span></span></code></pre></div>
-<p>Next, you can copy the path name <code>~/Desktop/Teach_R/my_working_directory</code> and place within the function <code>setwd()</code> within quotations</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="getting-started-with-r.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Change my working directory to the following path</span></span>
-<span id="cb5-2"><a href="getting-started-with-r.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory&quot;</span>)</span></code></pre></div>
-<p>To make sure that the working directory has change use:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="getting-started-with-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb6-2"><a href="getting-started-with-r.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/santosj/Desktop/Teach_R/my_working_directory&quot;</span></span></code></pre></div>
-<p><strong>Windows:</strong> For PCs, you need to find the path of desired working directory. For this you need to highlight this folder, hold down the <strong>Shift</strong> key and <strong>right-click</strong> the file.</p>
-<p>Then, you click on <strong>Properties</strong> and copy the names (text) of <strong>Location</strong> that includes the folder name. For example, if you want to change your working directory to the folder icon <code>my_working_directory</code></p>
-<p>Find its location: <code>C:\Users\myPC\Desktop</code></p>
-<p>You will get its path name as: <code>C:\Users\myPC\Desktop\my_working_directory</code></p>
-<p>Then use the <code>setwd()</code> function as follows</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="getting-started-with-r.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:\Users\myPC\Desktop\my_working_directory&quot;</span>)</span></code></pre></div>
-<p>In some PCs, this will change the working directory to its desired path. However, in most, you will get the following error</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="getting-started-with-r.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:\Users\myPC\Desktop\my_working_directory&quot;</span>)</span>
-<span id="cb8-2"><a href="getting-started-with-r.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Error: &#39;\U&#39; used without hex digits in character string starting &quot;&quot;C:\U&quot;</span></span></code></pre></div>
-<p>This indicates that the R is recognizing the <code>\</code> (backslashes) as part of regular expressions. To make it work, you will need to change such <code>\</code> character to <code>/</code> (forward slashes).</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="getting-started-with-r.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/myPC/Desktop/my_working_directory&quot;</span>)</span>
-<span id="cb9-2"><a href="getting-started-with-r.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb9-3"><a href="getting-started-with-r.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;C:/Users/myPC/Desktop/my_working_directory&quot;</span></span></code></pre></div>
-<p>Other have reported is to use double backslashes <code>\\</code></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="getting-started-with-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">myPC</span><span class="sc">\\</span><span class="st">Desktop</span><span class="sc">\\</span><span class="st">my_working_directory&quot;</span>)</span>
-<span id="cb10-2"><a href="getting-started-with-r.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb10-3"><a href="getting-started-with-r.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;C:/Users/myPC/Desktop/my_working_directory&quot;</span></span></code></pre></div>
-<p>This will indicate that you have successfully change the working directory.</p>
+<div id="which-python-should-i-install" class="section level2" number="15.2">
+<h2><span class="header-section-number">15.2</span> Which Python should I install?</h2>
+<p>Python has releases dating to 1990 but it was first created in the 1980s. It has evolved over the past 40 years and big updates have greatly expanded Python’s utility and changed its syntax to become more user friendly. It is because of these big changes that we have a major divide between Python2 and Python3. Python2 includes any version conforming with the following structure: Python v2.x.x. Ideally you would install Python3 as it is the most recent version; however, there exists code that will only run on Python2 online. Python3 is not backwards compatible.</p>
+<p>Long story short, download both recent versions of Python2 and Python3, but we will use only Python3 in this course. If you encounter a program that operates in Python2 you can always use that version you installed to run it.</p>
+<p>We will install: Python v2.7.18 and Python v3.9.2.</p>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="introduction-to-python.html#cb532-1" aria-hidden="true" tabindex="-1"></a><span class="do">## You write here what it would look in a console</span></span>
+<span id="cb532-2"><a href="introduction-to-python.html#cb532-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb532-3"><a href="introduction-to-python.html#cb532-3" aria-hidden="true" tabindex="-1"></a>code</span>
+<span id="cb532-4"><a href="introduction-to-python.html#cb532-4" aria-hidden="true" tabindex="-1"></a>code</span>
+<span id="cb532-5"><a href="introduction-to-python.html#cb532-5" aria-hidden="true" tabindex="-1"></a>code</span></code></pre></div>
 
 </div>
 </div>
@@ -472,8 +350,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
+<a href="mining-from-a-reference-dataset.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="using-r-installing-packages-and-importingexporting-data.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -504,7 +382,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-Getting-Started_v2.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/14-Intro_to_Phyton.Rmd",
 "text": "Edit"
 },
 "history": {
