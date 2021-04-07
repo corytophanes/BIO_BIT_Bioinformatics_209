@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook</title>
+  <title>Session 15 – Python: Keywords and Identifiers | Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook" />
+  <meta property="og:title" content="Session 15 – Python: Keywords and Identifiers | Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook" />
+  <meta name="twitter:title" content="Session 15 – Python: Keywords and Identifiers | Bioinformatics Workshop Gitbook" />
   
   <meta name="twitter:description" content="none" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="mining-from-a-reference-dataset.html"/>
-<link rel="next" href="python-keywords-and-identifiers.html"/>
+<link rel="prev" href="introduction-to-python.html"/>
+<link rel="next" href="python-statements-and-expressions.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -361,41 +361,128 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction-to-python" class="section level1" number="14">
-<h1><span class="header-section-number">Session 14</span> – Introduction to Python</h1>
-<div id="welcome-to-python-why-python" class="section level2" number="14.1">
-<h2><span class="header-section-number">14.1</span> Welcome to Python! Why Python?</h2>
-<p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank"><strong>Python</strong></a> is relatively easy to learn compared to most programming languages and is vastly popular among both programmers and employers. Code written in Python is universal among operating systems; allowing code to be carried between Windows, Mac and Linux without the need to re-write the code.</p>
-<p>Python code is quite minimalist compared to other languages, making reading and writing code quicker and easier. Even non-programmers are able to read Python code with little issue. Because there is less to type, it is subsequently easier to debug and maintain Python code.</p>
-<p>Lastly, Python is highly desirable throughout many fields of work. Popular applications of Python include, but are not limited to: web development, machine learning, data science, and analytics. The possibilities with Python are further broadened by its ability to incorporate other languages with easy. Imagine building the foundation of code in Python and utilize other languages like R and Java in places where they exceed Python’s capabilities.</p>
-<p>This Python section was adapted from techbeamers: (<a href="https://www.techbeamers.com/python-tutorial-step-by-step/" class="uri">https://www.techbeamers.com/python-tutorial-step-by-step/</a>){target="_blank“} and (<a href="https://www.learnpython.org/" class="uri">https://www.learnpython.org/</a>){target=”_blank"}.</p>
+<div id="python-keywords-and-identifiers" class="section level1" number="15">
+<h1><span class="header-section-number">Session 15</span> – Python: Keywords and Identifiers</h1>
+<div id="keywords-in-python" class="section level2" number="15.1">
+<h2><span class="header-section-number">15.1</span> Keywords in Python</h2>
+<p>Keywords is a term to describe stock Python one word commands. Keywords are always interpreted as a command and thus cannot be used in any other context. Keywords are case-sensitive.</p>
+<p>Lets take a look at all the Python keywords with the code below:</p>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="python-keywords-and-identifiers.html#cb505-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import keyword module, also known as defining what keyword is to Python</span></span>
+<span id="cb505-2"><a href="python-keywords-and-identifiers.html#cb505-2" aria-hidden="true" tabindex="-1"></a>import keyword</span>
+<span id="cb505-3"><a href="python-keywords-and-identifiers.html#cb505-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb505-4"><a href="python-keywords-and-identifiers.html#cb505-4" aria-hidden="true" tabindex="-1"></a><span class="co">#from keyword, list all keywords (kw)</span></span>
+<span id="cb505-5"><a href="python-keywords-and-identifiers.html#cb505-5" aria-hidden="true" tabindex="-1"></a>keyword.kwlist</span></code></pre></div>
+<p>For more information regarding keyword see documentation <a href="https://docs.python.org/3/library/keyword.html" target="_blank"><strong>here</strong></a>.</p>
+<p>The first command uses the word ‘import’ which is similar to R’s ‘library’ function. ‘import’ will import the module entirely from Python for immediate use. It must be restated every time you start a new Python shell (terminal). It is common practice to include all ‘import’ commands first in your scripts, we will revisit this later.</p>
+<p>You are not restricted to ‘import’ everything from a module. If you would like to use a specific part of the ‘keyword’ module for example, you can simply state ‘from keyword import [whatever part you want].’ However, in this case keyword is such a small module that this option is not available to us as it does not contain smaller parts to import.</p>
+<p>Let us practice with a few of these keywords:</p>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="python-keywords-and-identifiers.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Set variable as an interger</span></span>
+<span id="cb506-2"><a href="python-keywords-and-identifiers.html#cb506-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb506-3"><a href="python-keywords-and-identifiers.html#cb506-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb506-4"><a href="python-keywords-and-identifiers.html#cb506-4" aria-hidden="true" tabindex="-1"></a><span class="co">#IF</span></span>
+<span id="cb506-5"><a href="python-keywords-and-identifiers.html#cb506-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">:</span></span>
+<span id="cb506-6"><a href="python-keywords-and-identifiers.html#cb506-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 1&quot;</span>)</span>
+<span id="cb506-7"><a href="python-keywords-and-identifiers.html#cb506-7" aria-hidden="true" tabindex="-1"></a><span class="co">#notice no output for the script below:</span></span>
+<span id="cb506-8"><a href="python-keywords-and-identifiers.html#cb506-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">3</span><span class="sc">:</span></span>
+<span id="cb506-9"><a href="python-keywords-and-identifiers.html#cb506-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 3&quot;</span>)</span>
+<span id="cb506-10"><a href="python-keywords-and-identifiers.html#cb506-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb506-11"><a href="python-keywords-and-identifiers.html#cb506-11" aria-hidden="true" tabindex="-1"></a><span class="co">#ELSE</span></span>
+<span id="cb506-12"><a href="python-keywords-and-identifiers.html#cb506-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">3</span><span class="sc">:</span></span>
+<span id="cb506-13"><a href="python-keywords-and-identifiers.html#cb506-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 3&quot;</span>)</span>
+<span id="cb506-14"><a href="python-keywords-and-identifiers.html#cb506-14" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb506-15"><a href="python-keywords-and-identifiers.html#cb506-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 3&quot;</span>)</span>
+<span id="cb506-16"><a href="python-keywords-and-identifiers.html#cb506-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb506-17"><a href="python-keywords-and-identifiers.html#cb506-17" aria-hidden="true" tabindex="-1"></a><span class="co">#ELSE</span></span>
+<span id="cb506-18"><a href="python-keywords-and-identifiers.html#cb506-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">:</span></span>
+<span id="cb506-19"><a href="python-keywords-and-identifiers.html#cb506-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 1&quot;</span>)</span>
+<span id="cb506-20"><a href="python-keywords-and-identifiers.html#cb506-20" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb506-21"><a href="python-keywords-and-identifiers.html#cb506-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 1&quot;</span>)</span>
+<span id="cb506-22"><a href="python-keywords-and-identifiers.html#cb506-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb506-23"><a href="python-keywords-and-identifiers.html#cb506-23" aria-hidden="true" tabindex="-1"></a><span class="co">#OR</span></span>
+<span id="cb506-24"><a href="python-keywords-and-identifiers.html#cb506-24" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">3</span> or x <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">:</span></span>
+<span id="cb506-25"><a href="python-keywords-and-identifiers.html#cb506-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 3 -OR- x is greater than 1&quot;</span>)</span>
+<span id="cb506-26"><a href="python-keywords-and-identifiers.html#cb506-26" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb506-27"><a href="python-keywords-and-identifiers.html#cb506-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 3 -AND- x is not greater than 1&quot;</span>)</span>
+<span id="cb506-28"><a href="python-keywords-and-identifiers.html#cb506-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb506-29"><a href="python-keywords-and-identifiers.html#cb506-29" aria-hidden="true" tabindex="-1"></a><span class="co">#AND</span></span>
+<span id="cb506-30"><a href="python-keywords-and-identifiers.html#cb506-30" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">3</span> and x <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">:</span></span>
+<span id="cb506-31"><a href="python-keywords-and-identifiers.html#cb506-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 3 -AND- x is greater than 1&quot;</span>)</span>
+<span id="cb506-32"><a href="python-keywords-and-identifiers.html#cb506-32" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb506-33"><a href="python-keywords-and-identifiers.html#cb506-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 3 -OR- x is not greater than 1&quot;</span>)</span>
+<span id="cb506-34"><a href="python-keywords-and-identifiers.html#cb506-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb506-35"><a href="python-keywords-and-identifiers.html#cb506-35" aria-hidden="true" tabindex="-1"></a><span class="co">#ELIF</span></span>
+<span id="cb506-36"><a href="python-keywords-and-identifiers.html#cb506-36" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">3</span><span class="sc">:</span></span>
+<span id="cb506-37"><a href="python-keywords-and-identifiers.html#cb506-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 3&quot;</span>)</span>
+<span id="cb506-38"><a href="python-keywords-and-identifiers.html#cb506-38" aria-hidden="true" tabindex="-1"></a>elif x <span class="sc">==</span> <span class="dv">2</span><span class="sc">:</span></span>
+<span id="cb506-39"><a href="python-keywords-and-identifiers.html#cb506-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 3, but x is equal to 2&quot;</span>)</span>
+<span id="cb506-40"><a href="python-keywords-and-identifiers.html#cb506-40" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb506-41"><a href="python-keywords-and-identifiers.html#cb506-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 3 AND x is not equal to 2&quot;</span>)</span>
+<span id="cb506-42"><a href="python-keywords-and-identifiers.html#cb506-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb506-43"><a href="python-keywords-and-identifiers.html#cb506-43" aria-hidden="true" tabindex="-1"></a><span class="co">#TRY #EXCEPT</span></span>
+<span id="cb506-44"><a href="python-keywords-and-identifiers.html#cb506-44" aria-hidden="true" tabindex="-1"></a>try<span class="sc">:</span></span>
+<span id="cb506-45"><a href="python-keywords-and-identifiers.html#cb506-45" aria-hidden="true" tabindex="-1"></a>    y <span class="sc">&gt;</span> x</span>
+<span id="cb506-46"><a href="python-keywords-and-identifiers.html#cb506-46" aria-hidden="true" tabindex="-1"></a>except NameError<span class="sc">:</span> y <span class="ot">=</span> <span class="dv">4</span></span>
+<span id="cb506-47"><a href="python-keywords-and-identifiers.html#cb506-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb506-48"><a href="python-keywords-and-identifiers.html#cb506-48" aria-hidden="true" tabindex="-1"></a><span class="co">#NONE</span></span>
+<span id="cb506-49"><a href="python-keywords-and-identifiers.html#cb506-49" aria-hidden="true" tabindex="-1"></a>try<span class="sc">:</span></span>
+<span id="cb506-50"><a href="python-keywords-and-identifiers.html#cb506-50" aria-hidden="true" tabindex="-1"></a>    y <span class="sc">&gt;</span> x</span>
+<span id="cb506-51"><a href="python-keywords-and-identifiers.html#cb506-51" aria-hidden="true" tabindex="-1"></a>except NameError<span class="sc">:</span> y <span class="ot">=</span> None</span>
+<span id="cb506-52"><a href="python-keywords-and-identifiers.html#cb506-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb506-53"><a href="python-keywords-and-identifiers.html#cb506-53" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span>
+<span id="cb506-54"><a href="python-keywords-and-identifiers.html#cb506-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb506-55"><a href="python-keywords-and-identifiers.html#cb506-55" aria-hidden="true" tabindex="-1"></a><span class="co">#IS</span></span>
+<span id="cb506-56"><a href="python-keywords-and-identifiers.html#cb506-56" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> y is None<span class="sc">:</span></span>
+<span id="cb506-57"><a href="python-keywords-and-identifiers.html#cb506-57" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;y is none&quot;</span>)</span>
+<span id="cb506-58"><a href="python-keywords-and-identifiers.html#cb506-58" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb506-59"><a href="python-keywords-and-identifiers.html#cb506-59" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;y was not none&quot;</span>)</span>
+<span id="cb506-60"><a href="python-keywords-and-identifiers.html#cb506-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb506-61"><a href="python-keywords-and-identifiers.html#cb506-61" aria-hidden="true" tabindex="-1"></a><span class="co">#NOT</span></span>
+<span id="cb506-62"><a href="python-keywords-and-identifiers.html#cb506-62" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> y is not None<span class="sc">:</span></span>
+<span id="cb506-63"><a href="python-keywords-and-identifiers.html#cb506-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;y is defined&quot;</span>)</span>
+<span id="cb506-64"><a href="python-keywords-and-identifiers.html#cb506-64" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb506-65"><a href="python-keywords-and-identifiers.html#cb506-65" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;y was not defined&quot;</span>)</span>
+<span id="cb506-66"><a href="python-keywords-and-identifiers.html#cb506-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb506-67"><a href="python-keywords-and-identifiers.html#cb506-67" aria-hidden="true" tabindex="-1"></a><span class="co">#IMPORT #AS</span></span>
+<span id="cb506-68"><a href="python-keywords-and-identifiers.html#cb506-68" aria-hidden="true" tabindex="-1"></a>import keyword as squidward</span>
+<span id="cb506-69"><a href="python-keywords-and-identifiers.html#cb506-69" aria-hidden="true" tabindex="-1"></a><span class="fu">squidward.iskeyword</span>(<span class="st">&quot;else&quot;</span>)</span>
+<span id="cb506-70"><a href="python-keywords-and-identifiers.html#cb506-70" aria-hidden="true" tabindex="-1"></a><span class="fu">squidward.iskeyword</span>(<span class="st">&quot;cans&quot;</span>)</span></code></pre></div>
+<p>There are 33+ keywords that are listed with our keyboard list command. It is important to learn these keywords. The best way to learn is by practicing these keywords in the python shell. You should be able to write a few lines of code for each keyword with thorough practice.</p>
+<p>Keywords are key to a successful understanding of python.</p>
 </div>
-<div id="which-python-should-i-install" class="section level2" number="14.2">
-<h2><span class="header-section-number">14.2</span> Which Python should I install?</h2>
-<p>Python has releases dating to 1990 but it was first created in the 1980s. It has evolved over the past 40 years and big updates have greatly expanded Python’s utility and changed its syntax to become more user friendly. It is because of these big changes that we have a major divide between Python2 and Python3. Python2 includes any version conforming with the following structure: Python v2.x.x. Ideally you would install Python3 as it is the most recent version; however, there exists code that will only run on Python2 online. Python3 is not backwards compatible.</p>
-<p>Long story short, download both recent versions of Python2 and Python3, but we will use only Python3 in this course. If you encounter a program that operates in Python2 you can always use that version you installed to run it.</p>
-<p>We will install: Python v2.7.18 and Python v3.9.2.</p>
-</div>
-<div id="mac-os-x-python-installations" class="section level2" number="14.3">
-<h2><span class="header-section-number">14.3</span> Mac OS X Python Installations</h2>
-<p>Mac users may download python via its webpage:
-<a href="https://www.python.org/downloads/mac-osx/" class="uri">https://www.python.org/downloads/mac-osx/</a>
-Download both Python2 and Python3</p>
-<p>Or</p>
-<p>If you prefer to practice your command-line skills follow the steps below in terminal:</p>
-<p>Install HomeBrew</p>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="introduction-to-python.html#cb503-1" aria-hidden="true" tabindex="-1"></a>ruby <span class="sc">-</span>e <span class="st">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span></span></code></pre></div>
-<p>Install Python</p>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="introduction-to-python.html#cb504-1" aria-hidden="true" tabindex="-1"></a>brew install python2</span>
-<span id="cb504-2"><a href="introduction-to-python.html#cb504-2" aria-hidden="true" tabindex="-1"></a>brew install python3</span></code></pre></div>
-</div>
-<div id="windows-python-installations" class="section level2" number="14.4">
-<h2><span class="header-section-number">14.4</span> Windows Python Installations</h2>
-<p>Windows users may download python via its <a href="https://www.python.org/downloads/windows/" target="_blank"><strong>webpage</strong></a>. Then, download both Python2 and Python3.</p>
-</div>
-<div id="install-an-ide-or-integrated-development-environment" class="section level2" number="14.5">
-<h2><span class="header-section-number">14.5</span> Install an IDE, or integrated development environment</h2>
-<p>Let’s also download PyCharm IDE form <a href="https://www.jetbrains.com/pycharm/download/#section=windows" target="_blank"><strong>here</strong></a>.</p>
+<div id="identifiers-in-python" class="section level2" number="15.2">
+<h2><span class="header-section-number">15.2</span> Identifiers in Python</h2>
+<p>Unlike Keywords, which are chosen by the python programmers, identifiers are names chosen by the user to define a variable, file, destination, module, function, or any other object.</p>
+<p>There are several rules to creating an idenitifier:</p>
+<ol style="list-style-type: decimal">
+<li><p>What is allowed: Uppercase letters, lowercase letters, numbers, underscores (i.e. My_File_3)</p></li>
+<li><p>What is not allowed: Usage of identifiers that are identical to Keywords (i.e. dont use ‘for’ as an identifier), usage of a number to start an identifier (i.e. dont use ‘9_my_file’).</p></li>
+<li><p>What is also not allowed: idenitifers with special characters will not work (i.e. %<span class="citation"></span>), and identifiers should be kept short. If they are too long errors can occur (definately do not create identifiers longer than 79 characters).</p></li>
+<li><p>Some advice: Make identifiers short but descriptive, we are looking for a concise meaning behind the term(s) chosen to help aid in code readiblity, which will in turn assist in code debugging.</p></li>
+</ol>
+<p>Let us make some identifiers and test their validity:</p>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="python-keywords-and-identifiers.html#cb507-1" aria-hidden="true" tabindex="-1"></a><span class="co">#for python3 we can use the .isidentifier() command to check our identifiers to see if they are valid (True) or not (False).</span></span>
+<span id="cb507-2"><a href="python-keywords-and-identifiers.html#cb507-2" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;My_file_2&#39;</span>.isidentifier</span>
+<span id="cb507-3"><a href="python-keywords-and-identifiers.html#cb507-3" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;2_My_file&#39;</span>.isidentifier</span>
+<span id="cb507-4"><a href="python-keywords-and-identifiers.html#cb507-4" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;My_file_@&#39;</span>.isidentifier</span>
+<span id="cb507-5"><a href="python-keywords-and-identifiers.html#cb507-5" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;for&#39;</span>.isidentifier</span>
+<span id="cb507-6"><a href="python-keywords-and-identifiers.html#cb507-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb507-7"><a href="python-keywords-and-identifiers.html#cb507-7" aria-hidden="true" tabindex="-1"></a><span class="co">#we can create variables</span></span>
+<span id="cb507-8"><a href="python-keywords-and-identifiers.html#cb507-8" aria-hidden="true" tabindex="-1"></a>score_1 <span class="ot">=</span> <span class="dv">95</span></span>
+<span id="cb507-9"><a href="python-keywords-and-identifiers.html#cb507-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(score_1)</span>
+<span id="cb507-10"><a href="python-keywords-and-identifiers.html#cb507-10" aria-hidden="true" tabindex="-1"></a>score_2 <span class="ot">=</span> <span class="dv">45</span></span>
+<span id="cb507-11"><a href="python-keywords-and-identifiers.html#cb507-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(score_2)</span>
+<span id="cb507-12"><a href="python-keywords-and-identifiers.html#cb507-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb507-13"><a href="python-keywords-and-identifiers.html#cb507-13" aria-hidden="true" tabindex="-1"></a><span class="co">#we can add variables</span></span>
+<span id="cb507-14"><a href="python-keywords-and-identifiers.html#cb507-14" aria-hidden="true" tabindex="-1"></a>score_1 <span class="sc">+</span> score_2</span>
+<span id="cb507-15"><a href="python-keywords-and-identifiers.html#cb507-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb507-16"><a href="python-keywords-and-identifiers.html#cb507-16" aria-hidden="true" tabindex="-1"></a><span class="co">#we can add variables and store the information</span></span>
+<span id="cb507-17"><a href="python-keywords-and-identifiers.html#cb507-17" aria-hidden="true" tabindex="-1"></a>sum_of_scores <span class="ot">=</span> score_1 <span class="sc">+</span> score_2</span>
+<span id="cb507-18"><a href="python-keywords-and-identifiers.html#cb507-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb507-19"><a href="python-keywords-and-identifiers.html#cb507-19" aria-hidden="true" tabindex="-1"></a><span class="co">#beware, if intended or not redeclaring a variable will replace the contents</span></span>
+<span id="cb507-20"><a href="python-keywords-and-identifiers.html#cb507-20" aria-hidden="true" tabindex="-1"></a>score_1 <span class="ot">=</span> <span class="dv">95</span></span>
+<span id="cb507-21"><a href="python-keywords-and-identifiers.html#cb507-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(score_1)</span>
+<span id="cb507-22"><a href="python-keywords-and-identifiers.html#cb507-22" aria-hidden="true" tabindex="-1"></a>score_1 <span class="ot">=</span> <span class="dv">55</span></span>
+<span id="cb507-23"><a href="python-keywords-and-identifiers.html#cb507-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(score_1)</span></code></pre></div>
 
 </div>
 </div>
@@ -404,8 +491,8 @@ Download both Python2 and Python3</p>
           </div>
         </div>
       </div>
-<a href="mining-from-a-reference-dataset.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="python-keywords-and-identifiers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="introduction-to-python.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="python-statements-and-expressions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -436,7 +523,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/14-Intro_to_Python_v2.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/15-Python_keywords_v1.Rmd",
 "text": "Edit"
 },
 "history": {

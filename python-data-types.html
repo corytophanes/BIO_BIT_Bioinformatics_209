@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook</title>
+  <title>Session 17 – Python: Data Types | Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook" />
+  <meta property="og:title" content="Session 17 – Python: Data Types | Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook" />
+  <meta name="twitter:title" content="Session 17 – Python: Data Types | Bioinformatics Workshop Gitbook" />
   
   <meta name="twitter:description" content="none" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="mining-from-a-reference-dataset.html"/>
-<link rel="next" href="python-keywords-and-identifiers.html"/>
+<link rel="prev" href="python-statements-and-expressions.html"/>
+<link rel="next" href="python-strings.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -361,41 +361,174 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction-to-python" class="section level1" number="14">
-<h1><span class="header-section-number">Session 14</span> – Introduction to Python</h1>
-<div id="welcome-to-python-why-python" class="section level2" number="14.1">
-<h2><span class="header-section-number">14.1</span> Welcome to Python! Why Python?</h2>
-<p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank"><strong>Python</strong></a> is relatively easy to learn compared to most programming languages and is vastly popular among both programmers and employers. Code written in Python is universal among operating systems; allowing code to be carried between Windows, Mac and Linux without the need to re-write the code.</p>
-<p>Python code is quite minimalist compared to other languages, making reading and writing code quicker and easier. Even non-programmers are able to read Python code with little issue. Because there is less to type, it is subsequently easier to debug and maintain Python code.</p>
-<p>Lastly, Python is highly desirable throughout many fields of work. Popular applications of Python include, but are not limited to: web development, machine learning, data science, and analytics. The possibilities with Python are further broadened by its ability to incorporate other languages with easy. Imagine building the foundation of code in Python and utilize other languages like R and Java in places where they exceed Python’s capabilities.</p>
-<p>This Python section was adapted from techbeamers: (<a href="https://www.techbeamers.com/python-tutorial-step-by-step/" class="uri">https://www.techbeamers.com/python-tutorial-step-by-step/</a>){target="_blank“} and (<a href="https://www.learnpython.org/" class="uri">https://www.learnpython.org/</a>){target=”_blank"}.</p>
+<div id="python-data-types" class="section level1" number="17">
+<h1><span class="header-section-number">Session 17</span> – Python: Data Types</h1>
+<p>Common data types in Python include: Booleans, Numbers, Strings, Bytes, Lists, Tuples, Sets and Dictionaries.</p>
+<div id="booleans" class="section level2" number="17.1">
+<h2><span class="header-section-number">17.1</span> Booleans</h2>
+<p>Booleans have two possible values: True of False. You can think of booleans as simple lie detectors.</p>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="python-data-types.html#cb514-1" aria-hidden="true" tabindex="-1"></a><span class="co">#boolean, test if true</span></span>
+<span id="cb514-2"><a href="python-data-types.html#cb514-2" aria-hidden="true" tabindex="-1"></a>bee_allergy <span class="ot">=</span> True</span>
+<span id="cb514-3"><a href="python-data-types.html#cb514-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> bee_allergy <span class="sc">==</span> True<span class="sc">:</span></span>
+<span id="cb514-4"><a href="python-data-types.html#cb514-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">print</span>(<span class="st">&#39;patient is allergic to bees&#39;</span>)</span>
+<span id="cb514-5"><a href="python-data-types.html#cb514-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb514-6"><a href="python-data-types.html#cb514-6" aria-hidden="true" tabindex="-1"></a> <span class="fu">print</span>(<span class="st">&#39;patient is not allergic to bees&#39;</span>)</span>
+<span id="cb514-7"><a href="python-data-types.html#cb514-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb514-8"><a href="python-data-types.html#cb514-8" aria-hidden="true" tabindex="-1"></a><span class="co">#short-hand boolean condition</span></span>
+<span id="cb514-9"><a href="python-data-types.html#cb514-9" aria-hidden="true" tabindex="-1"></a>bee_allergy <span class="ot">=</span> True</span>
+<span id="cb514-10"><a href="python-data-types.html#cb514-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> bee_allergy<span class="sc">:</span></span>
+<span id="cb514-11"><a href="python-data-types.html#cb514-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&#39;patient is allergic to bees&#39;</span>)</span>
+<span id="cb514-12"><a href="python-data-types.html#cb514-12" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb514-13"><a href="python-data-types.html#cb514-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&#39;patient is not allergic to bees&#39;</span>)</span>
+<span id="cb514-14"><a href="python-data-types.html#cb514-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb514-15"><a href="python-data-types.html#cb514-15" aria-hidden="true" tabindex="-1"></a><span class="co">#one-liner!</span></span>
+<span id="cb514-16"><a href="python-data-types.html#cb514-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;patient is allergic to bees&#39;</span>) <span class="cf">if</span> bee_allergy <span class="cf">else</span> <span class="fu">print</span>(<span class="st">&#39;patient is not allergic to bees&#39;</span>)</span></code></pre></div>
 </div>
-<div id="which-python-should-i-install" class="section level2" number="14.2">
-<h2><span class="header-section-number">14.2</span> Which Python should I install?</h2>
-<p>Python has releases dating to 1990 but it was first created in the 1980s. It has evolved over the past 40 years and big updates have greatly expanded Python’s utility and changed its syntax to become more user friendly. It is because of these big changes that we have a major divide between Python2 and Python3. Python2 includes any version conforming with the following structure: Python v2.x.x. Ideally you would install Python3 as it is the most recent version; however, there exists code that will only run on Python2 online. Python3 is not backwards compatible.</p>
-<p>Long story short, download both recent versions of Python2 and Python3, but we will use only Python3 in this course. If you encounter a program that operates in Python2 you can always use that version you installed to run it.</p>
-<p>We will install: Python v2.7.18 and Python v3.9.2.</p>
+<div id="numbers-int-float-and-complex" class="section level2" number="17.2">
+<h2><span class="header-section-number">17.2</span> Numbers: int, float and complex</h2>
+<p>It is important to note that floats will only be precise up to 15 decimal places. Any smaller should be abbreviated accordingly.</p>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="python-data-types.html#cb515-1" aria-hidden="true" tabindex="-1"></a><span class="co">#using type and instance to decipher number type</span></span>
+<span id="cb515-2"><a href="python-data-types.html#cb515-2" aria-hidden="true" tabindex="-1"></a><span class="fu">type</span>(<span class="dv">2</span>)</span>
+<span id="cb515-3"><a href="python-data-types.html#cb515-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb515-4"><a href="python-data-types.html#cb515-4" aria-hidden="true" tabindex="-1"></a><span class="fu">type</span>(<span class="fl">2.0</span>)</span>
+<span id="cb515-5"><a href="python-data-types.html#cb515-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb515-6"><a href="python-data-types.html#cb515-6" aria-hidden="true" tabindex="-1"></a><span class="fu">type</span>(<span class="dv">2</span><span class="sc">+</span>3x)</span>
+<span id="cb515-7"><a href="python-data-types.html#cb515-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb515-8"><a href="python-data-types.html#cb515-8" aria-hidden="true" tabindex="-1"></a><span class="fu">type</span>(<span class="dv">2</span><span class="sc">+</span>3j)</span>
+<span id="cb515-9"><a href="python-data-types.html#cb515-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb515-10"><a href="python-data-types.html#cb515-10" aria-hidden="true" tabindex="-1"></a><span class="fu">isinstance</span>(<span class="dv">2</span><span class="sc">+</span>3j, complex)</span>
+<span id="cb515-11"><a href="python-data-types.html#cb515-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb515-12"><a href="python-data-types.html#cb515-12" aria-hidden="true" tabindex="-1"></a><span class="co">#what does j mean??</span></span>
+<span id="cb515-13"><a href="python-data-types.html#cb515-13" aria-hidden="true" tabindex="-1"></a><span class="co">#create a complex number</span></span>
+<span id="cb515-14"><a href="python-data-types.html#cb515-14" aria-hidden="true" tabindex="-1"></a><span class="fu">complex</span>(<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div>
 </div>
-<div id="mac-os-x-python-installations" class="section level2" number="14.3">
-<h2><span class="header-section-number">14.3</span> Mac OS X Python Installations</h2>
-<p>Mac users may download python via its webpage:
-<a href="https://www.python.org/downloads/mac-osx/" class="uri">https://www.python.org/downloads/mac-osx/</a>
-Download both Python2 and Python3</p>
-<p>Or</p>
-<p>If you prefer to practice your command-line skills follow the steps below in terminal:</p>
-<p>Install HomeBrew</p>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="introduction-to-python.html#cb503-1" aria-hidden="true" tabindex="-1"></a>ruby <span class="sc">-</span>e <span class="st">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span></span></code></pre></div>
-<p>Install Python</p>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="introduction-to-python.html#cb504-1" aria-hidden="true" tabindex="-1"></a>brew install python2</span>
-<span id="cb504-2"><a href="introduction-to-python.html#cb504-2" aria-hidden="true" tabindex="-1"></a>brew install python3</span></code></pre></div>
+<div id="strings" class="section level2" number="17.3">
+<h2><span class="header-section-number">17.3</span> Strings</h2>
+<p>Strings are sequences of characters between double or single quotes.</p>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="python-data-types.html#cb516-1" aria-hidden="true" tabindex="-1"></a><span class="co">#simple string</span></span>
+<span id="cb516-2"><a href="python-data-types.html#cb516-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;the store is out of apples&quot;</span>)</span>
+<span id="cb516-3"><a href="python-data-types.html#cb516-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb516-4"><a href="python-data-types.html#cb516-4" aria-hidden="true" tabindex="-1"></a><span class="co">#simple string 2</span></span>
+<span id="cb516-5"><a href="python-data-types.html#cb516-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;the store is out of apples&#39;</span>)</span>
+<span id="cb516-6"><a href="python-data-types.html#cb516-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb516-7"><a href="python-data-types.html#cb516-7" aria-hidden="true" tabindex="-1"></a><span class="co">#multiline string</span></span>
+<span id="cb516-8"><a href="python-data-types.html#cb516-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;&quot;&quot;the store </span></span>
+<span id="cb516-9"><a href="python-data-types.html#cb516-9" aria-hidden="true" tabindex="-1"></a><span class="st">is out of </span></span>
+<span id="cb516-10"><a href="python-data-types.html#cb516-10" aria-hidden="true" tabindex="-1"></a><span class="st">apples</span></span>
+<span id="cb516-11"><a href="python-data-types.html#cb516-11" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot;</span>)</span>
+<span id="cb516-12"><a href="python-data-types.html#cb516-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb516-13"><a href="python-data-types.html#cb516-13" aria-hidden="true" tabindex="-1"></a><span class="co">#One-liner, multiline string?!</span></span>
+<span id="cb516-14"><a href="python-data-types.html#cb516-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;the store </span><span class="sc">\n</span><span class="st"> is out of </span><span class="sc">\n</span><span class="st"> apples&quot;</span>)</span>
+<span id="cb516-15"><a href="python-data-types.html#cb516-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb516-16"><a href="python-data-types.html#cb516-16" aria-hidden="true" tabindex="-1"></a><span class="co">#One-liner, multiline string?! fixed for spacing issues</span></span>
+<span id="cb516-17"><a href="python-data-types.html#cb516-17" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;the store </span><span class="sc">\n</span><span class="st">is out of </span><span class="sc">\n</span><span class="st">apples&quot;</span>)</span></code></pre></div>
 </div>
-<div id="windows-python-installations" class="section level2" number="14.4">
-<h2><span class="header-section-number">14.4</span> Windows Python Installations</h2>
-<p>Windows users may download python via its <a href="https://www.python.org/downloads/windows/" target="_blank"><strong>webpage</strong></a>. Then, download both Python2 and Python3.</p>
+<div id="bytes" class="section level2" number="17.4">
+<h2><span class="header-section-number">17.4</span> Bytes</h2>
+<p>Byte can store bytes ranging from 0 - 255. We will not go over bytes as we will not use them directly in this setting. Called with ‘bytes()’</p>
 </div>
-<div id="install-an-ide-or-integrated-development-environment" class="section level2" number="14.5">
-<h2><span class="header-section-number">14.5</span> Install an IDE, or integrated development environment</h2>
-<p>Let’s also download PyCharm IDE form <a href="https://www.jetbrains.com/pycharm/download/#section=windows" target="_blank"><strong>here</strong></a>.</p>
+<div id="lists-1" class="section level2" number="17.5">
+<h2><span class="header-section-number">17.5</span> Lists</h2>
+<p>Lists are an array that stores typed objects in a specific sequence. Index in lists will start at 0 not at 1. Lists are contained in brackets.</p>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="python-data-types.html#cb517-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets make a list containing different classes</span></span>
+<span id="cb517-2"><a href="python-data-types.html#cb517-2" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">=</span> [True, False, <span class="dv">1</span>, <span class="fl">1.1</span>, <span class="dv">1</span><span class="sc">+</span>2j, <span class="st">&#39;Learn&#39;</span>, b<span class="st">&#39;Python&#39;</span>]</span>
+<span id="cb517-3"><a href="python-data-types.html#cb517-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb517-4"><a href="python-data-types.html#cb517-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_list)</span>
+<span id="cb517-5"><a href="python-data-types.html#cb517-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb517-6"><a href="python-data-types.html#cb517-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_list[<span class="dv">0</span>])</span>
+<span id="cb517-7"><a href="python-data-types.html#cb517-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb517-8"><a href="python-data-types.html#cb517-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_list[<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb517-9"><a href="python-data-types.html#cb517-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb517-10"><a href="python-data-types.html#cb517-10" aria-hidden="true" tabindex="-1"></a><span class="co">#lets print the class of each item in the list</span></span>
+<span id="cb517-11"><a href="python-data-types.html#cb517-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="cf">in</span> my_list<span class="sc">:</span></span>
+<span id="cb517-12"><a href="python-data-types.html#cb517-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">type</span>(item))</span>
+<span id="cb517-13"><a href="python-data-types.html#cb517-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb517-14"><a href="python-data-types.html#cb517-14" aria-hidden="true" tabindex="-1"></a><span class="co">#you can target and change items in the list</span></span>
+<span id="cb517-15"><a href="python-data-types.html#cb517-15" aria-hidden="true" tabindex="-1"></a>my_list[<span class="dv">3</span>] <span class="ot">=</span> <span class="dv">4</span></span>
+<span id="cb517-16"><a href="python-data-types.html#cb517-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_list)</span>
+<span id="cb517-17"><a href="python-data-types.html#cb517-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb517-18"><a href="python-data-types.html#cb517-18" aria-hidden="true" tabindex="-1"></a><span class="co">#you can slice a list</span></span>
+<span id="cb517-19"><a href="python-data-types.html#cb517-19" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_list[<span class="dv">0</span><span class="sc">:</span><span class="dv">3</span>])</span></code></pre></div>
+</div>
+<div id="tuples" class="section level2" number="17.6">
+<h2><span class="header-section-number">17.6</span> Tuples</h2>
+<p>Unlike lists, tuples are contained within parentheses. Tuples can contain objects of different types. Objects are still maintained in an order. Tuples cannot be modfied after creation. The objects themselves can be altered if they are alterable however, like identifiers.</p>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="python-data-types.html#cb518-1" aria-hidden="true" tabindex="-1"></a><span class="co">#empty tuple</span></span>
+<span id="cb518-2"><a href="python-data-types.html#cb518-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb518-3"><a href="python-data-types.html#cb518-3" aria-hidden="true" tabindex="-1"></a>tuple_1 <span class="ot">=</span> ()</span>
+<span id="cb518-4"><a href="python-data-types.html#cb518-4" aria-hidden="true" tabindex="-1"></a>tuple_1</span>
+<span id="cb518-5"><a href="python-data-types.html#cb518-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb518-6"><a href="python-data-types.html#cb518-6" aria-hidden="true" tabindex="-1"></a><span class="co">#tuple in tuple; nested tuple</span></span>
+<span id="cb518-7"><a href="python-data-types.html#cb518-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb518-8"><a href="python-data-types.html#cb518-8" aria-hidden="true" tabindex="-1"></a>tuple_1 <span class="ot">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb518-9"><a href="python-data-types.html#cb518-9" aria-hidden="true" tabindex="-1"></a>tuple_2 <span class="ot">=</span> (<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;bannana&#39;</span>)</span>
+<span id="cb518-10"><a href="python-data-types.html#cb518-10" aria-hidden="true" tabindex="-1"></a>tuple_3 <span class="ot">=</span> (tuple_1, tuple_2)</span>
+<span id="cb518-11"><a href="python-data-types.html#cb518-11" aria-hidden="true" tabindex="-1"></a>tuple_3</span>
+<span id="cb518-12"><a href="python-data-types.html#cb518-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb518-13"><a href="python-data-types.html#cb518-13" aria-hidden="true" tabindex="-1"></a><span class="co">#modify tuples</span></span>
+<span id="cb518-14"><a href="python-data-types.html#cb518-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb518-15"><a href="python-data-types.html#cb518-15" aria-hidden="true" tabindex="-1"></a>tuple_na <span class="ot">=</span> (<span class="st">&quot;na&quot;</span>,)<span class="sc">*</span><span class="dv">3</span></span>
+<span id="cb518-16"><a href="python-data-types.html#cb518-16" aria-hidden="true" tabindex="-1"></a>tuple_na</span>
+<span id="cb518-17"><a href="python-data-types.html#cb518-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb518-18"><a href="python-data-types.html#cb518-18" aria-hidden="true" tabindex="-1"></a>tuple_bat <span class="ot">=</span> (tuple_na, <span class="st">&#39;batman&#39;</span>) </span>
+<span id="cb518-19"><a href="python-data-types.html#cb518-19" aria-hidden="true" tabindex="-1"></a>tuple_bat</span>
+<span id="cb518-20"><a href="python-data-types.html#cb518-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb518-21"><a href="python-data-types.html#cb518-21" aria-hidden="true" tabindex="-1"></a><span class="co">#slicing tuples</span></span>
+<span id="cb518-22"><a href="python-data-types.html#cb518-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb518-23"><a href="python-data-types.html#cb518-23" aria-hidden="true" tabindex="-1"></a>tuple_num <span class="ot">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
+<span id="cb518-24"><a href="python-data-types.html#cb518-24" aria-hidden="true" tabindex="-1"></a>tuple_num[<span class="dv">1</span><span class="sc">:</span>]</span></code></pre></div>
+</div>
+<div id="sets" class="section level2" number="17.7">
+<h2><span class="header-section-number">17.7</span> Sets</h2>
+<p>Sets in python are used for mathematical operations and are incased in braces.</p>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="python-data-types.html#cb519-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Simple set</span></span>
+<span id="cb519-2"><a href="python-data-types.html#cb519-2" aria-hidden="true" tabindex="-1"></a>simple_set <span class="ot">=</span> <span class="fu">set</span>(<span class="st">&quot;strawberry mango&quot;</span>)</span>
+<span id="cb519-3"><a href="python-data-types.html#cb519-3" aria-hidden="true" tabindex="-1"></a><span class="fu">type</span>(simple_set)</span>
+<span id="cb519-4"><a href="python-data-types.html#cb519-4" aria-hidden="true" tabindex="-1"></a>simple_set</span>
+<span id="cb519-5"><a href="python-data-types.html#cb519-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb519-6"><a href="python-data-types.html#cb519-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Another Simple Set</span></span>
+<span id="cb519-7"><a href="python-data-types.html#cb519-7" aria-hidden="true" tabindex="-1"></a>simpler_set <span class="ot">=</span> {<span class="st">&#39;strawberry&#39;</span>, <span class="st">&#39;mango&#39;</span>, <span class="st">&#39;grapefruit&#39;</span>}</span>
+<span id="cb519-8"><a href="python-data-types.html#cb519-8" aria-hidden="true" tabindex="-1"></a><span class="fu">type</span>(simpler_set)</span>
+<span id="cb519-9"><a href="python-data-types.html#cb519-9" aria-hidden="true" tabindex="-1"></a>simpler_set</span>
+<span id="cb519-10"><a href="python-data-types.html#cb519-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb519-11"><a href="python-data-types.html#cb519-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Frozenset</span></span>
+<span id="cb519-12"><a href="python-data-types.html#cb519-12" aria-hidden="true" tabindex="-1"></a>food <span class="ot">=</span> {<span class="st">&#39;fish&#39;</span>, <span class="st">&#39;shrimp&#39;</span>}</span>
+<span id="cb519-13"><a href="python-data-types.html#cb519-13" aria-hidden="true" tabindex="-1"></a>food</span>
+<span id="cb519-14"><a href="python-data-types.html#cb519-14" aria-hidden="true" tabindex="-1"></a>frozen_food <span class="ot">=</span> <span class="fu">frozenset</span>(food)</span>
+<span id="cb519-15"><a href="python-data-types.html#cb519-15" aria-hidden="true" tabindex="-1"></a><span class="fu">type</span>(frozen_food)</span>
+<span id="cb519-16"><a href="python-data-types.html#cb519-16" aria-hidden="true" tabindex="-1"></a>frozen_food</span></code></pre></div>
+</div>
+<div id="dictionary" class="section level2" number="17.8">
+<h2><span class="header-section-number">17.8</span> Dictionary</h2>
+<p>A dictionary is an unordered pair of key-value pairs. Highly optimized to store large datasets. Dictionaries use braces to define keys and their respective values.</p>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="python-data-types.html#cb520-1" aria-hidden="true" tabindex="-1"></a><span class="co">#dictionary, below are random dates</span></span>
+<span id="cb520-2"><a href="python-data-types.html#cb520-2" aria-hidden="true" tabindex="-1"></a>worst_days_of_year <span class="ot">=</span> {<span class="st">&#39;key&#39;</span><span class="sc">:</span><span class="st">&#39;value&#39;</span>, <span class="st">&#39;feb&#39;</span><span class="sc">:</span><span class="dv">28</span>, <span class="st">&#39;oct&#39;</span><span class="sc">:</span><span class="dv">2</span>, <span class="st">&#39;dec&#39;</span><span class="sc">:</span><span class="dv">8</span>}</span>
+<span id="cb520-3"><a href="python-data-types.html#cb520-3" aria-hidden="true" tabindex="-1"></a><span class="fu">type</span>(worst_days_of_year)</span>
+<span id="cb520-4"><a href="python-data-types.html#cb520-4" aria-hidden="true" tabindex="-1"></a>worst_days_of_year</span>
+<span id="cb520-5"><a href="python-data-types.html#cb520-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb520-6"><a href="python-data-types.html#cb520-6" aria-hidden="true" tabindex="-1"></a><span class="co">#drawing information from the dictionary</span></span>
+<span id="cb520-7"><a href="python-data-types.html#cb520-7" aria-hidden="true" tabindex="-1"></a>worst_days_of_year[<span class="st">&#39;feb&#39;</span>]</span>
+<span id="cb520-8"><a href="python-data-types.html#cb520-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb520-9"><a href="python-data-types.html#cb520-9" aria-hidden="true" tabindex="-1"></a><span class="co">#key filtering</span></span>
+<span id="cb520-10"><a href="python-data-types.html#cb520-10" aria-hidden="true" tabindex="-1"></a><span class="fu">worst_days_of_year.keys</span>()</span>
+<span id="cb520-11"><a href="python-data-types.html#cb520-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb520-12"><a href="python-data-types.html#cb520-12" aria-hidden="true" tabindex="-1"></a><span class="co">#value filtering</span></span>
+<span id="cb520-13"><a href="python-data-types.html#cb520-13" aria-hidden="true" tabindex="-1"></a><span class="fu">worst_days_of_year.values</span>()</span>
+<span id="cb520-14"><a href="python-data-types.html#cb520-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb520-15"><a href="python-data-types.html#cb520-15" aria-hidden="true" tabindex="-1"></a><span class="co">#item listing</span></span>
+<span id="cb520-16"><a href="python-data-types.html#cb520-16" aria-hidden="true" tabindex="-1"></a><span class="fu">worst_days_of_year.items</span>()</span>
+<span id="cb520-17"><a href="python-data-types.html#cb520-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb520-18"><a href="python-data-types.html#cb520-18" aria-hidden="true" tabindex="-1"></a><span class="co">#update a dictionary</span></span>
+<span id="cb520-19"><a href="python-data-types.html#cb520-19" aria-hidden="true" tabindex="-1"></a><span class="fu">worst_days_of_year.update</span>({<span class="st">&#39;mar&#39;</span><span class="sc">:</span><span class="dv">4</span>})</span>
+<span id="cb520-20"><a href="python-data-types.html#cb520-20" aria-hidden="true" tabindex="-1"></a>worst_days_of_year</span>
+<span id="cb520-21"><a href="python-data-types.html#cb520-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb520-22"><a href="python-data-types.html#cb520-22" aria-hidden="true" tabindex="-1"></a><span class="co">#reassign data</span></span>
+<span id="cb520-23"><a href="python-data-types.html#cb520-23" aria-hidden="true" tabindex="-1"></a>worst_days_of_year[<span class="st">&#39;mar&#39;</span>] <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb520-24"><a href="python-data-types.html#cb520-24" aria-hidden="true" tabindex="-1"></a>worst_days_of_year</span>
+<span id="cb520-25"><a href="python-data-types.html#cb520-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb520-26"><a href="python-data-types.html#cb520-26" aria-hidden="true" tabindex="-1"></a><span class="co">#delete data</span></span>
+<span id="cb520-27"><a href="python-data-types.html#cb520-27" aria-hidden="true" tabindex="-1"></a>del worst_days_of_year[<span class="st">&#39;mar&#39;</span>]</span>
+<span id="cb520-28"><a href="python-data-types.html#cb520-28" aria-hidden="true" tabindex="-1"></a>worst_days_of_year</span></code></pre></div>
 
 </div>
 </div>
@@ -404,8 +537,8 @@ Download both Python2 and Python3</p>
           </div>
         </div>
       </div>
-<a href="mining-from-a-reference-dataset.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="python-keywords-and-identifiers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="python-statements-and-expressions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="python-strings.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -436,7 +569,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/14-Intro_to_Python_v2.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/17-Python_Data_Types.Rmd",
 "text": "Edit"
 },
 "history": {
