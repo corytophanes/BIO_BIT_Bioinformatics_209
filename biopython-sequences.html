@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook</title>
+  <title>Session 21 – Biopython: Sequences | Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook" />
+  <meta property="og:title" content="Session 21 – Biopython: Sequences | Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook" />
+  <meta name="twitter:title" content="Session 21 – Biopython: Sequences | Bioinformatics Workshop Gitbook" />
   
   <meta name="twitter:description" content="none" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="mining-from-a-reference-dataset.html"/>
-<link rel="next" href="python-keywords-and-identifiers.html"/>
+<link rel="prev" href="biopython.html"/>
+<link rel="next" href="biopython-mulitple-sequence-alignments.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -416,41 +416,111 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction-to-python" class="section level1" number="14">
-<h1><span class="header-section-number">Session 14</span> – Introduction to Python</h1>
-<div id="welcome-to-python-why-python" class="section level2" number="14.1">
-<h2><span class="header-section-number">14.1</span> Welcome to Python! Why Python?</h2>
-<p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank"><strong>Python</strong></a> is relatively easy to learn compared to most programming languages and is vastly popular among both programmers and employers. Code written in Python is universal among operating systems; allowing code to be carried between Windows, Mac and Linux without the need to re-write the code.</p>
-<p>Python code is quite minimalist compared to other languages, making reading and writing code quicker and easier. Even non-programmers are able to read Python code with little issue. Because there is less to type, it is subsequently easier to debug and maintain Python code.</p>
-<p>Lastly, Python is highly desirable throughout many fields of work. Popular applications of Python include, but are not limited to: web development, machine learning, data science, and analytics. The possibilities with Python are further broadened by its ability to incorporate other languages with easy. Imagine building the foundation of code in Python and utilize other languages like R and Java in places where they exceed Python’s capabilities.</p>
-<p>This Python section was adapted from <a href="https://www.techbeamers.com/python-tutorial-step-by-step/" target="_blank"><strong>techbeamers</strong></a> and <a href="https://www.learnpython.org/" target="_blank"><strong>learnpython</strong></a>.</p>
+<div id="biopython-sequences" class="section level1" number="21">
+<h1><span class="header-section-number">Session 21</span> – Biopython: Sequences</h1>
+<div id="sequence-objects" class="section level2" number="21.1">
+<h2><span class="header-section-number">21.1</span> Sequence Objects</h2>
+<p>Sequence objects behave similar to strings and can be treated as such in Biopython. However, sequence objects are largely immutable unless converted to an actual string.</p>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="biopython-sequences.html#cb541-1" aria-hidden="true" tabindex="-1"></a><span class="co"># old stuff we have introduced before</span></span>
+<span id="cb541-2"><a href="biopython-sequences.html#cb541-2" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
+<span id="cb541-3"><a href="biopython-sequences.html#cb541-3" aria-hidden="true" tabindex="-1"></a>my_first_seq <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;CATGCAT&quot;</span>)</span>
+<span id="cb541-4"><a href="biopython-sequences.html#cb541-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb541-5"><a href="biopython-sequences.html#cb541-5" aria-hidden="true" tabindex="-1"></a><span class="co"># new part, separate sequence into rows</span></span>
+<span id="cb541-6"><a href="biopython-sequences.html#cb541-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, letter <span class="cf">in</span> <span class="fu">enumerate</span>(my_first_seq)<span class="sc">:</span></span>
+<span id="cb541-7"><a href="biopython-sequences.html#cb541-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;%i %s&quot;</span> % (index, letter))</span>
+<span id="cb541-8"><a href="biopython-sequences.html#cb541-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb541-9"><a href="biopython-sequences.html#cb541-9" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieving specific elements</span></span>
+<span id="cb541-10"><a href="biopython-sequences.html#cb541-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq[<span class="dv">0</span>])</span>
+<span id="cb541-11"><a href="biopython-sequences.html#cb541-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq[<span class="dv">5</span>])</span>
+<span id="cb541-12"><a href="biopython-sequences.html#cb541-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq[<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb541-13"><a href="biopython-sequences.html#cb541-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq[<span class="sc">-</span><span class="dv">2</span>])</span>
+<span id="cb541-14"><a href="biopython-sequences.html#cb541-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb541-15"><a href="biopython-sequences.html#cb541-15" aria-hidden="true" tabindex="-1"></a><span class="co"># counting repeat sequences within a sequence</span></span>
+<span id="cb541-16"><a href="biopython-sequences.html#cb541-16" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.count</span>(<span class="st">&quot;CAT&quot;</span>)</span>
+<span id="cb541-17"><a href="biopython-sequences.html#cb541-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb541-18"><a href="biopython-sequences.html#cb541-18" aria-hidden="true" tabindex="-1"></a><span class="co"># counting base content</span></span>
+<span id="cb541-19"><a href="biopython-sequences.html#cb541-19" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.count</span>(<span class="st">&quot;C&quot;</span>)</span>
+<span id="cb541-20"><a href="biopython-sequences.html#cb541-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb541-21"><a href="biopython-sequences.html#cb541-21" aria-hidden="true" tabindex="-1"></a><span class="co"># determining GC percentage</span></span>
+<span id="cb541-22"><a href="biopython-sequences.html#cb541-22" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="sc">*</span> <span class="fu">float</span>(</span>
+<span id="cb541-23"><a href="biopython-sequences.html#cb541-23" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.count</span>(<span class="st">&quot;G&quot;</span>) <span class="sc">+</span> <span class="fu">my_first_seq.count</span>(<span class="st">&quot;C&quot;</span>)</span>
+<span id="cb541-24"><a href="biopython-sequences.html#cb541-24" aria-hidden="true" tabindex="-1"></a>) <span class="sc">/</span> <span class="fu">len</span>(my_first_seq)</span>
+<span id="cb541-25"><a href="biopython-sequences.html#cb541-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb541-26"><a href="biopython-sequences.html#cb541-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Improved simplicity in GC percentage calculation</span></span>
+<span id="cb541-27"><a href="biopython-sequences.html#cb541-27" aria-hidden="true" tabindex="-1"></a>from Bio.SeqUtils import GC</span>
+<span id="cb541-28"><a href="biopython-sequences.html#cb541-28" aria-hidden="true" tabindex="-1"></a><span class="fu">GC</span>(my_first_seq)</span>
+<span id="cb541-29"><a href="biopython-sequences.html#cb541-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb541-30"><a href="biopython-sequences.html#cb541-30" aria-hidden="true" tabindex="-1"></a><span class="co"># slicing your sequence</span></span>
+<span id="cb541-31"><a href="biopython-sequences.html#cb541-31" aria-hidden="true" tabindex="-1"></a>my_first_seq[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 </div>
-<div id="which-python-should-i-install" class="section level2" number="14.2">
-<h2><span class="header-section-number">14.2</span> Which Python should I install?</h2>
-<p>Python has releases dating to 1990 but it was first created in the 1980s. It has evolved over the past 40 years and big updates have greatly expanded Python’s utility and changed its syntax to become more user friendly. It is because of these big changes that we have a major divide between Python2 and Python3. Python2 includes any version conforming with the following structure: Python v2.x.x. Ideally you would install Python3 as it is the most recent version; however, there exists code that will only run on Python2 online. Python3 is not backwards compatible.</p>
-<p>Long story short, download both recent versions of Python2 and Python3, but we will use only Python3 in this course. If you encounter a program that operates in Python2 you can always use that version you installed to run it.</p>
-<p>We will install: Python v2.7.18 and Python v3.9.2.</p>
+<div id="concatenation-with-sequences" class="section level2" number="21.2">
+<h2><span class="header-section-number">21.2</span> Concatenation with Sequences</h2>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="biopython-sequences.html#cb542-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Simple Cat?</span></span>
+<span id="cb542-2"><a href="biopython-sequences.html#cb542-2" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
+<span id="cb542-3"><a href="biopython-sequences.html#cb542-3" aria-hidden="true" tabindex="-1"></a>seq_list <span class="ot">=</span> [<span class="fu">Seq</span>(<span class="st">&quot;CCC&quot;</span>), <span class="fu">Seq</span>(<span class="st">&quot;AAA&quot;</span>), <span class="fu">Seq</span>(<span class="st">&quot;TTT&quot;</span>)]</span>
+<span id="cb542-4"><a href="biopython-sequences.html#cb542-4" aria-hidden="true" tabindex="-1"></a>cat_list <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;&quot;</span>)</span>
+<span id="cb542-5"><a href="biopython-sequences.html#cb542-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="cf">in</span> seq_list<span class="sc">:</span></span>
+<span id="cb542-6"><a href="biopython-sequences.html#cb542-6" aria-hidden="true" tabindex="-1"></a>    cat_list <span class="sc">+</span><span class="er">=</span> s</span>
+<span id="cb542-7"><a href="biopython-sequences.html#cb542-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb542-8"><a href="biopython-sequences.html#cb542-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cat_list)</span>
+<span id="cb542-9"><a href="biopython-sequences.html#cb542-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb542-10"><a href="biopython-sequences.html#cb542-10" aria-hidden="true" tabindex="-1"></a><span class="co">#BioPython Cat w/ spacer seqs</span></span>
+<span id="cb542-11"><a href="biopython-sequences.html#cb542-11" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
+<span id="cb542-12"><a href="biopython-sequences.html#cb542-12" aria-hidden="true" tabindex="-1"></a>seq_list <span class="ot">=</span> [<span class="fu">Seq</span>(<span class="st">&quot;CCC&quot;</span>), <span class="fu">Seq</span>(<span class="st">&quot;AAA&quot;</span>), <span class="fu">Seq</span>(<span class="st">&quot;TTT&quot;</span>)]</span>
+<span id="cb542-13"><a href="biopython-sequences.html#cb542-13" aria-hidden="true" tabindex="-1"></a>spacer <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;N&quot;</span><span class="sc">*</span><span class="dv">3</span>)</span>
+<span id="cb542-14"><a href="biopython-sequences.html#cb542-14" aria-hidden="true" tabindex="-1"></a><span class="fu">spacer.join</span>(seq_list)</span></code></pre></div>
 </div>
-<div id="mac-os-x-python-installations" class="section level2" number="14.3">
-<h2><span class="header-section-number">14.3</span> Mac OS X Python Installations</h2>
-<p>Mac users may download python via its webpage:
-<a href="https://www.python.org/downloads/mac-osx/" class="uri">https://www.python.org/downloads/mac-osx/</a>
-Download both Python2 and Python3</p>
-<p>Or</p>
-<p>If you prefer to practice your command-line skills follow the steps below in terminal:</p>
-<p>Install HomeBrew</p>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="introduction-to-python.html#cb503-1" aria-hidden="true" tabindex="-1"></a>ruby <span class="sc">-</span>e <span class="st">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span></span></code></pre></div>
-<p>Install Python</p>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="introduction-to-python.html#cb504-1" aria-hidden="true" tabindex="-1"></a>brew install python2</span>
-<span id="cb504-2"><a href="introduction-to-python.html#cb504-2" aria-hidden="true" tabindex="-1"></a>brew install python3</span></code></pre></div>
+<div id="transcription-dna-to-mrna" class="section level2" number="21.3">
+<h2><span class="header-section-number">21.3</span> Transcription: DNA to mRNA</h2>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="biopython-sequences.html#cb543-1" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
+<span id="cb543-2"><a href="biopython-sequences.html#cb543-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb543-3"><a href="biopython-sequences.html#cb543-3" aria-hidden="true" tabindex="-1"></a><span class="co"># coding DNA strand</span></span>
+<span id="cb543-4"><a href="biopython-sequences.html#cb543-4" aria-hidden="true" tabindex="-1"></a>coding_dna <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;ACTGCATCGATCGTATGTGATGTGACACAC&quot;</span>)</span>
+<span id="cb543-5"><a href="biopython-sequences.html#cb543-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(coding_dna)</span>
+<span id="cb543-6"><a href="biopython-sequences.html#cb543-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb543-7"><a href="biopython-sequences.html#cb543-7" aria-hidden="true" tabindex="-1"></a><span class="co"># template DNA strand</span></span>
+<span id="cb543-8"><a href="biopython-sequences.html#cb543-8" aria-hidden="true" tabindex="-1"></a>template_dna <span class="ot">=</span> <span class="fu">coding_dna.reverse_complement</span>()</span>
+<span id="cb543-9"><a href="biopython-sequences.html#cb543-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(template_dna)</span>
+<span id="cb543-10"><a href="biopython-sequences.html#cb543-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb543-11"><a href="biopython-sequences.html#cb543-11" aria-hidden="true" tabindex="-1"></a><span class="co"># coding &gt;&gt;&gt; mRNA</span></span>
+<span id="cb543-12"><a href="biopython-sequences.html#cb543-12" aria-hidden="true" tabindex="-1"></a>m_rna <span class="ot">=</span> <span class="fu">coding_dna.transcribe</span>()</span>
+<span id="cb543-13"><a href="biopython-sequences.html#cb543-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m_rna)</span>
+<span id="cb543-14"><a href="biopython-sequences.html#cb543-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb543-15"><a href="biopython-sequences.html#cb543-15" aria-hidden="true" tabindex="-1"></a><span class="co"># template &gt;&gt;&gt; mRNA</span></span>
+<span id="cb543-16"><a href="biopython-sequences.html#cb543-16" aria-hidden="true" tabindex="-1"></a><span class="fu">template_dna.reverse_complement</span>()<span class="fu">.transcribe</span>()</span>
+<span id="cb543-17"><a href="biopython-sequences.html#cb543-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb543-18"><a href="biopython-sequences.html#cb543-18" aria-hidden="true" tabindex="-1"></a><span class="co"># mRNA &gt;&gt;&gt; cDNA</span></span>
+<span id="cb543-19"><a href="biopython-sequences.html#cb543-19" aria-hidden="true" tabindex="-1"></a><span class="fu">m_rna.back_transcribe</span>()</span></code></pre></div>
 </div>
-<div id="windows-python-installations" class="section level2" number="14.4">
-<h2><span class="header-section-number">14.4</span> Windows Python Installations</h2>
-<p>Windows users may download python via its <a href="https://www.python.org/downloads/windows/" target="_blank"><strong>webpage</strong></a>. Then, download both Python2 and Python3.</p>
-</div>
-<div id="install-an-ide-or-integrated-development-environment" class="section level2" number="14.5">
-<h2><span class="header-section-number">14.5</span> Install an IDE, or integrated development environment</h2>
-<p>Let’s also download PyCharm IDE form <a href="https://www.jetbrains.com/pycharm/download/#section=windows" target="_blank"><strong>here</strong></a>.</p>
+<div id="translation-rna-to-prot" class="section level2" number="21.4">
+<h2><span class="header-section-number">21.4</span> Translation: RNA to PROT</h2>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="biopython-sequences.html#cb544-1" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
+<span id="cb544-2"><a href="biopython-sequences.html#cb544-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb544-3"><a href="biopython-sequences.html#cb544-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mRNA to PROT</span></span>
+<span id="cb544-4"><a href="biopython-sequences.html#cb544-4" aria-hidden="true" tabindex="-1"></a>m_rna <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;ACUGAUCGAUAGAUGGUGUGUACUCAUAUCACUGACUAG&quot;</span>)</span>
+<span id="cb544-5"><a href="biopython-sequences.html#cb544-5" aria-hidden="true" tabindex="-1"></a><span class="fu">m_rna.translate</span>()</span>
+<span id="cb544-6"><a href="biopython-sequences.html#cb544-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb544-7"><a href="biopython-sequences.html#cb544-7" aria-hidden="true" tabindex="-1"></a><span class="co"># coding DNA &gt;&gt;&gt; PROT</span></span>
+<span id="cb544-8"><a href="biopython-sequences.html#cb544-8" aria-hidden="true" tabindex="-1"></a>coding_dna <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;ATCGATCGATAGATCGATCGTCGATCGATCGATCGTTAG&quot;</span>)</span>
+<span id="cb544-9"><a href="biopython-sequences.html#cb544-9" aria-hidden="true" tabindex="-1"></a><span class="fu">coding_dna.translate</span>()</span>
+<span id="cb544-10"><a href="biopython-sequences.html#cb544-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb544-11"><a href="biopython-sequences.html#cb544-11" aria-hidden="true" tabindex="-1"></a><span class="co"># change translation table type (mitochondrial)</span></span>
+<span id="cb544-12"><a href="biopython-sequences.html#cb544-12" aria-hidden="true" tabindex="-1"></a><span class="fu">coding_dna.translate</span>(<span class="at">table=</span><span class="st">&quot;Vertebrate Mitochondrial&quot;</span>)</span>
+<span id="cb544-13"><a href="biopython-sequences.html#cb544-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb544-14"><a href="biopython-sequences.html#cb544-14" aria-hidden="true" tabindex="-1"></a><span class="co"># translate to first stop codon</span></span>
+<span id="cb544-15"><a href="biopython-sequences.html#cb544-15" aria-hidden="true" tabindex="-1"></a><span class="fu">coding_dna.translate</span>(<span class="at">to_stop=</span>True)</span>
+<span id="cb544-16"><a href="biopython-sequences.html#cb544-16" aria-hidden="true" tabindex="-1"></a><span class="fu">coding_dna.translate</span>(<span class="at">table=</span><span class="st">&quot;Vertebrate Mitochondrial&quot;</span>, <span class="at">to_stop=</span>True)</span>
+<span id="cb544-17"><a href="biopython-sequences.html#cb544-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb544-18"><a href="biopython-sequences.html#cb544-18" aria-hidden="true" tabindex="-1"></a><span class="co"># bacterial gene full example from biopython.org</span></span>
+<span id="cb544-19"><a href="biopython-sequences.html#cb544-19" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
+<span id="cb544-20"><a href="biopython-sequences.html#cb544-20" aria-hidden="true" tabindex="-1"></a>gene <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;GTGAAAAAGATGCAATCTATCGTACTCGCACTTTCCCTGGTTCTGGTCGCTCCCATGGCA&quot;</span></span>
+<span id="cb544-21"><a href="biopython-sequences.html#cb544-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;GCACAGGCTGCGGAAATTACGTTAGTCCCGTCAGTAAAATTACAGATAGGCGATCGTGAT&quot;</span></span>
+<span id="cb544-22"><a href="biopython-sequences.html#cb544-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;AATCGTGGCTATTACTGGGATGGAGGTCACTGGCGCGACCACGGCTGGTGGAAACAACAT&quot;</span></span>
+<span id="cb544-23"><a href="biopython-sequences.html#cb544-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;TATGAATGGCGAGGCAATCGCTGGCACCTACACGGACCGCCGCCACCGCCGCGCCACCAT&quot;</span></span>
+<span id="cb544-24"><a href="biopython-sequences.html#cb544-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;AAGAAAGCTCCTCATGATCATCACGGCGGTCATGGTCCAGGCAAACATCACCGCTAA&quot;</span>)</span>
+<span id="cb544-25"><a href="biopython-sequences.html#cb544-25" aria-hidden="true" tabindex="-1"></a><span class="fu">gene.translate</span>(<span class="at">table=</span><span class="st">&quot;Bacterial&quot;</span>)</span>
+<span id="cb544-26"><a href="biopython-sequences.html#cb544-26" aria-hidden="true" tabindex="-1"></a><span class="fu">gene.translate</span>(<span class="at">table=</span><span class="st">&quot;Bacterial&quot;</span>, <span class="at">to_stop=</span>True)</span>
+<span id="cb544-27"><a href="biopython-sequences.html#cb544-27" aria-hidden="true" tabindex="-1"></a><span class="fu">gene.translate</span>(<span class="at">table=</span><span class="st">&quot;Bacterial&quot;</span>, <span class="at">cds=</span>True)</span></code></pre></div>
 
 </div>
 </div>
@@ -459,8 +529,8 @@ Download both Python2 and Python3</p>
           </div>
         </div>
       </div>
-<a href="mining-from-a-reference-dataset.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="python-keywords-and-identifiers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="biopython.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="biopython-mulitple-sequence-alignments.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -491,7 +561,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/14-Intro_to_Python_v2.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/21-Biopython_Sequences.Rmd",
 "text": "Edit"
 },
 "history": {

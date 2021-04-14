@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook</title>
+  <title>Session 24 – BioPython: Chromosome Modeling | Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook" />
+  <meta property="og:title" content="Session 24 – BioPython: Chromosome Modeling | Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook" />
+  <meta name="twitter:title" content="Session 24 – BioPython: Chromosome Modeling | Bioinformatics Workshop Gitbook" />
   
   <meta name="twitter:description" content="none" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="mining-from-a-reference-dataset.html"/>
-<link rel="next" href="python-keywords-and-identifiers.html"/>
+<link rel="prev" href="biopython-genomediagram.html"/>
+<link rel="next" href="biopython-sequence-parsing-w-plots.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -416,41 +416,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction-to-python" class="section level1" number="14">
-<h1><span class="header-section-number">Session 14</span> – Introduction to Python</h1>
-<div id="welcome-to-python-why-python" class="section level2" number="14.1">
-<h2><span class="header-section-number">14.1</span> Welcome to Python! Why Python?</h2>
-<p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank"><strong>Python</strong></a> is relatively easy to learn compared to most programming languages and is vastly popular among both programmers and employers. Code written in Python is universal among operating systems; allowing code to be carried between Windows, Mac and Linux without the need to re-write the code.</p>
-<p>Python code is quite minimalist compared to other languages, making reading and writing code quicker and easier. Even non-programmers are able to read Python code with little issue. Because there is less to type, it is subsequently easier to debug and maintain Python code.</p>
-<p>Lastly, Python is highly desirable throughout many fields of work. Popular applications of Python include, but are not limited to: web development, machine learning, data science, and analytics. The possibilities with Python are further broadened by its ability to incorporate other languages with easy. Imagine building the foundation of code in Python and utilize other languages like R and Java in places where they exceed Python’s capabilities.</p>
-<p>This Python section was adapted from <a href="https://www.techbeamers.com/python-tutorial-step-by-step/" target="_blank"><strong>techbeamers</strong></a> and <a href="https://www.learnpython.org/" target="_blank"><strong>learnpython</strong></a>.</p>
-</div>
-<div id="which-python-should-i-install" class="section level2" number="14.2">
-<h2><span class="header-section-number">14.2</span> Which Python should I install?</h2>
-<p>Python has releases dating to 1990 but it was first created in the 1980s. It has evolved over the past 40 years and big updates have greatly expanded Python’s utility and changed its syntax to become more user friendly. It is because of these big changes that we have a major divide between Python2 and Python3. Python2 includes any version conforming with the following structure: Python v2.x.x. Ideally you would install Python3 as it is the most recent version; however, there exists code that will only run on Python2 online. Python3 is not backwards compatible.</p>
-<p>Long story short, download both recent versions of Python2 and Python3, but we will use only Python3 in this course. If you encounter a program that operates in Python2 you can always use that version you installed to run it.</p>
-<p>We will install: Python v2.7.18 and Python v3.9.2.</p>
-</div>
-<div id="mac-os-x-python-installations" class="section level2" number="14.3">
-<h2><span class="header-section-number">14.3</span> Mac OS X Python Installations</h2>
-<p>Mac users may download python via its webpage:
-<a href="https://www.python.org/downloads/mac-osx/" class="uri">https://www.python.org/downloads/mac-osx/</a>
-Download both Python2 and Python3</p>
-<p>Or</p>
-<p>If you prefer to practice your command-line skills follow the steps below in terminal:</p>
-<p>Install HomeBrew</p>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="introduction-to-python.html#cb503-1" aria-hidden="true" tabindex="-1"></a>ruby <span class="sc">-</span>e <span class="st">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span></span></code></pre></div>
-<p>Install Python</p>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="introduction-to-python.html#cb504-1" aria-hidden="true" tabindex="-1"></a>brew install python2</span>
-<span id="cb504-2"><a href="introduction-to-python.html#cb504-2" aria-hidden="true" tabindex="-1"></a>brew install python3</span></code></pre></div>
-</div>
-<div id="windows-python-installations" class="section level2" number="14.4">
-<h2><span class="header-section-number">14.4</span> Windows Python Installations</h2>
-<p>Windows users may download python via its <a href="https://www.python.org/downloads/windows/" target="_blank"><strong>webpage</strong></a>. Then, download both Python2 and Python3.</p>
-</div>
-<div id="install-an-ide-or-integrated-development-environment" class="section level2" number="14.5">
-<h2><span class="header-section-number">14.5</span> Install an IDE, or integrated development environment</h2>
-<p>Let’s also download PyCharm IDE form <a href="https://www.jetbrains.com/pycharm/download/#section=windows" target="_blank"><strong>here</strong></a>.</p>
+<div id="biopython-chromosome-modeling" class="section level1" number="24">
+<h1><span class="header-section-number">Session 24</span> – BioPython: Chromosome Modeling</h1>
+<div id="gene-feature-modeling" class="section level2" number="24.1">
+<h2><span class="header-section-number">24.1</span> Gene Feature Modeling</h2>
+<p>Dataset is in this <a href="https://www.ncbi.nlm.nih.gov/assembly/GCF_001663975.1" target="_blank"><strong>link</strong></a></p>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="biopython-chromosome-modeling.html#cb555-1" aria-hidden="true" tabindex="-1"></a>from reportlab.lib.units import cm</span>
+<span id="cb555-2"><a href="biopython-chromosome-modeling.html#cb555-2" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb555-3"><a href="biopython-chromosome-modeling.html#cb555-3" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics import BasicChromosome</span>
+<span id="cb555-4"><a href="biopython-chromosome-modeling.html#cb555-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb555-5"><a href="biopython-chromosome-modeling.html#cb555-5" aria-hidden="true" tabindex="-1"></a>entries <span class="ot">=</span> [</span>
+<span id="cb555-6"><a href="biopython-chromosome-modeling.html#cb555-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr I&quot;</span>, <span class="st">&quot;L1.gb&quot;</span>),</span>
+<span id="cb555-7"><a href="biopython-chromosome-modeling.html#cb555-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr II&quot;</span>, <span class="st">&quot;L2.gb&quot;</span>),</span>
+<span id="cb555-8"><a href="biopython-chromosome-modeling.html#cb555-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr III&quot;</span>, <span class="st">&quot;L3.gb&quot;</span>),</span>
+<span id="cb555-9"><a href="biopython-chromosome-modeling.html#cb555-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr IV&quot;</span>, <span class="st">&quot;L4.gb&quot;</span>),</span>
+<span id="cb555-10"><a href="biopython-chromosome-modeling.html#cb555-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr V&quot;</span>, <span class="st">&quot;L5.gb&quot;</span>),</span>
+<span id="cb555-11"><a href="biopython-chromosome-modeling.html#cb555-11" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb555-12"><a href="biopython-chromosome-modeling.html#cb555-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb555-13"><a href="biopython-chromosome-modeling.html#cb555-13" aria-hidden="true" tabindex="-1"></a>max_len <span class="ot">=</span> <span class="dv">219802468</span>  <span class="co"># Could compute this from the entries dict</span></span>
+<span id="cb555-14"><a href="biopython-chromosome-modeling.html#cb555-14" aria-hidden="true" tabindex="-1"></a>telomere_length <span class="ot">=</span> <span class="dv">100000</span>  <span class="co"># For illustration</span></span>
+<span id="cb555-15"><a href="biopython-chromosome-modeling.html#cb555-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb555-16"><a href="biopython-chromosome-modeling.html#cb555-16" aria-hidden="true" tabindex="-1"></a>chr_diagram <span class="ot">=</span> <span class="fu">BasicChromosome.Organism</span>()</span>
+<span id="cb555-17"><a href="biopython-chromosome-modeling.html#cb555-17" aria-hidden="true" tabindex="-1"></a>chr_diagram.page_size <span class="ot">=</span> (<span class="dv">45</span> <span class="sc">*</span> cm, <span class="dv">500</span> <span class="sc">*</span> cm)  <span class="co"># A4 landscape</span></span>
+<span id="cb555-18"><a href="biopython-chromosome-modeling.html#cb555-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb555-19"><a href="biopython-chromosome-modeling.html#cb555-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, (name, filename) <span class="cf">in</span> <span class="fu">enumerate</span>(entries)<span class="sc">:</span></span>
+<span id="cb555-20"><a href="biopython-chromosome-modeling.html#cb555-20" aria-hidden="true" tabindex="-1"></a>    record <span class="ot">=</span> <span class="fu">SeqIO.read</span>(filename, <span class="st">&quot;genbank&quot;</span>)</span>
+<span id="cb555-21"><a href="biopython-chromosome-modeling.html#cb555-21" aria-hidden="true" tabindex="-1"></a>    length <span class="ot">=</span> <span class="fu">len</span>(record)</span>
+<span id="cb555-22"><a href="biopython-chromosome-modeling.html#cb555-22" aria-hidden="true" tabindex="-1"></a>    features <span class="ot">=</span> [f <span class="cf">for</span> f <span class="cf">in</span> record.features <span class="cf">if</span> f.type <span class="sc">==</span> <span class="st">&quot;gene&quot;</span>]</span>
+<span id="cb555-23"><a href="biopython-chromosome-modeling.html#cb555-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="cf">in</span> features<span class="sc">:</span></span>
+<span id="cb555-24"><a href="biopython-chromosome-modeling.html#cb555-24" aria-hidden="true" tabindex="-1"></a>        f.qualifiers[<span class="st">&quot;color&quot;</span>] <span class="ot">=</span> [index <span class="sc">+</span> <span class="dv">2</span>]</span>
+<span id="cb555-25"><a href="biopython-chromosome-modeling.html#cb555-25" aria-hidden="true" tabindex="-1"></a>    cur_chromosome <span class="ot">=</span> <span class="fu">BasicChromosome.Chromosome</span>(name)</span>
+<span id="cb555-26"><a href="biopython-chromosome-modeling.html#cb555-26" aria-hidden="true" tabindex="-1"></a>    cur_chromosome.scale_num <span class="ot">=</span> max_len <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> telomere_length</span>
+<span id="cb555-27"><a href="biopython-chromosome-modeling.html#cb555-27" aria-hidden="true" tabindex="-1"></a>    start <span class="ot">=</span> <span class="fu">BasicChromosome.TelomereSegment</span>()</span>
+<span id="cb555-28"><a href="biopython-chromosome-modeling.html#cb555-28" aria-hidden="true" tabindex="-1"></a>    start.scale <span class="ot">=</span> telomere_length</span>
+<span id="cb555-29"><a href="biopython-chromosome-modeling.html#cb555-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cur_chromosome.add</span>(start)</span>
+<span id="cb555-30"><a href="biopython-chromosome-modeling.html#cb555-30" aria-hidden="true" tabindex="-1"></a>    body <span class="ot">=</span> <span class="fu">BasicChromosome.AnnotatedChromosomeSegment</span>(length, features)</span>
+<span id="cb555-31"><a href="biopython-chromosome-modeling.html#cb555-31" aria-hidden="true" tabindex="-1"></a>    body.scale <span class="ot">=</span> length</span>
+<span id="cb555-32"><a href="biopython-chromosome-modeling.html#cb555-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cur_chromosome.add</span>(body)</span>
+<span id="cb555-33"><a href="biopython-chromosome-modeling.html#cb555-33" aria-hidden="true" tabindex="-1"></a>    end <span class="ot">=</span> <span class="fu">BasicChromosome.TelomereSegment</span>(<span class="at">inverted=</span>True)</span>
+<span id="cb555-34"><a href="biopython-chromosome-modeling.html#cb555-34" aria-hidden="true" tabindex="-1"></a>    end.scale <span class="ot">=</span> telomere_length</span>
+<span id="cb555-35"><a href="biopython-chromosome-modeling.html#cb555-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cur_chromosome.add</span>(end)</span>
+<span id="cb555-36"><a href="biopython-chromosome-modeling.html#cb555-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">chr_diagram.add</span>(cur_chromosome)</span>
+<span id="cb555-37"><a href="biopython-chromosome-modeling.html#cb555-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb555-38"><a href="biopython-chromosome-modeling.html#cb555-38" aria-hidden="true" tabindex="-1"></a><span class="fu">chr_diagram.draw</span>(<span class="st">&quot;Chromosome.pdf&quot;</span>, <span class="st">&quot;Xenopus laevis&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>
@@ -459,8 +467,8 @@ Download both Python2 and Python3</p>
           </div>
         </div>
       </div>
-<a href="mining-from-a-reference-dataset.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="python-keywords-and-identifiers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="biopython-genomediagram.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="biopython-sequence-parsing-w-plots.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -491,7 +499,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/14-Intro_to_Python_v2.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/24-BioPython_Chromosome_Modeling.Rmd",
 "text": "Edit"
 },
 "history": {

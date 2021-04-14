@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook</title>
+  <title>Session 20 – Biopython | Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook" />
+  <meta property="og:title" content="Session 20 – Biopython | Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook" />
+  <meta name="twitter:title" content="Session 20 – Biopython | Bioinformatics Workshop Gitbook" />
   
   <meta name="twitter:description" content="none" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="mining-from-a-reference-dataset.html"/>
-<link rel="next" href="python-keywords-and-identifiers.html"/>
+<link rel="prev" href="python-operators.html"/>
+<link rel="next" href="biopython-sequences.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -416,41 +416,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction-to-python" class="section level1" number="14">
-<h1><span class="header-section-number">Session 14</span> – Introduction to Python</h1>
-<div id="welcome-to-python-why-python" class="section level2" number="14.1">
-<h2><span class="header-section-number">14.1</span> Welcome to Python! Why Python?</h2>
-<p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank"><strong>Python</strong></a> is relatively easy to learn compared to most programming languages and is vastly popular among both programmers and employers. Code written in Python is universal among operating systems; allowing code to be carried between Windows, Mac and Linux without the need to re-write the code.</p>
-<p>Python code is quite minimalist compared to other languages, making reading and writing code quicker and easier. Even non-programmers are able to read Python code with little issue. Because there is less to type, it is subsequently easier to debug and maintain Python code.</p>
-<p>Lastly, Python is highly desirable throughout many fields of work. Popular applications of Python include, but are not limited to: web development, machine learning, data science, and analytics. The possibilities with Python are further broadened by its ability to incorporate other languages with easy. Imagine building the foundation of code in Python and utilize other languages like R and Java in places where they exceed Python’s capabilities.</p>
-<p>This Python section was adapted from <a href="https://www.techbeamers.com/python-tutorial-step-by-step/" target="_blank"><strong>techbeamers</strong></a> and <a href="https://www.learnpython.org/" target="_blank"><strong>learnpython</strong></a>.</p>
+<div id="biopython" class="section level1" number="20">
+<h1><span class="header-section-number">Session 20</span> – Biopython</h1>
+<div id="introduction-to-biopython" class="section level2" number="20.1">
+<h2><span class="header-section-number">20.1</span> Introduction to Biopython</h2>
+<p>Guide adapted from: <a href="http://biopython.org/DIST/docs/tutorial/Tutorial.html#sec3" class="uri">http://biopython.org/DIST/docs/tutorial/Tutorial.html#sec3</a></p>
+<p>All credit is due to Biopython distribution</p>
+<p>Imagine freely available tools for computational molecular biology. That is the essense of Biopython. For an online repository of all things related to Biopython feel free to visit the official webpage: <a href="http://www.biopython.org" class="uri">http://www.biopython.org</a>. Biopython includes various bioinformatic parsers, remote database and datatool access, custom access to popular aligners and much more. In summary, Biopython provides a toolset of the most common tools in molecular biology.</p>
 </div>
-<div id="which-python-should-i-install" class="section level2" number="14.2">
-<h2><span class="header-section-number">14.2</span> Which Python should I install?</h2>
-<p>Python has releases dating to 1990 but it was first created in the 1980s. It has evolved over the past 40 years and big updates have greatly expanded Python’s utility and changed its syntax to become more user friendly. It is because of these big changes that we have a major divide between Python2 and Python3. Python2 includes any version conforming with the following structure: Python v2.x.x. Ideally you would install Python3 as it is the most recent version; however, there exists code that will only run on Python2 online. Python3 is not backwards compatible.</p>
-<p>Long story short, download both recent versions of Python2 and Python3, but we will use only Python3 in this course. If you encounter a program that operates in Python2 you can always use that version you installed to run it.</p>
-<p>We will install: Python v2.7.18 and Python v3.9.2.</p>
+<div id="biopython-installation" class="section level2" number="20.2">
+<h2><span class="header-section-number">20.2</span> Biopython Installation</h2>
+<p>Installing Biopython. In Mac open terminal by typing ‘terminal’ in finder and selecting it. In Windows open terminal by typing ‘terminal’ in the desktop search bar and selecting it.</p>
+<p>Next type the following into the terminal.</p>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="biopython.html#cb536-1" aria-hidden="true" tabindex="-1"></a>pip install biopython</span>
+<span id="cb536-2"><a href="biopython.html#cb536-2" aria-hidden="true" tabindex="-1"></a>pip install <span class="sc">--</span>upgrade biopython</span></code></pre></div>
+<p>The first command will install biopython.
+The second command will upgrade biopython.</p>
 </div>
-<div id="mac-os-x-python-installations" class="section level2" number="14.3">
-<h2><span class="header-section-number">14.3</span> Mac OS X Python Installations</h2>
-<p>Mac users may download python via its webpage:
-<a href="https://www.python.org/downloads/mac-osx/" class="uri">https://www.python.org/downloads/mac-osx/</a>
-Download both Python2 and Python3</p>
-<p>Or</p>
-<p>If you prefer to practice your command-line skills follow the steps below in terminal:</p>
-<p>Install HomeBrew</p>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="introduction-to-python.html#cb503-1" aria-hidden="true" tabindex="-1"></a>ruby <span class="sc">-</span>e <span class="st">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span></span></code></pre></div>
-<p>Install Python</p>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="introduction-to-python.html#cb504-1" aria-hidden="true" tabindex="-1"></a>brew install python2</span>
-<span id="cb504-2"><a href="introduction-to-python.html#cb504-2" aria-hidden="true" tabindex="-1"></a>brew install python3</span></code></pre></div>
+<div id="getting-started" class="section level2" number="20.3">
+<h2><span class="header-section-number">20.3</span> Getting Started</h2>
+<p>In order to use Biopython effectively you need to have coding experience and it also helps to have a introduction to python. We provded a short introduction to python so that biopython would be easier to understand and utilize.</p>
+<p>When we design an experiment to test a hypothesis, we often refer to past methodology that could help structure our own. In a similar way, in programming one would look for past approaches to solving a particular problem as well as looking for if those tools are available for reuse. We try in data science to reuse as many tools as necessary as reinventing the wheel, starting from scratch, is often time consuming and completely unnecessary.</p>
+<p>Sometimes you will find numerous ways of completing a task. In this case you will need to find the most efficient tool to use. Comparing the outputs of each particular program and deciding for yourself which one is best for your particular task.</p>
+<p>Lets start working with sequences with the ‘Seq’ object via the SeqRecord class. First to utilize these features we must import Seq from Bio.Seq module toolkit.</p>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="biopython.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open Bio.Seq Module, Import what you need only: Seq</span></span>
+<span id="cb537-2"><a href="biopython.html#cb537-2" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
+<span id="cb537-3"><a href="biopython.html#cb537-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb537-4"><a href="biopython.html#cb537-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create your own sequence inside the Seq() object</span></span>
+<span id="cb537-5"><a href="biopython.html#cb537-5" aria-hidden="true" tabindex="-1"></a>my_first_seq <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;TGCATGCATCGATCG&quot;</span>)</span>
+<span id="cb537-6"><a href="biopython.html#cb537-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb537-7"><a href="biopython.html#cb537-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print command mediated print function</span></span>
+<span id="cb537-8"><a href="biopython.html#cb537-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq)</span>
+<span id="cb537-9"><a href="biopython.html#cb537-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb537-10"><a href="biopython.html#cb537-10" aria-hidden="true" tabindex="-1"></a><span class="co"># find the complement sequence easily with: complement()</span></span>
+<span id="cb537-11"><a href="biopython.html#cb537-11" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.complement</span>()</span>
+<span id="cb537-12"><a href="biopython.html#cb537-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb537-13"><a href="biopython.html#cb537-13" aria-hidden="true" tabindex="-1"></a><span class="co"># find the reverse complement easily with reverse_complement()</span></span>
+<span id="cb537-14"><a href="biopython.html#cb537-14" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.reverse_complement</span>()</span></code></pre></div>
 </div>
-<div id="windows-python-installations" class="section level2" number="14.4">
-<h2><span class="header-section-number">14.4</span> Windows Python Installations</h2>
-<p>Windows users may download python via its <a href="https://www.python.org/downloads/windows/" target="_blank"><strong>webpage</strong></a>. Then, download both Python2 and Python3.</p>
+<div id="parsing-my-fasta" class="section level2" number="20.4">
+<h2><span class="header-section-number">20.4</span> Parsing my FASTA</h2>
+<p>FASTA, one line header followed by one line sequence (or multi-line sequence). FASTA is the simiplest fashion to represent sequences. If we wanted to get more complex we could add quality scores for each base in the sequence, which would make it a FASTQ.</p>
+<p>If we wanted all details pertaining to these sequences we could throw in everything but the kitchen sink and call it a GenBank file. This would include everything from who it is from, where it was collected, which experiment it was part of, etc.</p>
+<p>Lets go to NCBI and select a gene for our next activity: <a href="https://www.ncbi.nlm.nih.gov/protein" class="uri">https://www.ncbi.nlm.nih.gov/protein</a></p>
+<p>For this activity I will focus on Buforin I but you are free to choose any protein that interests you and proceed by downloading the complete fasta file with all correlating sequences.</p>
+<p>Open the file that you download to check and make sure it is in FASTA format. Never assume that the files downloaded match the description.</p>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="biopython.html#cb538-1" aria-hidden="true" tabindex="-1"></a><span class="co"># configure file location</span></span>
+<span id="cb538-2"><a href="biopython.html#cb538-2" aria-hidden="true" tabindex="-1"></a>fasta_file <span class="ot">=</span> PATH TO FASTA FILE</span>
+<span id="cb538-3"><a href="biopython.html#cb538-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb538-4"><a href="biopython.html#cb538-4" aria-hidden="true" tabindex="-1"></a><span class="co"># import SeqIO toolkit</span></span>
+<span id="cb538-5"><a href="biopython.html#cb538-5" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb538-6"><a href="biopython.html#cb538-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb538-7"><a href="biopython.html#cb538-7" aria-hidden="true" tabindex="-1"></a><span class="co"># for X in fasta file, print ID SEQUENCE and LENGTH of SEQ</span></span>
+<span id="cb538-8"><a href="biopython.html#cb538-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seq_record <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(fasta_file, <span class="st">&quot;fasta&quot;</span>)<span class="sc">:</span></span>
+<span id="cb538-9"><a href="biopython.html#cb538-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(seq_record.id)</span>
+<span id="cb538-10"><a href="biopython.html#cb538-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">repr</span>(seq_record.seq))</span>
+<span id="cb538-11"><a href="biopython.html#cb538-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">len</span>(seq_record))</span></code></pre></div>
+<p>You can see how easy it is to pull information from the FASTA file with a couple lines of code. We can print that information into the console, we can also save that data in python to filter it even further and in -*/e cases it may be better to save that data. Lets see a few of those commands.</p>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="biopython.html#cb539-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import module for changing directories</span></span>
+<span id="cb539-2"><a href="biopython.html#cb539-2" aria-hidden="true" tabindex="-1"></a>import os</span>
+<span id="cb539-3"><a href="biopython.html#cb539-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb539-4"><a href="biopython.html#cb539-4" aria-hidden="true" tabindex="-1"></a><span class="co"># CHange DIRectory</span></span>
+<span id="cb539-5"><a href="biopython.html#cb539-5" aria-hidden="true" tabindex="-1"></a><span class="fu">os.chdir</span>(<span class="st">&quot;Your Python Work Folder For This Class&quot;</span>)</span>
+<span id="cb539-6"><a href="biopython.html#cb539-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb539-7"><a href="biopython.html#cb539-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the data!</span></span>
+<span id="cb539-8"><a href="biopython.html#cb539-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seq_record <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(fasta_file, <span class="st">&quot;fasta&quot;</span>)<span class="sc">:</span></span>
+<span id="cb539-9"><a href="biopython.html#cb539-9" aria-hidden="true" tabindex="-1"></a>    with <span class="fu">open</span>(<span class="st">&#39;parsed_fasta.txt&#39;</span>, <span class="st">&#39;a&#39;</span>) as f<span class="sc">:</span></span>
+<span id="cb539-10"><a href="biopython.html#cb539-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f.write</span>(seq_record.id)</span>
+<span id="cb539-11"><a href="biopython.html#cb539-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f.write</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb539-12"><a href="biopython.html#cb539-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f.close</span>()</span></code></pre></div>
 </div>
-<div id="install-an-ide-or-integrated-development-environment" class="section level2" number="14.5">
-<h2><span class="header-section-number">14.5</span> Install an IDE, or integrated development environment</h2>
-<p>Let’s also download PyCharm IDE form <a href="https://www.jetbrains.com/pycharm/download/#section=windows" target="_blank"><strong>here</strong></a>.</p>
+<div id="parsing-my-genbank-or-genpept" class="section level2" number="20.5">
+<h2><span class="header-section-number">20.5</span> Parsing my GenBank or GenPept</h2>
+<p>If the input is not in FASTA format, you can make some minor tweaks and use a GenBank or GenPept file instead.</p>
+<p>Lets go back to NCBI and select a gene for our next activity but this time lets select the genpept download: <a href="https://www.ncbi.nlm.nih.gov/protein" class="uri">https://www.ncbi.nlm.nih.gov/protein</a></p>
+<p>Move this file into your python working directory, then proceed with the commands below:</p>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="biopython.html#cb540-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb540-2"><a href="biopython.html#cb540-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seq_record <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(<span class="st">&quot;sequence.gp&quot;</span>, <span class="st">&quot;genbank&quot;</span>)<span class="sc">:</span></span>
+<span id="cb540-3"><a href="biopython.html#cb540-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(seq_record.id)</span>
+<span id="cb540-4"><a href="biopython.html#cb540-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(<span class="fu">repr</span>(seq_record.seq))</span>
+<span id="cb540-5"><a href="biopython.html#cb540-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(<span class="fu">len</span>(seq_record))</span></code></pre></div>
+<p>There are way more parsers in Biopython that we do not have time to go over all of them. Feel free to explore them on your own after class.</p>
 
 </div>
 </div>
@@ -459,8 +505,8 @@ Download both Python2 and Python3</p>
           </div>
         </div>
       </div>
-<a href="mining-from-a-reference-dataset.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="python-keywords-and-identifiers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="python-operators.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="biopython-sequences.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -491,7 +537,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/14-Intro_to_Python_v2.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/20-BioPython_Introduction.Rmd",
 "text": "Edit"
 },
 "history": {

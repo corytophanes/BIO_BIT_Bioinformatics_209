@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook</title>
+  <title>Session 22 – Biopython: Mulitple Sequence Alignments | Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook" />
+  <meta property="og:title" content="Session 22 – Biopython: Mulitple Sequence Alignments | Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook" />
+  <meta name="twitter:title" content="Session 22 – Biopython: Mulitple Sequence Alignments | Bioinformatics Workshop Gitbook" />
   
   <meta name="twitter:description" content="none" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="mining-from-a-reference-dataset.html"/>
-<link rel="next" href="python-keywords-and-identifiers.html"/>
+<link rel="prev" href="biopython-sequences.html"/>
+<link rel="next" href="biopython-genomediagram.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -416,41 +416,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction-to-python" class="section level1" number="14">
-<h1><span class="header-section-number">Session 14</span> – Introduction to Python</h1>
-<div id="welcome-to-python-why-python" class="section level2" number="14.1">
-<h2><span class="header-section-number">14.1</span> Welcome to Python! Why Python?</h2>
-<p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank"><strong>Python</strong></a> is relatively easy to learn compared to most programming languages and is vastly popular among both programmers and employers. Code written in Python is universal among operating systems; allowing code to be carried between Windows, Mac and Linux without the need to re-write the code.</p>
-<p>Python code is quite minimalist compared to other languages, making reading and writing code quicker and easier. Even non-programmers are able to read Python code with little issue. Because there is less to type, it is subsequently easier to debug and maintain Python code.</p>
-<p>Lastly, Python is highly desirable throughout many fields of work. Popular applications of Python include, but are not limited to: web development, machine learning, data science, and analytics. The possibilities with Python are further broadened by its ability to incorporate other languages with easy. Imagine building the foundation of code in Python and utilize other languages like R and Java in places where they exceed Python’s capabilities.</p>
-<p>This Python section was adapted from <a href="https://www.techbeamers.com/python-tutorial-step-by-step/" target="_blank"><strong>techbeamers</strong></a> and <a href="https://www.learnpython.org/" target="_blank"><strong>learnpython</strong></a>.</p>
+<div id="biopython-mulitple-sequence-alignments" class="section level1" number="22">
+<h1><span class="header-section-number">Session 22</span> – Biopython: Mulitple Sequence Alignments</h1>
+<div id="pairwise2" class="section level2" number="22.1">
+<h2><span class="header-section-number">22.1</span> pairwise2</h2>
+<p>Save the following as prot1.faa and prot2.faa</p>
+<blockquote>
+<p>prot1
+MVLSPADKTNVKAAWGKVGAHAGEYGAEALERMFLSFPTTKTYFPHFDLSHGSAQVKGHG
+KKVADALTNAVAHVDDMPNALSALSDLHAHKLRVDPVNFKLLSHCLLVTLAAHLPAEFTP
+AVHASLDKFLASVSTVLTSKYR</p>
+</blockquote>
+<blockquote>
+<p>prot2
+MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPK
+VKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFG
+KEFTPPVQAAYQKVVAGVANALAHKYH</p>
+</blockquote>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="biopython-mulitple-sequence-alignments.html#cb545-1" aria-hidden="true" tabindex="-1"></a>from Bio import pairwise2</span>
+<span id="cb545-2"><a href="biopython-mulitple-sequence-alignments.html#cb545-2" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb545-3"><a href="biopython-mulitple-sequence-alignments.html#cb545-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb545-4"><a href="biopython-mulitple-sequence-alignments.html#cb545-4" aria-hidden="true" tabindex="-1"></a>seq1 <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;alpha.faa&quot;</span>], <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb545-5"><a href="biopython-mulitple-sequence-alignments.html#cb545-5" aria-hidden="true" tabindex="-1"></a>seq2 <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;beta.faa&quot;</span>, <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb545-6"><a href="biopython-mulitple-sequence-alignments.html#cb545-6" aria-hidden="true" tabindex="-1"></a>alignments <span class="ot">=</span> <span class="fu">pairwise2.align.globalxx</span>(seq1.seq, seq2.seq)</span></code></pre></div>
 </div>
-<div id="which-python-should-i-install" class="section level2" number="14.2">
-<h2><span class="header-section-number">14.2</span> Which Python should I install?</h2>
-<p>Python has releases dating to 1990 but it was first created in the 1980s. It has evolved over the past 40 years and big updates have greatly expanded Python’s utility and changed its syntax to become more user friendly. It is because of these big changes that we have a major divide between Python2 and Python3. Python2 includes any version conforming with the following structure: Python v2.x.x. Ideally you would install Python3 as it is the most recent version; however, there exists code that will only run on Python2 online. Python3 is not backwards compatible.</p>
-<p>Long story short, download both recent versions of Python2 and Python3, but we will use only Python3 in this course. If you encounter a program that operates in Python2 you can always use that version you installed to run it.</p>
-<p>We will install: Python v2.7.18 and Python v3.9.2.</p>
-</div>
-<div id="mac-os-x-python-installations" class="section level2" number="14.3">
-<h2><span class="header-section-number">14.3</span> Mac OS X Python Installations</h2>
-<p>Mac users may download python via its webpage:
-<a href="https://www.python.org/downloads/mac-osx/" class="uri">https://www.python.org/downloads/mac-osx/</a>
-Download both Python2 and Python3</p>
-<p>Or</p>
-<p>If you prefer to practice your command-line skills follow the steps below in terminal:</p>
-<p>Install HomeBrew</p>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="introduction-to-python.html#cb503-1" aria-hidden="true" tabindex="-1"></a>ruby <span class="sc">-</span>e <span class="st">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span></span></code></pre></div>
-<p>Install Python</p>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="introduction-to-python.html#cb504-1" aria-hidden="true" tabindex="-1"></a>brew install python2</span>
-<span id="cb504-2"><a href="introduction-to-python.html#cb504-2" aria-hidden="true" tabindex="-1"></a>brew install python3</span></code></pre></div>
-</div>
-<div id="windows-python-installations" class="section level2" number="14.4">
-<h2><span class="header-section-number">14.4</span> Windows Python Installations</h2>
-<p>Windows users may download python via its <a href="https://www.python.org/downloads/windows/" target="_blank"><strong>webpage</strong></a>. Then, download both Python2 and Python3.</p>
-</div>
-<div id="install-an-ide-or-integrated-development-environment" class="section level2" number="14.5">
-<h2><span class="header-section-number">14.5</span> Install an IDE, or integrated development environment</h2>
-<p>Let’s also download PyCharm IDE form <a href="https://www.jetbrains.com/pycharm/download/#section=windows" target="_blank"><strong>here</strong></a>.</p>
+<div id="pairwisealigner" class="section level2" number="22.2">
+<h2><span class="header-section-number">22.2</span> PairwiseAligner</h2>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="biopython-mulitple-sequence-alignments.html#cb546-1" aria-hidden="true" tabindex="-1"></a>from Bio import Align</span>
+<span id="cb546-2"><a href="biopython-mulitple-sequence-alignments.html#cb546-2" aria-hidden="true" tabindex="-1"></a>aligner <span class="ot">=</span> <span class="fu">Align.PairwiseAligner</span>(<span class="at">match_score=</span><span class="fl">1.0</span>)</span>
+<span id="cb546-3"><a href="biopython-mulitple-sequence-alignments.html#cb546-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(aligner)</span>
+<span id="cb546-4"><a href="biopython-mulitple-sequence-alignments.html#cb546-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb546-5"><a href="biopython-mulitple-sequence-alignments.html#cb546-5" aria-hidden="true" tabindex="-1"></a>aligner.algorithm</span>
+<span id="cb546-6"><a href="biopython-mulitple-sequence-alignments.html#cb546-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb546-7"><a href="biopython-mulitple-sequence-alignments.html#cb546-7" aria-hidden="true" tabindex="-1"></a>seq1 <span class="ot">=</span> <span class="st">&quot;TATACATTAAAGGAGGGGGATGCGGATAAATGGAAAGGCGAAAAAGAAAAAAATGAATCTAAATGATA&quot;</span></span>
+<span id="cb546-8"><a href="biopython-mulitple-sequence-alignments.html#cb546-8" aria-hidden="true" tabindex="-1"></a>seq2 <span class="ot">=</span> <span class="st">&quot;TATACATTAAAGGAGGGGGATGCGGATAAATGGAAAGGCGAAAGAAAGAAAAAAATGAATCTAAATGATA&quot;</span></span>
+<span id="cb546-9"><a href="biopython-mulitple-sequence-alignments.html#cb546-9" aria-hidden="true" tabindex="-1"></a>score <span class="ot">=</span> <span class="fu">aligner.score</span>(seq1, seq2)</span>
+<span id="cb546-10"><a href="biopython-mulitple-sequence-alignments.html#cb546-10" aria-hidden="true" tabindex="-1"></a>score</span>
+<span id="cb546-11"><a href="biopython-mulitple-sequence-alignments.html#cb546-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb546-12"><a href="biopython-mulitple-sequence-alignments.html#cb546-12" aria-hidden="true" tabindex="-1"></a>alignments <span class="ot">=</span> <span class="fu">aligner.align</span>(seq1, seq2)</span>
+<span id="cb546-13"><a href="biopython-mulitple-sequence-alignments.html#cb546-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> alignment <span class="cf">in</span> alignments<span class="sc">:</span></span>
+<span id="cb546-14"><a href="biopython-mulitple-sequence-alignments.html#cb546-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(alignment)</span></code></pre></div>
 
 </div>
 </div>
@@ -459,8 +464,8 @@ Download both Python2 and Python3</p>
           </div>
         </div>
       </div>
-<a href="mining-from-a-reference-dataset.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="python-keywords-and-identifiers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="biopython-sequences.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="biopython-genomediagram.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -491,7 +496,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/14-Intro_to_Python_v2.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/22-Biopython_Mulitple_Sequence_Alignments.Rmd",
 "text": "Edit"
 },
 "history": {
