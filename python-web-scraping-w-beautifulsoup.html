@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2021-04-14" />
+<meta name="date" content="2021-04-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="biopython-sequence-parsing-w-plots.html"/>
-
+<link rel="next" href="python-subprocess.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -396,6 +396,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="26.6" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#use-css-selectors-for-positional-mining"><i class="fa fa-check"></i><b>26.6</b> Use CSS Selectors for positional mining</a></li>
 <li class="chapter" data-level="26.7" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#weather-page-example"><i class="fa fa-check"></i><b>26.7</b> Weather Page Example</a></li>
 </ul></li>
+<li class="chapter" data-level="27" data-path="python-subprocess.html"><a href="python-subprocess.html"><i class="fa fa-check"></i><b>27</b> – Python Subprocess</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="python-subprocess.html"><a href="python-subprocess.html#introduction-and-installation"><i class="fa fa-check"></i><b>27.1</b> Introduction and Installation</a></li>
+<li class="chapter" data-level="27.2" data-path="python-subprocess.html"><a href="python-subprocess.html#creating-your-first-python-script-w-bbtools"><i class="fa fa-check"></i><b>27.2</b> Creating your first python script w/ BBTools</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -426,8 +431,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="installation" class="section level2" number="26.2">
 <h2><span class="header-section-number">26.2</span> Installation</h2>
 <p>Install in terminal with the following commands:</p>
-<p>$pip install beautifulsoup4
-$python -m pip install requests</p>
+<p><code>$pip install beautifulsoup4</code></p>
+<p><code>$python -m pip install requests</code></p>
+<p>Notice for masOS use: <code>$pip3 install beautifulsoup4</code></p>
 </div>
 <div id="getting-started-1" class="section level2" number="26.3">
 <h2><span class="header-section-number">26.3</span> Getting started</h2>
@@ -577,8 +583,8 @@ $ pip install pandas</p>
           </div>
         </div>
       </div>
-<a href="biopython-sequence-parsing-w-plots.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="biopython-sequence-parsing-w-plots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="python-subprocess.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -628,6 +634,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

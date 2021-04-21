@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Session 21 – Biopython: Sequences | Bioinformatics Workshop Gitbook</title>
+  <title>Session 27 – Python Subprocess | Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Session 21 – Biopython: Sequences | Bioinformatics Workshop Gitbook" />
+  <meta property="og:title" content="Session 27 – Python Subprocess | Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Session 21 – Biopython: Sequences | Bioinformatics Workshop Gitbook" />
+  <meta name="twitter:title" content="Session 27 – Python Subprocess | Bioinformatics Workshop Gitbook" />
   
   <meta name="twitter:description" content="none" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="biopython.html"/>
-<link rel="next" href="biopython-mulitple-sequence-alignments.html"/>
+<link rel="prev" href="python-web-scraping-w-beautifulsoup.html"/>
+
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -421,111 +421,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="biopython-sequences" class="section level1" number="21">
-<h1><span class="header-section-number">Session 21</span> – Biopython: Sequences</h1>
-<div id="sequence-objects" class="section level2" number="21.1">
-<h2><span class="header-section-number">21.1</span> Sequence Objects</h2>
-<p>Sequence objects behave similar to strings and can be treated as such in Biopython. However, sequence objects are largely immutable unless converted to an actual string.</p>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="biopython-sequences.html#cb541-1" aria-hidden="true" tabindex="-1"></a><span class="co"># old stuff we have introduced before</span></span>
-<span id="cb541-2"><a href="biopython-sequences.html#cb541-2" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
-<span id="cb541-3"><a href="biopython-sequences.html#cb541-3" aria-hidden="true" tabindex="-1"></a>my_first_seq <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;CATGCAT&quot;</span>)</span>
-<span id="cb541-4"><a href="biopython-sequences.html#cb541-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb541-5"><a href="biopython-sequences.html#cb541-5" aria-hidden="true" tabindex="-1"></a><span class="co"># new part, separate sequence into rows</span></span>
-<span id="cb541-6"><a href="biopython-sequences.html#cb541-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, letter <span class="cf">in</span> <span class="fu">enumerate</span>(my_first_seq)<span class="sc">:</span></span>
-<span id="cb541-7"><a href="biopython-sequences.html#cb541-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;%i %s&quot;</span> % (index, letter))</span>
-<span id="cb541-8"><a href="biopython-sequences.html#cb541-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb541-9"><a href="biopython-sequences.html#cb541-9" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieving specific elements</span></span>
-<span id="cb541-10"><a href="biopython-sequences.html#cb541-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq[<span class="dv">0</span>])</span>
-<span id="cb541-11"><a href="biopython-sequences.html#cb541-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq[<span class="dv">5</span>])</span>
-<span id="cb541-12"><a href="biopython-sequences.html#cb541-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq[<span class="sc">-</span><span class="dv">1</span>])</span>
-<span id="cb541-13"><a href="biopython-sequences.html#cb541-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq[<span class="sc">-</span><span class="dv">2</span>])</span>
-<span id="cb541-14"><a href="biopython-sequences.html#cb541-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb541-15"><a href="biopython-sequences.html#cb541-15" aria-hidden="true" tabindex="-1"></a><span class="co"># counting repeat sequences within a sequence</span></span>
-<span id="cb541-16"><a href="biopython-sequences.html#cb541-16" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.count</span>(<span class="st">&quot;CAT&quot;</span>)</span>
-<span id="cb541-17"><a href="biopython-sequences.html#cb541-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb541-18"><a href="biopython-sequences.html#cb541-18" aria-hidden="true" tabindex="-1"></a><span class="co"># counting base content</span></span>
-<span id="cb541-19"><a href="biopython-sequences.html#cb541-19" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.count</span>(<span class="st">&quot;C&quot;</span>)</span>
-<span id="cb541-20"><a href="biopython-sequences.html#cb541-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb541-21"><a href="biopython-sequences.html#cb541-21" aria-hidden="true" tabindex="-1"></a><span class="co"># determining GC percentage</span></span>
-<span id="cb541-22"><a href="biopython-sequences.html#cb541-22" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="sc">*</span> <span class="fu">float</span>(</span>
-<span id="cb541-23"><a href="biopython-sequences.html#cb541-23" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.count</span>(<span class="st">&quot;G&quot;</span>) <span class="sc">+</span> <span class="fu">my_first_seq.count</span>(<span class="st">&quot;C&quot;</span>)</span>
-<span id="cb541-24"><a href="biopython-sequences.html#cb541-24" aria-hidden="true" tabindex="-1"></a>) <span class="sc">/</span> <span class="fu">len</span>(my_first_seq)</span>
-<span id="cb541-25"><a href="biopython-sequences.html#cb541-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb541-26"><a href="biopython-sequences.html#cb541-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Improved simplicity in GC percentage calculation</span></span>
-<span id="cb541-27"><a href="biopython-sequences.html#cb541-27" aria-hidden="true" tabindex="-1"></a>from Bio.SeqUtils import GC</span>
-<span id="cb541-28"><a href="biopython-sequences.html#cb541-28" aria-hidden="true" tabindex="-1"></a><span class="fu">GC</span>(my_first_seq)</span>
-<span id="cb541-29"><a href="biopython-sequences.html#cb541-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb541-30"><a href="biopython-sequences.html#cb541-30" aria-hidden="true" tabindex="-1"></a><span class="co"># slicing your sequence</span></span>
-<span id="cb541-31"><a href="biopython-sequences.html#cb541-31" aria-hidden="true" tabindex="-1"></a>my_first_seq[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div id="python-subprocess" class="section level1" number="27">
+<h1><span class="header-section-number">Session 27</span> – Python Subprocess</h1>
+<div id="introduction-and-installation" class="section level2" number="27.1">
+<h2><span class="header-section-number">27.1</span> Introduction and Installation</h2>
+<p>For our last application of python we will utilize the subprocess module which will allow easy integration of outside software and even other coding languages in python.</p>
+<p>More information on the subprocess module can be found <a href="https://docs.python.org/3/library/subprocess.html" target="_blank"><strong>here</strong></a>.</p>
+<p>We will be working with software from the <a href="https://jgi.doe.gov/" target="_blank"><strong>Joint Genome Institute from the Department of Energy</strong></a> to demonstrate how subprocess works with outside software.</p>
+<p>More specifically we will work with BBTools for analyzing and manipulation of DNA and RNA sequence data. Note that this is just an example, you can use subprocess on any software you wish, as long as it has command-line compatibility. Lets go to the installation page <a href="https://jgi.doe.gov/data-and-tools/bbtools/" target="_blank"><strong>BBTools</strong></a> and install it for our systems using this <a href="https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/installation-guide/" target="_blank"><strong>installation guide</strong></a>.</p>
+<p>If you are working with a windows system, you will need <a href="https://www.7-zip.org/" target="_blank"><strong>7-zip</strong></a> to uncompress the software once it is downloaded.</p>
 </div>
-<div id="concatenation-with-sequences" class="section level2" number="21.2">
-<h2><span class="header-section-number">21.2</span> Concatenation with Sequences</h2>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="biopython-sequences.html#cb542-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Simple Cat?</span></span>
-<span id="cb542-2"><a href="biopython-sequences.html#cb542-2" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
-<span id="cb542-3"><a href="biopython-sequences.html#cb542-3" aria-hidden="true" tabindex="-1"></a>seq_list <span class="ot">=</span> [<span class="fu">Seq</span>(<span class="st">&quot;CCC&quot;</span>), <span class="fu">Seq</span>(<span class="st">&quot;AAA&quot;</span>), <span class="fu">Seq</span>(<span class="st">&quot;TTT&quot;</span>)]</span>
-<span id="cb542-4"><a href="biopython-sequences.html#cb542-4" aria-hidden="true" tabindex="-1"></a>cat_list <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;&quot;</span>)</span>
-<span id="cb542-5"><a href="biopython-sequences.html#cb542-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="cf">in</span> seq_list<span class="sc">:</span></span>
-<span id="cb542-6"><a href="biopython-sequences.html#cb542-6" aria-hidden="true" tabindex="-1"></a>    cat_list <span class="sc">+</span><span class="er">=</span> s</span>
-<span id="cb542-7"><a href="biopython-sequences.html#cb542-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb542-8"><a href="biopython-sequences.html#cb542-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cat_list)</span>
-<span id="cb542-9"><a href="biopython-sequences.html#cb542-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb542-10"><a href="biopython-sequences.html#cb542-10" aria-hidden="true" tabindex="-1"></a><span class="co">#BioPython Cat w/ spacer seqs</span></span>
-<span id="cb542-11"><a href="biopython-sequences.html#cb542-11" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
-<span id="cb542-12"><a href="biopython-sequences.html#cb542-12" aria-hidden="true" tabindex="-1"></a>seq_list <span class="ot">=</span> [<span class="fu">Seq</span>(<span class="st">&quot;CCC&quot;</span>), <span class="fu">Seq</span>(<span class="st">&quot;AAA&quot;</span>), <span class="fu">Seq</span>(<span class="st">&quot;TTT&quot;</span>)]</span>
-<span id="cb542-13"><a href="biopython-sequences.html#cb542-13" aria-hidden="true" tabindex="-1"></a>spacer <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;N&quot;</span><span class="sc">*</span><span class="dv">3</span>)</span>
-<span id="cb542-14"><a href="biopython-sequences.html#cb542-14" aria-hidden="true" tabindex="-1"></a><span class="fu">spacer.join</span>(seq_list)</span></code></pre></div>
-</div>
-<div id="transcription-dna-to-mrna" class="section level2" number="21.3">
-<h2><span class="header-section-number">21.3</span> Transcription: DNA to mRNA</h2>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="biopython-sequences.html#cb543-1" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
-<span id="cb543-2"><a href="biopython-sequences.html#cb543-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb543-3"><a href="biopython-sequences.html#cb543-3" aria-hidden="true" tabindex="-1"></a><span class="co"># coding DNA strand</span></span>
-<span id="cb543-4"><a href="biopython-sequences.html#cb543-4" aria-hidden="true" tabindex="-1"></a>coding_dna <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;ACTGCATCGATCGTATGTGATGTGACACAC&quot;</span>)</span>
-<span id="cb543-5"><a href="biopython-sequences.html#cb543-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(coding_dna)</span>
-<span id="cb543-6"><a href="biopython-sequences.html#cb543-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb543-7"><a href="biopython-sequences.html#cb543-7" aria-hidden="true" tabindex="-1"></a><span class="co"># template DNA strand</span></span>
-<span id="cb543-8"><a href="biopython-sequences.html#cb543-8" aria-hidden="true" tabindex="-1"></a>template_dna <span class="ot">=</span> <span class="fu">coding_dna.reverse_complement</span>()</span>
-<span id="cb543-9"><a href="biopython-sequences.html#cb543-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(template_dna)</span>
-<span id="cb543-10"><a href="biopython-sequences.html#cb543-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb543-11"><a href="biopython-sequences.html#cb543-11" aria-hidden="true" tabindex="-1"></a><span class="co"># coding &gt;&gt;&gt; mRNA</span></span>
-<span id="cb543-12"><a href="biopython-sequences.html#cb543-12" aria-hidden="true" tabindex="-1"></a>m_rna <span class="ot">=</span> <span class="fu">coding_dna.transcribe</span>()</span>
-<span id="cb543-13"><a href="biopython-sequences.html#cb543-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m_rna)</span>
-<span id="cb543-14"><a href="biopython-sequences.html#cb543-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb543-15"><a href="biopython-sequences.html#cb543-15" aria-hidden="true" tabindex="-1"></a><span class="co"># template &gt;&gt;&gt; mRNA</span></span>
-<span id="cb543-16"><a href="biopython-sequences.html#cb543-16" aria-hidden="true" tabindex="-1"></a><span class="fu">template_dna.reverse_complement</span>()<span class="fu">.transcribe</span>()</span>
-<span id="cb543-17"><a href="biopython-sequences.html#cb543-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb543-18"><a href="biopython-sequences.html#cb543-18" aria-hidden="true" tabindex="-1"></a><span class="co"># mRNA &gt;&gt;&gt; cDNA</span></span>
-<span id="cb543-19"><a href="biopython-sequences.html#cb543-19" aria-hidden="true" tabindex="-1"></a><span class="fu">m_rna.back_transcribe</span>()</span></code></pre></div>
-</div>
-<div id="translation-rna-to-prot" class="section level2" number="21.4">
-<h2><span class="header-section-number">21.4</span> Translation: RNA to PROT</h2>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="biopython-sequences.html#cb544-1" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
-<span id="cb544-2"><a href="biopython-sequences.html#cb544-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb544-3"><a href="biopython-sequences.html#cb544-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mRNA to PROT</span></span>
-<span id="cb544-4"><a href="biopython-sequences.html#cb544-4" aria-hidden="true" tabindex="-1"></a>m_rna <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;ACUGAUCGAUAGAUGGUGUGUACUCAUAUCACUGACUAG&quot;</span>)</span>
-<span id="cb544-5"><a href="biopython-sequences.html#cb544-5" aria-hidden="true" tabindex="-1"></a><span class="fu">m_rna.translate</span>()</span>
-<span id="cb544-6"><a href="biopython-sequences.html#cb544-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb544-7"><a href="biopython-sequences.html#cb544-7" aria-hidden="true" tabindex="-1"></a><span class="co"># coding DNA &gt;&gt;&gt; PROT</span></span>
-<span id="cb544-8"><a href="biopython-sequences.html#cb544-8" aria-hidden="true" tabindex="-1"></a>coding_dna <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;ATCGATCGATAGATCGATCGTCGATCGATCGATCGTTAG&quot;</span>)</span>
-<span id="cb544-9"><a href="biopython-sequences.html#cb544-9" aria-hidden="true" tabindex="-1"></a><span class="fu">coding_dna.translate</span>()</span>
-<span id="cb544-10"><a href="biopython-sequences.html#cb544-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb544-11"><a href="biopython-sequences.html#cb544-11" aria-hidden="true" tabindex="-1"></a><span class="co"># change translation table type (mitochondrial)</span></span>
-<span id="cb544-12"><a href="biopython-sequences.html#cb544-12" aria-hidden="true" tabindex="-1"></a><span class="fu">coding_dna.translate</span>(<span class="at">table=</span><span class="st">&quot;Vertebrate Mitochondrial&quot;</span>)</span>
-<span id="cb544-13"><a href="biopython-sequences.html#cb544-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb544-14"><a href="biopython-sequences.html#cb544-14" aria-hidden="true" tabindex="-1"></a><span class="co"># translate to first stop codon</span></span>
-<span id="cb544-15"><a href="biopython-sequences.html#cb544-15" aria-hidden="true" tabindex="-1"></a><span class="fu">coding_dna.translate</span>(<span class="at">to_stop=</span>True)</span>
-<span id="cb544-16"><a href="biopython-sequences.html#cb544-16" aria-hidden="true" tabindex="-1"></a><span class="fu">coding_dna.translate</span>(<span class="at">table=</span><span class="st">&quot;Vertebrate Mitochondrial&quot;</span>, <span class="at">to_stop=</span>True)</span>
-<span id="cb544-17"><a href="biopython-sequences.html#cb544-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb544-18"><a href="biopython-sequences.html#cb544-18" aria-hidden="true" tabindex="-1"></a><span class="co"># bacterial gene full example from biopython.org</span></span>
-<span id="cb544-19"><a href="biopython-sequences.html#cb544-19" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
-<span id="cb544-20"><a href="biopython-sequences.html#cb544-20" aria-hidden="true" tabindex="-1"></a>gene <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;GTGAAAAAGATGCAATCTATCGTACTCGCACTTTCCCTGGTTCTGGTCGCTCCCATGGCA&quot;</span></span>
-<span id="cb544-21"><a href="biopython-sequences.html#cb544-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;GCACAGGCTGCGGAAATTACGTTAGTCCCGTCAGTAAAATTACAGATAGGCGATCGTGAT&quot;</span></span>
-<span id="cb544-22"><a href="biopython-sequences.html#cb544-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;AATCGTGGCTATTACTGGGATGGAGGTCACTGGCGCGACCACGGCTGGTGGAAACAACAT&quot;</span></span>
-<span id="cb544-23"><a href="biopython-sequences.html#cb544-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;TATGAATGGCGAGGCAATCGCTGGCACCTACACGGACCGCCGCCACCGCCGCGCCACCAT&quot;</span></span>
-<span id="cb544-24"><a href="biopython-sequences.html#cb544-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;AAGAAAGCTCCTCATGATCATCACGGCGGTCATGGTCCAGGCAAACATCACCGCTAA&quot;</span>)</span>
-<span id="cb544-25"><a href="biopython-sequences.html#cb544-25" aria-hidden="true" tabindex="-1"></a><span class="fu">gene.translate</span>(<span class="at">table=</span><span class="st">&quot;Bacterial&quot;</span>)</span>
-<span id="cb544-26"><a href="biopython-sequences.html#cb544-26" aria-hidden="true" tabindex="-1"></a><span class="fu">gene.translate</span>(<span class="at">table=</span><span class="st">&quot;Bacterial&quot;</span>, <span class="at">to_stop=</span>True)</span>
-<span id="cb544-27"><a href="biopython-sequences.html#cb544-27" aria-hidden="true" tabindex="-1"></a><span class="fu">gene.translate</span>(<span class="at">table=</span><span class="st">&quot;Bacterial&quot;</span>, <span class="at">cds=</span>True)</span></code></pre></div>
+<div id="creating-your-first-python-script-w-bbtools" class="section level2" number="27.2">
+<h2><span class="header-section-number">27.2</span> Creating your first python script w/ BBTools</h2>
+<p>Once you have downloaded and uncompressed BBTools they should be ready to be used. So now we can focus on creating a python pipeline to connect several features of BBTools. Note this is just for an example.</p>
+<p>Very Important!!! Be sure to place the bbmap folder inside of your class work folder. This will make it easier for python to find the bbtools without you stating the path every time.</p>
+<p>Before we begin copy the following FASTQ data into a new file labeled: ‘data.fasta’</p>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="python-subprocess.html#cb569-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.001</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
+<span id="cb569-2"><a href="python-subprocess.html#cb569-2" aria-hidden="true" tabindex="-1"></a>TTTCGTAGCTAGATCGACTGACTGCTGCTACTACGATCGACTGCTGCGGG</span>
+<span id="cb569-3"><a href="python-subprocess.html#cb569-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.002</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
+<span id="cb569-4"><a href="python-subprocess.html#cb569-4" aria-hidden="true" tabindex="-1"></a>TTTCGTAGCTAGATCGACTGACTGCTGCTACTACGATCGACTGCTGCGGG</span>
+<span id="cb569-5"><a href="python-subprocess.html#cb569-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.003</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
+<span id="cb569-6"><a href="python-subprocess.html#cb569-6" aria-hidden="true" tabindex="-1"></a>TTTCGTAGCTAGATCGACTGACTGCTGCTACTACGATCGACTGCTGCTTT</span>
+<span id="cb569-7"><a href="python-subprocess.html#cb569-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.004</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
+<span id="cb569-8"><a href="python-subprocess.html#cb569-8" aria-hidden="true" tabindex="-1"></a>TTTCGTAGCTAGATCGACTGACTGCTGCTACTACGATCGACTGCTGCGGG</span>
+<span id="cb569-9"><a href="python-subprocess.html#cb569-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.005</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
+<span id="cb569-10"><a href="python-subprocess.html#cb569-10" aria-hidden="true" tabindex="-1"></a>ACTGATCGATCGTCGATCGATCGCTCGTACGTGATCGATCGATCGTACGG</span>
+<span id="cb569-11"><a href="python-subprocess.html#cb569-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.006</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
+<span id="cb569-12"><a href="python-subprocess.html#cb569-12" aria-hidden="true" tabindex="-1"></a>ACTGATCGATCGTCGATCGATCGCTCGTACGTGATCGATCGATCGTACGG</span></code></pre></div>
+<p>We will now construct our own script, save the script below which will be called: ‘my_first_script.py’</p>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="python-subprocess.html#cb570-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env python3</span></span>
+<span id="cb570-2"><a href="python-subprocess.html#cb570-2" aria-hidden="true" tabindex="-1"></a>import subprocess</span>
+<span id="cb570-3"><a href="python-subprocess.html#cb570-3" aria-hidden="true" tabindex="-1"></a>import os</span>
+<span id="cb570-4"><a href="python-subprocess.html#cb570-4" aria-hidden="true" tabindex="-1"></a>import tkinter as tk</span>
+<span id="cb570-5"><a href="python-subprocess.html#cb570-5" aria-hidden="true" tabindex="-1"></a>from tkinter import filedialog</span>
+<span id="cb570-6"><a href="python-subprocess.html#cb570-6" aria-hidden="true" tabindex="-1"></a>from my_first_script import <span class="sc">*</span></span>
+<span id="cb570-7"><a href="python-subprocess.html#cb570-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb570-8"><a href="python-subprocess.html#cb570-8" aria-hidden="true" tabindex="-1"></a>def <span class="fu">main</span>()<span class="sc">:</span> <span class="co"># this can be the main backbone to call the rest of your functions</span></span>
+<span id="cb570-9"><a href="python-subprocess.html#cb570-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">function_one</span>() <span class="co"># this is one of many of the functions you can create to fuel your experiment</span></span>
+<span id="cb570-10"><a href="python-subprocess.html#cb570-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">function_two</span>()</span>
+<span id="cb570-11"><a href="python-subprocess.html#cb570-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb570-12"><a href="python-subprocess.html#cb570-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> __name__ <span class="sc">==</span> <span class="st">&#39;__main__&#39;</span><span class="sc">:</span> <span class="co"># guards script from accidental usage outside of context</span></span>
+<span id="cb570-13"><a href="python-subprocess.html#cb570-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">main</span>()  <span class="co"># run main script</span></span>
+<span id="cb570-14"><a href="python-subprocess.html#cb570-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb570-15"><a href="python-subprocess.html#cb570-15" aria-hidden="true" tabindex="-1"></a>def <span class="fu">function_one</span>()<span class="sc">:</span></span>
+<span id="cb570-16"><a href="python-subprocess.html#cb570-16" aria-hidden="true" tabindex="-1"></a>    cwd <span class="ot">=</span> <span class="fu">os.getcwd</span>()</span>
+<span id="cb570-17"><a href="python-subprocess.html#cb570-17" aria-hidden="true" tabindex="-1"></a>    root <span class="ot">=</span> <span class="fu">tk.Tk</span>()</span>
+<span id="cb570-18"><a href="python-subprocess.html#cb570-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">root.withdraw</span>()</span>
+<span id="cb570-19"><a href="python-subprocess.html#cb570-19" aria-hidden="true" tabindex="-1"></a>    in_file <span class="ot">=</span> <span class="fu">filedialog.askopenfilename</span>()</span>
+<span id="cb570-20"><a href="python-subprocess.html#cb570-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">subprocess.run</span>(f<span class="st">&quot;{cwd}/bbmap/reformat.sh in={in_file} out=reformat_result.fasta trd&quot;</span>, <span class="at">shell=</span>True)</span>
+<span id="cb570-21"><a href="python-subprocess.html#cb570-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># reformat: trim headers</span></span>
+<span id="cb570-22"><a href="python-subprocess.html#cb570-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb570-23"><a href="python-subprocess.html#cb570-23" aria-hidden="true" tabindex="-1"></a>def <span class="fu">function_two</span>()<span class="sc">:</span></span>
+<span id="cb570-24"><a href="python-subprocess.html#cb570-24" aria-hidden="true" tabindex="-1"></a>    cwd <span class="ot">=</span> <span class="fu">os.getcwd</span>()</span>
+<span id="cb570-25"><a href="python-subprocess.html#cb570-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">subprocess.run</span>(f<span class="st">&quot;{cwd}/bbmap/dedupe.sh in=reformat_result.fasta out=dedupe_result.fasta&quot;</span>, <span class="at">shell=</span>True)</span>
+<span id="cb570-26"><a href="python-subprocess.html#cb570-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dedupe: Remove duplicate contigs</span></span></code></pre></div>
+<p>Now we are ready to use our new script with our outside software.</p>
+<ol style="list-style-type: decimal">
+<li><p>Open terminal in your system and change the working directory to your python work folder that we created for all our python stuff.</p></li>
+<li><p>Drag your script from the python work folder, the .py file we just made, into the terminal.</p></li>
+<li><p>Press enter to run the script.</p></li>
+</ol>
+<p>The script will prompt you to open a file, you can select the fasta we just saved to the python work folder as well. The script will the perform the listed processes on that file and the output will be listed in you python work folder as: ‘reformat_result.fasta’ and ‘dedupe_result.fasta’</p>
+<p>If it works, congrats! Feel free to use this script as a skeleton to incorporate your workflow into.</p>
 
 </div>
 </div>
@@ -534,8 +491,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="biopython.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="biopython-mulitple-sequence-alignments.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="python-web-scraping-w-beautifulsoup.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -566,7 +523,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/21-Biopython_Sequences.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/27-Python_Subprocess.Rmd",
 "text": "Edit"
 },
 "history": {
