@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Session 18 – Python: Strings | Bioinformatics Workshop Gitbook</title>
+  <title>Session 25 – Biopython: Sequence Parsing with Plots | Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Session 18 – Python: Strings | Bioinformatics Workshop Gitbook" />
+  <meta property="og:title" content="Session 25 – Biopython: Sequence Parsing with Plots | Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Session 18 – Python: Strings | Bioinformatics Workshop Gitbook" />
+  <meta name="twitter:title" content="Session 25 – Biopython: Sequence Parsing with Plots | Bioinformatics Workshop Gitbook" />
   
   <meta name="twitter:description" content="none" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="python-data-types.html"/>
-<link rel="next" href="python-operators.html"/>
+<link rel="prev" href="biopython-chromosome-modeling.html"/>
+<link rel="next" href="python-web-scraping-w-beautifulsoup.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -421,227 +421,141 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="python-strings" class="section level1" number="18">
-<h1><span class="header-section-number">Session 18</span> – Python: Strings</h1>
-<p>Strings are lines of code encased in either single or double quotes.</p>
-<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="python-strings.html#cb521-1" aria-hidden="true" tabindex="-1"></a><span class="co">#types of quotes that can be used</span></span>
-<span id="cb521-2"><a href="python-strings.html#cb521-2" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&#39;apple&#39;</span></span>
-<span id="cb521-3"><a href="python-strings.html#cb521-3" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&quot;apple&quot;</span></span>
-<span id="cb521-4"><a href="python-strings.html#cb521-4" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&quot;&quot;&quot;apple&quot;&quot;&quot;</span></span>
-<span id="cb521-5"><a href="python-strings.html#cb521-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb521-6"><a href="python-strings.html#cb521-6" aria-hidden="true" tabindex="-1"></a><span class="co">#you can replace items in a string easily</span></span>
-<span id="cb521-7"><a href="python-strings.html#cb521-7" aria-hidden="true" tabindex="-1"></a>str</span>
-<span id="cb521-8"><a href="python-strings.html#cb521-8" aria-hidden="true" tabindex="-1"></a>new_str <span class="ot">=</span> <span class="fu">str.replace</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pear&quot;</span>)</span>
-<span id="cb521-9"><a href="python-strings.html#cb521-9" aria-hidden="true" tabindex="-1"></a>new_str</span>
-<span id="cb521-10"><a href="python-strings.html#cb521-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb521-11"><a href="python-strings.html#cb521-11" aria-hidden="true" tabindex="-1"></a><span class="co">#you can obtain items from a string just like a list</span></span>
-<span id="cb521-12"><a href="python-strings.html#cb521-12" aria-hidden="true" tabindex="-1"></a>str_2 <span class="ot">=</span> <span class="st">&#39;There are 10 apples in the store&#39;</span></span>
-<span id="cb521-13"><a href="python-strings.html#cb521-13" aria-hidden="true" tabindex="-1"></a>str_2[<span class="dv">0</span>]</span>
-<span id="cb521-14"><a href="python-strings.html#cb521-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb521-15"><a href="python-strings.html#cb521-15" aria-hidden="true" tabindex="-1"></a>str_2[<span class="dv">1</span>]</span>
-<span id="cb521-16"><a href="python-strings.html#cb521-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb521-17"><a href="python-strings.html#cb521-17" aria-hidden="true" tabindex="-1"></a>str_2[<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb521-18"><a href="python-strings.html#cb521-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb521-19"><a href="python-strings.html#cb521-19" aria-hidden="true" tabindex="-1"></a><span class="co">#you can slice a string</span></span>
-<span id="cb521-20"><a href="python-strings.html#cb521-20" aria-hidden="true" tabindex="-1"></a>str_2[<span class="dv">0</span><span class="sc">:</span><span class="dv">3</span>]</span>
-<span id="cb521-21"><a href="python-strings.html#cb521-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb521-22"><a href="python-strings.html#cb521-22" aria-hidden="true" tabindex="-1"></a>str_2[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
-<span id="cb521-23"><a href="python-strings.html#cb521-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb521-24"><a href="python-strings.html#cb521-24" aria-hidden="true" tabindex="-1"></a>str_2[<span class="dv">4</span><span class="sc">:-</span><span class="dv">1</span>]</span></code></pre></div>
-<p>Strings cannot be changed once they are assigned to a variable. You can change them via variable reassignment or you can simply delete them with the ‘del’ command followed by the variable.</p>
-<div id="string-operators" class="section level2" number="18.1">
-<h2><span class="header-section-number">18.1</span> String Operators</h2>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="python-strings.html#cb522-1" aria-hidden="true" tabindex="-1"></a><span class="co">#cat strings together</span></span>
-<span id="cb522-2"><a href="python-strings.html#cb522-2" aria-hidden="true" tabindex="-1"></a>word_1 <span class="ot">=</span> <span class="st">&#39;hey! &#39;</span></span>
-<span id="cb522-3"><a href="python-strings.html#cb522-3" aria-hidden="true" tabindex="-1"></a>word_2 <span class="ot">=</span> <span class="st">&#39;hi! &#39;</span></span>
-<span id="cb522-4"><a href="python-strings.html#cb522-4" aria-hidden="true" tabindex="-1"></a>phrase_1 <span class="ot">=</span> <span class="st">&#39;How you doing?&#39;</span></span>
-<span id="cb522-5"><a href="python-strings.html#cb522-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(word_1 <span class="sc">+</span> word_2 <span class="sc">+</span> phrase_1)</span>
-<span id="cb522-6"><a href="python-strings.html#cb522-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb522-7"><a href="python-strings.html#cb522-7" aria-hidden="true" tabindex="-1"></a><span class="co">#repeat words or phrases</span></span>
-<span id="cb522-8"><a href="python-strings.html#cb522-8" aria-hidden="true" tabindex="-1"></a>fruit <span class="ot">=</span> <span class="st">&quot;apples&quot;</span></span>
-<span id="cb522-9"><a href="python-strings.html#cb522-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fruit<span class="sc">*</span><span class="dv">6</span>)</span>
-<span id="cb522-10"><a href="python-strings.html#cb522-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb522-11"><a href="python-strings.html#cb522-11" aria-hidden="true" tabindex="-1"></a><span class="co">#membership</span></span>
-<span id="cb522-12"><a href="python-strings.html#cb522-12" aria-hidden="true" tabindex="-1"></a>fruit <span class="ot">=</span> <span class="st">&quot;apples&quot;</span></span>
-<span id="cb522-13"><a href="python-strings.html#cb522-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;e&quot;</span> <span class="cf">in</span> fruit)</span>
-<span id="cb522-14"><a href="python-strings.html#cb522-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb522-15"><a href="python-strings.html#cb522-15" aria-hidden="true" tabindex="-1"></a><span class="co">#no membership</span></span>
-<span id="cb522-16"><a href="python-strings.html#cb522-16" aria-hidden="true" tabindex="-1"></a>fruit <span class="ot">=</span> <span class="st">&quot;apples&quot;</span></span>
-<span id="cb522-17"><a href="python-strings.html#cb522-17" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;e&quot;</span> not <span class="cf">in</span> fruit)</span></code></pre></div>
+<div id="biopython-sequence-parsing-with-plots" class="section level1" number="25">
+<h1><span class="header-section-number">Session 25</span> – Biopython: Sequence Parsing with Plots</h1>
+<div id="histograms-1" class="section level2" number="25.1">
+<h2><span class="header-section-number">25.1</span> Histograms</h2>
+<p>Histogram of Sequence Lengths in Fasta File (Genbank (full) &gt; Export CDS)</p>
+<p>Dataset is in this <a href="https://www.ncbi.nlm.nih.gov/nuccore/CM004466.1" target="_blank"><strong>link</strong></a></p>
+<p>Install matplotlib: $pip install matplotlib (for macOS use: <span class="math inline">\(pip3 install matplotlib). The `\)</span>` indicates that the install in terminal.</p>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="biopython-sequence-parsing-with-plots.html#cb556-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb556-2"><a href="biopython-sequence-parsing-with-plots.html#cb556-2" aria-hidden="true" tabindex="-1"></a>sizes <span class="ot">=</span> [<span class="fu">len</span>(rec) <span class="cf">for</span> rec <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(<span class="st">&quot;XL_1L_fasta.txt&quot;</span>, <span class="st">&quot;fasta&quot;</span>)]</span>
+<span id="cb556-3"><a href="biopython-sequence-parsing-with-plots.html#cb556-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb556-4"><a href="biopython-sequence-parsing-with-plots.html#cb556-4" aria-hidden="true" tabindex="-1"></a>import pylab</span>
+<span id="cb556-5"><a href="biopython-sequence-parsing-with-plots.html#cb556-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.hist</span>(sizes, <span class="at">bins=</span><span class="dv">20</span>)</span>
+<span id="cb556-6"><a href="biopython-sequence-parsing-with-plots.html#cb556-6" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.title</span>(</span>
+<span id="cb556-7"><a href="biopython-sequence-parsing-with-plots.html#cb556-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;%i Xenopus laevis sequences</span><span class="sc">\n</span><span class="st">Lengths %i to %i&quot;</span> % (<span class="fu">len</span>(sizes), <span class="fu">min</span>(sizes), <span class="fu">max</span>(sizes))</span>
+<span id="cb556-8"><a href="biopython-sequence-parsing-with-plots.html#cb556-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb556-9"><a href="biopython-sequence-parsing-with-plots.html#cb556-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlabel</span>(<span class="st">&quot;Sequence length (bp)&quot;</span>)</span>
+<span id="cb556-10"><a href="biopython-sequence-parsing-with-plots.html#cb556-10" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylabel</span>(<span class="st">&quot;Count&quot;</span>)</span>
+<span id="cb556-11"><a href="biopython-sequence-parsing-with-plots.html#cb556-11" aria-hidden="true" tabindex="-1"></a><span class="co">#pylab.show()</span></span>
+<span id="cb556-12"><a href="biopython-sequence-parsing-with-plots.html#cb556-12" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.savefig</span>(<span class="st">&quot;pylab_fig1.pdf&quot;</span>)</span></code></pre></div>
 </div>
-<div id="other-string-modifiers" class="section level2" number="18.2">
-<h2><span class="header-section-number">18.2</span> Other String Modifiers</h2>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="python-strings.html#cb523-1" aria-hidden="true" tabindex="-1"></a><span class="co">#iteration through a string</span></span>
-<span id="cb523-2"><a href="python-strings.html#cb523-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fruit_letter <span class="cf">in</span> fruit<span class="sc">:</span> <span class="fu">print</span>(fruit_letter, <span class="at">end =</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb523-3"><a href="python-strings.html#cb523-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb523-4"><a href="python-strings.html#cb523-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fruit_letter <span class="cf">in</span> fruit<span class="sc">:</span> <span class="fu">print</span>(fruit_letter)</span>
-<span id="cb523-5"><a href="python-strings.html#cb523-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb523-6"><a href="python-strings.html#cb523-6" aria-hidden="true" tabindex="-1"></a><span class="co">#count number of occurances</span></span>
-<span id="cb523-7"><a href="python-strings.html#cb523-7" aria-hidden="true" tabindex="-1"></a>suspect_description <span class="ot">=</span> <span class="st">&#39;two short teenage males wearing one long brown coat and one brown hat&#39;</span></span>
-<span id="cb523-8"><a href="python-strings.html#cb523-8" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&#39;one&#39;</span></span>
-<span id="cb523-9"><a href="python-strings.html#cb523-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">suspect_description.count</span>(str))</span>
-<span id="cb523-10"><a href="python-strings.html#cb523-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb523-11"><a href="python-strings.html#cb523-11" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&#39;two&#39;</span></span>
-<span id="cb523-12"><a href="python-strings.html#cb523-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">suspect_description.count</span>(str))</span>
-<span id="cb523-13"><a href="python-strings.html#cb523-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb523-14"><a href="python-strings.html#cb523-14" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&#39;brown&#39;</span></span>
-<span id="cb523-15"><a href="python-strings.html#cb523-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">suspect_description.count</span>(str))</span>
-<span id="cb523-16"><a href="python-strings.html#cb523-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb523-17"><a href="python-strings.html#cb523-17" aria-hidden="true" tabindex="-1"></a><span class="co">#the power of es-cap-e (escape)</span></span>
-<span id="cb523-18"><a href="python-strings.html#cb523-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>)</span>
-<span id="cb523-19"><a href="python-strings.html#cb523-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb523-20"><a href="python-strings.html#cb523-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(r<span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>)</span>
-<span id="cb523-21"><a href="python-strings.html#cb523-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb523-22"><a href="python-strings.html#cb523-22" aria-hidden="true" tabindex="-1"></a><span class="co">#in-line es-cap-e</span></span>
-<span id="cb523-23"><a href="python-strings.html#cb523-23" aria-hidden="true" tabindex="-1"></a>sentence <span class="ot">=</span> <span class="st">&quot;It was </span><span class="sc">\&quot;</span><span class="st">him</span><span class="sc">\&quot;</span><span class="st"> your honor!&quot;</span></span>
-<span id="cb523-24"><a href="python-strings.html#cb523-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb523-25"><a href="python-strings.html#cb523-25" aria-hidden="true" tabindex="-1"></a><span class="co">#notice how the example below will not work</span></span>
-<span id="cb523-26"><a href="python-strings.html#cb523-26" aria-hidden="true" tabindex="-1"></a>sentence <span class="ot">=</span> <span class="st">&quot;It was &quot;</span>him<span class="st">&quot; your honor!&quot;</span></span>
-<span id="cb523-27"><a href="python-strings.html#cb523-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb523-28"><a href="python-strings.html#cb523-28" aria-hidden="true" tabindex="-1"></a><span class="co">#capitalize first letter</span></span>
-<span id="cb523-29"><a href="python-strings.html#cb523-29" aria-hidden="true" tabindex="-1"></a>name_1 <span class="ot">=</span> <span class="st">&#39;TOM&#39;</span></span>
-<span id="cb523-30"><a href="python-strings.html#cb523-30" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_1.capitalize</span>())</span>
-<span id="cb523-31"><a href="python-strings.html#cb523-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb523-32"><a href="python-strings.html#cb523-32" aria-hidden="true" tabindex="-1"></a>name_2 <span class="ot">=</span> <span class="st">&#39;tom&#39;</span></span>
-<span id="cb523-33"><a href="python-strings.html#cb523-33" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_2.capitalize</span>())</span>
-<span id="cb523-34"><a href="python-strings.html#cb523-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb523-35"><a href="python-strings.html#cb523-35" aria-hidden="true" tabindex="-1"></a><span class="co">#lowercase letters</span></span>
-<span id="cb523-36"><a href="python-strings.html#cb523-36" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_1.lower</span>())</span>
-<span id="cb523-37"><a href="python-strings.html#cb523-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb523-38"><a href="python-strings.html#cb523-38" aria-hidden="true" tabindex="-1"></a><span class="co">#uppercase letters</span></span>
-<span id="cb523-39"><a href="python-strings.html#cb523-39" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_2.upper</span>())</span>
-<span id="cb523-40"><a href="python-strings.html#cb523-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb523-41"><a href="python-strings.html#cb523-41" aria-hidden="true" tabindex="-1"></a><span class="co">#swapcase of characters</span></span>
-<span id="cb523-42"><a href="python-strings.html#cb523-42" aria-hidden="true" tabindex="-1"></a>name_3 <span class="ot">=</span> <span class="st">&#39;ToM HollAnD&#39;</span></span>
-<span id="cb523-43"><a href="python-strings.html#cb523-43" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_3.swapcase</span>())</span>
-<span id="cb523-44"><a href="python-strings.html#cb523-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb523-45"><a href="python-strings.html#cb523-45" aria-hidden="true" tabindex="-1"></a><span class="co">#title, capitalize first letters of each word</span></span>
-<span id="cb523-46"><a href="python-strings.html#cb523-46" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_3.title</span>())</span></code></pre></div>
+<div id="gc-content" class="section level2" number="25.2">
+<h2><span class="header-section-number">25.2</span> GC Content</h2>
+<p>GC content of Xenopus laevis 1L genome fasta file.</p>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="biopython-sequence-parsing-with-plots.html#cb557-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb557-2"><a href="biopython-sequence-parsing-with-plots.html#cb557-2" aria-hidden="true" tabindex="-1"></a>from Bio.SeqUtils import GC</span>
+<span id="cb557-3"><a href="biopython-sequence-parsing-with-plots.html#cb557-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb557-4"><a href="biopython-sequence-parsing-with-plots.html#cb557-4" aria-hidden="true" tabindex="-1"></a>gc_values <span class="ot">=</span> <span class="fu">sorted</span>(<span class="fu">GC</span>(rec.seq) <span class="cf">for</span> rec <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(<span class="st">&quot;XL_1L_fasta.txt&quot;</span>, <span class="st">&quot;fasta&quot;</span>))</span>
+<span id="cb557-5"><a href="biopython-sequence-parsing-with-plots.html#cb557-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb557-6"><a href="biopython-sequence-parsing-with-plots.html#cb557-6" aria-hidden="true" tabindex="-1"></a>import pylab</span>
+<span id="cb557-7"><a href="biopython-sequence-parsing-with-plots.html#cb557-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb557-8"><a href="biopython-sequence-parsing-with-plots.html#cb557-8" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.plot</span>(gc_values)</span>
+<span id="cb557-9"><a href="biopython-sequence-parsing-with-plots.html#cb557-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.title</span>(</span>
+<span id="cb557-10"><a href="biopython-sequence-parsing-with-plots.html#cb557-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;%i orchid sequences</span><span class="sc">\n</span><span class="st">GC%% %0.1f to %0.1f&quot;</span></span>
+<span id="cb557-11"><a href="biopython-sequence-parsing-with-plots.html#cb557-11" aria-hidden="true" tabindex="-1"></a>    % (<span class="fu">len</span>(gc_values), <span class="fu">min</span>(gc_values), <span class="fu">max</span>(gc_values))</span>
+<span id="cb557-12"><a href="biopython-sequence-parsing-with-plots.html#cb557-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb557-13"><a href="biopython-sequence-parsing-with-plots.html#cb557-13" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlabel</span>(<span class="st">&quot;Genes&quot;</span>)</span>
+<span id="cb557-14"><a href="biopython-sequence-parsing-with-plots.html#cb557-14" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylabel</span>(<span class="st">&quot;GC%&quot;</span>)</span>
+<span id="cb557-15"><a href="biopython-sequence-parsing-with-plots.html#cb557-15" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.show</span>()</span></code></pre></div>
 </div>
-<div id="format-characters-in-strings" class="section level2" number="18.3">
-<h2><span class="header-section-number">18.3</span> Format-Characters in Strings</h2>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="python-strings.html#cb524-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Last Name: %s,</span><span class="sc">\n</span><span class="st">First Name: %s,</span><span class="sc">\n</span><span class="st">Last Name: %s&quot;</span> % (<span class="st">&#39;Bond&#39;</span>,<span class="st">&#39;James&#39;</span>,<span class="st">&#39;Bond&#39;</span>))</span></code></pre></div>
-<p>Most common format characters:
-%s = string
-%d = decimal
-%c = character
-%e = exponential notation
-%E = exponential notation
-%f = floating-point real number</p>
+<div id="nt-alignment-dot-plot" class="section level2" number="25.3">
+<h2><span class="header-section-number">25.3</span> Nt Alignment Dot Plot</h2>
+<p>I will use the previous fasta file from Xenopus laevis genome to provide 2 sequences for the activity below, but you are welcome to align any two genes of your choice as well.</p>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="biopython-sequence-parsing-with-plots.html#cb558-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb558-2"><a href="biopython-sequence-parsing-with-plots.html#cb558-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb558-3"><a href="biopython-sequence-parsing-with-plots.html#cb558-3" aria-hidden="true" tabindex="-1"></a>with <span class="fu">open</span>(<span class="st">&quot;XL_1L_fasta.txt&quot;</span>) as in_handle<span class="sc">:</span></span>
+<span id="cb558-4"><a href="biopython-sequence-parsing-with-plots.html#cb558-4" aria-hidden="true" tabindex="-1"></a>    record_iterator <span class="ot">=</span> <span class="fu">SeqIO.parse</span>(in_handle, <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb558-5"><a href="biopython-sequence-parsing-with-plots.html#cb558-5" aria-hidden="true" tabindex="-1"></a>    rec_one <span class="ot">=</span> <span class="cf">next</span>(record_iterator)</span>
+<span id="cb558-6"><a href="biopython-sequence-parsing-with-plots.html#cb558-6" aria-hidden="true" tabindex="-1"></a>    rec_two <span class="ot">=</span> <span class="cf">next</span>(record_iterator)</span>
+<span id="cb558-7"><a href="biopython-sequence-parsing-with-plots.html#cb558-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb558-8"><a href="biopython-sequence-parsing-with-plots.html#cb558-8" aria-hidden="true" tabindex="-1"></a>window <span class="ot">=</span> <span class="dv">7</span></span>
+<span id="cb558-9"><a href="biopython-sequence-parsing-with-plots.html#cb558-9" aria-hidden="true" tabindex="-1"></a>seq_one <span class="ot">=</span> <span class="fu">str</span>(rec_one.seq)<span class="fu">.upper</span>()</span>
+<span id="cb558-10"><a href="biopython-sequence-parsing-with-plots.html#cb558-10" aria-hidden="true" tabindex="-1"></a>seq_two <span class="ot">=</span> <span class="fu">str</span>(rec_two.seq)<span class="fu">.upper</span>()</span>
+<span id="cb558-11"><a href="biopython-sequence-parsing-with-plots.html#cb558-11" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> [</span>
+<span id="cb558-12"><a href="biopython-sequence-parsing-with-plots.html#cb558-12" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb558-13"><a href="biopython-sequence-parsing-with-plots.html#cb558-13" aria-hidden="true" tabindex="-1"></a>        (seq_one[i <span class="sc">:</span> i <span class="sc">+</span> window] <span class="sc">!=</span> seq_two[j <span class="sc">:</span> j <span class="sc">+</span> window])</span>
+<span id="cb558-14"><a href="biopython-sequence-parsing-with-plots.html#cb558-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="cf">in</span> <span class="fu">range</span>(<span class="fu">len</span>(seq_one) <span class="sc">-</span> window)</span>
+<span id="cb558-15"><a href="biopython-sequence-parsing-with-plots.html#cb558-15" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb558-16"><a href="biopython-sequence-parsing-with-plots.html#cb558-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="cf">in</span> <span class="fu">range</span>(<span class="fu">len</span>(seq_two) <span class="sc">-</span> window)</span>
+<span id="cb558-17"><a href="biopython-sequence-parsing-with-plots.html#cb558-17" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb558-18"><a href="biopython-sequence-parsing-with-plots.html#cb558-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb558-19"><a href="biopython-sequence-parsing-with-plots.html#cb558-19" aria-hidden="true" tabindex="-1"></a>import pylab</span>
+<span id="cb558-20"><a href="biopython-sequence-parsing-with-plots.html#cb558-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb558-21"><a href="biopython-sequence-parsing-with-plots.html#cb558-21" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.gray</span>()</span>
+<span id="cb558-22"><a href="biopython-sequence-parsing-with-plots.html#cb558-22" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.imshow</span>(data)</span>
+<span id="cb558-23"><a href="biopython-sequence-parsing-with-plots.html#cb558-23" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlabel</span>(<span class="st">&quot;%s (length %i bp)&quot;</span> % (rec_one.id, <span class="fu">len</span>(rec_one)))</span>
+<span id="cb558-24"><a href="biopython-sequence-parsing-with-plots.html#cb558-24" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylabel</span>(<span class="st">&quot;%s (length %i bp)&quot;</span> % (rec_two.id, <span class="fu">len</span>(rec_two)))</span>
+<span id="cb558-25"><a href="biopython-sequence-parsing-with-plots.html#cb558-25" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.title</span>(<span class="st">&quot;Dot plot using window size %i</span><span class="sc">\n</span><span class="st">(allowing no mis-matches)&quot;</span> % window)</span>
+<span id="cb558-26"><a href="biopython-sequence-parsing-with-plots.html#cb558-26" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.show</span>()</span></code></pre></div>
 </div>
-<div id="comparisons-with-strings" class="section level2" number="18.4">
-<h2><span class="header-section-number">18.4</span> Comparisons with Strings</h2>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="python-strings.html#cb525-1" aria-hidden="true" tabindex="-1"></a><span class="co">#check case type</span></span>
-<span id="cb525-2"><a href="python-strings.html#cb525-2" aria-hidden="true" tabindex="-1"></a>term1 <span class="ot">=</span> <span class="st">&quot;highlands&quot;</span></span>
-<span id="cb525-3"><a href="python-strings.html#cb525-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb525-4"><a href="python-strings.html#cb525-4" aria-hidden="true" tabindex="-1"></a><span class="co">#check if all lowercase</span></span>
-<span id="cb525-5"><a href="python-strings.html#cb525-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term1.islower</span>())</span>
-<span id="cb525-6"><a href="python-strings.html#cb525-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb525-7"><a href="python-strings.html#cb525-7" aria-hidden="true" tabindex="-1"></a><span class="co">#check if all uppercase</span></span>
-<span id="cb525-8"><a href="python-strings.html#cb525-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term1.isupper</span>())</span>
-<span id="cb525-9"><a href="python-strings.html#cb525-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb525-10"><a href="python-strings.html#cb525-10" aria-hidden="true" tabindex="-1"></a><span class="co">#check if characters are decimals</span></span>
-<span id="cb525-11"><a href="python-strings.html#cb525-11" aria-hidden="true" tabindex="-1"></a>term2 <span class="ot">=</span> <span class="st">&#39;20.2&#39;</span></span>
-<span id="cb525-12"><a href="python-strings.html#cb525-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isdecimal</span>())</span>
-<span id="cb525-13"><a href="python-strings.html#cb525-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb525-14"><a href="python-strings.html#cb525-14" aria-hidden="true" tabindex="-1"></a>term2 <span class="ot">=</span> <span class="st">&#39;202&#39;</span></span>
-<span id="cb525-15"><a href="python-strings.html#cb525-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isdecimal</span>())</span>
-<span id="cb525-16"><a href="python-strings.html#cb525-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb525-17"><a href="python-strings.html#cb525-17" aria-hidden="true" tabindex="-1"></a><span class="co">#check if characters are digits</span></span>
-<span id="cb525-18"><a href="python-strings.html#cb525-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isdigit</span>())</span>
-<span id="cb525-19"><a href="python-strings.html#cb525-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb525-20"><a href="python-strings.html#cb525-20" aria-hidden="true" tabindex="-1"></a><span class="co">#check if characters are numeric</span></span>
-<span id="cb525-21"><a href="python-strings.html#cb525-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isnumeric</span>())</span>
-<span id="cb525-22"><a href="python-strings.html#cb525-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb525-23"><a href="python-strings.html#cb525-23" aria-hidden="true" tabindex="-1"></a><span class="co">#check if string contains at least one character, all alphabetic</span></span>
-<span id="cb525-24"><a href="python-strings.html#cb525-24" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isalpha</span>())</span>
-<span id="cb525-25"><a href="python-strings.html#cb525-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb525-26"><a href="python-strings.html#cb525-26" aria-hidden="true" tabindex="-1"></a>term3 <span class="ot">=</span> <span class="st">&#39;wow5&#39;</span></span>
-<span id="cb525-27"><a href="python-strings.html#cb525-27" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term3.isalpha</span>())</span>
-<span id="cb525-28"><a href="python-strings.html#cb525-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb525-29"><a href="python-strings.html#cb525-29" aria-hidden="true" tabindex="-1"></a><span class="co">#same as alpha but includes decimal digits</span></span>
-<span id="cb525-30"><a href="python-strings.html#cb525-30" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isalnum</span>())</span>
-<span id="cb525-31"><a href="python-strings.html#cb525-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb525-32"><a href="python-strings.html#cb525-32" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term3.isalnum</span>())</span></code></pre></div>
+<div id="bigger-dots-for-the-dot-plot" class="section level2" number="25.4">
+<h2><span class="header-section-number">25.4</span> Bigger Dots for the Dot Plot</h2>
+<p>Bigger dots may be better in some scenarios, thus the code below will increase the size of the dots.</p>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="biopython-sequence-parsing-with-plots.html#cb559-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb559-2"><a href="biopython-sequence-parsing-with-plots.html#cb559-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-3"><a href="biopython-sequence-parsing-with-plots.html#cb559-3" aria-hidden="true" tabindex="-1"></a>with <span class="fu">open</span>(<span class="st">&quot;XL_1L_fasta.txt&quot;</span>) as in_handle<span class="sc">:</span></span>
+<span id="cb559-4"><a href="biopython-sequence-parsing-with-plots.html#cb559-4" aria-hidden="true" tabindex="-1"></a>    record_iterator <span class="ot">=</span> <span class="fu">SeqIO.parse</span>(in_handle, <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb559-5"><a href="biopython-sequence-parsing-with-plots.html#cb559-5" aria-hidden="true" tabindex="-1"></a>    rec_one <span class="ot">=</span> <span class="cf">next</span>(record_iterator)</span>
+<span id="cb559-6"><a href="biopython-sequence-parsing-with-plots.html#cb559-6" aria-hidden="true" tabindex="-1"></a>    rec_two <span class="ot">=</span> <span class="cf">next</span>(record_iterator)</span>
+<span id="cb559-7"><a href="biopython-sequence-parsing-with-plots.html#cb559-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-8"><a href="biopython-sequence-parsing-with-plots.html#cb559-8" aria-hidden="true" tabindex="-1"></a>window <span class="ot">=</span> <span class="dv">7</span></span>
+<span id="cb559-9"><a href="biopython-sequence-parsing-with-plots.html#cb559-9" aria-hidden="true" tabindex="-1"></a>dict_one <span class="ot">=</span> {}</span>
+<span id="cb559-10"><a href="biopython-sequence-parsing-with-plots.html#cb559-10" aria-hidden="true" tabindex="-1"></a>dict_two <span class="ot">=</span> {}</span>
+<span id="cb559-11"><a href="biopython-sequence-parsing-with-plots.html#cb559-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (seq, section_dict) <span class="cf">in</span> [</span>
+<span id="cb559-12"><a href="biopython-sequence-parsing-with-plots.html#cb559-12" aria-hidden="true" tabindex="-1"></a>    (<span class="fu">str</span>(rec_one.seq)<span class="fu">.upper</span>(), dict_one),</span>
+<span id="cb559-13"><a href="biopython-sequence-parsing-with-plots.html#cb559-13" aria-hidden="true" tabindex="-1"></a>    (<span class="fu">str</span>(rec_two.seq)<span class="fu">.upper</span>(), dict_two),</span>
+<span id="cb559-14"><a href="biopython-sequence-parsing-with-plots.html#cb559-14" aria-hidden="true" tabindex="-1"></a>]<span class="sc">:</span></span>
+<span id="cb559-15"><a href="biopython-sequence-parsing-with-plots.html#cb559-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="cf">in</span> <span class="fu">range</span>(<span class="fu">len</span>(seq) <span class="sc">-</span> window)<span class="sc">:</span></span>
+<span id="cb559-16"><a href="biopython-sequence-parsing-with-plots.html#cb559-16" aria-hidden="true" tabindex="-1"></a>        section <span class="ot">=</span> seq[i <span class="sc">:</span> i <span class="sc">+</span> window]</span>
+<span id="cb559-17"><a href="biopython-sequence-parsing-with-plots.html#cb559-17" aria-hidden="true" tabindex="-1"></a>        try<span class="sc">:</span></span>
+<span id="cb559-18"><a href="biopython-sequence-parsing-with-plots.html#cb559-18" aria-hidden="true" tabindex="-1"></a>            section_dict[section]<span class="fu">.append</span>(i)</span>
+<span id="cb559-19"><a href="biopython-sequence-parsing-with-plots.html#cb559-19" aria-hidden="true" tabindex="-1"></a>        except KeyError<span class="sc">:</span></span>
+<span id="cb559-20"><a href="biopython-sequence-parsing-with-plots.html#cb559-20" aria-hidden="true" tabindex="-1"></a>            section_dict[section] <span class="ot">=</span> [i]</span>
+<span id="cb559-21"><a href="biopython-sequence-parsing-with-plots.html#cb559-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-22"><a href="biopython-sequence-parsing-with-plots.html#cb559-22" aria-hidden="true" tabindex="-1"></a>matches <span class="ot">=</span> <span class="fu">set</span>(dict_one)<span class="fu">.intersection</span>(dict_two)</span>
+<span id="cb559-23"><a href="biopython-sequence-parsing-with-plots.html#cb559-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;%i unique matches&quot;</span> % <span class="fu">len</span>(matches))</span>
+<span id="cb559-24"><a href="biopython-sequence-parsing-with-plots.html#cb559-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-25"><a href="biopython-sequence-parsing-with-plots.html#cb559-25" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> []</span>
+<span id="cb559-26"><a href="biopython-sequence-parsing-with-plots.html#cb559-26" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> []</span>
+<span id="cb559-27"><a href="biopython-sequence-parsing-with-plots.html#cb559-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> section <span class="cf">in</span> matches<span class="sc">:</span></span>
+<span id="cb559-28"><a href="biopython-sequence-parsing-with-plots.html#cb559-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="cf">in</span> dict_one[section]<span class="sc">:</span></span>
+<span id="cb559-29"><a href="biopython-sequence-parsing-with-plots.html#cb559-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="cf">in</span> dict_two[section]<span class="sc">:</span></span>
+<span id="cb559-30"><a href="biopython-sequence-parsing-with-plots.html#cb559-30" aria-hidden="true" tabindex="-1"></a>            <span class="fu">x.append</span>(i)</span>
+<span id="cb559-31"><a href="biopython-sequence-parsing-with-plots.html#cb559-31" aria-hidden="true" tabindex="-1"></a>            <span class="fu">y.append</span>(j)</span>
+<span id="cb559-32"><a href="biopython-sequence-parsing-with-plots.html#cb559-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-33"><a href="biopython-sequence-parsing-with-plots.html#cb559-33" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.cla</span>()  <span class="co"># clear any prior graph</span></span>
+<span id="cb559-34"><a href="biopython-sequence-parsing-with-plots.html#cb559-34" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.gray</span>()</span>
+<span id="cb559-35"><a href="biopython-sequence-parsing-with-plots.html#cb559-35" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.scatter</span>(x, y)</span>
+<span id="cb559-36"><a href="biopython-sequence-parsing-with-plots.html#cb559-36" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlim</span>(<span class="dv">0</span>, <span class="fu">len</span>(rec_one) <span class="sc">-</span> window)</span>
+<span id="cb559-37"><a href="biopython-sequence-parsing-with-plots.html#cb559-37" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylim</span>(<span class="dv">0</span>, <span class="fu">len</span>(rec_two) <span class="sc">-</span> window)</span>
+<span id="cb559-38"><a href="biopython-sequence-parsing-with-plots.html#cb559-38" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlabel</span>(<span class="st">&quot;%s (length %i bp)&quot;</span> % (rec_one.id, <span class="fu">len</span>(rec_one)))</span>
+<span id="cb559-39"><a href="biopython-sequence-parsing-with-plots.html#cb559-39" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylabel</span>(<span class="st">&quot;%s (length %i bp)&quot;</span> % (rec_two.id, <span class="fu">len</span>(rec_two)))</span>
+<span id="cb559-40"><a href="biopython-sequence-parsing-with-plots.html#cb559-40" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.title</span>(<span class="st">&quot;Dot plot using window size %i</span><span class="sc">\n</span><span class="st">(allowing no mis-matches)&quot;</span> % window)</span>
+<span id="cb559-41"><a href="biopython-sequence-parsing-with-plots.html#cb559-41" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.show</span>()</span></code></pre></div>
 </div>
-<div id="padding-strings" class="section level2" number="18.5">
-<h2><span class="header-section-number">18.5</span> Padding strings</h2>
-<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="python-strings.html#cb526-1" aria-hidden="true" tabindex="-1"></a><span class="co">#padding with rjust, rightsided</span></span>
-<span id="cb526-2"><a href="python-strings.html#cb526-2" aria-hidden="true" tabindex="-1"></a>readme <span class="ot">=</span> <span class="st">&quot;Start App&quot;</span></span>
-<span id="cb526-3"><a href="python-strings.html#cb526-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.rjust</span>(<span class="dv">15</span>))</span>
-<span id="cb526-4"><a href="python-strings.html#cb526-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb526-5"><a href="python-strings.html#cb526-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.rjust</span>(<span class="dv">15</span>, <span class="st">&#39;~&#39;</span>))</span>
-<span id="cb526-6"><a href="python-strings.html#cb526-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb526-7"><a href="python-strings.html#cb526-7" aria-hidden="true" tabindex="-1"></a><span class="co">#padding with ljust, leftsided</span></span>
-<span id="cb526-8"><a href="python-strings.html#cb526-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.ljust</span>(<span class="dv">15</span>))</span>
-<span id="cb526-9"><a href="python-strings.html#cb526-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb526-10"><a href="python-strings.html#cb526-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.ljust</span>(<span class="dv">15</span>, <span class="st">&#39;~&#39;</span>))</span>
-<span id="cb526-11"><a href="python-strings.html#cb526-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb526-12"><a href="python-strings.html#cb526-12" aria-hidden="true" tabindex="-1"></a><span class="co">#padding with center, centered</span></span>
-<span id="cb526-13"><a href="python-strings.html#cb526-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.center</span>(<span class="dv">25</span>))</span>
-<span id="cb526-14"><a href="python-strings.html#cb526-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb526-15"><a href="python-strings.html#cb526-15" aria-hidden="true" tabindex="-1"></a><span class="co">#padding with zfill, fills after a + or -</span></span>
-<span id="cb526-16"><a href="python-strings.html#cb526-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.zfill</span>(<span class="dv">25</span>))</span>
-<span id="cb526-17"><a href="python-strings.html#cb526-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb526-18"><a href="python-strings.html#cb526-18" aria-hidden="true" tabindex="-1"></a>readme_aug <span class="ot">=</span> <span class="st">&#39;-Start App-&#39;</span></span>
-<span id="cb526-19"><a href="python-strings.html#cb526-19" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme_aug.zfill</span>(<span class="dv">25</span>))</span></code></pre></div>
-</div>
-<div id="search-for-words-in-string-and-output-location" class="section level2" number="18.6">
-<h2><span class="header-section-number">18.6</span> Search for words in string and output location</h2>
-<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="python-strings.html#cb527-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find function</span></span>
-<span id="cb527-2"><a href="python-strings.html#cb527-2" aria-hidden="true" tabindex="-1"></a>house <span class="ot">=</span> <span class="st">&quot;green two-story home&quot;</span></span>
-<span id="cb527-3"><a href="python-strings.html#cb527-3" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&quot;two&quot;</span></span>
-<span id="cb527-4"><a href="python-strings.html#cb527-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.find</span>(str))</span>
-<span id="cb527-5"><a href="python-strings.html#cb527-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb527-6"><a href="python-strings.html#cb527-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.find</span>(str,<span class="dv">5</span>))</span>
-<span id="cb527-7"><a href="python-strings.html#cb527-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb527-8"><a href="python-strings.html#cb527-8" aria-hidden="true" tabindex="-1"></a><span class="co">#what happens below, when we pass the location of &#39;two&#39;</span></span>
-<span id="cb527-9"><a href="python-strings.html#cb527-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.find</span>(str,<span class="dv">10</span>))</span>
-<span id="cb527-10"><a href="python-strings.html#cb527-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb527-11"><a href="python-strings.html#cb527-11" aria-hidden="true" tabindex="-1"></a><span class="co">#for this case above, we should use index instead of find</span></span>
-<span id="cb527-12"><a href="python-strings.html#cb527-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.index</span>(str,<span class="dv">10</span>))</span>
-<span id="cb527-13"><a href="python-strings.html#cb527-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb527-14"><a href="python-strings.html#cb527-14" aria-hidden="true" tabindex="-1"></a><span class="co">#count</span></span>
-<span id="cb527-15"><a href="python-strings.html#cb527-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.count</span>(str))</span>
-<span id="cb527-16"><a href="python-strings.html#cb527-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb527-17"><a href="python-strings.html#cb527-17" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.count</span>(str, <span class="dv">10</span>))</span></code></pre></div>
-</div>
-<div id="seek-and-replace-in-strings" class="section level2" number="18.7">
-<h2><span class="header-section-number">18.7</span> Seek and replace in strings</h2>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="python-strings.html#cb528-1" aria-hidden="true" tabindex="-1"></a><span class="co">#replace</span></span>
-<span id="cb528-2"><a href="python-strings.html#cb528-2" aria-hidden="true" tabindex="-1"></a>smthg_he_wrote <span class="ot">=</span> <span class="st">&#39;I am moving out&#39;</span></span>
-<span id="cb528-3"><a href="python-strings.html#cb528-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">smthg_he_wrote.replace</span>(<span class="st">&#39;out&#39;</span>,<span class="st">&#39;away&#39;</span>))</span>
-<span id="cb528-4"><a href="python-strings.html#cb528-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb528-5"><a href="python-strings.html#cb528-5" aria-hidden="true" tabindex="-1"></a><span class="co">#split</span></span>
-<span id="cb528-6"><a href="python-strings.html#cb528-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">smthg_he_wrote.split</span>())</span>
-<span id="cb528-7"><a href="python-strings.html#cb528-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb528-8"><a href="python-strings.html#cb528-8" aria-hidden="true" tabindex="-1"></a><span class="co">#splitlines</span></span>
-<span id="cb528-9"><a href="python-strings.html#cb528-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">smthg_he_wrote.splitlines</span>())</span>
-<span id="cb528-10"><a href="python-strings.html#cb528-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb528-11"><a href="python-strings.html#cb528-11" aria-hidden="true" tabindex="-1"></a>smthg_he_wrote_2 <span class="ot">=</span> <span class="st">&#39;I am definately </span><span class="sc">\n</span><span class="st">without a doubt </span><span class="sc">\n</span><span class="st">moving out&#39;</span></span>
-<span id="cb528-12"><a href="python-strings.html#cb528-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(smthg_he_wrote_2)</span>
-<span id="cb528-13"><a href="python-strings.html#cb528-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb528-14"><a href="python-strings.html#cb528-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">smthg_he_wrote_2.splitlines</span>())</span>
-<span id="cb528-15"><a href="python-strings.html#cb528-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb528-16"><a href="python-strings.html#cb528-16" aria-hidden="true" tabindex="-1"></a><span class="co">#join</span></span>
-<span id="cb528-17"><a href="python-strings.html#cb528-17" aria-hidden="true" tabindex="-1"></a>alphabet <span class="ot">=</span> (<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>)</span>
-<span id="cb528-18"><a href="python-strings.html#cb528-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39; &#39;</span><span class="fu">.join</span>(alphabet))</span>
-<span id="cb528-19"><a href="python-strings.html#cb528-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb528-20"><a href="python-strings.html#cb528-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;+&#39;</span><span class="fu">.join</span>(alphabet))</span>
-<span id="cb528-21"><a href="python-strings.html#cb528-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb528-22"><a href="python-strings.html#cb528-22" aria-hidden="true" tabindex="-1"></a><span class="co">#remove leftsided whitespaces</span></span>
-<span id="cb528-23"><a href="python-strings.html#cb528-23" aria-hidden="true" tabindex="-1"></a>extra_spaces <span class="ot">=</span> <span class="st">&#39;     hi     hey     &#39;</span></span>
-<span id="cb528-24"><a href="python-strings.html#cb528-24" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">extra_spaces.lstrip</span>())</span>
-<span id="cb528-25"><a href="python-strings.html#cb528-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb528-26"><a href="python-strings.html#cb528-26" aria-hidden="true" tabindex="-1"></a><span class="co">#remove rightsided whitespaces</span></span>
-<span id="cb528-27"><a href="python-strings.html#cb528-27" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">extra_spaces.rstrip</span>())</span>
-<span id="cb528-28"><a href="python-strings.html#cb528-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb528-29"><a href="python-strings.html#cb528-29" aria-hidden="true" tabindex="-1"></a><span class="co">#remove any type of character, not just whitespaces</span></span>
-<span id="cb528-30"><a href="python-strings.html#cb528-30" aria-hidden="true" tabindex="-1"></a>extra_char <span class="ot">=</span> <span class="st">&#39;-----hi-----&#39;</span></span>
-<span id="cb528-31"><a href="python-strings.html#cb528-31" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">extra_spaces.rstrip</span>(<span class="st">&#39;-&#39;</span>))</span>
-<span id="cb528-32"><a href="python-strings.html#cb528-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb528-33"><a href="python-strings.html#cb528-33" aria-hidden="true" tabindex="-1"></a><span class="co">#print length of string</span></span>
-<span id="cb528-34"><a href="python-strings.html#cb528-34" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">len</span>(extra_spaces))</span></code></pre></div>
+<div id="fastq-we-did-not-forget-you" class="section level2" number="25.5">
+<h2><span class="header-section-number">25.5</span> FASTQ we did not forget you</h2>
+<p>We have spent an extensive time manipulating FASTA files with little mention to its bigger cousin FASTQ. As mentioned before, FASTQ is simply a FASTA with per base quality scores. We can use this quality score data to assess average read reliability or even file reliability</p>
+<p>This is a very large file (500MB), you can skip this activity is its not applicable to your project.</p>
+<p>Dataset: <a href="https://www.ebi.ac.uk/ena/data/view/SRR001666" class="uri">https://www.ebi.ac.uk/ena/data/view/SRR001666</a></p>
+<p>I will utilize a different SRR that is smaller for the below example. You will need to change the filename SRR number if you wish to utilize the code for your own files. Also note that you will have to use files that are not compressed, thus you must uncompress the file before you can analyze it.</p>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="biopython-sequence-parsing-with-plots.html#cb560-1" aria-hidden="true" tabindex="-1"></a>import pylab</span>
+<span id="cb560-2"><a href="biopython-sequence-parsing-with-plots.html#cb560-2" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb560-3"><a href="biopython-sequence-parsing-with-plots.html#cb560-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-4"><a href="biopython-sequence-parsing-with-plots.html#cb560-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> subfigure <span class="cf">in</span> [<span class="dv">1</span>, <span class="dv">2</span>]<span class="sc">:</span></span>
+<span id="cb560-5"><a href="biopython-sequence-parsing-with-plots.html#cb560-5" aria-hidden="true" tabindex="-1"></a>    filename <span class="ot">=</span> <span class="st">&quot;SRR11880886_%i.fastq&quot;</span> % subfigure</span>
+<span id="cb560-6"><a href="biopython-sequence-parsing-with-plots.html#cb560-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pylab.subplot</span>(<span class="dv">1</span>, <span class="dv">2</span>, subfigure)</span>
+<span id="cb560-7"><a href="biopython-sequence-parsing-with-plots.html#cb560-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, record <span class="cf">in</span> <span class="fu">enumerate</span>(<span class="fu">SeqIO.parse</span>(filename, <span class="st">&quot;fastq&quot;</span>))<span class="sc">:</span></span>
+<span id="cb560-8"><a href="biopython-sequence-parsing-with-plots.html#cb560-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="sc">&gt;=</span> <span class="dv">50</span><span class="sc">:</span></span>
+<span id="cb560-9"><a href="biopython-sequence-parsing-with-plots.html#cb560-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb560-10"><a href="biopython-sequence-parsing-with-plots.html#cb560-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">pylab.plot</span>(record.letter_annotations[<span class="st">&quot;phred_quality&quot;</span>])</span>
+<span id="cb560-11"><a href="biopython-sequence-parsing-with-plots.html#cb560-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pylab.ylim</span>(<span class="dv">0</span>, <span class="dv">45</span>)</span>
+<span id="cb560-12"><a href="biopython-sequence-parsing-with-plots.html#cb560-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pylab.ylabel</span>(<span class="st">&quot;PHRED quality score&quot;</span>)</span>
+<span id="cb560-13"><a href="biopython-sequence-parsing-with-plots.html#cb560-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pylab.xlabel</span>(<span class="st">&quot;Position&quot;</span>)</span>
+<span id="cb560-14"><a href="biopython-sequence-parsing-with-plots.html#cb560-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-15"><a href="biopython-sequence-parsing-with-plots.html#cb560-15" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.show</span>()</span></code></pre></div>
 
 </div>
 </div>
@@ -650,8 +564,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="python-data-types.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="python-operators.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="biopython-chromosome-modeling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="python-web-scraping-w-beautifulsoup.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -682,7 +596,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/18-Python_Strings.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/25-Biopython_Sequence_Parsing_Plots.Rmd",
 "text": "Edit"
 },
 "history": {
