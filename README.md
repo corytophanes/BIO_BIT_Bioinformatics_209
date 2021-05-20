@@ -1,4 +1,4 @@
-# Workshop in Applied Bioinformatics using R and Phyton 
+# Workshop in Applied Bioinformatics using R and Python 
 ## St. John's University: BIO/BIT 209 -- Bioinformatics
 
 ### Course Description: 
