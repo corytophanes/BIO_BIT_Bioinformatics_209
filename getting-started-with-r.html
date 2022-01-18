@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2021-05-20" />
+<meta name="date" content="2022-01-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 
 <link rel="next" href="using-r-installing-packages-and-importingexporting-data.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,7 +51,8 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -117,6 +119,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -424,7 +427,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Bioinformatics Workshop Gitbook</h1>
 <p class="author"><em>Juan C. Santos &amp; Randy Ortiz</em></p>
-<p class="date"><em>2021-05-20</em></p>
+<p class="date"><em>2022-01-18</em></p>
 </div>
 <div id="getting-started-with-r" class="section level1" number="1">
 <h1><span class="header-section-number">Session 1</span> – Getting Started with R</h1>
@@ -472,7 +475,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Any scripting language such as the R language requires you to write code that can be read and annotated (i.e., you add notes that will help you understand what that piece of code is doing). Therefore, finding a good text editor is essential.</p>
 <p>Here are several suggestions for free text editor:</p>
 <p><strong>1) Sublime (macOS, Windows, Linux):</strong></p>
-<p><a href="https://www.sublimetext.com/3" target="_blank">https://www.sublimetext.com/3</a></p>
+<p><a href="https://www.sublimetext.com/download" target="_blank">https://www.sublimetext.com/download</a></p>
 <p>It is free to download, but if once in while will remind you to pay for license (i.e., … Sublime Text may be downloaded and evaluated for free, however a license must be purchased for continued use. There is currently no enforced time limit for the evaluation)</p>
 <p>It is incredible customizable, and you can select the type of language that you are using to help you read your code. Personally, I use Sublime.</p>
 <p>To improve visualization, you can start by installing <strong>Install Package Control</strong> by clicking <strong>Tools</strong> in the menu and then select <strong>Install Package Control</strong>. You can change color on this text editor by clicking <strong>Preferences</strong> then <strong>Color Scheme…</strong> and pick from the available options (I use <strong>Monokai</strong>). On the right corner you can also select an extension by clicking on current (e.g., plain text) and change to R.</p>
@@ -509,11 +512,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Case Western Reserve University, Cleveland, OH:</strong> <a href="https://cran.case.edu/" target="_blank">https://cran.case.edu/</a></p>
 <p><strong>0-Cloud:</strong> <a href="https://cloud.r-project.org/" target="_blank">https://cloud.r-project.org/</a></p>
 <p><strong>4)</strong> You will see a list of links understand <strong>Download and Install R</strong>. These include links to precompiled binary distributions of the base system for Windows and Mac.</p>
-<p><strong>5a) OSX:</strong> For MAC (macOS 10.13 – High Sierra and higher) click on <strong>Download R for (Mac) OS X</strong>. You will need to download the corresponding to latest version, e.g., R-4.0.3.pkg (notarized and signed) R 4.0.3 “Bunny-Wunnies Freak Out” released on 2020/10/10.</p>
+<p><strong>5a) OSX:</strong> For MAC (macOS 10.13 – High Sierra and higher) click on <strong>Download R for (Mac) OS X</strong>. You will need to download the latest version, e.g., R 4.1.2.pkg (notarized and signed) R 4.1.2 “Bird Hippie” released on 2021/11/01.</p>
 <p>For latest macs, you need to install also <strong>XQuartz</strong> since it is no longer part of OS X</p>
 <p><a href="https://www.xquartz.org/" target="_blank">https://www.xquartz.org/</a></p>
 <p>For older MACs (macOS 10.11 – El Capitan) click on <strong>Download R for (Mac) OS X</strong> and then on R-3.6.3.nn.pkg (signed).</p>
-<p><strong>5b) Windows:</strong> For computers running on Windows click on <strong>Download R for Windows</strong> and then on <strong>install R for the first time</strong> and then <strong>Download R 4.0.3 for Windows</strong></p>
+<p>If you have MAC with an Apple M1 processor do not use yet the R-4.1.2-arm64.pkg (notarized and signed) installing package. I noticed that this tend to give problems with some R-packages and sometimes is very hard to fix such incompatibilities. We will be using the version derived from the R-4.1.2.pkg (notarized and signed) that works just fine.</p>
+<p><strong>5b) Windows:</strong> For computers running on Windows click on <strong>Download R for Windows</strong> and then on <strong>install R for the first time</strong> and then <strong>Download R 4.1.2 for Windows</strong></p>
 <p><strong>5c) Linux:</strong> For computers running on Linux (or its variants) click on <strong>Download R for Linux</strong> and choose your operative system. Ask Randy Ortiz (Santos Lab) for further help.</p>
 </div>
 <div id="annotating-code" class="section level2" number="1.5">
@@ -575,7 +579,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -594,6 +597,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -602,7 +606,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-Getting-Started_v2.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-Getting-Started_v3.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -614,6 +618,10 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
