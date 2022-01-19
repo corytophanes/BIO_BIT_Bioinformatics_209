@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Session 2 – Using R, Installing Packages and Importing/Exporting Data | Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Session 2 – Using R, Installing Packages and Importing/Exporting Data | Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2021-05-20" />
+<meta name="date" content="2022-01-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="getting-started-with-r.html"/>
 <link rel="next" href="basic-data-structures-in-r.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,7 +51,8 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -117,6 +119,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -401,6 +404,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="27.1" data-path="python-subprocess.html"><a href="python-subprocess.html#introduction-and-installation"><i class="fa fa-check"></i><b>27.1</b> Introduction and Installation</a></li>
 <li class="chapter" data-level="27.2" data-path="python-subprocess.html"><a href="python-subprocess.html#creating-your-first-python-script-w-bbtools"><i class="fa fa-check"></i><b>27.2</b> Creating your first python script w/ BBTools</a></li>
 </ul></li>
+<li class="chapter" data-level="28" data-path="loops-in-r---for-while-and-repeat.html"><a href="loops-in-r---for-while-and-repeat.html"><i class="fa fa-check"></i><b>28</b> – Loops in R - <code>for</code>, <code>while</code>, and <code>repeat</code></a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="loops-in-r---for-while-and-repeat.html"><a href="loops-in-r---for-while-and-repeat.html#the-for-loops"><i class="fa fa-check"></i><b>28.1</b> The <code>for</code> loops</a></li>
+<li class="chapter" data-level="28.2" data-path="loops-in-r---for-while-and-repeat.html"><a href="loops-in-r---for-while-and-repeat.html#the-while-loops"><i class="fa fa-check"></i><b>28.2</b> The <code>while</code> loops</a></li>
+<li class="chapter" data-level="28.3" data-path="loops-in-r---for-while-and-repeat.html"><a href="loops-in-r---for-while-and-repeat.html#the-repeat-loops"><i class="fa fa-check"></i><b>28.3</b> The <code>repeat</code> loops</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>29</b> – Miscellaneous</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="miscellaneous.html"><a href="miscellaneous.html#sampling-from-a-vector-of-names"><i class="fa fa-check"></i><b>29.1</b> Sampling from a vector of names</a></li>
+<li class="chapter" data-level="29.2" data-path="miscellaneous.html"><a href="miscellaneous.html#miscellaneous-1"><i class="fa fa-check"></i><b>29.2</b> Miscellaneous</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -657,10 +671,10 @@ workspace using function <code>ls()</code>.</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(my_madeup_package)</span>
 <span id="cb43-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Error in library(my_madeup_package) : </span></span>
 <span id="cb43-3"><a href="using-r-installing-packages-and-importingexporting-data.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># there is no package called ‘my_madeup_package’</span></span></code></pre></div>
-<p><strong>8)</strong> To install packages from older versions or no longer maintained in CRAN, you need to install this R-package ‘devtools.’</p>
+<p><strong>8)</strong> To install packages from older versions or no longer maintained in CRAN, you need to install this R-package ‘devtools’.</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
 <span id="cb44-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span></code></pre></div>
-<p><strong>9)</strong> For example, we will install an older version (i.e., ver 1.4.3) of the R-package ‘FlexParamCurve,’ which is a statistics tool to fit complex parametric curves.</p>
+<p><strong>9)</strong> For example, we will install an older version (i.e., ver 1.4.3) of the R-package ‘FlexParamCurve’, which is a statistics tool to fit complex parametric curves.</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install_version</span>(<span class="st">&quot;FlexParamCurve&quot;</span>, <span class="at">version =</span> <span class="st">&quot;1.4.3&quot;</span>, <span class="at">repos =</span> <span class="st">&quot;http://cran.us.r-project.org&quot;</span>)</span>
 <span id="cb45-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Downloading package from url: http://cran.us.r-project.org/src/contrib/Archive/FlexParamCurve/FlexParamCurve_1.4-3.tar.gz</span></span>
 <span id="cb45-3"><a href="using-r-installing-packages-and-importingexporting-data.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co">#* installing *source* package ‘FlexParamCurve’ ...</span></span>
@@ -725,15 +739,19 @@ workspace using function <code>ls()</code>.</p>
 <span id="cb55-3"><a href="using-r-installing-packages-and-importingexporting-data.html#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;C:/Users/myPC/Desktop/my_working_directory/class_datasets &quot;</span></span></code></pre></div>
 <p>Note: Like in macOS, you can apply the same protocol for a file rather than a folder.</p>
 <p><strong>3)</strong> You can get a list of files inside that working directory using <code>file.list()</code>.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path =</span> path_to_my_datafiles, </span>
-<span id="cb56-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">pattern =</span> <span class="cn">NULL</span>,</span>
-<span id="cb56-3"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb56-4"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/santosj/Desktop/Teach_R/class_datasets/airway_scaledcounts.csv&quot;</span></span>
-<span id="cb56-5"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[2] &quot;/Users/santosj/Desktop/Teach_R/class_datasets/mixed_datasets.xlsx&quot;    </span></span>
-<span id="cb56-6"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="co">#[3] &quot;/Users/santosj/Desktop/Teach_R/class_datasets/mtcars2_csv.csv&quot;        </span></span>
-<span id="cb56-7"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="co">#[4] &quot;/Users/santosj/Desktop/Teach_R/class_datasets/mtcars2_tab.txt&quot;        </span></span>
-<span id="cb56-8"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-9"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-9" aria-hidden="true" tabindex="-1"></a>my_vector_of_paths <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> path_to_my_datafiles, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/class_datasets&quot;</span>)</span>
+<span id="cb56-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-3" aria-hidden="true" tabindex="-1"></a>path_to_my_datafiles <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets&quot;</span></span>
+<span id="cb56-4"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-5"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path =</span> path_to_my_datafiles, </span>
+<span id="cb56-6"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">pattern =</span> <span class="cn">NULL</span>,</span>
+<span id="cb56-7"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb56-8"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/juansantos/Desktop/Teach_R/class_datasets/acetylcholine_receptor_popset_1248341763_protein.txt&quot;</span></span>
+<span id="cb56-9"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-9" aria-hidden="true" tabindex="-1"></a><span class="co">#[2] &quot;/Users/juansantos/Desktop/Teach_R/class_datasets/acetylcholine_receptor_popset_1248341763.txt&quot;        </span></span>
+<span id="cb56-10"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-10" aria-hidden="true" tabindex="-1"></a><span class="co">#[3] &quot;/Users/juansantos/Desktop/Teach_R/class_datasets/acetylcholine_receptor_Uniprot.txt&quot;                  </span></span>
+<span id="cb56-11"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[4] &quot;/Users/juansantos/Desktop/Teach_R/class_datasets/airway_scaledcounts.csv&quot;  </span></span>
+<span id="cb56-12"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-13"><a href="using-r-installing-packages-and-importingexporting-data.html#cb56-13" aria-hidden="true" tabindex="-1"></a>my_vector_of_paths <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> path_to_my_datafiles, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>You can select the type of text pattern or extension (e.g., .txt, .csv, .xlsx) to reduce the list of files.</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we could select only those that have a .csv (comma delimited) files</span></span>
 <span id="cb57-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path =</span> path_to_my_datafiles, </span>
@@ -743,7 +761,7 @@ workspace using function <code>ls()</code>.</p>
 <span id="cb57-6"><a href="using-r-installing-packages-and-importingexporting-data.html#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [2] &quot;/Users/santosj/Desktop/Teach_R/class_datasets/mtcars2_csv.csv&quot;        </span></span></code></pre></div>
 <p><strong>4)</strong> We can now import the data of tab and comma delimited files as data frames (a data structure).</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for tab delimited files while preserving headers</span></span>
-<span id="cb58-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb58-2" aria-hidden="true" tabindex="-1"></a>my_mtcars2_file_df <span class="ot">&lt;-</span> <span class="fu">read.table</span> (<span class="at">file =</span> <span class="st">&quot;/Users/santosj/Desktop/Teach_R/class_datasets/mtcars2_tab.txt&quot;</span>, </span>
+<span id="cb58-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb58-2" aria-hidden="true" tabindex="-1"></a>my_mtcars2_file_df <span class="ot">&lt;-</span> <span class="fu">read.table</span> (<span class="at">file =</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets/mtcars2_file_tab.txt&quot;</span>, </span>
 <span id="cb58-3"><a href="using-r-installing-packages-and-importingexporting-data.html#cb58-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
 <span id="cb58-4"><a href="using-r-installing-packages-and-importingexporting-data.html#cb58-4" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
 <span id="cb58-5"><a href="using-r-installing-packages-and-importingexporting-data.html#cb58-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
@@ -756,7 +774,7 @@ workspace using function <code>ls()</code>.</p>
 <span id="cb58-12"><a href="using-r-installing-packages-and-importingexporting-data.html#cb58-12" aria-hidden="true" tabindex="-1"></a><span class="co">#5 Hornet_Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2</span></span>
 <span id="cb58-13"><a href="using-r-installing-packages-and-importingexporting-data.html#cb58-13" aria-hidden="true" tabindex="-1"></a><span class="co">#6           Valiant 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</span></span></code></pre></div>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for comma delimited files while preserving headers</span></span>
-<span id="cb59-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb59-2" aria-hidden="true" tabindex="-1"></a>my_airway_file_df <span class="ot">&lt;-</span> <span class="fu">read.table</span> (<span class="at">file =</span> <span class="st">&quot;/Users/santosj/Desktop/Teach_R/class_datasets/airway_scaledcounts.csv&quot;</span>, </span>
+<span id="cb59-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb59-2" aria-hidden="true" tabindex="-1"></a>my_airway_file_df <span class="ot">&lt;-</span> <span class="fu">read.table</span> (<span class="at">file =</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets/airway_scaledcounts.csv&quot;</span>, </span>
 <span id="cb59-3"><a href="using-r-installing-packages-and-importingexporting-data.html#cb59-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
 <span id="cb59-4"><a href="using-r-installing-packages-and-importingexporting-data.html#cb59-4" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>,</span>
 <span id="cb59-5"><a href="using-r-installing-packages-and-importingexporting-data.html#cb59-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
@@ -770,10 +788,10 @@ workspace using function <code>ls()</code>.</p>
 <span id="cb59-13"><a href="using-r-installing-packages-and-importingexporting-data.html#cb59-13" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000000938          0          0          1          0          2          0          0          0</span></span></code></pre></div>
 <p><strong>5)</strong> You can save data frames as tab or comma delimited files using the function <code>write.table()</code>. However, you should make sure that the folder where you will like your files to be saved is defined.</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co">#define the the output folder</span></span>
-<span id="cb60-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/Users/santosj/Desktop/Teach_R/class_datasets&quot;</span>)</span>
+<span id="cb60-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/class_datasets&quot;</span>)</span>
 <span id="cb60-3"><a href="using-r-installing-packages-and-importingexporting-data.html#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="co">#confirm that the output directory is correct</span></span>
 <span id="cb60-4"><a href="using-r-installing-packages-and-importingexporting-data.html#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb60-5"><a href="using-r-installing-packages-and-importingexporting-data.html#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/santosj/Desktop/Teach_R/class_datasets&quot;</span></span>
+<span id="cb60-5"><a href="using-r-installing-packages-and-importingexporting-data.html#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/juansantos/Desktop/Teach_R/class_datasets&quot;&quot;</span></span>
 <span id="cb60-6"><a href="using-r-installing-packages-and-importingexporting-data.html#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="co"># to determine the separation between columns is defined by the argument &#39;sep =&#39;. For tabs, you use sep =”\t” and for commas you use sep =”,”</span></span>
 <span id="cb60-7"><a href="using-r-installing-packages-and-importingexporting-data.html#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(my_mtcars2_file_df, </span>
 <span id="cb60-8"><a href="using-r-installing-packages-and-importingexporting-data.html#cb60-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">file =</span> <span class="st">&quot;mtcars2_file_tab.txt&quot;</span>, </span>
@@ -784,7 +802,7 @@ workspace using function <code>ls()</code>.</p>
 <span id="cb61-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;openxlsx&quot;</span>)</span>
 <span id="cb61-3"><a href="using-r-installing-packages-and-importingexporting-data.html#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code></pre></div>
 <p>You can load the FIRST sheet to a data frame that has headers on the first row.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb62-1" aria-hidden="true" tabindex="-1"></a>my_mtcars2_xlsx_df <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="at">xlsxFile =</span> <span class="st">&quot;/Users/santosj/Desktop/Teach_R/class_datasets/mixed_datasets.xlsx&quot;</span>,</span>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb62-1" aria-hidden="true" tabindex="-1"></a>my_mtcars2_xlsx_df <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="at">xlsxFile =</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets/mixed_datasets.xlsx&quot;</span>,</span>
 <span id="cb62-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb62-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">sheet =</span> <span class="dv">1</span>,</span>
 <span id="cb62-3"><a href="using-r-installing-packages-and-importingexporting-data.html#cb62-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">startRow =</span> <span class="dv">1</span>,</span>
 <span id="cb62-4"><a href="using-r-installing-packages-and-importingexporting-data.html#cb62-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">colNames =</span> <span class="cn">TRUE</span>)</span>
@@ -797,7 +815,7 @@ workspace using function <code>ls()</code>.</p>
 <span id="cb62-11"><a href="using-r-installing-packages-and-importingexporting-data.html#cb62-11" aria-hidden="true" tabindex="-1"></a><span class="co">#5 Hornet_Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2</span></span>
 <span id="cb62-12"><a href="using-r-installing-packages-and-importingexporting-data.html#cb62-12" aria-hidden="true" tabindex="-1"></a><span class="co">#6           Valiant 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</span></span></code></pre></div>
 <p>Now, you can load the SECOND sheet to a data frame that has headers on the first row.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb63-1" aria-hidden="true" tabindex="-1"></a>my_airway_xlsx_df <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="at">xlsxFile =</span> <span class="st">&quot;/Users/santosj/Desktop/Teach_R/class_datasets/mixed_datasets.xlsx&quot;</span>,</span>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb63-1" aria-hidden="true" tabindex="-1"></a>my_airway_xlsx_df <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="at">xlsxFile =</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets/mixed_datasets.xlsx&quot;</span>,</span>
 <span id="cb63-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb63-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">sheet =</span> <span class="dv">2</span>,</span>
 <span id="cb63-3"><a href="using-r-installing-packages-and-importingexporting-data.html#cb63-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">startRow =</span> <span class="dv">1</span>,</span>
 <span id="cb63-4"><a href="using-r-installing-packages-and-importingexporting-data.html#cb63-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">colNames =</span> <span class="cn">TRUE</span>)</span>
@@ -811,10 +829,10 @@ workspace using function <code>ls()</code>.</p>
 <span id="cb63-12"><a href="using-r-installing-packages-and-importingexporting-data.html#cb63-12" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000000938          0          0          1          0          2          0          0          0</span></span></code></pre></div>
 <p><strong>7)</strong> We can save a data frame as an Excel spreadsheet with R-package <a href="https://cran.r-project.org/web/packages/openxlsx/index.html" target="_blank"><strong>openxlsx</strong></a> and its function <code>write.xlsx()</code>.</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co">#define the the output folder</span></span>
-<span id="cb64-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/Users/santosj/Desktop/Teach_R/class_datasets&quot;</span>)</span>
+<span id="cb64-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/class_datasets&quot;</span>)</span>
 <span id="cb64-3"><a href="using-r-installing-packages-and-importingexporting-data.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co">#confirm that the output directory is correct</span></span>
 <span id="cb64-4"><a href="using-r-installing-packages-and-importingexporting-data.html#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb64-5"><a href="using-r-installing-packages-and-importingexporting-data.html#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/santosj/Desktop/Teach_R/class_datasets&quot;</span></span>
+<span id="cb64-5"><a href="using-r-installing-packages-and-importingexporting-data.html#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/juansantos/Desktop/Teach_R/class_datasets&quot;&quot;</span></span>
 <span id="cb64-6"><a href="using-r-installing-packages-and-importingexporting-data.html#cb64-6" aria-hidden="true" tabindex="-1"></a>my_airway_xlsx_df <span class="ot">&lt;-</span> <span class="fu">write.xlsx</span>(my_mtcars2_file_df,</span>
 <span id="cb64-7"><a href="using-r-installing-packages-and-importingexporting-data.html#cb64-7" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">sheetName =</span> <span class="st">&quot;my_mtcars_xlsx_sheet&quot;</span>,</span>
 <span id="cb64-8"><a href="using-r-installing-packages-and-importingexporting-data.html#cb64-8" aria-hidden="true" tabindex="-1"></a>                                              <span class="at">file =</span> <span class="st">&quot;mtcars_xlsx.xlsx&quot;</span>)</span></code></pre></div>
@@ -835,7 +853,6 @@ workspace using function <code>ls()</code>.</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -854,6 +871,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -862,7 +880,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-First_session_with_R_v6.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-First_session_with_R_v7.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -874,6 +892,10 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

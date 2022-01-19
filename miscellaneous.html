@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Session 19 – Python: Operators | Bioinformatics Workshop Gitbook</title>
+  <title>Session 29 – Miscellaneous | Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Session 19 – Python: Operators | Bioinformatics Workshop Gitbook" />
+  <meta property="og:title" content="Session 29 – Miscellaneous | Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Session 19 – Python: Operators | Bioinformatics Workshop Gitbook" />
+  <meta name="twitter:title" content="Session 29 – Miscellaneous | Bioinformatics Workshop Gitbook" />
   
   <meta name="twitter:description" content="none" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="python-strings.html"/>
-<link rel="next" href="biopython.html"/>
+<link rel="prev" href="loops-in-r---for-while-and-repeat.html"/>
+
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -435,163 +435,76 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="python-operators" class="section level1" number="19">
-<h1><span class="header-section-number">Session 19</span> – Python: Operators</h1>
-<div id="many-types-of-operators" class="section level2" number="19.1">
-<h2><span class="header-section-number">19.1</span> Many types of operators</h2>
-<p>We will discuss many different operators including: Arithmetic, Assignment, Comparison, Bitwise, Logical, Identity and Membership operators. You can think of them as abbreviated commands that facilitate advanced operations. This is why we could not use special characters in our identifiers, they are reserved for another function.</p>
-<p>Operators work in conjunction with operands, which are any variable used as input towards an operator.</p>
+<div id="miscellaneous" class="section level1" number="29">
+<h1><span class="header-section-number">Session 29</span> – Miscellaneous</h1>
+<p>We will post miscellaneous code developed during class or requested by you in this chapter. We will keep updating this list as the semester progresses.</p>
+<div id="sampling-from-a-vector-of-names" class="section level2" number="29.1">
+<h2><span class="header-section-number">29.1</span> Sampling from a vector of names</h2>
+<p>We need that 2-3 students give a presentation about the topics of previous class every week, so we can use R to do the selection for us. We will use the function <code>sample</code></p>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="miscellaneous.html#cb573-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need a list of the 20 students last names for BIO/BIT 209 as their unique identifiers</span></span>
+<span id="cb573-2"><a href="miscellaneous.html#cb573-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-3"><a href="miscellaneous.html#cb573-3" aria-hidden="true" tabindex="-1"></a>students_BIO209 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Ardire&quot;</span>, <span class="st">&quot;Carlucci&quot;</span>, <span class="st">&quot;Chen&quot;</span>, <span class="st">&quot;Da_Costa_Morais&quot;</span>, <span class="st">&quot;Davidov&quot;</span>, <span class="st">&quot;Deda&quot;</span>, </span>
+<span id="cb573-4"><a href="miscellaneous.html#cb573-4" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Dimitrijevic&quot;</span>, <span class="st">&quot;Fasano&quot;</span>, <span class="st">&quot;Gata&quot;</span>, <span class="st">&quot;Javed&quot;</span>, <span class="st">&quot;Mahadeo&quot;</span>, <span class="st">&quot;Mowla&quot;</span>, <span class="st">&quot;Njie&quot;</span>, </span>
+<span id="cb573-5"><a href="miscellaneous.html#cb573-5" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Rahman&quot;</span>, <span class="st">&quot;Ryszawiec&quot;</span>, <span class="st">&quot;Siddique&quot;</span>, <span class="st">&quot;Talukder&quot;</span>, <span class="st">&quot;Tan&quot;</span>, <span class="st">&quot;Tiumalu&quot;</span>, <span class="st">&quot;Vu&quot;</span>)</span>
+<span id="cb573-6"><a href="miscellaneous.html#cb573-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-7"><a href="miscellaneous.html#cb573-7" aria-hidden="true" tabindex="-1"></a>students_BIO209 </span>
+<span id="cb573-8"><a href="miscellaneous.html#cb573-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Ardire&quot;          &quot;Carlucci&quot;        &quot;Chen&quot;            &quot;Da_Costa_Morais&quot; &quot;Davidov&quot;         &quot;Deda&quot;            &quot;Dimitrijevic&quot;    &quot;Fasano&quot;          &quot;Gata&quot;           </span></span>
+<span id="cb573-9"><a href="miscellaneous.html#cb573-9" aria-hidden="true" tabindex="-1"></a><span class="co">#[10] &quot;Javed&quot;           &quot;Mahadeo&quot;         &quot;Mowla&quot;           &quot;Njie&quot;            &quot;Rahman&quot;          &quot;Ryszawiec&quot;       &quot;Siddique&quot;        &quot;Talukder&quot;        &quot;Tan&quot;            </span></span>
+<span id="cb573-10"><a href="miscellaneous.html#cb573-10" aria-hidden="true" tabindex="-1"></a><span class="co">#[19] &quot;Tiumalu&quot;         &quot;Vu&quot;</span></span>
+<span id="cb573-11"><a href="miscellaneous.html#cb573-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-12"><a href="miscellaneous.html#cb573-12" aria-hidden="true" tabindex="-1"></a><span class="do">## we order them alphabetically</span></span>
+<span id="cb573-13"><a href="miscellaneous.html#cb573-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-14"><a href="miscellaneous.html#cb573-14" aria-hidden="true" tabindex="-1"></a>students_BIO209_order <span class="ot">&lt;-</span> <span class="fu">sort</span>(students_BIO209)</span>
+<span id="cb573-15"><a href="miscellaneous.html#cb573-15" aria-hidden="true" tabindex="-1"></a>students_BIO209_order</span>
+<span id="cb573-16"><a href="miscellaneous.html#cb573-16" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Ardire&quot;          &quot;Carlucci&quot;        &quot;Chen&quot;            &quot;Da_Costa_Morais&quot; &quot;Davidov&quot;         &quot;Deda&quot;            &quot;Dimitrijevic&quot;    &quot;Fasano&quot;          &quot;Gata&quot;           </span></span>
+<span id="cb573-17"><a href="miscellaneous.html#cb573-17" aria-hidden="true" tabindex="-1"></a><span class="co">#[10] &quot;Javed&quot;           &quot;Mahadeo&quot;         &quot;Mowla&quot;           &quot;Njie&quot;            &quot;Rahman&quot;          &quot;Ryszawiec&quot;       &quot;Siddique&quot;        &quot;Talukder&quot;        &quot;Tan&quot;            </span></span>
+<span id="cb573-18"><a href="miscellaneous.html#cb573-18" aria-hidden="true" tabindex="-1"></a><span class="co">#[19] &quot;Tiumalu&quot;         &quot;Vu&quot;</span></span>
+<span id="cb573-19"><a href="miscellaneous.html#cb573-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-20"><a href="miscellaneous.html#cb573-20" aria-hidden="true" tabindex="-1"></a><span class="do">## numeric code for each student</span></span>
+<span id="cb573-21"><a href="miscellaneous.html#cb573-21" aria-hidden="true" tabindex="-1"></a>students_BIO209_order_c <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, students_BIO209_order, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)</span>
+<span id="cb573-22"><a href="miscellaneous.html#cb573-22" aria-hidden="true" tabindex="-1"></a>students_BIO209_order_c </span>
+<span id="cb573-23"><a href="miscellaneous.html#cb573-23" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;1_Ardire&quot;          &quot;2_Carlucci&quot;        &quot;3_Chen&quot;            &quot;4_Da_Costa_Morais&quot; &quot;5_Davidov&quot;         &quot;6_Deda&quot;            &quot;7_Dimitrijevic&quot;    &quot;8_Fasano&quot;         </span></span>
+<span id="cb573-24"><a href="miscellaneous.html#cb573-24" aria-hidden="true" tabindex="-1"></a><span class="co">#[9] &quot;9_Gata&quot;            &quot;10_Javed&quot;          &quot;11_Mahadeo&quot;        &quot;12_Mowla&quot;          &quot;13_Njie&quot;           &quot;14_Rahman&quot;         &quot;15_Ryszawiec&quot;      &quot;16_Siddique&quot;      </span></span>
+<span id="cb573-25"><a href="miscellaneous.html#cb573-25" aria-hidden="true" tabindex="-1"></a><span class="co">#[17]&quot;17_Talukder&quot;       &quot;18_Tan&quot;            &quot;19_Tiumalu&quot;        &quot;20_Vu&quot;</span></span>
+<span id="cb573-26"><a href="miscellaneous.html#cb573-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-27"><a href="miscellaneous.html#cb573-27" aria-hidden="true" tabindex="-1"></a><span class="do">## we sample 3 students to give a review of last class</span></span>
+<span id="cb573-28"><a href="miscellaneous.html#cb573-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-29"><a href="miscellaneous.html#cb573-29" aria-hidden="true" tabindex="-1"></a>todays_3_students_code <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">prob =</span> <span class="cn">NULL</span>)</span>
+<span id="cb573-30"><a href="miscellaneous.html#cb573-30" aria-hidden="true" tabindex="-1"></a>todays_3_students_code</span>
+<span id="cb573-31"><a href="miscellaneous.html#cb573-31" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 3 4 6</span></span>
+<span id="cb573-32"><a href="miscellaneous.html#cb573-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-33"><a href="miscellaneous.html#cb573-33" aria-hidden="true" tabindex="-1"></a><span class="do">## we identify such students by name</span></span>
+<span id="cb573-34"><a href="miscellaneous.html#cb573-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-35"><a href="miscellaneous.html#cb573-35" aria-hidden="true" tabindex="-1"></a>today_students <span class="ot">&lt;-</span> students_BIO209_order_c[todays_3_students_code]</span>
+<span id="cb573-36"><a href="miscellaneous.html#cb573-36" aria-hidden="true" tabindex="-1"></a>today_students</span>
+<span id="cb573-37"><a href="miscellaneous.html#cb573-37" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;3_Chen&quot;            &quot;4_Da_Costa_Morais&quot; &quot;6_Deda&quot; </span></span>
+<span id="cb573-38"><a href="miscellaneous.html#cb573-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-39"><a href="miscellaneous.html#cb573-39" aria-hidden="true" tabindex="-1"></a><span class="do">## NEXT WEEK: we need 3 students again, but we want to remove those that already gave a lesson</span></span>
+<span id="cb573-40"><a href="miscellaneous.html#cb573-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-41"><a href="miscellaneous.html#cb573-41" aria-hidden="true" tabindex="-1"></a>remaining_students_code <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>))</span>
+<span id="cb573-42"><a href="miscellaneous.html#cb573-42" aria-hidden="true" tabindex="-1"></a>remaining_students_code</span>
+<span id="cb573-43"><a href="miscellaneous.html#cb573-43" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1  2  5  7  8  9 10 11 12 13 14 15 16 17 18 19 20</span></span>
+<span id="cb573-44"><a href="miscellaneous.html#cb573-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-45"><a href="miscellaneous.html#cb573-45" aria-hidden="true" tabindex="-1"></a><span class="do">## NEXT WEEK: we sample 3 students to give a review of last class</span></span>
+<span id="cb573-46"><a href="miscellaneous.html#cb573-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-47"><a href="miscellaneous.html#cb573-47" aria-hidden="true" tabindex="-1"></a>todays_3_students_code <span class="ot">&lt;-</span> <span class="fu">sample</span>(remaining_students_code, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">prob =</span> <span class="cn">NULL</span>)</span>
+<span id="cb573-48"><a href="miscellaneous.html#cb573-48" aria-hidden="true" tabindex="-1"></a>todays_3_students_code</span>
+<span id="cb573-49"><a href="miscellaneous.html#cb573-49" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1 16  9</span></span>
+<span id="cb573-50"><a href="miscellaneous.html#cb573-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-51"><a href="miscellaneous.html#cb573-51" aria-hidden="true" tabindex="-1"></a><span class="do">## we identify such students by name</span></span>
+<span id="cb573-52"><a href="miscellaneous.html#cb573-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-53"><a href="miscellaneous.html#cb573-53" aria-hidden="true" tabindex="-1"></a>today_students <span class="ot">&lt;-</span> students_BIO209_order_c[todays_3_students_code]</span>
+<span id="cb573-54"><a href="miscellaneous.html#cb573-54" aria-hidden="true" tabindex="-1"></a>today_students</span>
+<span id="cb573-55"><a href="miscellaneous.html#cb573-55" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;1_Ardire&quot;    &quot;16_Siddique&quot; &quot;9_Gata&quot;</span></span></code></pre></div>
 </div>
-<div id="arithmetic-operators" class="section level2" number="19.2">
-<h2><span class="header-section-number">19.2</span> Arithmetic operators</h2>
-<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="python-operators.html#cb529-1" aria-hidden="true" tabindex="-1"></a><span class="co">#addition</span></span>
-<span id="cb529-2"><a href="python-operators.html#cb529-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">2</span></span>
-<span id="cb529-3"><a href="python-operators.html#cb529-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb529-4"><a href="python-operators.html#cb529-4" aria-hidden="true" tabindex="-1"></a><span class="co">#subtraction</span></span>
-<span id="cb529-5"><a href="python-operators.html#cb529-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1-2</span></span>
-<span id="cb529-6"><a href="python-operators.html#cb529-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb529-7"><a href="python-operators.html#cb529-7" aria-hidden="true" tabindex="-1"></a><span class="co">#multiplication</span></span>
-<span id="cb529-8"><a href="python-operators.html#cb529-8" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">*</span><span class="dv">2</span></span>
-<span id="cb529-9"><a href="python-operators.html#cb529-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb529-10"><a href="python-operators.html#cb529-10" aria-hidden="true" tabindex="-1"></a><span class="co">#float division</span></span>
-<span id="cb529-11"><a href="python-operators.html#cb529-11" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb529-12"><a href="python-operators.html#cb529-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb529-13"><a href="python-operators.html#cb529-13" aria-hidden="true" tabindex="-1"></a><span class="co">#floor division (exclude fraction)</span></span>
-<span id="cb529-14"><a href="python-operators.html#cb529-14" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">/</span><span class="er">/</span><span class="dv">2</span></span>
-<span id="cb529-15"><a href="python-operators.html#cb529-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb529-16"><a href="python-operators.html#cb529-16" aria-hidden="true" tabindex="-1"></a><span class="co">#modulus</span></span>
-<span id="cb529-17"><a href="python-operators.html#cb529-17" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>%<span class="dv">2</span></span>
-<span id="cb529-18"><a href="python-operators.html#cb529-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb529-19"><a href="python-operators.html#cb529-19" aria-hidden="true" tabindex="-1"></a><span class="co">#exponent</span></span>
-<span id="cb529-20"><a href="python-operators.html#cb529-20" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">**</span><span class="dv">2</span></span></code></pre></div>
-</div>
-<div id="comparison-operators" class="section level2" number="19.3">
-<h2><span class="header-section-number">19.3</span> Comparison operators</h2>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="python-operators.html#cb530-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="dv">1</span></span>
-<span id="cb530-2"><a href="python-operators.html#cb530-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span><span class="dv">2</span></span>
-<span id="cb530-3"><a href="python-operators.html#cb530-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb530-4"><a href="python-operators.html#cb530-4" aria-hidden="true" tabindex="-1"></a><span class="co">#greater than</span></span>
-<span id="cb530-5"><a href="python-operators.html#cb530-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;a &gt; b is&#39;</span>, a<span class="sc">&gt;</span>b)</span>
-<span id="cb530-6"><a href="python-operators.html#cb530-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb530-7"><a href="python-operators.html#cb530-7" aria-hidden="true" tabindex="-1"></a><span class="co">#less than</span></span>
-<span id="cb530-8"><a href="python-operators.html#cb530-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;a &lt; b is&#39;</span>, a<span class="sc">&lt;</span>b)</span>
-<span id="cb530-9"><a href="python-operators.html#cb530-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb530-10"><a href="python-operators.html#cb530-10" aria-hidden="true" tabindex="-1"></a><span class="co">#equal to</span></span>
-<span id="cb530-11"><a href="python-operators.html#cb530-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;a == b is&#39;</span>, a<span class="sc">==</span>b)</span>
-<span id="cb530-12"><a href="python-operators.html#cb530-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb530-13"><a href="python-operators.html#cb530-13" aria-hidden="true" tabindex="-1"></a><span class="co">#not equal to</span></span>
-<span id="cb530-14"><a href="python-operators.html#cb530-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;a != b is&#39;</span>, a<span class="sc">!=</span>b)</span>
-<span id="cb530-15"><a href="python-operators.html#cb530-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb530-16"><a href="python-operators.html#cb530-16" aria-hidden="true" tabindex="-1"></a><span class="co">#greater than or equal to</span></span>
-<span id="cb530-17"><a href="python-operators.html#cb530-17" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;a &gt;= b is&#39;</span>, a<span class="sc">&gt;=</span>b)</span>
-<span id="cb530-18"><a href="python-operators.html#cb530-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb530-19"><a href="python-operators.html#cb530-19" aria-hidden="true" tabindex="-1"></a><span class="co">#less than or equal to</span></span>
-<span id="cb530-20"><a href="python-operators.html#cb530-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;a &lt;= b is&#39;</span>, a<span class="sc">&lt;=</span>b)</span></code></pre></div>
-</div>
-<div id="logical-operators" class="section level2" number="19.4">
-<h2><span class="header-section-number">19.4</span> Logical operators</h2>
-<p>Logical operators allow us to make a choice based on set conditions.</p>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="python-operators.html#cb531-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="dv">1</span></span>
-<span id="cb531-2"><a href="python-operators.html#cb531-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span><span class="dv">2</span></span>
-<span id="cb531-3"><a href="python-operators.html#cb531-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb531-4"><a href="python-operators.html#cb531-4" aria-hidden="true" tabindex="-1"></a><span class="co">#and</span></span>
-<span id="cb531-5"><a href="python-operators.html#cb531-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;a and b is&#39;</span>,a and b)</span>
-<span id="cb531-6"><a href="python-operators.html#cb531-6" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> and <span class="dv">2</span> <span class="sc">==</span> <span class="dv">3</span></span>
-<span id="cb531-7"><a href="python-operators.html#cb531-7" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> and <span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span>
-<span id="cb531-8"><a href="python-operators.html#cb531-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb531-9"><a href="python-operators.html#cb531-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb531-10"><a href="python-operators.html#cb531-10" aria-hidden="true" tabindex="-1"></a><span class="co">#or</span></span>
-<span id="cb531-11"><a href="python-operators.html#cb531-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;a or b is&#39;</span>,a or b)</span>
-<span id="cb531-12"><a href="python-operators.html#cb531-12" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> or <span class="dv">2</span> <span class="sc">==</span> <span class="dv">3</span></span>
-<span id="cb531-13"><a href="python-operators.html#cb531-13" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> or <span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span>
-<span id="cb531-14"><a href="python-operators.html#cb531-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb531-15"><a href="python-operators.html#cb531-15" aria-hidden="true" tabindex="-1"></a><span class="co">#not</span></span>
-<span id="cb531-16"><a href="python-operators.html#cb531-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;not a is&#39;</span>,not a)</span></code></pre></div>
-</div>
-<div id="bitwise-operators" class="section level2" number="19.5">
-<h2><span class="header-section-number">19.5</span> Bitwise operators</h2>
-<p>Bitwise operators process the bits of integer values. We will not be using bitwise operators. I will still list them below:</p>
-<p>&amp; Bitwise AND
-| Bitwise OR
-~ Bitwise NOT
-^ Bitwise XOR
-&gt;&gt; Bitwise right shift
-&lt;&lt; Bitwise left shift</p>
-<p>##Assignment operators</p>
-<p>We use assignment operators to set values to indentifiers.</p>
-<p>Simple Assignment:</p>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="python-operators.html#cb532-1" aria-hidden="true" tabindex="-1"></a><span class="ot">=</span>    a<span class="ot">=</span><span class="dv">2</span>        a<span class="ot">=</span><span class="dv">2</span></span>
-<span id="cb532-2"><a href="python-operators.html#cb532-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb532-3"><a href="python-operators.html#cb532-3" aria-hidden="true" tabindex="-1"></a>Arithmetic Assignments<span class="sc">:</span></span>
-<span id="cb532-4"><a href="python-operators.html#cb532-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb532-5"><a href="python-operators.html#cb532-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="er">=</span>    a<span class="sc">+</span><span class="er">=</span><span class="dv">2</span>    a<span class="ot">=</span>a<span class="sc">+</span><span class="dv">2</span></span>
-<span id="cb532-6"><a href="python-operators.html#cb532-6" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="er">=</span>    a<span class="sc">-</span><span class="er">=</span><span class="dv">2</span>    a<span class="ot">=</span>a<span class="dv">-2</span></span>
-<span id="cb532-7"><a href="python-operators.html#cb532-7" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span><span class="er">=</span>    a<span class="sc">*</span><span class="er">=</span><span class="dv">2</span>    a<span class="ot">=</span>a<span class="sc">*</span><span class="dv">2</span></span>
-<span id="cb532-8"><a href="python-operators.html#cb532-8" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span><span class="er">=</span>    a<span class="sc">/</span><span class="er">=</span><span class="dv">2</span>    a<span class="ot">=</span>a<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb532-9"><a href="python-operators.html#cb532-9" aria-hidden="true" tabindex="-1"></a><span class="sc">%=    a%</span><span class="er">=</span><span class="dv">2</span>    a<span class="ot">=</span>a%<span class="dv">2</span></span>
-<span id="cb532-10"><a href="python-operators.html#cb532-10" aria-hidden="true" tabindex="-1"></a><span class="sc">**</span><span class="er">=</span>    a<span class="sc">**</span><span class="er">=</span><span class="dv">2</span>    a<span class="ot">=</span>a<span class="sc">**</span><span class="dv">2</span></span>
-<span id="cb532-11"><a href="python-operators.html#cb532-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb532-12"><a href="python-operators.html#cb532-12" aria-hidden="true" tabindex="-1"></a>Bitwise Assignments<span class="sc">:</span></span>
-<span id="cb532-13"><a href="python-operators.html#cb532-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb532-14"><a href="python-operators.html#cb532-14" aria-hidden="true" tabindex="-1"></a><span class="er">&amp;=</span>    a<span class="sc">&amp;</span><span class="er">=</span><span class="dv">2</span>    a<span class="ot">=</span>a<span class="sc">&amp;</span><span class="dv">2</span></span>
-<span id="cb532-15"><a href="python-operators.html#cb532-15" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span><span class="er">=</span>    a<span class="sc">|</span><span class="er">=</span><span class="dv">2</span>    a<span class="ot">=</span>a<span class="sc">|</span><span class="dv">2</span></span>
-<span id="cb532-16"><a href="python-operators.html#cb532-16" aria-hidden="true" tabindex="-1"></a><span class="sc">^</span><span class="er">=</span>    a<span class="sc">^</span><span class="er">=</span><span class="dv">2</span>    a<span class="ot">=</span>a<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb532-17"><a href="python-operators.html#cb532-17" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span><span class="er">&gt;=</span>    a<span class="sc">&gt;</span><span class="er">&gt;=</span><span class="dv">2</span>    a<span class="ot">=</span>a<span class="sc">&gt;</span><span class="er">&gt;</span><span class="dv">2</span></span>
-<span id="cb532-18"><a href="python-operators.html#cb532-18" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;=</span>    a<span class="sc">&lt;</span><span class="er">&lt;=</span><span class="dv">2</span>    a<span class="ot">=</span><span class="er">&lt;&lt;</span><span class="dv">2</span></span></code></pre></div>
-</div>
-<div id="identity-operators" class="section level2" number="19.6">
-<h2><span class="header-section-number">19.6</span> Identity Operators</h2>
-<p>Identity operators allow the comparison of memory locations of two Python variables.</p>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="python-operators.html#cb533-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="dv">2</span></span>
-<span id="cb533-2"><a href="python-operators.html#cb533-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb533-3"><a href="python-operators.html#cb533-3" aria-hidden="true" tabindex="-1"></a><span class="co">#is</span></span>
-<span id="cb533-4"><a href="python-operators.html#cb533-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">type</span>(a) is int)<span class="sc">:</span></span>
-<span id="cb533-5"><a href="python-operators.html#cb533-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;true&quot;</span>)</span>
-<span id="cb533-6"><a href="python-operators.html#cb533-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
-<span id="cb533-7"><a href="python-operators.html#cb533-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;false&quot;</span>)</span>
-<span id="cb533-8"><a href="python-operators.html#cb533-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb533-9"><a href="python-operators.html#cb533-9" aria-hidden="true" tabindex="-1"></a><span class="co">#is not</span></span>
-<span id="cb533-10"><a href="python-operators.html#cb533-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">type</span>(a) is not int)<span class="sc">:</span></span>
-<span id="cb533-11"><a href="python-operators.html#cb533-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;true&quot;</span>)</span>
-<span id="cb533-12"><a href="python-operators.html#cb533-12" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
-<span id="cb533-13"><a href="python-operators.html#cb533-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;false&quot;</span>)</span></code></pre></div>
-</div>
-<div id="membership-operators" class="section level2" number="19.7">
-<h2><span class="header-section-number">19.7</span> Membership operators</h2>
-<p>Membership operators can tell us if our value is listed in a string, list or tuple.</p>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="python-operators.html#cb534-1" aria-hidden="true" tabindex="-1"></a><span class="co">#in</span></span>
-<span id="cb534-2"><a href="python-operators.html#cb534-2" aria-hidden="true" tabindex="-1"></a>evidence <span class="ot">=</span> <span class="st">&#39;jack and jill were at the crime scene&#39;</span></span>
-<span id="cb534-3"><a href="python-operators.html#cb534-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;jill&#39;</span> <span class="cf">in</span> evidence)</span>
-<span id="cb534-4"><a href="python-operators.html#cb534-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;james&#39;</span> <span class="cf">in</span> evidence)</span>
-<span id="cb534-5"><a href="python-operators.html#cb534-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;j&#39;</span> <span class="cf">in</span> evidence)</span>
-<span id="cb534-6"><a href="python-operators.html#cb534-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;randy&#39;</span> not <span class="cf">in</span> evidence)</span></code></pre></div>
-</div>
-<div id="what-is-the-order-of-operations-with-operators" class="section level2" number="19.8">
-<h2><span class="header-section-number">19.8</span> What is the order of operations with operators?</h2>
-<p>Multiplication occurs before addtion, even if the addition is stated first.</p>
-<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="python-operators.html#cb535-1" aria-hidden="true" tabindex="-1"></a><span class="co">#multiplication preceeds addition even below</span></span>
-<span id="cb535-2"><a href="python-operators.html#cb535-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">6</span> <span class="sc">*</span> <span class="dv">5</span></span>
-<span id="cb535-3"><a href="python-operators.html#cb535-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb535-4"><a href="python-operators.html#cb535-4" aria-hidden="true" tabindex="-1"></a><span class="co">#you can use parentheses to force addition first</span></span>
-<span id="cb535-5"><a href="python-operators.html#cb535-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span> <span class="sc">+</span> <span class="dv">6</span>) <span class="sc">*</span> <span class="dv">5</span></span>
-<span id="cb535-6"><a href="python-operators.html#cb535-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb535-7"><a href="python-operators.html#cb535-7" aria-hidden="true" tabindex="-1"></a><span class="co">#some operators share the same precedence, so the leftmost will be performed first</span></span>
-<span id="cb535-8"><a href="python-operators.html#cb535-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="dv">4</span> <span class="sc">+</span> <span class="dv">7</span> <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb535-9"><a href="python-operators.html#cb535-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb535-10"><a href="python-operators.html#cb535-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="dv">4</span> <span class="sc">-</span> <span class="dv">7</span> <span class="sc">+</span> <span class="dv">1</span>)</span>
-<span id="cb535-11"><a href="python-operators.html#cb535-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb535-12"><a href="python-operators.html#cb535-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="dv">4</span> <span class="sc">*</span> <span class="dv">7</span> <span class="sc">/</span> <span class="dv">1</span>)</span>
-<span id="cb535-13"><a href="python-operators.html#cb535-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb535-14"><a href="python-operators.html#cb535-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="dv">4</span> <span class="sc">/</span> <span class="dv">7</span> <span class="sc">*</span> <span class="dv">1</span>)</span>
-<span id="cb535-15"><a href="python-operators.html#cb535-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb535-16"><a href="python-operators.html#cb535-16" aria-hidden="true" tabindex="-1"></a><span class="co">#make sure to test order of operations throughly to make sure your formula is working as preferred</span></span>
-<span id="cb535-17"><a href="python-operators.html#cb535-17" aria-hidden="true" tabindex="-1"></a><span class="co">#the best way is to start small and add more as you go</span></span>
-<span id="cb535-18"><a href="python-operators.html#cb535-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb535-19"><a href="python-operators.html#cb535-19" aria-hidden="true" tabindex="-1"></a><span class="co">#EXCEPTION!!!</span></span>
-<span id="cb535-20"><a href="python-operators.html#cb535-20" aria-hidden="true" tabindex="-1"></a><span class="co">#exponents have right-to-left associativity, which is atypical</span></span>
-<span id="cb535-21"><a href="python-operators.html#cb535-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="dv">4</span> <span class="sc">**</span> <span class="dv">2</span> <span class="sc">**</span> <span class="dv">2</span>)</span>
-<span id="cb535-22"><a href="python-operators.html#cb535-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb535-23"><a href="python-operators.html#cb535-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>((<span class="dv">4</span> <span class="sc">**</span> <span class="dv">2</span>) <span class="sc">**</span> <span class="dv">2</span>)</span></code></pre></div>
+<div id="miscellaneous-1" class="section level2" number="29.2">
+<h2><span class="header-section-number">29.2</span> Miscellaneous</h2>
+<p>PLACE HOLDER</p>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="miscellaneous.html#cb574-1" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
+<span id="cb574-2"><a href="miscellaneous.html#cb574-2" aria-hidden="true" tabindex="-1"></a>mtcars_data <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb574-3"><a href="miscellaneous.html#cb574-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-4"><a href="miscellaneous.html#cb574-4" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
+<span id="cb574-5"><a href="miscellaneous.html#cb574-5" aria-hidden="true" tabindex="-1"></a>mtcars_names_vector <span class="ot">&lt;-</span> <span class="fu">rownames</span>(mtcars_data)</span></code></pre></div>
 
 </div>
 </div>
@@ -600,8 +513,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="python-strings.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="biopython.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="loops-in-r---for-while-and-repeat.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -632,7 +545,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/19-Python_Operators.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/29-Miscellaneous_v1.Rmd",
 "text": "Edit"
 },
 "history": {
