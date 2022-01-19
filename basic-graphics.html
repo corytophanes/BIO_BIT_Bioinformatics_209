@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Session 10 – Basic Graphics | Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Session 10 – Basic Graphics | Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2021-05-20" />
+<meta name="date" content="2022-01-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="graphics-and-colors.html"/>
 <link rel="next" href="sequence-alignments.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,7 +51,8 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -117,6 +119,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -401,6 +404,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="27.1" data-path="python-subprocess.html"><a href="python-subprocess.html#introduction-and-installation"><i class="fa fa-check"></i><b>27.1</b> Introduction and Installation</a></li>
 <li class="chapter" data-level="27.2" data-path="python-subprocess.html"><a href="python-subprocess.html#creating-your-first-python-script-w-bbtools"><i class="fa fa-check"></i><b>27.2</b> Creating your first python script w/ BBTools</a></li>
 </ul></li>
+<li class="chapter" data-level="28" data-path="loops-in-r---for-while-and-repeat.html"><a href="loops-in-r---for-while-and-repeat.html"><i class="fa fa-check"></i><b>28</b> – Loops in R - <code>for</code>, <code>while</code>, and <code>repeat</code></a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="loops-in-r---for-while-and-repeat.html"><a href="loops-in-r---for-while-and-repeat.html#the-for-loops"><i class="fa fa-check"></i><b>28.1</b> The <code>for</code> loops</a></li>
+<li class="chapter" data-level="28.2" data-path="loops-in-r---for-while-and-repeat.html"><a href="loops-in-r---for-while-and-repeat.html#the-while-loops"><i class="fa fa-check"></i><b>28.2</b> The <code>while</code> loops</a></li>
+<li class="chapter" data-level="28.3" data-path="loops-in-r---for-while-and-repeat.html"><a href="loops-in-r---for-while-and-repeat.html#the-repeat-loops"><i class="fa fa-check"></i><b>28.3</b> The <code>repeat</code> loops</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>29</b> – Miscellaneous</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="miscellaneous.html"><a href="miscellaneous.html#sampling-from-a-vector-of-names"><i class="fa fa-check"></i><b>29.1</b> Sampling from a vector of names</a></li>
+<li class="chapter" data-level="29.2" data-path="miscellaneous.html"><a href="miscellaneous.html#miscellaneous-1"><i class="fa fa-check"></i><b>29.2</b> Miscellaneous</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -427,7 +441,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">10.1</span> Bar charts</h2>
 <p>One of the most basic graphs is those that illustrate counts or mean values of discrete variables or ranges of values as groups in a continuous variable. For counts, the x-axis includes discrete variables and the y-axis are the counts assigned to each these variables (this is a bar graph). For a continuous variable, values on this variable can be divided into groups or ranges (e.g., 0-5, 6-10, 11-15, 16-20, etc) in the x-axis and then the number of times that individual values of the continuous variable fall in the ranges are represented in the y-axis (this is a histogram).</p>
 <p><strong>17)</strong> To do a bar chart, we need a dataset of discrete variables that include count and in the correct format to <strong>ggplot2</strong>.</p>
-<p>We will use the ‘ichtyo’ dataset of the package ‘ade4.’</p>
+<p>We will use the ‘ichtyo’ dataset of the package ‘ade4’.</p>
 <div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="basic-graphics.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we will load &#39;ade4&#39; and the ‘ichtyo’ dataset</span></span>
 <span id="cb400-2"><a href="basic-graphics.html#cb400-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)</span>
 <span id="cb400-3"><a href="basic-graphics.html#cb400-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ichtyo)</span>
@@ -529,7 +543,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="stacked-bar-charts" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> Stacked bar charts</h2>
 <p><strong>18)</strong> Some people argue against stacked bar charts, yet they are much better than pie charts to show relationships between proportions per sample.</p>
-<p>We will use the ‘geom_col()‘ with the same dataset ‘ecomor’ of the package ‘ade4.’ Notice that is a rather complex processing, yet you should be able to dissect the processing from input data to data frame ready for <strong>ggplot2</strong>.</p>
+<p>We will use the ‘geom_col()‘ with the same dataset ‘ecomor’ of the package ‘ade4’. Notice that is a rather complex processing, yet you should be able to dissect the processing from input data to data frame ready for <strong>ggplot2</strong>.</p>
 <div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="basic-graphics.html#cb405-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we will load &#39;ade4&#39; and the ‘ecomor’ dataset</span></span>
 <span id="cb405-2"><a href="basic-graphics.html#cb405-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)</span>
 <span id="cb405-3"><a href="basic-graphics.html#cb405-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ecomor)</span>
@@ -855,7 +869,7 @@ We can also remove some low expressed genes (e.g., values less than 100) and ove
 </div>
 <div id="box-plots" class="section level2" number="10.6">
 <h2><span class="header-section-number">10.6</span> Box plots</h2>
-<p>These graphics are similar to histograms and density plots that summarizes a distribution. In these plots, the graphics show the following summaries: (1) First quartile (Q1) or 25th Percentile, which is the middle value between the smallest value and the median of the dataset; (2) Median (Q2) or 50th Percentile, which is the middle value of the dataset; (3) Third quartile (Q3) or 75th Percentile, which is the middle value between the median and the highest value of the dataset; (4) A “box” named the interquartile range (IQR) that is bounded between the 25th and 75th percentiles; (5) Line or whisker that extend to a “minimum” equal to Q1 - 1.5xIQR, (6) Line or whisker that extend to a “maximum” equal to Q3 + 1.5xIQR; and (7) Outliers or values that fall below the “minimum” and above the “maximum.”</p>
+<p>These graphics are similar to histograms and density plots that summarizes a distribution. In these plots, the graphics show the following summaries: (1) First quartile (Q1) or 25th Percentile, which is the middle value between the smallest value and the median of the dataset; (2) Median (Q2) or 50th Percentile, which is the middle value of the dataset; (3) Third quartile (Q3) or 75th Percentile, which is the middle value between the median and the highest value of the dataset; (4) A “box” named the interquartile range (IQR) that is bounded between the 25th and 75th percentiles; (5) Line or whisker that extend to a “minimum” equal to Q1 - 1.5xIQR, (6) Line or whisker that extend to a “maximum” equal to Q3 + 1.5xIQR; and (7) Outliers or values that fall below the “minimum” and above the “maximum”.</p>
 <p><img src="figures/session_9_figs/31_boxplot_exaplained.png" width="90%" /></p>
 <p>Source: <a href="https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51" target="_blank">Understanding Boxplots</a> by Michael Galarnyk.</p>
 <p><strong>23)</strong> We can use the same <code>crabs</code> dataset to revise how to construct boxplots in <strong>ggplot2</strong>.</p>
@@ -939,7 +953,7 @@ We can also remove some low expressed genes (e.g., values less than 100) and ove
 <div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="basic-graphics.html#cb428-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we can select from these types of lines, the number indicates the line code.</span></span>
 <span id="cb428-2"><a href="basic-graphics.html#cb428-2" aria-hidden="true" tabindex="-1"></a><span class="fu">show_line_types</span>()<span class="sc">+</span><span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="figures/session_10_figs/44_line_forms.png" width="90%" /></p>
-<p>Notice that you can also determine the type of line with argument <code>lty</code> that can be used in special type of <strong>ggplot</strong> function like <code>geom_smooth</code>. These codes are <code>lty = 1</code> for “solid,” <code>lty = 2</code> “dashed,” <code>lty = 3</code> “dotted,” <code>lty = 4</code> “dotdash,” <code>lty = 5</code> “longdash” and <code>lty = 6</code> “twodash.”</p>
+<p>Notice that you can also determine the type of line with argument <code>lty</code> that can be used in special type of <strong>ggplot</strong> function like <code>geom_smooth</code>. These codes are <code>lty = 1</code> for “solid”, <code>lty = 2</code> “dashed”, <code>lty = 3</code> “dotted”, <code>lty = 4</code> “dotdash”, <code>lty = 5</code> “longdash” and <code>lty = 6</code> “twodash”.</p>
 <p><strong>25)</strong> We will use the <code>oribatid</code> dataset from the R package <code>ade4</code>. This data set contains information about environmental control and spatial structure in ecological communities of Oribatid mites. The environmental variables include <code>substrate</code> a factor with seven levels that describes the nature of the substratum, <code>shrubs</code> a factor with three levels that describes the absence/presence of shrubs, <code>topo</code> a factor with two levels that describes the microtopography, <code>density</code> substratum density (g.L−1) and <code>water</code> content of the substratum (g.L−1). We will merge in a single data frame the environmental data and fauna information of these 70 sites to explore several types of scatterplots.</p>
 <p>We can prepare <code>oribatid</code> dataset for the scatterplot.</p>
 <div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="basic-graphics.html#cb429-1" aria-hidden="true" tabindex="-1"></a><span class="do">## check is ade4 is loaded and get &#39;oribatid&#39; database</span></span>
@@ -1289,7 +1303,7 @@ We can also remove some low expressed genes (e.g., values less than 100) and ove
 </div>
 <div id="multiple-graphs-at-once-with-cowplot" class="section level2" number="10.10">
 <h2><span class="header-section-number">10.10</span> Multiple graphs at once with <code>cowplot</code></h2>
-<p>In most cases, you might want multiple plots at once before we print our graphics. We will use the R package <a href="https://cran.r-project.org/web/packages/cowplot/index.html" target="_blank"><strong>cowplot</strong></a> that provides various features that help with creating publication-quality figures with ‘ggplot2,’ such as a set of themes, functions to align plots and arrange them into complex compound figures. This R package has a <a href="https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html" target="_blank"><strong>vignette</strong></a>.</p>
+<p>In most cases, you might want multiple plots at once before we print our graphics. We will use the R package <a href="https://cran.r-project.org/web/packages/cowplot/index.html" target="_blank"><strong>cowplot</strong></a> that provides various features that help with creating publication-quality figures with ‘ggplot2’, such as a set of themes, functions to align plots and arrange them into complex compound figures. This R package has a <a href="https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html" target="_blank"><strong>vignette</strong></a>.</p>
 <p><strong>32)</strong> We need to install <strong>cowplot</strong> and you need two or more ggplot2 objects to make use of the features of this package. For this purpose, we will create four plots using the dataset <code>fruits</code> of the R package <code>ade4</code>.</p>
 <div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="basic-graphics.html#cb447-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install cowplot</span></span>
 <span id="cb447-2"><a href="basic-graphics.html#cb447-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;cowplot&quot;</span>)</span>
@@ -1415,7 +1429,6 @@ We can also remove some low expressed genes (e.g., values less than 100) and ove
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1434,6 +1447,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -1454,6 +1468,10 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

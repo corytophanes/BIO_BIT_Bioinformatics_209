@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Session 6 – Basic Statistics in R | Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Session 6 – Basic Statistics in R | Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2021-05-20" />
+<meta name="date" content="2022-01-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="getting-biological-data-from-public-repositories.html"/>
 <link rel="next" href="regressions-and-anova-in-r.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,7 +51,8 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -117,6 +119,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -400,6 +403,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="27.1" data-path="python-subprocess.html"><a href="python-subprocess.html#introduction-and-installation"><i class="fa fa-check"></i><b>27.1</b> Introduction and Installation</a></li>
 <li class="chapter" data-level="27.2" data-path="python-subprocess.html"><a href="python-subprocess.html#creating-your-first-python-script-w-bbtools"><i class="fa fa-check"></i><b>27.2</b> Creating your first python script w/ BBTools</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="loops-in-r---for-while-and-repeat.html"><a href="loops-in-r---for-while-and-repeat.html"><i class="fa fa-check"></i><b>28</b> – Loops in R - <code>for</code>, <code>while</code>, and <code>repeat</code></a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="loops-in-r---for-while-and-repeat.html"><a href="loops-in-r---for-while-and-repeat.html#the-for-loops"><i class="fa fa-check"></i><b>28.1</b> The <code>for</code> loops</a></li>
+<li class="chapter" data-level="28.2" data-path="loops-in-r---for-while-and-repeat.html"><a href="loops-in-r---for-while-and-repeat.html#the-while-loops"><i class="fa fa-check"></i><b>28.2</b> The <code>while</code> loops</a></li>
+<li class="chapter" data-level="28.3" data-path="loops-in-r---for-while-and-repeat.html"><a href="loops-in-r---for-while-and-repeat.html#the-repeat-loops"><i class="fa fa-check"></i><b>28.3</b> The <code>repeat</code> loops</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>29</b> – Miscellaneous</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="miscellaneous.html"><a href="miscellaneous.html#sampling-from-a-vector-of-names"><i class="fa fa-check"></i><b>29.1</b> Sampling from a vector of names</a></li>
+<li class="chapter" data-level="29.2" data-path="miscellaneous.html"><a href="miscellaneous.html#miscellaneous-1"><i class="fa fa-check"></i><b>29.2</b> Miscellaneous</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -701,7 +715,7 @@ As graduate students, you are encouraged to use your own datasets (i.e., this is
 <span id="cb266-9"><a href="basic-statistics-in-r.html#cb266-9" aria-hidden="true" tabindex="-1"></a><span class="co">#W = 0.93342, p-value = 0.04881</span></span>
 <span id="cb266-10"><a href="basic-statistics-in-r.html#cb266-10" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(hp_vector, <span class="at">xlab =</span> <span class="st">&quot;hp&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;values&quot;</span>)</span></code></pre></div>
 <p><img src="figures/session_6_figs/3_hp_raw.png" width="100%" />
-In this boxplot, we can see an outlier and it is skewed towards lower values of <code>hp</code>. Some of the most common transformations are to square root the data using the function <code>sqrt()</code> and to perform logarithms using <code>log10()</code> with base 10 or natural logarithms ‘log().’</p>
+In this boxplot, we can see an outlier and it is skewed towards lower values of <code>hp</code>. Some of the most common transformations are to square root the data using the function <code>sqrt()</code> and to perform logarithms using <code>log10()</code> with base 10 or natural logarithms ‘log()’.</p>
 <div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="basic-statistics-in-r.html#cb267-1" aria-hidden="true" tabindex="-1"></a>hp_vector_sqrt <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(hp_vector)</span>
 <span id="cb267-2"><a href="basic-statistics-in-r.html#cb267-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(hp_vector_sqrt)</span>
 <span id="cb267-3"><a href="basic-statistics-in-r.html#cb267-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Shapiro-Wilk normality test</span></span>
@@ -750,7 +764,7 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 </div>
 <div id="what-test-should-i-use" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> What test should I use?</h2>
-<p>The task of choosing the best statistical analyses given your dataset are one of the most important steps for any biological research. Your choice of methods depends on your understanding of your dataset and these include the following: (a) the number of dependent or outcome variables; (b) the number of your independent or predictor variables; (c) the characteristics of your dependent and independent variables, namely whether they are <strong>continuous (interval or ratio) variables</strong> (e.g., temperature, growth area, enzyme activity, dose amount, reaction rate, concentration, weight, length); (d) they are <strong>ordinal variables</strong> where order matters but differences between adjacent categories do not necessarily have the same meaning such as in treatment response (“low,” ”middle”, ”high”) or location (“understory,” “canopy”); (e) they are <strong>categorical variables</strong> if the categories that do not have a natural order or ranking such in colors (e.g., red, blue, green), populations (e.g., A, B, C, D); and (f) the type of distribution of the variables (it is normally distributed so parametric methods could be applied or not).</p>
+<p>The task of choosing the best statistical analyses given your dataset are one of the most important steps for any biological research. Your choice of methods depends on your understanding of your dataset and these include the following: (a) the number of dependent or outcome variables; (b) the number of your independent or predictor variables; (c) the characteristics of your dependent and independent variables, namely whether they are <strong>continuous (interval or ratio) variables</strong> (e.g., temperature, growth area, enzyme activity, dose amount, reaction rate, concentration, weight, length); (d) they are <strong>ordinal variables</strong> where order matters but differences between adjacent categories do not necessarily have the same meaning such as in treatment response (“low”, ”middle”, ”high”) or location (“understory”, “canopy”); (e) they are <strong>categorical variables</strong> if the categories that do not have a natural order or ranking such in colors (e.g., red, blue, green), populations (e.g., A, B, C, D); and (f) the type of distribution of the variables (it is normally distributed so parametric methods could be applied or not).</p>
 <p>The table of statistical choices has been modified form <a href="https://stats.idre.ucla.edu/other/mult-pkg/whatstat/" target="_blank"><strong>here</strong></a>.</p>
 <table>
 <colgroup>
@@ -1180,7 +1194,7 @@ These are graphical plots useful in the diagnostic of a binary classifier (e.g.,
 <div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="basic-statistics-in-r.html#cb283-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you need to instal the package &quot;pROC&quot;</span></span>
 <span id="cb283-2"><a href="basic-statistics-in-r.html#cb283-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;pROC&quot;</span>)</span>
 <span id="cb283-3"><a href="basic-statistics-in-r.html#cb283-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span></code></pre></div>
-<p>We can prepare two samples of <code>airway_data</code> and asign some of elements of each as “control” and “exposed.”</p>
+<p>We can prepare two samples of <code>airway_data</code> and asign some of elements of each as “control” and “exposed”.</p>
 <div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="basic-statistics-in-r.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="do">## set two samples</span></span>
 <span id="cb284-2"><a href="basic-statistics-in-r.html#cb284-2" aria-hidden="true" tabindex="-1"></a>sample_SRR1039508 <span class="ot">&lt;-</span> airway_data<span class="sc">$</span>SRR1039508 </span>
 <span id="cb284-3"><a href="basic-statistics-in-r.html#cb284-3" aria-hidden="true" tabindex="-1"></a>sample_SRR1039509 <span class="ot">&lt;-</span> airway_data<span class="sc">$</span>SRR1039509</span>
@@ -1218,7 +1232,7 @@ These are graphical plots useful in the diagnostic of a binary classifier (e.g.,
 <span id="cb284-35"><a href="basic-statistics-in-r.html#cb284-35" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
 <span id="cb284-36"><a href="basic-statistics-in-r.html#cb284-36" aria-hidden="true" tabindex="-1"></a><span class="co">#AUC of roc1 AUC of roc2 </span></span>
 <span id="cb284-37"><a href="basic-statistics-in-r.html#cb284-37" aria-hidden="true" tabindex="-1"></a><span class="co">#          1           0 </span></span></code></pre></div>
-<p>We can conclude that for SRR1039508 and SRR1039509 are different in their distribution in reference to outcomes for “control” versus “exposed.”</p>
+<p>We can conclude that for SRR1039508 and SRR1039509 are different in their distribution in reference to outcomes for “control” versus “exposed”.</p>
 
 </div>
 </div>
@@ -1232,7 +1246,6 @@ These are graphical plots useful in the diagnostic of a binary classifier (e.g.,
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1251,6 +1264,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -1271,6 +1285,10 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
