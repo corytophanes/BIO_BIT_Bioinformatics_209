@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2022-01-25" />
+<meta name="date" content="2022-01-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -409,7 +409,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.1" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#controling-the-flow"><i class="fa fa-check"></i><b>28.1</b> Controling the flow</a></li>
 <li class="chapter" data-level="28.2" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#conditional-if"><i class="fa fa-check"></i><b>28.2</b> Conditional <code>if</code></a></li>
 <li class="chapter" data-level="28.3" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#conditional-if-and-else"><i class="fa fa-check"></i><b>28.3</b> Conditional <code>if</code> and <code>else</code></a></li>
-<li class="chapter" data-level="28.4" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#chain-of-nested-conditionals-if-if-else-and-else"><i class="fa fa-check"></i><b>28.4</b> Chain of nested conditionals <code>if</code>, <code>if else</code> and <code>else</code></a></li>
+<li class="chapter" data-level="28.4" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#nested-conditionals-if-if-else-and-else"><i class="fa fa-check"></i><b>28.4</b> Nested conditionals <code>if</code>, <code>if else</code> and <code>else</code></a></li>
 <li class="chapter" data-level="28.5" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#conditional-ifelse"><i class="fa fa-check"></i><b>28.5</b> Conditional <code>ifelse</code></a></li>
 <li class="chapter" data-level="28.6" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#loops-that-control-iterations-and-repeations"><i class="fa fa-check"></i><b>28.6</b> Loops that control iterations and repeations</a></li>
 <li class="chapter" data-level="28.7" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#for-loops"><i class="fa fa-check"></i><b>28.7</b> <code>for</code> Loops</a></li>
@@ -709,7 +709,7 @@ workspace using function <code>ls()</code>.</p>
 <span id="cb45-13"><a href="using-r-installing-packages-and-importingexporting-data.html#cb45-13" aria-hidden="true" tabindex="-1"></a><span class="co">#** testing if installed package can be loaded from final location</span></span>
 <span id="cb45-14"><a href="using-r-installing-packages-and-importingexporting-data.html#cb45-14" aria-hidden="true" tabindex="-1"></a><span class="co">#** testing if installed package keeps a record of temporary installation path</span></span>
 <span id="cb45-15"><a href="using-r-installing-packages-and-importingexporting-data.html#cb45-15" aria-hidden="true" tabindex="-1"></a><span class="co">#* DONE (FlexParamCurve)</span></span></code></pre></div>
-<p><strong>10)</strong> Most genetic, genomic, transcriptomic R-packages are <a href="https://www.bioconductor.org/" target="_blank"><strong>Bioconductor</strong></a>. To date (1/11/21), this archive has 1974 packages. To install packages present on this archive, you need to follow the next instructions.</p>
+<p><strong>10)</strong> Most genetic, genomic, transcriptomic R-packages are <a href="https://www.bioconductor.org/" target="_blank"><strong>Bioconductor</strong></a>. To date (1/26/22), this archive has 2083 packages. To install packages present on this archive, you need to follow the next instructions.</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="do">## test if &#39;BiocManager&#39; is installed</span></span>
 <span id="cb46-2"><a href="using-r-installing-packages-and-importingexporting-data.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {<span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)}</span></code></pre></div>
 <p>Now, we can use the function <code>BiocManager::install("my_desired_bioconductor_package")</code>. For example, we can install an excellent sequence aligner that is the Bioconductor R-package DECIPHER.</p>
@@ -731,7 +731,7 @@ workspace using function <code>ls()</code>.</p>
 <span id="cb50-3"><a href="using-r-installing-packages-and-importingexporting-data.html#cb50-3" aria-hidden="true" tabindex="-1"></a>my_vector</span>
 <span id="cb50-4"><a href="using-r-installing-packages-and-importingexporting-data.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1  4  5  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 99</span></span></code></pre></div>
 <p><strong>2)</strong> In most cases, you already have your data file in some folder in your computer or plan to import it from some online repository. In the case of importing data from file from a known folder in your computer, this can be done as easily in R.</p>
-<p><strong>I uploaded some files of this class</strong> you can access those and download them from this <a href="https://github.com/corytophanes/BIO_BIT_Bioinformatics_209/tree/main/ref_files_pdfs" target="_blank"><strong>link</strong></a> to a folder of your choosing.</p>
+<p><strong>IMPORTANT</strong> I uploaded some files of this class, you can access those and download them from this <a href="https://github.com/corytophanes/BIO_BIT_Bioinformatics_209/tree/main/ref_files_pdfs" target="_blank"><strong>LINK TO FILES of BIO/BIT 209</strong></a> to a folder of your choosing.</p>
 <p>First, I will describe to import data from a text file with a tab delimited columns with numeric and character values.</p>
 <p><strong>macOS:</strong> You need to get the path (folder location in your hard drive) so you can indicate R where to retrieve such information. For example, the file that you want is known folder. You just <strong>drag &amp; drop</strong> the folder in the R console and the path information will appear on it.</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ~/Desktop/Teach_R/class_datasets</span></span>
