@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Session 28 – Control Structures and Loops in R | Bioinformatics Workshop Gitbook</title>
+  <meta name="description" content="none" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Session 28 – Control Structures and Loops in R | Bioinformatics Workshop Gitbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="none" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Session 28 – Control Structures and Loops in R | Bioinformatics Workshop Gitbook" />
+  
+  <meta name="twitter:description" content="none" />
+  
+
+<meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
+
+
+<meta name="date" content="2022-01-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="python-subprocess.html"/>
+<link rel="next" href="bioinformatics-literature.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Bioinformatics Workshop Gitbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>1</b> – Getting Started with R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#why-do-we-use-r"><i class="fa fa-check"></i><b>1.1</b> Why do we use R?</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#get-a-good-text-editor"><i class="fa fa-check"></i><b>1.2</b> Get a good text editor</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#r-studio"><i class="fa fa-check"></i><b>1.3</b> R studio</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-r"><i class="fa fa-check"></i><b>1.4</b> Installing R</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#annotating-code"><i class="fa fa-check"></i><b>1.5</b> Annotating code</a></li>
+<li class="chapter" data-level="1.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#defining-a-working-directory-in-r"><i class="fa fa-check"></i><b>1.6</b> Defining a working directory in R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html"><i class="fa fa-check"></i><b>2</b> – Using R, Installing Packages and Importing/Exporting Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#your-first-session"><i class="fa fa-check"></i><b>2.1</b> Your first session</a></li>
+<li class="chapter" data-level="2.2" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#doing-some-base-functions-and-getting-help"><i class="fa fa-check"></i><b>2.2</b> Doing some base functions and getting help</a></li>
+<li class="chapter" data-level="2.3" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#about-r-packages"><i class="fa fa-check"></i><b>2.3</b> About R-packages</a></li>
+<li class="chapter" data-level="2.4" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#installing-packages"><i class="fa fa-check"></i><b>2.4</b> Installing packages</a></li>
+<li class="chapter" data-level="2.5" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#importing-and-exporting-data"><i class="fa fa-check"></i><b>2.5</b> Importing and exporting data</a></li>
+<li class="chapter" data-level="2.6" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#saving-data-as-rdata-.rdata-.rda"><i class="fa fa-check"></i><b>2.6</b> Saving data as Rdata (.rdata, .rda)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html"><i class="fa fa-check"></i><b>3</b> – Basic Data Structures in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#scalars-and-vectors"><i class="fa fa-check"></i><b>3.1</b> Scalars and vectors</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#matrices"><i class="fa fa-check"></i><b>3.2</b> Matrices</a></li>
+<li class="chapter" data-level="3.3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#arrays"><i class="fa fa-check"></i><b>3.3</b> Arrays</a></li>
+<li class="chapter" data-level="3.4" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-frames"><i class="fa fa-check"></i><b>3.4</b> Data Frames</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tables"><i class="fa fa-check"></i><b>3.5</b> Tables</a></li>
+<li class="chapter" data-level="3.6" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#lists"><i class="fa fa-check"></i><b>3.6</b> Lists</a></li>
+<li class="chapter" data-level="3.7" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-tables"><i class="fa fa-check"></i><b>3.7</b> Data Tables</a></li>
+<li class="chapter" data-level="3.8" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tibbles"><i class="fa fa-check"></i><b>3.8</b> Tibbles</a></li>
+<li class="chapter" data-level="3.9" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#dnastringsets-rnastringsets-and-aastringsets"><i class="fa fa-check"></i><b>3.9</b> DNAStringSets, RNAStringSets and AAStringSets</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html"><i class="fa fa-check"></i><b>4</b> – Text Editing and Data Transformations</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#working-with-character-strings"><i class="fa fa-check"></i><b>4.1</b> Working with character strings</a></li>
+<li class="chapter" data-level="4.2" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#regular-expressions-regex"><i class="fa fa-check"></i><b>4.2</b> Regular expressions (Regex)</a></li>
+<li class="chapter" data-level="4.3" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#comparing-ordering-and-simplifying-vectors"><i class="fa fa-check"></i><b>4.3</b> Comparing, ordering and simplifying vectors</a></li>
+<li class="chapter" data-level="4.4" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#useful-functions-of-stringr"><i class="fa fa-check"></i><b>4.4</b> Useful functions of <code>stringr</code></a></li>
+<li class="chapter" data-level="4.5" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#data-transformations"><i class="fa fa-check"></i><b>4.5</b> Data transformations</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html"><i class="fa fa-check"></i><b>5</b> – Getting Biological Data from Public Repositories</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#ncbi-databases-genbank-and-others"><i class="fa fa-check"></i><b>5.1</b> NCBI databases: GenBank and others</a></li>
+<li class="chapter" data-level="5.2" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#accessing-ncbi-within-r-rentrez"><i class="fa fa-check"></i><b>5.2</b> Accessing NCBI within R: <code>rentrez</code></a></li>
+<li class="chapter" data-level="5.3" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#retrieving-pubmed-references"><i class="fa fa-check"></i><b>5.3</b> Retrieving PubMed references</a></li>
+<li class="chapter" data-level="5.4" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#comparing-sequences-blast"><i class="fa fa-check"></i><b>5.4</b> Comparing sequences: BLAST</a></li>
+<li class="chapter" data-level="5.5" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-uniprot"><i class="fa fa-check"></i><b>5.5</b> Other databases: UniProt</a></li>
+<li class="chapter" data-level="5.6" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-ensembl"><i class="fa fa-check"></i><b>5.6</b> Other databases: Ensembl</a></li>
+<li class="chapter" data-level="5.7" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-taxonomy-phylogenetic-trees-and-species-distributions"><i class="fa fa-check"></i><b>5.7</b> Other databases: Taxonomy, phylogenetic trees and species distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html"><i class="fa fa-check"></i><b>6</b> – Basic Statistics in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#exploring-your-data"><i class="fa fa-check"></i><b>6.1</b> Exploring your data</a></li>
+<li class="chapter" data-level="6.2" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#normalizing-your-data"><i class="fa fa-check"></i><b>6.2</b> Normalizing your data</a></li>
+<li class="chapter" data-level="6.3" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#what-test-should-i-use"><i class="fa fa-check"></i><b>6.3</b> What test should I use?</a></li>
+<li class="chapter" data-level="6.4" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-means-t-test"><i class="fa fa-check"></i><b>6.4</b> Comparing means: t-test</a></li>
+<li class="chapter" data-level="6.5" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>6.5</b> Beyond t-test: Wilcoxon signed rank test</a></li>
+<li class="chapter" data-level="6.6" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-binomial-test"><i class="fa fa-check"></i><b>6.6</b> Beyond t-test: Binomial test</a></li>
+<li class="chapter" data-level="6.7" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-chi-square-goodness-of-fit"><i class="fa fa-check"></i><b>6.7</b> Beyond t-test: Chi-square goodness of fit</a></li>
+<li class="chapter" data-level="6.8" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-mcnemars-test"><i class="fa fa-check"></i><b>6.8</b> Beyond t-test: McNemar’s test</a></li>
+<li class="chapter" data-level="6.9" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-fishers-exact-test"><i class="fa fa-check"></i><b>6.9</b> Beyond t-test: Fisher’s exact test</a></li>
+<li class="chapter" data-level="6.10" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.10</b> Correlations</a></li>
+<li class="chapter" data-level="6.11" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.11</b> Comparing distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html"><i class="fa fa-check"></i><b>7</b> – Regressions and ANOVA in R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#linear-regressions"><i class="fa fa-check"></i><b>7.1</b> Linear regressions</a></li>
+<li class="chapter" data-level="7.2" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#selecting-predictors"><i class="fa fa-check"></i><b>7.2</b> Selecting predictors</a></li>
+<li class="chapter" data-level="7.3" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#logistic-regressions"><i class="fa fa-check"></i><b>7.3</b> Logistic regressions</a></li>
+<li class="chapter" data-level="7.4" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#non-linear-regressions"><i class="fa fa-check"></i><b>7.4</b> Non-linear regressions</a></li>
+<li class="chapter" data-level="7.5" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#toy-datasets-for-regressions"><i class="fa fa-check"></i><b>7.5</b> Toy datasets for regressions</a></li>
+<li class="chapter" data-level="7.6" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#anova"><i class="fa fa-check"></i><b>7.6</b> ANOVA</a></li>
+<li class="chapter" data-level="7.7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#one-way-anova"><i class="fa fa-check"></i><b>7.7</b> One-way ANOVA</a></li>
+<li class="chapter" data-level="7.8" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#two-way-anova"><i class="fa fa-check"></i><b>7.8</b> Two-way ANOVA</a></li>
+<li class="chapter" data-level="7.9" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#post-hoc-tests"><i class="fa fa-check"></i><b>7.9</b> Post-hoc tests</a></li>
+<li class="chapter" data-level="7.10" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#beyond-anova-kruskal-wallis-test"><i class="fa fa-check"></i><b>7.10</b> Beyond ANOVA: Kruskal-Wallis Test</a></li>
+<li class="chapter" data-level="7.11" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#toy-datasets-for-anova"><i class="fa fa-check"></i><b>7.11</b> Toy datasets for ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html"><i class="fa fa-check"></i><b>8</b> – Exploring Multidimensional Data in R</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#principal-component-analysis"><i class="fa fa-check"></i><b>8.1</b> Principal Component Analysis</a></li>
+<li class="chapter" data-level="8.2" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#multidimensional-scaling"><i class="fa fa-check"></i><b>8.2</b> Multidimensional scaling</a></li>
+<li class="chapter" data-level="8.3" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#cluster-analysis-dfa"><i class="fa fa-check"></i><b>8.3</b> Cluster analysis: DFA</a></li>
+<li class="chapter" data-level="8.4" data-path="exploring-multidimensional-data-in-r.html"><a href="exploring-multidimensional-data-in-r.html#cluster-analysis-k-means-unsupervised"><i class="fa fa-check"></i><b>8.4</b> Cluster analysis: <em>k</em>-means (unsupervised)</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html"><i class="fa fa-check"></i><b>9</b> – Graphics and Colors</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#avoid-bad-graphics"><i class="fa fa-check"></i><b>9.1</b> Avoid bad graphics</a></li>
+<li class="chapter" data-level="9.2" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#graphics-in-r-ggplot2"><i class="fa fa-check"></i><b>9.2</b> Graphics in R – ggplot2</a></li>
+<li class="chapter" data-level="9.3" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#preparing-your-dataset"><i class="fa fa-check"></i><b>9.3</b> Preparing your dataset</a></li>
+<li class="chapter" data-level="9.4" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#color-palettes-online"><i class="fa fa-check"></i><b>9.4</b> Color palettes online</a></li>
+<li class="chapter" data-level="9.5" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#ggplot2-default-palette"><i class="fa fa-check"></i><b>9.5</b> <code>ggplot2</code> default palette</a></li>
+<li class="chapter" data-level="9.6" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#heatmaps-or-tiled-charts"><i class="fa fa-check"></i><b>9.6</b> Heatmaps or tiled charts</a></li>
+<li class="chapter" data-level="9.7" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#r-packages-about-color"><i class="fa fa-check"></i><b>9.7</b> R-packages about color</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#viridis-package"><i class="fa fa-check"></i><b>9.7.1</b> <code>viridis</code> package</a></li>
+<li class="chapter" data-level="9.7.2" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#rcolorbrewer-package"><i class="fa fa-check"></i><b>9.7.2</b> <code>RColorBrewer</code> package</a></li>
+<li class="chapter" data-level="9.7.3" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#ggsci-package"><i class="fa fa-check"></i><b>9.7.3</b> <code>ggsci</code> package</a></li>
+<li class="chapter" data-level="9.7.4" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#wesanderson-package"><i class="fa fa-check"></i><b>9.7.4</b> <code>wesanderson</code> package</a></li>
+<li class="chapter" data-level="9.7.5" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#rcartocolor-package"><i class="fa fa-check"></i><b>9.7.5</b> <code>rcartocolor</code> package</a></li>
+<li class="chapter" data-level="9.7.6" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#colorspace-package"><i class="fa fa-check"></i><b>9.7.6</b> <code>colorspace</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#making-your-own-palette"><i class="fa fa-check"></i><b>9.8</b> Making your own palette</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="basic-graphics.html"><a href="basic-graphics.html"><i class="fa fa-check"></i><b>10</b> – Basic Graphics</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="basic-graphics.html"><a href="basic-graphics.html#bar-charts"><i class="fa fa-check"></i><b>10.1</b> Bar charts</a></li>
+<li class="chapter" data-level="10.2" data-path="basic-graphics.html"><a href="basic-graphics.html#stacked-bar-charts"><i class="fa fa-check"></i><b>10.2</b> Stacked bar charts</a></li>
+<li class="chapter" data-level="10.3" data-path="basic-graphics.html"><a href="basic-graphics.html#histograms"><i class="fa fa-check"></i><b>10.3</b> Histograms</a></li>
+<li class="chapter" data-level="10.4" data-path="basic-graphics.html"><a href="basic-graphics.html#multiple-histograms"><i class="fa fa-check"></i><b>10.4</b> Multiple histograms</a></li>
+<li class="chapter" data-level="10.5" data-path="basic-graphics.html"><a href="basic-graphics.html#density-plots"><i class="fa fa-check"></i><b>10.5</b> Density plots</a></li>
+<li class="chapter" data-level="10.6" data-path="basic-graphics.html"><a href="basic-graphics.html#box-plots"><i class="fa fa-check"></i><b>10.6</b> Box plots</a></li>
+<li class="chapter" data-level="10.7" data-path="basic-graphics.html"><a href="basic-graphics.html#violin-plots"><i class="fa fa-check"></i><b>10.7</b> Violin plots</a></li>
+<li class="chapter" data-level="10.8" data-path="basic-graphics.html"><a href="basic-graphics.html#scatterplots"><i class="fa fa-check"></i><b>10.8</b> Scatterplots</a></li>
+<li class="chapter" data-level="10.9" data-path="basic-graphics.html"><a href="basic-graphics.html#lines-and-scatterplots"><i class="fa fa-check"></i><b>10.9</b> Lines and Scatterplots</a></li>
+<li class="chapter" data-level="10.10" data-path="basic-graphics.html"><a href="basic-graphics.html#multiple-graphs-at-once-with-cowplot"><i class="fa fa-check"></i><b>10.10</b> Multiple graphs at once with <code>cowplot</code></a></li>
+<li class="chapter" data-level="10.11" data-path="basic-graphics.html"><a href="basic-graphics.html#save-your-plots-as-pdf-or-png"><i class="fa fa-check"></i><b>10.11</b> Save your plots as PDF or PNG</a></li>
+<li class="chapter" data-level="10.12" data-path="basic-graphics.html"><a href="basic-graphics.html#other-resources"><i class="fa fa-check"></i><b>10.12</b> Other resources</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="sequence-alignments.html"><a href="sequence-alignments.html"><i class="fa fa-check"></i><b>11</b> – Sequence Alignments</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="sequence-alignments.html"><a href="sequence-alignments.html#retrieving-sequences-using-rentrez"><i class="fa fa-check"></i><b>11.1</b> Retrieving sequences using ‘rentrez’</a></li>
+<li class="chapter" data-level="11.2" data-path="sequence-alignments.html"><a href="sequence-alignments.html#retrieving-sequences-manually-from-ncbi"><i class="fa fa-check"></i><b>11.2</b> Retrieving sequences manually from NCBI</a></li>
+<li class="chapter" data-level="11.3" data-path="sequence-alignments.html"><a href="sequence-alignments.html#retrieving-accession-numbers"><i class="fa fa-check"></i><b>11.3</b> Retrieving accession numbers</a></li>
+<li class="chapter" data-level="11.4" data-path="sequence-alignments.html"><a href="sequence-alignments.html#alignment-with-decipher"><i class="fa fa-check"></i><b>11.4</b> Alignment with <code>DECIPHER</code></a></li>
+<li class="chapter" data-level="11.5" data-path="sequence-alignments.html"><a href="sequence-alignments.html#visualize-alignment"><i class="fa fa-check"></i><b>11.5</b> Visualize alignment</a></li>
+<li class="chapter" data-level="11.6" data-path="sequence-alignments.html"><a href="sequence-alignments.html#save-alignment-to-file"><i class="fa fa-check"></i><b>11.6</b> Save alignment to file</a></li>
+<li class="chapter" data-level="11.7" data-path="sequence-alignments.html"><a href="sequence-alignments.html#concatenate-and-align-several-markers"><i class="fa fa-check"></i><b>11.7</b> Concatenate and align several markers</a></li>
+<li class="chapter" data-level="11.8" data-path="sequence-alignments.html"><a href="sequence-alignments.html#concatenate-with-data.table"><i class="fa fa-check"></i><b>11.8</b> Concatenate with <code>data.table</code></a></li>
+<li class="chapter" data-level="11.9" data-path="sequence-alignments.html"><a href="sequence-alignments.html#concatenate-with-biostrings"><i class="fa fa-check"></i><b>11.9</b> Concatenate with <code>Biostrings</code></a></li>
+<li class="chapter" data-level="11.10" data-path="sequence-alignments.html"><a href="sequence-alignments.html#visualizing-alignments-in-r"><i class="fa fa-check"></i><b>11.10</b> Visualizing alignments in R</a></li>
+<li class="chapter" data-level="11.11" data-path="sequence-alignments.html"><a href="sequence-alignments.html#other-sequence-alignment-software"><i class="fa fa-check"></i><b>11.11</b> Other sequence alignment software</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html"><i class="fa fa-check"></i><b>12</b> – Estimating Phylogenetic Trees</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#phylogeny-inference-with-iqtree2"><i class="fa fa-check"></i><b>12.1</b> Phylogeny inference with <code>iqtree2</code></a></li>
+<li class="chapter" data-level="12.2" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#installing-iqtree2-in-macos"><i class="fa fa-check"></i><b>12.2</b> Installing <code>iqtree2</code> in macOS</a></li>
+<li class="chapter" data-level="12.3" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#installing-and-running-iqtree2-in-a-pc"><i class="fa fa-check"></i><b>12.3</b> Installing and running <code>iqtree2</code> in a PC</a></li>
+<li class="chapter" data-level="12.4" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#loading-the-iqtree_runner_r-function"><i class="fa fa-check"></i><b>12.4</b> Loading the <code>iqtree_runner_R</code> function</a></li>
+<li class="chapter" data-level="12.5" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#running-iqtree2-from-r"><i class="fa fa-check"></i><b>12.5</b> Running <code>iqtree2</code> from R</a></li>
+<li class="chapter" data-level="12.6" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#one-marker-and-no-partitions"><i class="fa fa-check"></i><b>12.6</b> One marker and no partitions</a></li>
+<li class="chapter" data-level="12.7" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#one-marker-and-with-partitions"><i class="fa fa-check"></i><b>12.7</b> One marker and with partitions</a></li>
+<li class="chapter" data-level="12.8" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#bootstrap-support"><i class="fa fa-check"></i><b>12.8</b> Bootstrap support</a></li>
+<li class="chapter" data-level="12.9" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#many-markers-and-with-partitions"><i class="fa fa-check"></i><b>12.9</b> Many markers and with partitions</a></li>
+<li class="chapter" data-level="12.10" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#other-sequence-phylogenetic-tree-estimation-software"><i class="fa fa-check"></i><b>12.10</b> Other sequence phylogenetic tree estimation software</a></li>
+<li class="chapter" data-level="12.11" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#drawing-phylogenetic-trees-with-ggtree"><i class="fa fa-check"></i><b>12.11</b> Drawing phylogenetic trees with <code>ggtree</code></a></li>
+<li class="chapter" data-level="12.12" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#save-ggtree-plots-as-pdf-or-png"><i class="fa fa-check"></i><b>12.12</b> Save ggtree plots as PDF or PNG</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html"><i class="fa fa-check"></i><b>13</b> – Mining from a reference dataset</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#a-worked-example-using-the-mtcars-dataset"><i class="fa fa-check"></i><b>13.1</b> A worked example using the <code>mtcars</code> dataset</a></li>
+<li class="chapter" data-level="13.2" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#build-a-reference-dataset"><i class="fa fa-check"></i><b>13.2</b> Build a reference dataset</a></li>
+<li class="chapter" data-level="13.3" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#build-a-sampling-dataset"><i class="fa fa-check"></i><b>13.3</b> Build a sampling dataset</a></li>
+<li class="chapter" data-level="13.4" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#extracting-from-reference-dataset"><i class="fa fa-check"></i><b>13.4</b> Extracting from reference dataset</a></li>
+<li class="chapter" data-level="13.5" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#plots-of-the-extracted-data"><i class="fa fa-check"></i><b>13.5</b> Plots of the extracted data</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="introduction-to-python.html"><a href="introduction-to-python.html"><i class="fa fa-check"></i><b>14</b> – Introduction to Python</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="introduction-to-python.html"><a href="introduction-to-python.html#welcome-to-python-why-python"><i class="fa fa-check"></i><b>14.1</b> Welcome to Python! Why Python?</a></li>
+<li class="chapter" data-level="14.2" data-path="introduction-to-python.html"><a href="introduction-to-python.html#which-python-should-i-install"><i class="fa fa-check"></i><b>14.2</b> Which Python should I install?</a></li>
+<li class="chapter" data-level="14.3" data-path="introduction-to-python.html"><a href="introduction-to-python.html#mac-os-x-python-installations"><i class="fa fa-check"></i><b>14.3</b> Mac OS X Python Installations</a></li>
+<li class="chapter" data-level="14.4" data-path="introduction-to-python.html"><a href="introduction-to-python.html#windows-python-installations"><i class="fa fa-check"></i><b>14.4</b> Windows Python Installations</a></li>
+<li class="chapter" data-level="14.5" data-path="introduction-to-python.html"><a href="introduction-to-python.html#install-an-ide-or-integrated-development-environment"><i class="fa fa-check"></i><b>14.5</b> Install an IDE, or integrated development environment</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="python-keywords-and-identifiers.html"><a href="python-keywords-and-identifiers.html"><i class="fa fa-check"></i><b>15</b> – Python: Keywords and Identifiers</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="python-keywords-and-identifiers.html"><a href="python-keywords-and-identifiers.html#keywords-in-python"><i class="fa fa-check"></i><b>15.1</b> Keywords in Python</a></li>
+<li class="chapter" data-level="15.2" data-path="python-keywords-and-identifiers.html"><a href="python-keywords-and-identifiers.html#identifiers-in-python"><i class="fa fa-check"></i><b>15.2</b> Identifiers in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html"><i class="fa fa-check"></i><b>16</b> – Python: Statements and Expressions</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#what-are-statements"><i class="fa fa-check"></i><b>16.1</b> What are statements?</a></li>
+<li class="chapter" data-level="16.2" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#expressions-in-python"><i class="fa fa-check"></i><b>16.2</b> Expressions in Python</a></li>
+<li class="chapter" data-level="16.3" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#simple-assignment-statements-in-python"><i class="fa fa-check"></i><b>16.3</b> Simple Assignment Statements in Python</a></li>
+<li class="chapter" data-level="16.4" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#augmented-assignment-statements-in-python"><i class="fa fa-check"></i><b>16.4</b> Augmented Assignment Statements in Python</a></li>
+<li class="chapter" data-level="16.5" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#explicit-and-implicit-line-continuation"><i class="fa fa-check"></i><b>16.5</b> Explicit and Implicit Line Continuation</a></li>
+<li class="chapter" data-level="16.6" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#indentation-in-python-is-crucial-to-proper-code-function"><i class="fa fa-check"></i><b>16.6</b> Indentation in Python is Crucial to Proper Code function</a></li>
+<li class="chapter" data-level="16.7" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#comments"><i class="fa fa-check"></i><b>16.7</b> Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="python-data-types.html"><a href="python-data-types.html"><i class="fa fa-check"></i><b>17</b> – Python: Data Types</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="python-data-types.html"><a href="python-data-types.html#booleans"><i class="fa fa-check"></i><b>17.1</b> Booleans</a></li>
+<li class="chapter" data-level="17.2" data-path="python-data-types.html"><a href="python-data-types.html#numbers-int-float-and-complex"><i class="fa fa-check"></i><b>17.2</b> Numbers: int, float and complex</a></li>
+<li class="chapter" data-level="17.3" data-path="python-data-types.html"><a href="python-data-types.html#strings"><i class="fa fa-check"></i><b>17.3</b> Strings</a></li>
+<li class="chapter" data-level="17.4" data-path="python-data-types.html"><a href="python-data-types.html#bytes"><i class="fa fa-check"></i><b>17.4</b> Bytes</a></li>
+<li class="chapter" data-level="17.5" data-path="python-data-types.html"><a href="python-data-types.html#lists-1"><i class="fa fa-check"></i><b>17.5</b> Lists</a></li>
+<li class="chapter" data-level="17.6" data-path="python-data-types.html"><a href="python-data-types.html#tuples"><i class="fa fa-check"></i><b>17.6</b> Tuples</a></li>
+<li class="chapter" data-level="17.7" data-path="python-data-types.html"><a href="python-data-types.html#sets"><i class="fa fa-check"></i><b>17.7</b> Sets</a></li>
+<li class="chapter" data-level="17.8" data-path="python-data-types.html"><a href="python-data-types.html#dictionary"><i class="fa fa-check"></i><b>17.8</b> Dictionary</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="python-strings.html"><a href="python-strings.html"><i class="fa fa-check"></i><b>18</b> – Python: Strings</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="python-strings.html"><a href="python-strings.html#string-operators"><i class="fa fa-check"></i><b>18.1</b> String Operators</a></li>
+<li class="chapter" data-level="18.2" data-path="python-strings.html"><a href="python-strings.html#other-string-modifiers"><i class="fa fa-check"></i><b>18.2</b> Other String Modifiers</a></li>
+<li class="chapter" data-level="18.3" data-path="python-strings.html"><a href="python-strings.html#format-characters-in-strings"><i class="fa fa-check"></i><b>18.3</b> Format-Characters in Strings</a></li>
+<li class="chapter" data-level="18.4" data-path="python-strings.html"><a href="python-strings.html#comparisons-with-strings"><i class="fa fa-check"></i><b>18.4</b> Comparisons with Strings</a></li>
+<li class="chapter" data-level="18.5" data-path="python-strings.html"><a href="python-strings.html#padding-strings"><i class="fa fa-check"></i><b>18.5</b> Padding strings</a></li>
+<li class="chapter" data-level="18.6" data-path="python-strings.html"><a href="python-strings.html#search-for-words-in-string-and-output-location"><i class="fa fa-check"></i><b>18.6</b> Search for words in string and output location</a></li>
+<li class="chapter" data-level="18.7" data-path="python-strings.html"><a href="python-strings.html#seek-and-replace-in-strings"><i class="fa fa-check"></i><b>18.7</b> Seek and replace in strings</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="python-operators.html"><a href="python-operators.html"><i class="fa fa-check"></i><b>19</b> – Python: Operators</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="python-operators.html"><a href="python-operators.html#many-types-of-operators"><i class="fa fa-check"></i><b>19.1</b> Many types of operators</a></li>
+<li class="chapter" data-level="19.2" data-path="python-operators.html"><a href="python-operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>19.2</b> Arithmetic operators</a></li>
+<li class="chapter" data-level="19.3" data-path="python-operators.html"><a href="python-operators.html#comparison-operators"><i class="fa fa-check"></i><b>19.3</b> Comparison operators</a></li>
+<li class="chapter" data-level="19.4" data-path="python-operators.html"><a href="python-operators.html#logical-operators"><i class="fa fa-check"></i><b>19.4</b> Logical operators</a></li>
+<li class="chapter" data-level="19.5" data-path="python-operators.html"><a href="python-operators.html#bitwise-operators"><i class="fa fa-check"></i><b>19.5</b> Bitwise operators</a></li>
+<li class="chapter" data-level="19.6" data-path="python-operators.html"><a href="python-operators.html#identity-operators"><i class="fa fa-check"></i><b>19.6</b> Identity Operators</a></li>
+<li class="chapter" data-level="19.7" data-path="python-operators.html"><a href="python-operators.html#membership-operators"><i class="fa fa-check"></i><b>19.7</b> Membership operators</a></li>
+<li class="chapter" data-level="19.8" data-path="python-operators.html"><a href="python-operators.html#what-is-the-order-of-operations-with-operators"><i class="fa fa-check"></i><b>19.8</b> What is the order of operations with operators?</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="biopython.html"><a href="biopython.html"><i class="fa fa-check"></i><b>20</b> – Biopython</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="biopython.html"><a href="biopython.html#introduction-to-biopython"><i class="fa fa-check"></i><b>20.1</b> Introduction to Biopython</a></li>
+<li class="chapter" data-level="20.2" data-path="biopython.html"><a href="biopython.html#biopython-installation"><i class="fa fa-check"></i><b>20.2</b> Biopython Installation</a></li>
+<li class="chapter" data-level="20.3" data-path="biopython.html"><a href="biopython.html#getting-started"><i class="fa fa-check"></i><b>20.3</b> Getting Started</a></li>
+<li class="chapter" data-level="20.4" data-path="biopython.html"><a href="biopython.html#parsing-my-fasta"><i class="fa fa-check"></i><b>20.4</b> Parsing my FASTA</a></li>
+<li class="chapter" data-level="20.5" data-path="biopython.html"><a href="biopython.html#parsing-my-genbank-or-genpept"><i class="fa fa-check"></i><b>20.5</b> Parsing my GenBank or GenPept</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="biopython-sequences.html"><a href="biopython-sequences.html"><i class="fa fa-check"></i><b>21</b> – Biopython: Sequences</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="biopython-sequences.html"><a href="biopython-sequences.html#sequence-objects"><i class="fa fa-check"></i><b>21.1</b> Sequence Objects</a></li>
+<li class="chapter" data-level="21.2" data-path="biopython-sequences.html"><a href="biopython-sequences.html#concatenation-with-sequences"><i class="fa fa-check"></i><b>21.2</b> Concatenation with Sequences</a></li>
+<li class="chapter" data-level="21.3" data-path="biopython-sequences.html"><a href="biopython-sequences.html#transcription-dna-to-mrna"><i class="fa fa-check"></i><b>21.3</b> Transcription: DNA to mRNA</a></li>
+<li class="chapter" data-level="21.4" data-path="biopython-sequences.html"><a href="biopython-sequences.html#translation-rna-to-prot"><i class="fa fa-check"></i><b>21.4</b> Translation: RNA to PROT</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="biopython-mulitple-sequence-alignments.html"><a href="biopython-mulitple-sequence-alignments.html"><i class="fa fa-check"></i><b>22</b> – Biopython: Mulitple Sequence Alignments</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="biopython-mulitple-sequence-alignments.html"><a href="biopython-mulitple-sequence-alignments.html#pairwise2"><i class="fa fa-check"></i><b>22.1</b> pairwise2</a></li>
+<li class="chapter" data-level="22.2" data-path="biopython-mulitple-sequence-alignments.html"><a href="biopython-mulitple-sequence-alignments.html#pairwisealigner"><i class="fa fa-check"></i><b>22.2</b> PairwiseAligner</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html"><i class="fa fa-check"></i><b>23</b> – Biopython: GenomeDiagram</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#linearcircular-gene-diagrams"><i class="fa fa-check"></i><b>23.1</b> Linear/Circular Gene Diagrams</a></li>
+<li class="chapter" data-level="23.2" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#diagram-readability"><i class="fa fa-check"></i><b>23.2</b> Diagram Readability</a></li>
+<li class="chapter" data-level="23.3" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#box-shape"><i class="fa fa-check"></i><b>23.3</b> Box Shape</a></li>
+<li class="chapter" data-level="23.4" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#edit-box-shape-arrows"><i class="fa fa-check"></i><b>23.4</b> Edit Box Shape: Arrows</a></li>
+<li class="chapter" data-level="23.5" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#restriction-map"><i class="fa fa-check"></i><b>23.5</b> Restriction Map</a></li>
+<li class="chapter" data-level="23.6" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#tracks-on-tracks"><i class="fa fa-check"></i><b>23.6</b> Tracks on Tracks</a></li>
+<li class="chapter" data-level="23.7" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#cross-link-data"><i class="fa fa-check"></i><b>23.7</b> Cross-link Data</a></li>
+<li class="chapter" data-level="23.8" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#clean-cross-link"><i class="fa fa-check"></i><b>23.8</b> Clean Cross-Link</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="biopython-chromosome-modeling.html"><a href="biopython-chromosome-modeling.html"><i class="fa fa-check"></i><b>24</b> – Biopython: Chromosome Modeling</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="biopython-chromosome-modeling.html"><a href="biopython-chromosome-modeling.html#gene-feature-modeling"><i class="fa fa-check"></i><b>24.1</b> Gene Feature Modeling</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html"><i class="fa fa-check"></i><b>25</b> – Biopython: Sequence Parsing with Plots</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#histograms-1"><i class="fa fa-check"></i><b>25.1</b> Histograms</a></li>
+<li class="chapter" data-level="25.2" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#gc-content"><i class="fa fa-check"></i><b>25.2</b> GC Content</a></li>
+<li class="chapter" data-level="25.3" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#nt-alignment-dot-plot"><i class="fa fa-check"></i><b>25.3</b> Nt Alignment Dot Plot</a></li>
+<li class="chapter" data-level="25.4" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#bigger-dots-for-the-dot-plot"><i class="fa fa-check"></i><b>25.4</b> Bigger Dots for the Dot Plot</a></li>
+<li class="chapter" data-level="25.5" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#fastq-we-did-not-forget-you"><i class="fa fa-check"></i><b>25.5</b> FASTQ we did not forget you</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html"><i class="fa fa-check"></i><b>26</b> – Python: Web Scraping w/ BeautifulSoup</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#introduction"><i class="fa fa-check"></i><b>26.1</b> Introduction</a></li>
+<li class="chapter" data-level="26.2" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#installation"><i class="fa fa-check"></i><b>26.2</b> Installation</a></li>
+<li class="chapter" data-level="26.3" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#getting-started-1"><i class="fa fa-check"></i><b>26.3</b> Getting started</a></li>
+<li class="chapter" data-level="26.4" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#mining-all-matching-tags"><i class="fa fa-check"></i><b>26.4</b> Mining all matching tags</a></li>
+<li class="chapter" data-level="26.5" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#mining-tags-by-class-or-id"><i class="fa fa-check"></i><b>26.5</b> Mining tags by class or id</a></li>
+<li class="chapter" data-level="26.6" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#use-css-selectors-for-positional-mining"><i class="fa fa-check"></i><b>26.6</b> Use CSS Selectors for positional mining</a></li>
+<li class="chapter" data-level="26.7" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#weather-page-example"><i class="fa fa-check"></i><b>26.7</b> Weather Page Example</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="python-subprocess.html"><a href="python-subprocess.html"><i class="fa fa-check"></i><b>27</b> – Python Subprocess</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="python-subprocess.html"><a href="python-subprocess.html#introduction-and-installation"><i class="fa fa-check"></i><b>27.1</b> Introduction and Installation</a></li>
+<li class="chapter" data-level="27.2" data-path="python-subprocess.html"><a href="python-subprocess.html#creating-your-first-python-script-w-bbtools"><i class="fa fa-check"></i><b>27.2</b> Creating your first python script w/ BBTools</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="control-structures-and-loops-in-r.html"><a href="control-structures-and-loops-in-r.html"><i class="fa fa-check"></i><b>28</b> – Control Structures and Loops in R</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="control-structures-and-loops-in-r.html"><a href="control-structures-and-loops-in-r.html#controling-the-flow"><i class="fa fa-check"></i><b>28.1</b> Controling the flow</a></li>
+<li class="chapter" data-level="28.2" data-path="control-structures-and-loops-in-r.html"><a href="control-structures-and-loops-in-r.html#conditional-if"><i class="fa fa-check"></i><b>28.2</b> Conditional <code>if</code></a></li>
+<li class="chapter" data-level="28.3" data-path="control-structures-and-loops-in-r.html"><a href="control-structures-and-loops-in-r.html#conditional-if-and-else"><i class="fa fa-check"></i><b>28.3</b> Conditional <code>if</code> and <code>else</code></a></li>
+<li class="chapter" data-level="28.4" data-path="control-structures-and-loops-in-r.html"><a href="control-structures-and-loops-in-r.html#chain-of-nested-conditionals-if-if-else-and-else"><i class="fa fa-check"></i><b>28.4</b> Chain of nested conditionals <code>if</code>, <code>if else</code> and <code>else</code></a></li>
+<li class="chapter" data-level="28.5" data-path="control-structures-and-loops-in-r.html"><a href="control-structures-and-loops-in-r.html#conditional-ifelse"><i class="fa fa-check"></i><b>28.5</b> Conditional <code>ifelse</code></a></li>
+<li class="chapter" data-level="28.6" data-path="control-structures-and-loops-in-r.html"><a href="control-structures-and-loops-in-r.html#loops-that-control-iterations-and-repeations"><i class="fa fa-check"></i><b>28.6</b> Loops that control iterations and repeations</a></li>
+<li class="chapter" data-level="28.7" data-path="control-structures-and-loops-in-r.html"><a href="control-structures-and-loops-in-r.html#for-loops"><i class="fa fa-check"></i><b>28.7</b> <code>for</code> Loops</a></li>
+<li class="chapter" data-level="28.8" data-path="control-structures-and-loops-in-r.html"><a href="control-structures-and-loops-in-r.html#while-loops"><i class="fa fa-check"></i><b>28.8</b> <code>while</code> Loops</a></li>
+<li class="chapter" data-level="28.9" data-path="control-structures-and-loops-in-r.html"><a href="control-structures-and-loops-in-r.html#repeat-and-break-loops"><i class="fa fa-check"></i><b>28.9</b> <code>repeat</code> and <code>break</code> Loops</a></li>
+<li class="chapter" data-level="28.10" data-path="control-structures-and-loops-in-r.html"><a href="control-structures-and-loops-in-r.html#the-next-function-in-loops"><i class="fa fa-check"></i><b>28.10</b> The <code>next</code> function in loops</a></li>
+<li class="chapter" data-level="28.11" data-path="control-structures-and-loops-in-r.html"><a href="control-structures-and-loops-in-r.html#other-loop-functionslapply"><i class="fa fa-check"></i><b>28.11</b> Other loop functions:<code>lapply</code></a></li>
+<li class="chapter" data-level="28.12" data-path="control-structures-and-loops-in-r.html"><a href="control-structures-and-loops-in-r.html#other-loop-functionsapply"><i class="fa fa-check"></i><b>28.12</b> Other loop functions:<code>apply</code></a></li>
+<li class="chapter" data-level="28.13" data-path="control-structures-and-loops-in-r.html"><a href="control-structures-and-loops-in-r.html#other-loop-functionsmapply"><i class="fa fa-check"></i><b>28.13</b> Other loop functions:<code>mapply</code></a></li>
+<li class="chapter" data-level="28.14" data-path="control-structures-and-loops-in-r.html"><a href="control-structures-and-loops-in-r.html#other-loop-functionstapply"><i class="fa fa-check"></i><b>28.14</b> Other loop functions:<code>tapply</code></a></li>
+<li class="chapter" data-level="28.15" data-path="control-structures-and-loops-in-r.html"><a href="control-structures-and-loops-in-r.html#other-loop-functionssplit"><i class="fa fa-check"></i><b>28.15</b> Other loop functions:<code>split</code></a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html"><i class="fa fa-check"></i><b>29</b> – Bioinformatics Literature</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#peer-reviewed-bioinformatics-journals"><i class="fa fa-check"></i><b>29.1</b> Peer-reviewed bioinformatics journals</a></li>
+<li class="chapter" data-level="29.2" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#accessing-journals-articles"><i class="fa fa-check"></i><b>29.2</b> Accessing journals articles</a></li>
+<li class="chapter" data-level="29.3" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#informal-access-to-code-preprints-and-vignettes"><i class="fa fa-check"></i><b>29.3</b> Informal access to code: Preprints and vignettes</a></li>
+<li class="chapter" data-level="29.4" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#online-bioinformatics-courses"><i class="fa fa-check"></i><b>29.4</b> Online bioinformatics courses</a></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>30</b> – Miscellaneous</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="miscellaneous.html"><a href="miscellaneous.html#sampling-from-a-vector-of-names"><i class="fa fa-check"></i><b>30.1</b> Sampling from a vector of names</a></li>
+<li class="chapter" data-level="30.2" data-path="miscellaneous.html"><a href="miscellaneous.html#miscellaneous-1"><i class="fa fa-check"></i><b>30.2</b> Miscellaneous</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bioinformatics Workshop Gitbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="control-structures-and-loops-in-r" class="section level1" number="28">
+<h1><span class="header-section-number">Session 28</span> – Control Structures and Loops in R</h1>
+<div id="controling-the-flow" class="section level2" number="28.1">
+<h2><span class="header-section-number">28.1</span> Controling the flow</h2>
+<p>In most cases when you run an R program or script, you want to control how the flow of data and the product of intermediate processes that
+include how the data or part/by-products of the data are stored, tested, transformed or discarded. These control structures serve as commands
+for the machine to take automated descisions on the data as it moves from one process to another. For example, as the program runs, the data are
+processed following a linear sequence of instructions but in some steps these instructions might bifurcate into alternative analyses based on a
+condition on the data (e.g., if test on the data is true do <strong>A</strong> else do <strong>B</strong>). Likewise, sometimes the data has a structure that includes a
+collection of similar elements that could be repeatedly processed with the same set of instructions for certain number of times or while a
+condition is fulfilled (e.g., repeat process on data or parts of the data during a set number of times).</p>
+<p>In R, basic control structures include <strong>conditional functions</strong> which are used to execute one or more statements if a condition is met by the data or
+part of the data and <strong>loops</strong> which are iteration or repeations of a statement or process during a certain number of times or while a condition is fulfilled.</p>
+</div>
+<div id="conditional-if" class="section level2" number="28.2">
+<h2><span class="header-section-number">28.2</span> Conditional <code>if</code></h2>
+<p>These conditional statements allow to control the flow of code based on a binary or Boolean expression: an expression that evaluates to either true or false.
+It is the most simple form and only a test <strong>if</strong> is necessary
+to determine if the condition is <strong>TRUE</strong>, which allows the statement contained such as in curly brackets <strong>{ }</strong> to get executed.
+However, if the condition is <strong>FALSE</strong> then no statement is excecuted.</p>
+<p>For example, we can test if a value(s) in vector is(are) even by assigning a test</p>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="control-structures-and-loops-in-r.html#cb571-1" aria-hidden="true" tabindex="-1"></a><span class="do">##  Test if a number is even: A number is even if division by 2 give a remainder of 0; otherwise, if remainder is 1, the number is odd.</span></span>
+<span id="cb571-2"><a href="control-structures-and-loops-in-r.html#cb571-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-3"><a href="control-structures-and-loops-in-r.html#cb571-3" aria-hidden="true" tabindex="-1"></a>my_numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">12</span>, <span class="fl">14.5</span>)</span>
+<span id="cb571-4"><a href="control-structures-and-loops-in-r.html#cb571-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-5"><a href="control-structures-and-loops-in-r.html#cb571-5" aria-hidden="true" tabindex="-1"></a><span class="co"># only integers are allowed (i.e., no decimals)</span></span>
+<span id="cb571-6"><a href="control-structures-and-loops-in-r.html#cb571-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-7"><a href="control-structures-and-loops-in-r.html#cb571-7" aria-hidden="true" tabindex="-1"></a>my_numbers <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(my_numbers)</span>
+<span id="cb571-8"><a href="control-structures-and-loops-in-r.html#cb571-8" aria-hidden="true" tabindex="-1"></a>my_numbers</span>
+<span id="cb571-9"><a href="control-structures-and-loops-in-r.html#cb571-9" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1  2  5  6  8 12 14</span></span>
+<span id="cb571-10"><a href="control-structures-and-loops-in-r.html#cb571-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-11"><a href="control-structures-and-loops-in-r.html#cb571-11" aria-hidden="true" tabindex="-1"></a><span class="co"># choose a single number, in this case the 4th element that is 6, an even number</span></span>
+<span id="cb571-12"><a href="control-structures-and-loops-in-r.html#cb571-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-13"><a href="control-structures-and-loops-in-r.html#cb571-13" aria-hidden="true" tabindex="-1"></a>one_number <span class="ot">&lt;-</span> my_numbers[<span class="dv">4</span>]</span>
+<span id="cb571-14"><a href="control-structures-and-loops-in-r.html#cb571-14" aria-hidden="true" tabindex="-1"></a>one_number </span>
+<span id="cb571-15"><a href="control-structures-and-loops-in-r.html#cb571-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-16"><a href="control-structures-and-loops-in-r.html#cb571-16" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 6</span></span>
+<span id="cb571-17"><a href="control-structures-and-loops-in-r.html#cb571-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-18"><a href="control-structures-and-loops-in-r.html#cb571-18" aria-hidden="true" tabindex="-1"></a><span class="co"># if conditional test</span></span>
+<span id="cb571-19"><a href="control-structures-and-loops-in-r.html#cb571-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-20"><a href="control-structures-and-loops-in-r.html#cb571-20" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>((one_number<span class="sc">%%</span> <span class="dv">2</span>) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb571-21"><a href="control-structures-and-loops-in-r.html#cb571-21" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">print</span>(<span class="fu">paste</span>(one_number,<span class="st">&quot;is even&quot;</span>))</span>
+<span id="cb571-22"><a href="control-structures-and-loops-in-r.html#cb571-22" aria-hidden="true" tabindex="-1"></a>                          }</span>
+<span id="cb571-23"><a href="control-structures-and-loops-in-r.html#cb571-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-24"><a href="control-structures-and-loops-in-r.html#cb571-24" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;6 is even&quot;</span></span>
+<span id="cb571-25"><a href="control-structures-and-loops-in-r.html#cb571-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-26"><a href="control-structures-and-loops-in-r.html#cb571-26" aria-hidden="true" tabindex="-1"></a><span class="do">## Let&#39;s try with an odd number</span></span>
+<span id="cb571-27"><a href="control-structures-and-loops-in-r.html#cb571-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-28"><a href="control-structures-and-loops-in-r.html#cb571-28" aria-hidden="true" tabindex="-1"></a>one_number <span class="ot">&lt;-</span> my_numbers[<span class="dv">3</span>]</span>
+<span id="cb571-29"><a href="control-structures-and-loops-in-r.html#cb571-29" aria-hidden="true" tabindex="-1"></a>one_number </span>
+<span id="cb571-30"><a href="control-structures-and-loops-in-r.html#cb571-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-31"><a href="control-structures-and-loops-in-r.html#cb571-31" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 3</span></span>
+<span id="cb571-32"><a href="control-structures-and-loops-in-r.html#cb571-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-33"><a href="control-structures-and-loops-in-r.html#cb571-33" aria-hidden="true" tabindex="-1"></a><span class="co"># if conditional test</span></span>
+<span id="cb571-34"><a href="control-structures-and-loops-in-r.html#cb571-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-35"><a href="control-structures-and-loops-in-r.html#cb571-35" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>((one_number<span class="sc">%%</span> <span class="dv">2</span>) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb571-36"><a href="control-structures-and-loops-in-r.html#cb571-36" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">print</span>(<span class="fu">paste</span>(one_number,<span class="st">&quot;is even&quot;</span>))</span>
+<span id="cb571-37"><a href="control-structures-and-loops-in-r.html#cb571-37" aria-hidden="true" tabindex="-1"></a>                          }</span>
+<span id="cb571-38"><a href="control-structures-and-loops-in-r.html#cb571-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-39"><a href="control-structures-and-loops-in-r.html#cb571-39" aria-hidden="true" tabindex="-1"></a><span class="co"># There is not output, as the condition is not met by our choosen number: 3</span></span></code></pre></div>
+</div>
+<div id="conditional-if-and-else" class="section level2" number="28.3">
+<h2><span class="header-section-number">28.3</span> Conditional <code>if</code> and <code>else</code></h2>
+<p>An extension of the <strong>if</strong> conditional is that if after the computer determine if the condition is <strong>TRUE</strong>, which allows the statement contained such as in curly brackets <strong>{ }</strong> to get executed.
+However, if the condition is <strong>FALSE</strong> then an alternative statement is excuted preceded by <strong>else</strong> contained such as in curly brackets <strong>{ }</strong> to get executed.</p>
+<p>We can use the previous example to illustrate:</p>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="control-structures-and-loops-in-r.html#cb572-1" aria-hidden="true" tabindex="-1"></a><span class="do">##  Test if a number is even: A number is even if division by 2 give a remainder of 0; otherwise, if remainder is 1, the number is odd.</span></span>
+<span id="cb572-2"><a href="control-structures-and-loops-in-r.html#cb572-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-3"><a href="control-structures-and-loops-in-r.html#cb572-3" aria-hidden="true" tabindex="-1"></a>my_numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">12</span>, <span class="fl">14.5</span>)</span>
+<span id="cb572-4"><a href="control-structures-and-loops-in-r.html#cb572-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-5"><a href="control-structures-and-loops-in-r.html#cb572-5" aria-hidden="true" tabindex="-1"></a><span class="co"># only integers are allowed (i.e., no decimals)</span></span>
+<span id="cb572-6"><a href="control-structures-and-loops-in-r.html#cb572-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-7"><a href="control-structures-and-loops-in-r.html#cb572-7" aria-hidden="true" tabindex="-1"></a>my_numbers <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(my_numbers)</span>
+<span id="cb572-8"><a href="control-structures-and-loops-in-r.html#cb572-8" aria-hidden="true" tabindex="-1"></a>my_numbers</span>
+<span id="cb572-9"><a href="control-structures-and-loops-in-r.html#cb572-9" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1  2  5  6  8 12 14</span></span>
+<span id="cb572-10"><a href="control-structures-and-loops-in-r.html#cb572-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-11"><a href="control-structures-and-loops-in-r.html#cb572-11" aria-hidden="true" tabindex="-1"></a><span class="co"># choose a single number, in this case the 4th element that is 6, an even number</span></span>
+<span id="cb572-12"><a href="control-structures-and-loops-in-r.html#cb572-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-13"><a href="control-structures-and-loops-in-r.html#cb572-13" aria-hidden="true" tabindex="-1"></a>one_number <span class="ot">&lt;-</span> my_numbers[<span class="dv">4</span>]</span>
+<span id="cb572-14"><a href="control-structures-and-loops-in-r.html#cb572-14" aria-hidden="true" tabindex="-1"></a>one_number </span>
+<span id="cb572-15"><a href="control-structures-and-loops-in-r.html#cb572-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-16"><a href="control-structures-and-loops-in-r.html#cb572-16" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 6</span></span>
+<span id="cb572-17"><a href="control-structures-and-loops-in-r.html#cb572-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-18"><a href="control-structures-and-loops-in-r.html#cb572-18" aria-hidden="true" tabindex="-1"></a><span class="co"># if conditional test</span></span>
+<span id="cb572-19"><a href="control-structures-and-loops-in-r.html#cb572-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-20"><a href="control-structures-and-loops-in-r.html#cb572-20" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>((one_number<span class="sc">%%</span> <span class="dv">2</span>) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb572-21"><a href="control-structures-and-loops-in-r.html#cb572-21" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">print</span>(<span class="fu">paste</span>(one_number,<span class="st">&quot;is even&quot;</span>))</span>
+<span id="cb572-22"><a href="control-structures-and-loops-in-r.html#cb572-22" aria-hidden="true" tabindex="-1"></a>                          } <span class="cf">else</span> {</span>
+<span id="cb572-23"><a href="control-structures-and-loops-in-r.html#cb572-23" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">print</span>(<span class="fu">paste</span>(one_number,<span class="st">&quot;is odd&quot;</span>))  </span>
+<span id="cb572-24"><a href="control-structures-and-loops-in-r.html#cb572-24" aria-hidden="true" tabindex="-1"></a>                          }</span>
+<span id="cb572-25"><a href="control-structures-and-loops-in-r.html#cb572-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-26"><a href="control-structures-and-loops-in-r.html#cb572-26" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;6 is even&quot;</span></span>
+<span id="cb572-27"><a href="control-structures-and-loops-in-r.html#cb572-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-28"><a href="control-structures-and-loops-in-r.html#cb572-28" aria-hidden="true" tabindex="-1"></a><span class="do">## Let&#39;s try with an odd number</span></span>
+<span id="cb572-29"><a href="control-structures-and-loops-in-r.html#cb572-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-30"><a href="control-structures-and-loops-in-r.html#cb572-30" aria-hidden="true" tabindex="-1"></a>one_number <span class="ot">&lt;-</span> my_numbers[<span class="dv">3</span>]</span>
+<span id="cb572-31"><a href="control-structures-and-loops-in-r.html#cb572-31" aria-hidden="true" tabindex="-1"></a>one_number </span>
+<span id="cb572-32"><a href="control-structures-and-loops-in-r.html#cb572-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-33"><a href="control-structures-and-loops-in-r.html#cb572-33" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 3</span></span>
+<span id="cb572-34"><a href="control-structures-and-loops-in-r.html#cb572-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-35"><a href="control-structures-and-loops-in-r.html#cb572-35" aria-hidden="true" tabindex="-1"></a><span class="co"># if conditional test</span></span>
+<span id="cb572-36"><a href="control-structures-and-loops-in-r.html#cb572-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-37"><a href="control-structures-and-loops-in-r.html#cb572-37" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>((one_number<span class="sc">%%</span> <span class="dv">2</span>) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb572-38"><a href="control-structures-and-loops-in-r.html#cb572-38" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">print</span>(<span class="fu">paste</span>(one_number,<span class="st">&quot;is even&quot;</span>))</span>
+<span id="cb572-39"><a href="control-structures-and-loops-in-r.html#cb572-39" aria-hidden="true" tabindex="-1"></a>                          } <span class="cf">else</span> {</span>
+<span id="cb572-40"><a href="control-structures-and-loops-in-r.html#cb572-40" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">print</span>(<span class="fu">paste</span>(one_number,<span class="st">&quot;is odd&quot;</span>))  </span>
+<span id="cb572-41"><a href="control-structures-and-loops-in-r.html#cb572-41" aria-hidden="true" tabindex="-1"></a>                          } </span>
+<span id="cb572-42"><a href="control-structures-and-loops-in-r.html#cb572-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-43"><a href="control-structures-and-loops-in-r.html#cb572-43" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;5 is odd&quot;</span></span></code></pre></div>
+</div>
+<div id="chain-of-nested-conditionals-if-if-else-and-else" class="section level2" number="28.4">
+<h2><span class="header-section-number">28.4</span> Chain of nested conditionals <code>if</code>, <code>if else</code> and <code>else</code></h2>
+<p>We can create nested conditionals where you can have <strong>more than 2</strong> conditions. In this case, we can try a chain of conditional tests separated
+by <code>if else (test) { statements to run}</code> and it ends with <code>else { statements to run}</code> if all (test) return <strong>FALSE</strong>.</p>
+<p>For example, we want to test a series of 11 test (options) like for example assigning grade scores to their corresponding letter grade (A, A-, B+, B, B-, C+, C, C-, D+, D, and F).
+We can follow some consideration or test on how to assign numeric scores to letter grades (e.g., if the numeric score is more or eauql to 92, we should assign an A).
+Some of you might encounter this if you are TA and you have to give a letter grade based on the numeric scores of your students in an exam.</p>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="control-structures-and-loops-in-r.html#cb573-1" aria-hidden="true" tabindex="-1"></a><span class="do">##  We have a five students and you want to give them a letter grade based on their numeric scores</span></span>
+<span id="cb573-2"><a href="control-structures-and-loops-in-r.html#cb573-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-3"><a href="control-structures-and-loops-in-r.html#cb573-3" aria-hidden="true" tabindex="-1"></a>my_class_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">students =</span> <span class="fu">c</span>(<span class="st">&quot;Joe&quot;</span>, <span class="st">&quot;Moe&quot;</span>, <span class="st">&quot;Luke&quot;</span>, <span class="st">&quot;Clarisa&quot;</span>, <span class="st">&quot;Jenny&quot;</span>), <span class="at">exam1_scores =</span> <span class="fu">c</span>(<span class="fl">84.9</span>,<span class="fl">72.5</span>,<span class="fl">59.3</span>,<span class="fl">94.6</span>,<span class="fl">87.5</span>))</span>
+<span id="cb573-4"><a href="control-structures-and-loops-in-r.html#cb573-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-5"><a href="control-structures-and-loops-in-r.html#cb573-5" aria-hidden="true" tabindex="-1"></a>my_class_df</span>
+<span id="cb573-6"><a href="control-structures-and-loops-in-r.html#cb573-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-7"><a href="control-structures-and-loops-in-r.html#cb573-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  students exam1_scores</span></span>
+<span id="cb573-8"><a href="control-structures-and-loops-in-r.html#cb573-8" aria-hidden="true" tabindex="-1"></a><span class="co">#1      Joe         84.9</span></span>
+<span id="cb573-9"><a href="control-structures-and-loops-in-r.html#cb573-9" aria-hidden="true" tabindex="-1"></a><span class="co">#2      Moe         72.5</span></span>
+<span id="cb573-10"><a href="control-structures-and-loops-in-r.html#cb573-10" aria-hidden="true" tabindex="-1"></a><span class="co">#3     Luke         59.3</span></span>
+<span id="cb573-11"><a href="control-structures-and-loops-in-r.html#cb573-11" aria-hidden="true" tabindex="-1"></a><span class="co">#4  Clarisa         94.6</span></span>
+<span id="cb573-12"><a href="control-structures-and-loops-in-r.html#cb573-12" aria-hidden="true" tabindex="-1"></a><span class="co">#5    Jenny         87.5</span></span>
+<span id="cb573-13"><a href="control-structures-and-loops-in-r.html#cb573-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-14"><a href="control-structures-and-loops-in-r.html#cb573-14" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(my_class_df)</span>
+<span id="cb573-15"><a href="control-structures-and-loops-in-r.html#cb573-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  5 obs. of  2 variables:</span></span>
+<span id="cb573-16"><a href="control-structures-and-loops-in-r.html#cb573-16" aria-hidden="true" tabindex="-1"></a><span class="co"># $ students    : chr  &quot;Joe&quot; &quot;Moe&quot; &quot;Luke&quot; &quot;Clarisa&quot; ...</span></span>
+<span id="cb573-17"><a href="control-structures-and-loops-in-r.html#cb573-17" aria-hidden="true" tabindex="-1"></a><span class="co"># $ exam1_scores: num  84.9 72.5 59.3 94.6 87.5</span></span>
+<span id="cb573-18"><a href="control-structures-and-loops-in-r.html#cb573-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-19"><a href="control-structures-and-loops-in-r.html#cb573-19" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to extract Jenny&#39;s score </span></span>
+<span id="cb573-20"><a href="control-structures-and-loops-in-r.html#cb573-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-21"><a href="control-structures-and-loops-in-r.html#cb573-21" aria-hidden="true" tabindex="-1"></a>Jenny_score <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">subset</span>(my_class_df, students <span class="sc">==</span> <span class="st">&quot;Jenny&quot;</span>, <span class="at">select =</span> <span class="st">&quot;exam1_scores&quot;</span>))</span>
+<span id="cb573-22"><a href="control-structures-and-loops-in-r.html#cb573-22" aria-hidden="true" tabindex="-1"></a>Jenny_score</span>
+<span id="cb573-23"><a href="control-structures-and-loops-in-r.html#cb573-23" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 87.5</span></span>
+<span id="cb573-24"><a href="control-structures-and-loops-in-r.html#cb573-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-25"><a href="control-structures-and-loops-in-r.html#cb573-25" aria-hidden="true" tabindex="-1"></a><span class="do">## We can process the Jenny&#39;s score to letter grades using if, if else and else </span></span>
+<span id="cb573-26"><a href="control-structures-and-loops-in-r.html#cb573-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-27"><a href="control-structures-and-loops-in-r.html#cb573-27" aria-hidden="true" tabindex="-1"></a>Jenny_letter_grade <span class="ot">&lt;-</span> <span class="fu">character</span>()</span>
+<span id="cb573-28"><a href="control-structures-and-loops-in-r.html#cb573-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-29"><a href="control-structures-and-loops-in-r.html#cb573-29" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(Jenny_score <span class="sc">&gt;=</span> <span class="fl">92.0</span>) { Jenny_letter_grade <span class="ot">&lt;-</span> <span class="st">&quot;A&quot;</span></span>
+<span id="cb573-30"><a href="control-structures-and-loops-in-r.html#cb573-30" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (Jenny_score <span class="sc">&gt;=</span> <span class="fl">89.5</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">92.0</span>) {Jenny_letter_grade <span class="ot">&lt;-</span> <span class="st">&quot;A-&quot;</span></span>
+<span id="cb573-31"><a href="control-structures-and-loops-in-r.html#cb573-31" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (Jenny_score <span class="sc">&gt;=</span> <span class="fl">84.5</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">89.5</span>) {Jenny_letter_grade <span class="ot">&lt;-</span> <span class="st">&quot;B+&quot;</span></span>
+<span id="cb573-32"><a href="control-structures-and-loops-in-r.html#cb573-32" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (Jenny_score <span class="sc">&gt;=</span> <span class="fl">82.0</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">84.5</span>) {Jenny_letter_grade <span class="ot">&lt;-</span> <span class="st">&quot;B&quot;</span></span>
+<span id="cb573-33"><a href="control-structures-and-loops-in-r.html#cb573-33" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (Jenny_score <span class="sc">&gt;=</span> <span class="fl">79.5</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">82.0</span>) {Jenny_letter_grade <span class="ot">&lt;-</span> <span class="st">&quot;B-&quot;</span></span>
+<span id="cb573-34"><a href="control-structures-and-loops-in-r.html#cb573-34" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (Jenny_score <span class="sc">&gt;=</span> <span class="fl">74.5</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">79.5</span>) {Jenny_letter_grade <span class="ot">&lt;-</span> <span class="st">&quot;C+&quot;</span></span>
+<span id="cb573-35"><a href="control-structures-and-loops-in-r.html#cb573-35" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (Jenny_score <span class="sc">&gt;=</span> <span class="fl">72.0</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">74.5</span>) {Jenny_letter_grade <span class="ot">&lt;-</span> <span class="st">&quot;C&quot;</span></span>
+<span id="cb573-36"><a href="control-structures-and-loops-in-r.html#cb573-36" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (Jenny_score <span class="sc">&gt;=</span> <span class="fl">69.5</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">72.0</span>) {Jenny_letter_grade <span class="ot">&lt;-</span> <span class="st">&quot;C-&quot;</span></span>
+<span id="cb573-37"><a href="control-structures-and-loops-in-r.html#cb573-37" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (Jenny_score <span class="sc">&gt;=</span> <span class="fl">64.5</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">69.5</span>) {Jenny_letter_grade <span class="ot">&lt;-</span> <span class="st">&quot;D+&quot;</span></span>
+<span id="cb573-38"><a href="control-structures-and-loops-in-r.html#cb573-38" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (Jenny_score <span class="sc">&gt;=</span> <span class="fl">59.5</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">64.5</span>) {Jenny_letter_grade <span class="ot">&lt;-</span> <span class="st">&quot;D&quot;</span>                      </span>
+<span id="cb573-39"><a href="control-structures-and-loops-in-r.html#cb573-39" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> {Jenny_letter_grade <span class="ot">&lt;-</span> <span class="st">&quot;F&quot;</span>}</span>
+<span id="cb573-40"><a href="control-structures-and-loops-in-r.html#cb573-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-41"><a href="control-structures-and-loops-in-r.html#cb573-41" aria-hidden="true" tabindex="-1"></a>Jenny_letter_grade </span>
+<span id="cb573-42"><a href="control-structures-and-loops-in-r.html#cb573-42" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;B+&quot;</span></span>
+<span id="cb573-43"><a href="control-structures-and-loops-in-r.html#cb573-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-44"><a href="control-structures-and-loops-in-r.html#cb573-44" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">--- Jenny&#39;s score was :&quot;</span>, Jenny_score, <span class="st">&quot; this values corresponds to this letter grade: &quot;</span>, Jenny_letter_grade, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb573-45"><a href="control-structures-and-loops-in-r.html#cb573-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-46"><a href="control-structures-and-loops-in-r.html#cb573-46" aria-hidden="true" tabindex="-1"></a><span class="co">#--- Jenny&#39;s score was : 87.5  this values corresponds to this letter grade:  B+ </span></span></code></pre></div>
+<p>You can repeat the above process now with any student score if you want. Later, I will show you how to run this in a loop and get the letter grades
+of all your students at once.</p>
+</div>
+<div id="conditional-ifelse" class="section level2" number="28.5">
+<h2><span class="header-section-number">28.5</span> Conditional <code>ifelse</code></h2>
+<p>You can abreviate the previous conditionals using <code>ifelse</code> function for conditional element selection.</p>
+<p>The <code>ifelse</code> function returns a value after a test in the form of ifelse(test, yes, no) which is filled with elements selected from either yes or no depending on whether the element of test is TRUE or FALSE. This can be one test or a chain of nested tests.</p>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="control-structures-and-loops-in-r.html#cb574-1" aria-hidden="true" tabindex="-1"></a><span class="do">##  We have a five students and you want to give them a letter grade based on their numeric scores</span></span>
+<span id="cb574-2"><a href="control-structures-and-loops-in-r.html#cb574-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-3"><a href="control-structures-and-loops-in-r.html#cb574-3" aria-hidden="true" tabindex="-1"></a>my_class_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">students =</span> <span class="fu">c</span>(<span class="st">&quot;Joe&quot;</span>, <span class="st">&quot;Moe&quot;</span>, <span class="st">&quot;Luke&quot;</span>, <span class="st">&quot;Clarisa&quot;</span>, <span class="st">&quot;Jenny&quot;</span>), <span class="at">exam1_scores =</span> <span class="fu">c</span>(<span class="fl">84.9</span>,<span class="fl">72.5</span>,<span class="fl">59.3</span>,<span class="fl">94.6</span>,<span class="fl">87.5</span>))</span>
+<span id="cb574-4"><a href="control-structures-and-loops-in-r.html#cb574-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-5"><a href="control-structures-and-loops-in-r.html#cb574-5" aria-hidden="true" tabindex="-1"></a>my_class_df</span>
+<span id="cb574-6"><a href="control-structures-and-loops-in-r.html#cb574-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-7"><a href="control-structures-and-loops-in-r.html#cb574-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  students exam1_scores</span></span>
+<span id="cb574-8"><a href="control-structures-and-loops-in-r.html#cb574-8" aria-hidden="true" tabindex="-1"></a><span class="co">#1      Joe         84.9</span></span>
+<span id="cb574-9"><a href="control-structures-and-loops-in-r.html#cb574-9" aria-hidden="true" tabindex="-1"></a><span class="co">#2      Moe         72.5</span></span>
+<span id="cb574-10"><a href="control-structures-and-loops-in-r.html#cb574-10" aria-hidden="true" tabindex="-1"></a><span class="co">#3     Luke         59.3</span></span>
+<span id="cb574-11"><a href="control-structures-and-loops-in-r.html#cb574-11" aria-hidden="true" tabindex="-1"></a><span class="co">#4  Clarisa         94.6</span></span>
+<span id="cb574-12"><a href="control-structures-and-loops-in-r.html#cb574-12" aria-hidden="true" tabindex="-1"></a><span class="co">#5    Jenny         87.5</span></span>
+<span id="cb574-13"><a href="control-structures-and-loops-in-r.html#cb574-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-14"><a href="control-structures-and-loops-in-r.html#cb574-14" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(my_class_df)</span>
+<span id="cb574-15"><a href="control-structures-and-loops-in-r.html#cb574-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  5 obs. of  2 variables:</span></span>
+<span id="cb574-16"><a href="control-structures-and-loops-in-r.html#cb574-16" aria-hidden="true" tabindex="-1"></a><span class="co"># $ students    : chr  &quot;Joe&quot; &quot;Moe&quot; &quot;Luke&quot; &quot;Clarisa&quot; ...</span></span>
+<span id="cb574-17"><a href="control-structures-and-loops-in-r.html#cb574-17" aria-hidden="true" tabindex="-1"></a><span class="co"># $ exam1_scores: num  84.9 72.5 59.3 94.6 87.5</span></span>
+<span id="cb574-18"><a href="control-structures-and-loops-in-r.html#cb574-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-19"><a href="control-structures-and-loops-in-r.html#cb574-19" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to extract Jenny&#39;s score</span></span>
+<span id="cb574-20"><a href="control-structures-and-loops-in-r.html#cb574-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-21"><a href="control-structures-and-loops-in-r.html#cb574-21" aria-hidden="true" tabindex="-1"></a>Jenny_score <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">subset</span>(my_class_df, students <span class="sc">==</span> <span class="st">&quot;Jenny&quot;</span>, <span class="at">select =</span> <span class="st">&quot;exam1_scores&quot;</span>))</span>
+<span id="cb574-22"><a href="control-structures-and-loops-in-r.html#cb574-22" aria-hidden="true" tabindex="-1"></a>Jenny_score</span>
+<span id="cb574-23"><a href="control-structures-and-loops-in-r.html#cb574-23" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 87.5</span></span>
+<span id="cb574-24"><a href="control-structures-and-loops-in-r.html#cb574-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-25"><a href="control-structures-and-loops-in-r.html#cb574-25" aria-hidden="true" tabindex="-1"></a><span class="do">## We can do a SIMPLE </span><span class="al">TEST</span><span class="do"> to determine if Jenny&#39;s score is enough for PASS (if her score is &gt;= 75) or FAIL (if it &lt; 75)</span></span>
+<span id="cb574-26"><a href="control-structures-and-loops-in-r.html#cb574-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-27"><a href="control-structures-and-loops-in-r.html#cb574-27" aria-hidden="true" tabindex="-1"></a>did_Jenny_pass <span class="ot">&lt;-</span> <span class="fu">ifelse</span> (Jenny_score <span class="sc">&gt;=</span><span class="dv">75</span>, <span class="st">&quot;Jenny PASSED her exam&quot;</span>, <span class="st">&quot;Jenny FAILED her exam&quot;</span>)</span>
+<span id="cb574-28"><a href="control-structures-and-loops-in-r.html#cb574-28" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(did_Jenny_pass)</span>
+<span id="cb574-29"><a href="control-structures-and-loops-in-r.html#cb574-29" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Jenny PASSED her exam&quot;</span></span>
+<span id="cb574-30"><a href="control-structures-and-loops-in-r.html#cb574-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-31"><a href="control-structures-and-loops-in-r.html#cb574-31" aria-hidden="true" tabindex="-1"></a><span class="do">## We can do also a chain of contionals to assign a letter grade using ifelse </span></span>
+<span id="cb574-32"><a href="control-structures-and-loops-in-r.html#cb574-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-33"><a href="control-structures-and-loops-in-r.html#cb574-33" aria-hidden="true" tabindex="-1"></a>Jenny_letter_grade <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(Jenny_score <span class="sc">&gt;=</span> <span class="fl">92.0</span>, <span class="st">&quot;A&quot;</span>,</span>
+<span id="cb574-34"><a href="control-structures-and-loops-in-r.html#cb574-34" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">ifelse</span>(Jenny_score <span class="sc">&gt;=</span> <span class="fl">89.5</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">92.0</span>, <span class="st">&quot;A-&quot;</span>,</span>
+<span id="cb574-35"><a href="control-structures-and-loops-in-r.html#cb574-35" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">ifelse</span>(Jenny_score <span class="sc">&gt;=</span> <span class="fl">84.5</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">89.5</span>, <span class="st">&quot;B+&quot;</span>,</span>
+<span id="cb574-36"><a href="control-structures-and-loops-in-r.html#cb574-36" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">ifelse</span>(Jenny_score <span class="sc">&gt;=</span> <span class="fl">82.0</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">84.5</span>, <span class="st">&quot;B&quot;</span>,</span>
+<span id="cb574-37"><a href="control-structures-and-loops-in-r.html#cb574-37" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">ifelse</span>(Jenny_score <span class="sc">&gt;=</span> <span class="fl">79.5</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">82.0</span>, <span class="st">&quot;B-&quot;</span>,</span>
+<span id="cb574-38"><a href="control-structures-and-loops-in-r.html#cb574-38" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">ifelse</span>(Jenny_score <span class="sc">&gt;=</span> <span class="fl">74.5</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">79.5</span>, <span class="st">&quot;C+&quot;</span>,</span>
+<span id="cb574-39"><a href="control-structures-and-loops-in-r.html#cb574-39" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">ifelse</span>(Jenny_score <span class="sc">&gt;=</span> <span class="fl">72.0</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">74.5</span>, <span class="st">&quot;C&quot;</span>,</span>
+<span id="cb574-40"><a href="control-structures-and-loops-in-r.html#cb574-40" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">ifelse</span>(Jenny_score <span class="sc">&gt;=</span> <span class="fl">69.5</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">72.0</span>, <span class="st">&quot;C-&quot;</span>,</span>
+<span id="cb574-41"><a href="control-structures-and-loops-in-r.html#cb574-41" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">ifelse</span>(Jenny_score <span class="sc">&gt;=</span> <span class="fl">64.5</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">69.5</span>, <span class="st">&quot;D+&quot;</span>,</span>
+<span id="cb574-42"><a href="control-structures-and-loops-in-r.html#cb574-42" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">ifelse</span>(Jenny_score <span class="sc">&gt;=</span> <span class="fl">59.5</span> <span class="sc">&amp;</span> Jenny_score <span class="sc">&lt;</span> <span class="fl">64.5</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;F&quot;</span>))))))))))</span>
+<span id="cb574-43"><a href="control-structures-and-loops-in-r.html#cb574-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-44"><a href="control-structures-and-loops-in-r.html#cb574-44" aria-hidden="true" tabindex="-1"></a>Jenny_letter_grade </span>
+<span id="cb574-45"><a href="control-structures-and-loops-in-r.html#cb574-45" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;B+&quot;</span></span>
+<span id="cb574-46"><a href="control-structures-and-loops-in-r.html#cb574-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-47"><a href="control-structures-and-loops-in-r.html#cb574-47" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">--- Jenny&#39;s score was :&quot;</span>, Jenny_score, <span class="st">&quot; this values corresponds to this letter grade: &quot;</span>, Jenny_letter_grade, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb574-48"><a href="control-structures-and-loops-in-r.html#cb574-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-49"><a href="control-structures-and-loops-in-r.html#cb574-49" aria-hidden="true" tabindex="-1"></a><span class="co">#--- Jenny&#39;s score was : 87.5  this values corresponds to this letter grade:  B+ </span></span></code></pre></div>
+<p>Notice that <strong>closing parenthesis</strong> might be tricky and only a good text editor will help you to identify if any is not <strong>closed</strong></p>
+</div>
+<div id="loops-that-control-iterations-and-repeations" class="section level2" number="28.6">
+<h2><span class="header-section-number">28.6</span> Loops that control iterations and repeations</h2>
+<p>We can use <strong>loops statements</strong> allow the control automation of processes that might require sequences of actions that are repeated
+until some condition is met or a counter reaches an specific number of repeats. The creative application of loops is one of
+the strengths of programming by giving the control of some repeatitive actions to few lines of code. In R (like other programming languages),
+there are general types that include:</p>
+</div>
+<div id="for-loops" class="section level2" number="28.7">
+<h2><span class="header-section-number">28.7</span> <code>for</code> Loops</h2>
+<p>Those loops control the execution of a series of intructions usually contained within <code>{ }</code>.
+In the <code>for</code> loops, the statements are executed one after another in a consecutive order over a sequence of values in a counter or an index.
+In this case, the number of iterations or repetitions is fixed in advance.
+The counter or index changes every time whenever a new iteration starts (e.g., usually increases by one). For example:</p>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="control-structures-and-loops-in-r.html#cb575-1" aria-hidden="true" tabindex="-1"></a><span class="do">##  here is a short for loop for stament where a number is multiplied by itself during 5 iterations</span></span>
+<span id="cb575-2"><a href="control-structures-and-loops-in-r.html#cb575-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb575-3"><a href="control-structures-and-loops-in-r.html#cb575-3" aria-hidden="true" tabindex="-1"></a>my_number <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb575-4"><a href="control-structures-and-loops-in-r.html#cb575-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb575-5"><a href="control-structures-and-loops-in-r.html#cb575-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the loop will iterate for 1 to 5 in the sequence 1:5</span></span>
+<span id="cb575-6"><a href="control-structures-and-loops-in-r.html#cb575-6" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb575-7"><a href="control-structures-and-loops-in-r.html#cb575-7" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 1 2 3 4 5</span></span>
+<span id="cb575-8"><a href="control-structures-and-loops-in-r.html#cb575-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb575-9"><a href="control-structures-and-loops-in-r.html#cb575-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb575-10"><a href="control-structures-and-loops-in-r.html#cb575-10" aria-hidden="true" tabindex="-1"></a>              <span class="fu">cat</span>(<span class="st">&quot;-- this iteration is i = &quot;</span>,i)</span>
+<span id="cb575-11"><a href="control-structures-and-loops-in-r.html#cb575-11" aria-hidden="true" tabindex="-1"></a>              my_number <span class="ot">&lt;-</span> my_number <span class="sc">*</span> my_number</span>
+<span id="cb575-12"><a href="control-structures-and-loops-in-r.html#cb575-12" aria-hidden="true" tabindex="-1"></a>              <span class="fu">cat</span>(<span class="st">&quot; -- the result of the process for this iteration is equal -- &quot;</span>, my_number, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb575-13"><a href="control-structures-and-loops-in-r.html#cb575-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb575-14"><a href="control-structures-and-loops-in-r.html#cb575-14" aria-hidden="true" tabindex="-1"></a>               <span class="cf">if</span>(i<span class="sc">==</span><span class="dv">5</span>) {<span class="fu">print</span>(<span class="st">&quot;the for loop reached the end!!&quot;</span>)}</span>
+<span id="cb575-15"><a href="control-structures-and-loops-in-r.html#cb575-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb575-16"><a href="control-structures-and-loops-in-r.html#cb575-16" aria-hidden="true" tabindex="-1"></a>               }</span>
+<span id="cb575-17"><a href="control-structures-and-loops-in-r.html#cb575-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb575-18"><a href="control-structures-and-loops-in-r.html#cb575-18" aria-hidden="true" tabindex="-1"></a><span class="co">#-- this iteration is i =  1 -- the result of the process for this iteration is equal --  4 </span></span>
+<span id="cb575-19"><a href="control-structures-and-loops-in-r.html#cb575-19" aria-hidden="true" tabindex="-1"></a><span class="co">#-- this iteration is i =  2 -- the result of the process for this iteration is equal --  16 </span></span>
+<span id="cb575-20"><a href="control-structures-and-loops-in-r.html#cb575-20" aria-hidden="true" tabindex="-1"></a><span class="co">#-- this iteration is i =  3 -- the result of the process for this iteration is equal --  256 </span></span>
+<span id="cb575-21"><a href="control-structures-and-loops-in-r.html#cb575-21" aria-hidden="true" tabindex="-1"></a><span class="co">#-- this iteration is i =  4 -- the result of the process for this iteration is equal --  65536 </span></span>
+<span id="cb575-22"><a href="control-structures-and-loops-in-r.html#cb575-22" aria-hidden="true" tabindex="-1"></a><span class="co">#-- this iteration is i =  5 -- the result of the process for this iteration is equal --  4294967296</span></span>
+<span id="cb575-23"><a href="control-structures-and-loops-in-r.html#cb575-23" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;the for loop reached the end!!&quot;</span></span></code></pre></div>
+<p>In this example, we can identify some of the components of the <code>for</code> loop. An index named <code>i</code> which is variable that will change by <code>+1</code> in other words it starts as
+<code>i = 1</code> then in the next iteration is <code>i = 2</code> until it reaches the limit 5 or <code>i = 5</code> and stops the loop. Then we have the set of statements contained in <code>{ }</code>.
+You can identify that the object <code>my_number</code> is being replaced by the product of the multiplication <code>*</code> such as <code>my_number &lt;- my_number * my_number</code>.
+The <code>cat()</code> function serves to report in the R console the results of the loop as it progresses between iterations. I also included a condition <code>if(i==5){ }</code> where
+the computer will report that at the end of the last iteration <code>i==5</code> will report <code>the for loop reached the end!!</code>.</p>
+<p>We can retake the grading example and now we can add the letter grade to all students</p>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="control-structures-and-loops-in-r.html#cb576-1" aria-hidden="true" tabindex="-1"></a><span class="do">##  We have a five students and you want to give them a letter grade based on their numeric scores</span></span>
+<span id="cb576-2"><a href="control-structures-and-loops-in-r.html#cb576-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-3"><a href="control-structures-and-loops-in-r.html#cb576-3" aria-hidden="true" tabindex="-1"></a>my_class_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">students =</span> <span class="fu">c</span>(<span class="st">&quot;Joe&quot;</span>, <span class="st">&quot;Moe&quot;</span>, <span class="st">&quot;Luke&quot;</span>, <span class="st">&quot;Clarisa&quot;</span>, <span class="st">&quot;Jenny&quot;</span>), <span class="at">exam1_scores =</span> <span class="fu">c</span>(<span class="fl">84.9</span>,<span class="fl">72.5</span>,<span class="fl">59.3</span>,<span class="fl">94.6</span>,<span class="fl">87.5</span>))</span>
+<span id="cb576-4"><a href="control-structures-and-loops-in-r.html#cb576-4" aria-hidden="true" tabindex="-1"></a>my_class_df</span>
+<span id="cb576-5"><a href="control-structures-and-loops-in-r.html#cb576-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  students exam1_scores</span></span>
+<span id="cb576-6"><a href="control-structures-and-loops-in-r.html#cb576-6" aria-hidden="true" tabindex="-1"></a><span class="co">#1      Joe         84.9</span></span>
+<span id="cb576-7"><a href="control-structures-and-loops-in-r.html#cb576-7" aria-hidden="true" tabindex="-1"></a><span class="co">#2      Moe         72.5</span></span>
+<span id="cb576-8"><a href="control-structures-and-loops-in-r.html#cb576-8" aria-hidden="true" tabindex="-1"></a><span class="co">#3     Luke         59.3</span></span>
+<span id="cb576-9"><a href="control-structures-and-loops-in-r.html#cb576-9" aria-hidden="true" tabindex="-1"></a><span class="co">#4  Clarisa         94.6</span></span>
+<span id="cb576-10"><a href="control-structures-and-loops-in-r.html#cb576-10" aria-hidden="true" tabindex="-1"></a><span class="co">#5    Jenny         87.5</span></span>
+<span id="cb576-11"><a href="control-structures-and-loops-in-r.html#cb576-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-12"><a href="control-structures-and-loops-in-r.html#cb576-12" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(my_class_df)</span>
+<span id="cb576-13"><a href="control-structures-and-loops-in-r.html#cb576-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  5 obs. of  2 variables:</span></span>
+<span id="cb576-14"><a href="control-structures-and-loops-in-r.html#cb576-14" aria-hidden="true" tabindex="-1"></a><span class="co"># $ students    : chr  &quot;Joe&quot; &quot;Moe&quot; &quot;Luke&quot; &quot;Clarisa&quot; ...</span></span>
+<span id="cb576-15"><a href="control-structures-and-loops-in-r.html#cb576-15" aria-hidden="true" tabindex="-1"></a><span class="co"># $ exam1_scores: num  84.9 72.5 59.3 94.6 87.5</span></span>
+<span id="cb576-16"><a href="control-structures-and-loops-in-r.html#cb576-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-17"><a href="control-structures-and-loops-in-r.html#cb576-17" aria-hidden="true" tabindex="-1"></a><span class="do">## we extract a vector with the scores</span></span>
+<span id="cb576-18"><a href="control-structures-and-loops-in-r.html#cb576-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-19"><a href="control-structures-and-loops-in-r.html#cb576-19" aria-hidden="true" tabindex="-1"></a>students_score <span class="ot">&lt;-</span> my_class_df<span class="sc">$</span>exam1_scores</span>
+<span id="cb576-20"><a href="control-structures-and-loops-in-r.html#cb576-20" aria-hidden="true" tabindex="-1"></a>students_score</span>
+<span id="cb576-21"><a href="control-structures-and-loops-in-r.html#cb576-21" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 84.9 72.5 59.3 94.6 87.5</span></span>
+<span id="cb576-22"><a href="control-structures-and-loops-in-r.html#cb576-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-23"><a href="control-structures-and-loops-in-r.html#cb576-23" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to get the letter grade for every student using a loop and stored in students_letter_grade character vector</span></span>
+<span id="cb576-24"><a href="control-structures-and-loops-in-r.html#cb576-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-25"><a href="control-structures-and-loops-in-r.html#cb576-25" aria-hidden="true" tabindex="-1"></a>students_letter_grade <span class="ot">&lt;-</span> <span class="fu">character</span>()</span>
+<span id="cb576-26"><a href="control-structures-and-loops-in-r.html#cb576-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-27"><a href="control-structures-and-loops-in-r.html#cb576-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(students_score)) {</span>
+<span id="cb576-28"><a href="control-structures-and-loops-in-r.html#cb576-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-29"><a href="control-structures-and-loops-in-r.html#cb576-29" aria-hidden="true" tabindex="-1"></a><span class="co"># we iterate and calculate the letter_grade one student at a time</span></span>
+<span id="cb576-30"><a href="control-structures-and-loops-in-r.html#cb576-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-31"><a href="control-structures-and-loops-in-r.html#cb576-31" aria-hidden="true" tabindex="-1"></a>one_students_score <span class="ot">&lt;-</span> students_score[i]</span>
+<span id="cb576-32"><a href="control-structures-and-loops-in-r.html#cb576-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-33"><a href="control-structures-and-loops-in-r.html#cb576-33" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(one_students_score <span class="sc">&gt;=</span> <span class="fl">92.0</span>) { students_letter_grade[i] <span class="ot">&lt;-</span> <span class="st">&quot;A&quot;</span></span>
+<span id="cb576-34"><a href="control-structures-and-loops-in-r.html#cb576-34" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (one_students_score <span class="sc">&gt;=</span> <span class="fl">89.5</span> <span class="sc">&amp;</span> one_students_score <span class="sc">&lt;</span> <span class="fl">92.0</span>) {students_letter_grade[i] <span class="ot">&lt;-</span> <span class="st">&quot;A-&quot;</span></span>
+<span id="cb576-35"><a href="control-structures-and-loops-in-r.html#cb576-35" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (one_students_score <span class="sc">&gt;=</span> <span class="fl">84.5</span> <span class="sc">&amp;</span> one_students_score <span class="sc">&lt;</span> <span class="fl">89.5</span>) {students_letter_grade[i] <span class="ot">&lt;-</span> <span class="st">&quot;B+&quot;</span></span>
+<span id="cb576-36"><a href="control-structures-and-loops-in-r.html#cb576-36" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (one_students_score <span class="sc">&gt;=</span> <span class="fl">82.0</span> <span class="sc">&amp;</span> one_students_score <span class="sc">&lt;</span> <span class="fl">84.5</span>) {students_letter_grade[i] <span class="ot">&lt;-</span> <span class="st">&quot;B&quot;</span></span>
+<span id="cb576-37"><a href="control-structures-and-loops-in-r.html#cb576-37" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (one_students_score <span class="sc">&gt;=</span> <span class="fl">79.5</span> <span class="sc">&amp;</span> one_students_score <span class="sc">&lt;</span> <span class="fl">82.0</span>) {students_letter_grade[i] <span class="ot">&lt;-</span> <span class="st">&quot;B-&quot;</span></span>
+<span id="cb576-38"><a href="control-structures-and-loops-in-r.html#cb576-38" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (one_students_score <span class="sc">&gt;=</span> <span class="fl">74.5</span> <span class="sc">&amp;</span> one_students_score <span class="sc">&lt;</span> <span class="fl">79.5</span>) {students_letter_grade[i] <span class="ot">&lt;-</span> <span class="st">&quot;C+&quot;</span></span>
+<span id="cb576-39"><a href="control-structures-and-loops-in-r.html#cb576-39" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (one_students_score <span class="sc">&gt;=</span> <span class="fl">72.0</span> <span class="sc">&amp;</span> one_students_score <span class="sc">&lt;</span> <span class="fl">74.5</span>) {students_letter_grade[i] <span class="ot">&lt;-</span> <span class="st">&quot;C&quot;</span></span>
+<span id="cb576-40"><a href="control-structures-and-loops-in-r.html#cb576-40" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (one_students_score <span class="sc">&gt;=</span> <span class="fl">69.5</span> <span class="sc">&amp;</span> one_students_score <span class="sc">&lt;</span> <span class="fl">72.0</span>) {students_letter_grade[i] <span class="ot">&lt;-</span> <span class="st">&quot;C-&quot;</span></span>
+<span id="cb576-41"><a href="control-structures-and-loops-in-r.html#cb576-41" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (one_students_score <span class="sc">&gt;=</span> <span class="fl">64.5</span> <span class="sc">&amp;</span> one_students_score <span class="sc">&lt;</span> <span class="fl">69.5</span>) {students_letter_grade[i] <span class="ot">&lt;-</span> <span class="st">&quot;D+&quot;</span></span>
+<span id="cb576-42"><a href="control-structures-and-loops-in-r.html#cb576-42" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> <span class="cf">if</span> (one_students_score <span class="sc">&gt;=</span> <span class="fl">59.5</span> <span class="sc">&amp;</span> one_students_score <span class="sc">&lt;</span> <span class="fl">64.5</span>) {students_letter_grade[i] <span class="ot">&lt;-</span> <span class="st">&quot;D&quot;</span>                      </span>
+<span id="cb576-43"><a href="control-structures-and-loops-in-r.html#cb576-43" aria-hidden="true" tabindex="-1"></a>                      } <span class="cf">else</span> {students_letter_grade[i] <span class="ot">&lt;-</span> <span class="st">&quot;F&quot;</span>}</span>
+<span id="cb576-44"><a href="control-structures-and-loops-in-r.html#cb576-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-45"><a href="control-structures-and-loops-in-r.html#cb576-45" aria-hidden="true" tabindex="-1"></a>                                     }</span>
+<span id="cb576-46"><a href="control-structures-and-loops-in-r.html#cb576-46" aria-hidden="true" tabindex="-1"></a>                                     rm <span class="ot">&lt;-</span> i <span class="co"># we remove the i index</span></span>
+<span id="cb576-47"><a href="control-structures-and-loops-in-r.html#cb576-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-48"><a href="control-structures-and-loops-in-r.html#cb576-48" aria-hidden="true" tabindex="-1"></a><span class="do">## These are the letter grades for each student</span></span>
+<span id="cb576-49"><a href="control-structures-and-loops-in-r.html#cb576-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-50"><a href="control-structures-and-loops-in-r.html#cb576-50" aria-hidden="true" tabindex="-1"></a>students_letter_grade</span>
+<span id="cb576-51"><a href="control-structures-and-loops-in-r.html#cb576-51" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;B+&quot; &quot;C&quot;  &quot;F&quot;  &quot;A&quot;  &quot;B+&quot;</span></span>
+<span id="cb576-52"><a href="control-structures-and-loops-in-r.html#cb576-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-53"><a href="control-structures-and-loops-in-r.html#cb576-53" aria-hidden="true" tabindex="-1"></a><span class="do">## We can add these letter grades to our data frame, so we can see students names, numeric scores and letter grades</span></span>
+<span id="cb576-54"><a href="control-structures-and-loops-in-r.html#cb576-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-55"><a href="control-structures-and-loops-in-r.html#cb576-55" aria-hidden="true" tabindex="-1"></a>my_class_df<span class="sc">$</span>letter_grade <span class="ot">&lt;-</span> students_letter_grade</span>
+<span id="cb576-56"><a href="control-structures-and-loops-in-r.html#cb576-56" aria-hidden="true" tabindex="-1"></a>my_class_df</span>
+<span id="cb576-57"><a href="control-structures-and-loops-in-r.html#cb576-57" aria-hidden="true" tabindex="-1"></a><span class="co">#  students exam1_scores letter_grade</span></span>
+<span id="cb576-58"><a href="control-structures-and-loops-in-r.html#cb576-58" aria-hidden="true" tabindex="-1"></a><span class="co">#1      Joe         84.9           B+</span></span>
+<span id="cb576-59"><a href="control-structures-and-loops-in-r.html#cb576-59" aria-hidden="true" tabindex="-1"></a><span class="co">#2      Moe         72.5            C</span></span>
+<span id="cb576-60"><a href="control-structures-and-loops-in-r.html#cb576-60" aria-hidden="true" tabindex="-1"></a><span class="co">#3     Luke         59.3            F</span></span>
+<span id="cb576-61"><a href="control-structures-and-loops-in-r.html#cb576-61" aria-hidden="true" tabindex="-1"></a><span class="co">#4  Clarisa         94.6            A</span></span>
+<span id="cb576-62"><a href="control-structures-and-loops-in-r.html#cb576-62" aria-hidden="true" tabindex="-1"></a><span class="co">#5    Jenny         87.5           B+</span></span></code></pre></div>
+</div>
+<div id="while-loops" class="section level2" number="28.8">
+<h2><span class="header-section-number">28.8</span> <code>while</code> Loops</h2>
+<p>Those loops control the execution of a series of intructions usually contained within <code>{ }</code>. The number of repetitions is determined by a test and
+the verification of its logical condition of an object resulting of an internal process within the <code>{ }</code> statements. This loop will keep repeating the process determined within <code>{ }</code> as long as the logical condition is <strong>TRUE</strong>,
+if the longical condition changes to <strong>FALSE</strong> , then the <code>while</code> loop will stop.</p>
+<p>You should <strong>pay attention</strong> while using a <code>while</code> loop, becasue this loop require the execution of some expression over and over again until the condition becomes <strong>FALSE</strong>.</p>
+<p>If for some reason this condition <strong>never</strong> turns out to be <strong>FALSE</strong>, the <code>while</code> loop will <strong>continue forever</strong> and you likely have to abort the program
+(or the program will “crash”) and you will have to restart your computer. So, please pay attention to the logical test associated with a <code>while</code> loop and save anything before you
+run such loops. Personally, I am not very fan of this loop as I find it very cumbersome to apply and control. I used it only under very specific conditions.</p>
+<p>Here is a simple example of this loop.</p>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="control-structures-and-loops-in-r.html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="do">##  We will do a random sampling among 15 numbers, if the value sampled is 7 then the while stop</span></span>
+<span id="cb577-2"><a href="control-structures-and-loops-in-r.html#cb577-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb577-3"><a href="control-structures-and-loops-in-r.html#cb577-3" aria-hidden="true" tabindex="-1"></a>my_numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">45</span>,<span class="dv">33</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">7</span>,<span class="dv">11</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">19</span>,<span class="dv">23</span>,<span class="dv">22</span>,<span class="dv">31</span>,<span class="dv">30</span>)</span>
+<span id="cb577-4"><a href="control-structures-and-loops-in-r.html#cb577-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb577-5"><a href="control-structures-and-loops-in-r.html#cb577-5" aria-hidden="true" tabindex="-1"></a><span class="co"># notice all the {} they should close in the following loop, otherwise the loop cannot run</span></span>
+<span id="cb577-6"><a href="control-structures-and-loops-in-r.html#cb577-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb577-7"><a href="control-structures-and-loops-in-r.html#cb577-7" aria-hidden="true" tabindex="-1"></a>sampled_number <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb577-8"><a href="control-structures-and-loops-in-r.html#cb577-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb577-9"><a href="control-structures-and-loops-in-r.html#cb577-9" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(<span class="sc">!</span>sampled_number <span class="sc">==</span> <span class="dv">7</span>) {</span>
+<span id="cb577-10"><a href="control-structures-and-loops-in-r.html#cb577-10" aria-hidden="true" tabindex="-1"></a>                 sampled_number <span class="ot">&lt;-</span> <span class="fu">sample</span>(my_numbers, <span class="at">size =</span> <span class="dv">1</span>) <span class="co"># it sample randomly one number</span></span>
+<span id="cb577-11"><a href="control-structures-and-loops-in-r.html#cb577-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb577-12"><a href="control-structures-and-loops-in-r.html#cb577-12" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span>(<span class="sc">!</span>sampled_number <span class="sc">==</span> <span class="dv">7</span>) {</span>
+<span id="cb577-13"><a href="control-structures-and-loops-in-r.html#cb577-13" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">cat</span>(<span class="st">&quot;the sampled number is -- &quot;</span>,sampled_number, <span class="st">&quot; -- this is DIFFERENT than 7 and the while loop will CONTINUE</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb577-14"><a href="control-structures-and-loops-in-r.html#cb577-14" aria-hidden="true" tabindex="-1"></a>                          } <span class="cf">else</span> {</span>
+<span id="cb577-15"><a href="control-structures-and-loops-in-r.html#cb577-15" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">cat</span>(<span class="st">&quot;the sampled number is -- &quot;</span>,sampled_number, <span class="st">&quot; -- this is EQUAL to 7 and the while loop will STOP</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb577-16"><a href="control-structures-and-loops-in-r.html#cb577-16" aria-hidden="true" tabindex="-1"></a>                            }</span>
+<span id="cb577-17"><a href="control-structures-and-loops-in-r.html#cb577-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb577-18"><a href="control-structures-and-loops-in-r.html#cb577-18" aria-hidden="true" tabindex="-1"></a>                            }</span>
+<span id="cb577-19"><a href="control-structures-and-loops-in-r.html#cb577-19" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">rm</span>(sampled_number)</span>
+<span id="cb577-20"><a href="control-structures-and-loops-in-r.html#cb577-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb577-21"><a href="control-structures-and-loops-in-r.html#cb577-21" aria-hidden="true" tabindex="-1"></a><span class="co">#the sampled number is --  1  -- this is DIFFERENT than 7 and the while loop will CONTINUE</span></span>
+<span id="cb577-22"><a href="control-structures-and-loops-in-r.html#cb577-22" aria-hidden="true" tabindex="-1"></a><span class="co">#the sampled number is --  1  -- this is DIFFERENT than 7 and the while loop will CONTINUE</span></span>
+<span id="cb577-23"><a href="control-structures-and-loops-in-r.html#cb577-23" aria-hidden="true" tabindex="-1"></a><span class="co">#the sampled number is --  9  -- this is DIFFERENT than 7 and the while loop will CONTINUE</span></span>
+<span id="cb577-24"><a href="control-structures-and-loops-in-r.html#cb577-24" aria-hidden="true" tabindex="-1"></a><span class="co">#the sampled number is --  30  -- this is DIFFERENT than 7 and the while loop will CONTINUE</span></span>
+<span id="cb577-25"><a href="control-structures-and-loops-in-r.html#cb577-25" aria-hidden="true" tabindex="-1"></a><span class="co">#the sampled number is --  11  -- this is DIFFERENT than 7 and the while loop will CONTINUE</span></span>
+<span id="cb577-26"><a href="control-structures-and-loops-in-r.html#cb577-26" aria-hidden="true" tabindex="-1"></a><span class="co">#the sampled number is --  1  -- this is DIFFERENT than 7 and the while loop will CONTINUE</span></span>
+<span id="cb577-27"><a href="control-structures-and-loops-in-r.html#cb577-27" aria-hidden="true" tabindex="-1"></a><span class="co">#the sampled number is --  15  -- this is DIFFERENT than 7 and the while loop will CONTINUE</span></span>
+<span id="cb577-28"><a href="control-structures-and-loops-in-r.html#cb577-28" aria-hidden="true" tabindex="-1"></a><span class="co">#the sampled number is --  7  -- this is EQUAL to 7 and the while loop will STOP</span></span></code></pre></div>
+<p>In this example, it is included de symbol <code>!</code> such as <code>while(!sampled_number == 7)</code>. The symbol <code>!</code> means negate or find the condition that is the oposite as
+the stated test. In this case, I am telling the computer to keep sampling a number from the <code>my_numbers</code> object and continue as long this number is not equal to 7.</p>
+</div>
+<div id="repeat-and-break-loops" class="section level2" number="28.9">
+<h2><span class="header-section-number">28.9</span> <code>repeat</code> and <code>break</code> Loops</h2>
+<p>Those loops control the execution of a series of intructions usually contained within <code>{ }</code>.
+Similar to <code>while</code> loops, these are based on the verification of a logical condition. The condition is tested to be <code>TRUE</code> at the start of each
+iteration and while condition remain <strong>FALSE</strong> the process <code>repeat</code> (i.e., loops).
+The repeating process ends when the condition is verified to be <strong>TRUE</strong> as defined by the <code>break</code> condition.
+You have to be <strong>extra careful</strong> to avoid infinite loops, so the results of the instruction within the <code>{ }</code> must result at some point to be <strong>FALSE</strong>
+so the <code>break</code> condition can stop the <code>repeat</code> part of the loop or otherwise you will end up with an <strong>infinite loop</strong> and you likely have to abort the program
+(or the program will “crash”) and you will have to restart your computer.</p>
+<p>Here is a simple example of this loop.</p>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="control-structures-and-loops-in-r.html#cb578-1" aria-hidden="true" tabindex="-1"></a><span class="do">##  We will repeat a proces by multipliying by 2 an starting number equal to 7 (x &lt;- 7), if the value after a repetition is more than 24566 then the while stop</span></span>
+<span id="cb578-2"><a href="control-structures-and-loops-in-r.html#cb578-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-3"><a href="control-structures-and-loops-in-r.html#cb578-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb578-4"><a href="control-structures-and-loops-in-r.html#cb578-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-5"><a href="control-structures-and-loops-in-r.html#cb578-5" aria-hidden="true" tabindex="-1"></a><span class="cf">repeat</span> {</span>
+<span id="cb578-6"><a href="control-structures-and-loops-in-r.html#cb578-6" aria-hidden="true" tabindex="-1"></a>       <span class="fu">cat</span>(x,<span class="st">&quot;...&quot;</span>)</span>
+<span id="cb578-7"><a href="control-structures-and-loops-in-r.html#cb578-7" aria-hidden="true" tabindex="-1"></a>             x <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb578-8"><a href="control-structures-and-loops-in-r.html#cb578-8" aria-hidden="true" tabindex="-1"></a>       <span class="cf">if</span> (x <span class="sc">&gt;=</span> <span class="dv">24566</span>){</span>
+<span id="cb578-9"><a href="control-structures-and-loops-in-r.html#cb578-9" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb578-10"><a href="control-structures-and-loops-in-r.html#cb578-10" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">print</span> (<span class="st">&quot;we have reached a x value more or equal to 24566 and we will stop&quot;</span>)</span>
+<span id="cb578-11"><a href="control-structures-and-loops-in-r.html#cb578-11" aria-hidden="true" tabindex="-1"></a>                      <span class="cf">break</span></span>
+<span id="cb578-12"><a href="control-structures-and-loops-in-r.html#cb578-12" aria-hidden="true" tabindex="-1"></a>                      }</span>
+<span id="cb578-13"><a href="control-structures-and-loops-in-r.html#cb578-13" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb578-14"><a href="control-structures-and-loops-in-r.html#cb578-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-15"><a href="control-structures-and-loops-in-r.html#cb578-15" aria-hidden="true" tabindex="-1"></a><span class="co">#7 ...14 ...28 ...56 ...112 ...224 ...448 ...896 ...1792 ...3584 ...7168 ...14336 ...</span></span>
+<span id="cb578-16"><a href="control-structures-and-loops-in-r.html#cb578-16" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;we have reached a x value more or equal to 24566 and we will stop&quot;</span></span></code></pre></div>
+<p>Again, I am not very fan of this loop as I find it very cumbersome to apply and control. I almost nerver use these <code>repeat</code> and <code>break</code> loops.</p>
+</div>
+<div id="the-next-function-in-loops" class="section level2" number="28.10">
+<h2><span class="header-section-number">28.10</span> The <code>next</code> function in loops</h2>
+<p>PLACE HOLDER</p>
+</div>
+<div id="other-loop-functionslapply" class="section level2" number="28.11">
+<h2><span class="header-section-number">28.11</span> Other loop functions:<code>lapply</code></h2>
+<p>PLACE HOLDER</p>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="control-structures-and-loops-in-r.html#cb579-1" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
+<span id="cb579-2"><a href="control-structures-and-loops-in-r.html#cb579-2" aria-hidden="true" tabindex="-1"></a>mtcars_data <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb579-3"><a href="control-structures-and-loops-in-r.html#cb579-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb579-4"><a href="control-structures-and-loops-in-r.html#cb579-4" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
+<span id="cb579-5"><a href="control-structures-and-loops-in-r.html#cb579-5" aria-hidden="true" tabindex="-1"></a>mtcars_names_vector <span class="ot">&lt;-</span> <span class="fu">rownames</span>(mtcars_data)</span></code></pre></div>
+</div>
+<div id="other-loop-functionsapply" class="section level2" number="28.12">
+<h2><span class="header-section-number">28.12</span> Other loop functions:<code>apply</code></h2>
+<p>PLACE HOLDER</p>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="control-structures-and-loops-in-r.html#cb580-1" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
+<span id="cb580-2"><a href="control-structures-and-loops-in-r.html#cb580-2" aria-hidden="true" tabindex="-1"></a>mtcars_data <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb580-3"><a href="control-structures-and-loops-in-r.html#cb580-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb580-4"><a href="control-structures-and-loops-in-r.html#cb580-4" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
+<span id="cb580-5"><a href="control-structures-and-loops-in-r.html#cb580-5" aria-hidden="true" tabindex="-1"></a>mtcars_names_vector <span class="ot">&lt;-</span> <span class="fu">rownames</span>(mtcars_data)</span></code></pre></div>
+</div>
+<div id="other-loop-functionsmapply" class="section level2" number="28.13">
+<h2><span class="header-section-number">28.13</span> Other loop functions:<code>mapply</code></h2>
+<p>PLACE HOLDER</p>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="control-structures-and-loops-in-r.html#cb581-1" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
+<span id="cb581-2"><a href="control-structures-and-loops-in-r.html#cb581-2" aria-hidden="true" tabindex="-1"></a>mtcars_data <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb581-3"><a href="control-structures-and-loops-in-r.html#cb581-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb581-4"><a href="control-structures-and-loops-in-r.html#cb581-4" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
+<span id="cb581-5"><a href="control-structures-and-loops-in-r.html#cb581-5" aria-hidden="true" tabindex="-1"></a>mtcars_names_vector <span class="ot">&lt;-</span> <span class="fu">rownames</span>(mtcars_data)</span></code></pre></div>
+</div>
+<div id="other-loop-functionstapply" class="section level2" number="28.14">
+<h2><span class="header-section-number">28.14</span> Other loop functions:<code>tapply</code></h2>
+<p>PLACE HOLDER</p>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="control-structures-and-loops-in-r.html#cb582-1" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
+<span id="cb582-2"><a href="control-structures-and-loops-in-r.html#cb582-2" aria-hidden="true" tabindex="-1"></a>mtcars_data <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb582-3"><a href="control-structures-and-loops-in-r.html#cb582-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb582-4"><a href="control-structures-and-loops-in-r.html#cb582-4" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
+<span id="cb582-5"><a href="control-structures-and-loops-in-r.html#cb582-5" aria-hidden="true" tabindex="-1"></a>mtcars_names_vector <span class="ot">&lt;-</span> <span class="fu">rownames</span>(mtcars_data)</span></code></pre></div>
+</div>
+<div id="other-loop-functionssplit" class="section level2" number="28.15">
+<h2><span class="header-section-number">28.15</span> Other loop functions:<code>split</code></h2>
+<p>PLACE HOLDER</p>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="control-structures-and-loops-in-r.html#cb583-1" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
+<span id="cb583-2"><a href="control-structures-and-loops-in-r.html#cb583-2" aria-hidden="true" tabindex="-1"></a>mtcars_data <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb583-3"><a href="control-structures-and-loops-in-r.html#cb583-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb583-4"><a href="control-structures-and-loops-in-r.html#cb583-4" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
+<span id="cb583-5"><a href="control-structures-and-loops-in-r.html#cb583-5" aria-hidden="true" tabindex="-1"></a>mtcars_names_vector <span class="ot">&lt;-</span> <span class="fu">rownames</span>(mtcars_data)</span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="python-subprocess.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bioinformatics-literature.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/28-Control_Structures_Loops_v5.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

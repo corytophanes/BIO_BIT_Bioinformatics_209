@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Session 25 – Biopython: Sequence Parsing with Plots | Bioinformatics Workshop Gitbook</title>
+  <title>Session 29 – Bioinformatics Literature | Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Session 25 – Biopython: Sequence Parsing with Plots | Bioinformatics Workshop Gitbook" />
+  <meta property="og:title" content="Session 29 – Bioinformatics Literature | Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Session 25 – Biopython: Sequence Parsing with Plots | Bioinformatics Workshop Gitbook" />
+  <meta name="twitter:title" content="Session 29 – Bioinformatics Literature | Bioinformatics Workshop Gitbook" />
   
   <meta name="twitter:description" content="none" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="biopython-chromosome-modeling.html"/>
-<link rel="next" href="python-web-scraping-w-beautifulsoup.html"/>
+<link rel="prev" href="control-structures-and-loops-in-r.html"/>
+<link rel="next" href="miscellaneous.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -454,141 +454,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="biopython-sequence-parsing-with-plots" class="section level1" number="25">
-<h1><span class="header-section-number">Session 25</span> – Biopython: Sequence Parsing with Plots</h1>
-<div id="histograms-1" class="section level2" number="25.1">
-<h2><span class="header-section-number">25.1</span> Histograms</h2>
-<p>Histogram of Sequence Lengths in Fasta File (Genbank (full) &gt; Export CDS)</p>
-<p>Dataset is in this <a href="https://www.ncbi.nlm.nih.gov/nuccore/CM004466.1" target="_blank"><strong>link</strong></a></p>
-<p>Install matplotlib: $pip install matplotlib (for macOS use: <span class="math inline">\(pip3 install matplotlib). The `\)</span>` indicates that the install in terminal.</p>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="biopython-sequence-parsing-with-plots.html#cb556-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb556-2"><a href="biopython-sequence-parsing-with-plots.html#cb556-2" aria-hidden="true" tabindex="-1"></a>sizes <span class="ot">=</span> [<span class="fu">len</span>(rec) <span class="cf">for</span> rec <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(<span class="st">&quot;XL_1L_fasta.txt&quot;</span>, <span class="st">&quot;fasta&quot;</span>)]</span>
-<span id="cb556-3"><a href="biopython-sequence-parsing-with-plots.html#cb556-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb556-4"><a href="biopython-sequence-parsing-with-plots.html#cb556-4" aria-hidden="true" tabindex="-1"></a>import pylab</span>
-<span id="cb556-5"><a href="biopython-sequence-parsing-with-plots.html#cb556-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.hist</span>(sizes, <span class="at">bins=</span><span class="dv">20</span>)</span>
-<span id="cb556-6"><a href="biopython-sequence-parsing-with-plots.html#cb556-6" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.title</span>(</span>
-<span id="cb556-7"><a href="biopython-sequence-parsing-with-plots.html#cb556-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;%i Xenopus laevis sequences</span><span class="sc">\n</span><span class="st">Lengths %i to %i&quot;</span> % (<span class="fu">len</span>(sizes), <span class="fu">min</span>(sizes), <span class="fu">max</span>(sizes))</span>
-<span id="cb556-8"><a href="biopython-sequence-parsing-with-plots.html#cb556-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb556-9"><a href="biopython-sequence-parsing-with-plots.html#cb556-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlabel</span>(<span class="st">&quot;Sequence length (bp)&quot;</span>)</span>
-<span id="cb556-10"><a href="biopython-sequence-parsing-with-plots.html#cb556-10" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylabel</span>(<span class="st">&quot;Count&quot;</span>)</span>
-<span id="cb556-11"><a href="biopython-sequence-parsing-with-plots.html#cb556-11" aria-hidden="true" tabindex="-1"></a><span class="co">#pylab.show()</span></span>
-<span id="cb556-12"><a href="biopython-sequence-parsing-with-plots.html#cb556-12" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.savefig</span>(<span class="st">&quot;pylab_fig1.pdf&quot;</span>)</span></code></pre></div>
+<div id="bioinformatics-literature" class="section level1" number="29">
+<h1><span class="header-section-number">Session 29</span> – Bioinformatics Literature</h1>
+<div id="peer-reviewed-bioinformatics-journals" class="section level2" number="29.1">
+<h2><span class="header-section-number">29.1</span> Peer-reviewed bioinformatics journals</h2>
+<p>More than +25 journals exist that are focused on bioinformatics research and tools.
+Many of those report the development of new tools and software with applications in computational medicine and biology. Most articles in these journals undergo peer-review evaluation, which is when one or more researchers with similar competencies as the authors (i.e., peers) determine if the presented research or paper is valid, reproducible, and the interpretation of results are accurate and consistent with the current knowledge on the subject.
+This process allows to improve the quality of science published and prevents flawed or misinterpreted research to become public. Most scientists, industry, and policymakers play most attention to these articles.</p>
+<p>Here is a list of some of the most widely cited journals in bioinformatics or with a strong emphasis on research derived from bioinformatics. All these journals publish articles after peer-reviewed evaluations:</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://academic.oup.com/bioinformatics" target="_blank"><strong>Bioinformatics</strong></a> (2019, impact factor IF: 5.610). Mostly brief notes on new software and some reviews.</li>
+<li><a href="https://academic.oup.com/bib" target="_blank"><strong>Briefings in Bioinformatics</strong></a> (2019, impact factor IF: 8.990). This journal publishes reviews for the users of databases and analytical tools of contemporary genetics, molecular and systems biology and is unique in providing practical help and guidance to the non-specialist in computerized methodology.</li>
+<li><a href="https://journals.plos.org/ploscompbiol/" target="_blank"><strong>PLOS Computational Biology</strong></a> (does not provide impact factor). This journal publishes articles focused on the application of computational methods from molecules to ecosystems.</li>
+<li><a href="https://bmcbioinformatics.biomedcentral.com/" target="_blank"><strong>BMC Bioinformatics</strong></a> (2019, impact factor IF: 3.169). This is an open access journal that considers articles describing novel computational algorithms and software, models and tools, including statistical methods, machine learning and artificial intelligence, as well as systems biology.</li>
+<li><a href="https://academic.oup.com/gigascience" target="_blank"><strong>GigaScience</strong></a> (2020, impact factor IF: 6.524). This is an open access journal focusing on ‘big data’ research from the life and biomedical sciences.</li>
+<li><a href="https://academic.oup.com/mbe" target="_blank"><strong>Molecular Biology and Evolution</strong></a> (2020, impact factor IF: 16.240). This is an open access journal focusing on patterns and processes that impact the evolution of life at molecular, it usually includes new and novel applications of bioinformatic tools.</li>
+<li><a href="https://academic.oup.com/gbe" target="_blank"><strong>Genome Biology and Evolution</strong></a> (2020, impact factor IF: 3.416). This journal focusses on research at the interface between evolutionary biology and genomics.</li>
+<li><a href="https://academic.oup.com/nar" target="_blank"><strong>Nucleic Acids Research</strong></a> (2020, impact factor IF: 16.971). This journal publishes research into physical, chemical, biochemical and biological aspects of nucleic acids and proteins involved in nucleic acid metabolism and/or interactions.</li>
+<li><a href="https://besjournals.onlinelibrary.wiley.com/journal/2041210X" target="_blank"><strong>Methods in Ecology and Evolution</strong></a> (2020, impact factor IF: 7.780). This journal publishes articles that promote development of new methods (usually computational) in ecology &amp; evolution.</li>
+<li><a href="https://www.nature.com/nmeth/" target="_blank"><strong>Nature Methods</strong></a> (2020, impact factor IF: 28.550). This journal publishes detailed protocols for diverse fields of the biological, chemical, and clinical sciences.</li>
+<li><a href="https://www.embopress.org/journal/17444292" target="_blank"><strong>Molecular Systems Biology</strong></a> (2020, impact factor IF: 11.400). This is an open access journal focusing on the fields of systems biology, synthetic biology and systems medicine.</li>
+<li><a href="https://genome.cshlp.org/" target="_blank"><strong>Genome Research</strong></a> (2020, impact factor IF: 9.043). This journal publishes studies on the structure, function, biology, and evolution of genomes.</li>
+<li><a href="https://genomebiology.biomedcentral.com/" target="_blank"><strong>Genome Biology</strong></a> (2020, impact factor IF: 13.583). This journal publishes research in all areas of biology and biomedicine from a genomic and post-genomic perspective.</li>
+<li><a href="https://academic.oup.com/sysbio" target="_blank"><strong>Systematic Biology</strong></a> (2020, impact factor IF: 15.683). This journal publishes research about the theory, principles, and methods of systematics as well as phylogeny, evolution, morphology, biogeography, paleontology, genetics, and the classification of all living things.</li>
+</ol>
+<p>Note: Impact factor or <strong>IF/JIF</strong> is a relative index of the overall quality of journal and it is calculated as the yearly mean number of citations of articles published
+in the last two years. <strong>IF</strong> is considered as a proxy for the importance and prestige of a journal within its field of study. <strong>Low IF</strong> journals (e.g., those with less than 2.0)
+are considered as less impactful than those with <strong>higher IF</strong>. However, this index is <a href="https://www.nature.com/articles/nature.2016.20224" target="_blank"><strong>not without controversy</strong></a>, here is <a href="https://www.biomedcentral.com/p/bmc-impact" target="_blank"><strong>other source</strong></a> on this controversy.</p>
 </div>
-<div id="gc-content" class="section level2" number="25.2">
-<h2><span class="header-section-number">25.2</span> GC Content</h2>
-<p>GC content of Xenopus laevis 1L genome fasta file.</p>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="biopython-sequence-parsing-with-plots.html#cb557-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb557-2"><a href="biopython-sequence-parsing-with-plots.html#cb557-2" aria-hidden="true" tabindex="-1"></a>from Bio.SeqUtils import GC</span>
-<span id="cb557-3"><a href="biopython-sequence-parsing-with-plots.html#cb557-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb557-4"><a href="biopython-sequence-parsing-with-plots.html#cb557-4" aria-hidden="true" tabindex="-1"></a>gc_values <span class="ot">=</span> <span class="fu">sorted</span>(<span class="fu">GC</span>(rec.seq) <span class="cf">for</span> rec <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(<span class="st">&quot;XL_1L_fasta.txt&quot;</span>, <span class="st">&quot;fasta&quot;</span>))</span>
-<span id="cb557-5"><a href="biopython-sequence-parsing-with-plots.html#cb557-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb557-6"><a href="biopython-sequence-parsing-with-plots.html#cb557-6" aria-hidden="true" tabindex="-1"></a>import pylab</span>
-<span id="cb557-7"><a href="biopython-sequence-parsing-with-plots.html#cb557-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb557-8"><a href="biopython-sequence-parsing-with-plots.html#cb557-8" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.plot</span>(gc_values)</span>
-<span id="cb557-9"><a href="biopython-sequence-parsing-with-plots.html#cb557-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.title</span>(</span>
-<span id="cb557-10"><a href="biopython-sequence-parsing-with-plots.html#cb557-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;%i orchid sequences</span><span class="sc">\n</span><span class="st">GC%% %0.1f to %0.1f&quot;</span></span>
-<span id="cb557-11"><a href="biopython-sequence-parsing-with-plots.html#cb557-11" aria-hidden="true" tabindex="-1"></a>    % (<span class="fu">len</span>(gc_values), <span class="fu">min</span>(gc_values), <span class="fu">max</span>(gc_values))</span>
-<span id="cb557-12"><a href="biopython-sequence-parsing-with-plots.html#cb557-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb557-13"><a href="biopython-sequence-parsing-with-plots.html#cb557-13" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlabel</span>(<span class="st">&quot;Genes&quot;</span>)</span>
-<span id="cb557-14"><a href="biopython-sequence-parsing-with-plots.html#cb557-14" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylabel</span>(<span class="st">&quot;GC%&quot;</span>)</span>
-<span id="cb557-15"><a href="biopython-sequence-parsing-with-plots.html#cb557-15" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.show</span>()</span></code></pre></div>
+<div id="accessing-journals-articles" class="section level2" number="29.2">
+<h2><span class="header-section-number">29.2</span> Accessing journals articles</h2>
+<p>Most published research is now accessible through online sources (i.e., print forms are becoming obsolete). However, to access such articles, many of the journals above require an institutional or personal subscription that can be costly. However, many of these papers are provided to readers for free through different databases that are public.</p>
+<p>Here is a list of some of the most comprehensive collections of free papers that accessible to the public:</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank"><strong>PubMed</strong></a>. PubMed is a free search engine accessing primarily the MEDLINE database of references, abstracts and online books on life sciences and biomedical topics. Citations may include links to full text content from PubMed Central and publisher web sites.</li>
+<li><a href="https://zenodo.org/" target="_blank"><strong>Zenodo</strong></a>. This open-access repository that allows researchers to deposit research papers, data sets, research software, reports, and any other research related digital artefacts.</li>
+<li><a href="https://www.biorxiv.org/" target="_blank"><strong>bioRxiv</strong></a>. This is an open access preprint repository for the biological sciences. It provides preprints and papers that are not peer-reviewed.</li>
+<li><a href="https://www.researchgate.net/" target="_blank"><strong>ResearchGate</strong></a>. This is is a social networking site for scientists and researchers to share papers, ask and answer questions, and find collaborators.</li>
+<li><a href="https://www.academia.edu" target="_blank"><strong>Academia</strong></a>. This is for-profit social networking website for academics. You might find full papers, yet it requires a bit navigating or searching through browsers.</li>
+</ol>
+<p>Unfortunately, many recently published papers are not available on the sources above and you might get stuck trying to get a PDF of a paper of interest. However, most universities can provide you a PDF copy of a paper of interest through the <strong>Interlibrary Loan Service</strong> or ILS where a researcher of an institution that does not have access to article, book, or other library resource can receive a PDF or the actual document from another library that has access to it. The process requires that the user makes a request through ILS with their home library. Your institution library will act as an intermediary, identifies libraries with the desired item, places the request, receives the item, makes it available to the user, as well as arranges for its return (if necessary). For books, the lending library usually sets a due date and overdue fees of the material borrowed.</p>
 </div>
-<div id="nt-alignment-dot-plot" class="section level2" number="25.3">
-<h2><span class="header-section-number">25.3</span> Nt Alignment Dot Plot</h2>
-<p>I will use the previous fasta file from Xenopus laevis genome to provide 2 sequences for the activity below, but you are welcome to align any two genes of your choice as well.</p>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="biopython-sequence-parsing-with-plots.html#cb558-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb558-2"><a href="biopython-sequence-parsing-with-plots.html#cb558-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb558-3"><a href="biopython-sequence-parsing-with-plots.html#cb558-3" aria-hidden="true" tabindex="-1"></a>with <span class="fu">open</span>(<span class="st">&quot;XL_1L_fasta.txt&quot;</span>) as in_handle<span class="sc">:</span></span>
-<span id="cb558-4"><a href="biopython-sequence-parsing-with-plots.html#cb558-4" aria-hidden="true" tabindex="-1"></a>    record_iterator <span class="ot">=</span> <span class="fu">SeqIO.parse</span>(in_handle, <span class="st">&quot;fasta&quot;</span>)</span>
-<span id="cb558-5"><a href="biopython-sequence-parsing-with-plots.html#cb558-5" aria-hidden="true" tabindex="-1"></a>    rec_one <span class="ot">=</span> <span class="cf">next</span>(record_iterator)</span>
-<span id="cb558-6"><a href="biopython-sequence-parsing-with-plots.html#cb558-6" aria-hidden="true" tabindex="-1"></a>    rec_two <span class="ot">=</span> <span class="cf">next</span>(record_iterator)</span>
-<span id="cb558-7"><a href="biopython-sequence-parsing-with-plots.html#cb558-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb558-8"><a href="biopython-sequence-parsing-with-plots.html#cb558-8" aria-hidden="true" tabindex="-1"></a>window <span class="ot">=</span> <span class="dv">7</span></span>
-<span id="cb558-9"><a href="biopython-sequence-parsing-with-plots.html#cb558-9" aria-hidden="true" tabindex="-1"></a>seq_one <span class="ot">=</span> <span class="fu">str</span>(rec_one.seq)<span class="fu">.upper</span>()</span>
-<span id="cb558-10"><a href="biopython-sequence-parsing-with-plots.html#cb558-10" aria-hidden="true" tabindex="-1"></a>seq_two <span class="ot">=</span> <span class="fu">str</span>(rec_two.seq)<span class="fu">.upper</span>()</span>
-<span id="cb558-11"><a href="biopython-sequence-parsing-with-plots.html#cb558-11" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> [</span>
-<span id="cb558-12"><a href="biopython-sequence-parsing-with-plots.html#cb558-12" aria-hidden="true" tabindex="-1"></a>    [</span>
-<span id="cb558-13"><a href="biopython-sequence-parsing-with-plots.html#cb558-13" aria-hidden="true" tabindex="-1"></a>        (seq_one[i <span class="sc">:</span> i <span class="sc">+</span> window] <span class="sc">!=</span> seq_two[j <span class="sc">:</span> j <span class="sc">+</span> window])</span>
-<span id="cb558-14"><a href="biopython-sequence-parsing-with-plots.html#cb558-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="cf">in</span> <span class="fu">range</span>(<span class="fu">len</span>(seq_one) <span class="sc">-</span> window)</span>
-<span id="cb558-15"><a href="biopython-sequence-parsing-with-plots.html#cb558-15" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb558-16"><a href="biopython-sequence-parsing-with-plots.html#cb558-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="cf">in</span> <span class="fu">range</span>(<span class="fu">len</span>(seq_two) <span class="sc">-</span> window)</span>
-<span id="cb558-17"><a href="biopython-sequence-parsing-with-plots.html#cb558-17" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb558-18"><a href="biopython-sequence-parsing-with-plots.html#cb558-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb558-19"><a href="biopython-sequence-parsing-with-plots.html#cb558-19" aria-hidden="true" tabindex="-1"></a>import pylab</span>
-<span id="cb558-20"><a href="biopython-sequence-parsing-with-plots.html#cb558-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb558-21"><a href="biopython-sequence-parsing-with-plots.html#cb558-21" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.gray</span>()</span>
-<span id="cb558-22"><a href="biopython-sequence-parsing-with-plots.html#cb558-22" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.imshow</span>(data)</span>
-<span id="cb558-23"><a href="biopython-sequence-parsing-with-plots.html#cb558-23" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlabel</span>(<span class="st">&quot;%s (length %i bp)&quot;</span> % (rec_one.id, <span class="fu">len</span>(rec_one)))</span>
-<span id="cb558-24"><a href="biopython-sequence-parsing-with-plots.html#cb558-24" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylabel</span>(<span class="st">&quot;%s (length %i bp)&quot;</span> % (rec_two.id, <span class="fu">len</span>(rec_two)))</span>
-<span id="cb558-25"><a href="biopython-sequence-parsing-with-plots.html#cb558-25" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.title</span>(<span class="st">&quot;Dot plot using window size %i</span><span class="sc">\n</span><span class="st">(allowing no mis-matches)&quot;</span> % window)</span>
-<span id="cb558-26"><a href="biopython-sequence-parsing-with-plots.html#cb558-26" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.show</span>()</span></code></pre></div>
+<div id="informal-access-to-code-preprints-and-vignettes" class="section level2" number="29.3">
+<h2><span class="header-section-number">29.3</span> Informal access to code: Preprints and vignettes</h2>
+<p>The top bioinformatic journals (and <a href="https://en.wikipedia.org/wiki/List_of_bioinformatics_journals" target="_blank"><strong>other publications</strong></a>) provide a formal outlet about bioinformatics research, yet most research in biology now involves some level of development and implementation of bioinformatic tools.
+This trend is consequence of the rapid expansion, generation, and accessibility of big datasets that require some level of automation and complex computation analyses.
+In most multidisciplinary research articles, it has become customary that bioinformatics code is provided as annexes, appendices, supplementary materials, or hosted in dedicated online databases
+such as <a href="https://github.com/" target="_blank"><strong>GitHub</strong></a>. Likewise, many authors prefer to publish manuals and description of their bioinformatic methods as a <a href="https://en.wikipedia.org/wiki/Preprint" target="_blank"><strong>preprints</strong></a>, which are
+draft versions of a research article that precedes formal peer-review process and its publication in a journal. These preprints are usually hosted in specialized
+databases such as <a href="https://www.biorxiv.org/" target="_blank"><strong>bioRxiv</strong></a>. For introductory, manuals, application examples, and guidelines on use of specific bioinformatic tools
+(like those written in R language), you might find vignettes associated with a specific R package in the <a href="https://cran.r-project.org/" target="_blank"><strong>CRAN</strong></a> or <a href="https://www.bioconductor.org/" target="_blank"><strong>Bioconductor</strong></a> repositories.</p>
+<p>Here is an example of how to access the <a href="https://www.bioconductor.org/packages/release/bioc/html/DESeq2.html" target="_blank"><strong><code>DESeq2</code></strong></a> R-package vignette, which is a package for the analysis of differential gene expression analysis.</p>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="bioinformatics-literature.html#cb584-1" aria-hidden="true" tabindex="-1"></a><span class="do">## If you need to install this package in your computer:</span></span>
+<span id="cb584-2"><a href="bioinformatics-literature.html#cb584-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-3"><a href="bioinformatics-literature.html#cb584-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb584-4"><a href="bioinformatics-literature.html#cb584-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
+<span id="cb584-5"><a href="bioinformatics-literature.html#cb584-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-6"><a href="bioinformatics-literature.html#cb584-6" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;DESeq2&quot;</span>)</span>
+<span id="cb584-7"><a href="bioinformatics-literature.html#cb584-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-8"><a href="bioinformatics-literature.html#cb584-8" aria-hidden="true" tabindex="-1"></a><span class="do">## If you already have installed the DESeq2 package, load it in R space:</span></span>
+<span id="cb584-9"><a href="bioinformatics-literature.html#cb584-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-10"><a href="bioinformatics-literature.html#cb584-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DESeq2)</span>
+<span id="cb584-11"><a href="bioinformatics-literature.html#cb584-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-12"><a href="bioinformatics-literature.html#cb584-12" aria-hidden="true" tabindex="-1"></a><span class="do">## To view documentation and vignette associated with DESeq2:</span></span>
+<span id="cb584-13"><a href="bioinformatics-literature.html#cb584-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-14"><a href="bioinformatics-literature.html#cb584-14" aria-hidden="true" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">&quot;DESeq2&quot;</span>)</span></code></pre></div>
 </div>
-<div id="bigger-dots-for-the-dot-plot" class="section level2" number="25.4">
-<h2><span class="header-section-number">25.4</span> Bigger Dots for the Dot Plot</h2>
-<p>Bigger dots may be better in some scenarios, thus the code below will increase the size of the dots.</p>
-<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="biopython-sequence-parsing-with-plots.html#cb559-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb559-2"><a href="biopython-sequence-parsing-with-plots.html#cb559-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-3"><a href="biopython-sequence-parsing-with-plots.html#cb559-3" aria-hidden="true" tabindex="-1"></a>with <span class="fu">open</span>(<span class="st">&quot;XL_1L_fasta.txt&quot;</span>) as in_handle<span class="sc">:</span></span>
-<span id="cb559-4"><a href="biopython-sequence-parsing-with-plots.html#cb559-4" aria-hidden="true" tabindex="-1"></a>    record_iterator <span class="ot">=</span> <span class="fu">SeqIO.parse</span>(in_handle, <span class="st">&quot;fasta&quot;</span>)</span>
-<span id="cb559-5"><a href="biopython-sequence-parsing-with-plots.html#cb559-5" aria-hidden="true" tabindex="-1"></a>    rec_one <span class="ot">=</span> <span class="cf">next</span>(record_iterator)</span>
-<span id="cb559-6"><a href="biopython-sequence-parsing-with-plots.html#cb559-6" aria-hidden="true" tabindex="-1"></a>    rec_two <span class="ot">=</span> <span class="cf">next</span>(record_iterator)</span>
-<span id="cb559-7"><a href="biopython-sequence-parsing-with-plots.html#cb559-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-8"><a href="biopython-sequence-parsing-with-plots.html#cb559-8" aria-hidden="true" tabindex="-1"></a>window <span class="ot">=</span> <span class="dv">7</span></span>
-<span id="cb559-9"><a href="biopython-sequence-parsing-with-plots.html#cb559-9" aria-hidden="true" tabindex="-1"></a>dict_one <span class="ot">=</span> {}</span>
-<span id="cb559-10"><a href="biopython-sequence-parsing-with-plots.html#cb559-10" aria-hidden="true" tabindex="-1"></a>dict_two <span class="ot">=</span> {}</span>
-<span id="cb559-11"><a href="biopython-sequence-parsing-with-plots.html#cb559-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (seq, section_dict) <span class="cf">in</span> [</span>
-<span id="cb559-12"><a href="biopython-sequence-parsing-with-plots.html#cb559-12" aria-hidden="true" tabindex="-1"></a>    (<span class="fu">str</span>(rec_one.seq)<span class="fu">.upper</span>(), dict_one),</span>
-<span id="cb559-13"><a href="biopython-sequence-parsing-with-plots.html#cb559-13" aria-hidden="true" tabindex="-1"></a>    (<span class="fu">str</span>(rec_two.seq)<span class="fu">.upper</span>(), dict_two),</span>
-<span id="cb559-14"><a href="biopython-sequence-parsing-with-plots.html#cb559-14" aria-hidden="true" tabindex="-1"></a>]<span class="sc">:</span></span>
-<span id="cb559-15"><a href="biopython-sequence-parsing-with-plots.html#cb559-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="cf">in</span> <span class="fu">range</span>(<span class="fu">len</span>(seq) <span class="sc">-</span> window)<span class="sc">:</span></span>
-<span id="cb559-16"><a href="biopython-sequence-parsing-with-plots.html#cb559-16" aria-hidden="true" tabindex="-1"></a>        section <span class="ot">=</span> seq[i <span class="sc">:</span> i <span class="sc">+</span> window]</span>
-<span id="cb559-17"><a href="biopython-sequence-parsing-with-plots.html#cb559-17" aria-hidden="true" tabindex="-1"></a>        try<span class="sc">:</span></span>
-<span id="cb559-18"><a href="biopython-sequence-parsing-with-plots.html#cb559-18" aria-hidden="true" tabindex="-1"></a>            section_dict[section]<span class="fu">.append</span>(i)</span>
-<span id="cb559-19"><a href="biopython-sequence-parsing-with-plots.html#cb559-19" aria-hidden="true" tabindex="-1"></a>        except KeyError<span class="sc">:</span></span>
-<span id="cb559-20"><a href="biopython-sequence-parsing-with-plots.html#cb559-20" aria-hidden="true" tabindex="-1"></a>            section_dict[section] <span class="ot">=</span> [i]</span>
-<span id="cb559-21"><a href="biopython-sequence-parsing-with-plots.html#cb559-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-22"><a href="biopython-sequence-parsing-with-plots.html#cb559-22" aria-hidden="true" tabindex="-1"></a>matches <span class="ot">=</span> <span class="fu">set</span>(dict_one)<span class="fu">.intersection</span>(dict_two)</span>
-<span id="cb559-23"><a href="biopython-sequence-parsing-with-plots.html#cb559-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;%i unique matches&quot;</span> % <span class="fu">len</span>(matches))</span>
-<span id="cb559-24"><a href="biopython-sequence-parsing-with-plots.html#cb559-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-25"><a href="biopython-sequence-parsing-with-plots.html#cb559-25" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> []</span>
-<span id="cb559-26"><a href="biopython-sequence-parsing-with-plots.html#cb559-26" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> []</span>
-<span id="cb559-27"><a href="biopython-sequence-parsing-with-plots.html#cb559-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> section <span class="cf">in</span> matches<span class="sc">:</span></span>
-<span id="cb559-28"><a href="biopython-sequence-parsing-with-plots.html#cb559-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="cf">in</span> dict_one[section]<span class="sc">:</span></span>
-<span id="cb559-29"><a href="biopython-sequence-parsing-with-plots.html#cb559-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="cf">in</span> dict_two[section]<span class="sc">:</span></span>
-<span id="cb559-30"><a href="biopython-sequence-parsing-with-plots.html#cb559-30" aria-hidden="true" tabindex="-1"></a>            <span class="fu">x.append</span>(i)</span>
-<span id="cb559-31"><a href="biopython-sequence-parsing-with-plots.html#cb559-31" aria-hidden="true" tabindex="-1"></a>            <span class="fu">y.append</span>(j)</span>
-<span id="cb559-32"><a href="biopython-sequence-parsing-with-plots.html#cb559-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-33"><a href="biopython-sequence-parsing-with-plots.html#cb559-33" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.cla</span>()  <span class="co"># clear any prior graph</span></span>
-<span id="cb559-34"><a href="biopython-sequence-parsing-with-plots.html#cb559-34" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.gray</span>()</span>
-<span id="cb559-35"><a href="biopython-sequence-parsing-with-plots.html#cb559-35" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.scatter</span>(x, y)</span>
-<span id="cb559-36"><a href="biopython-sequence-parsing-with-plots.html#cb559-36" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlim</span>(<span class="dv">0</span>, <span class="fu">len</span>(rec_one) <span class="sc">-</span> window)</span>
-<span id="cb559-37"><a href="biopython-sequence-parsing-with-plots.html#cb559-37" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylim</span>(<span class="dv">0</span>, <span class="fu">len</span>(rec_two) <span class="sc">-</span> window)</span>
-<span id="cb559-38"><a href="biopython-sequence-parsing-with-plots.html#cb559-38" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlabel</span>(<span class="st">&quot;%s (length %i bp)&quot;</span> % (rec_one.id, <span class="fu">len</span>(rec_one)))</span>
-<span id="cb559-39"><a href="biopython-sequence-parsing-with-plots.html#cb559-39" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylabel</span>(<span class="st">&quot;%s (length %i bp)&quot;</span> % (rec_two.id, <span class="fu">len</span>(rec_two)))</span>
-<span id="cb559-40"><a href="biopython-sequence-parsing-with-plots.html#cb559-40" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.title</span>(<span class="st">&quot;Dot plot using window size %i</span><span class="sc">\n</span><span class="st">(allowing no mis-matches)&quot;</span> % window)</span>
-<span id="cb559-41"><a href="biopython-sequence-parsing-with-plots.html#cb559-41" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.show</span>()</span></code></pre></div>
-</div>
-<div id="fastq-we-did-not-forget-you" class="section level2" number="25.5">
-<h2><span class="header-section-number">25.5</span> FASTQ we did not forget you</h2>
-<p>We have spent an extensive time manipulating FASTA files with little mention to its bigger cousin FASTQ. As mentioned before, FASTQ is simply a FASTA with per base quality scores. We can use this quality score data to assess average read reliability or even file reliability</p>
-<p>This is a very large file (500MB), you can skip this activity is its not applicable to your project.</p>
-<p>Dataset: <a href="https://www.ebi.ac.uk/ena/data/view/SRR001666" class="uri">https://www.ebi.ac.uk/ena/data/view/SRR001666</a></p>
-<p>I will utilize a different SRR that is smaller for the below example. You will need to change the filename SRR number if you wish to utilize the code for your own files. Also note that you will have to use files that are not compressed, thus you must uncompress the file before you can analyze it.</p>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="biopython-sequence-parsing-with-plots.html#cb560-1" aria-hidden="true" tabindex="-1"></a>import pylab</span>
-<span id="cb560-2"><a href="biopython-sequence-parsing-with-plots.html#cb560-2" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb560-3"><a href="biopython-sequence-parsing-with-plots.html#cb560-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb560-4"><a href="biopython-sequence-parsing-with-plots.html#cb560-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> subfigure <span class="cf">in</span> [<span class="dv">1</span>, <span class="dv">2</span>]<span class="sc">:</span></span>
-<span id="cb560-5"><a href="biopython-sequence-parsing-with-plots.html#cb560-5" aria-hidden="true" tabindex="-1"></a>    filename <span class="ot">=</span> <span class="st">&quot;SRR11880886_%i.fastq&quot;</span> % subfigure</span>
-<span id="cb560-6"><a href="biopython-sequence-parsing-with-plots.html#cb560-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pylab.subplot</span>(<span class="dv">1</span>, <span class="dv">2</span>, subfigure)</span>
-<span id="cb560-7"><a href="biopython-sequence-parsing-with-plots.html#cb560-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, record <span class="cf">in</span> <span class="fu">enumerate</span>(<span class="fu">SeqIO.parse</span>(filename, <span class="st">&quot;fastq&quot;</span>))<span class="sc">:</span></span>
-<span id="cb560-8"><a href="biopython-sequence-parsing-with-plots.html#cb560-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="sc">&gt;=</span> <span class="dv">50</span><span class="sc">:</span></span>
-<span id="cb560-9"><a href="biopython-sequence-parsing-with-plots.html#cb560-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
-<span id="cb560-10"><a href="biopython-sequence-parsing-with-plots.html#cb560-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">pylab.plot</span>(record.letter_annotations[<span class="st">&quot;phred_quality&quot;</span>])</span>
-<span id="cb560-11"><a href="biopython-sequence-parsing-with-plots.html#cb560-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pylab.ylim</span>(<span class="dv">0</span>, <span class="dv">45</span>)</span>
-<span id="cb560-12"><a href="biopython-sequence-parsing-with-plots.html#cb560-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pylab.ylabel</span>(<span class="st">&quot;PHRED quality score&quot;</span>)</span>
-<span id="cb560-13"><a href="biopython-sequence-parsing-with-plots.html#cb560-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pylab.xlabel</span>(<span class="st">&quot;Position&quot;</span>)</span>
-<span id="cb560-14"><a href="biopython-sequence-parsing-with-plots.html#cb560-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb560-15"><a href="biopython-sequence-parsing-with-plots.html#cb560-15" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.show</span>()</span></code></pre></div>
+<div id="online-bioinformatics-courses" class="section level2" number="29.4">
+<h2><span class="header-section-number">29.4</span> Online bioinformatics courses</h2>
+<p>Now days most students and researchers can find free bioinformatics classes that range in depth, quality, specificity, and usefulness.
+It all depends on your needs and time that you are willing to dedicate to such courses. Some are short (few hours) and others are semester/months long.
+In my experience, those that are short are not really useful unless the topic is something very specific that enhances or expands your previous knowledge
+on the topic (i.e., data mining for genomics, if you already know basic data mining). Those courses that more useful for students starting in bioinformatics are those classes that
+take more time, require you to do exercises, and do lots of coding exercises and provides you with worked examples. Nevertheless, the regular practice and goal-oriented implementation
+of your basic coding skills are, in my opinion, the best form to improve your ability to do coding in a meaningful way.</p>
+<p>Here is a list of some of <strong>free</strong> online courses that you can access, yet I have not tried or revised most of them.</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://www.coursera.org/learn/r-programming" target="_blank">https://www.coursera.org/learn/r-programming</a>. This is a very popular online class for beginners focused on how to program in R and how to use it for effective data analysis. The course covers practical issues that include programming, reading data, accessing R packages, writing R functions, debugging, profiling R code, and organizing and commenting R code. It includes examples and exercises.</li>
+<li><a href="https://www.coursera.org/learn/data-analysis-r" target="_blank">https://www.coursera.org/learn/data-analysis-r</a>. This course introduces data analysis using R. It provides an overview of RStudio withR packages relevant to organize, analyze, visualize, and report data.</li>
+<li><a href="https://www.coursera.org/learn/introducton-r-programming-data-science" target="_blank">https://www.coursera.org/learn/introducton-r-programming-data-science</a>. This is a basic course in R programming for data analysis.</li>
+</ol>
 
 </div>
 </div>
@@ -597,8 +542,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="biopython-chromosome-modeling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="python-web-scraping-w-beautifulsoup.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="control-structures-and-loops-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="miscellaneous.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -629,7 +574,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/25-Biopython_Sequence_Parsing_Plots.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/29-Bioinformatics_literature_v3.Rmd",
 "text": "Edit"
 },
 "history": {
