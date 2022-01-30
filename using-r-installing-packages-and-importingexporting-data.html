@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2022-01-26" />
+<meta name="date" content="2022-01-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -152,8 +152,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#doing-some-base-functions-and-getting-help"><i class="fa fa-check"></i><b>2.2</b> Doing some base functions and getting help</a></li>
 <li class="chapter" data-level="2.3" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#about-r-packages"><i class="fa fa-check"></i><b>2.3</b> About R-packages</a></li>
 <li class="chapter" data-level="2.4" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#installing-packages"><i class="fa fa-check"></i><b>2.4</b> Installing packages</a></li>
-<li class="chapter" data-level="2.5" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#importing-and-exporting-data"><i class="fa fa-check"></i><b>2.5</b> Importing and exporting data</a></li>
-<li class="chapter" data-level="2.6" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#saving-data-as-rdata-.rdata-.rda"><i class="fa fa-check"></i><b>2.6</b> Saving data as Rdata (.rdata, .rda)</a></li>
+<li class="chapter" data-level="2.5" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#downloading-data-files-github"><i class="fa fa-check"></i><b>2.5</b> Downloading data files (GitHub)</a></li>
+<li class="chapter" data-level="2.6" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#importing-and-exporting-data"><i class="fa fa-check"></i><b>2.6</b> Importing and exporting data</a></li>
+<li class="chapter" data-level="2.7" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#saving-data-as-rdata-.rdata-.rda"><i class="fa fa-check"></i><b>2.7</b> Saving data as Rdata (.rdata, .rda)</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html"><i class="fa fa-check"></i><b>3</b> – Basic Data Structures in R</a>
 <ul>
@@ -425,9 +426,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="29" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html"><i class="fa fa-check"></i><b>29</b> – Bioinformatics Literature</a>
 <ul>
 <li class="chapter" data-level="29.1" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#peer-reviewed-bioinformatics-journals"><i class="fa fa-check"></i><b>29.1</b> Peer-reviewed bioinformatics journals</a></li>
-<li class="chapter" data-level="29.2" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#accessing-journals-articles"><i class="fa fa-check"></i><b>29.2</b> Accessing journals articles</a></li>
+<li class="chapter" data-level="29.2" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#access-to-journals-articles"><i class="fa fa-check"></i><b>29.2</b> Access to journals articles</a></li>
 <li class="chapter" data-level="29.3" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#informal-access-to-code-preprints-and-vignettes"><i class="fa fa-check"></i><b>29.3</b> Informal access to code: Preprints and vignettes</a></li>
-<li class="chapter" data-level="29.4" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#online-bioinformatics-courses"><i class="fa fa-check"></i><b>29.4</b> Online bioinformatics courses</a></li>
+<li class="chapter" data-level="29.4" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#accessing-online-data-dryad"><i class="fa fa-check"></i><b>29.4</b> Accessing online data (DRYAD)</a></li>
+<li class="chapter" data-level="29.5" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#online-bioinformatics-courses"><i class="fa fa-check"></i><b>29.5</b> Online bioinformatics courses</a></li>
 </ul></li>
 <li class="chapter" data-level="30" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>30</b> – Miscellaneous</a>
 <ul>
@@ -660,7 +662,7 @@ workspace using function <code>ls()</code>.</p>
 <span id="cb38-3"><a href="using-r-installing-packages-and-importingexporting-data.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[7] &quot;package:datasets&quot;  &quot;package:methods&quot;   &quot;Autoloads&quot;         &quot;package:base&quot; </span></span></code></pre></div>
 <p><strong>2)</strong> Before you install a package, you could check which are useful to your intended goal. In most cases, you will already know what you want. However, if you are unsure, you could check the suggestions by R community posted in the <a href="http://cran.r-project.org/web/views" target="_blank"><strong>CRAN Task Views</strong></a>. Here are some of the communities relevant for our workshop:</p>
 <p><a href="https://cran.r-project.org/web/views/Genetics.html" target="_blank"><strong>CRAN Task View: Statistical Genetics:</strong></a></p>
-<p><a href="https://cran.r-project.org/web/views/Graphics.html" target="_blank"><strong>CRAN Task View: Graphic Displays &amp; Dynamic Graphics &amp; Graphic Devices &amp; Visualization:</strong></a></p>
+<p><a href="https://cran.r-project.org/web/views/Databases.html" target="_blank"><strong>CRAN Task View: Databases:</strong></a></p>
 <p><a href="https://cran.r-project.org/web/views/Phylogenetics.html" target="_blank"><strong>CRAN Task View: Phylogenetics, Especially Comparative Methods:</strong></a></p>
 <p><a href="https://cran.r-project.org/web/views/TeachingStatistics.html" target="_blank"><strong>CRAN Task View: Teaching Statistics:</strong></a></p>
 <p><a href="https://cran.r-project.org/web/views/Multivariate.html" target="_blank"><strong>CRAN Task View: Multivariate Statistics:</strong></a></p>
@@ -722,8 +724,29 @@ workspace using function <code>ls()</code>.</p>
 <span id="cb49-3"><a href="using-r-installing-packages-and-importingexporting-data.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="co"># installing httr for web API (application programming interface) like donwload of data from the web</span></span>
 <span id="cb49-4"><a href="using-r-installing-packages-and-importingexporting-data.html#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;r-lib/httr&quot;</span>)</span></code></pre></div>
 </div>
-<div id="importing-and-exporting-data" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Importing and exporting data</h2>
+<div id="downloading-data-files-github" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Downloading data files (GitHub)</h2>
+<p><strong>IMPORTANT</strong> I uploaded some files of this class, you can access those and download them from this <a href="https://github.com/corytophanes/BIO_BIT_Bioinformatics_209/tree/main/ref_files_pdfs" target="_blank"><strong>LINK TO FILES of BIO/BIT 209</strong></a> to a folder of your choosing.</p>
+<p>You can <strong>download individual files</strong> based in their extension. In the case of text files (e.g., <strong>.csv</strong>, <strong>.fasta</strong>, <strong>.txt</strong>), you can follow these steps:</p>
+<p><strong>1)</strong> Go to the file you want to download. Click on the file that you want to download. You will see the file contents.</p>
+<p><img src="figures/session_2_figs/2_file_to_donwload_txt2.png" width="100%" /></p>
+<p><strong>2)</strong> In the top right, you will see a tab that says <code>Raw</code> and click on this button.</p>
+<p><img src="figures/session_2_figs/3_file_to_donwload_raw.png" width="100%" /></p>
+<p><strong>3)</strong> A new tab will appear and you can save this file as <code>your_file.txt</code> (if this is fasta or csv, use the appropriate extension). In Firefox (MACs), you will click on <strong>File &gt; Save page as…</strong> and can name this file as <code>your_file.txt</code></p>
+<p><img src="figures/session_2_figs/4_file_to_donwload_newpage.png" width="100%" />
+<strong>4)</strong> You probably want to have a working directory where you will store these files. You should make these folders with easy and accessible paths (e.g., in your desktop).</p>
+<p>In case of <strong>other files </strong>like PDFs, images, word, and excel files (e.g., <strong>.pdf</strong>, <strong>.jpg</strong>, <strong>.png</strong>, <strong>.xlxs</strong>, <strong>.docx</strong>), you can download those individually with the following steps:</p>
+<p><strong>1)</strong> Go to the file you want to download.</p>
+<p><img src="figures/session_2_figs/5_file_to_donwload_PDF2.png" width="100%" /></p>
+<p><strong>2)</strong> Click on the file that you want to download. You will see a tab that says <code>Download</code> and click on this button.</p>
+<p><img src="figures/session_2_figs/6_file_to_donwload_PDF_download.png" width="100%" /></p>
+<p><strong>3)</strong> A new tab will appear and you can save this file as <code>your_file</code> and select the extension that best suits this file. In Firefox (MACs), you will click on <strong>File &gt; Save page as…</strong> and can name this file as <code>your_file.txt</code></p>
+<p><strong>4)</strong> You probably want to have a working directory where you will store these files. You should make these folders with easy and accessible paths (e.g., in your desktop).</p>
+<p>You can <strong>download an entire GitHub repository</strong>. You can download these archives from the main repository by clicking on <code>Code</code>. A submenu will appear, and you can click on <code>Download ZIP</code> and you can place this uncompressed folder in your desktop or other working directory.</p>
+<p><img src="figures/session_2_figs/7_download_repository.png" width="100%" /></p>
+</div>
+<div id="importing-and-exporting-data" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Importing and exporting data</h2>
 <p>Importing data is crucial for analyses in R as most of these are produced, retrieved or generated by other software. For example, measurements might be collected and annotated in excel sheets, sequences might be encoded in fasta/fastq forma in text files, images are stored as .tiff, .jpeg or other formats, sound might be encoded in .wav, etc. A great advantage of R is that the same base software or R-packages can serve to bring those datasets into the R environment. However, most of these are imported as standard R data structures as data frames (i.e., similar to matrices with columns and rows that contain a single value). Next, we will survey the most common forms to data input</p>
 <p><strong>1)</strong> The simples way to input data in R by typing data in the R console. We explain this in more detail when we describe data structures. However, this should intuitive as follows.</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a vector with some values named &#39;my_vector&#39;</span></span>
@@ -731,7 +754,6 @@ workspace using function <code>ls()</code>.</p>
 <span id="cb50-3"><a href="using-r-installing-packages-and-importingexporting-data.html#cb50-3" aria-hidden="true" tabindex="-1"></a>my_vector</span>
 <span id="cb50-4"><a href="using-r-installing-packages-and-importingexporting-data.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1  4  5  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 99</span></span></code></pre></div>
 <p><strong>2)</strong> In most cases, you already have your data file in some folder in your computer or plan to import it from some online repository. In the case of importing data from file from a known folder in your computer, this can be done as easily in R.</p>
-<p><strong>IMPORTANT</strong> I uploaded some files of this class, you can access those and download them from this <a href="https://github.com/corytophanes/BIO_BIT_Bioinformatics_209/tree/main/ref_files_pdfs" target="_blank"><strong>LINK TO FILES of BIO/BIT 209</strong></a> to a folder of your choosing.</p>
 <p>First, I will describe to import data from a text file with a tab delimited columns with numeric and character values.</p>
 <p><strong>macOS:</strong> You need to get the path (folder location in your hard drive) so you can indicate R where to retrieve such information. For example, the file that you want is known folder. You just <strong>drag &amp; drop</strong> the folder in the R console and the path information will appear on it.</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="using-r-installing-packages-and-importingexporting-data.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ~/Desktop/Teach_R/class_datasets</span></span>
@@ -857,8 +879,8 @@ workspace using function <code>ls()</code>.</p>
 <span id="cb64-7"><a href="using-r-installing-packages-and-importingexporting-data.html#cb64-7" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">sheetName =</span> <span class="st">&quot;my_mtcars_xlsx_sheet&quot;</span>,</span>
 <span id="cb64-8"><a href="using-r-installing-packages-and-importingexporting-data.html#cb64-8" aria-hidden="true" tabindex="-1"></a>                                              <span class="at">file =</span> <span class="st">&quot;mtcars_xlsx.xlsx&quot;</span>)</span></code></pre></div>
 </div>
-<div id="saving-data-as-rdata-.rdata-.rda" class="section level2" number="2.6">
-<h2><span class="header-section-number">2.6</span> Saving data as Rdata (.rdata, .rda)</h2>
+<div id="saving-data-as-rdata-.rdata-.rda" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> Saving data as Rdata (.rdata, .rda)</h2>
 <p>You might feel compelled to save your R session. This action will store your complete R workspace or selected “objects” from a workspace in a <a href="https://cran.r-project.org/doc/manuals/r-release/R-data.pdf" target="_blank"><strong>R-Data</strong></a> file with extension .rdata and .rda that can be loaded back by R. In most cases, you will do this to save you time in your next session. I do not usually save my R sessions, as the <em>.rdata and </em>.rda files are not human readable, and in most cases my interest are in the functionality of the scripts that call data and run functions within R rather than going back a preloaded session.</p>
 
 </div>
@@ -900,7 +922,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-First_session_with_R_v7.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-First_session_with_R_v9.Rmd",
 "text": "Edit"
 },
 "history": {
