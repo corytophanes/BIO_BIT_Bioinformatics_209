@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2022-01-30" />
+<meta name="date" content="2022-02-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -413,10 +413,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.4" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#nested-conditionals-if-if-else-and-else"><i class="fa fa-check"></i><b>28.4</b> Nested conditionals <code>if</code>, <code>if else</code> and <code>else</code></a></li>
 <li class="chapter" data-level="28.5" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#conditional-ifelse"><i class="fa fa-check"></i><b>28.5</b> Conditional <code>ifelse</code></a></li>
 <li class="chapter" data-level="28.6" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#loops-that-control-iterations-and-repeations"><i class="fa fa-check"></i><b>28.6</b> Loops that control iterations and repeations</a></li>
-<li class="chapter" data-level="28.7" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#for-loops"><i class="fa fa-check"></i><b>28.7</b> <code>for</code> Loops</a></li>
-<li class="chapter" data-level="28.8" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#while-loops"><i class="fa fa-check"></i><b>28.8</b> <code>while</code> Loops</a></li>
-<li class="chapter" data-level="28.9" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#repeat-and-break-loops"><i class="fa fa-check"></i><b>28.9</b> <code>repeat</code> and <code>break</code> Loops</a></li>
-<li class="chapter" data-level="28.10" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-next-function-in-loops"><i class="fa fa-check"></i><b>28.10</b> The <code>next</code> function in loops</a></li>
+<li class="chapter" data-level="28.7" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-for-loop"><i class="fa fa-check"></i><b>28.7</b> The <code>for</code> Loop</a></li>
+<li class="chapter" data-level="28.8" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-while-loop"><i class="fa fa-check"></i><b>28.8</b> The <code>while</code> Loop</a></li>
+<li class="chapter" data-level="28.9" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-repeat-loop"><i class="fa fa-check"></i><b>28.9</b> The <code>repeat</code> Loop</a></li>
+<li class="chapter" data-level="28.10" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-next-and-break-statements"><i class="fa fa-check"></i><b>28.10</b> The <code>next</code> and <code>break</code> statements</a></li>
 <li class="chapter" data-level="28.11" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionslapply"><i class="fa fa-check"></i><b>28.11</b> Other loop functions:<code>lapply</code></a></li>
 <li class="chapter" data-level="28.12" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsapply"><i class="fa fa-check"></i><b>28.12</b> Other loop functions:<code>apply</code></a></li>
 <li class="chapter" data-level="28.13" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsmapply"><i class="fa fa-check"></i><b>28.13</b> Other loop functions:<code>mapply</code></a></li>
@@ -462,550 +462,550 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">23.1</span> Linear/Circular Gene Diagrams</h2>
 <p>First get a plasmid genbank file or even a mitochondrial dna genbank file. Feel free to use the example from this <a href="https://www.ncbi.nlm.nih.gov/nucleotide/NC_001573.1" target="_blank"><strong>link</strong></a>.</p>
 <p>Notice: macOSX migth need to install <strong>reportlab</strong> and use <code>pip3 install reportlab</code>.</p>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="biopython-genomediagram.html#cb547-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import modules</span></span>
-<span id="cb547-2"><a href="biopython-genomediagram.html#cb547-2" aria-hidden="true" tabindex="-1"></a>import os</span>
-<span id="cb547-3"><a href="biopython-genomediagram.html#cb547-3" aria-hidden="true" tabindex="-1"></a>from reportlab.lib import colors</span>
-<span id="cb547-4"><a href="biopython-genomediagram.html#cb547-4" aria-hidden="true" tabindex="-1"></a>from reportlab.lib.units import cm</span>
-<span id="cb547-5"><a href="biopython-genomediagram.html#cb547-5" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics import GenomeDiagram</span>
-<span id="cb547-6"><a href="biopython-genomediagram.html#cb547-6" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb547-7"><a href="biopython-genomediagram.html#cb547-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb547-8"><a href="biopython-genomediagram.html#cb547-8" aria-hidden="true" tabindex="-1"></a><span class="co"># set wd</span></span>
-<span id="cb547-9"><a href="biopython-genomediagram.html#cb547-9" aria-hidden="true" tabindex="-1"></a><span class="fu">os.chdir</span>(<span class="st">&quot;YOUR WORKING DIRECTORY WITH GENBANK FILE HERE&quot;</span>)</span>
-<span id="cb547-10"><a href="biopython-genomediagram.html#cb547-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb547-11"><a href="biopython-genomediagram.html#cb547-11" aria-hidden="true" tabindex="-1"></a><span class="co"># load file as record</span></span>
-<span id="cb547-12"><a href="biopython-genomediagram.html#cb547-12" aria-hidden="true" tabindex="-1"></a>record <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;GENBANK FILE HERE&quot;</span>, <span class="st">&quot;genbank&quot;</span>)</span>
-<span id="cb547-13"><a href="biopython-genomediagram.html#cb547-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb547-14"><a href="biopython-genomediagram.html#cb547-14" aria-hidden="true" tabindex="-1"></a><span class="co"># set parameters, set empty diagram</span></span>
-<span id="cb547-15"><a href="biopython-genomediagram.html#cb547-15" aria-hidden="true" tabindex="-1"></a>gen_diagram <span class="ot">=</span> <span class="fu">GenomeDiagram.Diagram</span>(<span class="st">&quot;TITLE HERE&quot;</span>)</span>
-<span id="cb547-16"><a href="biopython-genomediagram.html#cb547-16" aria-hidden="true" tabindex="-1"></a>gen_track_for_features <span class="ot">=</span> <span class="fu">gen_diagram.new_track</span>(<span class="dv">1</span>, <span class="at">name=</span><span class="st">&quot;Annotated Features&quot;</span>)</span>
-<span id="cb547-17"><a href="biopython-genomediagram.html#cb547-17" aria-hidden="true" tabindex="-1"></a>gen_feature_set <span class="ot">=</span> <span class="fu">gen_track_for_features.new_set</span>()</span>
-<span id="cb547-18"><a href="biopython-genomediagram.html#cb547-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb547-19"><a href="biopython-genomediagram.html#cb547-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate diagram, alternate colors</span></span>
-<span id="cb547-20"><a href="biopython-genomediagram.html#cb547-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> feature <span class="cf">in</span> record.features<span class="sc">:</span></span>
-<span id="cb547-21"><a href="biopython-genomediagram.html#cb547-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> feature.type <span class="sc">!=</span> <span class="st">&quot;gene&quot;</span><span class="sc">:</span></span>
-<span id="cb547-22"><a href="biopython-genomediagram.html#cb547-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Do Nothing</span></span>
-<span id="cb547-23"><a href="biopython-genomediagram.html#cb547-23" aria-hidden="true" tabindex="-1"></a>        continue</span>
-<span id="cb547-24"><a href="biopython-genomediagram.html#cb547-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="fu">len</span>(gen_feature_set) % <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span><span class="sc">:</span></span>
-<span id="cb547-25"><a href="biopython-genomediagram.html#cb547-25" aria-hidden="true" tabindex="-1"></a>        color <span class="ot">=</span> colors.blue</span>
-<span id="cb547-26"><a href="biopython-genomediagram.html#cb547-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span><span class="sc">:</span></span>
-<span id="cb547-27"><a href="biopython-genomediagram.html#cb547-27" aria-hidden="true" tabindex="-1"></a>        color <span class="ot">=</span> colors.lightblue</span>
-<span id="cb547-28"><a href="biopython-genomediagram.html#cb547-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">color=</span>color, <span class="at">label=</span>True, <span class="at">label_size=</span><span class="dv">10</span>)</span>
-<span id="cb547-29"><a href="biopython-genomediagram.html#cb547-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb547-30"><a href="biopython-genomediagram.html#cb547-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Create output</span></span>
-<span id="cb547-31"><a href="biopython-genomediagram.html#cb547-31" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_diagram.draw</span>(</span>
-<span id="cb547-32"><a href="biopython-genomediagram.html#cb547-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">format=</span><span class="st">&quot;linear&quot;</span>,</span>
-<span id="cb547-33"><a href="biopython-genomediagram.html#cb547-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">orientation=</span><span class="st">&quot;landscape&quot;</span>,</span>
-<span id="cb547-34"><a href="biopython-genomediagram.html#cb547-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">pagesize=</span><span class="st">&quot;A4&quot;</span>,</span>
-<span id="cb547-35"><a href="biopython-genomediagram.html#cb547-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">fragments=</span><span class="dv">4</span>,</span>
-<span id="cb547-36"><a href="biopython-genomediagram.html#cb547-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">start=</span><span class="dv">0</span>,</span>
-<span id="cb547-37"><a href="biopython-genomediagram.html#cb547-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">end=</span><span class="fu">len</span>(record),</span>
-<span id="cb547-38"><a href="biopython-genomediagram.html#cb547-38" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb547-39"><a href="biopython-genomediagram.html#cb547-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb547-40"><a href="biopython-genomediagram.html#cb547-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Save figure as ...</span></span>
-<span id="cb547-41"><a href="biopython-genomediagram.html#cb547-41" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_diagram.write</span>(<span class="st">&quot;example1.pdf&quot;</span>, <span class="st">&quot;PDF&quot;</span>)</span>
-<span id="cb547-42"><a href="biopython-genomediagram.html#cb547-42" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_diagram.write</span>(<span class="st">&quot;example1.eps&quot;</span>, <span class="st">&quot;EPS&quot;</span>)</span>
-<span id="cb547-43"><a href="biopython-genomediagram.html#cb547-43" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_diagram.write</span>(<span class="st">&quot;example1.svg&quot;</span>, <span class="st">&quot;SVG&quot;</span>)</span>
-<span id="cb547-44"><a href="biopython-genomediagram.html#cb547-44" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_diagram.write</span>(<span class="st">&quot;example1.png&quot;</span>, <span class="st">&quot;PNG&quot;</span>)</span>
-<span id="cb547-45"><a href="biopython-genomediagram.html#cb547-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb547-46"><a href="biopython-genomediagram.html#cb547-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb547-47"><a href="biopython-genomediagram.html#cb547-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Circular figure:</span></span>
-<span id="cb547-48"><a href="biopython-genomediagram.html#cb547-48" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_diagram.draw</span>(</span>
-<span id="cb547-49"><a href="biopython-genomediagram.html#cb547-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">format=</span><span class="st">&quot;circular&quot;</span>,</span>
-<span id="cb547-50"><a href="biopython-genomediagram.html#cb547-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">circular=</span>True,</span>
-<span id="cb547-51"><a href="biopython-genomediagram.html#cb547-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">pagesize=</span>(<span class="dv">20</span> <span class="sc">*</span> cm, <span class="dv">20</span> <span class="sc">*</span> cm),</span>
-<span id="cb547-52"><a href="biopython-genomediagram.html#cb547-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">start=</span><span class="dv">0</span>,</span>
-<span id="cb547-53"><a href="biopython-genomediagram.html#cb547-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">end=</span><span class="fu">len</span>(record),</span>
-<span id="cb547-54"><a href="biopython-genomediagram.html#cb547-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">circle_core=</span><span class="fl">0.7</span>,</span>
-<span id="cb547-55"><a href="biopython-genomediagram.html#cb547-55" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb547-56"><a href="biopython-genomediagram.html#cb547-56" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_diagram.write</span>(<span class="st">&quot;example1.pdf&quot;</span>, <span class="st">&quot;PDF&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="biopython-genomediagram.html#cb553-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import modules</span></span>
+<span id="cb553-2"><a href="biopython-genomediagram.html#cb553-2" aria-hidden="true" tabindex="-1"></a>import os</span>
+<span id="cb553-3"><a href="biopython-genomediagram.html#cb553-3" aria-hidden="true" tabindex="-1"></a>from reportlab.lib import colors</span>
+<span id="cb553-4"><a href="biopython-genomediagram.html#cb553-4" aria-hidden="true" tabindex="-1"></a>from reportlab.lib.units import cm</span>
+<span id="cb553-5"><a href="biopython-genomediagram.html#cb553-5" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics import GenomeDiagram</span>
+<span id="cb553-6"><a href="biopython-genomediagram.html#cb553-6" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb553-7"><a href="biopython-genomediagram.html#cb553-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb553-8"><a href="biopython-genomediagram.html#cb553-8" aria-hidden="true" tabindex="-1"></a><span class="co"># set wd</span></span>
+<span id="cb553-9"><a href="biopython-genomediagram.html#cb553-9" aria-hidden="true" tabindex="-1"></a><span class="fu">os.chdir</span>(<span class="st">&quot;YOUR WORKING DIRECTORY WITH GENBANK FILE HERE&quot;</span>)</span>
+<span id="cb553-10"><a href="biopython-genomediagram.html#cb553-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb553-11"><a href="biopython-genomediagram.html#cb553-11" aria-hidden="true" tabindex="-1"></a><span class="co"># load file as record</span></span>
+<span id="cb553-12"><a href="biopython-genomediagram.html#cb553-12" aria-hidden="true" tabindex="-1"></a>record <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;GENBANK FILE HERE&quot;</span>, <span class="st">&quot;genbank&quot;</span>)</span>
+<span id="cb553-13"><a href="biopython-genomediagram.html#cb553-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb553-14"><a href="biopython-genomediagram.html#cb553-14" aria-hidden="true" tabindex="-1"></a><span class="co"># set parameters, set empty diagram</span></span>
+<span id="cb553-15"><a href="biopython-genomediagram.html#cb553-15" aria-hidden="true" tabindex="-1"></a>gen_diagram <span class="ot">=</span> <span class="fu">GenomeDiagram.Diagram</span>(<span class="st">&quot;TITLE HERE&quot;</span>)</span>
+<span id="cb553-16"><a href="biopython-genomediagram.html#cb553-16" aria-hidden="true" tabindex="-1"></a>gen_track_for_features <span class="ot">=</span> <span class="fu">gen_diagram.new_track</span>(<span class="dv">1</span>, <span class="at">name=</span><span class="st">&quot;Annotated Features&quot;</span>)</span>
+<span id="cb553-17"><a href="biopython-genomediagram.html#cb553-17" aria-hidden="true" tabindex="-1"></a>gen_feature_set <span class="ot">=</span> <span class="fu">gen_track_for_features.new_set</span>()</span>
+<span id="cb553-18"><a href="biopython-genomediagram.html#cb553-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb553-19"><a href="biopython-genomediagram.html#cb553-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate diagram, alternate colors</span></span>
+<span id="cb553-20"><a href="biopython-genomediagram.html#cb553-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> feature <span class="cf">in</span> record.features<span class="sc">:</span></span>
+<span id="cb553-21"><a href="biopython-genomediagram.html#cb553-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> feature.type <span class="sc">!=</span> <span class="st">&quot;gene&quot;</span><span class="sc">:</span></span>
+<span id="cb553-22"><a href="biopython-genomediagram.html#cb553-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Do Nothing</span></span>
+<span id="cb553-23"><a href="biopython-genomediagram.html#cb553-23" aria-hidden="true" tabindex="-1"></a>        continue</span>
+<span id="cb553-24"><a href="biopython-genomediagram.html#cb553-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="fu">len</span>(gen_feature_set) % <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span><span class="sc">:</span></span>
+<span id="cb553-25"><a href="biopython-genomediagram.html#cb553-25" aria-hidden="true" tabindex="-1"></a>        color <span class="ot">=</span> colors.blue</span>
+<span id="cb553-26"><a href="biopython-genomediagram.html#cb553-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb553-27"><a href="biopython-genomediagram.html#cb553-27" aria-hidden="true" tabindex="-1"></a>        color <span class="ot">=</span> colors.lightblue</span>
+<span id="cb553-28"><a href="biopython-genomediagram.html#cb553-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">color=</span>color, <span class="at">label=</span>True, <span class="at">label_size=</span><span class="dv">10</span>)</span>
+<span id="cb553-29"><a href="biopython-genomediagram.html#cb553-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb553-30"><a href="biopython-genomediagram.html#cb553-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Create output</span></span>
+<span id="cb553-31"><a href="biopython-genomediagram.html#cb553-31" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_diagram.draw</span>(</span>
+<span id="cb553-32"><a href="biopython-genomediagram.html#cb553-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">format=</span><span class="st">&quot;linear&quot;</span>,</span>
+<span id="cb553-33"><a href="biopython-genomediagram.html#cb553-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">orientation=</span><span class="st">&quot;landscape&quot;</span>,</span>
+<span id="cb553-34"><a href="biopython-genomediagram.html#cb553-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">pagesize=</span><span class="st">&quot;A4&quot;</span>,</span>
+<span id="cb553-35"><a href="biopython-genomediagram.html#cb553-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">fragments=</span><span class="dv">4</span>,</span>
+<span id="cb553-36"><a href="biopython-genomediagram.html#cb553-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">start=</span><span class="dv">0</span>,</span>
+<span id="cb553-37"><a href="biopython-genomediagram.html#cb553-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">end=</span><span class="fu">len</span>(record),</span>
+<span id="cb553-38"><a href="biopython-genomediagram.html#cb553-38" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb553-39"><a href="biopython-genomediagram.html#cb553-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb553-40"><a href="biopython-genomediagram.html#cb553-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Save figure as ...</span></span>
+<span id="cb553-41"><a href="biopython-genomediagram.html#cb553-41" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_diagram.write</span>(<span class="st">&quot;example1.pdf&quot;</span>, <span class="st">&quot;PDF&quot;</span>)</span>
+<span id="cb553-42"><a href="biopython-genomediagram.html#cb553-42" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_diagram.write</span>(<span class="st">&quot;example1.eps&quot;</span>, <span class="st">&quot;EPS&quot;</span>)</span>
+<span id="cb553-43"><a href="biopython-genomediagram.html#cb553-43" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_diagram.write</span>(<span class="st">&quot;example1.svg&quot;</span>, <span class="st">&quot;SVG&quot;</span>)</span>
+<span id="cb553-44"><a href="biopython-genomediagram.html#cb553-44" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_diagram.write</span>(<span class="st">&quot;example1.png&quot;</span>, <span class="st">&quot;PNG&quot;</span>)</span>
+<span id="cb553-45"><a href="biopython-genomediagram.html#cb553-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb553-46"><a href="biopython-genomediagram.html#cb553-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb553-47"><a href="biopython-genomediagram.html#cb553-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Circular figure:</span></span>
+<span id="cb553-48"><a href="biopython-genomediagram.html#cb553-48" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_diagram.draw</span>(</span>
+<span id="cb553-49"><a href="biopython-genomediagram.html#cb553-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">format=</span><span class="st">&quot;circular&quot;</span>,</span>
+<span id="cb553-50"><a href="biopython-genomediagram.html#cb553-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">circular=</span>True,</span>
+<span id="cb553-51"><a href="biopython-genomediagram.html#cb553-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">pagesize=</span>(<span class="dv">20</span> <span class="sc">*</span> cm, <span class="dv">20</span> <span class="sc">*</span> cm),</span>
+<span id="cb553-52"><a href="biopython-genomediagram.html#cb553-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">start=</span><span class="dv">0</span>,</span>
+<span id="cb553-53"><a href="biopython-genomediagram.html#cb553-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">end=</span><span class="fu">len</span>(record),</span>
+<span id="cb553-54"><a href="biopython-genomediagram.html#cb553-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">circle_core=</span><span class="fl">0.7</span>,</span>
+<span id="cb553-55"><a href="biopython-genomediagram.html#cb553-55" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb553-56"><a href="biopython-genomediagram.html#cb553-56" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_diagram.write</span>(<span class="st">&quot;example1.pdf&quot;</span>, <span class="st">&quot;PDF&quot;</span>)</span></code></pre></div>
 </div>
 <div id="diagram-readability" class="section level2" number="23.2">
 <h2><span class="header-section-number">23.2</span> Diagram Readability</h2>
 <p>You can make several changes to the above code to improve readability of the diagram.</p>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="biopython-genomediagram.html#cb548-1" aria-hidden="true" tabindex="-1"></a><span class="co"># edit the code above with the code below and see what changes</span></span>
-<span id="cb548-2"><a href="biopython-genomediagram.html#cb548-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(</span>
-<span id="cb548-3"><a href="biopython-genomediagram.html#cb548-3" aria-hidden="true" tabindex="-1"></a>    feature,</span>
-<span id="cb548-4"><a href="biopython-genomediagram.html#cb548-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">label=</span>True,</span>
-<span id="cb548-5"><a href="biopython-genomediagram.html#cb548-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">color=</span><span class="st">&quot;purple&quot;</span>,</span>
-<span id="cb548-6"><a href="biopython-genomediagram.html#cb548-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">label_position=</span><span class="st">&quot;end&quot;</span>,</span>
-<span id="cb548-7"><a href="biopython-genomediagram.html#cb548-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">label_size=</span><span class="dv">20</span>,</span>
-<span id="cb548-8"><a href="biopython-genomediagram.html#cb548-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">label_angle=</span><span class="dv">90</span>,</span>
-<span id="cb548-9"><a href="biopython-genomediagram.html#cb548-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="biopython-genomediagram.html#cb554-1" aria-hidden="true" tabindex="-1"></a><span class="co"># edit the code above with the code below and see what changes</span></span>
+<span id="cb554-2"><a href="biopython-genomediagram.html#cb554-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(</span>
+<span id="cb554-3"><a href="biopython-genomediagram.html#cb554-3" aria-hidden="true" tabindex="-1"></a>    feature,</span>
+<span id="cb554-4"><a href="biopython-genomediagram.html#cb554-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">label=</span>True,</span>
+<span id="cb554-5"><a href="biopython-genomediagram.html#cb554-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">color=</span><span class="st">&quot;purple&quot;</span>,</span>
+<span id="cb554-6"><a href="biopython-genomediagram.html#cb554-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">label_position=</span><span class="st">&quot;end&quot;</span>,</span>
+<span id="cb554-7"><a href="biopython-genomediagram.html#cb554-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">label_size=</span><span class="dv">20</span>,</span>
+<span id="cb554-8"><a href="biopython-genomediagram.html#cb554-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">label_angle=</span><span class="dv">90</span>,</span>
+<span id="cb554-9"><a href="biopython-genomediagram.html#cb554-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div id="box-shape" class="section level2" number="23.3">
 <h2><span class="header-section-number">23.3</span> Box Shape</h2>
 <p>You can change the default shape of the gene boxes.</p>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="biopython-genomediagram.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Default</span></span>
-<span id="cb549-2"><a href="biopython-genomediagram.html#cb549-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature)</span>
-<span id="cb549-3"><a href="biopython-genomediagram.html#cb549-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb549-4"><a href="biopython-genomediagram.html#cb549-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Box</span></span>
-<span id="cb549-5"><a href="biopython-genomediagram.html#cb549-5" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;BOX&quot;</span>)</span>
-<span id="cb549-6"><a href="biopython-genomediagram.html#cb549-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb549-7"><a href="biopython-genomediagram.html#cb549-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Arrow</span></span>
-<span id="cb549-8"><a href="biopython-genomediagram.html#cb549-8" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>)</span>
-<span id="cb549-9"><a href="biopython-genomediagram.html#cb549-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb549-10"><a href="biopython-genomediagram.html#cb549-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Big Arrow</span></span>
-<span id="cb549-11"><a href="biopython-genomediagram.html#cb549-11" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;BIGARROW&quot;</span>)</span>
-<span id="cb549-12"><a href="biopython-genomediagram.html#cb549-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb549-13"><a href="biopython-genomediagram.html#cb549-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Octo-gon</span></span>
-<span id="cb549-14"><a href="biopython-genomediagram.html#cb549-14" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;OCTO&quot;</span>)</span>
-<span id="cb549-15"><a href="biopython-genomediagram.html#cb549-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb549-16"><a href="biopython-genomediagram.html#cb549-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Potter Zag</span></span>
-<span id="cb549-17"><a href="biopython-genomediagram.html#cb549-17" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;JAGGY&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="biopython-genomediagram.html#cb555-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Default</span></span>
+<span id="cb555-2"><a href="biopython-genomediagram.html#cb555-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature)</span>
+<span id="cb555-3"><a href="biopython-genomediagram.html#cb555-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb555-4"><a href="biopython-genomediagram.html#cb555-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Box</span></span>
+<span id="cb555-5"><a href="biopython-genomediagram.html#cb555-5" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;BOX&quot;</span>)</span>
+<span id="cb555-6"><a href="biopython-genomediagram.html#cb555-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb555-7"><a href="biopython-genomediagram.html#cb555-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Arrow</span></span>
+<span id="cb555-8"><a href="biopython-genomediagram.html#cb555-8" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>)</span>
+<span id="cb555-9"><a href="biopython-genomediagram.html#cb555-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb555-10"><a href="biopython-genomediagram.html#cb555-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Big Arrow</span></span>
+<span id="cb555-11"><a href="biopython-genomediagram.html#cb555-11" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;BIGARROW&quot;</span>)</span>
+<span id="cb555-12"><a href="biopython-genomediagram.html#cb555-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb555-13"><a href="biopython-genomediagram.html#cb555-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Octo-gon</span></span>
+<span id="cb555-14"><a href="biopython-genomediagram.html#cb555-14" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;OCTO&quot;</span>)</span>
+<span id="cb555-15"><a href="biopython-genomediagram.html#cb555-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb555-16"><a href="biopython-genomediagram.html#cb555-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Potter Zag</span></span>
+<span id="cb555-17"><a href="biopython-genomediagram.html#cb555-17" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;JAGGY&quot;</span>)</span></code></pre></div>
 </div>
 <div id="edit-box-shape-arrows" class="section level2" number="23.4">
 <h2><span class="header-section-number">23.4</span> Edit Box Shape: Arrows</h2>
 <p>You can edit the shape of the new shape.</p>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="biopython-genomediagram.html#cb550-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tail-less Arrow</span></span>
-<span id="cb550-2"><a href="biopython-genomediagram.html#cb550-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>, <span class="at">color=</span><span class="st">&quot;brown&quot;</span>, <span class="at">arrowshaft_height=</span><span class="fl">1.0</span>)</span>
-<span id="cb550-3"><a href="biopython-genomediagram.html#cb550-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb550-4"><a href="biopython-genomediagram.html#cb550-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Thin Arrow</span></span>
-<span id="cb550-5"><a href="biopython-genomediagram.html#cb550-5" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>, <span class="at">color=</span><span class="st">&quot;teal&quot;</span>, <span class="at">arrowshaft_height=</span><span class="fl">0.2</span>)</span>
-<span id="cb550-6"><a href="biopython-genomediagram.html#cb550-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb550-7"><a href="biopython-genomediagram.html#cb550-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Very Thin Arrow</span></span>
-<span id="cb550-8"><a href="biopython-genomediagram.html#cb550-8" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(</span>
-<span id="cb550-9"><a href="biopython-genomediagram.html#cb550-9" aria-hidden="true" tabindex="-1"></a>    feature, <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>, <span class="at">color=</span><span class="st">&quot;darkgreen&quot;</span>, <span class="at">arrowshaft_height=</span><span class="fl">0.1</span></span>
-<span id="cb550-10"><a href="biopython-genomediagram.html#cb550-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb550-11"><a href="biopython-genomediagram.html#cb550-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb550-12"><a href="biopython-genomediagram.html#cb550-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Short Arrowhead</span></span>
-<span id="cb550-13"><a href="biopython-genomediagram.html#cb550-13" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>, <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">arrowhead_length=</span><span class="fl">0.25</span>)</span>
-<span id="cb550-14"><a href="biopython-genomediagram.html#cb550-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb550-15"><a href="biopython-genomediagram.html#cb550-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Long Arrowhead</span></span>
-<span id="cb550-16"><a href="biopython-genomediagram.html#cb550-16" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>, <span class="at">color=</span><span class="st">&quot;orange&quot;</span>, <span class="at">arrowhead_length=</span><span class="dv">1</span>)</span>
-<span id="cb550-17"><a href="biopython-genomediagram.html#cb550-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb550-18"><a href="biopython-genomediagram.html#cb550-18" aria-hidden="true" tabindex="-1"></a><span class="co"># All Arrowhead</span></span>
-<span id="cb550-19"><a href="biopython-genomediagram.html#cb550-19" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>, <span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">arrowhead_length=</span><span class="dv">10000</span>)</span>
-<span id="cb550-20"><a href="biopython-genomediagram.html#cb550-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb550-21"><a href="biopython-genomediagram.html#cb550-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Big Arrow</span></span>
-<span id="cb550-22"><a href="biopython-genomediagram.html#cb550-22" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;BIGARROW&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="biopython-genomediagram.html#cb556-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tail-less Arrow</span></span>
+<span id="cb556-2"><a href="biopython-genomediagram.html#cb556-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>, <span class="at">color=</span><span class="st">&quot;brown&quot;</span>, <span class="at">arrowshaft_height=</span><span class="fl">1.0</span>)</span>
+<span id="cb556-3"><a href="biopython-genomediagram.html#cb556-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb556-4"><a href="biopython-genomediagram.html#cb556-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Thin Arrow</span></span>
+<span id="cb556-5"><a href="biopython-genomediagram.html#cb556-5" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>, <span class="at">color=</span><span class="st">&quot;teal&quot;</span>, <span class="at">arrowshaft_height=</span><span class="fl">0.2</span>)</span>
+<span id="cb556-6"><a href="biopython-genomediagram.html#cb556-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb556-7"><a href="biopython-genomediagram.html#cb556-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Very Thin Arrow</span></span>
+<span id="cb556-8"><a href="biopython-genomediagram.html#cb556-8" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(</span>
+<span id="cb556-9"><a href="biopython-genomediagram.html#cb556-9" aria-hidden="true" tabindex="-1"></a>    feature, <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>, <span class="at">color=</span><span class="st">&quot;darkgreen&quot;</span>, <span class="at">arrowshaft_height=</span><span class="fl">0.1</span></span>
+<span id="cb556-10"><a href="biopython-genomediagram.html#cb556-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb556-11"><a href="biopython-genomediagram.html#cb556-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb556-12"><a href="biopython-genomediagram.html#cb556-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Short Arrowhead</span></span>
+<span id="cb556-13"><a href="biopython-genomediagram.html#cb556-13" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>, <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">arrowhead_length=</span><span class="fl">0.25</span>)</span>
+<span id="cb556-14"><a href="biopython-genomediagram.html#cb556-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb556-15"><a href="biopython-genomediagram.html#cb556-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Long Arrowhead</span></span>
+<span id="cb556-16"><a href="biopython-genomediagram.html#cb556-16" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>, <span class="at">color=</span><span class="st">&quot;orange&quot;</span>, <span class="at">arrowhead_length=</span><span class="dv">1</span>)</span>
+<span id="cb556-17"><a href="biopython-genomediagram.html#cb556-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb556-18"><a href="biopython-genomediagram.html#cb556-18" aria-hidden="true" tabindex="-1"></a><span class="co"># All Arrowhead</span></span>
+<span id="cb556-19"><a href="biopython-genomediagram.html#cb556-19" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>, <span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">arrowhead_length=</span><span class="dv">10000</span>)</span>
+<span id="cb556-20"><a href="biopython-genomediagram.html#cb556-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb556-21"><a href="biopython-genomediagram.html#cb556-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Big Arrow</span></span>
+<span id="cb556-22"><a href="biopython-genomediagram.html#cb556-22" aria-hidden="true" tabindex="-1"></a><span class="fu">gen_feature_set.add_feature</span>(feature, <span class="at">sigil=</span><span class="st">&quot;BIGARROW&quot;</span>)</span></code></pre></div>
 </div>
 <div id="restriction-map" class="section level2" number="23.5">
 <h2><span class="header-section-number">23.5</span> Restriction Map</h2>
 <p>Add restriction sites to your small genome</p>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="biopython-genomediagram.html#cb551-1" aria-hidden="true" tabindex="-1"></a><span class="co"># old</span></span>
-<span id="cb551-2"><a href="biopython-genomediagram.html#cb551-2" aria-hidden="true" tabindex="-1"></a>from reportlab.lib import colors</span>
-<span id="cb551-3"><a href="biopython-genomediagram.html#cb551-3" aria-hidden="true" tabindex="-1"></a>from reportlab.lib.units import cm</span>
-<span id="cb551-4"><a href="biopython-genomediagram.html#cb551-4" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics import GenomeDiagram</span>
-<span id="cb551-5"><a href="biopython-genomediagram.html#cb551-5" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb551-6"><a href="biopython-genomediagram.html#cb551-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb551-7"><a href="biopython-genomediagram.html#cb551-7" aria-hidden="true" tabindex="-1"></a><span class="co"># new</span></span>
-<span id="cb551-8"><a href="biopython-genomediagram.html#cb551-8" aria-hidden="true" tabindex="-1"></a>from Bio.SeqFeature import SeqFeature, FeatureLocation</span>
-<span id="cb551-9"><a href="biopython-genomediagram.html#cb551-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb551-10"><a href="biopython-genomediagram.html#cb551-10" aria-hidden="true" tabindex="-1"></a><span class="co"># old</span></span>
-<span id="cb551-11"><a href="biopython-genomediagram.html#cb551-11" aria-hidden="true" tabindex="-1"></a>record <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;YOUR GB FILE HERE&quot;</span>, <span class="st">&quot;genbank&quot;</span>)</span>
-<span id="cb551-12"><a href="biopython-genomediagram.html#cb551-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb551-13"><a href="biopython-genomediagram.html#cb551-13" aria-hidden="true" tabindex="-1"></a><span class="co"># old</span></span>
-<span id="cb551-14"><a href="biopython-genomediagram.html#cb551-14" aria-hidden="true" tabindex="-1"></a>gd_diagram <span class="ot">=</span> <span class="fu">GenomeDiagram.Diagram</span>(record.id)</span>
-<span id="cb551-15"><a href="biopython-genomediagram.html#cb551-15" aria-hidden="true" tabindex="-1"></a>gd_track_for_features <span class="ot">=</span> <span class="fu">gd_diagram.new_track</span>(<span class="dv">1</span>, <span class="at">name=</span><span class="st">&quot;Annotated Features&quot;</span>)</span>
-<span id="cb551-16"><a href="biopython-genomediagram.html#cb551-16" aria-hidden="true" tabindex="-1"></a>gd_feature_set <span class="ot">=</span> <span class="fu">gd_track_for_features.new_set</span>()</span>
-<span id="cb551-17"><a href="biopython-genomediagram.html#cb551-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb551-18"><a href="biopython-genomediagram.html#cb551-18" aria-hidden="true" tabindex="-1"></a><span class="co"># old</span></span>
-<span id="cb551-19"><a href="biopython-genomediagram.html#cb551-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> feature <span class="cf">in</span> record.features<span class="sc">:</span></span>
-<span id="cb551-20"><a href="biopython-genomediagram.html#cb551-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> feature.type <span class="sc">!=</span> <span class="st">&quot;gene&quot;</span><span class="sc">:</span></span>
-<span id="cb551-21"><a href="biopython-genomediagram.html#cb551-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Exclude this feature</span></span>
-<span id="cb551-22"><a href="biopython-genomediagram.html#cb551-22" aria-hidden="true" tabindex="-1"></a>        continue</span>
-<span id="cb551-23"><a href="biopython-genomediagram.html#cb551-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="fu">len</span>(gd_feature_set) % <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span><span class="sc">:</span></span>
-<span id="cb551-24"><a href="biopython-genomediagram.html#cb551-24" aria-hidden="true" tabindex="-1"></a>        color <span class="ot">=</span> colors.blue</span>
-<span id="cb551-25"><a href="biopython-genomediagram.html#cb551-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span><span class="sc">:</span></span>
-<span id="cb551-26"><a href="biopython-genomediagram.html#cb551-26" aria-hidden="true" tabindex="-1"></a>        color <span class="ot">=</span> colors.lightblue</span>
-<span id="cb551-27"><a href="biopython-genomediagram.html#cb551-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gd_feature_set.add_feature</span>(</span>
-<span id="cb551-28"><a href="biopython-genomediagram.html#cb551-28" aria-hidden="true" tabindex="-1"></a>        feature, <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>, <span class="at">color=</span>color, <span class="at">label=</span>True, <span class="at">label_size=</span><span class="dv">14</span>, <span class="at">label_angle=</span><span class="dv">0</span></span>
-<span id="cb551-29"><a href="biopython-genomediagram.html#cb551-29" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb551-30"><a href="biopython-genomediagram.html#cb551-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb551-31"><a href="biopython-genomediagram.html#cb551-31" aria-hidden="true" tabindex="-1"></a><span class="co"># new: Add restriction enzymes and sites</span></span>
-<span id="cb551-32"><a href="biopython-genomediagram.html#cb551-32" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> site, name, color <span class="cf">in</span> [</span>
-<span id="cb551-33"><a href="biopython-genomediagram.html#cb551-33" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;GAATTC&quot;</span>, <span class="st">&quot;EcoRI&quot;</span>, colors.green),</span>
-<span id="cb551-34"><a href="biopython-genomediagram.html#cb551-34" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;CCCGGG&quot;</span>, <span class="st">&quot;SmaI&quot;</span>, colors.orange),</span>
-<span id="cb551-35"><a href="biopython-genomediagram.html#cb551-35" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;AAGCTT&quot;</span>, <span class="st">&quot;HindIII&quot;</span>, colors.red),</span>
-<span id="cb551-36"><a href="biopython-genomediagram.html#cb551-36" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;GGATCC&quot;</span>, <span class="st">&quot;BamHI&quot;</span>, colors.purple),</span>
-<span id="cb551-37"><a href="biopython-genomediagram.html#cb551-37" aria-hidden="true" tabindex="-1"></a>]<span class="sc">:</span></span>
-<span id="cb551-38"><a href="biopython-genomediagram.html#cb551-38" aria-hidden="true" tabindex="-1"></a>    index <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb551-39"><a href="biopython-genomediagram.html#cb551-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> True<span class="sc">:</span></span>
-<span id="cb551-40"><a href="biopython-genomediagram.html#cb551-40" aria-hidden="true" tabindex="-1"></a>        index <span class="ot">=</span> <span class="fu">record.seq.find</span>(site, <span class="at">start=</span>index)</span>
-<span id="cb551-41"><a href="biopython-genomediagram.html#cb551-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> index <span class="sc">==</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">:</span></span>
-<span id="cb551-42"><a href="biopython-genomediagram.html#cb551-42" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
-<span id="cb551-43"><a href="biopython-genomediagram.html#cb551-43" aria-hidden="true" tabindex="-1"></a>        feature <span class="ot">=</span> <span class="fu">SeqFeature</span>(<span class="fu">FeatureLocation</span>(index, index <span class="sc">+</span> <span class="fu">len</span>(site)))</span>
-<span id="cb551-44"><a href="biopython-genomediagram.html#cb551-44" aria-hidden="true" tabindex="-1"></a>        <span class="fu">gd_feature_set.add_feature</span>(</span>
-<span id="cb551-45"><a href="biopython-genomediagram.html#cb551-45" aria-hidden="true" tabindex="-1"></a>            feature,</span>
-<span id="cb551-46"><a href="biopython-genomediagram.html#cb551-46" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span>color,</span>
-<span id="cb551-47"><a href="biopython-genomediagram.html#cb551-47" aria-hidden="true" tabindex="-1"></a>            <span class="at">name=</span>name,</span>
-<span id="cb551-48"><a href="biopython-genomediagram.html#cb551-48" aria-hidden="true" tabindex="-1"></a>            <span class="at">label=</span>True,</span>
-<span id="cb551-49"><a href="biopython-genomediagram.html#cb551-49" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_size=</span><span class="dv">10</span>,</span>
-<span id="cb551-50"><a href="biopython-genomediagram.html#cb551-50" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_color=</span>color,</span>
-<span id="cb551-51"><a href="biopython-genomediagram.html#cb551-51" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb551-52"><a href="biopython-genomediagram.html#cb551-52" aria-hidden="true" tabindex="-1"></a>        index <span class="sc">+</span><span class="er">=</span> <span class="fu">len</span>(site)</span>
-<span id="cb551-53"><a href="biopython-genomediagram.html#cb551-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb551-54"><a href="biopython-genomediagram.html#cb551-54" aria-hidden="true" tabindex="-1"></a><span class="co"># old, linear</span></span>
-<span id="cb551-55"><a href="biopython-genomediagram.html#cb551-55" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.draw</span>(<span class="at">format=</span><span class="st">&quot;linear&quot;</span>, <span class="at">pagesize=</span><span class="st">&quot;A4&quot;</span>, <span class="at">fragments=</span><span class="dv">4</span>, <span class="at">start=</span><span class="dv">0</span>, <span class="at">end=</span><span class="fu">len</span>(record))</span>
-<span id="cb551-56"><a href="biopython-genomediagram.html#cb551-56" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(<span class="st">&quot;example2.pdf&quot;</span>, <span class="st">&quot;PDF&quot;</span>)</span>
-<span id="cb551-57"><a href="biopython-genomediagram.html#cb551-57" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(<span class="st">&quot;example2.eps&quot;</span>, <span class="st">&quot;EPS&quot;</span>)</span>
-<span id="cb551-58"><a href="biopython-genomediagram.html#cb551-58" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(<span class="st">&quot;example2.svg&quot;</span>, <span class="st">&quot;SVG&quot;</span>)</span>
-<span id="cb551-59"><a href="biopython-genomediagram.html#cb551-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb551-60"><a href="biopython-genomediagram.html#cb551-60" aria-hidden="true" tabindex="-1"></a><span class="co"># old, circular</span></span>
-<span id="cb551-61"><a href="biopython-genomediagram.html#cb551-61" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.draw</span>(</span>
-<span id="cb551-62"><a href="biopython-genomediagram.html#cb551-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">format=</span><span class="st">&quot;circular&quot;</span>,</span>
-<span id="cb551-63"><a href="biopython-genomediagram.html#cb551-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">circular=</span>True,</span>
-<span id="cb551-64"><a href="biopython-genomediagram.html#cb551-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">pagesize=</span>(<span class="dv">20</span> <span class="sc">*</span> cm, <span class="dv">20</span> <span class="sc">*</span> cm),</span>
-<span id="cb551-65"><a href="biopython-genomediagram.html#cb551-65" aria-hidden="true" tabindex="-1"></a>    <span class="at">start=</span><span class="dv">0</span>,</span>
-<span id="cb551-66"><a href="biopython-genomediagram.html#cb551-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">end=</span><span class="fu">len</span>(record),</span>
-<span id="cb551-67"><a href="biopython-genomediagram.html#cb551-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">circle_core=</span><span class="fl">0.5</span>,</span>
-<span id="cb551-68"><a href="biopython-genomediagram.html#cb551-68" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb551-69"><a href="biopython-genomediagram.html#cb551-69" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(<span class="st">&quot;example2.pdf&quot;</span>, <span class="st">&quot;PDF&quot;</span>)</span>
-<span id="cb551-70"><a href="biopython-genomediagram.html#cb551-70" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(<span class="st">&quot;example2.eps&quot;</span>, <span class="st">&quot;EPS&quot;</span>)</span>
-<span id="cb551-71"><a href="biopython-genomediagram.html#cb551-71" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(<span class="st">&quot;example2.svg&quot;</span>, <span class="st">&quot;SVG&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="biopython-genomediagram.html#cb557-1" aria-hidden="true" tabindex="-1"></a><span class="co"># old</span></span>
+<span id="cb557-2"><a href="biopython-genomediagram.html#cb557-2" aria-hidden="true" tabindex="-1"></a>from reportlab.lib import colors</span>
+<span id="cb557-3"><a href="biopython-genomediagram.html#cb557-3" aria-hidden="true" tabindex="-1"></a>from reportlab.lib.units import cm</span>
+<span id="cb557-4"><a href="biopython-genomediagram.html#cb557-4" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics import GenomeDiagram</span>
+<span id="cb557-5"><a href="biopython-genomediagram.html#cb557-5" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb557-6"><a href="biopython-genomediagram.html#cb557-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb557-7"><a href="biopython-genomediagram.html#cb557-7" aria-hidden="true" tabindex="-1"></a><span class="co"># new</span></span>
+<span id="cb557-8"><a href="biopython-genomediagram.html#cb557-8" aria-hidden="true" tabindex="-1"></a>from Bio.SeqFeature import SeqFeature, FeatureLocation</span>
+<span id="cb557-9"><a href="biopython-genomediagram.html#cb557-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb557-10"><a href="biopython-genomediagram.html#cb557-10" aria-hidden="true" tabindex="-1"></a><span class="co"># old</span></span>
+<span id="cb557-11"><a href="biopython-genomediagram.html#cb557-11" aria-hidden="true" tabindex="-1"></a>record <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;YOUR GB FILE HERE&quot;</span>, <span class="st">&quot;genbank&quot;</span>)</span>
+<span id="cb557-12"><a href="biopython-genomediagram.html#cb557-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb557-13"><a href="biopython-genomediagram.html#cb557-13" aria-hidden="true" tabindex="-1"></a><span class="co"># old</span></span>
+<span id="cb557-14"><a href="biopython-genomediagram.html#cb557-14" aria-hidden="true" tabindex="-1"></a>gd_diagram <span class="ot">=</span> <span class="fu">GenomeDiagram.Diagram</span>(record.id)</span>
+<span id="cb557-15"><a href="biopython-genomediagram.html#cb557-15" aria-hidden="true" tabindex="-1"></a>gd_track_for_features <span class="ot">=</span> <span class="fu">gd_diagram.new_track</span>(<span class="dv">1</span>, <span class="at">name=</span><span class="st">&quot;Annotated Features&quot;</span>)</span>
+<span id="cb557-16"><a href="biopython-genomediagram.html#cb557-16" aria-hidden="true" tabindex="-1"></a>gd_feature_set <span class="ot">=</span> <span class="fu">gd_track_for_features.new_set</span>()</span>
+<span id="cb557-17"><a href="biopython-genomediagram.html#cb557-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb557-18"><a href="biopython-genomediagram.html#cb557-18" aria-hidden="true" tabindex="-1"></a><span class="co"># old</span></span>
+<span id="cb557-19"><a href="biopython-genomediagram.html#cb557-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> feature <span class="cf">in</span> record.features<span class="sc">:</span></span>
+<span id="cb557-20"><a href="biopython-genomediagram.html#cb557-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> feature.type <span class="sc">!=</span> <span class="st">&quot;gene&quot;</span><span class="sc">:</span></span>
+<span id="cb557-21"><a href="biopython-genomediagram.html#cb557-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Exclude this feature</span></span>
+<span id="cb557-22"><a href="biopython-genomediagram.html#cb557-22" aria-hidden="true" tabindex="-1"></a>        continue</span>
+<span id="cb557-23"><a href="biopython-genomediagram.html#cb557-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="fu">len</span>(gd_feature_set) % <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span><span class="sc">:</span></span>
+<span id="cb557-24"><a href="biopython-genomediagram.html#cb557-24" aria-hidden="true" tabindex="-1"></a>        color <span class="ot">=</span> colors.blue</span>
+<span id="cb557-25"><a href="biopython-genomediagram.html#cb557-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb557-26"><a href="biopython-genomediagram.html#cb557-26" aria-hidden="true" tabindex="-1"></a>        color <span class="ot">=</span> colors.lightblue</span>
+<span id="cb557-27"><a href="biopython-genomediagram.html#cb557-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gd_feature_set.add_feature</span>(</span>
+<span id="cb557-28"><a href="biopython-genomediagram.html#cb557-28" aria-hidden="true" tabindex="-1"></a>        feature, <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>, <span class="at">color=</span>color, <span class="at">label=</span>True, <span class="at">label_size=</span><span class="dv">14</span>, <span class="at">label_angle=</span><span class="dv">0</span></span>
+<span id="cb557-29"><a href="biopython-genomediagram.html#cb557-29" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb557-30"><a href="biopython-genomediagram.html#cb557-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb557-31"><a href="biopython-genomediagram.html#cb557-31" aria-hidden="true" tabindex="-1"></a><span class="co"># new: Add restriction enzymes and sites</span></span>
+<span id="cb557-32"><a href="biopython-genomediagram.html#cb557-32" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> site, name, color <span class="cf">in</span> [</span>
+<span id="cb557-33"><a href="biopython-genomediagram.html#cb557-33" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;GAATTC&quot;</span>, <span class="st">&quot;EcoRI&quot;</span>, colors.green),</span>
+<span id="cb557-34"><a href="biopython-genomediagram.html#cb557-34" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;CCCGGG&quot;</span>, <span class="st">&quot;SmaI&quot;</span>, colors.orange),</span>
+<span id="cb557-35"><a href="biopython-genomediagram.html#cb557-35" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;AAGCTT&quot;</span>, <span class="st">&quot;HindIII&quot;</span>, colors.red),</span>
+<span id="cb557-36"><a href="biopython-genomediagram.html#cb557-36" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;GGATCC&quot;</span>, <span class="st">&quot;BamHI&quot;</span>, colors.purple),</span>
+<span id="cb557-37"><a href="biopython-genomediagram.html#cb557-37" aria-hidden="true" tabindex="-1"></a>]<span class="sc">:</span></span>
+<span id="cb557-38"><a href="biopython-genomediagram.html#cb557-38" aria-hidden="true" tabindex="-1"></a>    index <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb557-39"><a href="biopython-genomediagram.html#cb557-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> True<span class="sc">:</span></span>
+<span id="cb557-40"><a href="biopython-genomediagram.html#cb557-40" aria-hidden="true" tabindex="-1"></a>        index <span class="ot">=</span> <span class="fu">record.seq.find</span>(site, <span class="at">start=</span>index)</span>
+<span id="cb557-41"><a href="biopython-genomediagram.html#cb557-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> index <span class="sc">==</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">:</span></span>
+<span id="cb557-42"><a href="biopython-genomediagram.html#cb557-42" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb557-43"><a href="biopython-genomediagram.html#cb557-43" aria-hidden="true" tabindex="-1"></a>        feature <span class="ot">=</span> <span class="fu">SeqFeature</span>(<span class="fu">FeatureLocation</span>(index, index <span class="sc">+</span> <span class="fu">len</span>(site)))</span>
+<span id="cb557-44"><a href="biopython-genomediagram.html#cb557-44" aria-hidden="true" tabindex="-1"></a>        <span class="fu">gd_feature_set.add_feature</span>(</span>
+<span id="cb557-45"><a href="biopython-genomediagram.html#cb557-45" aria-hidden="true" tabindex="-1"></a>            feature,</span>
+<span id="cb557-46"><a href="biopython-genomediagram.html#cb557-46" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span>color,</span>
+<span id="cb557-47"><a href="biopython-genomediagram.html#cb557-47" aria-hidden="true" tabindex="-1"></a>            <span class="at">name=</span>name,</span>
+<span id="cb557-48"><a href="biopython-genomediagram.html#cb557-48" aria-hidden="true" tabindex="-1"></a>            <span class="at">label=</span>True,</span>
+<span id="cb557-49"><a href="biopython-genomediagram.html#cb557-49" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_size=</span><span class="dv">10</span>,</span>
+<span id="cb557-50"><a href="biopython-genomediagram.html#cb557-50" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_color=</span>color,</span>
+<span id="cb557-51"><a href="biopython-genomediagram.html#cb557-51" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb557-52"><a href="biopython-genomediagram.html#cb557-52" aria-hidden="true" tabindex="-1"></a>        index <span class="sc">+</span><span class="er">=</span> <span class="fu">len</span>(site)</span>
+<span id="cb557-53"><a href="biopython-genomediagram.html#cb557-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb557-54"><a href="biopython-genomediagram.html#cb557-54" aria-hidden="true" tabindex="-1"></a><span class="co"># old, linear</span></span>
+<span id="cb557-55"><a href="biopython-genomediagram.html#cb557-55" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.draw</span>(<span class="at">format=</span><span class="st">&quot;linear&quot;</span>, <span class="at">pagesize=</span><span class="st">&quot;A4&quot;</span>, <span class="at">fragments=</span><span class="dv">4</span>, <span class="at">start=</span><span class="dv">0</span>, <span class="at">end=</span><span class="fu">len</span>(record))</span>
+<span id="cb557-56"><a href="biopython-genomediagram.html#cb557-56" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(<span class="st">&quot;example2.pdf&quot;</span>, <span class="st">&quot;PDF&quot;</span>)</span>
+<span id="cb557-57"><a href="biopython-genomediagram.html#cb557-57" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(<span class="st">&quot;example2.eps&quot;</span>, <span class="st">&quot;EPS&quot;</span>)</span>
+<span id="cb557-58"><a href="biopython-genomediagram.html#cb557-58" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(<span class="st">&quot;example2.svg&quot;</span>, <span class="st">&quot;SVG&quot;</span>)</span>
+<span id="cb557-59"><a href="biopython-genomediagram.html#cb557-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb557-60"><a href="biopython-genomediagram.html#cb557-60" aria-hidden="true" tabindex="-1"></a><span class="co"># old, circular</span></span>
+<span id="cb557-61"><a href="biopython-genomediagram.html#cb557-61" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.draw</span>(</span>
+<span id="cb557-62"><a href="biopython-genomediagram.html#cb557-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">format=</span><span class="st">&quot;circular&quot;</span>,</span>
+<span id="cb557-63"><a href="biopython-genomediagram.html#cb557-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">circular=</span>True,</span>
+<span id="cb557-64"><a href="biopython-genomediagram.html#cb557-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">pagesize=</span>(<span class="dv">20</span> <span class="sc">*</span> cm, <span class="dv">20</span> <span class="sc">*</span> cm),</span>
+<span id="cb557-65"><a href="biopython-genomediagram.html#cb557-65" aria-hidden="true" tabindex="-1"></a>    <span class="at">start=</span><span class="dv">0</span>,</span>
+<span id="cb557-66"><a href="biopython-genomediagram.html#cb557-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">end=</span><span class="fu">len</span>(record),</span>
+<span id="cb557-67"><a href="biopython-genomediagram.html#cb557-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">circle_core=</span><span class="fl">0.5</span>,</span>
+<span id="cb557-68"><a href="biopython-genomediagram.html#cb557-68" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb557-69"><a href="biopython-genomediagram.html#cb557-69" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(<span class="st">&quot;example2.pdf&quot;</span>, <span class="st">&quot;PDF&quot;</span>)</span>
+<span id="cb557-70"><a href="biopython-genomediagram.html#cb557-70" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(<span class="st">&quot;example2.eps&quot;</span>, <span class="st">&quot;EPS&quot;</span>)</span>
+<span id="cb557-71"><a href="biopython-genomediagram.html#cb557-71" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(<span class="st">&quot;example2.svg&quot;</span>, <span class="st">&quot;SVG&quot;</span>)</span></code></pre></div>
 </div>
 <div id="tracks-on-tracks" class="section level2" number="23.6">
 <h2><span class="header-section-number">23.6</span> Tracks on Tracks</h2>
 <p>I will use the following genbank file for my example of stacked tracks along with my previous file. You are again free to use your own genome/genome segment of choice.</p>
 <p><a href="https://www.ncbi.nlm.nih.gov/nucleotide/NC_006839.1" target="_blank"><strong>genome_mt_1</strong></a></p>
 <p><a href="https://www.ncbi.nlm.nih.gov/nucleotide/NC_026789.1" target="_blank"><strong>genome_mt_2</strong></a></p>
-<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="biopython-genomediagram.html#cb552-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb552-2"><a href="biopython-genomediagram.html#cb552-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb552-3"><a href="biopython-genomediagram.html#cb552-3" aria-hidden="true" tabindex="-1"></a>A_rec <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;XL.gb&quot;</span>, <span class="st">&quot;gb&quot;</span>)</span>
-<span id="cb552-4"><a href="biopython-genomediagram.html#cb552-4" aria-hidden="true" tabindex="-1"></a>B_rec <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;XT.gb&quot;</span>, <span class="st">&quot;gb&quot;</span>)</span>
-<span id="cb552-5"><a href="biopython-genomediagram.html#cb552-5" aria-hidden="true" tabindex="-1"></a>C_rec <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;NP.gb&quot;</span>, <span class="st">&quot;gb&quot;</span>)</span>
-<span id="cb552-6"><a href="biopython-genomediagram.html#cb552-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb552-7"><a href="biopython-genomediagram.html#cb552-7" aria-hidden="true" tabindex="-1"></a>from reportlab.lib.colors <span class="fu">import</span> (</span>
-<span id="cb552-8"><a href="biopython-genomediagram.html#cb552-8" aria-hidden="true" tabindex="-1"></a>    red,</span>
-<span id="cb552-9"><a href="biopython-genomediagram.html#cb552-9" aria-hidden="true" tabindex="-1"></a>    grey,</span>
-<span id="cb552-10"><a href="biopython-genomediagram.html#cb552-10" aria-hidden="true" tabindex="-1"></a>    orange,</span>
-<span id="cb552-11"><a href="biopython-genomediagram.html#cb552-11" aria-hidden="true" tabindex="-1"></a>    green,</span>
-<span id="cb552-12"><a href="biopython-genomediagram.html#cb552-12" aria-hidden="true" tabindex="-1"></a>    brown,</span>
-<span id="cb552-13"><a href="biopython-genomediagram.html#cb552-13" aria-hidden="true" tabindex="-1"></a>    blue,</span>
-<span id="cb552-14"><a href="biopython-genomediagram.html#cb552-14" aria-hidden="true" tabindex="-1"></a>    lightblue,</span>
-<span id="cb552-15"><a href="biopython-genomediagram.html#cb552-15" aria-hidden="true" tabindex="-1"></a>    purple,</span>
-<span id="cb552-16"><a href="biopython-genomediagram.html#cb552-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb552-17"><a href="biopython-genomediagram.html#cb552-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb552-18"><a href="biopython-genomediagram.html#cb552-18" aria-hidden="true" tabindex="-1"></a>A_colors <span class="ot">=</span> (</span>
-<span id="cb552-19"><a href="biopython-genomediagram.html#cb552-19" aria-hidden="true" tabindex="-1"></a>    [red] <span class="sc">*</span> <span class="dv">5</span></span>
-<span id="cb552-20"><a href="biopython-genomediagram.html#cb552-20" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey] <span class="sc">*</span> <span class="dv">7</span></span>
-<span id="cb552-21"><a href="biopython-genomediagram.html#cb552-21" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [orange] <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb552-22"><a href="biopython-genomediagram.html#cb552-22" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey] <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb552-23"><a href="biopython-genomediagram.html#cb552-23" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [orange]</span>
-<span id="cb552-24"><a href="biopython-genomediagram.html#cb552-24" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey] <span class="sc">*</span> <span class="dv">11</span></span>
-<span id="cb552-25"><a href="biopython-genomediagram.html#cb552-25" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [green] <span class="sc">*</span> <span class="dv">4</span></span>
-<span id="cb552-26"><a href="biopython-genomediagram.html#cb552-26" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
-<span id="cb552-27"><a href="biopython-genomediagram.html#cb552-27" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [green] <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb552-28"><a href="biopython-genomediagram.html#cb552-28" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey, green]</span>
-<span id="cb552-29"><a href="biopython-genomediagram.html#cb552-29" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [brown] <span class="sc">*</span> <span class="dv">5</span></span>
-<span id="cb552-30"><a href="biopython-genomediagram.html#cb552-30" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [blue] <span class="sc">*</span> <span class="dv">4</span></span>
-<span id="cb552-31"><a href="biopython-genomediagram.html#cb552-31" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [lightblue] <span class="sc">*</span> <span class="dv">5</span></span>
-<span id="cb552-32"><a href="biopython-genomediagram.html#cb552-32" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey, lightblue]</span>
-<span id="cb552-33"><a href="biopython-genomediagram.html#cb552-33" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [purple] <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb552-34"><a href="biopython-genomediagram.html#cb552-34" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
-<span id="cb552-35"><a href="biopython-genomediagram.html#cb552-35" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb552-36"><a href="biopython-genomediagram.html#cb552-36" aria-hidden="true" tabindex="-1"></a>B_colors <span class="ot">=</span> (</span>
-<span id="cb552-37"><a href="biopython-genomediagram.html#cb552-37" aria-hidden="true" tabindex="-1"></a>    [red] <span class="sc">*</span> <span class="dv">6</span></span>
-<span id="cb552-38"><a href="biopython-genomediagram.html#cb552-38" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey] <span class="sc">*</span> <span class="dv">8</span></span>
-<span id="cb552-39"><a href="biopython-genomediagram.html#cb552-39" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [orange] <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb552-40"><a href="biopython-genomediagram.html#cb552-40" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
-<span id="cb552-41"><a href="biopython-genomediagram.html#cb552-41" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [orange]</span>
-<span id="cb552-42"><a href="biopython-genomediagram.html#cb552-42" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey] <span class="sc">*</span> <span class="dv">21</span></span>
-<span id="cb552-43"><a href="biopython-genomediagram.html#cb552-43" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [green] <span class="sc">*</span> <span class="dv">5</span></span>
-<span id="cb552-44"><a href="biopython-genomediagram.html#cb552-44" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
-<span id="cb552-45"><a href="biopython-genomediagram.html#cb552-45" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [brown] <span class="sc">*</span> <span class="dv">4</span></span>
-<span id="cb552-46"><a href="biopython-genomediagram.html#cb552-46" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [blue] <span class="sc">*</span> <span class="dv">3</span></span>
-<span id="cb552-47"><a href="biopython-genomediagram.html#cb552-47" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [lightblue] <span class="sc">*</span> <span class="dv">3</span></span>
-<span id="cb552-48"><a href="biopython-genomediagram.html#cb552-48" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey] <span class="sc">*</span> <span class="dv">5</span></span>
-<span id="cb552-49"><a href="biopython-genomediagram.html#cb552-49" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [purple] <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb552-50"><a href="biopython-genomediagram.html#cb552-50" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb552-51"><a href="biopython-genomediagram.html#cb552-51" aria-hidden="true" tabindex="-1"></a>C_colors <span class="ot">=</span> (</span>
-<span id="cb552-52"><a href="biopython-genomediagram.html#cb552-52" aria-hidden="true" tabindex="-1"></a>    [grey] <span class="sc">*</span> <span class="dv">30</span></span>
-<span id="cb552-53"><a href="biopython-genomediagram.html#cb552-53" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [green] <span class="sc">*</span> <span class="dv">5</span></span>
-<span id="cb552-54"><a href="biopython-genomediagram.html#cb552-54" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [brown] <span class="sc">*</span> <span class="dv">4</span></span>
-<span id="cb552-55"><a href="biopython-genomediagram.html#cb552-55" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [blue] <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb552-56"><a href="biopython-genomediagram.html#cb552-56" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey, blue]</span>
-<span id="cb552-57"><a href="biopython-genomediagram.html#cb552-57" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [lightblue] <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb552-58"><a href="biopython-genomediagram.html#cb552-58" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey] <span class="sc">*</span> <span class="dv">5</span></span>
-<span id="cb552-59"><a href="biopython-genomediagram.html#cb552-59" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb552-60"><a href="biopython-genomediagram.html#cb552-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb552-61"><a href="biopython-genomediagram.html#cb552-61" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics import GenomeDiagram</span>
-<span id="cb552-62"><a href="biopython-genomediagram.html#cb552-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb552-63"><a href="biopython-genomediagram.html#cb552-63" aria-hidden="true" tabindex="-1"></a>name <span class="ot">=</span> <span class="st">&quot;Stacked&quot;</span></span>
-<span id="cb552-64"><a href="biopython-genomediagram.html#cb552-64" aria-hidden="true" tabindex="-1"></a>gd_diagram <span class="ot">=</span> <span class="fu">GenomeDiagram.Diagram</span>(name)</span>
-<span id="cb552-65"><a href="biopython-genomediagram.html#cb552-65" aria-hidden="true" tabindex="-1"></a>max_len <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb552-66"><a href="biopython-genomediagram.html#cb552-66" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> record, gene_colors <span class="cf">in</span> <span class="fu">zip</span>([A_rec, B_rec, C_rec], [A_colors, B_colors, C_colors])<span class="sc">:</span></span>
-<span id="cb552-67"><a href="biopython-genomediagram.html#cb552-67" aria-hidden="true" tabindex="-1"></a>    max_len <span class="ot">=</span> <span class="fu">max</span>(max_len, <span class="fu">len</span>(record))</span>
-<span id="cb552-68"><a href="biopython-genomediagram.html#cb552-68" aria-hidden="true" tabindex="-1"></a>    gd_track_for_features <span class="ot">=</span> <span class="fu">gd_diagram.new_track</span>(</span>
-<span id="cb552-69"><a href="biopython-genomediagram.html#cb552-69" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1</span>, <span class="at">name=</span>record.name, <span class="at">greytrack=</span>True, <span class="at">start=</span><span class="dv">0</span>, <span class="at">end=</span><span class="fu">len</span>(record)</span>
-<span id="cb552-70"><a href="biopython-genomediagram.html#cb552-70" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb552-71"><a href="biopython-genomediagram.html#cb552-71" aria-hidden="true" tabindex="-1"></a>    gd_feature_set <span class="ot">=</span> <span class="fu">gd_track_for_features.new_set</span>()</span>
-<span id="cb552-72"><a href="biopython-genomediagram.html#cb552-72" aria-hidden="true" tabindex="-1"></a>    i <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb552-73"><a href="biopython-genomediagram.html#cb552-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> feature <span class="cf">in</span> record.features<span class="sc">:</span></span>
-<span id="cb552-74"><a href="biopython-genomediagram.html#cb552-74" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> feature.type <span class="sc">!=</span> <span class="st">&quot;gene&quot;</span><span class="sc">:</span></span>
-<span id="cb552-75"><a href="biopython-genomediagram.html#cb552-75" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Exclude this feature</span></span>
-<span id="cb552-76"><a href="biopython-genomediagram.html#cb552-76" aria-hidden="true" tabindex="-1"></a>            continue</span>
-<span id="cb552-77"><a href="biopython-genomediagram.html#cb552-77" aria-hidden="true" tabindex="-1"></a>        <span class="fu">gd_feature_set.add_feature</span>(</span>
-<span id="cb552-78"><a href="biopython-genomediagram.html#cb552-78" aria-hidden="true" tabindex="-1"></a>            feature,</span>
-<span id="cb552-79"><a href="biopython-genomediagram.html#cb552-79" aria-hidden="true" tabindex="-1"></a>            <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>,</span>
-<span id="cb552-80"><a href="biopython-genomediagram.html#cb552-80" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span>gene_colors[i],</span>
-<span id="cb552-81"><a href="biopython-genomediagram.html#cb552-81" aria-hidden="true" tabindex="-1"></a>            <span class="at">label=</span>True,</span>
-<span id="cb552-82"><a href="biopython-genomediagram.html#cb552-82" aria-hidden="true" tabindex="-1"></a>            <span class="at">name=</span><span class="fu">str</span>(i <span class="sc">+</span> <span class="dv">1</span>),</span>
-<span id="cb552-83"><a href="biopython-genomediagram.html#cb552-83" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_position=</span><span class="st">&quot;start&quot;</span>,</span>
-<span id="cb552-84"><a href="biopython-genomediagram.html#cb552-84" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_size=</span><span class="dv">6</span>,</span>
-<span id="cb552-85"><a href="biopython-genomediagram.html#cb552-85" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_angle=</span><span class="dv">0</span>,</span>
-<span id="cb552-86"><a href="biopython-genomediagram.html#cb552-86" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb552-87"><a href="biopython-genomediagram.html#cb552-87" aria-hidden="true" tabindex="-1"></a>        i <span class="sc">+</span><span class="er">=</span> <span class="dv">1</span></span>
-<span id="cb552-88"><a href="biopython-genomediagram.html#cb552-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb552-89"><a href="biopython-genomediagram.html#cb552-89" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.draw</span>(<span class="at">format=</span><span class="st">&quot;linear&quot;</span>, <span class="at">pagesize=</span><span class="st">&quot;A4&quot;</span>, <span class="at">fragments=</span><span class="dv">1</span>, <span class="at">start=</span><span class="dv">0</span>, <span class="at">end=</span>max_len)</span>
-<span id="cb552-90"><a href="biopython-genomediagram.html#cb552-90" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.pdf&quot;</span>, <span class="st">&quot;PDF&quot;</span>)</span>
-<span id="cb552-91"><a href="biopython-genomediagram.html#cb552-91" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.eps&quot;</span>, <span class="st">&quot;EPS&quot;</span>)</span>
-<span id="cb552-92"><a href="biopython-genomediagram.html#cb552-92" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.svg&quot;</span>, <span class="st">&quot;SVG&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="biopython-genomediagram.html#cb558-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb558-2"><a href="biopython-genomediagram.html#cb558-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb558-3"><a href="biopython-genomediagram.html#cb558-3" aria-hidden="true" tabindex="-1"></a>A_rec <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;XL.gb&quot;</span>, <span class="st">&quot;gb&quot;</span>)</span>
+<span id="cb558-4"><a href="biopython-genomediagram.html#cb558-4" aria-hidden="true" tabindex="-1"></a>B_rec <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;XT.gb&quot;</span>, <span class="st">&quot;gb&quot;</span>)</span>
+<span id="cb558-5"><a href="biopython-genomediagram.html#cb558-5" aria-hidden="true" tabindex="-1"></a>C_rec <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;NP.gb&quot;</span>, <span class="st">&quot;gb&quot;</span>)</span>
+<span id="cb558-6"><a href="biopython-genomediagram.html#cb558-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb558-7"><a href="biopython-genomediagram.html#cb558-7" aria-hidden="true" tabindex="-1"></a>from reportlab.lib.colors <span class="fu">import</span> (</span>
+<span id="cb558-8"><a href="biopython-genomediagram.html#cb558-8" aria-hidden="true" tabindex="-1"></a>    red,</span>
+<span id="cb558-9"><a href="biopython-genomediagram.html#cb558-9" aria-hidden="true" tabindex="-1"></a>    grey,</span>
+<span id="cb558-10"><a href="biopython-genomediagram.html#cb558-10" aria-hidden="true" tabindex="-1"></a>    orange,</span>
+<span id="cb558-11"><a href="biopython-genomediagram.html#cb558-11" aria-hidden="true" tabindex="-1"></a>    green,</span>
+<span id="cb558-12"><a href="biopython-genomediagram.html#cb558-12" aria-hidden="true" tabindex="-1"></a>    brown,</span>
+<span id="cb558-13"><a href="biopython-genomediagram.html#cb558-13" aria-hidden="true" tabindex="-1"></a>    blue,</span>
+<span id="cb558-14"><a href="biopython-genomediagram.html#cb558-14" aria-hidden="true" tabindex="-1"></a>    lightblue,</span>
+<span id="cb558-15"><a href="biopython-genomediagram.html#cb558-15" aria-hidden="true" tabindex="-1"></a>    purple,</span>
+<span id="cb558-16"><a href="biopython-genomediagram.html#cb558-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb558-17"><a href="biopython-genomediagram.html#cb558-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb558-18"><a href="biopython-genomediagram.html#cb558-18" aria-hidden="true" tabindex="-1"></a>A_colors <span class="ot">=</span> (</span>
+<span id="cb558-19"><a href="biopython-genomediagram.html#cb558-19" aria-hidden="true" tabindex="-1"></a>    [red] <span class="sc">*</span> <span class="dv">5</span></span>
+<span id="cb558-20"><a href="biopython-genomediagram.html#cb558-20" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey] <span class="sc">*</span> <span class="dv">7</span></span>
+<span id="cb558-21"><a href="biopython-genomediagram.html#cb558-21" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [orange] <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb558-22"><a href="biopython-genomediagram.html#cb558-22" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey] <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb558-23"><a href="biopython-genomediagram.html#cb558-23" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [orange]</span>
+<span id="cb558-24"><a href="biopython-genomediagram.html#cb558-24" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey] <span class="sc">*</span> <span class="dv">11</span></span>
+<span id="cb558-25"><a href="biopython-genomediagram.html#cb558-25" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [green] <span class="sc">*</span> <span class="dv">4</span></span>
+<span id="cb558-26"><a href="biopython-genomediagram.html#cb558-26" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
+<span id="cb558-27"><a href="biopython-genomediagram.html#cb558-27" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [green] <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb558-28"><a href="biopython-genomediagram.html#cb558-28" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey, green]</span>
+<span id="cb558-29"><a href="biopython-genomediagram.html#cb558-29" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [brown] <span class="sc">*</span> <span class="dv">5</span></span>
+<span id="cb558-30"><a href="biopython-genomediagram.html#cb558-30" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [blue] <span class="sc">*</span> <span class="dv">4</span></span>
+<span id="cb558-31"><a href="biopython-genomediagram.html#cb558-31" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [lightblue] <span class="sc">*</span> <span class="dv">5</span></span>
+<span id="cb558-32"><a href="biopython-genomediagram.html#cb558-32" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey, lightblue]</span>
+<span id="cb558-33"><a href="biopython-genomediagram.html#cb558-33" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [purple] <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb558-34"><a href="biopython-genomediagram.html#cb558-34" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
+<span id="cb558-35"><a href="biopython-genomediagram.html#cb558-35" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb558-36"><a href="biopython-genomediagram.html#cb558-36" aria-hidden="true" tabindex="-1"></a>B_colors <span class="ot">=</span> (</span>
+<span id="cb558-37"><a href="biopython-genomediagram.html#cb558-37" aria-hidden="true" tabindex="-1"></a>    [red] <span class="sc">*</span> <span class="dv">6</span></span>
+<span id="cb558-38"><a href="biopython-genomediagram.html#cb558-38" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey] <span class="sc">*</span> <span class="dv">8</span></span>
+<span id="cb558-39"><a href="biopython-genomediagram.html#cb558-39" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [orange] <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb558-40"><a href="biopython-genomediagram.html#cb558-40" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
+<span id="cb558-41"><a href="biopython-genomediagram.html#cb558-41" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [orange]</span>
+<span id="cb558-42"><a href="biopython-genomediagram.html#cb558-42" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey] <span class="sc">*</span> <span class="dv">21</span></span>
+<span id="cb558-43"><a href="biopython-genomediagram.html#cb558-43" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [green] <span class="sc">*</span> <span class="dv">5</span></span>
+<span id="cb558-44"><a href="biopython-genomediagram.html#cb558-44" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
+<span id="cb558-45"><a href="biopython-genomediagram.html#cb558-45" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [brown] <span class="sc">*</span> <span class="dv">4</span></span>
+<span id="cb558-46"><a href="biopython-genomediagram.html#cb558-46" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [blue] <span class="sc">*</span> <span class="dv">3</span></span>
+<span id="cb558-47"><a href="biopython-genomediagram.html#cb558-47" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [lightblue] <span class="sc">*</span> <span class="dv">3</span></span>
+<span id="cb558-48"><a href="biopython-genomediagram.html#cb558-48" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey] <span class="sc">*</span> <span class="dv">5</span></span>
+<span id="cb558-49"><a href="biopython-genomediagram.html#cb558-49" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [purple] <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb558-50"><a href="biopython-genomediagram.html#cb558-50" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb558-51"><a href="biopython-genomediagram.html#cb558-51" aria-hidden="true" tabindex="-1"></a>C_colors <span class="ot">=</span> (</span>
+<span id="cb558-52"><a href="biopython-genomediagram.html#cb558-52" aria-hidden="true" tabindex="-1"></a>    [grey] <span class="sc">*</span> <span class="dv">30</span></span>
+<span id="cb558-53"><a href="biopython-genomediagram.html#cb558-53" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [green] <span class="sc">*</span> <span class="dv">5</span></span>
+<span id="cb558-54"><a href="biopython-genomediagram.html#cb558-54" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [brown] <span class="sc">*</span> <span class="dv">4</span></span>
+<span id="cb558-55"><a href="biopython-genomediagram.html#cb558-55" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [blue] <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb558-56"><a href="biopython-genomediagram.html#cb558-56" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey, blue]</span>
+<span id="cb558-57"><a href="biopython-genomediagram.html#cb558-57" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [lightblue] <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb558-58"><a href="biopython-genomediagram.html#cb558-58" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey] <span class="sc">*</span> <span class="dv">5</span></span>
+<span id="cb558-59"><a href="biopython-genomediagram.html#cb558-59" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb558-60"><a href="biopython-genomediagram.html#cb558-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb558-61"><a href="biopython-genomediagram.html#cb558-61" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics import GenomeDiagram</span>
+<span id="cb558-62"><a href="biopython-genomediagram.html#cb558-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb558-63"><a href="biopython-genomediagram.html#cb558-63" aria-hidden="true" tabindex="-1"></a>name <span class="ot">=</span> <span class="st">&quot;Stacked&quot;</span></span>
+<span id="cb558-64"><a href="biopython-genomediagram.html#cb558-64" aria-hidden="true" tabindex="-1"></a>gd_diagram <span class="ot">=</span> <span class="fu">GenomeDiagram.Diagram</span>(name)</span>
+<span id="cb558-65"><a href="biopython-genomediagram.html#cb558-65" aria-hidden="true" tabindex="-1"></a>max_len <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb558-66"><a href="biopython-genomediagram.html#cb558-66" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> record, gene_colors <span class="cf">in</span> <span class="fu">zip</span>([A_rec, B_rec, C_rec], [A_colors, B_colors, C_colors])<span class="sc">:</span></span>
+<span id="cb558-67"><a href="biopython-genomediagram.html#cb558-67" aria-hidden="true" tabindex="-1"></a>    max_len <span class="ot">=</span> <span class="fu">max</span>(max_len, <span class="fu">len</span>(record))</span>
+<span id="cb558-68"><a href="biopython-genomediagram.html#cb558-68" aria-hidden="true" tabindex="-1"></a>    gd_track_for_features <span class="ot">=</span> <span class="fu">gd_diagram.new_track</span>(</span>
+<span id="cb558-69"><a href="biopython-genomediagram.html#cb558-69" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1</span>, <span class="at">name=</span>record.name, <span class="at">greytrack=</span>True, <span class="at">start=</span><span class="dv">0</span>, <span class="at">end=</span><span class="fu">len</span>(record)</span>
+<span id="cb558-70"><a href="biopython-genomediagram.html#cb558-70" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb558-71"><a href="biopython-genomediagram.html#cb558-71" aria-hidden="true" tabindex="-1"></a>    gd_feature_set <span class="ot">=</span> <span class="fu">gd_track_for_features.new_set</span>()</span>
+<span id="cb558-72"><a href="biopython-genomediagram.html#cb558-72" aria-hidden="true" tabindex="-1"></a>    i <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb558-73"><a href="biopython-genomediagram.html#cb558-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> feature <span class="cf">in</span> record.features<span class="sc">:</span></span>
+<span id="cb558-74"><a href="biopython-genomediagram.html#cb558-74" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> feature.type <span class="sc">!=</span> <span class="st">&quot;gene&quot;</span><span class="sc">:</span></span>
+<span id="cb558-75"><a href="biopython-genomediagram.html#cb558-75" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Exclude this feature</span></span>
+<span id="cb558-76"><a href="biopython-genomediagram.html#cb558-76" aria-hidden="true" tabindex="-1"></a>            continue</span>
+<span id="cb558-77"><a href="biopython-genomediagram.html#cb558-77" aria-hidden="true" tabindex="-1"></a>        <span class="fu">gd_feature_set.add_feature</span>(</span>
+<span id="cb558-78"><a href="biopython-genomediagram.html#cb558-78" aria-hidden="true" tabindex="-1"></a>            feature,</span>
+<span id="cb558-79"><a href="biopython-genomediagram.html#cb558-79" aria-hidden="true" tabindex="-1"></a>            <span class="at">sigil=</span><span class="st">&quot;ARROW&quot;</span>,</span>
+<span id="cb558-80"><a href="biopython-genomediagram.html#cb558-80" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span>gene_colors[i],</span>
+<span id="cb558-81"><a href="biopython-genomediagram.html#cb558-81" aria-hidden="true" tabindex="-1"></a>            <span class="at">label=</span>True,</span>
+<span id="cb558-82"><a href="biopython-genomediagram.html#cb558-82" aria-hidden="true" tabindex="-1"></a>            <span class="at">name=</span><span class="fu">str</span>(i <span class="sc">+</span> <span class="dv">1</span>),</span>
+<span id="cb558-83"><a href="biopython-genomediagram.html#cb558-83" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_position=</span><span class="st">&quot;start&quot;</span>,</span>
+<span id="cb558-84"><a href="biopython-genomediagram.html#cb558-84" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_size=</span><span class="dv">6</span>,</span>
+<span id="cb558-85"><a href="biopython-genomediagram.html#cb558-85" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_angle=</span><span class="dv">0</span>,</span>
+<span id="cb558-86"><a href="biopython-genomediagram.html#cb558-86" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb558-87"><a href="biopython-genomediagram.html#cb558-87" aria-hidden="true" tabindex="-1"></a>        i <span class="sc">+</span><span class="er">=</span> <span class="dv">1</span></span>
+<span id="cb558-88"><a href="biopython-genomediagram.html#cb558-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb558-89"><a href="biopython-genomediagram.html#cb558-89" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.draw</span>(<span class="at">format=</span><span class="st">&quot;linear&quot;</span>, <span class="at">pagesize=</span><span class="st">&quot;A4&quot;</span>, <span class="at">fragments=</span><span class="dv">1</span>, <span class="at">start=</span><span class="dv">0</span>, <span class="at">end=</span>max_len)</span>
+<span id="cb558-90"><a href="biopython-genomediagram.html#cb558-90" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.pdf&quot;</span>, <span class="st">&quot;PDF&quot;</span>)</span>
+<span id="cb558-91"><a href="biopython-genomediagram.html#cb558-91" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.eps&quot;</span>, <span class="st">&quot;EPS&quot;</span>)</span>
+<span id="cb558-92"><a href="biopython-genomediagram.html#cb558-92" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.svg&quot;</span>, <span class="st">&quot;SVG&quot;</span>)</span></code></pre></div>
 </div>
 <div id="cross-link-data" class="section level2" number="23.7">
 <h2><span class="header-section-number">23.7</span> Cross-link Data</h2>
 <p>Time to find similarities and differences.</p>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="biopython-genomediagram.html#cb553-1" aria-hidden="true" tabindex="-1"></a>A_vs_B <span class="ot">=</span> [</span>
-<span id="cb553-2"><a href="biopython-genomediagram.html#cb553-2" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">99</span>, <span class="st">&quot;ND1&quot;</span>, <span class="st">&quot;ND1&quot;</span>),</span>
-<span id="cb553-3"><a href="biopython-genomediagram.html#cb553-3" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">33</span>, <span class="st">&quot;ND2&quot;</span>, <span class="st">&quot;ND2&quot;</span>),</span>
-<span id="cb553-4"><a href="biopython-genomediagram.html#cb553-4" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">94</span>, <span class="st">&quot;COX1&quot;</span>, <span class="st">&quot;COX1&quot;</span>),</span>
-<span id="cb553-5"><a href="biopython-genomediagram.html#cb553-5" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span>, <span class="st">&quot;COX2&quot;</span>, <span class="st">&quot;COX2&quot;</span>),</span>
-<span id="cb553-6"><a href="biopython-genomediagram.html#cb553-6" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">97</span>, <span class="st">&quot;ATP8&quot;</span>, <span class="st">&quot;ATP8&quot;</span>),</span>
-<span id="cb553-7"><a href="biopython-genomediagram.html#cb553-7" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">98</span>, <span class="st">&quot;ATP6&quot;</span>, <span class="st">&quot;ATP6&quot;</span>),</span>
-<span id="cb553-8"><a href="biopython-genomediagram.html#cb553-8" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">98</span>, <span class="st">&quot;COX3&quot;</span>, <span class="st">&quot;COX3&quot;</span>),</span>
-<span id="cb553-9"><a href="biopython-genomediagram.html#cb553-9" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span>, <span class="st">&quot;ND3&quot;</span>, <span class="st">&quot;ND3&quot;</span>),</span>
-<span id="cb553-10"><a href="biopython-genomediagram.html#cb553-10" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span>, <span class="st">&quot;ND4L&quot;</span>, <span class="st">&quot;ND4L&quot;</span>),</span>
-<span id="cb553-11"><a href="biopython-genomediagram.html#cb553-11" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">94</span>, <span class="st">&quot;ND4&quot;</span>, <span class="st">&quot;ND4&quot;</span>),</span>
-<span id="cb553-12"><a href="biopython-genomediagram.html#cb553-12" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">87</span>, <span class="st">&quot;ND5&quot;</span>, <span class="st">&quot;ND5&quot;</span>),</span>
-<span id="cb553-13"><a href="biopython-genomediagram.html#cb553-13" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">94</span>, <span class="st">&quot;ND6&quot;</span>, <span class="st">&quot;ND6&quot;</span>),</span>
-<span id="cb553-14"><a href="biopython-genomediagram.html#cb553-14" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">94</span>, <span class="st">&quot;CYTB&quot;</span>, <span class="st">&quot;CYTB&quot;</span>),</span>
-<span id="cb553-15"><a href="biopython-genomediagram.html#cb553-15" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb553-16"><a href="biopython-genomediagram.html#cb553-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb553-17"><a href="biopython-genomediagram.html#cb553-17" aria-hidden="true" tabindex="-1"></a>B_vs_C <span class="ot">=</span> [</span>
-<span id="cb553-18"><a href="biopython-genomediagram.html#cb553-18" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">49</span>, <span class="st">&quot;ND1&quot;</span>, <span class="st">&quot;ND1&quot;</span>),</span>
-<span id="cb553-19"><a href="biopython-genomediagram.html#cb553-19" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">53</span>, <span class="st">&quot;ND2&quot;</span>, <span class="st">&quot;ND2&quot;</span>),</span>
-<span id="cb553-20"><a href="biopython-genomediagram.html#cb553-20" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">64</span>, <span class="st">&quot;COX1&quot;</span>, <span class="st">&quot;COX1&quot;</span>),</span>
-<span id="cb553-21"><a href="biopython-genomediagram.html#cb553-21" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">30</span>, <span class="st">&quot;COX2&quot;</span>, <span class="st">&quot;COX2&quot;</span>),</span>
-<span id="cb553-22"><a href="biopython-genomediagram.html#cb553-22" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">27</span>, <span class="st">&quot;ATP8&quot;</span>, <span class="st">&quot;ATP8&quot;</span>),</span>
-<span id="cb553-23"><a href="biopython-genomediagram.html#cb553-23" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">88</span>, <span class="st">&quot;ATP6&quot;</span>, <span class="st">&quot;ATP6&quot;</span>),</span>
-<span id="cb553-24"><a href="biopython-genomediagram.html#cb553-24" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">68</span>, <span class="st">&quot;COX3&quot;</span>, <span class="st">&quot;COX3&quot;</span>),</span>
-<span id="cb553-25"><a href="biopython-genomediagram.html#cb553-25" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">30</span>, <span class="st">&quot;ND3&quot;</span>, <span class="st">&quot;ND3&quot;</span>),</span>
-<span id="cb553-26"><a href="biopython-genomediagram.html#cb553-26" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span>, <span class="st">&quot;ND4L&quot;</span>, <span class="st">&quot;ND4L&quot;</span>),</span>
-<span id="cb553-27"><a href="biopython-genomediagram.html#cb553-27" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">74</span>, <span class="st">&quot;ND4&quot;</span>, <span class="st">&quot;ND4&quot;</span>),</span>
-<span id="cb553-28"><a href="biopython-genomediagram.html#cb553-28" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">37</span>, <span class="st">&quot;ND5&quot;</span>, <span class="st">&quot;ND5&quot;</span>),</span>
-<span id="cb553-29"><a href="biopython-genomediagram.html#cb553-29" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">74</span>, <span class="st">&quot;ND6&quot;</span>, <span class="st">&quot;ND6&quot;</span>),</span>
-<span id="cb553-30"><a href="biopython-genomediagram.html#cb553-30" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">64</span>, <span class="st">&quot;CYTB&quot;</span>, <span class="st">&quot;CYTB&quot;</span>),</span>
-<span id="cb553-31"><a href="biopython-genomediagram.html#cb553-31" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb553-32"><a href="biopython-genomediagram.html#cb553-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb553-33"><a href="biopython-genomediagram.html#cb553-33" aria-hidden="true" tabindex="-1"></a>def <span class="fu">get_feature</span>(features, id, <span class="at">tags=</span>[<span class="st">&quot;locus_tag&quot;</span>, <span class="st">&quot;gene&quot;</span>])<span class="sc">:</span></span>
-<span id="cb553-34"><a href="biopython-genomediagram.html#cb553-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;&quot;&quot;Search list of SeqFeature objects for an identifier under the given tags.&quot;&quot;&quot;</span></span>
-<span id="cb553-35"><a href="biopython-genomediagram.html#cb553-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="cf">in</span> features<span class="sc">:</span></span>
-<span id="cb553-36"><a href="biopython-genomediagram.html#cb553-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> key <span class="cf">in</span> tags<span class="sc">:</span></span>
-<span id="cb553-37"><a href="biopython-genomediagram.html#cb553-37" aria-hidden="true" tabindex="-1"></a>            <span class="co"># tag may not be present in this feature</span></span>
-<span id="cb553-38"><a href="biopython-genomediagram.html#cb553-38" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> x <span class="cf">in</span> <span class="fu">f.qualifiers.get</span>(key, [])<span class="sc">:</span></span>
-<span id="cb553-39"><a href="biopython-genomediagram.html#cb553-39" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> x <span class="sc">==</span> id<span class="sc">:</span></span>
-<span id="cb553-40"><a href="biopython-genomediagram.html#cb553-40" aria-hidden="true" tabindex="-1"></a>                    return f</span>
-<span id="cb553-41"><a href="biopython-genomediagram.html#cb553-41" aria-hidden="true" tabindex="-1"></a>    raise <span class="fu">KeyError</span>(id)</span>
-<span id="cb553-42"><a href="biopython-genomediagram.html#cb553-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb553-43"><a href="biopython-genomediagram.html#cb553-43" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics.GenomeDiagram import CrossLink</span>
-<span id="cb553-44"><a href="biopython-genomediagram.html#cb553-44" aria-hidden="true" tabindex="-1"></a>from reportlab.lib import colors</span>
-<span id="cb553-45"><a href="biopython-genomediagram.html#cb553-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb553-46"><a href="biopython-genomediagram.html#cb553-46" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> rec_X, tn_X, rec_Y, tn_Y, X_vs_Y <span class="cf">in</span> [</span>
-<span id="cb553-47"><a href="biopython-genomediagram.html#cb553-47" aria-hidden="true" tabindex="-1"></a>    (A_rec, <span class="dv">3</span>, B_rec, <span class="dv">2</span>, A_vs_B),</span>
-<span id="cb553-48"><a href="biopython-genomediagram.html#cb553-48" aria-hidden="true" tabindex="-1"></a>    (B_rec, <span class="dv">2</span>, C_rec, <span class="dv">1</span>, B_vs_C),</span>
-<span id="cb553-49"><a href="biopython-genomediagram.html#cb553-49" aria-hidden="true" tabindex="-1"></a>]<span class="sc">:</span></span>
-<span id="cb553-50"><a href="biopython-genomediagram.html#cb553-50" aria-hidden="true" tabindex="-1"></a>    track_X <span class="ot">=</span> gd_diagram.tracks[tn_X]</span>
-<span id="cb553-51"><a href="biopython-genomediagram.html#cb553-51" aria-hidden="true" tabindex="-1"></a>    track_Y <span class="ot">=</span> gd_diagram.tracks[tn_Y]</span>
-<span id="cb553-52"><a href="biopython-genomediagram.html#cb553-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> score, id_X, id_Y <span class="cf">in</span> X_vs_Y<span class="sc">:</span></span>
-<span id="cb553-53"><a href="biopython-genomediagram.html#cb553-53" aria-hidden="true" tabindex="-1"></a>        feature_X <span class="ot">=</span> <span class="fu">get_feature</span>(rec_X.features, id_X)</span>
-<span id="cb553-54"><a href="biopython-genomediagram.html#cb553-54" aria-hidden="true" tabindex="-1"></a>        feature_Y <span class="ot">=</span> <span class="fu">get_feature</span>(rec_Y.features, id_Y)</span>
-<span id="cb553-55"><a href="biopython-genomediagram.html#cb553-55" aria-hidden="true" tabindex="-1"></a>        color <span class="ot">=</span> <span class="fu">colors.linearlyInterpolatedColor</span>(</span>
-<span id="cb553-56"><a href="biopython-genomediagram.html#cb553-56" aria-hidden="true" tabindex="-1"></a>            colors.white, colors.firebrick, <span class="dv">0</span>, <span class="dv">100</span>, score</span>
-<span id="cb553-57"><a href="biopython-genomediagram.html#cb553-57" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb553-58"><a href="biopython-genomediagram.html#cb553-58" aria-hidden="true" tabindex="-1"></a>        link_xy <span class="ot">=</span> <span class="fu">CrossLink</span>(</span>
-<span id="cb553-59"><a href="biopython-genomediagram.html#cb553-59" aria-hidden="true" tabindex="-1"></a>            (track_X, feature_X.location.start, feature_X.location.end),</span>
-<span id="cb553-60"><a href="biopython-genomediagram.html#cb553-60" aria-hidden="true" tabindex="-1"></a>            (track_Y, feature_Y.location.start, feature_Y.location.end),</span>
-<span id="cb553-61"><a href="biopython-genomediagram.html#cb553-61" aria-hidden="true" tabindex="-1"></a>            color,</span>
-<span id="cb553-62"><a href="biopython-genomediagram.html#cb553-62" aria-hidden="true" tabindex="-1"></a>            colors.lightgrey,</span>
-<span id="cb553-63"><a href="biopython-genomediagram.html#cb553-63" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb553-64"><a href="biopython-genomediagram.html#cb553-64" aria-hidden="true" tabindex="-1"></a>        <span class="fu">gd_diagram.cross_track_links.append</span>(link_xy)</span>
-<span id="cb553-65"><a href="biopython-genomediagram.html#cb553-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb553-66"><a href="biopython-genomediagram.html#cb553-66" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.draw</span>(<span class="at">format=</span><span class="st">&quot;linear&quot;</span>, <span class="at">pagesize=</span><span class="st">&quot;A4&quot;</span>, <span class="at">fragments=</span><span class="dv">1</span>, <span class="at">start=</span><span class="dv">0</span>, <span class="at">end=</span>max_len)</span>
-<span id="cb553-67"><a href="biopython-genomediagram.html#cb553-67" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.pdf&quot;</span>, <span class="st">&quot;PDF&quot;</span>)</span>
-<span id="cb553-68"><a href="biopython-genomediagram.html#cb553-68" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.eps&quot;</span>, <span class="st">&quot;EPS&quot;</span>)</span>
-<span id="cb553-69"><a href="biopython-genomediagram.html#cb553-69" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.svg&quot;</span>, <span class="st">&quot;SVG&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="biopython-genomediagram.html#cb559-1" aria-hidden="true" tabindex="-1"></a>A_vs_B <span class="ot">=</span> [</span>
+<span id="cb559-2"><a href="biopython-genomediagram.html#cb559-2" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">99</span>, <span class="st">&quot;ND1&quot;</span>, <span class="st">&quot;ND1&quot;</span>),</span>
+<span id="cb559-3"><a href="biopython-genomediagram.html#cb559-3" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">33</span>, <span class="st">&quot;ND2&quot;</span>, <span class="st">&quot;ND2&quot;</span>),</span>
+<span id="cb559-4"><a href="biopython-genomediagram.html#cb559-4" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">94</span>, <span class="st">&quot;COX1&quot;</span>, <span class="st">&quot;COX1&quot;</span>),</span>
+<span id="cb559-5"><a href="biopython-genomediagram.html#cb559-5" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span>, <span class="st">&quot;COX2&quot;</span>, <span class="st">&quot;COX2&quot;</span>),</span>
+<span id="cb559-6"><a href="biopython-genomediagram.html#cb559-6" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">97</span>, <span class="st">&quot;ATP8&quot;</span>, <span class="st">&quot;ATP8&quot;</span>),</span>
+<span id="cb559-7"><a href="biopython-genomediagram.html#cb559-7" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">98</span>, <span class="st">&quot;ATP6&quot;</span>, <span class="st">&quot;ATP6&quot;</span>),</span>
+<span id="cb559-8"><a href="biopython-genomediagram.html#cb559-8" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">98</span>, <span class="st">&quot;COX3&quot;</span>, <span class="st">&quot;COX3&quot;</span>),</span>
+<span id="cb559-9"><a href="biopython-genomediagram.html#cb559-9" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span>, <span class="st">&quot;ND3&quot;</span>, <span class="st">&quot;ND3&quot;</span>),</span>
+<span id="cb559-10"><a href="biopython-genomediagram.html#cb559-10" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span>, <span class="st">&quot;ND4L&quot;</span>, <span class="st">&quot;ND4L&quot;</span>),</span>
+<span id="cb559-11"><a href="biopython-genomediagram.html#cb559-11" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">94</span>, <span class="st">&quot;ND4&quot;</span>, <span class="st">&quot;ND4&quot;</span>),</span>
+<span id="cb559-12"><a href="biopython-genomediagram.html#cb559-12" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">87</span>, <span class="st">&quot;ND5&quot;</span>, <span class="st">&quot;ND5&quot;</span>),</span>
+<span id="cb559-13"><a href="biopython-genomediagram.html#cb559-13" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">94</span>, <span class="st">&quot;ND6&quot;</span>, <span class="st">&quot;ND6&quot;</span>),</span>
+<span id="cb559-14"><a href="biopython-genomediagram.html#cb559-14" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">94</span>, <span class="st">&quot;CYTB&quot;</span>, <span class="st">&quot;CYTB&quot;</span>),</span>
+<span id="cb559-15"><a href="biopython-genomediagram.html#cb559-15" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb559-16"><a href="biopython-genomediagram.html#cb559-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-17"><a href="biopython-genomediagram.html#cb559-17" aria-hidden="true" tabindex="-1"></a>B_vs_C <span class="ot">=</span> [</span>
+<span id="cb559-18"><a href="biopython-genomediagram.html#cb559-18" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">49</span>, <span class="st">&quot;ND1&quot;</span>, <span class="st">&quot;ND1&quot;</span>),</span>
+<span id="cb559-19"><a href="biopython-genomediagram.html#cb559-19" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">53</span>, <span class="st">&quot;ND2&quot;</span>, <span class="st">&quot;ND2&quot;</span>),</span>
+<span id="cb559-20"><a href="biopython-genomediagram.html#cb559-20" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">64</span>, <span class="st">&quot;COX1&quot;</span>, <span class="st">&quot;COX1&quot;</span>),</span>
+<span id="cb559-21"><a href="biopython-genomediagram.html#cb559-21" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">30</span>, <span class="st">&quot;COX2&quot;</span>, <span class="st">&quot;COX2&quot;</span>),</span>
+<span id="cb559-22"><a href="biopython-genomediagram.html#cb559-22" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">27</span>, <span class="st">&quot;ATP8&quot;</span>, <span class="st">&quot;ATP8&quot;</span>),</span>
+<span id="cb559-23"><a href="biopython-genomediagram.html#cb559-23" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">88</span>, <span class="st">&quot;ATP6&quot;</span>, <span class="st">&quot;ATP6&quot;</span>),</span>
+<span id="cb559-24"><a href="biopython-genomediagram.html#cb559-24" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">68</span>, <span class="st">&quot;COX3&quot;</span>, <span class="st">&quot;COX3&quot;</span>),</span>
+<span id="cb559-25"><a href="biopython-genomediagram.html#cb559-25" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">30</span>, <span class="st">&quot;ND3&quot;</span>, <span class="st">&quot;ND3&quot;</span>),</span>
+<span id="cb559-26"><a href="biopython-genomediagram.html#cb559-26" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span>, <span class="st">&quot;ND4L&quot;</span>, <span class="st">&quot;ND4L&quot;</span>),</span>
+<span id="cb559-27"><a href="biopython-genomediagram.html#cb559-27" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">74</span>, <span class="st">&quot;ND4&quot;</span>, <span class="st">&quot;ND4&quot;</span>),</span>
+<span id="cb559-28"><a href="biopython-genomediagram.html#cb559-28" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">37</span>, <span class="st">&quot;ND5&quot;</span>, <span class="st">&quot;ND5&quot;</span>),</span>
+<span id="cb559-29"><a href="biopython-genomediagram.html#cb559-29" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">74</span>, <span class="st">&quot;ND6&quot;</span>, <span class="st">&quot;ND6&quot;</span>),</span>
+<span id="cb559-30"><a href="biopython-genomediagram.html#cb559-30" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">64</span>, <span class="st">&quot;CYTB&quot;</span>, <span class="st">&quot;CYTB&quot;</span>),</span>
+<span id="cb559-31"><a href="biopython-genomediagram.html#cb559-31" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb559-32"><a href="biopython-genomediagram.html#cb559-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-33"><a href="biopython-genomediagram.html#cb559-33" aria-hidden="true" tabindex="-1"></a>def <span class="fu">get_feature</span>(features, id, <span class="at">tags=</span>[<span class="st">&quot;locus_tag&quot;</span>, <span class="st">&quot;gene&quot;</span>])<span class="sc">:</span></span>
+<span id="cb559-34"><a href="biopython-genomediagram.html#cb559-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;&quot;&quot;Search list of SeqFeature objects for an identifier under the given tags.&quot;&quot;&quot;</span></span>
+<span id="cb559-35"><a href="biopython-genomediagram.html#cb559-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="cf">in</span> features<span class="sc">:</span></span>
+<span id="cb559-36"><a href="biopython-genomediagram.html#cb559-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> key <span class="cf">in</span> tags<span class="sc">:</span></span>
+<span id="cb559-37"><a href="biopython-genomediagram.html#cb559-37" aria-hidden="true" tabindex="-1"></a>            <span class="co"># tag may not be present in this feature</span></span>
+<span id="cb559-38"><a href="biopython-genomediagram.html#cb559-38" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> x <span class="cf">in</span> <span class="fu">f.qualifiers.get</span>(key, [])<span class="sc">:</span></span>
+<span id="cb559-39"><a href="biopython-genomediagram.html#cb559-39" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> x <span class="sc">==</span> id<span class="sc">:</span></span>
+<span id="cb559-40"><a href="biopython-genomediagram.html#cb559-40" aria-hidden="true" tabindex="-1"></a>                    return f</span>
+<span id="cb559-41"><a href="biopython-genomediagram.html#cb559-41" aria-hidden="true" tabindex="-1"></a>    raise <span class="fu">KeyError</span>(id)</span>
+<span id="cb559-42"><a href="biopython-genomediagram.html#cb559-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-43"><a href="biopython-genomediagram.html#cb559-43" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics.GenomeDiagram import CrossLink</span>
+<span id="cb559-44"><a href="biopython-genomediagram.html#cb559-44" aria-hidden="true" tabindex="-1"></a>from reportlab.lib import colors</span>
+<span id="cb559-45"><a href="biopython-genomediagram.html#cb559-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-46"><a href="biopython-genomediagram.html#cb559-46" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> rec_X, tn_X, rec_Y, tn_Y, X_vs_Y <span class="cf">in</span> [</span>
+<span id="cb559-47"><a href="biopython-genomediagram.html#cb559-47" aria-hidden="true" tabindex="-1"></a>    (A_rec, <span class="dv">3</span>, B_rec, <span class="dv">2</span>, A_vs_B),</span>
+<span id="cb559-48"><a href="biopython-genomediagram.html#cb559-48" aria-hidden="true" tabindex="-1"></a>    (B_rec, <span class="dv">2</span>, C_rec, <span class="dv">1</span>, B_vs_C),</span>
+<span id="cb559-49"><a href="biopython-genomediagram.html#cb559-49" aria-hidden="true" tabindex="-1"></a>]<span class="sc">:</span></span>
+<span id="cb559-50"><a href="biopython-genomediagram.html#cb559-50" aria-hidden="true" tabindex="-1"></a>    track_X <span class="ot">=</span> gd_diagram.tracks[tn_X]</span>
+<span id="cb559-51"><a href="biopython-genomediagram.html#cb559-51" aria-hidden="true" tabindex="-1"></a>    track_Y <span class="ot">=</span> gd_diagram.tracks[tn_Y]</span>
+<span id="cb559-52"><a href="biopython-genomediagram.html#cb559-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> score, id_X, id_Y <span class="cf">in</span> X_vs_Y<span class="sc">:</span></span>
+<span id="cb559-53"><a href="biopython-genomediagram.html#cb559-53" aria-hidden="true" tabindex="-1"></a>        feature_X <span class="ot">=</span> <span class="fu">get_feature</span>(rec_X.features, id_X)</span>
+<span id="cb559-54"><a href="biopython-genomediagram.html#cb559-54" aria-hidden="true" tabindex="-1"></a>        feature_Y <span class="ot">=</span> <span class="fu">get_feature</span>(rec_Y.features, id_Y)</span>
+<span id="cb559-55"><a href="biopython-genomediagram.html#cb559-55" aria-hidden="true" tabindex="-1"></a>        color <span class="ot">=</span> <span class="fu">colors.linearlyInterpolatedColor</span>(</span>
+<span id="cb559-56"><a href="biopython-genomediagram.html#cb559-56" aria-hidden="true" tabindex="-1"></a>            colors.white, colors.firebrick, <span class="dv">0</span>, <span class="dv">100</span>, score</span>
+<span id="cb559-57"><a href="biopython-genomediagram.html#cb559-57" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb559-58"><a href="biopython-genomediagram.html#cb559-58" aria-hidden="true" tabindex="-1"></a>        link_xy <span class="ot">=</span> <span class="fu">CrossLink</span>(</span>
+<span id="cb559-59"><a href="biopython-genomediagram.html#cb559-59" aria-hidden="true" tabindex="-1"></a>            (track_X, feature_X.location.start, feature_X.location.end),</span>
+<span id="cb559-60"><a href="biopython-genomediagram.html#cb559-60" aria-hidden="true" tabindex="-1"></a>            (track_Y, feature_Y.location.start, feature_Y.location.end),</span>
+<span id="cb559-61"><a href="biopython-genomediagram.html#cb559-61" aria-hidden="true" tabindex="-1"></a>            color,</span>
+<span id="cb559-62"><a href="biopython-genomediagram.html#cb559-62" aria-hidden="true" tabindex="-1"></a>            colors.lightgrey,</span>
+<span id="cb559-63"><a href="biopython-genomediagram.html#cb559-63" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb559-64"><a href="biopython-genomediagram.html#cb559-64" aria-hidden="true" tabindex="-1"></a>        <span class="fu">gd_diagram.cross_track_links.append</span>(link_xy)</span>
+<span id="cb559-65"><a href="biopython-genomediagram.html#cb559-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-66"><a href="biopython-genomediagram.html#cb559-66" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.draw</span>(<span class="at">format=</span><span class="st">&quot;linear&quot;</span>, <span class="at">pagesize=</span><span class="st">&quot;A4&quot;</span>, <span class="at">fragments=</span><span class="dv">1</span>, <span class="at">start=</span><span class="dv">0</span>, <span class="at">end=</span>max_len)</span>
+<span id="cb559-67"><a href="biopython-genomediagram.html#cb559-67" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.pdf&quot;</span>, <span class="st">&quot;PDF&quot;</span>)</span>
+<span id="cb559-68"><a href="biopython-genomediagram.html#cb559-68" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.eps&quot;</span>, <span class="st">&quot;EPS&quot;</span>)</span>
+<span id="cb559-69"><a href="biopython-genomediagram.html#cb559-69" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.svg&quot;</span>, <span class="st">&quot;SVG&quot;</span>)</span></code></pre></div>
 </div>
 <div id="clean-cross-link" class="section level2" number="23.8">
 <h2><span class="header-section-number">23.8</span> Clean Cross-Link</h2>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="biopython-genomediagram.html#cb554-1" aria-hidden="true" tabindex="-1"></a>from reportlab.lib import colors</span>
-<span id="cb554-2"><a href="biopython-genomediagram.html#cb554-2" aria-hidden="true" tabindex="-1"></a>from reportlab.lib.colors import red, grey, orange, green, brown</span>
-<span id="cb554-3"><a href="biopython-genomediagram.html#cb554-3" aria-hidden="true" tabindex="-1"></a>from reportlab.lib.colors import blue, lightblue, purple</span>
-<span id="cb554-4"><a href="biopython-genomediagram.html#cb554-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-5"><a href="biopython-genomediagram.html#cb554-5" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics import GenomeDiagram</span>
-<span id="cb554-6"><a href="biopython-genomediagram.html#cb554-6" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics.GenomeDiagram import CrossLink</span>
-<span id="cb554-7"><a href="biopython-genomediagram.html#cb554-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-8"><a href="biopython-genomediagram.html#cb554-8" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb554-9"><a href="biopython-genomediagram.html#cb554-9" aria-hidden="true" tabindex="-1"></a>from Bio.SeqFeature import SeqFeature, FeatureLocation</span>
-<span id="cb554-10"><a href="biopython-genomediagram.html#cb554-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-11"><a href="biopython-genomediagram.html#cb554-11" aria-hidden="true" tabindex="-1"></a>name <span class="ot">=</span> <span class="st">&quot;Example3&quot;</span></span>
-<span id="cb554-12"><a href="biopython-genomediagram.html#cb554-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-13"><a href="biopython-genomediagram.html#cb554-13" aria-hidden="true" tabindex="-1"></a>A_rec <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;XL.gb&quot;</span>, <span class="st">&quot;gb&quot;</span>)</span>
-<span id="cb554-14"><a href="biopython-genomediagram.html#cb554-14" aria-hidden="true" tabindex="-1"></a>B_rec <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;XT.gb&quot;</span>, <span class="st">&quot;gb&quot;</span>)</span>
-<span id="cb554-15"><a href="biopython-genomediagram.html#cb554-15" aria-hidden="true" tabindex="-1"></a>C_rec <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;NP.gb&quot;</span>, <span class="st">&quot;gb&quot;</span>)</span>
-<span id="cb554-16"><a href="biopython-genomediagram.html#cb554-16" aria-hidden="true" tabindex="-1"></a>records <span class="ot">=</span> {rec.name<span class="sc">:</span> rec <span class="cf">for</span> rec <span class="cf">in</span> [A_rec, B_rec, C_rec]}</span>
-<span id="cb554-17"><a href="biopython-genomediagram.html#cb554-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-18"><a href="biopython-genomediagram.html#cb554-18" aria-hidden="true" tabindex="-1"></a>A_colors <span class="ot">=</span> (</span>
-<span id="cb554-19"><a href="biopython-genomediagram.html#cb554-19" aria-hidden="true" tabindex="-1"></a>    [red]</span>
-<span id="cb554-20"><a href="biopython-genomediagram.html#cb554-20" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
-<span id="cb554-21"><a href="biopython-genomediagram.html#cb554-21" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [orange]</span>
-<span id="cb554-22"><a href="biopython-genomediagram.html#cb554-22" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
-<span id="cb554-23"><a href="biopython-genomediagram.html#cb554-23" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [orange]</span>
-<span id="cb554-24"><a href="biopython-genomediagram.html#cb554-24" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
-<span id="cb554-25"><a href="biopython-genomediagram.html#cb554-25" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [green]</span>
-<span id="cb554-26"><a href="biopython-genomediagram.html#cb554-26" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
-<span id="cb554-27"><a href="biopython-genomediagram.html#cb554-27" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [green]</span>
-<span id="cb554-28"><a href="biopython-genomediagram.html#cb554-28" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey, green]</span>
-<span id="cb554-29"><a href="biopython-genomediagram.html#cb554-29" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [brown]</span>
-<span id="cb554-30"><a href="biopython-genomediagram.html#cb554-30" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [blue]</span>
-<span id="cb554-31"><a href="biopython-genomediagram.html#cb554-31" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [lightblue]</span>
-<span id="cb554-32"><a href="biopython-genomediagram.html#cb554-32" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey, lightblue]</span>
-<span id="cb554-33"><a href="biopython-genomediagram.html#cb554-33" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [purple]</span>
-<span id="cb554-34"><a href="biopython-genomediagram.html#cb554-34" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
-<span id="cb554-35"><a href="biopython-genomediagram.html#cb554-35" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb554-36"><a href="biopython-genomediagram.html#cb554-36" aria-hidden="true" tabindex="-1"></a>B_colors <span class="ot">=</span> (</span>
-<span id="cb554-37"><a href="biopython-genomediagram.html#cb554-37" aria-hidden="true" tabindex="-1"></a>    [red]</span>
-<span id="cb554-38"><a href="biopython-genomediagram.html#cb554-38" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
-<span id="cb554-39"><a href="biopython-genomediagram.html#cb554-39" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [orange]</span>
-<span id="cb554-40"><a href="biopython-genomediagram.html#cb554-40" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
-<span id="cb554-41"><a href="biopython-genomediagram.html#cb554-41" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [orange]</span>
-<span id="cb554-42"><a href="biopython-genomediagram.html#cb554-42" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
-<span id="cb554-43"><a href="biopython-genomediagram.html#cb554-43" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [green]</span>
-<span id="cb554-44"><a href="biopython-genomediagram.html#cb554-44" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
-<span id="cb554-45"><a href="biopython-genomediagram.html#cb554-45" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [brown]</span>
-<span id="cb554-46"><a href="biopython-genomediagram.html#cb554-46" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [blue]</span>
-<span id="cb554-47"><a href="biopython-genomediagram.html#cb554-47" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [lightblue]</span>
-<span id="cb554-48"><a href="biopython-genomediagram.html#cb554-48" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
-<span id="cb554-49"><a href="biopython-genomediagram.html#cb554-49" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [purple]</span>
-<span id="cb554-50"><a href="biopython-genomediagram.html#cb554-50" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb554-51"><a href="biopython-genomediagram.html#cb554-51" aria-hidden="true" tabindex="-1"></a>C_colors <span class="ot">=</span> (</span>
-<span id="cb554-52"><a href="biopython-genomediagram.html#cb554-52" aria-hidden="true" tabindex="-1"></a>    [grey]</span>
-<span id="cb554-53"><a href="biopython-genomediagram.html#cb554-53" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [green]</span>
-<span id="cb554-54"><a href="biopython-genomediagram.html#cb554-54" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [brown]</span>
-<span id="cb554-55"><a href="biopython-genomediagram.html#cb554-55" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [blue]</span>
-<span id="cb554-56"><a href="biopython-genomediagram.html#cb554-56" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey, blue]</span>
-<span id="cb554-57"><a href="biopython-genomediagram.html#cb554-57" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [lightblue]</span>
-<span id="cb554-58"><a href="biopython-genomediagram.html#cb554-58" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey] <span class="sc">*</span> <span class="dv">8</span></span>
-<span id="cb554-59"><a href="biopython-genomediagram.html#cb554-59" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb554-60"><a href="biopython-genomediagram.html#cb554-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-61"><a href="biopython-genomediagram.html#cb554-61" aria-hidden="true" tabindex="-1"></a>A_vs_B <span class="ot">=</span> [</span>
-<span id="cb554-62"><a href="biopython-genomediagram.html#cb554-62" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">99</span>, <span class="st">&quot;ND1&quot;</span>, <span class="st">&quot;ND1&quot;</span>),</span>
-<span id="cb554-63"><a href="biopython-genomediagram.html#cb554-63" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">33</span>, <span class="st">&quot;ND2&quot;</span>, <span class="st">&quot;ND2&quot;</span>),</span>
-<span id="cb554-64"><a href="biopython-genomediagram.html#cb554-64" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">94</span>, <span class="st">&quot;COX1&quot;</span>, <span class="st">&quot;COX1&quot;</span>),</span>
-<span id="cb554-65"><a href="biopython-genomediagram.html#cb554-65" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span>, <span class="st">&quot;COX2&quot;</span>, <span class="st">&quot;COX2&quot;</span>),</span>
-<span id="cb554-66"><a href="biopython-genomediagram.html#cb554-66" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">97</span>, <span class="st">&quot;ATP8&quot;</span>, <span class="st">&quot;ATP8&quot;</span>),</span>
-<span id="cb554-67"><a href="biopython-genomediagram.html#cb554-67" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">98</span>, <span class="st">&quot;ATP6&quot;</span>, <span class="st">&quot;ATP6&quot;</span>),</span>
-<span id="cb554-68"><a href="biopython-genomediagram.html#cb554-68" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">98</span>, <span class="st">&quot;COX3&quot;</span>, <span class="st">&quot;COX3&quot;</span>),</span>
-<span id="cb554-69"><a href="biopython-genomediagram.html#cb554-69" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span>, <span class="st">&quot;ND3&quot;</span>, <span class="st">&quot;ND3&quot;</span>),</span>
-<span id="cb554-70"><a href="biopython-genomediagram.html#cb554-70" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span>, <span class="st">&quot;ND4L&quot;</span>, <span class="st">&quot;ND4L&quot;</span>),</span>
-<span id="cb554-71"><a href="biopython-genomediagram.html#cb554-71" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">94</span>, <span class="st">&quot;ND4&quot;</span>, <span class="st">&quot;ND4&quot;</span>),</span>
-<span id="cb554-72"><a href="biopython-genomediagram.html#cb554-72" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">87</span>, <span class="st">&quot;ND5&quot;</span>, <span class="st">&quot;ND5&quot;</span>),</span>
-<span id="cb554-73"><a href="biopython-genomediagram.html#cb554-73" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">94</span>, <span class="st">&quot;ND6&quot;</span>, <span class="st">&quot;ND6&quot;</span>),</span>
-<span id="cb554-74"><a href="biopython-genomediagram.html#cb554-74" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">94</span>, <span class="st">&quot;CYTB&quot;</span>, <span class="st">&quot;CYTB&quot;</span>),</span>
-<span id="cb554-75"><a href="biopython-genomediagram.html#cb554-75" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb554-76"><a href="biopython-genomediagram.html#cb554-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-77"><a href="biopython-genomediagram.html#cb554-77" aria-hidden="true" tabindex="-1"></a>B_vs_C <span class="ot">=</span> [</span>
-<span id="cb554-78"><a href="biopython-genomediagram.html#cb554-78" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">49</span>, <span class="st">&quot;ND1&quot;</span>, <span class="st">&quot;ND1&quot;</span>),</span>
-<span id="cb554-79"><a href="biopython-genomediagram.html#cb554-79" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">53</span>, <span class="st">&quot;ND2&quot;</span>, <span class="st">&quot;ND2&quot;</span>),</span>
-<span id="cb554-80"><a href="biopython-genomediagram.html#cb554-80" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">64</span>, <span class="st">&quot;COX1&quot;</span>, <span class="st">&quot;COX1&quot;</span>),</span>
-<span id="cb554-81"><a href="biopython-genomediagram.html#cb554-81" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">30</span>, <span class="st">&quot;COX2&quot;</span>, <span class="st">&quot;COX2&quot;</span>),</span>
-<span id="cb554-82"><a href="biopython-genomediagram.html#cb554-82" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">27</span>, <span class="st">&quot;ATP8&quot;</span>, <span class="st">&quot;ATP8&quot;</span>),</span>
-<span id="cb554-83"><a href="biopython-genomediagram.html#cb554-83" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">88</span>, <span class="st">&quot;ATP6&quot;</span>, <span class="st">&quot;ATP6&quot;</span>),</span>
-<span id="cb554-84"><a href="biopython-genomediagram.html#cb554-84" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">68</span>, <span class="st">&quot;COX3&quot;</span>, <span class="st">&quot;COX3&quot;</span>),</span>
-<span id="cb554-85"><a href="biopython-genomediagram.html#cb554-85" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">30</span>, <span class="st">&quot;ND3&quot;</span>, <span class="st">&quot;ND3&quot;</span>),</span>
-<span id="cb554-86"><a href="biopython-genomediagram.html#cb554-86" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span>, <span class="st">&quot;ND4L&quot;</span>, <span class="st">&quot;ND4L&quot;</span>),</span>
-<span id="cb554-87"><a href="biopython-genomediagram.html#cb554-87" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">74</span>, <span class="st">&quot;ND4&quot;</span>, <span class="st">&quot;ND4&quot;</span>),</span>
-<span id="cb554-88"><a href="biopython-genomediagram.html#cb554-88" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">37</span>, <span class="st">&quot;ND5&quot;</span>, <span class="st">&quot;ND5&quot;</span>),</span>
-<span id="cb554-89"><a href="biopython-genomediagram.html#cb554-89" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">74</span>, <span class="st">&quot;ND6&quot;</span>, <span class="st">&quot;ND6&quot;</span>),</span>
-<span id="cb554-90"><a href="biopython-genomediagram.html#cb554-90" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">64</span>, <span class="st">&quot;CYTB&quot;</span>, <span class="st">&quot;CYTB&quot;</span>),</span>
-<span id="cb554-91"><a href="biopython-genomediagram.html#cb554-91" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb554-92"><a href="biopython-genomediagram.html#cb554-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-93"><a href="biopython-genomediagram.html#cb554-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-94"><a href="biopython-genomediagram.html#cb554-94" aria-hidden="true" tabindex="-1"></a>def <span class="fu">get_feature</span>(features, id, <span class="at">tags=</span>(<span class="st">&quot;locus_tag&quot;</span>, <span class="st">&quot;gene&quot;</span>, <span class="st">&quot;old_locus_tag&quot;</span>))<span class="sc">:</span></span>
-<span id="cb554-95"><a href="biopython-genomediagram.html#cb554-95" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;&quot;&quot;Search list of SeqFeature objects for an identifier under the given tags.&quot;&quot;&quot;</span></span>
-<span id="cb554-96"><a href="biopython-genomediagram.html#cb554-96" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="cf">in</span> features<span class="sc">:</span></span>
-<span id="cb554-97"><a href="biopython-genomediagram.html#cb554-97" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> key <span class="cf">in</span> tags<span class="sc">:</span></span>
-<span id="cb554-98"><a href="biopython-genomediagram.html#cb554-98" aria-hidden="true" tabindex="-1"></a>            <span class="co"># tag may not be present in this feature</span></span>
-<span id="cb554-99"><a href="biopython-genomediagram.html#cb554-99" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> x <span class="cf">in</span> <span class="fu">f.qualifiers.get</span>(key, [])<span class="sc">:</span></span>
-<span id="cb554-100"><a href="biopython-genomediagram.html#cb554-100" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> x <span class="sc">==</span> id<span class="sc">:</span></span>
-<span id="cb554-101"><a href="biopython-genomediagram.html#cb554-101" aria-hidden="true" tabindex="-1"></a>                    return f</span>
-<span id="cb554-102"><a href="biopython-genomediagram.html#cb554-102" aria-hidden="true" tabindex="-1"></a>    raise <span class="fu">KeyError</span>(id)</span>
-<span id="cb554-103"><a href="biopython-genomediagram.html#cb554-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-104"><a href="biopython-genomediagram.html#cb554-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-105"><a href="biopython-genomediagram.html#cb554-105" aria-hidden="true" tabindex="-1"></a>gd_diagram <span class="ot">=</span> <span class="fu">GenomeDiagram.Diagram</span>(name)</span>
-<span id="cb554-106"><a href="biopython-genomediagram.html#cb554-106" aria-hidden="true" tabindex="-1"></a>feature_sets <span class="ot">=</span> {}</span>
-<span id="cb554-107"><a href="biopython-genomediagram.html#cb554-107" aria-hidden="true" tabindex="-1"></a>max_len <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb554-108"><a href="biopython-genomediagram.html#cb554-108" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, record <span class="cf">in</span> <span class="fu">enumerate</span>([A_rec, B_rec, C_rec])<span class="sc">:</span></span>
-<span id="cb554-109"><a href="biopython-genomediagram.html#cb554-109" aria-hidden="true" tabindex="-1"></a>    max_len <span class="ot">=</span> <span class="fu">max</span>(max_len, <span class="fu">len</span>(record))</span>
-<span id="cb554-110"><a href="biopython-genomediagram.html#cb554-110" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Allocate tracks 5 (top), 3, 1 (bottom) for A, B, C</span></span>
-<span id="cb554-111"><a href="biopython-genomediagram.html#cb554-111" aria-hidden="true" tabindex="-1"></a>    <span class="co"># (empty tracks 2 and 4 add useful white space to emphasise the cross links</span></span>
-<span id="cb554-112"><a href="biopython-genomediagram.html#cb554-112" aria-hidden="true" tabindex="-1"></a>    <span class="co"># and also serve to make the tracks vertically more compressed)</span></span>
-<span id="cb554-113"><a href="biopython-genomediagram.html#cb554-113" aria-hidden="true" tabindex="-1"></a>    gd_track_for_features <span class="ot">=</span> <span class="fu">gd_diagram.new_track</span>(</span>
-<span id="cb554-114"><a href="biopython-genomediagram.html#cb554-114" aria-hidden="true" tabindex="-1"></a>        <span class="dv">5</span> <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> i,</span>
-<span id="cb554-115"><a href="biopython-genomediagram.html#cb554-115" aria-hidden="true" tabindex="-1"></a>        <span class="at">name=</span>record.name,</span>
-<span id="cb554-116"><a href="biopython-genomediagram.html#cb554-116" aria-hidden="true" tabindex="-1"></a>        <span class="at">greytrack=</span>True,</span>
-<span id="cb554-117"><a href="biopython-genomediagram.html#cb554-117" aria-hidden="true" tabindex="-1"></a>        <span class="at">height=</span><span class="fl">0.5</span>,</span>
-<span id="cb554-118"><a href="biopython-genomediagram.html#cb554-118" aria-hidden="true" tabindex="-1"></a>        <span class="at">start=</span><span class="dv">0</span>,</span>
-<span id="cb554-119"><a href="biopython-genomediagram.html#cb554-119" aria-hidden="true" tabindex="-1"></a>        <span class="at">end=</span><span class="fu">len</span>(record),</span>
-<span id="cb554-120"><a href="biopython-genomediagram.html#cb554-120" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb554-121"><a href="biopython-genomediagram.html#cb554-121" aria-hidden="true" tabindex="-1"></a>    assert record.name not <span class="cf">in</span> feature_sets</span>
-<span id="cb554-122"><a href="biopython-genomediagram.html#cb554-122" aria-hidden="true" tabindex="-1"></a>    feature_sets[record.name] <span class="ot">=</span> <span class="fu">gd_track_for_features.new_set</span>()</span>
-<span id="cb554-123"><a href="biopython-genomediagram.html#cb554-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-124"><a href="biopython-genomediagram.html#cb554-124" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> X, Y, X_vs_Y <span class="cf">in</span> [</span>
-<span id="cb554-125"><a href="biopython-genomediagram.html#cb554-125" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;NC_001573&quot;</span>, <span class="st">&quot;NC_006839&quot;</span>, A_vs_B),</span>
-<span id="cb554-126"><a href="biopython-genomediagram.html#cb554-126" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;NC_006839&quot;</span>, <span class="st">&quot;NC_026789&quot;</span>, B_vs_C),</span>
-<span id="cb554-127"><a href="biopython-genomediagram.html#cb554-127" aria-hidden="true" tabindex="-1"></a>]<span class="sc">:</span></span>
-<span id="cb554-128"><a href="biopython-genomediagram.html#cb554-128" aria-hidden="true" tabindex="-1"></a>    features_X <span class="ot">=</span> records[X].features</span>
-<span id="cb554-129"><a href="biopython-genomediagram.html#cb554-129" aria-hidden="true" tabindex="-1"></a>    features_Y <span class="ot">=</span> records[Y].features</span>
-<span id="cb554-130"><a href="biopython-genomediagram.html#cb554-130" aria-hidden="true" tabindex="-1"></a>    set_X <span class="ot">=</span> feature_sets[X]</span>
-<span id="cb554-131"><a href="biopython-genomediagram.html#cb554-131" aria-hidden="true" tabindex="-1"></a>    set_Y <span class="ot">=</span> feature_sets[Y]</span>
-<span id="cb554-132"><a href="biopython-genomediagram.html#cb554-132" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> score, x, y <span class="cf">in</span> X_vs_Y<span class="sc">:</span></span>
-<span id="cb554-133"><a href="biopython-genomediagram.html#cb554-133" aria-hidden="true" tabindex="-1"></a>        color <span class="ot">=</span> <span class="fu">colors.linearlyInterpolatedColor</span>(</span>
-<span id="cb554-134"><a href="biopython-genomediagram.html#cb554-134" aria-hidden="true" tabindex="-1"></a>            colors.white, colors.firebrick, <span class="dv">0</span>, <span class="dv">100</span>, score</span>
-<span id="cb554-135"><a href="biopython-genomediagram.html#cb554-135" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb554-136"><a href="biopython-genomediagram.html#cb554-136" aria-hidden="true" tabindex="-1"></a>        border <span class="ot">=</span> colors.lightgrey</span>
-<span id="cb554-137"><a href="biopython-genomediagram.html#cb554-137" aria-hidden="true" tabindex="-1"></a>        f_x <span class="ot">=</span> <span class="fu">get_feature</span>(features_X, x)</span>
-<span id="cb554-138"><a href="biopython-genomediagram.html#cb554-138" aria-hidden="true" tabindex="-1"></a>        F_x <span class="ot">=</span> <span class="fu">set_X.add_feature</span>(</span>
-<span id="cb554-139"><a href="biopython-genomediagram.html#cb554-139" aria-hidden="true" tabindex="-1"></a>            <span class="fu">SeqFeature</span>(<span class="fu">FeatureLocation</span>(f_x.location.start, f_x.location.end, <span class="at">strand=</span><span class="dv">0</span>)),</span>
-<span id="cb554-140"><a href="biopython-genomediagram.html#cb554-140" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span>color,</span>
-<span id="cb554-141"><a href="biopython-genomediagram.html#cb554-141" aria-hidden="true" tabindex="-1"></a>            <span class="at">border=</span>border,</span>
-<span id="cb554-142"><a href="biopython-genomediagram.html#cb554-142" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb554-143"><a href="biopython-genomediagram.html#cb554-143" aria-hidden="true" tabindex="-1"></a>        f_y <span class="ot">=</span> <span class="fu">get_feature</span>(features_Y, y)</span>
-<span id="cb554-144"><a href="biopython-genomediagram.html#cb554-144" aria-hidden="true" tabindex="-1"></a>        F_y <span class="ot">=</span> <span class="fu">set_Y.add_feature</span>(</span>
-<span id="cb554-145"><a href="biopython-genomediagram.html#cb554-145" aria-hidden="true" tabindex="-1"></a>            <span class="fu">SeqFeature</span>(<span class="fu">FeatureLocation</span>(f_y.location.start, f_y.location.end, <span class="at">strand=</span><span class="dv">0</span>)),</span>
-<span id="cb554-146"><a href="biopython-genomediagram.html#cb554-146" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span>color,</span>
-<span id="cb554-147"><a href="biopython-genomediagram.html#cb554-147" aria-hidden="true" tabindex="-1"></a>            <span class="at">border=</span>border,</span>
-<span id="cb554-148"><a href="biopython-genomediagram.html#cb554-148" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb554-149"><a href="biopython-genomediagram.html#cb554-149" aria-hidden="true" tabindex="-1"></a>        <span class="fu">gd_diagram.cross_track_links.append</span>(<span class="fu">CrossLink</span>(F_x, F_y, color, border))</span>
-<span id="cb554-150"><a href="biopython-genomediagram.html#cb554-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-151"><a href="biopython-genomediagram.html#cb554-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-152"><a href="biopython-genomediagram.html#cb554-152" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> record, gene_colors <span class="cf">in</span> <span class="fu">zip</span>([A_rec, B_rec, C_rec], [A_colors, B_colors, C_colors])<span class="sc">:</span></span>
-<span id="cb554-153"><a href="biopython-genomediagram.html#cb554-153" aria-hidden="true" tabindex="-1"></a>    gd_feature_set <span class="ot">=</span> feature_sets[record.name]</span>
-<span id="cb554-154"><a href="biopython-genomediagram.html#cb554-154" aria-hidden="true" tabindex="-1"></a>    i <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb554-155"><a href="biopython-genomediagram.html#cb554-155" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> feature <span class="cf">in</span> record.features<span class="sc">:</span></span>
-<span id="cb554-156"><a href="biopython-genomediagram.html#cb554-156" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> feature.type <span class="sc">!=</span> <span class="st">&quot;gene&quot;</span><span class="sc">:</span></span>
-<span id="cb554-157"><a href="biopython-genomediagram.html#cb554-157" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Exclude this feature</span></span>
-<span id="cb554-158"><a href="biopython-genomediagram.html#cb554-158" aria-hidden="true" tabindex="-1"></a>            continue</span>
-<span id="cb554-159"><a href="biopython-genomediagram.html#cb554-159" aria-hidden="true" tabindex="-1"></a>        try<span class="sc">:</span></span>
-<span id="cb554-160"><a href="biopython-genomediagram.html#cb554-160" aria-hidden="true" tabindex="-1"></a>            g_color <span class="ot">=</span> gene_colors[i]</span>
-<span id="cb554-161"><a href="biopython-genomediagram.html#cb554-161" aria-hidden="true" tabindex="-1"></a>        except IndexError<span class="sc">:</span></span>
-<span id="cb554-162"><a href="biopython-genomediagram.html#cb554-162" aria-hidden="true" tabindex="-1"></a>            <span class="fu">print</span>(<span class="st">&quot;Don&#39;t have color for %s gene %i&quot;</span> % (record.name, i))</span>
-<span id="cb554-163"><a href="biopython-genomediagram.html#cb554-163" aria-hidden="true" tabindex="-1"></a>            g_color <span class="ot">=</span> grey</span>
-<span id="cb554-164"><a href="biopython-genomediagram.html#cb554-164" aria-hidden="true" tabindex="-1"></a>        <span class="fu">gd_feature_set.add_feature</span>(</span>
-<span id="cb554-165"><a href="biopython-genomediagram.html#cb554-165" aria-hidden="true" tabindex="-1"></a>            feature,</span>
-<span id="cb554-166"><a href="biopython-genomediagram.html#cb554-166" aria-hidden="true" tabindex="-1"></a>            <span class="at">sigil=</span><span class="st">&quot;BIGARROW&quot;</span>,</span>
-<span id="cb554-167"><a href="biopython-genomediagram.html#cb554-167" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span>g_color,</span>
-<span id="cb554-168"><a href="biopython-genomediagram.html#cb554-168" aria-hidden="true" tabindex="-1"></a>            <span class="at">label=</span>True,</span>
-<span id="cb554-169"><a href="biopython-genomediagram.html#cb554-169" aria-hidden="true" tabindex="-1"></a>            <span class="at">name=</span><span class="fu">str</span>(i <span class="sc">+</span> <span class="dv">1</span>),</span>
-<span id="cb554-170"><a href="biopython-genomediagram.html#cb554-170" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_position=</span><span class="st">&quot;start&quot;</span>,</span>
-<span id="cb554-171"><a href="biopython-genomediagram.html#cb554-171" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_size=</span><span class="dv">6</span>,</span>
-<span id="cb554-172"><a href="biopython-genomediagram.html#cb554-172" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_angle=</span><span class="dv">0</span>,</span>
-<span id="cb554-173"><a href="biopython-genomediagram.html#cb554-173" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb554-174"><a href="biopython-genomediagram.html#cb554-174" aria-hidden="true" tabindex="-1"></a>        i <span class="sc">+</span><span class="er">=</span> <span class="dv">1</span></span>
-<span id="cb554-175"><a href="biopython-genomediagram.html#cb554-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-176"><a href="biopython-genomediagram.html#cb554-176" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.draw</span>(<span class="at">format=</span><span class="st">&quot;linear&quot;</span>, <span class="at">pagesize=</span><span class="st">&quot;A4&quot;</span>, <span class="at">fragments=</span><span class="dv">1</span>, <span class="at">start=</span><span class="dv">0</span>, <span class="at">end=</span>max_len)</span>
-<span id="cb554-177"><a href="biopython-genomediagram.html#cb554-177" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.pdf&quot;</span>, <span class="st">&quot;PDF&quot;</span>)</span>
-<span id="cb554-178"><a href="biopython-genomediagram.html#cb554-178" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.eps&quot;</span>, <span class="st">&quot;EPS&quot;</span>)</span>
-<span id="cb554-179"><a href="biopython-genomediagram.html#cb554-179" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.svg&quot;</span>, <span class="st">&quot;SVG&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="biopython-genomediagram.html#cb560-1" aria-hidden="true" tabindex="-1"></a>from reportlab.lib import colors</span>
+<span id="cb560-2"><a href="biopython-genomediagram.html#cb560-2" aria-hidden="true" tabindex="-1"></a>from reportlab.lib.colors import red, grey, orange, green, brown</span>
+<span id="cb560-3"><a href="biopython-genomediagram.html#cb560-3" aria-hidden="true" tabindex="-1"></a>from reportlab.lib.colors import blue, lightblue, purple</span>
+<span id="cb560-4"><a href="biopython-genomediagram.html#cb560-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-5"><a href="biopython-genomediagram.html#cb560-5" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics import GenomeDiagram</span>
+<span id="cb560-6"><a href="biopython-genomediagram.html#cb560-6" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics.GenomeDiagram import CrossLink</span>
+<span id="cb560-7"><a href="biopython-genomediagram.html#cb560-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-8"><a href="biopython-genomediagram.html#cb560-8" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb560-9"><a href="biopython-genomediagram.html#cb560-9" aria-hidden="true" tabindex="-1"></a>from Bio.SeqFeature import SeqFeature, FeatureLocation</span>
+<span id="cb560-10"><a href="biopython-genomediagram.html#cb560-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-11"><a href="biopython-genomediagram.html#cb560-11" aria-hidden="true" tabindex="-1"></a>name <span class="ot">=</span> <span class="st">&quot;Example3&quot;</span></span>
+<span id="cb560-12"><a href="biopython-genomediagram.html#cb560-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-13"><a href="biopython-genomediagram.html#cb560-13" aria-hidden="true" tabindex="-1"></a>A_rec <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;XL.gb&quot;</span>, <span class="st">&quot;gb&quot;</span>)</span>
+<span id="cb560-14"><a href="biopython-genomediagram.html#cb560-14" aria-hidden="true" tabindex="-1"></a>B_rec <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;XT.gb&quot;</span>, <span class="st">&quot;gb&quot;</span>)</span>
+<span id="cb560-15"><a href="biopython-genomediagram.html#cb560-15" aria-hidden="true" tabindex="-1"></a>C_rec <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;NP.gb&quot;</span>, <span class="st">&quot;gb&quot;</span>)</span>
+<span id="cb560-16"><a href="biopython-genomediagram.html#cb560-16" aria-hidden="true" tabindex="-1"></a>records <span class="ot">=</span> {rec.name<span class="sc">:</span> rec <span class="cf">for</span> rec <span class="cf">in</span> [A_rec, B_rec, C_rec]}</span>
+<span id="cb560-17"><a href="biopython-genomediagram.html#cb560-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-18"><a href="biopython-genomediagram.html#cb560-18" aria-hidden="true" tabindex="-1"></a>A_colors <span class="ot">=</span> (</span>
+<span id="cb560-19"><a href="biopython-genomediagram.html#cb560-19" aria-hidden="true" tabindex="-1"></a>    [red]</span>
+<span id="cb560-20"><a href="biopython-genomediagram.html#cb560-20" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
+<span id="cb560-21"><a href="biopython-genomediagram.html#cb560-21" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [orange]</span>
+<span id="cb560-22"><a href="biopython-genomediagram.html#cb560-22" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
+<span id="cb560-23"><a href="biopython-genomediagram.html#cb560-23" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [orange]</span>
+<span id="cb560-24"><a href="biopython-genomediagram.html#cb560-24" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
+<span id="cb560-25"><a href="biopython-genomediagram.html#cb560-25" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [green]</span>
+<span id="cb560-26"><a href="biopython-genomediagram.html#cb560-26" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
+<span id="cb560-27"><a href="biopython-genomediagram.html#cb560-27" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [green]</span>
+<span id="cb560-28"><a href="biopython-genomediagram.html#cb560-28" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey, green]</span>
+<span id="cb560-29"><a href="biopython-genomediagram.html#cb560-29" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [brown]</span>
+<span id="cb560-30"><a href="biopython-genomediagram.html#cb560-30" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [blue]</span>
+<span id="cb560-31"><a href="biopython-genomediagram.html#cb560-31" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [lightblue]</span>
+<span id="cb560-32"><a href="biopython-genomediagram.html#cb560-32" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey, lightblue]</span>
+<span id="cb560-33"><a href="biopython-genomediagram.html#cb560-33" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [purple]</span>
+<span id="cb560-34"><a href="biopython-genomediagram.html#cb560-34" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
+<span id="cb560-35"><a href="biopython-genomediagram.html#cb560-35" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb560-36"><a href="biopython-genomediagram.html#cb560-36" aria-hidden="true" tabindex="-1"></a>B_colors <span class="ot">=</span> (</span>
+<span id="cb560-37"><a href="biopython-genomediagram.html#cb560-37" aria-hidden="true" tabindex="-1"></a>    [red]</span>
+<span id="cb560-38"><a href="biopython-genomediagram.html#cb560-38" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
+<span id="cb560-39"><a href="biopython-genomediagram.html#cb560-39" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [orange]</span>
+<span id="cb560-40"><a href="biopython-genomediagram.html#cb560-40" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
+<span id="cb560-41"><a href="biopython-genomediagram.html#cb560-41" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [orange]</span>
+<span id="cb560-42"><a href="biopython-genomediagram.html#cb560-42" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
+<span id="cb560-43"><a href="biopython-genomediagram.html#cb560-43" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [green]</span>
+<span id="cb560-44"><a href="biopython-genomediagram.html#cb560-44" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
+<span id="cb560-45"><a href="biopython-genomediagram.html#cb560-45" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [brown]</span>
+<span id="cb560-46"><a href="biopython-genomediagram.html#cb560-46" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [blue]</span>
+<span id="cb560-47"><a href="biopython-genomediagram.html#cb560-47" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [lightblue]</span>
+<span id="cb560-48"><a href="biopython-genomediagram.html#cb560-48" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey]</span>
+<span id="cb560-49"><a href="biopython-genomediagram.html#cb560-49" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [purple]</span>
+<span id="cb560-50"><a href="biopython-genomediagram.html#cb560-50" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb560-51"><a href="biopython-genomediagram.html#cb560-51" aria-hidden="true" tabindex="-1"></a>C_colors <span class="ot">=</span> (</span>
+<span id="cb560-52"><a href="biopython-genomediagram.html#cb560-52" aria-hidden="true" tabindex="-1"></a>    [grey]</span>
+<span id="cb560-53"><a href="biopython-genomediagram.html#cb560-53" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [green]</span>
+<span id="cb560-54"><a href="biopython-genomediagram.html#cb560-54" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [brown]</span>
+<span id="cb560-55"><a href="biopython-genomediagram.html#cb560-55" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [blue]</span>
+<span id="cb560-56"><a href="biopython-genomediagram.html#cb560-56" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey, blue]</span>
+<span id="cb560-57"><a href="biopython-genomediagram.html#cb560-57" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [lightblue]</span>
+<span id="cb560-58"><a href="biopython-genomediagram.html#cb560-58" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> [grey] <span class="sc">*</span> <span class="dv">8</span></span>
+<span id="cb560-59"><a href="biopython-genomediagram.html#cb560-59" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb560-60"><a href="biopython-genomediagram.html#cb560-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-61"><a href="biopython-genomediagram.html#cb560-61" aria-hidden="true" tabindex="-1"></a>A_vs_B <span class="ot">=</span> [</span>
+<span id="cb560-62"><a href="biopython-genomediagram.html#cb560-62" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">99</span>, <span class="st">&quot;ND1&quot;</span>, <span class="st">&quot;ND1&quot;</span>),</span>
+<span id="cb560-63"><a href="biopython-genomediagram.html#cb560-63" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">33</span>, <span class="st">&quot;ND2&quot;</span>, <span class="st">&quot;ND2&quot;</span>),</span>
+<span id="cb560-64"><a href="biopython-genomediagram.html#cb560-64" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">94</span>, <span class="st">&quot;COX1&quot;</span>, <span class="st">&quot;COX1&quot;</span>),</span>
+<span id="cb560-65"><a href="biopython-genomediagram.html#cb560-65" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span>, <span class="st">&quot;COX2&quot;</span>, <span class="st">&quot;COX2&quot;</span>),</span>
+<span id="cb560-66"><a href="biopython-genomediagram.html#cb560-66" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">97</span>, <span class="st">&quot;ATP8&quot;</span>, <span class="st">&quot;ATP8&quot;</span>),</span>
+<span id="cb560-67"><a href="biopython-genomediagram.html#cb560-67" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">98</span>, <span class="st">&quot;ATP6&quot;</span>, <span class="st">&quot;ATP6&quot;</span>),</span>
+<span id="cb560-68"><a href="biopython-genomediagram.html#cb560-68" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">98</span>, <span class="st">&quot;COX3&quot;</span>, <span class="st">&quot;COX3&quot;</span>),</span>
+<span id="cb560-69"><a href="biopython-genomediagram.html#cb560-69" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span>, <span class="st">&quot;ND3&quot;</span>, <span class="st">&quot;ND3&quot;</span>),</span>
+<span id="cb560-70"><a href="biopython-genomediagram.html#cb560-70" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span>, <span class="st">&quot;ND4L&quot;</span>, <span class="st">&quot;ND4L&quot;</span>),</span>
+<span id="cb560-71"><a href="biopython-genomediagram.html#cb560-71" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">94</span>, <span class="st">&quot;ND4&quot;</span>, <span class="st">&quot;ND4&quot;</span>),</span>
+<span id="cb560-72"><a href="biopython-genomediagram.html#cb560-72" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">87</span>, <span class="st">&quot;ND5&quot;</span>, <span class="st">&quot;ND5&quot;</span>),</span>
+<span id="cb560-73"><a href="biopython-genomediagram.html#cb560-73" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">94</span>, <span class="st">&quot;ND6&quot;</span>, <span class="st">&quot;ND6&quot;</span>),</span>
+<span id="cb560-74"><a href="biopython-genomediagram.html#cb560-74" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">94</span>, <span class="st">&quot;CYTB&quot;</span>, <span class="st">&quot;CYTB&quot;</span>),</span>
+<span id="cb560-75"><a href="biopython-genomediagram.html#cb560-75" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb560-76"><a href="biopython-genomediagram.html#cb560-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-77"><a href="biopython-genomediagram.html#cb560-77" aria-hidden="true" tabindex="-1"></a>B_vs_C <span class="ot">=</span> [</span>
+<span id="cb560-78"><a href="biopython-genomediagram.html#cb560-78" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">49</span>, <span class="st">&quot;ND1&quot;</span>, <span class="st">&quot;ND1&quot;</span>),</span>
+<span id="cb560-79"><a href="biopython-genomediagram.html#cb560-79" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">53</span>, <span class="st">&quot;ND2&quot;</span>, <span class="st">&quot;ND2&quot;</span>),</span>
+<span id="cb560-80"><a href="biopython-genomediagram.html#cb560-80" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">64</span>, <span class="st">&quot;COX1&quot;</span>, <span class="st">&quot;COX1&quot;</span>),</span>
+<span id="cb560-81"><a href="biopython-genomediagram.html#cb560-81" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">30</span>, <span class="st">&quot;COX2&quot;</span>, <span class="st">&quot;COX2&quot;</span>),</span>
+<span id="cb560-82"><a href="biopython-genomediagram.html#cb560-82" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">27</span>, <span class="st">&quot;ATP8&quot;</span>, <span class="st">&quot;ATP8&quot;</span>),</span>
+<span id="cb560-83"><a href="biopython-genomediagram.html#cb560-83" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">88</span>, <span class="st">&quot;ATP6&quot;</span>, <span class="st">&quot;ATP6&quot;</span>),</span>
+<span id="cb560-84"><a href="biopython-genomediagram.html#cb560-84" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">68</span>, <span class="st">&quot;COX3&quot;</span>, <span class="st">&quot;COX3&quot;</span>),</span>
+<span id="cb560-85"><a href="biopython-genomediagram.html#cb560-85" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">30</span>, <span class="st">&quot;ND3&quot;</span>, <span class="st">&quot;ND3&quot;</span>),</span>
+<span id="cb560-86"><a href="biopython-genomediagram.html#cb560-86" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span>, <span class="st">&quot;ND4L&quot;</span>, <span class="st">&quot;ND4L&quot;</span>),</span>
+<span id="cb560-87"><a href="biopython-genomediagram.html#cb560-87" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">74</span>, <span class="st">&quot;ND4&quot;</span>, <span class="st">&quot;ND4&quot;</span>),</span>
+<span id="cb560-88"><a href="biopython-genomediagram.html#cb560-88" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">37</span>, <span class="st">&quot;ND5&quot;</span>, <span class="st">&quot;ND5&quot;</span>),</span>
+<span id="cb560-89"><a href="biopython-genomediagram.html#cb560-89" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">74</span>, <span class="st">&quot;ND6&quot;</span>, <span class="st">&quot;ND6&quot;</span>),</span>
+<span id="cb560-90"><a href="biopython-genomediagram.html#cb560-90" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">64</span>, <span class="st">&quot;CYTB&quot;</span>, <span class="st">&quot;CYTB&quot;</span>),</span>
+<span id="cb560-91"><a href="biopython-genomediagram.html#cb560-91" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb560-92"><a href="biopython-genomediagram.html#cb560-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-93"><a href="biopython-genomediagram.html#cb560-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-94"><a href="biopython-genomediagram.html#cb560-94" aria-hidden="true" tabindex="-1"></a>def <span class="fu">get_feature</span>(features, id, <span class="at">tags=</span>(<span class="st">&quot;locus_tag&quot;</span>, <span class="st">&quot;gene&quot;</span>, <span class="st">&quot;old_locus_tag&quot;</span>))<span class="sc">:</span></span>
+<span id="cb560-95"><a href="biopython-genomediagram.html#cb560-95" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;&quot;&quot;Search list of SeqFeature objects for an identifier under the given tags.&quot;&quot;&quot;</span></span>
+<span id="cb560-96"><a href="biopython-genomediagram.html#cb560-96" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="cf">in</span> features<span class="sc">:</span></span>
+<span id="cb560-97"><a href="biopython-genomediagram.html#cb560-97" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> key <span class="cf">in</span> tags<span class="sc">:</span></span>
+<span id="cb560-98"><a href="biopython-genomediagram.html#cb560-98" aria-hidden="true" tabindex="-1"></a>            <span class="co"># tag may not be present in this feature</span></span>
+<span id="cb560-99"><a href="biopython-genomediagram.html#cb560-99" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> x <span class="cf">in</span> <span class="fu">f.qualifiers.get</span>(key, [])<span class="sc">:</span></span>
+<span id="cb560-100"><a href="biopython-genomediagram.html#cb560-100" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> x <span class="sc">==</span> id<span class="sc">:</span></span>
+<span id="cb560-101"><a href="biopython-genomediagram.html#cb560-101" aria-hidden="true" tabindex="-1"></a>                    return f</span>
+<span id="cb560-102"><a href="biopython-genomediagram.html#cb560-102" aria-hidden="true" tabindex="-1"></a>    raise <span class="fu">KeyError</span>(id)</span>
+<span id="cb560-103"><a href="biopython-genomediagram.html#cb560-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-104"><a href="biopython-genomediagram.html#cb560-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-105"><a href="biopython-genomediagram.html#cb560-105" aria-hidden="true" tabindex="-1"></a>gd_diagram <span class="ot">=</span> <span class="fu">GenomeDiagram.Diagram</span>(name)</span>
+<span id="cb560-106"><a href="biopython-genomediagram.html#cb560-106" aria-hidden="true" tabindex="-1"></a>feature_sets <span class="ot">=</span> {}</span>
+<span id="cb560-107"><a href="biopython-genomediagram.html#cb560-107" aria-hidden="true" tabindex="-1"></a>max_len <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb560-108"><a href="biopython-genomediagram.html#cb560-108" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, record <span class="cf">in</span> <span class="fu">enumerate</span>([A_rec, B_rec, C_rec])<span class="sc">:</span></span>
+<span id="cb560-109"><a href="biopython-genomediagram.html#cb560-109" aria-hidden="true" tabindex="-1"></a>    max_len <span class="ot">=</span> <span class="fu">max</span>(max_len, <span class="fu">len</span>(record))</span>
+<span id="cb560-110"><a href="biopython-genomediagram.html#cb560-110" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Allocate tracks 5 (top), 3, 1 (bottom) for A, B, C</span></span>
+<span id="cb560-111"><a href="biopython-genomediagram.html#cb560-111" aria-hidden="true" tabindex="-1"></a>    <span class="co"># (empty tracks 2 and 4 add useful white space to emphasise the cross links</span></span>
+<span id="cb560-112"><a href="biopython-genomediagram.html#cb560-112" aria-hidden="true" tabindex="-1"></a>    <span class="co"># and also serve to make the tracks vertically more compressed)</span></span>
+<span id="cb560-113"><a href="biopython-genomediagram.html#cb560-113" aria-hidden="true" tabindex="-1"></a>    gd_track_for_features <span class="ot">=</span> <span class="fu">gd_diagram.new_track</span>(</span>
+<span id="cb560-114"><a href="biopython-genomediagram.html#cb560-114" aria-hidden="true" tabindex="-1"></a>        <span class="dv">5</span> <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> i,</span>
+<span id="cb560-115"><a href="biopython-genomediagram.html#cb560-115" aria-hidden="true" tabindex="-1"></a>        <span class="at">name=</span>record.name,</span>
+<span id="cb560-116"><a href="biopython-genomediagram.html#cb560-116" aria-hidden="true" tabindex="-1"></a>        <span class="at">greytrack=</span>True,</span>
+<span id="cb560-117"><a href="biopython-genomediagram.html#cb560-117" aria-hidden="true" tabindex="-1"></a>        <span class="at">height=</span><span class="fl">0.5</span>,</span>
+<span id="cb560-118"><a href="biopython-genomediagram.html#cb560-118" aria-hidden="true" tabindex="-1"></a>        <span class="at">start=</span><span class="dv">0</span>,</span>
+<span id="cb560-119"><a href="biopython-genomediagram.html#cb560-119" aria-hidden="true" tabindex="-1"></a>        <span class="at">end=</span><span class="fu">len</span>(record),</span>
+<span id="cb560-120"><a href="biopython-genomediagram.html#cb560-120" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb560-121"><a href="biopython-genomediagram.html#cb560-121" aria-hidden="true" tabindex="-1"></a>    assert record.name not <span class="cf">in</span> feature_sets</span>
+<span id="cb560-122"><a href="biopython-genomediagram.html#cb560-122" aria-hidden="true" tabindex="-1"></a>    feature_sets[record.name] <span class="ot">=</span> <span class="fu">gd_track_for_features.new_set</span>()</span>
+<span id="cb560-123"><a href="biopython-genomediagram.html#cb560-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-124"><a href="biopython-genomediagram.html#cb560-124" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> X, Y, X_vs_Y <span class="cf">in</span> [</span>
+<span id="cb560-125"><a href="biopython-genomediagram.html#cb560-125" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;NC_001573&quot;</span>, <span class="st">&quot;NC_006839&quot;</span>, A_vs_B),</span>
+<span id="cb560-126"><a href="biopython-genomediagram.html#cb560-126" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;NC_006839&quot;</span>, <span class="st">&quot;NC_026789&quot;</span>, B_vs_C),</span>
+<span id="cb560-127"><a href="biopython-genomediagram.html#cb560-127" aria-hidden="true" tabindex="-1"></a>]<span class="sc">:</span></span>
+<span id="cb560-128"><a href="biopython-genomediagram.html#cb560-128" aria-hidden="true" tabindex="-1"></a>    features_X <span class="ot">=</span> records[X].features</span>
+<span id="cb560-129"><a href="biopython-genomediagram.html#cb560-129" aria-hidden="true" tabindex="-1"></a>    features_Y <span class="ot">=</span> records[Y].features</span>
+<span id="cb560-130"><a href="biopython-genomediagram.html#cb560-130" aria-hidden="true" tabindex="-1"></a>    set_X <span class="ot">=</span> feature_sets[X]</span>
+<span id="cb560-131"><a href="biopython-genomediagram.html#cb560-131" aria-hidden="true" tabindex="-1"></a>    set_Y <span class="ot">=</span> feature_sets[Y]</span>
+<span id="cb560-132"><a href="biopython-genomediagram.html#cb560-132" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> score, x, y <span class="cf">in</span> X_vs_Y<span class="sc">:</span></span>
+<span id="cb560-133"><a href="biopython-genomediagram.html#cb560-133" aria-hidden="true" tabindex="-1"></a>        color <span class="ot">=</span> <span class="fu">colors.linearlyInterpolatedColor</span>(</span>
+<span id="cb560-134"><a href="biopython-genomediagram.html#cb560-134" aria-hidden="true" tabindex="-1"></a>            colors.white, colors.firebrick, <span class="dv">0</span>, <span class="dv">100</span>, score</span>
+<span id="cb560-135"><a href="biopython-genomediagram.html#cb560-135" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb560-136"><a href="biopython-genomediagram.html#cb560-136" aria-hidden="true" tabindex="-1"></a>        border <span class="ot">=</span> colors.lightgrey</span>
+<span id="cb560-137"><a href="biopython-genomediagram.html#cb560-137" aria-hidden="true" tabindex="-1"></a>        f_x <span class="ot">=</span> <span class="fu">get_feature</span>(features_X, x)</span>
+<span id="cb560-138"><a href="biopython-genomediagram.html#cb560-138" aria-hidden="true" tabindex="-1"></a>        F_x <span class="ot">=</span> <span class="fu">set_X.add_feature</span>(</span>
+<span id="cb560-139"><a href="biopython-genomediagram.html#cb560-139" aria-hidden="true" tabindex="-1"></a>            <span class="fu">SeqFeature</span>(<span class="fu">FeatureLocation</span>(f_x.location.start, f_x.location.end, <span class="at">strand=</span><span class="dv">0</span>)),</span>
+<span id="cb560-140"><a href="biopython-genomediagram.html#cb560-140" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span>color,</span>
+<span id="cb560-141"><a href="biopython-genomediagram.html#cb560-141" aria-hidden="true" tabindex="-1"></a>            <span class="at">border=</span>border,</span>
+<span id="cb560-142"><a href="biopython-genomediagram.html#cb560-142" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb560-143"><a href="biopython-genomediagram.html#cb560-143" aria-hidden="true" tabindex="-1"></a>        f_y <span class="ot">=</span> <span class="fu">get_feature</span>(features_Y, y)</span>
+<span id="cb560-144"><a href="biopython-genomediagram.html#cb560-144" aria-hidden="true" tabindex="-1"></a>        F_y <span class="ot">=</span> <span class="fu">set_Y.add_feature</span>(</span>
+<span id="cb560-145"><a href="biopython-genomediagram.html#cb560-145" aria-hidden="true" tabindex="-1"></a>            <span class="fu">SeqFeature</span>(<span class="fu">FeatureLocation</span>(f_y.location.start, f_y.location.end, <span class="at">strand=</span><span class="dv">0</span>)),</span>
+<span id="cb560-146"><a href="biopython-genomediagram.html#cb560-146" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span>color,</span>
+<span id="cb560-147"><a href="biopython-genomediagram.html#cb560-147" aria-hidden="true" tabindex="-1"></a>            <span class="at">border=</span>border,</span>
+<span id="cb560-148"><a href="biopython-genomediagram.html#cb560-148" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb560-149"><a href="biopython-genomediagram.html#cb560-149" aria-hidden="true" tabindex="-1"></a>        <span class="fu">gd_diagram.cross_track_links.append</span>(<span class="fu">CrossLink</span>(F_x, F_y, color, border))</span>
+<span id="cb560-150"><a href="biopython-genomediagram.html#cb560-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-151"><a href="biopython-genomediagram.html#cb560-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-152"><a href="biopython-genomediagram.html#cb560-152" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> record, gene_colors <span class="cf">in</span> <span class="fu">zip</span>([A_rec, B_rec, C_rec], [A_colors, B_colors, C_colors])<span class="sc">:</span></span>
+<span id="cb560-153"><a href="biopython-genomediagram.html#cb560-153" aria-hidden="true" tabindex="-1"></a>    gd_feature_set <span class="ot">=</span> feature_sets[record.name]</span>
+<span id="cb560-154"><a href="biopython-genomediagram.html#cb560-154" aria-hidden="true" tabindex="-1"></a>    i <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb560-155"><a href="biopython-genomediagram.html#cb560-155" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> feature <span class="cf">in</span> record.features<span class="sc">:</span></span>
+<span id="cb560-156"><a href="biopython-genomediagram.html#cb560-156" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> feature.type <span class="sc">!=</span> <span class="st">&quot;gene&quot;</span><span class="sc">:</span></span>
+<span id="cb560-157"><a href="biopython-genomediagram.html#cb560-157" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Exclude this feature</span></span>
+<span id="cb560-158"><a href="biopython-genomediagram.html#cb560-158" aria-hidden="true" tabindex="-1"></a>            continue</span>
+<span id="cb560-159"><a href="biopython-genomediagram.html#cb560-159" aria-hidden="true" tabindex="-1"></a>        try<span class="sc">:</span></span>
+<span id="cb560-160"><a href="biopython-genomediagram.html#cb560-160" aria-hidden="true" tabindex="-1"></a>            g_color <span class="ot">=</span> gene_colors[i]</span>
+<span id="cb560-161"><a href="biopython-genomediagram.html#cb560-161" aria-hidden="true" tabindex="-1"></a>        except IndexError<span class="sc">:</span></span>
+<span id="cb560-162"><a href="biopython-genomediagram.html#cb560-162" aria-hidden="true" tabindex="-1"></a>            <span class="fu">print</span>(<span class="st">&quot;Don&#39;t have color for %s gene %i&quot;</span> % (record.name, i))</span>
+<span id="cb560-163"><a href="biopython-genomediagram.html#cb560-163" aria-hidden="true" tabindex="-1"></a>            g_color <span class="ot">=</span> grey</span>
+<span id="cb560-164"><a href="biopython-genomediagram.html#cb560-164" aria-hidden="true" tabindex="-1"></a>        <span class="fu">gd_feature_set.add_feature</span>(</span>
+<span id="cb560-165"><a href="biopython-genomediagram.html#cb560-165" aria-hidden="true" tabindex="-1"></a>            feature,</span>
+<span id="cb560-166"><a href="biopython-genomediagram.html#cb560-166" aria-hidden="true" tabindex="-1"></a>            <span class="at">sigil=</span><span class="st">&quot;BIGARROW&quot;</span>,</span>
+<span id="cb560-167"><a href="biopython-genomediagram.html#cb560-167" aria-hidden="true" tabindex="-1"></a>            <span class="at">color=</span>g_color,</span>
+<span id="cb560-168"><a href="biopython-genomediagram.html#cb560-168" aria-hidden="true" tabindex="-1"></a>            <span class="at">label=</span>True,</span>
+<span id="cb560-169"><a href="biopython-genomediagram.html#cb560-169" aria-hidden="true" tabindex="-1"></a>            <span class="at">name=</span><span class="fu">str</span>(i <span class="sc">+</span> <span class="dv">1</span>),</span>
+<span id="cb560-170"><a href="biopython-genomediagram.html#cb560-170" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_position=</span><span class="st">&quot;start&quot;</span>,</span>
+<span id="cb560-171"><a href="biopython-genomediagram.html#cb560-171" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_size=</span><span class="dv">6</span>,</span>
+<span id="cb560-172"><a href="biopython-genomediagram.html#cb560-172" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_angle=</span><span class="dv">0</span>,</span>
+<span id="cb560-173"><a href="biopython-genomediagram.html#cb560-173" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb560-174"><a href="biopython-genomediagram.html#cb560-174" aria-hidden="true" tabindex="-1"></a>        i <span class="sc">+</span><span class="er">=</span> <span class="dv">1</span></span>
+<span id="cb560-175"><a href="biopython-genomediagram.html#cb560-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-176"><a href="biopython-genomediagram.html#cb560-176" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.draw</span>(<span class="at">format=</span><span class="st">&quot;linear&quot;</span>, <span class="at">pagesize=</span><span class="st">&quot;A4&quot;</span>, <span class="at">fragments=</span><span class="dv">1</span>, <span class="at">start=</span><span class="dv">0</span>, <span class="at">end=</span>max_len)</span>
+<span id="cb560-177"><a href="biopython-genomediagram.html#cb560-177" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.pdf&quot;</span>, <span class="st">&quot;PDF&quot;</span>)</span>
+<span id="cb560-178"><a href="biopython-genomediagram.html#cb560-178" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.eps&quot;</span>, <span class="st">&quot;EPS&quot;</span>)</span>
+<span id="cb560-179"><a href="biopython-genomediagram.html#cb560-179" aria-hidden="true" tabindex="-1"></a><span class="fu">gd_diagram.write</span>(name <span class="sc">+</span> <span class="st">&quot;.svg&quot;</span>, <span class="st">&quot;SVG&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>

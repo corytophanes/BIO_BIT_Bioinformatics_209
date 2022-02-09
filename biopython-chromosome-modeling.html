@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2022-01-30" />
+<meta name="date" content="2022-02-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -413,10 +413,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.4" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#nested-conditionals-if-if-else-and-else"><i class="fa fa-check"></i><b>28.4</b> Nested conditionals <code>if</code>, <code>if else</code> and <code>else</code></a></li>
 <li class="chapter" data-level="28.5" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#conditional-ifelse"><i class="fa fa-check"></i><b>28.5</b> Conditional <code>ifelse</code></a></li>
 <li class="chapter" data-level="28.6" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#loops-that-control-iterations-and-repeations"><i class="fa fa-check"></i><b>28.6</b> Loops that control iterations and repeations</a></li>
-<li class="chapter" data-level="28.7" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#for-loops"><i class="fa fa-check"></i><b>28.7</b> <code>for</code> Loops</a></li>
-<li class="chapter" data-level="28.8" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#while-loops"><i class="fa fa-check"></i><b>28.8</b> <code>while</code> Loops</a></li>
-<li class="chapter" data-level="28.9" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#repeat-and-break-loops"><i class="fa fa-check"></i><b>28.9</b> <code>repeat</code> and <code>break</code> Loops</a></li>
-<li class="chapter" data-level="28.10" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-next-function-in-loops"><i class="fa fa-check"></i><b>28.10</b> The <code>next</code> function in loops</a></li>
+<li class="chapter" data-level="28.7" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-for-loop"><i class="fa fa-check"></i><b>28.7</b> The <code>for</code> Loop</a></li>
+<li class="chapter" data-level="28.8" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-while-loop"><i class="fa fa-check"></i><b>28.8</b> The <code>while</code> Loop</a></li>
+<li class="chapter" data-level="28.9" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-repeat-loop"><i class="fa fa-check"></i><b>28.9</b> The <code>repeat</code> Loop</a></li>
+<li class="chapter" data-level="28.10" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-next-and-break-statements"><i class="fa fa-check"></i><b>28.10</b> The <code>next</code> and <code>break</code> statements</a></li>
 <li class="chapter" data-level="28.11" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionslapply"><i class="fa fa-check"></i><b>28.11</b> Other loop functions:<code>lapply</code></a></li>
 <li class="chapter" data-level="28.12" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsapply"><i class="fa fa-check"></i><b>28.12</b> Other loop functions:<code>apply</code></a></li>
 <li class="chapter" data-level="28.13" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsmapply"><i class="fa fa-check"></i><b>28.13</b> Other loop functions:<code>mapply</code></a></li>
@@ -461,44 +461,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="gene-feature-modeling" class="section level2" number="24.1">
 <h2><span class="header-section-number">24.1</span> Gene Feature Modeling</h2>
 <p>Dataset is in this <a href="https://www.ncbi.nlm.nih.gov/assembly/GCF_001663975.1" target="_blank"><strong>link</strong></a></p>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="biopython-chromosome-modeling.html#cb555-1" aria-hidden="true" tabindex="-1"></a>from reportlab.lib.units import cm</span>
-<span id="cb555-2"><a href="biopython-chromosome-modeling.html#cb555-2" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb555-3"><a href="biopython-chromosome-modeling.html#cb555-3" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics import BasicChromosome</span>
-<span id="cb555-4"><a href="biopython-chromosome-modeling.html#cb555-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb555-5"><a href="biopython-chromosome-modeling.html#cb555-5" aria-hidden="true" tabindex="-1"></a>entries <span class="ot">=</span> [</span>
-<span id="cb555-6"><a href="biopython-chromosome-modeling.html#cb555-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr I&quot;</span>, <span class="st">&quot;L1.gb&quot;</span>),</span>
-<span id="cb555-7"><a href="biopython-chromosome-modeling.html#cb555-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr II&quot;</span>, <span class="st">&quot;L2.gb&quot;</span>),</span>
-<span id="cb555-8"><a href="biopython-chromosome-modeling.html#cb555-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr III&quot;</span>, <span class="st">&quot;L3.gb&quot;</span>),</span>
-<span id="cb555-9"><a href="biopython-chromosome-modeling.html#cb555-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr IV&quot;</span>, <span class="st">&quot;L4.gb&quot;</span>),</span>
-<span id="cb555-10"><a href="biopython-chromosome-modeling.html#cb555-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr V&quot;</span>, <span class="st">&quot;L5.gb&quot;</span>),</span>
-<span id="cb555-11"><a href="biopython-chromosome-modeling.html#cb555-11" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb555-12"><a href="biopython-chromosome-modeling.html#cb555-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb555-13"><a href="biopython-chromosome-modeling.html#cb555-13" aria-hidden="true" tabindex="-1"></a>max_len <span class="ot">=</span> <span class="dv">219802468</span>  <span class="co"># Could compute this from the entries dict</span></span>
-<span id="cb555-14"><a href="biopython-chromosome-modeling.html#cb555-14" aria-hidden="true" tabindex="-1"></a>telomere_length <span class="ot">=</span> <span class="dv">100000</span>  <span class="co"># For illustration</span></span>
-<span id="cb555-15"><a href="biopython-chromosome-modeling.html#cb555-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb555-16"><a href="biopython-chromosome-modeling.html#cb555-16" aria-hidden="true" tabindex="-1"></a>chr_diagram <span class="ot">=</span> <span class="fu">BasicChromosome.Organism</span>()</span>
-<span id="cb555-17"><a href="biopython-chromosome-modeling.html#cb555-17" aria-hidden="true" tabindex="-1"></a>chr_diagram.page_size <span class="ot">=</span> (<span class="dv">45</span> <span class="sc">*</span> cm, <span class="dv">500</span> <span class="sc">*</span> cm)  <span class="co"># A4 landscape</span></span>
-<span id="cb555-18"><a href="biopython-chromosome-modeling.html#cb555-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb555-19"><a href="biopython-chromosome-modeling.html#cb555-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, (name, filename) <span class="cf">in</span> <span class="fu">enumerate</span>(entries)<span class="sc">:</span></span>
-<span id="cb555-20"><a href="biopython-chromosome-modeling.html#cb555-20" aria-hidden="true" tabindex="-1"></a>    record <span class="ot">=</span> <span class="fu">SeqIO.read</span>(filename, <span class="st">&quot;genbank&quot;</span>)</span>
-<span id="cb555-21"><a href="biopython-chromosome-modeling.html#cb555-21" aria-hidden="true" tabindex="-1"></a>    length <span class="ot">=</span> <span class="fu">len</span>(record)</span>
-<span id="cb555-22"><a href="biopython-chromosome-modeling.html#cb555-22" aria-hidden="true" tabindex="-1"></a>    features <span class="ot">=</span> [f <span class="cf">for</span> f <span class="cf">in</span> record.features <span class="cf">if</span> f.type <span class="sc">==</span> <span class="st">&quot;gene&quot;</span>]</span>
-<span id="cb555-23"><a href="biopython-chromosome-modeling.html#cb555-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="cf">in</span> features<span class="sc">:</span></span>
-<span id="cb555-24"><a href="biopython-chromosome-modeling.html#cb555-24" aria-hidden="true" tabindex="-1"></a>        f.qualifiers[<span class="st">&quot;color&quot;</span>] <span class="ot">=</span> [index <span class="sc">+</span> <span class="dv">2</span>]</span>
-<span id="cb555-25"><a href="biopython-chromosome-modeling.html#cb555-25" aria-hidden="true" tabindex="-1"></a>    cur_chromosome <span class="ot">=</span> <span class="fu">BasicChromosome.Chromosome</span>(name)</span>
-<span id="cb555-26"><a href="biopython-chromosome-modeling.html#cb555-26" aria-hidden="true" tabindex="-1"></a>    cur_chromosome.scale_num <span class="ot">=</span> max_len <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> telomere_length</span>
-<span id="cb555-27"><a href="biopython-chromosome-modeling.html#cb555-27" aria-hidden="true" tabindex="-1"></a>    start <span class="ot">=</span> <span class="fu">BasicChromosome.TelomereSegment</span>()</span>
-<span id="cb555-28"><a href="biopython-chromosome-modeling.html#cb555-28" aria-hidden="true" tabindex="-1"></a>    start.scale <span class="ot">=</span> telomere_length</span>
-<span id="cb555-29"><a href="biopython-chromosome-modeling.html#cb555-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cur_chromosome.add</span>(start)</span>
-<span id="cb555-30"><a href="biopython-chromosome-modeling.html#cb555-30" aria-hidden="true" tabindex="-1"></a>    body <span class="ot">=</span> <span class="fu">BasicChromosome.AnnotatedChromosomeSegment</span>(length, features)</span>
-<span id="cb555-31"><a href="biopython-chromosome-modeling.html#cb555-31" aria-hidden="true" tabindex="-1"></a>    body.scale <span class="ot">=</span> length</span>
-<span id="cb555-32"><a href="biopython-chromosome-modeling.html#cb555-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cur_chromosome.add</span>(body)</span>
-<span id="cb555-33"><a href="biopython-chromosome-modeling.html#cb555-33" aria-hidden="true" tabindex="-1"></a>    end <span class="ot">=</span> <span class="fu">BasicChromosome.TelomereSegment</span>(<span class="at">inverted=</span>True)</span>
-<span id="cb555-34"><a href="biopython-chromosome-modeling.html#cb555-34" aria-hidden="true" tabindex="-1"></a>    end.scale <span class="ot">=</span> telomere_length</span>
-<span id="cb555-35"><a href="biopython-chromosome-modeling.html#cb555-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cur_chromosome.add</span>(end)</span>
-<span id="cb555-36"><a href="biopython-chromosome-modeling.html#cb555-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">chr_diagram.add</span>(cur_chromosome)</span>
-<span id="cb555-37"><a href="biopython-chromosome-modeling.html#cb555-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb555-38"><a href="biopython-chromosome-modeling.html#cb555-38" aria-hidden="true" tabindex="-1"></a><span class="fu">chr_diagram.draw</span>(<span class="st">&quot;Chromosome.pdf&quot;</span>, <span class="st">&quot;Xenopus laevis&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="biopython-chromosome-modeling.html#cb561-1" aria-hidden="true" tabindex="-1"></a>from reportlab.lib.units import cm</span>
+<span id="cb561-2"><a href="biopython-chromosome-modeling.html#cb561-2" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb561-3"><a href="biopython-chromosome-modeling.html#cb561-3" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics import BasicChromosome</span>
+<span id="cb561-4"><a href="biopython-chromosome-modeling.html#cb561-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb561-5"><a href="biopython-chromosome-modeling.html#cb561-5" aria-hidden="true" tabindex="-1"></a>entries <span class="ot">=</span> [</span>
+<span id="cb561-6"><a href="biopython-chromosome-modeling.html#cb561-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr I&quot;</span>, <span class="st">&quot;L1.gb&quot;</span>),</span>
+<span id="cb561-7"><a href="biopython-chromosome-modeling.html#cb561-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr II&quot;</span>, <span class="st">&quot;L2.gb&quot;</span>),</span>
+<span id="cb561-8"><a href="biopython-chromosome-modeling.html#cb561-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr III&quot;</span>, <span class="st">&quot;L3.gb&quot;</span>),</span>
+<span id="cb561-9"><a href="biopython-chromosome-modeling.html#cb561-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr IV&quot;</span>, <span class="st">&quot;L4.gb&quot;</span>),</span>
+<span id="cb561-10"><a href="biopython-chromosome-modeling.html#cb561-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr V&quot;</span>, <span class="st">&quot;L5.gb&quot;</span>),</span>
+<span id="cb561-11"><a href="biopython-chromosome-modeling.html#cb561-11" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb561-12"><a href="biopython-chromosome-modeling.html#cb561-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb561-13"><a href="biopython-chromosome-modeling.html#cb561-13" aria-hidden="true" tabindex="-1"></a>max_len <span class="ot">=</span> <span class="dv">219802468</span>  <span class="co"># Could compute this from the entries dict</span></span>
+<span id="cb561-14"><a href="biopython-chromosome-modeling.html#cb561-14" aria-hidden="true" tabindex="-1"></a>telomere_length <span class="ot">=</span> <span class="dv">100000</span>  <span class="co"># For illustration</span></span>
+<span id="cb561-15"><a href="biopython-chromosome-modeling.html#cb561-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb561-16"><a href="biopython-chromosome-modeling.html#cb561-16" aria-hidden="true" tabindex="-1"></a>chr_diagram <span class="ot">=</span> <span class="fu">BasicChromosome.Organism</span>()</span>
+<span id="cb561-17"><a href="biopython-chromosome-modeling.html#cb561-17" aria-hidden="true" tabindex="-1"></a>chr_diagram.page_size <span class="ot">=</span> (<span class="dv">45</span> <span class="sc">*</span> cm, <span class="dv">500</span> <span class="sc">*</span> cm)  <span class="co"># A4 landscape</span></span>
+<span id="cb561-18"><a href="biopython-chromosome-modeling.html#cb561-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb561-19"><a href="biopython-chromosome-modeling.html#cb561-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, (name, filename) <span class="cf">in</span> <span class="fu">enumerate</span>(entries)<span class="sc">:</span></span>
+<span id="cb561-20"><a href="biopython-chromosome-modeling.html#cb561-20" aria-hidden="true" tabindex="-1"></a>    record <span class="ot">=</span> <span class="fu">SeqIO.read</span>(filename, <span class="st">&quot;genbank&quot;</span>)</span>
+<span id="cb561-21"><a href="biopython-chromosome-modeling.html#cb561-21" aria-hidden="true" tabindex="-1"></a>    length <span class="ot">=</span> <span class="fu">len</span>(record)</span>
+<span id="cb561-22"><a href="biopython-chromosome-modeling.html#cb561-22" aria-hidden="true" tabindex="-1"></a>    features <span class="ot">=</span> [f <span class="cf">for</span> f <span class="cf">in</span> record.features <span class="cf">if</span> f.type <span class="sc">==</span> <span class="st">&quot;gene&quot;</span>]</span>
+<span id="cb561-23"><a href="biopython-chromosome-modeling.html#cb561-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="cf">in</span> features<span class="sc">:</span></span>
+<span id="cb561-24"><a href="biopython-chromosome-modeling.html#cb561-24" aria-hidden="true" tabindex="-1"></a>        f.qualifiers[<span class="st">&quot;color&quot;</span>] <span class="ot">=</span> [index <span class="sc">+</span> <span class="dv">2</span>]</span>
+<span id="cb561-25"><a href="biopython-chromosome-modeling.html#cb561-25" aria-hidden="true" tabindex="-1"></a>    cur_chromosome <span class="ot">=</span> <span class="fu">BasicChromosome.Chromosome</span>(name)</span>
+<span id="cb561-26"><a href="biopython-chromosome-modeling.html#cb561-26" aria-hidden="true" tabindex="-1"></a>    cur_chromosome.scale_num <span class="ot">=</span> max_len <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> telomere_length</span>
+<span id="cb561-27"><a href="biopython-chromosome-modeling.html#cb561-27" aria-hidden="true" tabindex="-1"></a>    start <span class="ot">=</span> <span class="fu">BasicChromosome.TelomereSegment</span>()</span>
+<span id="cb561-28"><a href="biopython-chromosome-modeling.html#cb561-28" aria-hidden="true" tabindex="-1"></a>    start.scale <span class="ot">=</span> telomere_length</span>
+<span id="cb561-29"><a href="biopython-chromosome-modeling.html#cb561-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cur_chromosome.add</span>(start)</span>
+<span id="cb561-30"><a href="biopython-chromosome-modeling.html#cb561-30" aria-hidden="true" tabindex="-1"></a>    body <span class="ot">=</span> <span class="fu">BasicChromosome.AnnotatedChromosomeSegment</span>(length, features)</span>
+<span id="cb561-31"><a href="biopython-chromosome-modeling.html#cb561-31" aria-hidden="true" tabindex="-1"></a>    body.scale <span class="ot">=</span> length</span>
+<span id="cb561-32"><a href="biopython-chromosome-modeling.html#cb561-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cur_chromosome.add</span>(body)</span>
+<span id="cb561-33"><a href="biopython-chromosome-modeling.html#cb561-33" aria-hidden="true" tabindex="-1"></a>    end <span class="ot">=</span> <span class="fu">BasicChromosome.TelomereSegment</span>(<span class="at">inverted=</span>True)</span>
+<span id="cb561-34"><a href="biopython-chromosome-modeling.html#cb561-34" aria-hidden="true" tabindex="-1"></a>    end.scale <span class="ot">=</span> telomere_length</span>
+<span id="cb561-35"><a href="biopython-chromosome-modeling.html#cb561-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cur_chromosome.add</span>(end)</span>
+<span id="cb561-36"><a href="biopython-chromosome-modeling.html#cb561-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">chr_diagram.add</span>(cur_chromosome)</span>
+<span id="cb561-37"><a href="biopython-chromosome-modeling.html#cb561-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb561-38"><a href="biopython-chromosome-modeling.html#cb561-38" aria-hidden="true" tabindex="-1"></a><span class="fu">chr_diagram.draw</span>(<span class="st">&quot;Chromosome.pdf&quot;</span>, <span class="st">&quot;Xenopus laevis&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>
