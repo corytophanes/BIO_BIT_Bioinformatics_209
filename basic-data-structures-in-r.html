@@ -918,14 +918,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://rc2e.com/datastructures#recipe-id251" target="_blank">Long and Teetor (2019)</a> provides some useful characteristics of a data frame. To an R programmer: A data frame is a hybrid data structure, part matrix and part list. A column can contain numbers, character strings, or factors, but not a mix of them. You can index the data frame just like you index a matrix. The data frame is also a list, where the list elements are the columns, so you can access columns by using list operators.</p>
 <p>Therefore, the data frame flexibility derive from some of its properties:</p>
 <ol style="list-style-type: lower-alpha">
-<li>The elements (cells) of data frame can be usually numeric, character or factor.</li>
-<li>The columns and row can have names.</li>
-<li>You can call rows and columns to vectors.</li>
-<li>You can filter and subset the data frame based on rules, functions conditions.</li>
-<li>You can store results of calculations in elements (cells) of a data frame.</li>
-<li>You can append new columns and rows to a data frame.</li>
-<li>You can coerce other data structures into data frames (e.g., collect vectors into a data frame, transform from a matrix). More complex data structures (e.g., tibbles, data.tables, biostrings objects) as usually modifications of data frames and can be also be coerced to data frames.</li>
-<li>Most data (e.g., CSV or tab delimited data sets) are imported into R as data frames.</li>
+<li>The elements (cells) of data frame can be usually numeric, character, logical, or factor</li>
+<li>The columns and rows can have names</li>
+<li>You can call rows and columns to vectors</li>
+<li>You can filter and subset the data frame based on rules, functions and conditions</li>
+<li>You can store results of calculations in elements (cells) of a data frame</li>
+<li>You can append new columns and rows to a data frame</li>
+<li>You can coerce other data structures into data frames (e.g., collect vectors into a data frame, transform from a matrix). More complex data structures (e.g., tibbles, data.tables, biostrings objects) as usually modifications of data frames and can be also be coerced to data frames</li>
+<li>Most data (e.g., CSV or tab delimited data sets) are imported into R as data frames</li>
 </ol>
 <p><strong>20)</strong> You can build a data frame as follows by typing its contents in the R console (or copy and paste from text editor).</p>
 <div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="basic-data-structures-in-r.html#cb108-1" aria-hidden="true" tabindex="-1"></a>my_dataframe <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">my_numbers =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),</span>
@@ -1086,7 +1086,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb127-2"><a href="basic-data-structures-in-r.html#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  numbers_A numbers_B numbers_C</span></span>
 <span id="cb127-3"><a href="basic-data-structures-in-r.html#cb127-3" aria-hidden="true" tabindex="-1"></a><span class="co">#1         1         5         9</span></span>
 <span id="cb127-4"><a href="basic-data-structures-in-r.html#cb127-4" aria-hidden="true" tabindex="-1"></a><span class="co">#3         3         7        11</span></span></code></pre></div>
-<p>We can also remove the row in that have NA values in column <code>numbers_C</code> using the function <code>complete.cases()</code>.</p>
+<p>We can also remove the row with NA values in a given column (e.g., <code>numbers_C</code>) using the function <code>complete.cases()</code>.</p>
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="basic-data-structures-in-r.html#cb128-1" aria-hidden="true" tabindex="-1"></a>my_dataframe_with_NAs[<span class="fu">complete.cases</span>(my_dataframe_with_NAs[,<span class="st">&quot;numbers_C&quot;</span>]),]</span>
 <span id="cb128-2"><a href="basic-data-structures-in-r.html#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  numbers_A numbers_B numbers_C</span></span>
 <span id="cb128-3"><a href="basic-data-structures-in-r.html#cb128-3" aria-hidden="true" tabindex="-1"></a><span class="co">#1         1         5         9</span></span>
@@ -1158,7 +1158,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="tables" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Tables</h2>
-<p><strong>32)</strong> A table object is similar to a data frame, but it can be used to summarizing your data, especially with categorical variables. Usually, you can use a table object to summarize a data frame.</p>
+<p><strong>32)</strong> A table object is similar to a data frame, but it can be used to <strong>summarizing</strong> or <strong>tabulating</strong> your data, especially with categorical variables. Usually, you can use a table object to summarize a data frame.</p>
 <p>A contingency table is creates using the function <code>table()</code> to create an object for tabulation of counts and percentages for one or more variables. Missing values <code>NA</code> are excluded from the counts unless you specify the argument <code>useNA=“ifany”</code> or <code>useNA=“always”</code>.</p>
 <p>To exemplify a table, we create a version with different number of rows of <code>my_dataframe</code> and append those together.</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="basic-data-structures-in-r.html#cb136-1" aria-hidden="true" tabindex="-1"></a>my_dataframe_3 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(my_dataframe,my_dataframe_2, my_dataframe_2[<span class="sc">-</span><span class="dv">1</span>,])</span></code></pre></div>
@@ -1170,7 +1170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="basic-data-structures-in-r.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(my_dataframe_3<span class="sc">$</span>my_text)</span>
 <span id="cb138-2"><a href="basic-data-structures-in-r.html#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="co">#      apple      banana       grape        pear pomegranate      potato </span></span>
 <span id="cb138-3"><a href="basic-data-structures-in-r.html#cb138-3" aria-hidden="true" tabindex="-1"></a><span class="co">#          2           3           3           3           3           2 </span></span></code></pre></div>
-<p>A two-way table for <code>my_borough</code> and <code>my_text</code>.</p>
+<p>A two-way table for <code>my_borough</code> and <code>my_text</code>. In this case, reports when both vectors concide with the same combination of terms (e.g., queens with apple occur 2 times in the same postion of both vectors).</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="basic-data-structures-in-r.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(my_dataframe_3<span class="sc">$</span>my_boroughs, my_dataframe_3<span class="sc">$</span>my_text) </span>
 <span id="cb139-2"><a href="basic-data-structures-in-r.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="co">#               apple banana grape pear pomegranate potato</span></span>
 <span id="cb139-3"><a href="basic-data-structures-in-r.html#cb139-3" aria-hidden="true" tabindex="-1"></a><span class="co"># brooklyn          0      0     3    0           0      0</span></span>
