@@ -667,11 +667,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb79-39"><a href="basic-data-structures-in-r.html#cb79-39" aria-hidden="true" tabindex="-1"></a><span class="co">#$ carb      : int  4 4 1 1 2 1 4 2 2 4 ...</span></span>
 <span id="cb79-40"><a href="basic-data-structures-in-r.html#cb79-40" aria-hidden="true" tabindex="-1"></a><span class="co">#$ vs_factor : Factor w/ 2 levels &quot;0&quot;,&quot;1&quot;: 1 1 2 2 1 2 1 2 2 2 ...</span></span>
 <span id="cb79-41"><a href="basic-data-structures-in-r.html#cb79-41" aria-hidden="true" tabindex="-1"></a><span class="co">#$ am_logical: logi  TRUE TRUE TRUE FALSE FALSE FALSE ...</span></span></code></pre></div>
-<p><strong>6)</strong> There are also special cases of vector elements that are useful, but they can also be confusing. A <code>NULL</code> represents the null or an empty object in R and it can be on its own, but it cannot be with other elements in the same vector.</p>
+<p><strong>6)</strong> There are also special cases of vector elements that are useful, but they can also be confusing. A <strong><code>NULL</code></strong> represents the null or an empty object in R and it can be on its own, but it cannot be with other elements in the same vector.</p>
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="basic-data-structures-in-r.html#cb80-1" aria-hidden="true" tabindex="-1"></a>my_numeric_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>, <span class="cn">NULL</span>)</span>
 <span id="cb80-2"><a href="basic-data-structures-in-r.html#cb80-2" aria-hidden="true" tabindex="-1"></a>my_numeric_vector</span>
 <span id="cb80-3"><a href="basic-data-structures-in-r.html#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 1 2 3 4</span></span></code></pre></div>
-<p>A <code>NA</code> element represents a missing value in R. This element can be in a vector and updated in other R objects.</p>
+<p>A <strong><code>NA</code></strong> element represents a missing value in R. This element can be in a vector and updated in other R objects.</p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="basic-data-structures-in-r.html#cb81-1" aria-hidden="true" tabindex="-1"></a>my_numeric_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>, <span class="cn">NA</span>)</span>
 <span id="cb81-2"><a href="basic-data-structures-in-r.html#cb81-2" aria-hidden="true" tabindex="-1"></a>my_numeric_vector</span>
 <span id="cb81-3"><a href="basic-data-structures-in-r.html#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1  2  3  4 NA</span></span></code></pre></div>
@@ -1069,8 +1069,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb125-6"><a href="basic-data-structures-in-r.html#cb125-6" aria-hidden="true" tabindex="-1"></a><span class="co">#3       3       grape      brooklyn   blue</span></span>
 <span id="cb125-7"><a href="basic-data-structures-in-r.html#cb125-7" aria-hidden="true" tabindex="-1"></a><span class="co">#4       4 pomegranate     manhattan  black</span></span>
 <span id="cb125-8"><a href="basic-data-structures-in-r.html#cb125-8" aria-hidden="true" tabindex="-1"></a><span class="co">#5       5      banana staten_island  green</span></span></code></pre></div>
-<p><strong>29)</strong> You can remove <code>NA</code> elements of a data frame, but it will remove the row and column that has such values.</p>
-<p>Let’s create a data frame that has <code>NA</code> elements.</p>
+<p><strong>29)</strong> You can remove <strong><code>NA</code></strong> elements of a data frame, but it will remove the row and column that has such values.</p>
+<p>Let’s create a data frame that has <strong><code>NA</code></strong> elements.</p>
 <div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="basic-data-structures-in-r.html#cb126-1" aria-hidden="true" tabindex="-1"></a>my_dataframe_with_NAs <span class="ot">&lt;-</span> <span class="fu">data.frame</span> (<span class="at">numbers_A =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),</span>
 <span id="cb126-2"><a href="basic-data-structures-in-r.html#cb126-2" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">numbers_B =</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="cn">NA</span>,<span class="dv">7</span>,<span class="cn">NA</span>),</span>
 <span id="cb126-3"><a href="basic-data-structures-in-r.html#cb126-3" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">numbers_C =</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="cn">NA</span>, <span class="dv">11</span>,<span class="dv">12</span>),</span>
@@ -1081,12 +1081,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb126-8"><a href="basic-data-structures-in-r.html#cb126-8" aria-hidden="true" tabindex="-1"></a><span class="co">#2         2        NA        NA</span></span>
 <span id="cb126-9"><a href="basic-data-structures-in-r.html#cb126-9" aria-hidden="true" tabindex="-1"></a><span class="co">#3         3         7        11</span></span>
 <span id="cb126-10"><a href="basic-data-structures-in-r.html#cb126-10" aria-hidden="true" tabindex="-1"></a><span class="co">#4         4        NA        12</span></span></code></pre></div>
-<p>We can remove all columns and rows with <code>NA</code> elements using the function <code>na.omit()</code>.</p>
+<p>We can remove all columns and rows with <strong><code>NA</code></strong> elements using the function <code>na.omit()</code>.</p>
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="basic-data-structures-in-r.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">na.omit</span>(my_dataframe_with_NAs)</span>
 <span id="cb127-2"><a href="basic-data-structures-in-r.html#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  numbers_A numbers_B numbers_C</span></span>
 <span id="cb127-3"><a href="basic-data-structures-in-r.html#cb127-3" aria-hidden="true" tabindex="-1"></a><span class="co">#1         1         5         9</span></span>
 <span id="cb127-4"><a href="basic-data-structures-in-r.html#cb127-4" aria-hidden="true" tabindex="-1"></a><span class="co">#3         3         7        11</span></span></code></pre></div>
-<p>We can also remove the row with NA values in a given column (e.g., <code>numbers_C</code>) using the function <code>complete.cases()</code>.</p>
+<p>We can also remove the row with <strong>NA</strong> values in a given column (e.g., <code>numbers_C</code>) using the function <code>complete.cases()</code>.</p>
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="basic-data-structures-in-r.html#cb128-1" aria-hidden="true" tabindex="-1"></a>my_dataframe_with_NAs[<span class="fu">complete.cases</span>(my_dataframe_with_NAs[,<span class="st">&quot;numbers_C&quot;</span>]),]</span>
 <span id="cb128-2"><a href="basic-data-structures-in-r.html#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  numbers_A numbers_B numbers_C</span></span>
 <span id="cb128-3"><a href="basic-data-structures-in-r.html#cb128-3" aria-hidden="true" tabindex="-1"></a><span class="co">#1         1         5         9</span></span>
@@ -1159,7 +1159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="tables" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Tables</h2>
 <p><strong>32)</strong> A table object is similar to a data frame, but it can be used to <strong>summarizing</strong> or <strong>tabulating</strong> your data, especially with categorical variables. Usually, you can use a table object to summarize a data frame.</p>
-<p>A contingency table is creates using the function <code>table()</code> to create an object for tabulation of counts and percentages for one or more variables. Missing values <code>NA</code> are excluded from the counts unless you specify the argument <code>useNA=“ifany”</code> or <code>useNA=“always”</code>.</p>
+<p>A contingency table is creates using the function <code>table()</code> to create an object for tabulation of counts and percentages for one or more variables. Missing values <strong><code>NA</code></strong> are excluded from the counts unless you specify the argument <code>useNA=“ifany”</code> or <code>useNA=“always”</code>.</p>
 <p>To exemplify a table, we create a version with different number of rows of <code>my_dataframe</code> and append those together.</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="basic-data-structures-in-r.html#cb136-1" aria-hidden="true" tabindex="-1"></a>my_dataframe_3 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(my_dataframe,my_dataframe_2, my_dataframe_2[<span class="sc">-</span><span class="dv">1</span>,])</span></code></pre></div>
 <p>Now, we can tabulate values on <code>my_dataframe_3</code>. For example, a table for number of times each borough is repeated.</p>
@@ -1170,7 +1170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="basic-data-structures-in-r.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(my_dataframe_3<span class="sc">$</span>my_text)</span>
 <span id="cb138-2"><a href="basic-data-structures-in-r.html#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="co">#      apple      banana       grape        pear pomegranate      potato </span></span>
 <span id="cb138-3"><a href="basic-data-structures-in-r.html#cb138-3" aria-hidden="true" tabindex="-1"></a><span class="co">#          2           3           3           3           3           2 </span></span></code></pre></div>
-<p>A two-way table for <code>my_borough</code> and <code>my_text</code>. In this case, reports when both vectors concide with the same combination of terms (e.g., queens with apple occur 2 times in the same postion of both vectors).</p>
+<p>A two-way table for <code>my_borough</code> and <code>my_text</code>. In this case, we can see in the next table when both vectors concide with the same combination of text terms (e.g., <code>queens</code> with <code>apple</code> occur 2 times in the same postion of both vectors).</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="basic-data-structures-in-r.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(my_dataframe_3<span class="sc">$</span>my_boroughs, my_dataframe_3<span class="sc">$</span>my_text) </span>
 <span id="cb139-2"><a href="basic-data-structures-in-r.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="co">#               apple banana grape pear pomegranate potato</span></span>
 <span id="cb139-3"><a href="basic-data-structures-in-r.html#cb139-3" aria-hidden="true" tabindex="-1"></a><span class="co"># brooklyn          0      0     3    0           0      0</span></span>
@@ -1179,15 +1179,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb139-6"><a href="basic-data-structures-in-r.html#cb139-6" aria-hidden="true" tabindex="-1"></a><span class="co"># queens            2      0     0    0           0      0</span></span>
 <span id="cb139-7"><a href="basic-data-structures-in-r.html#cb139-7" aria-hidden="true" tabindex="-1"></a><span class="co"># staten_island     0      3     0    0           0      0</span></span>
 <span id="cb139-8"><a href="basic-data-structures-in-r.html#cb139-8" aria-hidden="true" tabindex="-1"></a><span class="co"># the_bronx         0      0     0    3           0      0</span></span></code></pre></div>
-<p><strong>33)</strong> When dealing with <code>NA</code> values, tables can include or exclude these in tabulations.</p>
-<p>We can create a data frame to append with <code>NA</code>.</p>
+<p><strong>33)</strong> When dealing with <strong><code>NA</code></strong> values, tables can include or exclude these in tabulations.</p>
+<p>We can create a data frame to append with <strong><code>NA</code></strong>.</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="basic-data-structures-in-r.html#cb140-1" aria-hidden="true" tabindex="-1"></a>my_dataframe_4 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">my_numbers =</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="cn">NA</span>),</span>
 <span id="cb140-2"><a href="basic-data-structures-in-r.html#cb140-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">my_text =</span> <span class="fu">c</span>(<span class="cn">NA</span>,<span class="st">&quot;potato&quot;</span>),</span>
 <span id="cb140-3"><a href="basic-data-structures-in-r.html#cb140-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">my_boroughs =</span> <span class="fu">c</span>(<span class="st">&quot;not_NYC&quot;</span>,<span class="cn">NA</span>),</span>
 <span id="cb140-4"><a href="basic-data-structures-in-r.html#cb140-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">my_colors =</span> <span class="fu">c</span>(<span class="cn">NA</span>,<span class="st">&quot;purple&quot;</span>),</span>
 <span id="cb140-5"><a href="basic-data-structures-in-r.html#cb140-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb140-6"><a href="basic-data-structures-in-r.html#cb140-6" aria-hidden="true" tabindex="-1"></a>my_dataframe_5 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(my_dataframe_3,my_dataframe_4)</span></code></pre></div>
-<p>As indicated, we tabulated this <code>my_dataframe_5</code>. This will by default excluding <code>NA</code> values.</p>
+<p>As indicated, we tabulated this <code>my_dataframe_5</code>. This will by default excluding <strong><code>NA</code></strong> values.</p>
 <div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="basic-data-structures-in-r.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(my_dataframe_5<span class="sc">$</span>my_boroughs, my_dataframe_5<span class="sc">$</span>my_text)</span>
 <span id="cb141-2"><a href="basic-data-structures-in-r.html#cb141-2" aria-hidden="true" tabindex="-1"></a><span class="co">#               apple banana grape pear pomegranate potato</span></span>
 <span id="cb141-3"><a href="basic-data-structures-in-r.html#cb141-3" aria-hidden="true" tabindex="-1"></a><span class="co"># brooklyn          0      0     3    0           0      0</span></span>
@@ -1196,7 +1196,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb141-6"><a href="basic-data-structures-in-r.html#cb141-6" aria-hidden="true" tabindex="-1"></a><span class="co"># queens            2      0     0    0           0      0</span></span>
 <span id="cb141-7"><a href="basic-data-structures-in-r.html#cb141-7" aria-hidden="true" tabindex="-1"></a><span class="co"># staten_island     0      3     0    0           0      0</span></span>
 <span id="cb141-8"><a href="basic-data-structures-in-r.html#cb141-8" aria-hidden="true" tabindex="-1"></a><span class="co"># the_bronx         0      0     0    3           0      0</span></span></code></pre></div>
-<p>However, we can modify this to tabulated <code>NA</code> values with the argument <code>useNA = "always"</code>.</p>
+<p>However, we can modify this to tabulated <strong><code>NA</code></strong> values with the argument <code>useNA = "always"</code>.</p>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="basic-data-structures-in-r.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(my_dataframe_5<span class="sc">$</span>my_boroughs, my_dataframe_5<span class="sc">$</span>my_text, <span class="at">useNA =</span> <span class="st">&quot;always&quot;</span>) </span>
 <span id="cb142-2"><a href="basic-data-structures-in-r.html#cb142-2" aria-hidden="true" tabindex="-1"></a><span class="co">#               apple banana grape pear pomegranate potato &lt;NA&gt;</span></span>
 <span id="cb142-3"><a href="basic-data-structures-in-r.html#cb142-3" aria-hidden="true" tabindex="-1"></a><span class="co"># brooklyn          0      0     3    0           0      0    0</span></span>
@@ -1253,7 +1253,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb146-13"><a href="basic-data-structures-in-r.html#cb146-13" aria-hidden="true" tabindex="-1"></a><span class="co">#[[3]]</span></span>
 <span id="cb146-14"><a href="basic-data-structures-in-r.html#cb146-14" aria-hidden="true" tabindex="-1"></a><span class="co">#               my_text</span></span>
 <span id="cb146-15"><a href="basic-data-structures-in-r.html#cb146-15" aria-hidden="true" tabindex="-1"></a><span class="co">#my_boroughs     apple banana grape pear pomegranate potato</span></span>
-<span id="cb146-16"><a href="basic-data-structures-in-r.html#cb146-16" aria-hidden="true" tabindex="-1"></a><span class="co">#  brooklyn          0      0     3    0           0      0</span></span>
+<span id="cb146-16"><a href="basic-data-structures-in-r.html#cb146-16" aria-hidden="true" tabindex="-1"></a><span class="co"># brooklyn          0      0     3    0           0      0</span></span>
 <span id="cb146-17"><a href="basic-data-structures-in-r.html#cb146-17" aria-hidden="true" tabindex="-1"></a><span class="co"># manhattan         0      0     0    0           3      0</span></span>
 <span id="cb146-18"><a href="basic-data-structures-in-r.html#cb146-18" aria-hidden="true" tabindex="-1"></a><span class="co"># not_NYC           0      0     0    0           0      2</span></span>
 <span id="cb146-19"><a href="basic-data-structures-in-r.html#cb146-19" aria-hidden="true" tabindex="-1"></a><span class="co"># queens            2      0     0    0           0      0</span></span>
@@ -1299,7 +1299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb149-4"><a href="basic-data-structures-in-r.html#cb149-4" aria-hidden="true" tabindex="-1"></a><span class="co">#get the third element of the first list </span></span>
 <span id="cb149-5"><a href="basic-data-structures-in-r.html#cb149-5" aria-hidden="true" tabindex="-1"></a>my_list[[<span class="dv">1</span>]][<span class="dv">3</span>]</span>
 <span id="cb149-6"><a href="basic-data-structures-in-r.html#cb149-6" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 3</span></span></code></pre></div>
-<p><strong>40)</strong> Removing elements from a list can be done by assigning NULL to the selected element</p>
+<p><strong>40)</strong> Removing elements from a list can be done by assigning <strong><code>NULL</code></strong> to the selected element</p>
 <div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="basic-data-structures-in-r.html#cb150-1" aria-hidden="true" tabindex="-1"></a>my_list</span>
 <span id="cb150-2"><a href="basic-data-structures-in-r.html#cb150-2" aria-hidden="true" tabindex="-1"></a><span class="co">#$some_numbers</span></span>
 <span id="cb150-3"><a href="basic-data-structures-in-r.html#cb150-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 1 2 3</span></span>
@@ -1383,41 +1383,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="tibbles" class="section level2" number="3.8">
 <h2><span class="header-section-number">3.8</span> Tibbles</h2>
 <p><strong>43)</strong> A <strong>tibble</strong> is also a modified form of a data frame used in the <a href="https://www.tidyverse.org/" target="_blank"><strong>tidyverse</strong></a> family of R-packages. They are a more simplified form of data frames and used by some data management R-packages, e.g., <a href="https://readr.tidyverse.org/" target="_blank"><strong>readr</strong></a>, where they parse (i.e., import data or read data from a file) into the R environment. I am not a favorite of tibbles as it forces user to orbit around the ‘tidyverse’ for most things that a data frame can handle.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="basic-data-structures-in-r.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install or load R-package &#39;readr&#39; which is a powerful data parser for large text (tab or csv) files</span></span>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="basic-data-structures-in-r.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install or load R-package &#39;readr&#39; which is a powerful data parser for large text (tab or csv) files</span></span>
 <span id="cb153-2"><a href="basic-data-structures-in-r.html#cb153-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;readr&#39;</span>)</span>
 <span id="cb153-3"><a href="basic-data-structures-in-r.html#cb153-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb153-4"><a href="basic-data-structures-in-r.html#cb153-4" aria-hidden="true" tabindex="-1"></a>reader_file_path <span class="ot">&lt;-</span> <span class="fu">readr_example</span>(<span class="st">&quot;mtcars.csv&quot;</span>) <span class="co"># this a common long dataset of car specifications</span></span>
 <span id="cb153-5"><a href="basic-data-structures-in-r.html#cb153-5" aria-hidden="true" tabindex="-1"></a>my_tibble <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="at">file =</span> reader_file_path,</span>
 <span id="cb153-6"><a href="basic-data-structures-in-r.html#cb153-6" aria-hidden="true" tabindex="-1"></a>                       <span class="at">delim =</span> <span class="st">&quot;,&quot;</span>)</span>
-<span id="cb153-7"><a href="basic-data-structures-in-r.html#cb153-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Parsed with column specification:</span></span>
-<span id="cb153-8"><a href="basic-data-structures-in-r.html#cb153-8" aria-hidden="true" tabindex="-1"></a><span class="co">#cols(</span></span>
-<span id="cb153-9"><a href="basic-data-structures-in-r.html#cb153-9" aria-hidden="true" tabindex="-1"></a><span class="co">#  mpg = col_double(),</span></span>
-<span id="cb153-10"><a href="basic-data-structures-in-r.html#cb153-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  cyl = col_double(),</span></span>
-<span id="cb153-11"><a href="basic-data-structures-in-r.html#cb153-11" aria-hidden="true" tabindex="-1"></a><span class="co"># disp = col_double(),</span></span>
-<span id="cb153-12"><a href="basic-data-structures-in-r.html#cb153-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  hp = col_double(),</span></span>
-<span id="cb153-13"><a href="basic-data-structures-in-r.html#cb153-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  drat = col_double(),</span></span>
-<span id="cb153-14"><a href="basic-data-structures-in-r.html#cb153-14" aria-hidden="true" tabindex="-1"></a><span class="co">#  wt = col_double(),</span></span>
-<span id="cb153-15"><a href="basic-data-structures-in-r.html#cb153-15" aria-hidden="true" tabindex="-1"></a><span class="co">#  qsec = col_double(),</span></span>
-<span id="cb153-16"><a href="basic-data-structures-in-r.html#cb153-16" aria-hidden="true" tabindex="-1"></a><span class="co">#  vs = col_double(),</span></span>
-<span id="cb153-17"><a href="basic-data-structures-in-r.html#cb153-17" aria-hidden="true" tabindex="-1"></a><span class="co">#  am = col_double(),</span></span>
-<span id="cb153-18"><a href="basic-data-structures-in-r.html#cb153-18" aria-hidden="true" tabindex="-1"></a><span class="co">#  gear = col_double(),</span></span>
-<span id="cb153-19"><a href="basic-data-structures-in-r.html#cb153-19" aria-hidden="true" tabindex="-1"></a><span class="co">#  carb = col_double()</span></span>
-<span id="cb153-20"><a href="basic-data-structures-in-r.html#cb153-20" aria-hidden="true" tabindex="-1"></a><span class="co">#)</span></span>
-<span id="cb153-21"><a href="basic-data-structures-in-r.html#cb153-21" aria-hidden="true" tabindex="-1"></a>my_tibble</span>
-<span id="cb153-22"><a href="basic-data-structures-in-r.html#cb153-22" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 32 x 11</span></span>
-<span id="cb153-23"><a href="basic-data-structures-in-r.html#cb153-23" aria-hidden="true" tabindex="-1"></a><span class="co">#     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span></span>
-<span id="cb153-24"><a href="basic-data-structures-in-r.html#cb153-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb153-25"><a href="basic-data-structures-in-r.html#cb153-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  21       6  160    110  3.9   2.62  16.5     0     1     4     4</span></span>
-<span id="cb153-26"><a href="basic-data-structures-in-r.html#cb153-26" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  21       6  160    110  3.9   2.88  17.0     0     1     4     4</span></span>
-<span id="cb153-27"><a href="basic-data-structures-in-r.html#cb153-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1</span></span>
-<span id="cb153-28"><a href="basic-data-structures-in-r.html#cb153-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1</span></span>
-<span id="cb153-29"><a href="basic-data-structures-in-r.html#cb153-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2</span></span>
-<span id="cb153-30"><a href="basic-data-structures-in-r.html#cb153-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1</span></span>
-<span id="cb153-31"><a href="basic-data-structures-in-r.html#cb153-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4</span></span>
-<span id="cb153-32"><a href="basic-data-structures-in-r.html#cb153-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  24.4     4  147.    62  3.69  3.19  20       1     0     4     2</span></span>
-<span id="cb153-33"><a href="basic-data-structures-in-r.html#cb153-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2</span></span>
-<span id="cb153-34"><a href="basic-data-structures-in-r.html#cb153-34" aria-hidden="true" tabindex="-1"></a><span class="co">#10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4</span></span>
-<span id="cb153-35"><a href="basic-data-structures-in-r.html#cb153-35" aria-hidden="true" tabindex="-1"></a><span class="co"># … with 22 more rows</span></span></code></pre></div>
+<span id="cb153-7"><a href="basic-data-structures-in-r.html#cb153-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Rows: 32 Columns: 11                                                                                                                                                     </span></span>
+<span id="cb153-8"><a href="basic-data-structures-in-r.html#cb153-8" aria-hidden="true" tabindex="-1"></a><span class="co">#── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span>
+<span id="cb153-9"><a href="basic-data-structures-in-r.html#cb153-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Delimiter: &quot;,&quot;</span></span>
+<span id="cb153-10"><a href="basic-data-structures-in-r.html#cb153-10" aria-hidden="true" tabindex="-1"></a><span class="co">#dbl (11): mpg, cyl, disp, hp, drat, wt, qsec, vs, am, gear, carb</span></span>
+<span id="cb153-11"><a href="basic-data-structures-in-r.html#cb153-11" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb153-12"><a href="basic-data-structures-in-r.html#cb153-12" aria-hidden="true" tabindex="-1"></a><span class="co">#ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
+<span id="cb153-13"><a href="basic-data-structures-in-r.html#cb153-13" aria-hidden="true" tabindex="-1"></a><span class="co">#ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
+<span id="cb153-14"><a href="basic-data-structures-in-r.html#cb153-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-15"><a href="basic-data-structures-in-r.html#cb153-15" aria-hidden="true" tabindex="-1"></a><span class="do">## use function spec() to extract the full column specification from a tibble created by readr.</span></span>
+<span id="cb153-16"><a href="basic-data-structures-in-r.html#cb153-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-17"><a href="basic-data-structures-in-r.html#cb153-17" aria-hidden="true" tabindex="-1"></a><span class="fu">spec</span>(my_tibble)</span>
+<span id="cb153-18"><a href="basic-data-structures-in-r.html#cb153-18" aria-hidden="true" tabindex="-1"></a><span class="co">#cols(</span></span>
+<span id="cb153-19"><a href="basic-data-structures-in-r.html#cb153-19" aria-hidden="true" tabindex="-1"></a><span class="co">#  mpg = col_double(),</span></span>
+<span id="cb153-20"><a href="basic-data-structures-in-r.html#cb153-20" aria-hidden="true" tabindex="-1"></a><span class="co">#  cyl = col_double(),</span></span>
+<span id="cb153-21"><a href="basic-data-structures-in-r.html#cb153-21" aria-hidden="true" tabindex="-1"></a><span class="co">#  disp = col_double(),</span></span>
+<span id="cb153-22"><a href="basic-data-structures-in-r.html#cb153-22" aria-hidden="true" tabindex="-1"></a><span class="co">#  hp = col_double(),</span></span>
+<span id="cb153-23"><a href="basic-data-structures-in-r.html#cb153-23" aria-hidden="true" tabindex="-1"></a><span class="co">#  drat = col_double(),</span></span>
+<span id="cb153-24"><a href="basic-data-structures-in-r.html#cb153-24" aria-hidden="true" tabindex="-1"></a><span class="co">#  wt = col_double(),</span></span>
+<span id="cb153-25"><a href="basic-data-structures-in-r.html#cb153-25" aria-hidden="true" tabindex="-1"></a><span class="co">#  qsec = col_double(),</span></span>
+<span id="cb153-26"><a href="basic-data-structures-in-r.html#cb153-26" aria-hidden="true" tabindex="-1"></a><span class="co">#  vs = col_double(),</span></span>
+<span id="cb153-27"><a href="basic-data-structures-in-r.html#cb153-27" aria-hidden="true" tabindex="-1"></a><span class="co">#  am = col_double(),</span></span>
+<span id="cb153-28"><a href="basic-data-structures-in-r.html#cb153-28" aria-hidden="true" tabindex="-1"></a><span class="co">#  gear = col_double(),</span></span>
+<span id="cb153-29"><a href="basic-data-structures-in-r.html#cb153-29" aria-hidden="true" tabindex="-1"></a><span class="co">#  carb = col_double()</span></span>
+<span id="cb153-30"><a href="basic-data-structures-in-r.html#cb153-30" aria-hidden="true" tabindex="-1"></a><span class="co">#)</span></span>
+<span id="cb153-31"><a href="basic-data-structures-in-r.html#cb153-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-32"><a href="basic-data-structures-in-r.html#cb153-32" aria-hidden="true" tabindex="-1"></a>my_tibble</span>
+<span id="cb153-33"><a href="basic-data-structures-in-r.html#cb153-33" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 32 x 11</span></span>
+<span id="cb153-34"><a href="basic-data-structures-in-r.html#cb153-34" aria-hidden="true" tabindex="-1"></a><span class="co">#     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span></span>
+<span id="cb153-35"><a href="basic-data-structures-in-r.html#cb153-35" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb153-36"><a href="basic-data-structures-in-r.html#cb153-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  21       6  160    110  3.9   2.62  16.5     0     1     4     4</span></span>
+<span id="cb153-37"><a href="basic-data-structures-in-r.html#cb153-37" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  21       6  160    110  3.9   2.88  17.0     0     1     4     4</span></span>
+<span id="cb153-38"><a href="basic-data-structures-in-r.html#cb153-38" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1</span></span>
+<span id="cb153-39"><a href="basic-data-structures-in-r.html#cb153-39" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1</span></span>
+<span id="cb153-40"><a href="basic-data-structures-in-r.html#cb153-40" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2</span></span>
+<span id="cb153-41"><a href="basic-data-structures-in-r.html#cb153-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1</span></span>
+<span id="cb153-42"><a href="basic-data-structures-in-r.html#cb153-42" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4</span></span>
+<span id="cb153-43"><a href="basic-data-structures-in-r.html#cb153-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  24.4     4  147.    62  3.69  3.19  20       1     0     4     2</span></span>
+<span id="cb153-44"><a href="basic-data-structures-in-r.html#cb153-44" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2</span></span>
+<span id="cb153-45"><a href="basic-data-structures-in-r.html#cb153-45" aria-hidden="true" tabindex="-1"></a><span class="co">#10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4</span></span>
+<span id="cb153-46"><a href="basic-data-structures-in-r.html#cb153-46" aria-hidden="true" tabindex="-1"></a><span class="co"># … with 22 more rows</span></span></code></pre></div>
 </div>
 <div id="dnastringsets-rnastringsets-and-aastringsets" class="section level2" number="3.9">
 <h2><span class="header-section-number">3.9</span> DNAStringSets, RNAStringSets and AAStringSets</h2>
@@ -1587,7 +1598,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-Data_structures_R_v8.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-Data_structures_R_v9.Rmd",
 "text": "Edit"
 },
 "history": {
