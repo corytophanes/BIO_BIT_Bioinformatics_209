@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2022-02-09" />
+<meta name="date" content="2022-02-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -429,7 +429,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="29.2" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#access-to-journals-articles"><i class="fa fa-check"></i><b>29.2</b> Access to journals articles</a></li>
 <li class="chapter" data-level="29.3" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#informal-access-to-code-preprints-and-vignettes"><i class="fa fa-check"></i><b>29.3</b> Informal access to code: Preprints and vignettes</a></li>
 <li class="chapter" data-level="29.4" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#accessing-online-data-dryad"><i class="fa fa-check"></i><b>29.4</b> Accessing online data (DRYAD)</a></li>
-<li class="chapter" data-level="29.5" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#online-bioinformatics-courses"><i class="fa fa-check"></i><b>29.5</b> Online bioinformatics courses</a></li>
+<li class="chapter" data-level="29.5" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#fixing-problems-while-importing-datasets"><i class="fa fa-check"></i><b>29.5</b> Fixing problems while importing datasets</a></li>
+<li class="chapter" data-level="29.6" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#online-bioinformatics-courses"><i class="fa fa-check"></i><b>29.6</b> Online bioinformatics courses</a></li>
 </ul></li>
 <li class="chapter" data-level="30" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>30</b> – Miscellaneous</a>
 <ul>
@@ -462,73 +463,73 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="sampling-from-a-vector-of-names" class="section level2" number="30.1">
 <h2><span class="header-section-number">30.1</span> Sampling from a vector of names</h2>
 <p>We need that 2-3 students give a presentation about the topics of previous class every week, so we can use R to do the selection for us. We will use the function <code>sample</code></p>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="miscellaneous.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need a list of the 17 students last names for BIO/BIT 209 as their unique identifiers</span></span>
-<span id="cb598-2"><a href="miscellaneous.html#cb598-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb598-3"><a href="miscellaneous.html#cb598-3" aria-hidden="true" tabindex="-1"></a>students_BIO209 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Ardire&quot;</span>, <span class="st">&quot;Carlucci&quot;</span>, <span class="st">&quot;Da_Costa_Morais&quot;</span>, <span class="st">&quot;Davidov&quot;</span>, <span class="st">&quot;Deda&quot;</span>, </span>
-<span id="cb598-4"><a href="miscellaneous.html#cb598-4" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Dimitrijevic&quot;</span>, <span class="st">&quot;Fasano&quot;</span>,  <span class="st">&quot;Javed&quot;</span>, <span class="st">&quot;Mahadeo&quot;</span>, <span class="st">&quot;Mowla&quot;</span>, <span class="st">&quot;Njie&quot;</span>, </span>
-<span id="cb598-5"><a href="miscellaneous.html#cb598-5" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Rahman&quot;</span>, <span class="st">&quot;Siddique&quot;</span>, <span class="st">&quot;Sukhram&quot;</span>,<span class="st">&quot;Tan&quot;</span>, <span class="st">&quot;Tiumalu&quot;</span>, <span class="st">&quot;Vu&quot;</span>)</span>
-<span id="cb598-6"><a href="miscellaneous.html#cb598-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb598-7"><a href="miscellaneous.html#cb598-7" aria-hidden="true" tabindex="-1"></a>students_BIO209 </span>
-<span id="cb598-8"><a href="miscellaneous.html#cb598-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Ardire&quot;          &quot;Carlucci&quot;        &quot;Da_Costa_Morais&quot; &quot;Davidov&quot;         &quot;Deda&quot;           </span></span>
-<span id="cb598-9"><a href="miscellaneous.html#cb598-9" aria-hidden="true" tabindex="-1"></a><span class="co">#[6] &quot;Dimitrijevic&quot;    &quot;Fasano&quot;          &quot;Javed&quot;           &quot;Mahadeo&quot;         &quot;Mowla&quot;          </span></span>
-<span id="cb598-10"><a href="miscellaneous.html#cb598-10" aria-hidden="true" tabindex="-1"></a><span class="co">#[11] &quot;Njie&quot;            &quot;Rahman&quot;          &quot;Siddique&quot;        &quot;Sukhram&quot;         &quot;Tan&quot;            </span></span>
-<span id="cb598-11"><a href="miscellaneous.html#cb598-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[16] &quot;Tiumalu&quot;         &quot;Vu&quot; </span></span>
-<span id="cb598-12"><a href="miscellaneous.html#cb598-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb598-13"><a href="miscellaneous.html#cb598-13" aria-hidden="true" tabindex="-1"></a><span class="do">## we order them alphabetically</span></span>
-<span id="cb598-14"><a href="miscellaneous.html#cb598-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb598-15"><a href="miscellaneous.html#cb598-15" aria-hidden="true" tabindex="-1"></a>students_BIO209_order <span class="ot">&lt;-</span> <span class="fu">sort</span>(students_BIO209)</span>
-<span id="cb598-16"><a href="miscellaneous.html#cb598-16" aria-hidden="true" tabindex="-1"></a>students_BIO209_order</span>
-<span id="cb598-17"><a href="miscellaneous.html#cb598-17" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Ardire&quot;          &quot;Carlucci&quot;        &quot;Da_Costa_Morais&quot; &quot;Davidov&quot;         &quot;Deda&quot;           </span></span>
-<span id="cb598-18"><a href="miscellaneous.html#cb598-18" aria-hidden="true" tabindex="-1"></a><span class="co">#[6] &quot;Dimitrijevic&quot;    &quot;Fasano&quot;          &quot;Javed&quot;           &quot;Mahadeo&quot;         &quot;Mowla&quot;          </span></span>
-<span id="cb598-19"><a href="miscellaneous.html#cb598-19" aria-hidden="true" tabindex="-1"></a><span class="co">#[11] &quot;Njie&quot;            &quot;Rahman&quot;          &quot;Siddique&quot;        &quot;Sukhram&quot;         &quot;Tan&quot;            </span></span>
-<span id="cb598-20"><a href="miscellaneous.html#cb598-20" aria-hidden="true" tabindex="-1"></a><span class="co">#[16] &quot;Tiumalu&quot;         &quot;Vu&quot; </span></span>
-<span id="cb598-21"><a href="miscellaneous.html#cb598-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb598-22"><a href="miscellaneous.html#cb598-22" aria-hidden="true" tabindex="-1"></a><span class="do">## numeric code for each student</span></span>
-<span id="cb598-23"><a href="miscellaneous.html#cb598-23" aria-hidden="true" tabindex="-1"></a>students_BIO209_order_c <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, students_BIO209_order, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)</span>
-<span id="cb598-24"><a href="miscellaneous.html#cb598-24" aria-hidden="true" tabindex="-1"></a>students_BIO209_order_c </span>
-<span id="cb598-25"><a href="miscellaneous.html#cb598-25" aria-hidden="true" tabindex="-1"></a><span class="co">#[[1] &quot;1_Ardire&quot;          &quot;2_Carlucci&quot;        &quot;3_Da_Costa_Morais&quot; &quot;4_Davidov&quot;         &quot;5_Deda&quot;           </span></span>
-<span id="cb598-26"><a href="miscellaneous.html#cb598-26" aria-hidden="true" tabindex="-1"></a><span class="co">#[6] &quot;6_Dimitrijevic&quot;    &quot;7_Fasano&quot;          &quot;8_Javed&quot;           &quot;9_Mahadeo&quot;         &quot;10_Mowla&quot;         </span></span>
-<span id="cb598-27"><a href="miscellaneous.html#cb598-27" aria-hidden="true" tabindex="-1"></a><span class="co">#[11] &quot;11_Njie&quot;           &quot;12_Rahman&quot;         &quot;13_Siddique&quot;       &quot;14_Sukhram&quot;        &quot;15_Tan&quot;           </span></span>
-<span id="cb598-28"><a href="miscellaneous.html#cb598-28" aria-hidden="true" tabindex="-1"></a><span class="co">#[16] &quot;16_Tiumalu&quot;        &quot;17_Vu&quot;</span></span>
-<span id="cb598-29"><a href="miscellaneous.html#cb598-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb598-30"><a href="miscellaneous.html#cb598-30" aria-hidden="true" tabindex="-1"></a><span class="do">## we sample 2 students to give a review of last class</span></span>
-<span id="cb598-31"><a href="miscellaneous.html#cb598-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb598-32"><a href="miscellaneous.html#cb598-32" aria-hidden="true" tabindex="-1"></a>todays_2_students_code <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">prob =</span> <span class="cn">NULL</span>)</span>
-<span id="cb598-33"><a href="miscellaneous.html#cb598-33" aria-hidden="true" tabindex="-1"></a>todays_2_students_code</span>
-<span id="cb598-34"><a href="miscellaneous.html#cb598-34" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 16 13</span></span>
-<span id="cb598-35"><a href="miscellaneous.html#cb598-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb598-36"><a href="miscellaneous.html#cb598-36" aria-hidden="true" tabindex="-1"></a><span class="do">## we identify such students by name</span></span>
-<span id="cb598-37"><a href="miscellaneous.html#cb598-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb598-38"><a href="miscellaneous.html#cb598-38" aria-hidden="true" tabindex="-1"></a>today_students <span class="ot">&lt;-</span> students_BIO209_order_c[todays_2_students_code]</span>
-<span id="cb598-39"><a href="miscellaneous.html#cb598-39" aria-hidden="true" tabindex="-1"></a>today_students</span>
-<span id="cb598-40"><a href="miscellaneous.html#cb598-40" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;16_Tiumalu&quot;  &quot;13_Siddique&quot;</span></span>
-<span id="cb598-41"><a href="miscellaneous.html#cb598-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb598-42"><a href="miscellaneous.html#cb598-42" aria-hidden="true" tabindex="-1"></a><span class="do">## NEXT WEEK: we need 2 students again, but we want to remove those that already gave a lesson</span></span>
-<span id="cb598-43"><a href="miscellaneous.html#cb598-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb598-44"><a href="miscellaneous.html#cb598-44" aria-hidden="true" tabindex="-1"></a>remaining_students_code <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, <span class="fu">c</span>(<span class="dv">16</span>,<span class="dv">13</span>))</span>
-<span id="cb598-45"><a href="miscellaneous.html#cb598-45" aria-hidden="true" tabindex="-1"></a>remaining_students_code</span>
-<span id="cb598-46"><a href="miscellaneous.html#cb598-46" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1  2  3  4  5  6  7  8  9 10 11 12 14 15 17</span></span>
-<span id="cb598-47"><a href="miscellaneous.html#cb598-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb598-48"><a href="miscellaneous.html#cb598-48" aria-hidden="true" tabindex="-1"></a><span class="do">## NEXT WEEK: we sample 2 students to give a review of last class</span></span>
-<span id="cb598-49"><a href="miscellaneous.html#cb598-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb598-50"><a href="miscellaneous.html#cb598-50" aria-hidden="true" tabindex="-1"></a>todays_2_students_code <span class="ot">&lt;-</span> <span class="fu">sample</span>(remaining_students_code, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">prob =</span> <span class="cn">NULL</span>)</span>
-<span id="cb598-51"><a href="miscellaneous.html#cb598-51" aria-hidden="true" tabindex="-1"></a>todays_2_students_code</span>
-<span id="cb598-52"><a href="miscellaneous.html#cb598-52" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  7 15</span></span>
-<span id="cb598-53"><a href="miscellaneous.html#cb598-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb598-54"><a href="miscellaneous.html#cb598-54" aria-hidden="true" tabindex="-1"></a><span class="do">## NEXT WEEK: we identify such students by name</span></span>
-<span id="cb598-55"><a href="miscellaneous.html#cb598-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb598-56"><a href="miscellaneous.html#cb598-56" aria-hidden="true" tabindex="-1"></a>today_students <span class="ot">&lt;-</span> students_BIO209_order_c[todays_2_students_code]</span>
-<span id="cb598-57"><a href="miscellaneous.html#cb598-57" aria-hidden="true" tabindex="-1"></a>today_students</span>
-<span id="cb598-58"><a href="miscellaneous.html#cb598-58" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;7_Fasano&quot; &quot;15_Tan&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="miscellaneous.html#cb603-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need a list of the 17 students last names for BIO/BIT 209 as their unique identifiers</span></span>
+<span id="cb603-2"><a href="miscellaneous.html#cb603-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-3"><a href="miscellaneous.html#cb603-3" aria-hidden="true" tabindex="-1"></a>students_BIO209 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Ardire&quot;</span>, <span class="st">&quot;Carlucci&quot;</span>, <span class="st">&quot;Da_Costa_Morais&quot;</span>, <span class="st">&quot;Davidov&quot;</span>, <span class="st">&quot;Deda&quot;</span>, </span>
+<span id="cb603-4"><a href="miscellaneous.html#cb603-4" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Dimitrijevic&quot;</span>, <span class="st">&quot;Fasano&quot;</span>,  <span class="st">&quot;Javed&quot;</span>, <span class="st">&quot;Mahadeo&quot;</span>, <span class="st">&quot;Mowla&quot;</span>, <span class="st">&quot;Njie&quot;</span>, </span>
+<span id="cb603-5"><a href="miscellaneous.html#cb603-5" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Rahman&quot;</span>, <span class="st">&quot;Siddique&quot;</span>, <span class="st">&quot;Sukhram&quot;</span>,<span class="st">&quot;Tan&quot;</span>, <span class="st">&quot;Tiumalu&quot;</span>, <span class="st">&quot;Vu&quot;</span>)</span>
+<span id="cb603-6"><a href="miscellaneous.html#cb603-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-7"><a href="miscellaneous.html#cb603-7" aria-hidden="true" tabindex="-1"></a>students_BIO209 </span>
+<span id="cb603-8"><a href="miscellaneous.html#cb603-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Ardire&quot;          &quot;Carlucci&quot;        &quot;Da_Costa_Morais&quot; &quot;Davidov&quot;         &quot;Deda&quot;           </span></span>
+<span id="cb603-9"><a href="miscellaneous.html#cb603-9" aria-hidden="true" tabindex="-1"></a><span class="co">#[6] &quot;Dimitrijevic&quot;    &quot;Fasano&quot;          &quot;Javed&quot;           &quot;Mahadeo&quot;         &quot;Mowla&quot;          </span></span>
+<span id="cb603-10"><a href="miscellaneous.html#cb603-10" aria-hidden="true" tabindex="-1"></a><span class="co">#[11] &quot;Njie&quot;            &quot;Rahman&quot;          &quot;Siddique&quot;        &quot;Sukhram&quot;         &quot;Tan&quot;            </span></span>
+<span id="cb603-11"><a href="miscellaneous.html#cb603-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[16] &quot;Tiumalu&quot;         &quot;Vu&quot; </span></span>
+<span id="cb603-12"><a href="miscellaneous.html#cb603-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-13"><a href="miscellaneous.html#cb603-13" aria-hidden="true" tabindex="-1"></a><span class="do">## we order them alphabetically</span></span>
+<span id="cb603-14"><a href="miscellaneous.html#cb603-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-15"><a href="miscellaneous.html#cb603-15" aria-hidden="true" tabindex="-1"></a>students_BIO209_order <span class="ot">&lt;-</span> <span class="fu">sort</span>(students_BIO209)</span>
+<span id="cb603-16"><a href="miscellaneous.html#cb603-16" aria-hidden="true" tabindex="-1"></a>students_BIO209_order</span>
+<span id="cb603-17"><a href="miscellaneous.html#cb603-17" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Ardire&quot;          &quot;Carlucci&quot;        &quot;Da_Costa_Morais&quot; &quot;Davidov&quot;         &quot;Deda&quot;           </span></span>
+<span id="cb603-18"><a href="miscellaneous.html#cb603-18" aria-hidden="true" tabindex="-1"></a><span class="co">#[6] &quot;Dimitrijevic&quot;    &quot;Fasano&quot;          &quot;Javed&quot;           &quot;Mahadeo&quot;         &quot;Mowla&quot;          </span></span>
+<span id="cb603-19"><a href="miscellaneous.html#cb603-19" aria-hidden="true" tabindex="-1"></a><span class="co">#[11] &quot;Njie&quot;            &quot;Rahman&quot;          &quot;Siddique&quot;        &quot;Sukhram&quot;         &quot;Tan&quot;            </span></span>
+<span id="cb603-20"><a href="miscellaneous.html#cb603-20" aria-hidden="true" tabindex="-1"></a><span class="co">#[16] &quot;Tiumalu&quot;         &quot;Vu&quot; </span></span>
+<span id="cb603-21"><a href="miscellaneous.html#cb603-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-22"><a href="miscellaneous.html#cb603-22" aria-hidden="true" tabindex="-1"></a><span class="do">## numeric code for each student</span></span>
+<span id="cb603-23"><a href="miscellaneous.html#cb603-23" aria-hidden="true" tabindex="-1"></a>students_BIO209_order_c <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, students_BIO209_order, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)</span>
+<span id="cb603-24"><a href="miscellaneous.html#cb603-24" aria-hidden="true" tabindex="-1"></a>students_BIO209_order_c </span>
+<span id="cb603-25"><a href="miscellaneous.html#cb603-25" aria-hidden="true" tabindex="-1"></a><span class="co">#[[1] &quot;1_Ardire&quot;          &quot;2_Carlucci&quot;        &quot;3_Da_Costa_Morais&quot; &quot;4_Davidov&quot;         &quot;5_Deda&quot;           </span></span>
+<span id="cb603-26"><a href="miscellaneous.html#cb603-26" aria-hidden="true" tabindex="-1"></a><span class="co">#[6] &quot;6_Dimitrijevic&quot;    &quot;7_Fasano&quot;          &quot;8_Javed&quot;           &quot;9_Mahadeo&quot;         &quot;10_Mowla&quot;         </span></span>
+<span id="cb603-27"><a href="miscellaneous.html#cb603-27" aria-hidden="true" tabindex="-1"></a><span class="co">#[11] &quot;11_Njie&quot;           &quot;12_Rahman&quot;         &quot;13_Siddique&quot;       &quot;14_Sukhram&quot;        &quot;15_Tan&quot;           </span></span>
+<span id="cb603-28"><a href="miscellaneous.html#cb603-28" aria-hidden="true" tabindex="-1"></a><span class="co">#[16] &quot;16_Tiumalu&quot;        &quot;17_Vu&quot;</span></span>
+<span id="cb603-29"><a href="miscellaneous.html#cb603-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-30"><a href="miscellaneous.html#cb603-30" aria-hidden="true" tabindex="-1"></a><span class="do">## we sample 2 students to give a review of last class</span></span>
+<span id="cb603-31"><a href="miscellaneous.html#cb603-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-32"><a href="miscellaneous.html#cb603-32" aria-hidden="true" tabindex="-1"></a>todays_2_students_code <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">prob =</span> <span class="cn">NULL</span>)</span>
+<span id="cb603-33"><a href="miscellaneous.html#cb603-33" aria-hidden="true" tabindex="-1"></a>todays_2_students_code</span>
+<span id="cb603-34"><a href="miscellaneous.html#cb603-34" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 16 13</span></span>
+<span id="cb603-35"><a href="miscellaneous.html#cb603-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-36"><a href="miscellaneous.html#cb603-36" aria-hidden="true" tabindex="-1"></a><span class="do">## we identify such students by name</span></span>
+<span id="cb603-37"><a href="miscellaneous.html#cb603-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-38"><a href="miscellaneous.html#cb603-38" aria-hidden="true" tabindex="-1"></a>today_students <span class="ot">&lt;-</span> students_BIO209_order_c[todays_2_students_code]</span>
+<span id="cb603-39"><a href="miscellaneous.html#cb603-39" aria-hidden="true" tabindex="-1"></a>today_students</span>
+<span id="cb603-40"><a href="miscellaneous.html#cb603-40" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;16_Tiumalu&quot;  &quot;13_Siddique&quot;</span></span>
+<span id="cb603-41"><a href="miscellaneous.html#cb603-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-42"><a href="miscellaneous.html#cb603-42" aria-hidden="true" tabindex="-1"></a><span class="do">## NEXT WEEK: we need 2 students again, but we want to remove those that already gave a lesson</span></span>
+<span id="cb603-43"><a href="miscellaneous.html#cb603-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-44"><a href="miscellaneous.html#cb603-44" aria-hidden="true" tabindex="-1"></a>remaining_students_code <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, <span class="fu">c</span>(<span class="dv">16</span>,<span class="dv">13</span>))</span>
+<span id="cb603-45"><a href="miscellaneous.html#cb603-45" aria-hidden="true" tabindex="-1"></a>remaining_students_code</span>
+<span id="cb603-46"><a href="miscellaneous.html#cb603-46" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1  2  3  4  5  6  7  8  9 10 11 12 14 15 17</span></span>
+<span id="cb603-47"><a href="miscellaneous.html#cb603-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-48"><a href="miscellaneous.html#cb603-48" aria-hidden="true" tabindex="-1"></a><span class="do">## NEXT WEEK: we sample 2 students to give a review of last class</span></span>
+<span id="cb603-49"><a href="miscellaneous.html#cb603-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-50"><a href="miscellaneous.html#cb603-50" aria-hidden="true" tabindex="-1"></a>todays_2_students_code <span class="ot">&lt;-</span> <span class="fu">sample</span>(remaining_students_code, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">prob =</span> <span class="cn">NULL</span>)</span>
+<span id="cb603-51"><a href="miscellaneous.html#cb603-51" aria-hidden="true" tabindex="-1"></a>todays_2_students_code</span>
+<span id="cb603-52"><a href="miscellaneous.html#cb603-52" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  7 15</span></span>
+<span id="cb603-53"><a href="miscellaneous.html#cb603-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-54"><a href="miscellaneous.html#cb603-54" aria-hidden="true" tabindex="-1"></a><span class="do">## NEXT WEEK: we identify such students by name</span></span>
+<span id="cb603-55"><a href="miscellaneous.html#cb603-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-56"><a href="miscellaneous.html#cb603-56" aria-hidden="true" tabindex="-1"></a>today_students <span class="ot">&lt;-</span> students_BIO209_order_c[todays_2_students_code]</span>
+<span id="cb603-57"><a href="miscellaneous.html#cb603-57" aria-hidden="true" tabindex="-1"></a>today_students</span>
+<span id="cb603-58"><a href="miscellaneous.html#cb603-58" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;7_Fasano&quot; &quot;15_Tan&quot;</span></span></code></pre></div>
 </div>
 <div id="miscellaneous-1" class="section level2" number="30.2">
 <h2><span class="header-section-number">30.2</span> Miscellaneous</h2>
 <p>PLACE HOLDER</p>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="miscellaneous.html#cb599-1" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
-<span id="cb599-2"><a href="miscellaneous.html#cb599-2" aria-hidden="true" tabindex="-1"></a>mtcars_data <span class="ot">&lt;-</span> mtcars</span>
-<span id="cb599-3"><a href="miscellaneous.html#cb599-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb599-4"><a href="miscellaneous.html#cb599-4" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
-<span id="cb599-5"><a href="miscellaneous.html#cb599-5" aria-hidden="true" tabindex="-1"></a>mtcars_names_vector <span class="ot">&lt;-</span> <span class="fu">rownames</span>(mtcars_data)</span></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="miscellaneous.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
+<span id="cb604-2"><a href="miscellaneous.html#cb604-2" aria-hidden="true" tabindex="-1"></a>mtcars_data <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb604-3"><a href="miscellaneous.html#cb604-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb604-4"><a href="miscellaneous.html#cb604-4" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
+<span id="cb604-5"><a href="miscellaneous.html#cb604-5" aria-hidden="true" tabindex="-1"></a>mtcars_names_vector <span class="ot">&lt;-</span> <span class="fu">rownames</span>(mtcars_data)</span></code></pre></div>
 
 </div>
 </div>
