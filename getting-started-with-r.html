@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2022-02-16" />
+<meta name="date" content="2022-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -199,6 +199,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.9" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-fishers-exact-test"><i class="fa fa-check"></i><b>6.9</b> Beyond t-test: Fisher’s exact test</a></li>
 <li class="chapter" data-level="6.10" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.10</b> Correlations</a></li>
 <li class="chapter" data-level="6.11" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.11</b> Comparing distributions</a></li>
+<li class="chapter" data-level="6.12" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#bootstraps"><i class="fa fa-check"></i><b>6.12</b> Bootstraps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html"><i class="fa fa-check"></i><b>7</b> – Regressions and ANOVA in R</a>
 <ul>
@@ -417,11 +418,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.8" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-while-loop"><i class="fa fa-check"></i><b>28.8</b> The <code>while</code> Loop</a></li>
 <li class="chapter" data-level="28.9" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-repeat-loop"><i class="fa fa-check"></i><b>28.9</b> The <code>repeat</code> Loop</a></li>
 <li class="chapter" data-level="28.10" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-next-and-break-statements"><i class="fa fa-check"></i><b>28.10</b> The <code>next</code> and <code>break</code> statements</a></li>
-<li class="chapter" data-level="28.11" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionslapply"><i class="fa fa-check"></i><b>28.11</b> Other loop functions:<code>lapply</code></a></li>
-<li class="chapter" data-level="28.12" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsapply"><i class="fa fa-check"></i><b>28.12</b> Other loop functions:<code>apply</code></a></li>
-<li class="chapter" data-level="28.13" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsmapply"><i class="fa fa-check"></i><b>28.13</b> Other loop functions:<code>mapply</code></a></li>
-<li class="chapter" data-level="28.14" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionstapply"><i class="fa fa-check"></i><b>28.14</b> Other loop functions:<code>tapply</code></a></li>
-<li class="chapter" data-level="28.15" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionssplit"><i class="fa fa-check"></i><b>28.15</b> Other loop functions:<code>split</code></a></li>
+<li class="chapter" data-level="28.11" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functions"><i class="fa fa-check"></i><b>28.11</b> Other loop functions</a></li>
+<li class="chapter" data-level="28.12" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#lapply-functions"><i class="fa fa-check"></i><b>28.12</b> <code>lapply</code> functions</a></li>
+<li class="chapter" data-level="28.13" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsapply"><i class="fa fa-check"></i><b>28.13</b> Other loop functions:<code>apply</code></a></li>
+<li class="chapter" data-level="28.14" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsmapply"><i class="fa fa-check"></i><b>28.14</b> Other loop functions:<code>mapply</code></a></li>
+<li class="chapter" data-level="28.15" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionstapply"><i class="fa fa-check"></i><b>28.15</b> Other loop functions:<code>tapply</code></a></li>
+<li class="chapter" data-level="28.16" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionssplit"><i class="fa fa-check"></i><b>28.16</b> Other loop functions:<code>split</code></a></li>
 </ul></li>
 <li class="chapter" data-level="29" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html"><i class="fa fa-check"></i><b>29</b> – Bioinformatics Literature</a>
 <ul>
@@ -435,7 +437,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="30" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>30</b> – Miscellaneous</a>
 <ul>
 <li class="chapter" data-level="30.1" data-path="miscellaneous.html"><a href="miscellaneous.html#sampling-from-a-vector-of-names"><i class="fa fa-check"></i><b>30.1</b> Sampling from a vector of names</a></li>
-<li class="chapter" data-level="30.2" data-path="miscellaneous.html"><a href="miscellaneous.html#miscellaneous-1"><i class="fa fa-check"></i><b>30.2</b> Miscellaneous</a></li>
+<li class="chapter" data-level="30.2" data-path="miscellaneous.html"><a href="miscellaneous.html#fasta-and-fastq-sequence-formats"><i class="fa fa-check"></i><b>30.2</b> fasta and fastq sequence formats</a></li>
+<li class="chapter" data-level="30.3" data-path="miscellaneous.html"><a href="miscellaneous.html#miscellaneous-1"><i class="fa fa-check"></i><b>30.3</b> Miscellaneous</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -460,7 +463,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Bioinformatics Workshop Gitbook</h1>
 <p class="author"><em>Juan C. Santos &amp; Randy Ortiz</em></p>
-<p class="date"><em>2022-02-16</em></p>
+<p class="date"><em>2022-02-23</em></p>
 </div>
 <div id="getting-started-with-r" class="section level1" number="1">
 <h1><span class="header-section-number">Session 1</span> – Getting Started with R</h1>

@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2022-02-16" />
+<meta name="date" content="2022-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -199,6 +199,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.9" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-fishers-exact-test"><i class="fa fa-check"></i><b>6.9</b> Beyond t-test: Fisher’s exact test</a></li>
 <li class="chapter" data-level="6.10" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.10</b> Correlations</a></li>
 <li class="chapter" data-level="6.11" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.11</b> Comparing distributions</a></li>
+<li class="chapter" data-level="6.12" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#bootstraps"><i class="fa fa-check"></i><b>6.12</b> Bootstraps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html"><i class="fa fa-check"></i><b>7</b> – Regressions and ANOVA in R</a>
 <ul>
@@ -417,11 +418,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.8" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-while-loop"><i class="fa fa-check"></i><b>28.8</b> The <code>while</code> Loop</a></li>
 <li class="chapter" data-level="28.9" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-repeat-loop"><i class="fa fa-check"></i><b>28.9</b> The <code>repeat</code> Loop</a></li>
 <li class="chapter" data-level="28.10" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-next-and-break-statements"><i class="fa fa-check"></i><b>28.10</b> The <code>next</code> and <code>break</code> statements</a></li>
-<li class="chapter" data-level="28.11" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionslapply"><i class="fa fa-check"></i><b>28.11</b> Other loop functions:<code>lapply</code></a></li>
-<li class="chapter" data-level="28.12" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsapply"><i class="fa fa-check"></i><b>28.12</b> Other loop functions:<code>apply</code></a></li>
-<li class="chapter" data-level="28.13" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsmapply"><i class="fa fa-check"></i><b>28.13</b> Other loop functions:<code>mapply</code></a></li>
-<li class="chapter" data-level="28.14" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionstapply"><i class="fa fa-check"></i><b>28.14</b> Other loop functions:<code>tapply</code></a></li>
-<li class="chapter" data-level="28.15" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionssplit"><i class="fa fa-check"></i><b>28.15</b> Other loop functions:<code>split</code></a></li>
+<li class="chapter" data-level="28.11" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functions"><i class="fa fa-check"></i><b>28.11</b> Other loop functions</a></li>
+<li class="chapter" data-level="28.12" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#lapply-functions"><i class="fa fa-check"></i><b>28.12</b> <code>lapply</code> functions</a></li>
+<li class="chapter" data-level="28.13" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsapply"><i class="fa fa-check"></i><b>28.13</b> Other loop functions:<code>apply</code></a></li>
+<li class="chapter" data-level="28.14" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsmapply"><i class="fa fa-check"></i><b>28.14</b> Other loop functions:<code>mapply</code></a></li>
+<li class="chapter" data-level="28.15" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionstapply"><i class="fa fa-check"></i><b>28.15</b> Other loop functions:<code>tapply</code></a></li>
+<li class="chapter" data-level="28.16" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionssplit"><i class="fa fa-check"></i><b>28.16</b> Other loop functions:<code>split</code></a></li>
 </ul></li>
 <li class="chapter" data-level="29" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html"><i class="fa fa-check"></i><b>29</b> – Bioinformatics Literature</a>
 <ul>
@@ -435,7 +437,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="30" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>30</b> – Miscellaneous</a>
 <ul>
 <li class="chapter" data-level="30.1" data-path="miscellaneous.html"><a href="miscellaneous.html#sampling-from-a-vector-of-names"><i class="fa fa-check"></i><b>30.1</b> Sampling from a vector of names</a></li>
-<li class="chapter" data-level="30.2" data-path="miscellaneous.html"><a href="miscellaneous.html#miscellaneous-1"><i class="fa fa-check"></i><b>30.2</b> Miscellaneous</a></li>
+<li class="chapter" data-level="30.2" data-path="miscellaneous.html"><a href="miscellaneous.html#fasta-and-fastq-sequence-formats"><i class="fa fa-check"></i><b>30.2</b> fasta and fastq sequence formats</a></li>
+<li class="chapter" data-level="30.3" data-path="miscellaneous.html"><a href="miscellaneous.html#miscellaneous-1"><i class="fa fa-check"></i><b>30.3</b> Miscellaneous</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -459,7 +462,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="basic-statistics-in-r" class="section level1" number="6">
 <h1><span class="header-section-number">Session 6</span> – Basic Statistics in R</h1>
-<p>This workshop is not designed to give you an extensive overview on all statistical methods that can be performed in R. Yet, this computing environment was born to provide a comprehensive platform for the implementation of statistical methods. We will overview of some basic and advanced methods with some illustrative graphs (these will be expanded in the session devoted to graphics). However, you can ask me if you want to explore a specific method that you would me to add to this gitbook.</p>
+<p>This workshop is <strong>not designed</strong> to give you an extensive overview on all statistical methods that can be performed in R. Yet, this computing environment was born to provide a comprehensive platform for the implementation of statistical methods. We will overview of some basic and advanced methods with some illustrative graphs (these will be expanded in the session devoted to graphics). However, you can ask me if you want to explore a specific method that you would me to add to this gitbook.</p>
 <div id="exploring-your-data" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Exploring your data</h2>
 <p><strong>1)</strong> To start, we need to import a dataset that we want to explore and analyze.
@@ -814,39 +817,23 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>N/A</td>
 <td>N/A</td>
 <td>one-sample t-test</td>
-<td>Session 6 <strong>9</strong></td>
+<td><strong>6.4</strong></td>
 </tr>
 <tr class="even">
-<td>1 &amp; one population</td>
-<td>continuous (non-normal); ordinal</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>one-sample median or Wilcoxon signed rank test</td>
-<td>Session 6 <strong>11</strong></td>
-</tr>
-<tr class="odd">
-<td>1 &amp; one population</td>
-<td>categorical (2 categories)</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>binomial test</td>
-<td>Session 6 <strong>12</strong></td>
-</tr>
-<tr class="even">
-<td>1 &amp; one population</td>
-<td>categorical (multiple categories)</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>Chi-square goodness-of-fit</td>
-<td>Session 6 <strong>13</strong></td>
-</tr>
-<tr class="odd">
 <td>1 &amp; two populations</td>
 <td>continuous (normal)</td>
 <td>N/A</td>
 <td>N/A</td>
 <td>two-sample t-test</td>
-<td>Session 6 <strong>10</strong></td>
+<td><strong>6.4</strong></td>
+</tr>
+<tr class="odd">
+<td>1 &amp; one population</td>
+<td>continuous (non-normal); ordinal</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>one-sample median or Wilcoxon signed rank test</td>
+<td><strong>6.5</strong></td>
 </tr>
 <tr class="even">
 <td>1 &amp; two populations</td>
@@ -854,7 +841,23 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>N/A</td>
 <td>N/A</td>
 <td>two-sample median or Wilcoxon signed rank test</td>
-<td>Session 6 <strong>11</strong></td>
+<td><strong>6.5</strong></td>
+</tr>
+<tr class="odd">
+<td>1 &amp; one population</td>
+<td>categorical (2 categories)</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>binomial test</td>
+<td><strong>6.6</strong></td>
+</tr>
+<tr class="even">
+<td>1 &amp; one population</td>
+<td>categorical (multiple categories)</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Chi-square goodness-of-fit</td>
+<td><strong>6.7</strong></td>
 </tr>
 <tr class="odd">
 <td>1 &amp; two populations</td>
@@ -862,7 +865,7 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>N/A</td>
 <td>N/A</td>
 <td>Chi-square goodness-of-fit</td>
-<td>Session 6 <strong>14</strong></td>
+<td><strong>6.7</strong></td>
 </tr>
 <tr class="even">
 <td>1 &amp; two populations</td>
@@ -870,23 +873,7 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>N/A</td>
 <td>N/A</td>
 <td>Fisher’s exact test</td>
-<td>Session 6 <strong>15</strong></td>
-</tr>
-<tr class="odd">
-<td>1 &amp; one population</td>
-<td>continuous (normal)</td>
-<td>1</td>
-<td>categorical (2 or more categories)</td>
-<td>one-way ANOVA</td>
-<td>Session 7 <strong>12</strong></td>
-</tr>
-<tr class="even">
-<td>1 &amp; one population</td>
-<td>continuous (non-normal); ordinal</td>
-<td>1</td>
-<td>categorical (2 or more categories)</td>
-<td>one-way ANOVA</td>
-<td>Session 7 <strong>15</strong></td>
+<td><strong>6.9</strong></td>
 </tr>
 <tr class="odd">
 <td>1 &amp; one population</td>
@@ -894,31 +881,31 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>1</td>
 <td>continuous (normal)</td>
 <td>correlation</td>
-<td>Session 7 <strong>12</strong></td>
+<td><strong>6.10</strong></td>
 </tr>
 <tr class="even">
+<td>bootstraps</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>6.11</strong></td>
+</tr>
+<tr class="odd">
 <td>1 &amp; one population</td>
 <td>continuous (normal)</td>
 <td>1</td>
 <td>continuous (normal)</td>
 <td>simple linear regression</td>
-<td>Session 7 <strong>1</strong></td>
+<td><strong>7.1</strong></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>1 &amp; one population</td>
 <td>continuous (normal)</td>
 <td>many</td>
 <td>continuous (normal)</td>
 <td>multiple linear regression</td>
-<td>Session 7 <strong>3</strong></td>
-</tr>
-<tr class="even">
-<td>1 &amp; one population</td>
-<td>continuous</td>
-<td>1</td>
-<td>continuous or ordinal</td>
-<td>non-parametric correlation</td>
-<td>Session 7 <strong>10</strong></td>
+<td><strong>7.1</strong></td>
 </tr>
 <tr class="odd">
 <td>1 &amp; one population</td>
@@ -926,12 +913,44 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>1</td>
 <td>continuous or ordinal</td>
 <td>simple logistic regression</td>
-<td>Session 7 <strong>12</strong></td>
+<td><strong>7.3</strong></td>
+</tr>
+<tr class="even">
+<td>1 &amp; one population</td>
+<td>continuous</td>
+<td>1</td>
+<td>continuous or ordinal</td>
+<td>non-parametric correlation</td>
+<td><strong>7.4</strong></td>
+</tr>
+<tr class="odd">
+<td>1 &amp; one population</td>
+<td>continuous (normal)</td>
+<td>1</td>
+<td>categorical (2 or more categories)</td>
+<td>one-way ANOVA</td>
+<td><strong>7.7</strong></td>
+</tr>
+<tr class="even">
+<td>1 &amp; one population</td>
+<td>continuous (non-normal); ordinal</td>
+<td>1</td>
+<td>categorical (2 or more categories)</td>
+<td>one-way ANOVA</td>
+<td><strong>7.7</strong></td>
+</tr>
+<tr class="odd">
+<td>1 &amp; one population</td>
+<td>continuous (normal)</td>
+<td>2</td>
+<td>categorical (2 or more categories)</td>
+<td>two-way ANOVA</td>
+<td><strong>7.8</strong></td>
 </tr>
 </tbody>
 </table>
 <p>Here is another chart about selecting a statistial test for your project. The original source is in <a href="https://onishlab.colostate.edu/wp-content/uploads/2019/07/which_test_flowchart.png" target="_blank"><strong>here</strong></a>.</p>
-<p><img src="figures/session_6_figs/6_which_test_flowchart.png" width="100%" /></p>
+<p><img src="figures/session_6_figs/6_which_test_flowchart.png" width="120%" /></p>
 </div>
 <div id="comparing-means-t-test" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> Comparing means: t-test</h2>
@@ -1255,6 +1274,165 @@ These are graphical plots useful in the diagnostic of a binary classifier (e.g.,
 <span id="cb291-36"><a href="basic-statistics-in-r.html#cb291-36" aria-hidden="true" tabindex="-1"></a><span class="co">#AUC of roc1 AUC of roc2 </span></span>
 <span id="cb291-37"><a href="basic-statistics-in-r.html#cb291-37" aria-hidden="true" tabindex="-1"></a><span class="co">#          1           0 </span></span></code></pre></div>
 <p>We can conclude that for SRR1039508 and SRR1039509 are different in their distribution in reference to outcomes for “control” versus “exposed”.</p>
+</div>
+<div id="bootstraps" class="section level2" number="6.12">
+<h2><span class="header-section-number">6.12</span> Bootstraps</h2>
+<p>This is a non-parametric method of repeated resampling from collection of data with replacement.
+With enough sampling repetitions (usually in thousands),
+we can estimate the distribution of a parameter(s) of a population where an original data collection can be used a source
+for resampling. The rational is that with enough repeat sampling from this population of data, we likely obtain a distribution of
+values for a parameter (e.g., means, correlations, etc.) that
+we want to estimate from the population being studied. Repeated sampling allows to account for the uncertainty that resulted from a
+single or few samples. We calculate from this collection of samples a statistic of interest (e.g., mean) and with enough repetitions
+the shape of the distribution of the estimates of the statistic would be “bell shaped” (i.e., have Gaussian distribution),
+which makes possible to construct a confidence interval of our statistic.</p>
+<p>Bootstrap can be done in R and it requires to have a source collection (usually large) of data from our population of interest that
+will serve to draw the bootstrap samples. We will define how many samples with replacement will be drawn (e.g., &gt;1000), with a given
+sample size (i.e., how many elements are drawn during each sample usually). From each sample, we will estimate a parameter of interest (e.g., a mean)
+and collect those to calculate of distribution where its mean (expected value for the statistic) and standard deviation
+(a measure of the uncertainty about that value of the statistic) can be used to estimate a confidence interval of such
+statistic.</p>
+<p>We need to install the R-package <a href="https://cran.r-project.org/web/packages/boot/index.html" target="_blank"><strong>boot</strong></a>.</p>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="basic-statistics-in-r.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;boot&#39;</span>)</span>
+<span id="cb292-2"><a href="basic-statistics-in-r.html#cb292-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(boot)</span></code></pre></div>
+<p>We will use the <strong>mtcars</strong> to illustrate the estimate of mean and correlation between some of the variables.</p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="basic-statistics-in-r.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load get mtcars dataset -- this a preloaded dataset in R</span></span>
+<span id="cb293-2"><a href="basic-statistics-in-r.html#cb293-2" aria-hidden="true" tabindex="-1"></a>cars_data <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb293-3"><a href="basic-statistics-in-r.html#cb293-3" aria-hidden="true" tabindex="-1"></a>cars_data</span>
+<span id="cb293-4"><a href="basic-statistics-in-r.html#cb293-4" aria-hidden="true" tabindex="-1"></a><span class="co">#                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb</span></span>
+<span id="cb293-5"><a href="basic-statistics-in-r.html#cb293-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4</span></span>
+<span id="cb293-6"><a href="basic-statistics-in-r.html#cb293-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4</span></span>
+<span id="cb293-7"><a href="basic-statistics-in-r.html#cb293-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1</span></span>
+<span id="cb293-8"><a href="basic-statistics-in-r.html#cb293-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1</span></span>
+<span id="cb293-9"><a href="basic-statistics-in-r.html#cb293-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2</span></span>
+<span id="cb293-10"><a href="basic-statistics-in-r.html#cb293-10" aria-hidden="true" tabindex="-1"></a><span class="co">#..</span></span></code></pre></div>
+<p>We can estimate the mean of the <code>mpg</code> variable</p>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="basic-statistics-in-r.html#cb294-1" aria-hidden="true" tabindex="-1"></a>mpg_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(cars_data<span class="sc">$</span>mpg)</span>
+<span id="cb294-2"><a href="basic-statistics-in-r.html#cb294-2" aria-hidden="true" tabindex="-1"></a>mpg_mean</span>
+<span id="cb294-3"><a href="basic-statistics-in-r.html#cb294-3" aria-hidden="true" tabindex="-1"></a><span class="co">#1] 20.09062</span></span></code></pre></div>
+<p>We can now use boot to calculate how confident we are on the mean estimates</p>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="basic-statistics-in-r.html#cb295-1" aria-hidden="true" tabindex="-1"></a><span class="do">## First, we need a function that calculate a mean for each sample</span></span>
+<span id="cb295-2"><a href="basic-statistics-in-r.html#cb295-2" aria-hidden="true" tabindex="-1"></a>function_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(data, i){</span>
+<span id="cb295-3"><a href="basic-statistics-in-r.html#cb295-3" aria-hidden="true" tabindex="-1"></a>                              my_data2 <span class="ot">&lt;-</span> data[i,] </span>
+<span id="cb295-4"><a href="basic-statistics-in-r.html#cb295-4" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">return</span>(<span class="fu">mean</span>(my_data2<span class="sc">$</span>mpg))</span>
+<span id="cb295-5"><a href="basic-statistics-in-r.html#cb295-5" aria-hidden="true" tabindex="-1"></a>                                  }</span>
+<span id="cb295-6"><a href="basic-statistics-in-r.html#cb295-6" aria-hidden="true" tabindex="-1"></a><span class="co"># The arguments of this function are data or the source dataset </span></span>
+<span id="cb295-7"><a href="basic-statistics-in-r.html#cb295-7" aria-hidden="true" tabindex="-1"></a><span class="co"># and [i] is the vector index of which rows from the source dataset will be draw to build a bootstrap sample.</span></span>
+<span id="cb295-8"><a href="basic-statistics-in-r.html#cb295-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb295-9"><a href="basic-statistics-in-r.html#cb295-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Second, we can run our bootstrap with 100000 bootstrap replicates</span></span>
+<span id="cb295-10"><a href="basic-statistics-in-r.html#cb295-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb295-11"><a href="basic-statistics-in-r.html#cb295-11" aria-hidden="true" tabindex="-1"></a>bootstrap_mpg_mean <span class="ot">&lt;-</span> <span class="fu">boot</span>(<span class="at">data =</span> cars_data, <span class="at">statistic =</span> function_mean, <span class="at">R =</span> <span class="dv">10000</span>)</span>
+<span id="cb295-12"><a href="basic-statistics-in-r.html#cb295-12" aria-hidden="true" tabindex="-1"></a>bootstrap_mpg_mean</span>
+<span id="cb295-13"><a href="basic-statistics-in-r.html#cb295-13" aria-hidden="true" tabindex="-1"></a><span class="co">#ORDINARY NONPARAMETRIC BOOTSTRAP</span></span>
+<span id="cb295-14"><a href="basic-statistics-in-r.html#cb295-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb295-15"><a href="basic-statistics-in-r.html#cb295-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Call:</span></span>
+<span id="cb295-16"><a href="basic-statistics-in-r.html#cb295-16" aria-hidden="true" tabindex="-1"></a><span class="co">#boot(data = cars_data, statistic = function_mean, R = 10000)</span></span>
+<span id="cb295-17"><a href="basic-statistics-in-r.html#cb295-17" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb295-18"><a href="basic-statistics-in-r.html#cb295-18" aria-hidden="true" tabindex="-1"></a><span class="co">#Bootstrap Statistics :</span></span>
+<span id="cb295-19"><a href="basic-statistics-in-r.html#cb295-19" aria-hidden="true" tabindex="-1"></a><span class="co">#    original      bias    std. error</span></span>
+<span id="cb295-20"><a href="basic-statistics-in-r.html#cb295-20" aria-hidden="true" tabindex="-1"></a><span class="co">#t1* 20.09062 0.002242188    1.053944</span></span>
+<span id="cb295-21"><a href="basic-statistics-in-r.html#cb295-21" aria-hidden="true" tabindex="-1"></a>bootstrap_mpg_mean<span class="sc">$</span>t0</span>
+<span id="cb295-22"><a href="basic-statistics-in-r.html#cb295-22" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 20.09062</span></span>
+<span id="cb295-23"><a href="basic-statistics-in-r.html#cb295-23" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bootstrap_mpg_mean<span class="sc">$</span>t)</span>
+<span id="cb295-24"><a href="basic-statistics-in-r.html#cb295-24" aria-hidden="true" tabindex="-1"></a><span class="co">#         [,1]</span></span>
+<span id="cb295-25"><a href="basic-statistics-in-r.html#cb295-25" aria-hidden="true" tabindex="-1"></a><span class="co">#[1,] 20.16562</span></span>
+<span id="cb295-26"><a href="basic-statistics-in-r.html#cb295-26" aria-hidden="true" tabindex="-1"></a><span class="co">#[2,] 20.05937</span></span>
+<span id="cb295-27"><a href="basic-statistics-in-r.html#cb295-27" aria-hidden="true" tabindex="-1"></a><span class="co">#[3,] 20.42188</span></span>
+<span id="cb295-28"><a href="basic-statistics-in-r.html#cb295-28" aria-hidden="true" tabindex="-1"></a><span class="co">#[4,] 20.45000</span></span>
+<span id="cb295-29"><a href="basic-statistics-in-r.html#cb295-29" aria-hidden="true" tabindex="-1"></a><span class="co">#[5,] 20.48125</span></span>
+<span id="cb295-30"><a href="basic-statistics-in-r.html#cb295-30" aria-hidden="true" tabindex="-1"></a><span class="co">#[6,] 21.81875</span></span>
+<span id="cb295-31"><a href="basic-statistics-in-r.html#cb295-31" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
+<span id="cb295-32"><a href="basic-statistics-in-r.html#cb295-32" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(bootstrap_mpg_mean<span class="sc">$</span>t)</span>
+<span id="cb295-33"><a href="basic-statistics-in-r.html#cb295-33" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 10000     1</span></span>
+<span id="cb295-34"><a href="basic-statistics-in-r.html#cb295-34" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bootstrap_mpg_mean<span class="sc">$</span>t)</span>
+<span id="cb295-35"><a href="basic-statistics-in-r.html#cb295-35" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 20.09287</span></span>
+<span id="cb295-36"><a href="basic-statistics-in-r.html#cb295-36" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(bootstrap_mpg_mean<span class="sc">$</span>t)</span>
+<span id="cb295-37"><a href="basic-statistics-in-r.html#cb295-37" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 15.7375 24.3375</span></span>
+<span id="cb295-38"><a href="basic-statistics-in-r.html#cb295-38" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(bootstrap_mpg_mean<span class="sc">$</span>t)</span>
+<span id="cb295-39"><a href="basic-statistics-in-r.html#cb295-39" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 1.053944</span></span>
+<span id="cb295-40"><a href="basic-statistics-in-r.html#cb295-40" aria-hidden="true" tabindex="-1"></a><span class="fu">boot.ci</span>(<span class="at">boot.out=</span>bootstrap_mpg_mean,<span class="at">type=</span><span class="st">&quot;norm&quot;</span>)</span>
+<span id="cb295-41"><a href="basic-statistics-in-r.html#cb295-41" aria-hidden="true" tabindex="-1"></a><span class="co">#BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS</span></span>
+<span id="cb295-42"><a href="basic-statistics-in-r.html#cb295-42" aria-hidden="true" tabindex="-1"></a><span class="co">#Based on 10000 bootstrap replicates</span></span>
+<span id="cb295-43"><a href="basic-statistics-in-r.html#cb295-43" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb295-44"><a href="basic-statistics-in-r.html#cb295-44" aria-hidden="true" tabindex="-1"></a><span class="co">#CALL : </span></span>
+<span id="cb295-45"><a href="basic-statistics-in-r.html#cb295-45" aria-hidden="true" tabindex="-1"></a><span class="co">#boot.ci(boot.out = bootstrap_mpg_mean, type = &quot;norm&quot;)</span></span>
+<span id="cb295-46"><a href="basic-statistics-in-r.html#cb295-46" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb295-47"><a href="basic-statistics-in-r.html#cb295-47" aria-hidden="true" tabindex="-1"></a><span class="co">#Intervals : </span></span>
+<span id="cb295-48"><a href="basic-statistics-in-r.html#cb295-48" aria-hidden="true" tabindex="-1"></a><span class="co">#Level      Normal        </span></span>
+<span id="cb295-49"><a href="basic-statistics-in-r.html#cb295-49" aria-hidden="true" tabindex="-1"></a><span class="co">#95%   (18.02, 22.15 )  </span></span>
+<span id="cb295-50"><a href="basic-statistics-in-r.html#cb295-50" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculations and Intervals on Original Scale</span></span>
+<span id="cb295-51"><a href="basic-statistics-in-r.html#cb295-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb295-52"><a href="basic-statistics-in-r.html#cb295-52" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(bootstrap_mpg_mean<span class="sc">$</span>t, <span class="at">breaks=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;dodgerblue1&quot;</span>, <span class="at">main=</span><span class="st">&quot;Bootstrap Distribution of the Mean: mpg&quot;</span>)</span>
+<span id="cb295-53"><a href="basic-statistics-in-r.html#cb295-53" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> <span class="fu">density</span>(<span class="at">x =</span> bootstrap_mpg_mean<span class="sc">$</span>t))</span>
+<span id="cb295-54"><a href="basic-statistics-in-r.html#cb295-54" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(bootstrap_mpg_mean<span class="sc">$</span>t), <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="figures/session_6_figs/7_boostrap_mean.png" width="100%" /></p>
+<p>The results are as follows: <strong>t0</strong> are the values of the statistic (i.e., mean) in original dataset,
+<strong>t</strong> is a matrix of 10000 rows (i.e., number of bootstrap repetitions) that we use to draw our estimate of the mean.
+The original mean value is <strong>20.09062</strong> and the bootstrap estimate of the mean is
+very close at <strong>20.09287</strong>, with a 95% CI between <strong>18.02</strong> and <strong>22.15</strong>. Therefore, it is some variability
+in the original sample for <code>mpg</code>.</p>
+<p>Now, we can try another more complex analysis. For example, the correlation between <code>disp</code> and <code>wt</code>.</p>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="basic-statistics-in-r.html#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="do">## null estimate of correlation</span></span>
+<span id="cb296-2"><a href="basic-statistics-in-r.html#cb296-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(cars_data<span class="sc">$</span>disp, cars_data<span class="sc">$</span>wt)</span>
+<span id="cb296-3"><a href="basic-statistics-in-r.html#cb296-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.8879799</span></span>
+<span id="cb296-4"><a href="basic-statistics-in-r.html#cb296-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb296-5"><a href="basic-statistics-in-r.html#cb296-5" aria-hidden="true" tabindex="-1"></a><span class="do">## First, we need a function that calculate correlation for each sample</span></span>
+<span id="cb296-6"><a href="basic-statistics-in-r.html#cb296-6" aria-hidden="true" tabindex="-1"></a>function_correlation <span class="ot">&lt;-</span> <span class="cf">function</span>(data, i){</span>
+<span id="cb296-7"><a href="basic-statistics-in-r.html#cb296-7" aria-hidden="true" tabindex="-1"></a>                              my_data2 <span class="ot">&lt;-</span> data[i,] </span>
+<span id="cb296-8"><a href="basic-statistics-in-r.html#cb296-8" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">return</span>(<span class="fu">cor</span>(my_data2<span class="sc">$</span>disp, my_data2<span class="sc">$</span>wt))</span>
+<span id="cb296-9"><a href="basic-statistics-in-r.html#cb296-9" aria-hidden="true" tabindex="-1"></a>                                  }</span>
+<span id="cb296-10"><a href="basic-statistics-in-r.html#cb296-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Second, we can run our bootstrap with 100000 bootstrap replicates</span></span>
+<span id="cb296-11"><a href="basic-statistics-in-r.html#cb296-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb296-12"><a href="basic-statistics-in-r.html#cb296-12" aria-hidden="true" tabindex="-1"></a>bootstrap_cor_dis_and_wt <span class="ot">&lt;-</span> <span class="fu">boot</span>(<span class="at">data =</span> cars_data, <span class="at">statistic =</span> function_correlation, <span class="at">R =</span> <span class="dv">10000</span>)</span>
+<span id="cb296-13"><a href="basic-statistics-in-r.html#cb296-13" aria-hidden="true" tabindex="-1"></a>bootstrap_cor_dis_and_wt</span>
+<span id="cb296-14"><a href="basic-statistics-in-r.html#cb296-14" aria-hidden="true" tabindex="-1"></a><span class="co">#ORDINARY NONPARAMETRIC BOOTSTRAP</span></span>
+<span id="cb296-15"><a href="basic-statistics-in-r.html#cb296-15" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb296-16"><a href="basic-statistics-in-r.html#cb296-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Call:</span></span>
+<span id="cb296-17"><a href="basic-statistics-in-r.html#cb296-17" aria-hidden="true" tabindex="-1"></a><span class="co">#boot(data = cars_data, statistic = function_correlation, R = 10000)</span></span>
+<span id="cb296-18"><a href="basic-statistics-in-r.html#cb296-18" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb296-19"><a href="basic-statistics-in-r.html#cb296-19" aria-hidden="true" tabindex="-1"></a><span class="co">#Bootstrap Statistics :</span></span>
+<span id="cb296-20"><a href="basic-statistics-in-r.html#cb296-20" aria-hidden="true" tabindex="-1"></a><span class="co">#     original       bias    std. error</span></span>
+<span id="cb296-21"><a href="basic-statistics-in-r.html#cb296-21" aria-hidden="true" tabindex="-1"></a><span class="co">#t1* 0.8879799 -0.003775209  0.03749136</span></span>
+<span id="cb296-22"><a href="basic-statistics-in-r.html#cb296-22" aria-hidden="true" tabindex="-1"></a>bootstrap_cor_dis_and_wt<span class="sc">$</span>t0</span>
+<span id="cb296-23"><a href="basic-statistics-in-r.html#cb296-23" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.8879799</span></span>
+<span id="cb296-24"><a href="basic-statistics-in-r.html#cb296-24" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t)</span>
+<span id="cb296-25"><a href="basic-statistics-in-r.html#cb296-25" aria-hidden="true" tabindex="-1"></a><span class="co">#         [,1]</span></span>
+<span id="cb296-26"><a href="basic-statistics-in-r.html#cb296-26" aria-hidden="true" tabindex="-1"></a><span class="co">#[1,] 0.8612517</span></span>
+<span id="cb296-27"><a href="basic-statistics-in-r.html#cb296-27" aria-hidden="true" tabindex="-1"></a><span class="co">#[2,] 0.7704631</span></span>
+<span id="cb296-28"><a href="basic-statistics-in-r.html#cb296-28" aria-hidden="true" tabindex="-1"></a><span class="co">#[3,] 0.9229136</span></span>
+<span id="cb296-29"><a href="basic-statistics-in-r.html#cb296-29" aria-hidden="true" tabindex="-1"></a><span class="co">#[4,] 0.8536788</span></span>
+<span id="cb296-30"><a href="basic-statistics-in-r.html#cb296-30" aria-hidden="true" tabindex="-1"></a><span class="co">#[5,] 0.8677477</span></span>
+<span id="cb296-31"><a href="basic-statistics-in-r.html#cb296-31" aria-hidden="true" tabindex="-1"></a><span class="co">#[6,] 0.8298354</span></span>
+<span id="cb296-32"><a href="basic-statistics-in-r.html#cb296-32" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
+<span id="cb296-33"><a href="basic-statistics-in-r.html#cb296-33" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t)</span>
+<span id="cb296-34"><a href="basic-statistics-in-r.html#cb296-34" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 10000     1</span></span>
+<span id="cb296-35"><a href="basic-statistics-in-r.html#cb296-35" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t)</span>
+<span id="cb296-36"><a href="basic-statistics-in-r.html#cb296-36" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.8842047</span></span>
+<span id="cb296-37"><a href="basic-statistics-in-r.html#cb296-37" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t)</span>
+<span id="cb296-38"><a href="basic-statistics-in-r.html#cb296-38" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.6994762 0.9806787</span></span>
+<span id="cb296-39"><a href="basic-statistics-in-r.html#cb296-39" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t)</span>
+<span id="cb296-40"><a href="basic-statistics-in-r.html#cb296-40" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.03749136</span></span>
+<span id="cb296-41"><a href="basic-statistics-in-r.html#cb296-41" aria-hidden="true" tabindex="-1"></a><span class="fu">boot.ci</span>(<span class="at">boot.out=</span>bootstrap_cor_dis_and_wt,<span class="at">type=</span><span class="st">&quot;norm&quot;</span>)</span>
+<span id="cb296-42"><a href="basic-statistics-in-r.html#cb296-42" aria-hidden="true" tabindex="-1"></a><span class="co">#BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS</span></span>
+<span id="cb296-43"><a href="basic-statistics-in-r.html#cb296-43" aria-hidden="true" tabindex="-1"></a><span class="co">#Based on 10000 bootstrap replicates</span></span>
+<span id="cb296-44"><a href="basic-statistics-in-r.html#cb296-44" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb296-45"><a href="basic-statistics-in-r.html#cb296-45" aria-hidden="true" tabindex="-1"></a><span class="co">#CALL : </span></span>
+<span id="cb296-46"><a href="basic-statistics-in-r.html#cb296-46" aria-hidden="true" tabindex="-1"></a><span class="co">#boot.ci(boot.out = bootstrap_cor_dis_and_wt, type = &quot;norm&quot;)</span></span>
+<span id="cb296-47"><a href="basic-statistics-in-r.html#cb296-47" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb296-48"><a href="basic-statistics-in-r.html#cb296-48" aria-hidden="true" tabindex="-1"></a><span class="co">#Intervals : </span></span>
+<span id="cb296-49"><a href="basic-statistics-in-r.html#cb296-49" aria-hidden="true" tabindex="-1"></a><span class="co">#Level      Normal        </span></span>
+<span id="cb296-50"><a href="basic-statistics-in-r.html#cb296-50" aria-hidden="true" tabindex="-1"></a><span class="co">#95%   ( 0.8183,  0.9652 )  </span></span>
+<span id="cb296-51"><a href="basic-statistics-in-r.html#cb296-51" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculations and Intervals on Original Scale</span></span>
+<span id="cb296-52"><a href="basic-statistics-in-r.html#cb296-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb296-53"><a href="basic-statistics-in-r.html#cb296-53" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t, <span class="at">breaks=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;firebrick2&quot;</span>, <span class="at">main=</span><span class="st">&quot;Bootstrap Distribution of the Correlation: dis vs wt&quot;</span>)</span>
+<span id="cb296-54"><a href="basic-statistics-in-r.html#cb296-54" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> <span class="fu">density</span>(<span class="at">x =</span> bootstrap_cor_dis_and_wt<span class="sc">$</span>t))</span>
+<span id="cb296-55"><a href="basic-statistics-in-r.html#cb296-55" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t), <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="figures/session_6_figs/8_boostrap_correlation.png" width="100%" /></p>
+<p>The results are as follows: <strong>t0</strong> are the values of the statistic (i.e., correlation) in original dataset,
+<strong>t</strong> is a matrix of 10000 rows (i.e., number of bootstrap repetitions) that we use to draw our estimate of this correlation.
+The original mean value is <strong>0.8879799</strong> and the bootstrap estimate of the mean is
+very close at <strong>0.8842047</strong>, with a 95% CI between <strong>0.8183</strong> and <strong>0.9652</strong>. Therefore,
+<code>disp</code> and <code>wt</code> are strongly and positively correlated.</p>
 
 </div>
 </div>
@@ -1295,7 +1473,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-General-Statistics_v15.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-General-Statistics_v17.Rmd",
 "text": "Edit"
 },
 "history": {

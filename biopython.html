@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2022-02-16" />
+<meta name="date" content="2022-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -199,6 +199,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.9" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-fishers-exact-test"><i class="fa fa-check"></i><b>6.9</b> Beyond t-test: Fisher’s exact test</a></li>
 <li class="chapter" data-level="6.10" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.10</b> Correlations</a></li>
 <li class="chapter" data-level="6.11" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.11</b> Comparing distributions</a></li>
+<li class="chapter" data-level="6.12" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#bootstraps"><i class="fa fa-check"></i><b>6.12</b> Bootstraps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html"><i class="fa fa-check"></i><b>7</b> – Regressions and ANOVA in R</a>
 <ul>
@@ -417,11 +418,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.8" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-while-loop"><i class="fa fa-check"></i><b>28.8</b> The <code>while</code> Loop</a></li>
 <li class="chapter" data-level="28.9" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-repeat-loop"><i class="fa fa-check"></i><b>28.9</b> The <code>repeat</code> Loop</a></li>
 <li class="chapter" data-level="28.10" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-next-and-break-statements"><i class="fa fa-check"></i><b>28.10</b> The <code>next</code> and <code>break</code> statements</a></li>
-<li class="chapter" data-level="28.11" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionslapply"><i class="fa fa-check"></i><b>28.11</b> Other loop functions:<code>lapply</code></a></li>
-<li class="chapter" data-level="28.12" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsapply"><i class="fa fa-check"></i><b>28.12</b> Other loop functions:<code>apply</code></a></li>
-<li class="chapter" data-level="28.13" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsmapply"><i class="fa fa-check"></i><b>28.13</b> Other loop functions:<code>mapply</code></a></li>
-<li class="chapter" data-level="28.14" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionstapply"><i class="fa fa-check"></i><b>28.14</b> Other loop functions:<code>tapply</code></a></li>
-<li class="chapter" data-level="28.15" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionssplit"><i class="fa fa-check"></i><b>28.15</b> Other loop functions:<code>split</code></a></li>
+<li class="chapter" data-level="28.11" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functions"><i class="fa fa-check"></i><b>28.11</b> Other loop functions</a></li>
+<li class="chapter" data-level="28.12" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#lapply-functions"><i class="fa fa-check"></i><b>28.12</b> <code>lapply</code> functions</a></li>
+<li class="chapter" data-level="28.13" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsapply"><i class="fa fa-check"></i><b>28.13</b> Other loop functions:<code>apply</code></a></li>
+<li class="chapter" data-level="28.14" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsmapply"><i class="fa fa-check"></i><b>28.14</b> Other loop functions:<code>mapply</code></a></li>
+<li class="chapter" data-level="28.15" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionstapply"><i class="fa fa-check"></i><b>28.15</b> Other loop functions:<code>tapply</code></a></li>
+<li class="chapter" data-level="28.16" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionssplit"><i class="fa fa-check"></i><b>28.16</b> Other loop functions:<code>split</code></a></li>
 </ul></li>
 <li class="chapter" data-level="29" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html"><i class="fa fa-check"></i><b>29</b> – Bioinformatics Literature</a>
 <ul>
@@ -435,7 +437,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="30" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>30</b> – Miscellaneous</a>
 <ul>
 <li class="chapter" data-level="30.1" data-path="miscellaneous.html"><a href="miscellaneous.html#sampling-from-a-vector-of-names"><i class="fa fa-check"></i><b>30.1</b> Sampling from a vector of names</a></li>
-<li class="chapter" data-level="30.2" data-path="miscellaneous.html"><a href="miscellaneous.html#miscellaneous-1"><i class="fa fa-check"></i><b>30.2</b> Miscellaneous</a></li>
+<li class="chapter" data-level="30.2" data-path="miscellaneous.html"><a href="miscellaneous.html#fasta-and-fastq-sequence-formats"><i class="fa fa-check"></i><b>30.2</b> fasta and fastq sequence formats</a></li>
+<li class="chapter" data-level="30.3" data-path="miscellaneous.html"><a href="miscellaneous.html#miscellaneous-1"><i class="fa fa-check"></i><b>30.3</b> Miscellaneous</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -469,8 +472,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">20.2</span> Biopython Installation</h2>
 <p>Installing Biopython. In Mac open terminal by typing ‘terminal’ in finder and selecting it. In Windows open terminal by typing ‘terminal’ in the desktop search bar and selecting it.</p>
 <p>Next type the following into the terminal.</p>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="biopython.html#cb543-1" aria-hidden="true" tabindex="-1"></a>pip install biopython</span>
-<span id="cb543-2"><a href="biopython.html#cb543-2" aria-hidden="true" tabindex="-1"></a>pip install <span class="sc">--</span>upgrade biopython</span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="biopython.html#cb548-1" aria-hidden="true" tabindex="-1"></a>pip install biopython</span>
+<span id="cb548-2"><a href="biopython.html#cb548-2" aria-hidden="true" tabindex="-1"></a>pip install <span class="sc">--</span>upgrade biopython</span></code></pre></div>
 <p>The first command will install Biopython.
 The second command will upgrade Biopython.</p>
 </div>
@@ -480,20 +483,20 @@ The second command will upgrade Biopython.</p>
 <p>When we design an experiment to test a hypothesis, we often refer to past methodology that could help structure our own. In a similar way, in programming one would look for past approaches to solving a particular problem as well as looking for if those tools are available for reuse. We try in data science to reuse as many tools as necessary as reinventing the wheel, starting from scratch, is often time consuming and completely unnecessary.</p>
 <p>Sometimes you will find numerous ways of completing a task. In this case you will need to find the most efficient tool to use. Comparing the outputs of each particular program and deciding for yourself which one is best for your particular task.</p>
 <p>Lets start working with sequences with the ‘Seq’ object via the SeqRecord class. First to utilize these features we must import Seq from Bio.Seq module toolkit.</p>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="biopython.html#cb544-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open Bio.Seq Module, Import what you need only: Seq</span></span>
-<span id="cb544-2"><a href="biopython.html#cb544-2" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
-<span id="cb544-3"><a href="biopython.html#cb544-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb544-4"><a href="biopython.html#cb544-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create your own sequence inside the Seq() object</span></span>
-<span id="cb544-5"><a href="biopython.html#cb544-5" aria-hidden="true" tabindex="-1"></a>my_first_seq <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;TGCATGCATCGATCG&quot;</span>)</span>
-<span id="cb544-6"><a href="biopython.html#cb544-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb544-7"><a href="biopython.html#cb544-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print command mediated print function</span></span>
-<span id="cb544-8"><a href="biopython.html#cb544-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq)</span>
-<span id="cb544-9"><a href="biopython.html#cb544-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb544-10"><a href="biopython.html#cb544-10" aria-hidden="true" tabindex="-1"></a><span class="co"># find the complement sequence easily with: complement()</span></span>
-<span id="cb544-11"><a href="biopython.html#cb544-11" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.complement</span>()</span>
-<span id="cb544-12"><a href="biopython.html#cb544-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb544-13"><a href="biopython.html#cb544-13" aria-hidden="true" tabindex="-1"></a><span class="co"># find the reverse complement easily with reverse_complement()</span></span>
-<span id="cb544-14"><a href="biopython.html#cb544-14" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.reverse_complement</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="biopython.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open Bio.Seq Module, Import what you need only: Seq</span></span>
+<span id="cb549-2"><a href="biopython.html#cb549-2" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
+<span id="cb549-3"><a href="biopython.html#cb549-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb549-4"><a href="biopython.html#cb549-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create your own sequence inside the Seq() object</span></span>
+<span id="cb549-5"><a href="biopython.html#cb549-5" aria-hidden="true" tabindex="-1"></a>my_first_seq <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;TGCATGCATCGATCG&quot;</span>)</span>
+<span id="cb549-6"><a href="biopython.html#cb549-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb549-7"><a href="biopython.html#cb549-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print command mediated print function</span></span>
+<span id="cb549-8"><a href="biopython.html#cb549-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq)</span>
+<span id="cb549-9"><a href="biopython.html#cb549-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb549-10"><a href="biopython.html#cb549-10" aria-hidden="true" tabindex="-1"></a><span class="co"># find the complement sequence easily with: complement()</span></span>
+<span id="cb549-11"><a href="biopython.html#cb549-11" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.complement</span>()</span>
+<span id="cb549-12"><a href="biopython.html#cb549-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb549-13"><a href="biopython.html#cb549-13" aria-hidden="true" tabindex="-1"></a><span class="co"># find the reverse complement easily with reverse_complement()</span></span>
+<span id="cb549-14"><a href="biopython.html#cb549-14" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.reverse_complement</span>()</span></code></pre></div>
 </div>
 <div id="parsing-my-fasta" class="section level2" number="20.4">
 <h2><span class="header-section-number">20.4</span> Parsing my FASTA</h2>
@@ -502,41 +505,41 @@ The second command will upgrade Biopython.</p>
 <p>Lets go to NCBI and select a gene for our next activity: <a href="https://www.ncbi.nlm.nih.gov/protein" class="uri">https://www.ncbi.nlm.nih.gov/protein</a></p>
 <p>For this activity I will focus on Buforin I but you are free to choose any protein that interests you and proceed by downloading the complete fasta file with all correlating sequences.</p>
 <p>Open the file that you download to check and make sure it is in FASTA format. Never assume that the files downloaded match the description.</p>
-<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="biopython.html#cb545-1" aria-hidden="true" tabindex="-1"></a><span class="co"># configure file location</span></span>
-<span id="cb545-2"><a href="biopython.html#cb545-2" aria-hidden="true" tabindex="-1"></a>fasta_file <span class="ot">=</span> PATH TO FASTA FILE</span>
-<span id="cb545-3"><a href="biopython.html#cb545-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb545-4"><a href="biopython.html#cb545-4" aria-hidden="true" tabindex="-1"></a><span class="co"># import SeqIO toolkit</span></span>
-<span id="cb545-5"><a href="biopython.html#cb545-5" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb545-6"><a href="biopython.html#cb545-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb545-7"><a href="biopython.html#cb545-7" aria-hidden="true" tabindex="-1"></a><span class="co"># for X in fasta file, print ID SEQUENCE and LENGTH of SEQ</span></span>
-<span id="cb545-8"><a href="biopython.html#cb545-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seq_record <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(fasta_file, <span class="st">&quot;fasta&quot;</span>)<span class="sc">:</span></span>
-<span id="cb545-9"><a href="biopython.html#cb545-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(seq_record.id)</span>
-<span id="cb545-10"><a href="biopython.html#cb545-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">repr</span>(seq_record.seq))</span>
-<span id="cb545-11"><a href="biopython.html#cb545-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">len</span>(seq_record))</span></code></pre></div>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="biopython.html#cb550-1" aria-hidden="true" tabindex="-1"></a><span class="co"># configure file location</span></span>
+<span id="cb550-2"><a href="biopython.html#cb550-2" aria-hidden="true" tabindex="-1"></a>fasta_file <span class="ot">=</span> PATH TO FASTA FILE</span>
+<span id="cb550-3"><a href="biopython.html#cb550-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb550-4"><a href="biopython.html#cb550-4" aria-hidden="true" tabindex="-1"></a><span class="co"># import SeqIO toolkit</span></span>
+<span id="cb550-5"><a href="biopython.html#cb550-5" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb550-6"><a href="biopython.html#cb550-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb550-7"><a href="biopython.html#cb550-7" aria-hidden="true" tabindex="-1"></a><span class="co"># for X in fasta file, print ID SEQUENCE and LENGTH of SEQ</span></span>
+<span id="cb550-8"><a href="biopython.html#cb550-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seq_record <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(fasta_file, <span class="st">&quot;fasta&quot;</span>)<span class="sc">:</span></span>
+<span id="cb550-9"><a href="biopython.html#cb550-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(seq_record.id)</span>
+<span id="cb550-10"><a href="biopython.html#cb550-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">repr</span>(seq_record.seq))</span>
+<span id="cb550-11"><a href="biopython.html#cb550-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">len</span>(seq_record))</span></code></pre></div>
 <p>You can see how easy it is to pull information from the FASTA file with a couple lines of code. We can print that information into the console, we can also save that data in python to filter it even further and in -*/e cases it may be better to save that data. Lets see a few of those commands.</p>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="biopython.html#cb546-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import module for changing directories</span></span>
-<span id="cb546-2"><a href="biopython.html#cb546-2" aria-hidden="true" tabindex="-1"></a>import os</span>
-<span id="cb546-3"><a href="biopython.html#cb546-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb546-4"><a href="biopython.html#cb546-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Change Directory</span></span>
-<span id="cb546-5"><a href="biopython.html#cb546-5" aria-hidden="true" tabindex="-1"></a><span class="fu">os.chdir</span>(<span class="st">&quot;Your Python Work Folder For This Class&quot;</span>)</span>
-<span id="cb546-6"><a href="biopython.html#cb546-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb546-7"><a href="biopython.html#cb546-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the data!</span></span>
-<span id="cb546-8"><a href="biopython.html#cb546-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seq_record <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(fasta_file, <span class="st">&quot;fasta&quot;</span>)<span class="sc">:</span></span>
-<span id="cb546-9"><a href="biopython.html#cb546-9" aria-hidden="true" tabindex="-1"></a>    with <span class="fu">open</span>(<span class="st">&#39;parsed_fasta.txt&#39;</span>, <span class="st">&#39;a&#39;</span>) as f<span class="sc">:</span></span>
-<span id="cb546-10"><a href="biopython.html#cb546-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f.write</span>(seq_record.id)</span>
-<span id="cb546-11"><a href="biopython.html#cb546-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f.write</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb546-12"><a href="biopython.html#cb546-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f.close</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="biopython.html#cb551-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import module for changing directories</span></span>
+<span id="cb551-2"><a href="biopython.html#cb551-2" aria-hidden="true" tabindex="-1"></a>import os</span>
+<span id="cb551-3"><a href="biopython.html#cb551-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb551-4"><a href="biopython.html#cb551-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Change Directory</span></span>
+<span id="cb551-5"><a href="biopython.html#cb551-5" aria-hidden="true" tabindex="-1"></a><span class="fu">os.chdir</span>(<span class="st">&quot;Your Python Work Folder For This Class&quot;</span>)</span>
+<span id="cb551-6"><a href="biopython.html#cb551-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb551-7"><a href="biopython.html#cb551-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the data!</span></span>
+<span id="cb551-8"><a href="biopython.html#cb551-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seq_record <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(fasta_file, <span class="st">&quot;fasta&quot;</span>)<span class="sc">:</span></span>
+<span id="cb551-9"><a href="biopython.html#cb551-9" aria-hidden="true" tabindex="-1"></a>    with <span class="fu">open</span>(<span class="st">&#39;parsed_fasta.txt&#39;</span>, <span class="st">&#39;a&#39;</span>) as f<span class="sc">:</span></span>
+<span id="cb551-10"><a href="biopython.html#cb551-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f.write</span>(seq_record.id)</span>
+<span id="cb551-11"><a href="biopython.html#cb551-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f.write</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb551-12"><a href="biopython.html#cb551-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f.close</span>()</span></code></pre></div>
 </div>
 <div id="parsing-my-genbank-or-genpept" class="section level2" number="20.5">
 <h2><span class="header-section-number">20.5</span> Parsing my GenBank or GenPept</h2>
 <p>If the input is not in FASTA format, you can make some minor tweaks and use a GenBank or GenPept file instead.</p>
 <p>Lets go back to NCBI and select a gene for our next activity but this time lets select the genpept download: <a href="https://www.ncbi.nlm.nih.gov/protein" class="uri">https://www.ncbi.nlm.nih.gov/protein</a></p>
 <p>Move this file into your python working directory, then proceed with the commands below:</p>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="biopython.html#cb547-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb547-2"><a href="biopython.html#cb547-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seq_record <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(<span class="st">&quot;sequence.gp&quot;</span>, <span class="st">&quot;genbank&quot;</span>)<span class="sc">:</span></span>
-<span id="cb547-3"><a href="biopython.html#cb547-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(seq_record.id)</span>
-<span id="cb547-4"><a href="biopython.html#cb547-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(<span class="fu">repr</span>(seq_record.seq))</span>
-<span id="cb547-5"><a href="biopython.html#cb547-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(<span class="fu">len</span>(seq_record))</span></code></pre></div>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="biopython.html#cb552-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb552-2"><a href="biopython.html#cb552-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seq_record <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(<span class="st">&quot;sequence.gp&quot;</span>, <span class="st">&quot;genbank&quot;</span>)<span class="sc">:</span></span>
+<span id="cb552-3"><a href="biopython.html#cb552-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(seq_record.id)</span>
+<span id="cb552-4"><a href="biopython.html#cb552-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(<span class="fu">repr</span>(seq_record.seq))</span>
+<span id="cb552-5"><a href="biopython.html#cb552-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(<span class="fu">len</span>(seq_record))</span></code></pre></div>
 <p>There are way more parsers in Biopython that we do not have time to go over all of them. Feel free to explore them on your own after class.</p>
 
 </div>
