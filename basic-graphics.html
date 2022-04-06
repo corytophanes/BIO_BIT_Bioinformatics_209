@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2022-03-30" />
+<meta name="date" content="2022-04-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -268,8 +268,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.8" data-path="basic-graphics.html"><a href="basic-graphics.html#violin-plots"><i class="fa fa-check"></i><b>10.8</b> Violin plots</a></li>
 <li class="chapter" data-level="10.9" data-path="basic-graphics.html"><a href="basic-graphics.html#scatterplots"><i class="fa fa-check"></i><b>10.9</b> Scatterplots</a></li>
 <li class="chapter" data-level="10.10" data-path="basic-graphics.html"><a href="basic-graphics.html#lines-and-scatterplots"><i class="fa fa-check"></i><b>10.10</b> Lines and Scatterplots</a></li>
-<li class="chapter" data-level="10.11" data-path="basic-graphics.html"><a href="basic-graphics.html#multiple-graphs-at-once-with-cowplot"><i class="fa fa-check"></i><b>10.11</b> Multiple graphs at once with <code>cowplot</code></a></li>
-<li class="chapter" data-level="10.12" data-path="basic-graphics.html"><a href="basic-graphics.html#save-your-plots-as-pdf-or-png"><i class="fa fa-check"></i><b>10.12</b> Save your plots as PDF or PNG</a></li>
+<li class="chapter" data-level="10.11" data-path="basic-graphics.html"><a href="basic-graphics.html#save-your-plots-as-pdf-or-png"><i class="fa fa-check"></i><b>10.11</b> Save your plots as PDF or PNG</a></li>
+<li class="chapter" data-level="10.12" data-path="basic-graphics.html"><a href="basic-graphics.html#ggplot2-add-on-packages-treemapify"><i class="fa fa-check"></i><b>10.12</b> ggplot2 add-on packages: <code>treemapify</code></a></li>
 <li class="chapter" data-level="10.13" data-path="basic-graphics.html"><a href="basic-graphics.html#other-resources"><i class="fa fa-check"></i><b>10.13</b> Other resources</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="sequence-alignments.html"><a href="sequence-alignments.html"><i class="fa fa-check"></i><b>11</b> – Sequence Alignments</a>
@@ -569,27 +569,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb441-5"><a href="basic-graphics.html#cb441-5" aria-hidden="true" tabindex="-1"></a><span class="co"># base plot</span></span>
 <span id="cb441-6"><a href="basic-graphics.html#cb441-6" aria-hidden="true" tabindex="-1"></a>ichtyo_barchart <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>ichtyo_sum_df, <span class="fu">aes</span>(<span class="at">x=</span>site_names, <span class="at">y=</span>counts, <span class="at">fill =</span> site_names)) <span class="sc">+</span></span>
 <span id="cb441-7"><a href="basic-graphics.html#cb441-7" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">geom_bar</span>(<span class="at">colour=</span><span class="st">&quot;black&quot;</span>, <span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb441-8"><a href="basic-graphics.html#cb441-8" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">guides</span>(<span class="at">fill=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb441-9"><a href="basic-graphics.html#cb441-9" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb441-10"><a href="basic-graphics.html#cb441-10" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">xlab</span>(<span class="st">&quot;Sites on a place&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb441-11"><a href="basic-graphics.html#cb441-11" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">ylab</span>(<span class="st">&quot;Total counts&quot;</span>) <span class="sc">+</span></span>
-<span id="cb441-12"><a href="basic-graphics.html#cb441-12" aria-hidden="true" tabindex="-1"></a>                <span class="fu">ggtitle</span>(<span class="st">&quot;My First Bar Chart&quot;</span>)</span>
-<span id="cb441-13"><a href="basic-graphics.html#cb441-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb441-14"><a href="basic-graphics.html#cb441-14" aria-hidden="true" tabindex="-1"></a>ichtyo_barchart</span></code></pre></div>
+<span id="cb441-8"><a href="basic-graphics.html#cb441-8" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb441-9"><a href="basic-graphics.html#cb441-9" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">xlab</span>(<span class="st">&quot;Sites on a place&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb441-10"><a href="basic-graphics.html#cb441-10" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">ylab</span>(<span class="st">&quot;Total counts&quot;</span>) <span class="sc">+</span></span>
+<span id="cb441-11"><a href="basic-graphics.html#cb441-11" aria-hidden="true" tabindex="-1"></a>                <span class="fu">ggtitle</span>(<span class="st">&quot;My First Bar Chart&quot;</span>)</span>
+<span id="cb441-12"><a href="basic-graphics.html#cb441-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb441-13"><a href="basic-graphics.html#cb441-13" aria-hidden="true" tabindex="-1"></a>ichtyo_barchart</span></code></pre></div>
 <p><img src="figures/session_9_figs/19_barchart_example_v1.png" width="90%" /></p>
 <p>We can simplify this plot with adding the counts on top of the bars with the <code>count_label</code> of the <code>ichtyo_sum_df</code> and remove the background grids. A series the options to the ggplot are added: <code>geom_text()</code> will add the text of the <code>count_label</code> using the <code>site_names</code> and <code>counts</code> as x and y coordinates and the argument <code>vjust=-1</code> will move it a bit above the x/y coordinate.<code>theme()</code> will remove some unwanted elements by assigning them as <code>element_blank()</code> these include the y-axis text and all the grids.</p>
 <div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="basic-graphics.html#cb442-1" aria-hidden="true" tabindex="-1"></a>ichtyo_barchart <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>ichtyo_sum_df, <span class="fu">aes</span>(<span class="at">x=</span>site_names, <span class="at">y=</span>counts, <span class="at">fill =</span> site_names)) <span class="sc">+</span></span>
 <span id="cb442-2"><a href="basic-graphics.html#cb442-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">geom_bar</span>(<span class="at">colour=</span><span class="st">&quot;black&quot;</span>, <span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb442-3"><a href="basic-graphics.html#cb442-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">guides</span>(<span class="at">fill=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb442-4"><a href="basic-graphics.html#cb442-4" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb442-5"><a href="basic-graphics.html#cb442-5" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">xlab</span>(<span class="st">&quot;Sites on a place&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb442-6"><a href="basic-graphics.html#cb442-6" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">ylab</span>(<span class="st">&quot;Total counts&quot;</span>) <span class="sc">+</span></span>
-<span id="cb442-7"><a href="basic-graphics.html#cb442-7" aria-hidden="true" tabindex="-1"></a>                <span class="fu">ggtitle</span>(<span class="st">&quot;My First Bar Chart&quot;</span>) <span class="sc">+</span></span>
-<span id="cb442-8"><a href="basic-graphics.html#cb442-8" aria-hidden="true" tabindex="-1"></a>              <span class="fu">geom_text</span>(<span class="at">data=</span>ichtyo_sum_df,<span class="fu">aes</span>(<span class="at">x=</span>site_names,<span class="at">y=</span>counts,<span class="at">label=</span>count_label),<span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb442-9"><a href="basic-graphics.html#cb442-9" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb442-10"><a href="basic-graphics.html#cb442-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), </span>
-<span id="cb442-11"><a href="basic-graphics.html#cb442-11" aria-hidden="true" tabindex="-1"></a>                    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span>
-<span id="cb442-12"><a href="basic-graphics.html#cb442-12" aria-hidden="true" tabindex="-1"></a>ichtyo_barchart</span></code></pre></div>
+<span id="cb442-3"><a href="basic-graphics.html#cb442-3" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb442-4"><a href="basic-graphics.html#cb442-4" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">xlab</span>(<span class="st">&quot;Sites on a place&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb442-5"><a href="basic-graphics.html#cb442-5" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">ylab</span>(<span class="st">&quot;Total counts&quot;</span>) <span class="sc">+</span></span>
+<span id="cb442-6"><a href="basic-graphics.html#cb442-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">ggtitle</span>(<span class="st">&quot;My First Bar Chart&quot;</span>) <span class="sc">+</span></span>
+<span id="cb442-7"><a href="basic-graphics.html#cb442-7" aria-hidden="true" tabindex="-1"></a>              <span class="fu">geom_text</span>(<span class="at">data=</span>ichtyo_sum_df,<span class="fu">aes</span>(<span class="at">x=</span>site_names,<span class="at">y=</span>counts,<span class="at">label=</span>count_label),<span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb442-8"><a href="basic-graphics.html#cb442-8" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb442-9"><a href="basic-graphics.html#cb442-9" aria-hidden="true" tabindex="-1"></a>                    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb442-10"><a href="basic-graphics.html#cb442-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb442-11"><a href="basic-graphics.html#cb442-11" aria-hidden="true" tabindex="-1"></a>ichtyo_barchart</span></code></pre></div>
 <p><img src="figures/session_9_figs/20_barchart_example_v2.png" width="90%" /></p>
 <p>The base colors of this plot are becoming cliché as the enormous popularity of ggplot2, so we can change it to something more original using the color packages that we presented on previous section.</p>
 <div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="basic-graphics.html#cb443-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot with futurama fill colors</span></span>
@@ -952,10 +950,9 @@ We can also remove some low expressed genes (e.g., values less than 100) and ove
 <span id="cb463-5"><a href="basic-graphics.html#cb463-5" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_boxplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(crabs_data, <span class="fu">aes</span>(<span class="at">x=</span>sp, <span class="at">y=</span>CL, <span class="at">fill=</span>sp)) <span class="sc">+</span> </span>
 <span id="cb463-6"><a href="basic-graphics.html#cb463-6" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.3</span>) <span class="sc">+</span></span>
 <span id="cb463-7"><a href="basic-graphics.html#cb463-7" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Crab species CL overlap -- boxplots&quot;</span>, <span class="at">x=</span><span class="st">&quot;Species&quot;</span>, <span class="at">y=</span><span class="st">&quot;CL - carapace length (mm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb463-8"><a href="basic-graphics.html#cb463-8" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">guides</span>(<span class="at">fill=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb463-9"><a href="basic-graphics.html#cb463-9" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme_minimal</span>()</span>
-<span id="cb463-10"><a href="basic-graphics.html#cb463-10" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_boxplot_v1 <span class="ot">&lt;-</span> crabs_sp_CL_boxplot <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span><span class="fu">c</span>(<span class="st">&quot;#C7A76C&quot;</span>, <span class="st">&quot;#99B56B&quot;</span>))</span>
-<span id="cb463-11"><a href="basic-graphics.html#cb463-11" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_boxplot_v1</span></code></pre></div>
+<span id="cb463-8"><a href="basic-graphics.html#cb463-8" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme_minimal</span>()</span>
+<span id="cb463-9"><a href="basic-graphics.html#cb463-9" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_boxplot_v1 <span class="ot">&lt;-</span> crabs_sp_CL_boxplot <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span><span class="fu">c</span>(<span class="st">&quot;#C7A76C&quot;</span>, <span class="st">&quot;#99B56B&quot;</span>))</span>
+<span id="cb463-10"><a href="basic-graphics.html#cb463-10" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_boxplot_v1</span></code></pre></div>
 <p><img src="figures/session_9_figs/40_boxplot_base.png" width="70%" /></p>
 <p>You can flip coordinates with <code>coord_flip()</code> and changed the colors of the plots using <code>scale_fill_manual()</code>.</p>
 <div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="basic-graphics.html#cb464-1" aria-hidden="true" tabindex="-1"></a><span class="do">## flip coordinates</span></span>
@@ -988,11 +985,10 @@ We can also remove some low expressed genes (e.g., values less than 100) and ove
 <span id="cb465-20"><a href="basic-graphics.html#cb465-20" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.3</span>) <span class="sc">+</span></span>
 <span id="cb465-21"><a href="basic-graphics.html#cb465-21" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom=</span><span class="st">&quot;point&quot;</span>, <span class="at">shape=</span><span class="dv">5</span>, <span class="at">size=</span><span class="dv">4</span>) <span class="sc">+</span></span>
 <span id="cb465-22"><a href="basic-graphics.html#cb465-22" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Crab species CL overlap -- violin and box plots&quot;</span>, <span class="at">x=</span><span class="st">&quot;Species&quot;</span>, <span class="at">y=</span><span class="st">&quot;CL - carapace length (mm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb465-23"><a href="basic-graphics.html#cb465-23" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">guides</span>(<span class="at">fill=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb465-24"><a href="basic-graphics.html#cb465-24" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">scale_fill_manual</span>(<span class="at">values =</span><span class="fu">c</span>(<span class="st">&quot;#8C241B&quot;</span>, <span class="st">&quot;#29809E&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb465-25"><a href="basic-graphics.html#cb465-25" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme_minimal</span>()</span>
-<span id="cb465-26"><a href="basic-graphics.html#cb465-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb465-27"><a href="basic-graphics.html#cb465-27" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_violin</span></code></pre></div>
+<span id="cb465-23"><a href="basic-graphics.html#cb465-23" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">scale_fill_manual</span>(<span class="at">values =</span><span class="fu">c</span>(<span class="st">&quot;#8C241B&quot;</span>, <span class="st">&quot;#29809E&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb465-24"><a href="basic-graphics.html#cb465-24" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme_minimal</span>()</span>
+<span id="cb465-25"><a href="basic-graphics.html#cb465-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb465-26"><a href="basic-graphics.html#cb465-26" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_violin</span></code></pre></div>
 <p><img src="figures/session_9_figs/42_violin_boxplot.png" width="70%" /></p>
 </div>
 <div id="scatterplots" class="section level2" number="10.9">
@@ -1356,10 +1352,8 @@ We can also remove some low expressed genes (e.g., values less than 100) and ove
 <span id="cb485-13"><a href="basic-graphics.html#cb485-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb485-14"><a href="basic-graphics.html#cb485-14" aria-hidden="true" tabindex="-1"></a>nyc_temp_plot_smooth_4 </span>
 <span id="cb485-15"><a href="basic-graphics.html#cb485-15" aria-hidden="true" tabindex="-1"></a><span class="co">#`geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</span></span></code></pre></div>
-<p><img src="figures/session_10_figs/62_scatterplot_nyc_3lines_r.png" width="90%" /></p>
-</div>
-<div id="multiple-graphs-at-once-with-cowplot" class="section level2" number="10.11">
-<h2><span class="header-section-number">10.11</span> Multiple graphs at once with <code>cowplot</code></h2>
+<p><img src="figures/session_10_figs/62_scatterplot_nyc_3lines_r.png" width="90%" />
+## Multiple graphs at once with <code>cowplot</code></p>
 <p>In most cases, you might want multiple plots at once before we print our graphics. We will use the R package <a href="https://cran.r-project.org/web/packages/cowplot/index.html" target="_blank"><strong>cowplot</strong></a> that provides various features that help with creating publication-quality figures with ‘ggplot2’, such as a set of themes, functions to align plots and arrange them into complex compound figures. This R package has a <a href="https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html" target="_blank"><strong>vignette</strong></a>.</p>
 <p><strong>32)</strong> We need to install <strong>cowplot</strong> and you need two or more ggplot2 objects to make use of the features of this package. For this purpose, we will create four plots using the dataset <code>fruits</code> of the R package <code>ade4</code>.</p>
 <div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="basic-graphics.html#cb486-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install cowplot</span></span>
@@ -1452,8 +1446,8 @@ We can also remove some low expressed genes (e.g., values less than 100) and ove
 <span id="cb492-5"><a href="basic-graphics.html#cb492-5" aria-hidden="true" tabindex="-1"></a>all_four_plots</span></code></pre></div>
 <p><img src="figures/session_10_figs/70_all_four_plots.png" width="90%" /></p>
 </div>
-<div id="save-your-plots-as-pdf-or-png" class="section level2" number="10.12">
-<h2><span class="header-section-number">10.12</span> Save your plots as PDF or PNG</h2>
+<div id="save-your-plots-as-pdf-or-png" class="section level2" number="10.11">
+<h2><span class="header-section-number">10.11</span> Save your plots as PDF or PNG</h2>
 <p><strong>34)</strong> You can save your plots using the function <code>ggsave()</code>.</p>
 <div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="basic-graphics.html#cb493-1" aria-hidden="true" tabindex="-1"></a><span class="do">## save &#39;all_plot&#39; graph as pdf</span></span>
 <span id="cb493-2"><a href="basic-graphics.html#cb493-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;all_plots.pdf&quot;</span>)</span>
@@ -1466,6 +1460,52 @@ We can also remove some low expressed genes (e.g., values less than 100) and ove
 <span id="cb493-9"><a href="basic-graphics.html#cb493-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;all_plots2.png&quot;</span>, <span class="at">width =</span> <span class="dv">4</span>, <span class="at">height =</span> <span class="dv">4</span>)</span>
 <span id="cb493-10"><a href="basic-graphics.html#cb493-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;all_plots3.png&quot;</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">height =</span> <span class="dv">20</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span></code></pre></div>
 <p>Note that it has to be last plot you have in environment.</p>
+</div>
+<div id="ggplot2-add-on-packages-treemapify" class="section level2" number="10.12">
+<h2><span class="header-section-number">10.12</span> ggplot2 add-on packages: <code>treemapify</code></h2>
+<p>Treemaps are an alternative to piecharts as they can serve to display quantities
+of a whole by category represented by rectagles with a given area size.
+Each category is assigned a rectangle area with their subcategory rectangles nested inside of it.</p>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="basic-graphics.html#cb494-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install package if needed</span></span>
+<span id="cb494-2"><a href="basic-graphics.html#cb494-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;treemapify&quot;</span>)</span>
+<span id="cb494-3"><a href="basic-graphics.html#cb494-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb494-4"><a href="basic-graphics.html#cb494-4" aria-hidden="true" tabindex="-1"></a><span class="do">## load libraries</span></span>
+<span id="cb494-5"><a href="basic-graphics.html#cb494-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb494-6"><a href="basic-graphics.html#cb494-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(treemapify)</span>
+<span id="cb494-7"><a href="basic-graphics.html#cb494-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb494-8"><a href="basic-graphics.html#cb494-8" aria-hidden="true" tabindex="-1"></a><span class="do">## we will use the &#39;ichtyo’ dataset</span></span>
+<span id="cb494-9"><a href="basic-graphics.html#cb494-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)</span>
+<span id="cb494-10"><a href="basic-graphics.html#cb494-10" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ichtyo)</span>
+<span id="cb494-11"><a href="basic-graphics.html#cb494-11" aria-hidden="true" tabindex="-1"></a>ichtyo_data <span class="ot">&lt;-</span> ichtyo<span class="sc">$</span>tab</span>
+<span id="cb494-12"><a href="basic-graphics.html#cb494-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb494-13"><a href="basic-graphics.html#cb494-13" aria-hidden="true" tabindex="-1"></a><span class="do">## column sum as data frame</span></span>
+<span id="cb494-14"><a href="basic-graphics.html#cb494-14" aria-hidden="true" tabindex="-1"></a>ichtyo_sum_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colSums</span> (ichtyo_data, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb494-15"><a href="basic-graphics.html#cb494-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb494-16"><a href="basic-graphics.html#cb494-16" aria-hidden="true" tabindex="-1"></a><span class="do">## build a nicer data frame and add column of site_names</span></span>
+<span id="cb494-17"><a href="basic-graphics.html#cb494-17" aria-hidden="true" tabindex="-1"></a>ichtyo_sum_df<span class="sc">$</span>site_names <span class="ot">&lt;-</span> <span class="fu">rownames</span>(ichtyo_sum_df)</span>
+<span id="cb494-18"><a href="basic-graphics.html#cb494-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb494-19"><a href="basic-graphics.html#cb494-19" aria-hidden="true" tabindex="-1"></a><span class="do">## upgrade column names</span></span>
+<span id="cb494-20"><a href="basic-graphics.html#cb494-20" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(ichtyo_sum_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;counts&quot;</span>, <span class="st">&quot;site_names&quot;</span>)</span>
+<span id="cb494-21"><a href="basic-graphics.html#cb494-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb494-22"><a href="basic-graphics.html#cb494-22" aria-hidden="true" tabindex="-1"></a><span class="do">## add count labels for later use</span></span>
+<span id="cb494-23"><a href="basic-graphics.html#cb494-23" aria-hidden="true" tabindex="-1"></a>ichtyo_sum_df<span class="sc">$</span>count_label <span class="ot">&lt;-</span> <span class="fu">as.character</span>(ichtyo_sum_df<span class="sc">$</span>counts)</span>
+<span id="cb494-24"><a href="basic-graphics.html#cb494-24" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ichtyo_sum_df)</span>
+<span id="cb494-25"><a href="basic-graphics.html#cb494-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  9 obs. of  3 variables:</span></span>
+<span id="cb494-26"><a href="basic-graphics.html#cb494-26" aria-hidden="true" tabindex="-1"></a><span class="co"># $ counts     : num  936 995 1741 491 951 ...</span></span>
+<span id="cb494-27"><a href="basic-graphics.html#cb494-27" aria-hidden="true" tabindex="-1"></a><span class="co"># $ site_names : chr  &quot;HOT&quot; &quot;VAN&quot; &quot;CHE&quot; &quot;SPI&quot; ...</span></span>
+<span id="cb494-28"><a href="basic-graphics.html#cb494-28" aria-hidden="true" tabindex="-1"></a><span class="co"># $ count_label: chr  &quot;936&quot; &quot;995&quot; &quot;1741&quot; &quot;491&quot; ...</span></span>
+<span id="cb494-29"><a href="basic-graphics.html#cb494-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb494-30"><a href="basic-graphics.html#cb494-30" aria-hidden="true" tabindex="-1"></a><span class="do">## Drawing a simple treemap</span></span>
+<span id="cb494-31"><a href="basic-graphics.html#cb494-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb494-32"><a href="basic-graphics.html#cb494-32" aria-hidden="true" tabindex="-1"></a>ichtyo_treemap <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>ichtyo_sum_df, <span class="fu">aes</span>(<span class="at">label=</span>site_names, <span class="at">area=</span>counts, <span class="at">fill =</span> site_names, <span class="at">subgroup =</span> count_label)) <span class="sc">+</span></span>
+<span id="cb494-33"><a href="basic-graphics.html#cb494-33" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">geom_treemap</span>() <span class="sc">+</span></span>
+<span id="cb494-34"><a href="basic-graphics.html#cb494-34" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">geom_treemap_subgroup_text</span>(<span class="at">place =</span> <span class="st">&quot;centre&quot;</span>, <span class="at">grow =</span> <span class="cn">FALSE</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>, </span>
+<span id="cb494-35"><a href="basic-graphics.html#cb494-35" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">colour =</span><span class="st">&quot;black&quot;</span>, <span class="at">fontface =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">min.size =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb494-36"><a href="basic-graphics.html#cb494-36" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">geom_treemap_text</span>(<span class="at">colour =</span> <span class="st">&quot;white&quot;</span>, <span class="at">place =</span> <span class="st">&quot;topleft&quot;</span>, <span class="at">reflow =</span> <span class="cn">TRUE</span>, <span class="at">grow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb494-37"><a href="basic-graphics.html#cb494-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb494-38"><a href="basic-graphics.html#cb494-38" aria-hidden="true" tabindex="-1"></a>ichtyo_treemap</span></code></pre></div>
+<p><img src="figures/session_10_figs/73_treemap_example.png" width="90%" /></p>
+<p>Notice that this plot is similar to the barchart, but presented as a treemap.</p>
 </div>
 <div id="other-resources" class="section level2" number="10.13">
 <h2><span class="header-section-number">10.13</span> Other resources</h2>
