@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2023-01-16" />
+<meta name="date" content="2023-01-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -150,11 +150,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#your-first-session"><i class="fa fa-check"></i><b>2.1</b> Your first session</a></li>
 <li class="chapter" data-level="2.2" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#doing-some-base-functions-and-getting-help"><i class="fa fa-check"></i><b>2.2</b> Doing some base functions and getting help</a></li>
-<li class="chapter" data-level="2.3" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#about-r-packages"><i class="fa fa-check"></i><b>2.3</b> About R-packages</a></li>
-<li class="chapter" data-level="2.4" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#installing-packages"><i class="fa fa-check"></i><b>2.4</b> Installing packages</a></li>
-<li class="chapter" data-level="2.5" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#downloading-data-files-github"><i class="fa fa-check"></i><b>2.5</b> Downloading data files (GitHub)</a></li>
-<li class="chapter" data-level="2.6" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#importing-and-exporting-data"><i class="fa fa-check"></i><b>2.6</b> Importing and exporting data</a></li>
-<li class="chapter" data-level="2.7" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#saving-data-as-rdata-.rdata-.rda"><i class="fa fa-check"></i><b>2.7</b> Saving data as Rdata (.rdata, .rda)</a></li>
+<li class="chapter" data-level="2.3" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#functions-between-two-or-more-vectors"><i class="fa fa-check"></i><b>2.3</b> Functions between two or more vectors</a></li>
+<li class="chapter" data-level="2.4" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#about-r-packages"><i class="fa fa-check"></i><b>2.4</b> About R-packages</a></li>
+<li class="chapter" data-level="2.5" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#installing-packages"><i class="fa fa-check"></i><b>2.5</b> Installing packages</a></li>
+<li class="chapter" data-level="2.6" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#downloading-data-files-github"><i class="fa fa-check"></i><b>2.6</b> Downloading data files (GitHub)</a></li>
+<li class="chapter" data-level="2.7" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#importing-and-exporting-data"><i class="fa fa-check"></i><b>2.7</b> Importing and exporting data</a></li>
+<li class="chapter" data-level="2.8" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#saving-data-as-rdata-.rdata-.rda"><i class="fa fa-check"></i><b>2.8</b> Saving data as Rdata (.rdata, .rda)</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html"><i class="fa fa-check"></i><b>3</b> – Basic Data Structures in R</a>
 <ul>
@@ -494,8 +495,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">20.2</span> Biopython Installation</h2>
 <p>Installing Biopython. In Mac open terminal by typing ‘terminal’ in finder and selecting it. In Windows open terminal by typing ‘terminal’ in the desktop search bar and selecting it.</p>
 <p>Next type the following into the terminal.</p>
-<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="biopython.html#cb576-1" aria-hidden="true" tabindex="-1"></a>pip install biopython</span>
-<span id="cb576-2"><a href="biopython.html#cb576-2" aria-hidden="true" tabindex="-1"></a>pip install <span class="sc">--</span>upgrade biopython</span></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="biopython.html#cb577-1" aria-hidden="true" tabindex="-1"></a>pip install biopython</span>
+<span id="cb577-2"><a href="biopython.html#cb577-2" aria-hidden="true" tabindex="-1"></a>pip install <span class="sc">--</span>upgrade biopython</span></code></pre></div>
 <p>The first command will install Biopython.
 The second command will upgrade Biopython.</p>
 </div>
@@ -505,20 +506,20 @@ The second command will upgrade Biopython.</p>
 <p>When we design an experiment to test a hypothesis, we often refer to past methodology that could help structure our own. In a similar way, in programming one would look for past approaches to solving a particular problem as well as looking for if those tools are available for reuse. We try in data science to reuse as many tools as necessary as reinventing the wheel, starting from scratch, is often time consuming and completely unnecessary.</p>
 <p>Sometimes you will find numerous ways of completing a task. In this case you will need to find the most efficient tool to use. Comparing the outputs of each particular program and deciding for yourself which one is best for your particular task.</p>
 <p>Lets start working with sequences with the ‘Seq’ object via the SeqRecord class. First to utilize these features we must import Seq from Bio.Seq module toolkit.</p>
-<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="biopython.html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open Bio.Seq Module, Import what you need only: Seq</span></span>
-<span id="cb577-2"><a href="biopython.html#cb577-2" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
-<span id="cb577-3"><a href="biopython.html#cb577-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb577-4"><a href="biopython.html#cb577-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create your own sequence inside the Seq() object</span></span>
-<span id="cb577-5"><a href="biopython.html#cb577-5" aria-hidden="true" tabindex="-1"></a>my_first_seq <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;TGCATGCATCGATCG&quot;</span>)</span>
-<span id="cb577-6"><a href="biopython.html#cb577-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb577-7"><a href="biopython.html#cb577-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print command mediated print function</span></span>
-<span id="cb577-8"><a href="biopython.html#cb577-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq)</span>
-<span id="cb577-9"><a href="biopython.html#cb577-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb577-10"><a href="biopython.html#cb577-10" aria-hidden="true" tabindex="-1"></a><span class="co"># find the complement sequence easily with: complement()</span></span>
-<span id="cb577-11"><a href="biopython.html#cb577-11" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.complement</span>()</span>
-<span id="cb577-12"><a href="biopython.html#cb577-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb577-13"><a href="biopython.html#cb577-13" aria-hidden="true" tabindex="-1"></a><span class="co"># find the reverse complement easily with reverse_complement()</span></span>
-<span id="cb577-14"><a href="biopython.html#cb577-14" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.reverse_complement</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="biopython.html#cb578-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open Bio.Seq Module, Import what you need only: Seq</span></span>
+<span id="cb578-2"><a href="biopython.html#cb578-2" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
+<span id="cb578-3"><a href="biopython.html#cb578-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-4"><a href="biopython.html#cb578-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create your own sequence inside the Seq() object</span></span>
+<span id="cb578-5"><a href="biopython.html#cb578-5" aria-hidden="true" tabindex="-1"></a>my_first_seq <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;TGCATGCATCGATCG&quot;</span>)</span>
+<span id="cb578-6"><a href="biopython.html#cb578-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-7"><a href="biopython.html#cb578-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print command mediated print function</span></span>
+<span id="cb578-8"><a href="biopython.html#cb578-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq)</span>
+<span id="cb578-9"><a href="biopython.html#cb578-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-10"><a href="biopython.html#cb578-10" aria-hidden="true" tabindex="-1"></a><span class="co"># find the complement sequence easily with: complement()</span></span>
+<span id="cb578-11"><a href="biopython.html#cb578-11" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.complement</span>()</span>
+<span id="cb578-12"><a href="biopython.html#cb578-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-13"><a href="biopython.html#cb578-13" aria-hidden="true" tabindex="-1"></a><span class="co"># find the reverse complement easily with reverse_complement()</span></span>
+<span id="cb578-14"><a href="biopython.html#cb578-14" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.reverse_complement</span>()</span></code></pre></div>
 </div>
 <div id="parsing-my-fasta" class="section level2" number="20.4">
 <h2><span class="header-section-number">20.4</span> Parsing my FASTA</h2>
@@ -527,41 +528,41 @@ The second command will upgrade Biopython.</p>
 <p>Lets go to NCBI and select a gene for our next activity: <a href="https://www.ncbi.nlm.nih.gov/protein" class="uri">https://www.ncbi.nlm.nih.gov/protein</a></p>
 <p>For this activity I will focus on Buforin I but you are free to choose any protein that interests you and proceed by downloading the complete fasta file with all correlating sequences.</p>
 <p>Open the file that you download to check and make sure it is in FASTA format. Never assume that the files downloaded match the description.</p>
-<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="biopython.html#cb578-1" aria-hidden="true" tabindex="-1"></a><span class="co"># configure file location</span></span>
-<span id="cb578-2"><a href="biopython.html#cb578-2" aria-hidden="true" tabindex="-1"></a>fasta_file <span class="ot">=</span> PATH TO FASTA FILE</span>
-<span id="cb578-3"><a href="biopython.html#cb578-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb578-4"><a href="biopython.html#cb578-4" aria-hidden="true" tabindex="-1"></a><span class="co"># import SeqIO toolkit</span></span>
-<span id="cb578-5"><a href="biopython.html#cb578-5" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb578-6"><a href="biopython.html#cb578-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb578-7"><a href="biopython.html#cb578-7" aria-hidden="true" tabindex="-1"></a><span class="co"># for X in fasta file, print ID SEQUENCE and LENGTH of SEQ</span></span>
-<span id="cb578-8"><a href="biopython.html#cb578-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seq_record <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(fasta_file, <span class="st">&quot;fasta&quot;</span>)<span class="sc">:</span></span>
-<span id="cb578-9"><a href="biopython.html#cb578-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(seq_record.id)</span>
-<span id="cb578-10"><a href="biopython.html#cb578-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">repr</span>(seq_record.seq))</span>
-<span id="cb578-11"><a href="biopython.html#cb578-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">len</span>(seq_record))</span></code></pre></div>
-<p>You can see how easy it is to pull information from the FASTA file with a couple lines of code. We can print that information into the console, we can also save that data in python to filter it even further and in -*/e cases it may be better to save that data. Lets see a few of those commands.</p>
-<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="biopython.html#cb579-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import module for changing directories</span></span>
-<span id="cb579-2"><a href="biopython.html#cb579-2" aria-hidden="true" tabindex="-1"></a>import os</span>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="biopython.html#cb579-1" aria-hidden="true" tabindex="-1"></a><span class="co"># configure file location</span></span>
+<span id="cb579-2"><a href="biopython.html#cb579-2" aria-hidden="true" tabindex="-1"></a>fasta_file <span class="ot">=</span> PATH TO FASTA FILE</span>
 <span id="cb579-3"><a href="biopython.html#cb579-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb579-4"><a href="biopython.html#cb579-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Change Directory</span></span>
-<span id="cb579-5"><a href="biopython.html#cb579-5" aria-hidden="true" tabindex="-1"></a><span class="fu">os.chdir</span>(<span class="st">&quot;Your Python Work Folder For This Class&quot;</span>)</span>
+<span id="cb579-4"><a href="biopython.html#cb579-4" aria-hidden="true" tabindex="-1"></a><span class="co"># import SeqIO toolkit</span></span>
+<span id="cb579-5"><a href="biopython.html#cb579-5" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
 <span id="cb579-6"><a href="biopython.html#cb579-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb579-7"><a href="biopython.html#cb579-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the data!</span></span>
+<span id="cb579-7"><a href="biopython.html#cb579-7" aria-hidden="true" tabindex="-1"></a><span class="co"># for X in fasta file, print ID SEQUENCE and LENGTH of SEQ</span></span>
 <span id="cb579-8"><a href="biopython.html#cb579-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seq_record <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(fasta_file, <span class="st">&quot;fasta&quot;</span>)<span class="sc">:</span></span>
-<span id="cb579-9"><a href="biopython.html#cb579-9" aria-hidden="true" tabindex="-1"></a>    with <span class="fu">open</span>(<span class="st">&#39;parsed_fasta.txt&#39;</span>, <span class="st">&#39;a&#39;</span>) as f<span class="sc">:</span></span>
-<span id="cb579-10"><a href="biopython.html#cb579-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f.write</span>(seq_record.id)</span>
-<span id="cb579-11"><a href="biopython.html#cb579-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f.write</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb579-12"><a href="biopython.html#cb579-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f.close</span>()</span></code></pre></div>
+<span id="cb579-9"><a href="biopython.html#cb579-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(seq_record.id)</span>
+<span id="cb579-10"><a href="biopython.html#cb579-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">repr</span>(seq_record.seq))</span>
+<span id="cb579-11"><a href="biopython.html#cb579-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">len</span>(seq_record))</span></code></pre></div>
+<p>You can see how easy it is to pull information from the FASTA file with a couple lines of code. We can print that information into the console, we can also save that data in python to filter it even further and in -*/e cases it may be better to save that data. Lets see a few of those commands.</p>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="biopython.html#cb580-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import module for changing directories</span></span>
+<span id="cb580-2"><a href="biopython.html#cb580-2" aria-hidden="true" tabindex="-1"></a>import os</span>
+<span id="cb580-3"><a href="biopython.html#cb580-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb580-4"><a href="biopython.html#cb580-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Change Directory</span></span>
+<span id="cb580-5"><a href="biopython.html#cb580-5" aria-hidden="true" tabindex="-1"></a><span class="fu">os.chdir</span>(<span class="st">&quot;Your Python Work Folder For This Class&quot;</span>)</span>
+<span id="cb580-6"><a href="biopython.html#cb580-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb580-7"><a href="biopython.html#cb580-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the data!</span></span>
+<span id="cb580-8"><a href="biopython.html#cb580-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seq_record <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(fasta_file, <span class="st">&quot;fasta&quot;</span>)<span class="sc">:</span></span>
+<span id="cb580-9"><a href="biopython.html#cb580-9" aria-hidden="true" tabindex="-1"></a>    with <span class="fu">open</span>(<span class="st">&#39;parsed_fasta.txt&#39;</span>, <span class="st">&#39;a&#39;</span>) as f<span class="sc">:</span></span>
+<span id="cb580-10"><a href="biopython.html#cb580-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f.write</span>(seq_record.id)</span>
+<span id="cb580-11"><a href="biopython.html#cb580-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f.write</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb580-12"><a href="biopython.html#cb580-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f.close</span>()</span></code></pre></div>
 </div>
 <div id="parsing-my-genbank-or-genpept" class="section level2" number="20.5">
 <h2><span class="header-section-number">20.5</span> Parsing my GenBank or GenPept</h2>
 <p>If the input is not in FASTA format, you can make some minor tweaks and use a GenBank or GenPept file instead.</p>
 <p>Lets go back to NCBI and select a gene for our next activity but this time lets select the genpept download: <a href="https://www.ncbi.nlm.nih.gov/protein" class="uri">https://www.ncbi.nlm.nih.gov/protein</a></p>
 <p>Move this file into your python working directory, then proceed with the commands below:</p>
-<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="biopython.html#cb580-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb580-2"><a href="biopython.html#cb580-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seq_record <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(<span class="st">&quot;sequence.gp&quot;</span>, <span class="st">&quot;genbank&quot;</span>)<span class="sc">:</span></span>
-<span id="cb580-3"><a href="biopython.html#cb580-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(seq_record.id)</span>
-<span id="cb580-4"><a href="biopython.html#cb580-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(<span class="fu">repr</span>(seq_record.seq))</span>
-<span id="cb580-5"><a href="biopython.html#cb580-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(<span class="fu">len</span>(seq_record))</span></code></pre></div>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="biopython.html#cb581-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb581-2"><a href="biopython.html#cb581-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seq_record <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(<span class="st">&quot;sequence.gp&quot;</span>, <span class="st">&quot;genbank&quot;</span>)<span class="sc">:</span></span>
+<span id="cb581-3"><a href="biopython.html#cb581-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(seq_record.id)</span>
+<span id="cb581-4"><a href="biopython.html#cb581-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(<span class="fu">repr</span>(seq_record.seq))</span>
+<span id="cb581-5"><a href="biopython.html#cb581-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(<span class="fu">len</span>(seq_record))</span></code></pre></div>
 <p>There are way more parsers in Biopython that we do not have time to go over all of them. Feel free to explore them on your own after class.</p>
 
 </div>
