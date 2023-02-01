@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Session 30 – Importing/Exporting Data into R | Bioinformatics Workshop Gitbook</title>
+  <meta name="description" content="none" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Session 30 – Importing/Exporting Data into R | Bioinformatics Workshop Gitbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="none" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Session 30 – Importing/Exporting Data into R | Bioinformatics Workshop Gitbook" />
+  
+  <meta name="twitter:description" content="none" />
+  
+
+<meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
+
+
+<meta name="date" content="2023-02-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="bioinformatics-literature.html"/>
+<link rel="next" href="miscellaneous.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Bioinformatics Workshop Gitbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>1</b> – Getting Started with R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#why-do-we-use-r"><i class="fa fa-check"></i><b>1.1</b> Why do we use R?</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#get-a-good-text-editor"><i class="fa fa-check"></i><b>1.2</b> Get a good text editor</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#r-studio"><i class="fa fa-check"></i><b>1.3</b> R studio</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-r"><i class="fa fa-check"></i><b>1.4</b> Installing R</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#annotating-code"><i class="fa fa-check"></i><b>1.5</b> Annotating code</a></li>
+<li class="chapter" data-level="1.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#defining-a-working-directory-in-r"><i class="fa fa-check"></i><b>1.6</b> Defining a working directory in R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html"><i class="fa fa-check"></i><b>2</b> – Using R, Installing Packages and Importing/Exporting Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#your-first-session"><i class="fa fa-check"></i><b>2.1</b> Your first session</a></li>
+<li class="chapter" data-level="2.2" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#doing-some-base-functions-and-getting-help"><i class="fa fa-check"></i><b>2.2</b> Doing some base functions and getting help</a></li>
+<li class="chapter" data-level="2.3" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#functions-between-two-or-more-vectors"><i class="fa fa-check"></i><b>2.3</b> Functions between two or more vectors</a></li>
+<li class="chapter" data-level="2.4" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#about-r-packages"><i class="fa fa-check"></i><b>2.4</b> About R-packages</a></li>
+<li class="chapter" data-level="2.5" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#installing-packages"><i class="fa fa-check"></i><b>2.5</b> Installing packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html"><i class="fa fa-check"></i><b>3</b> – Basic Data Structures in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#scalars-and-vectors"><i class="fa fa-check"></i><b>3.1</b> Scalars and vectors</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#matrices"><i class="fa fa-check"></i><b>3.2</b> Matrices</a></li>
+<li class="chapter" data-level="3.3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#arrays"><i class="fa fa-check"></i><b>3.3</b> Arrays</a></li>
+<li class="chapter" data-level="3.4" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-frames"><i class="fa fa-check"></i><b>3.4</b> Data Frames</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tables"><i class="fa fa-check"></i><b>3.5</b> Tables</a></li>
+<li class="chapter" data-level="3.6" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#lists"><i class="fa fa-check"></i><b>3.6</b> Lists</a></li>
+<li class="chapter" data-level="3.7" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-tables"><i class="fa fa-check"></i><b>3.7</b> Data Tables</a></li>
+<li class="chapter" data-level="3.8" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tibbles"><i class="fa fa-check"></i><b>3.8</b> Tibbles</a></li>
+<li class="chapter" data-level="3.9" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#dnastringsets-rnastringsets-and-aastringsets"><i class="fa fa-check"></i><b>3.9</b> DNAStringSets, RNAStringSets and AAStringSets</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html"><i class="fa fa-check"></i><b>4</b> – Text Editing and Data Transformations</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#working-with-character-strings"><i class="fa fa-check"></i><b>4.1</b> Working with character strings</a></li>
+<li class="chapter" data-level="4.2" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#regular-expressions-regex"><i class="fa fa-check"></i><b>4.2</b> Regular expressions (Regex)</a></li>
+<li class="chapter" data-level="4.3" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#comparing-ordering-and-simplifying-vectors"><i class="fa fa-check"></i><b>4.3</b> Comparing, ordering and simplifying vectors</a></li>
+<li class="chapter" data-level="4.4" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#useful-functions-of-stringr"><i class="fa fa-check"></i><b>4.4</b> Useful functions of <code>stringr</code></a></li>
+<li class="chapter" data-level="4.5" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#data-transformations"><i class="fa fa-check"></i><b>4.5</b> Data transformations</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html"><i class="fa fa-check"></i><b>5</b> – Getting Biological Data from Public Repositories</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#ncbi-databases-genbank-and-others"><i class="fa fa-check"></i><b>5.1</b> NCBI databases: GenBank and others</a></li>
+<li class="chapter" data-level="5.2" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#accessing-ncbi-within-r-rentrez"><i class="fa fa-check"></i><b>5.2</b> Accessing NCBI within R: <code>rentrez</code></a></li>
+<li class="chapter" data-level="5.3" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#retrieving-pubmed-references"><i class="fa fa-check"></i><b>5.3</b> Retrieving PubMed references</a></li>
+<li class="chapter" data-level="5.4" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#comparing-sequences-blast"><i class="fa fa-check"></i><b>5.4</b> Comparing sequences: BLAST</a></li>
+<li class="chapter" data-level="5.5" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-uniprot"><i class="fa fa-check"></i><b>5.5</b> Other databases: UniProt</a></li>
+<li class="chapter" data-level="5.6" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-ensembl"><i class="fa fa-check"></i><b>5.6</b> Other databases: Ensembl</a></li>
+<li class="chapter" data-level="5.7" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-taxonomy-phylogenetic-trees-and-species-distributions"><i class="fa fa-check"></i><b>5.7</b> Other databases: Taxonomy, phylogenetic trees and species distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html"><i class="fa fa-check"></i><b>6</b> – Basic Statistics in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#exploring-your-data"><i class="fa fa-check"></i><b>6.1</b> Exploring your data</a></li>
+<li class="chapter" data-level="6.2" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#sub-setting-your-dataset"><i class="fa fa-check"></i><b>6.2</b> Sub-setting your dataset</a></li>
+<li class="chapter" data-level="6.3" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#transposing-rotating-your-dataset"><i class="fa fa-check"></i><b>6.3</b> Transposing (rotating) your dataset</a></li>
+<li class="chapter" data-level="6.4" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#dealing-with-missing-na-values"><i class="fa fa-check"></i><b>6.4</b> Dealing with missing (NA) values</a></li>
+<li class="chapter" data-level="6.5" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#about-p-values"><i class="fa fa-check"></i><b>6.5</b> About p-values</a></li>
+<li class="chapter" data-level="6.6" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#how-to-read-p-values"><i class="fa fa-check"></i><b>6.6</b> How to read p-values</a></li>
+<li class="chapter" data-level="6.7" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#multiple-testing-corrections"><i class="fa fa-check"></i><b>6.7</b> Multiple testing corrections</a></li>
+<li class="chapter" data-level="6.8" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#normalizing-your-data"><i class="fa fa-check"></i><b>6.8</b> Normalizing your data</a></li>
+<li class="chapter" data-level="6.9" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#what-test-should-i-use"><i class="fa fa-check"></i><b>6.9</b> What test should I use?</a></li>
+<li class="chapter" data-level="6.10" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#type-of-variables-in-dataset"><i class="fa fa-check"></i><b>6.10</b> Type of variables in dataset</a></li>
+<li class="chapter" data-level="6.11" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-means-t-test"><i class="fa fa-check"></i><b>6.11</b> Comparing means: t-test</a></li>
+<li class="chapter" data-level="6.12" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#two-sample-t-test"><i class="fa fa-check"></i><b>6.12</b> Two sample t-test</a></li>
+<li class="chapter" data-level="6.13" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>6.13</b> Beyond t-test: Wilcoxon signed rank test</a></li>
+<li class="chapter" data-level="6.14" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-binomial-test"><i class="fa fa-check"></i><b>6.14</b> Beyond t-test: Binomial test</a></li>
+<li class="chapter" data-level="6.15" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-chi-square-goodness-of-fit"><i class="fa fa-check"></i><b>6.15</b> Beyond t-test: Chi-square goodness of fit</a></li>
+<li class="chapter" data-level="6.16" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-mcnemars-test"><i class="fa fa-check"></i><b>6.16</b> Beyond t-test: McNemar’s test</a></li>
+<li class="chapter" data-level="6.17" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-fishers-exact-test"><i class="fa fa-check"></i><b>6.17</b> Beyond t-test: Fisher’s exact test</a></li>
+<li class="chapter" data-level="6.18" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.18</b> Correlations</a></li>
+<li class="chapter" data-level="6.19" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.19</b> Comparing distributions</a></li>
+<li class="chapter" data-level="6.20" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#bootstraps"><i class="fa fa-check"></i><b>6.20</b> Bootstraps</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html"><i class="fa fa-check"></i><b>7</b> – Regressions and ANOVA in R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#linear-regressions"><i class="fa fa-check"></i><b>7.1</b> Linear regressions</a></li>
+<li class="chapter" data-level="7.2" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#anatomy-of-a-linear-regression"><i class="fa fa-check"></i><b>7.2</b> Anatomy of a linear regression</a></li>
+<li class="chapter" data-level="7.3" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#multiple-linear-regressions"><i class="fa fa-check"></i><b>7.3</b> Multiple linear regressions</a></li>
+<li class="chapter" data-level="7.4" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#diagnostic-plots-for-regressions"><i class="fa fa-check"></i><b>7.4</b> Diagnostic plots for regressions</a></li>
+<li class="chapter" data-level="7.5" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#regression-influential-measurements"><i class="fa fa-check"></i><b>7.5</b> Regression influential measurements</a></li>
+<li class="chapter" data-level="7.6" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#regression-anova-coefficients-ci"><i class="fa fa-check"></i><b>7.6</b> Regression (ANOVA, coefficients, CI)</a></li>
+<li class="chapter" data-level="7.7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#selecting-predictors"><i class="fa fa-check"></i><b>7.7</b> Selecting predictors</a></li>
+<li class="chapter" data-level="7.8" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#regression-predictions"><i class="fa fa-check"></i><b>7.8</b> Regression predictions</a></li>
+<li class="chapter" data-level="7.9" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#logistic-regressions"><i class="fa fa-check"></i><b>7.9</b> Logistic regressions</a></li>
+<li class="chapter" data-level="7.10" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#logistic-regressions-requirements"><i class="fa fa-check"></i><b>7.10</b> Logistic regressions requirements</a></li>
+<li class="chapter" data-level="7.11" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#non-linear-regressions"><i class="fa fa-check"></i><b>7.11</b> Non-linear regressions</a></li>
+<li class="chapter" data-level="7.12" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#toy-datasets-for-regressions"><i class="fa fa-check"></i><b>7.12</b> Toy datasets for regressions</a></li>
+<li class="chapter" data-level="7.13" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#anova"><i class="fa fa-check"></i><b>7.13</b> ANOVA</a></li>
+<li class="chapter" data-level="7.14" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#one-way-anova"><i class="fa fa-check"></i><b>7.14</b> One-way ANOVA</a></li>
+<li class="chapter" data-level="7.15" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#two-way-anova"><i class="fa fa-check"></i><b>7.15</b> Two-way ANOVA</a></li>
+<li class="chapter" data-level="7.16" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#anova-post-hoc-tests"><i class="fa fa-check"></i><b>7.16</b> ANOVA Post-hoc tests</a></li>
+<li class="chapter" data-level="7.17" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#beyond-anova-kruskal-wallis-test"><i class="fa fa-check"></i><b>7.17</b> Beyond ANOVA: Kruskal-Wallis Test</a></li>
+<li class="chapter" data-level="7.18" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#toy-datasets-for-anova"><i class="fa fa-check"></i><b>7.18</b> Toy datasets for ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="multidimensional-data-in-r.html"><a href="multidimensional-data-in-r.html"><i class="fa fa-check"></i><b>8</b> – Multidimensional Data in R</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="multidimensional-data-in-r.html"><a href="multidimensional-data-in-r.html#principal-component-analysis"><i class="fa fa-check"></i><b>8.1</b> Principal Component Analysis</a></li>
+<li class="chapter" data-level="8.2" data-path="multidimensional-data-in-r.html"><a href="multidimensional-data-in-r.html#multidimensional-scaling"><i class="fa fa-check"></i><b>8.2</b> Multidimensional scaling</a></li>
+<li class="chapter" data-level="8.3" data-path="multidimensional-data-in-r.html"><a href="multidimensional-data-in-r.html#cluster-analysis-dfa"><i class="fa fa-check"></i><b>8.3</b> Cluster analysis: DFA</a></li>
+<li class="chapter" data-level="8.4" data-path="multidimensional-data-in-r.html"><a href="multidimensional-data-in-r.html#cluster-analysis-k-means-unsupervised"><i class="fa fa-check"></i><b>8.4</b> Cluster analysis: <em>k</em>-means (unsupervised)</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html"><i class="fa fa-check"></i><b>9</b> – Graphics and Colors</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#avoid-bad-graphics"><i class="fa fa-check"></i><b>9.1</b> Avoid bad graphics</a></li>
+<li class="chapter" data-level="9.2" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#graphics-in-r-ggplot2"><i class="fa fa-check"></i><b>9.2</b> Graphics in R – ggplot2</a></li>
+<li class="chapter" data-level="9.3" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#preparing-your-dataset"><i class="fa fa-check"></i><b>9.3</b> Preparing your dataset</a></li>
+<li class="chapter" data-level="9.4" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#color-palettes-online"><i class="fa fa-check"></i><b>9.4</b> Color palettes online</a></li>
+<li class="chapter" data-level="9.5" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#ggplot2-default-palette"><i class="fa fa-check"></i><b>9.5</b> <code>ggplot2</code> default palette</a></li>
+<li class="chapter" data-level="9.6" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#heatmaps-or-tiled-charts"><i class="fa fa-check"></i><b>9.6</b> Heatmaps or tiled charts</a></li>
+<li class="chapter" data-level="9.7" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#r-packages-about-color"><i class="fa fa-check"></i><b>9.7</b> R-packages about color</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#viridis-package"><i class="fa fa-check"></i><b>9.7.1</b> <code>viridis</code> package</a></li>
+<li class="chapter" data-level="9.7.2" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#rcolorbrewer-package"><i class="fa fa-check"></i><b>9.7.2</b> <code>RColorBrewer</code> package</a></li>
+<li class="chapter" data-level="9.7.3" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#ggsci-package"><i class="fa fa-check"></i><b>9.7.3</b> <code>ggsci</code> package</a></li>
+<li class="chapter" data-level="9.7.4" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#wesanderson-package"><i class="fa fa-check"></i><b>9.7.4</b> <code>wesanderson</code> package</a></li>
+<li class="chapter" data-level="9.7.5" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#rcartocolor-package"><i class="fa fa-check"></i><b>9.7.5</b> <code>rcartocolor</code> package</a></li>
+<li class="chapter" data-level="9.7.6" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#colorspace-package"><i class="fa fa-check"></i><b>9.7.6</b> <code>colorspace</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#making-your-own-palette"><i class="fa fa-check"></i><b>9.8</b> Making your own palette</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="basic-graphics.html"><a href="basic-graphics.html"><i class="fa fa-check"></i><b>10</b> – Basic Graphics</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="basic-graphics.html"><a href="basic-graphics.html#what-would-you-like-to-show"><i class="fa fa-check"></i><b>10.1</b> What would you like to show?</a></li>
+<li class="chapter" data-level="10.2" data-path="basic-graphics.html"><a href="basic-graphics.html#bar-charts"><i class="fa fa-check"></i><b>10.2</b> Bar charts</a></li>
+<li class="chapter" data-level="10.3" data-path="basic-graphics.html"><a href="basic-graphics.html#stacked-bar-charts"><i class="fa fa-check"></i><b>10.3</b> Stacked bar charts</a></li>
+<li class="chapter" data-level="10.4" data-path="basic-graphics.html"><a href="basic-graphics.html#histograms"><i class="fa fa-check"></i><b>10.4</b> Histograms</a></li>
+<li class="chapter" data-level="10.5" data-path="basic-graphics.html"><a href="basic-graphics.html#multiple-histograms"><i class="fa fa-check"></i><b>10.5</b> Multiple histograms</a></li>
+<li class="chapter" data-level="10.6" data-path="basic-graphics.html"><a href="basic-graphics.html#density-plots"><i class="fa fa-check"></i><b>10.6</b> Density plots</a></li>
+<li class="chapter" data-level="10.7" data-path="basic-graphics.html"><a href="basic-graphics.html#box-plots"><i class="fa fa-check"></i><b>10.7</b> Box plots</a></li>
+<li class="chapter" data-level="10.8" data-path="basic-graphics.html"><a href="basic-graphics.html#violin-plots"><i class="fa fa-check"></i><b>10.8</b> Violin plots</a></li>
+<li class="chapter" data-level="10.9" data-path="basic-graphics.html"><a href="basic-graphics.html#scatterplots"><i class="fa fa-check"></i><b>10.9</b> Scatterplots</a></li>
+<li class="chapter" data-level="10.10" data-path="basic-graphics.html"><a href="basic-graphics.html#lines-and-scatterplots"><i class="fa fa-check"></i><b>10.10</b> Lines and Scatterplots</a></li>
+<li class="chapter" data-level="10.11" data-path="basic-graphics.html"><a href="basic-graphics.html#save-your-plots-as-pdf-or-png"><i class="fa fa-check"></i><b>10.11</b> Save your plots as PDF or PNG</a></li>
+<li class="chapter" data-level="10.12" data-path="basic-graphics.html"><a href="basic-graphics.html#ggplot2-add-on-packages-treemapify"><i class="fa fa-check"></i><b>10.12</b> ggplot2 add-on packages: <code>treemapify</code></a></li>
+<li class="chapter" data-level="10.13" data-path="basic-graphics.html"><a href="basic-graphics.html#other-resources"><i class="fa fa-check"></i><b>10.13</b> Other resources</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="sequence-alignments.html"><a href="sequence-alignments.html"><i class="fa fa-check"></i><b>11</b> – Sequence Alignments</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="sequence-alignments.html"><a href="sequence-alignments.html#retrieving-sequences-using-rentrez"><i class="fa fa-check"></i><b>11.1</b> Retrieving sequences using ‘rentrez’</a></li>
+<li class="chapter" data-level="11.2" data-path="sequence-alignments.html"><a href="sequence-alignments.html#retrieving-sequences-manually-from-ncbi"><i class="fa fa-check"></i><b>11.2</b> Retrieving sequences manually from NCBI</a></li>
+<li class="chapter" data-level="11.3" data-path="sequence-alignments.html"><a href="sequence-alignments.html#retrieving-accession-numbers"><i class="fa fa-check"></i><b>11.3</b> Retrieving accession numbers</a></li>
+<li class="chapter" data-level="11.4" data-path="sequence-alignments.html"><a href="sequence-alignments.html#alignment-with-decipher"><i class="fa fa-check"></i><b>11.4</b> Alignment with <code>DECIPHER</code></a></li>
+<li class="chapter" data-level="11.5" data-path="sequence-alignments.html"><a href="sequence-alignments.html#visualize-alignment"><i class="fa fa-check"></i><b>11.5</b> Visualize alignment</a></li>
+<li class="chapter" data-level="11.6" data-path="sequence-alignments.html"><a href="sequence-alignments.html#save-alignment-to-file"><i class="fa fa-check"></i><b>11.6</b> Save alignment to file</a></li>
+<li class="chapter" data-level="11.7" data-path="sequence-alignments.html"><a href="sequence-alignments.html#concatenate-and-align-several-markers"><i class="fa fa-check"></i><b>11.7</b> Concatenate and align several markers</a></li>
+<li class="chapter" data-level="11.8" data-path="sequence-alignments.html"><a href="sequence-alignments.html#concatenate-with-data.table"><i class="fa fa-check"></i><b>11.8</b> Concatenate with <code>data.table</code></a></li>
+<li class="chapter" data-level="11.9" data-path="sequence-alignments.html"><a href="sequence-alignments.html#concatenate-with-biostrings"><i class="fa fa-check"></i><b>11.9</b> Concatenate with <code>Biostrings</code></a></li>
+<li class="chapter" data-level="11.10" data-path="sequence-alignments.html"><a href="sequence-alignments.html#visualizing-alignments-in-r"><i class="fa fa-check"></i><b>11.10</b> Visualizing alignments in R</a></li>
+<li class="chapter" data-level="11.11" data-path="sequence-alignments.html"><a href="sequence-alignments.html#other-sequence-alignment-software"><i class="fa fa-check"></i><b>11.11</b> Other sequence alignment software</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html"><i class="fa fa-check"></i><b>12</b> – Estimating Phylogenetic Trees</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#phylogeny-inference-with-iqtree2"><i class="fa fa-check"></i><b>12.1</b> Phylogeny inference with <code>iqtree2</code></a></li>
+<li class="chapter" data-level="12.2" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#installing-iqtree2-in-macos"><i class="fa fa-check"></i><b>12.2</b> Installing <code>iqtree2</code> in macOS</a></li>
+<li class="chapter" data-level="12.3" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#installing-and-running-iqtree2-in-a-pc"><i class="fa fa-check"></i><b>12.3</b> Installing and running <code>iqtree2</code> in a PC</a></li>
+<li class="chapter" data-level="12.4" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#loading-the-iqtree_runner_r-function"><i class="fa fa-check"></i><b>12.4</b> Loading the <code>iqtree_runner_R</code> function</a></li>
+<li class="chapter" data-level="12.5" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#running-iqtree2-from-r"><i class="fa fa-check"></i><b>12.5</b> Running <code>iqtree2</code> from R</a></li>
+<li class="chapter" data-level="12.6" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#one-marker-and-no-partitions"><i class="fa fa-check"></i><b>12.6</b> One marker and no partitions</a></li>
+<li class="chapter" data-level="12.7" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#one-marker-and-with-partitions"><i class="fa fa-check"></i><b>12.7</b> One marker and with partitions</a></li>
+<li class="chapter" data-level="12.8" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#bootstrap-support"><i class="fa fa-check"></i><b>12.8</b> Bootstrap support</a></li>
+<li class="chapter" data-level="12.9" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#many-markers-and-with-partitions"><i class="fa fa-check"></i><b>12.9</b> Many markers and with partitions</a></li>
+<li class="chapter" data-level="12.10" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#other-sequence-phylogenetic-tree-estimation-software"><i class="fa fa-check"></i><b>12.10</b> Other sequence phylogenetic tree estimation software</a></li>
+<li class="chapter" data-level="12.11" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#drawing-phylogenetic-trees-with-ggtree"><i class="fa fa-check"></i><b>12.11</b> Drawing phylogenetic trees with <code>ggtree</code></a></li>
+<li class="chapter" data-level="12.12" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#save-ggtree-plots-as-pdf-or-png"><i class="fa fa-check"></i><b>12.12</b> Save ggtree plots as PDF or PNG</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html"><i class="fa fa-check"></i><b>13</b> – Mining from a reference dataset</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#a-worked-example-using-the-mtcars-dataset"><i class="fa fa-check"></i><b>13.1</b> A worked example using the <code>mtcars</code> dataset</a></li>
+<li class="chapter" data-level="13.2" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#build-a-reference-dataset"><i class="fa fa-check"></i><b>13.2</b> Build a reference dataset</a></li>
+<li class="chapter" data-level="13.3" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#build-a-sampling-dataset"><i class="fa fa-check"></i><b>13.3</b> Build a sampling dataset</a></li>
+<li class="chapter" data-level="13.4" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#extracting-from-reference-dataset"><i class="fa fa-check"></i><b>13.4</b> Extracting from reference dataset</a></li>
+<li class="chapter" data-level="13.5" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#plots-of-the-extracted-data"><i class="fa fa-check"></i><b>13.5</b> Plots of the extracted data</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="introduction-to-python.html"><a href="introduction-to-python.html"><i class="fa fa-check"></i><b>14</b> – Introduction to Python</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="introduction-to-python.html"><a href="introduction-to-python.html#welcome-to-python-why-python"><i class="fa fa-check"></i><b>14.1</b> Welcome to Python! Why Python?</a></li>
+<li class="chapter" data-level="14.2" data-path="introduction-to-python.html"><a href="introduction-to-python.html#which-python-should-i-install"><i class="fa fa-check"></i><b>14.2</b> Which Python should I install?</a></li>
+<li class="chapter" data-level="14.3" data-path="introduction-to-python.html"><a href="introduction-to-python.html#mac-os-x-python-installations"><i class="fa fa-check"></i><b>14.3</b> Mac OS X Python Installations</a></li>
+<li class="chapter" data-level="14.4" data-path="introduction-to-python.html"><a href="introduction-to-python.html#windows-python-installations"><i class="fa fa-check"></i><b>14.4</b> Windows Python Installations</a></li>
+<li class="chapter" data-level="14.5" data-path="introduction-to-python.html"><a href="introduction-to-python.html#install-an-ide-or-integrated-development-environment"><i class="fa fa-check"></i><b>14.5</b> Install an IDE, or integrated development environment</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="python-keywords-and-identifiers.html"><a href="python-keywords-and-identifiers.html"><i class="fa fa-check"></i><b>15</b> – Python: Keywords and Identifiers</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="python-keywords-and-identifiers.html"><a href="python-keywords-and-identifiers.html#keywords-in-python"><i class="fa fa-check"></i><b>15.1</b> Keywords in Python</a></li>
+<li class="chapter" data-level="15.2" data-path="python-keywords-and-identifiers.html"><a href="python-keywords-and-identifiers.html#identifiers-in-python"><i class="fa fa-check"></i><b>15.2</b> Identifiers in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html"><i class="fa fa-check"></i><b>16</b> – Python: Statements and Expressions</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#what-are-statements"><i class="fa fa-check"></i><b>16.1</b> What are statements?</a></li>
+<li class="chapter" data-level="16.2" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#expressions-in-python"><i class="fa fa-check"></i><b>16.2</b> Expressions in Python</a></li>
+<li class="chapter" data-level="16.3" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#simple-assignment-statements-in-python"><i class="fa fa-check"></i><b>16.3</b> Simple Assignment Statements in Python</a></li>
+<li class="chapter" data-level="16.4" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#augmented-assignment-statements-in-python"><i class="fa fa-check"></i><b>16.4</b> Augmented Assignment Statements in Python</a></li>
+<li class="chapter" data-level="16.5" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#explicit-and-implicit-line-continuation"><i class="fa fa-check"></i><b>16.5</b> Explicit and Implicit Line Continuation</a></li>
+<li class="chapter" data-level="16.6" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#indentation-in-python-is-crucial-to-proper-code-function"><i class="fa fa-check"></i><b>16.6</b> Indentation in Python is Crucial to Proper Code function</a></li>
+<li class="chapter" data-level="16.7" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#comments"><i class="fa fa-check"></i><b>16.7</b> Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="python-data-types.html"><a href="python-data-types.html"><i class="fa fa-check"></i><b>17</b> – Python: Data Types</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="python-data-types.html"><a href="python-data-types.html#booleans"><i class="fa fa-check"></i><b>17.1</b> Booleans</a></li>
+<li class="chapter" data-level="17.2" data-path="python-data-types.html"><a href="python-data-types.html#numbers-int-float-and-complex"><i class="fa fa-check"></i><b>17.2</b> Numbers: int, float and complex</a></li>
+<li class="chapter" data-level="17.3" data-path="python-data-types.html"><a href="python-data-types.html#strings"><i class="fa fa-check"></i><b>17.3</b> Strings</a></li>
+<li class="chapter" data-level="17.4" data-path="python-data-types.html"><a href="python-data-types.html#bytes"><i class="fa fa-check"></i><b>17.4</b> Bytes</a></li>
+<li class="chapter" data-level="17.5" data-path="python-data-types.html"><a href="python-data-types.html#lists-1"><i class="fa fa-check"></i><b>17.5</b> Lists</a></li>
+<li class="chapter" data-level="17.6" data-path="python-data-types.html"><a href="python-data-types.html#tuples"><i class="fa fa-check"></i><b>17.6</b> Tuples</a></li>
+<li class="chapter" data-level="17.7" data-path="python-data-types.html"><a href="python-data-types.html#sets"><i class="fa fa-check"></i><b>17.7</b> Sets</a></li>
+<li class="chapter" data-level="17.8" data-path="python-data-types.html"><a href="python-data-types.html#dictionary"><i class="fa fa-check"></i><b>17.8</b> Dictionary</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="python-strings.html"><a href="python-strings.html"><i class="fa fa-check"></i><b>18</b> – Python: Strings</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="python-strings.html"><a href="python-strings.html#string-operators"><i class="fa fa-check"></i><b>18.1</b> String Operators</a></li>
+<li class="chapter" data-level="18.2" data-path="python-strings.html"><a href="python-strings.html#other-string-modifiers"><i class="fa fa-check"></i><b>18.2</b> Other String Modifiers</a></li>
+<li class="chapter" data-level="18.3" data-path="python-strings.html"><a href="python-strings.html#format-characters-in-strings"><i class="fa fa-check"></i><b>18.3</b> Format-Characters in Strings</a></li>
+<li class="chapter" data-level="18.4" data-path="python-strings.html"><a href="python-strings.html#comparisons-with-strings"><i class="fa fa-check"></i><b>18.4</b> Comparisons with Strings</a></li>
+<li class="chapter" data-level="18.5" data-path="python-strings.html"><a href="python-strings.html#padding-strings"><i class="fa fa-check"></i><b>18.5</b> Padding strings</a></li>
+<li class="chapter" data-level="18.6" data-path="python-strings.html"><a href="python-strings.html#search-for-words-in-string-and-output-location"><i class="fa fa-check"></i><b>18.6</b> Search for words in string and output location</a></li>
+<li class="chapter" data-level="18.7" data-path="python-strings.html"><a href="python-strings.html#seek-and-replace-in-strings"><i class="fa fa-check"></i><b>18.7</b> Seek and replace in strings</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="python-operators.html"><a href="python-operators.html"><i class="fa fa-check"></i><b>19</b> – Python: Operators</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="python-operators.html"><a href="python-operators.html#many-types-of-operators"><i class="fa fa-check"></i><b>19.1</b> Many types of operators</a></li>
+<li class="chapter" data-level="19.2" data-path="python-operators.html"><a href="python-operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>19.2</b> Arithmetic operators</a></li>
+<li class="chapter" data-level="19.3" data-path="python-operators.html"><a href="python-operators.html#comparison-operators"><i class="fa fa-check"></i><b>19.3</b> Comparison operators</a></li>
+<li class="chapter" data-level="19.4" data-path="python-operators.html"><a href="python-operators.html#logical-operators"><i class="fa fa-check"></i><b>19.4</b> Logical operators</a></li>
+<li class="chapter" data-level="19.5" data-path="python-operators.html"><a href="python-operators.html#bitwise-operators"><i class="fa fa-check"></i><b>19.5</b> Bitwise operators</a></li>
+<li class="chapter" data-level="19.6" data-path="python-operators.html"><a href="python-operators.html#identity-operators"><i class="fa fa-check"></i><b>19.6</b> Identity Operators</a></li>
+<li class="chapter" data-level="19.7" data-path="python-operators.html"><a href="python-operators.html#membership-operators"><i class="fa fa-check"></i><b>19.7</b> Membership operators</a></li>
+<li class="chapter" data-level="19.8" data-path="python-operators.html"><a href="python-operators.html#what-is-the-order-of-operations-with-operators"><i class="fa fa-check"></i><b>19.8</b> What is the order of operations with operators?</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="biopython.html"><a href="biopython.html"><i class="fa fa-check"></i><b>20</b> – Biopython</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="biopython.html"><a href="biopython.html#introduction-to-biopython"><i class="fa fa-check"></i><b>20.1</b> Introduction to Biopython</a></li>
+<li class="chapter" data-level="20.2" data-path="biopython.html"><a href="biopython.html#biopython-installation"><i class="fa fa-check"></i><b>20.2</b> Biopython Installation</a></li>
+<li class="chapter" data-level="20.3" data-path="biopython.html"><a href="biopython.html#getting-started"><i class="fa fa-check"></i><b>20.3</b> Getting Started</a></li>
+<li class="chapter" data-level="20.4" data-path="biopython.html"><a href="biopython.html#parsing-my-fasta"><i class="fa fa-check"></i><b>20.4</b> Parsing my FASTA</a></li>
+<li class="chapter" data-level="20.5" data-path="biopython.html"><a href="biopython.html#parsing-my-genbank-or-genpept"><i class="fa fa-check"></i><b>20.5</b> Parsing my GenBank or GenPept</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="biopython-sequences.html"><a href="biopython-sequences.html"><i class="fa fa-check"></i><b>21</b> – Biopython: Sequences</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="biopython-sequences.html"><a href="biopython-sequences.html#sequence-objects"><i class="fa fa-check"></i><b>21.1</b> Sequence Objects</a></li>
+<li class="chapter" data-level="21.2" data-path="biopython-sequences.html"><a href="biopython-sequences.html#concatenation-with-sequences"><i class="fa fa-check"></i><b>21.2</b> Concatenation with Sequences</a></li>
+<li class="chapter" data-level="21.3" data-path="biopython-sequences.html"><a href="biopython-sequences.html#transcription-dna-to-mrna"><i class="fa fa-check"></i><b>21.3</b> Transcription: DNA to mRNA</a></li>
+<li class="chapter" data-level="21.4" data-path="biopython-sequences.html"><a href="biopython-sequences.html#translation-rna-to-prot"><i class="fa fa-check"></i><b>21.4</b> Translation: RNA to PROT</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="biopython-mulitple-sequence-alignments.html"><a href="biopython-mulitple-sequence-alignments.html"><i class="fa fa-check"></i><b>22</b> – Biopython: Mulitple Sequence Alignments</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="biopython-mulitple-sequence-alignments.html"><a href="biopython-mulitple-sequence-alignments.html#pairwise2"><i class="fa fa-check"></i><b>22.1</b> pairwise2</a></li>
+<li class="chapter" data-level="22.2" data-path="biopython-mulitple-sequence-alignments.html"><a href="biopython-mulitple-sequence-alignments.html#pairwisealigner"><i class="fa fa-check"></i><b>22.2</b> PairwiseAligner</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html"><i class="fa fa-check"></i><b>23</b> – Biopython: GenomeDiagram</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#linearcircular-gene-diagrams"><i class="fa fa-check"></i><b>23.1</b> Linear/Circular Gene Diagrams</a></li>
+<li class="chapter" data-level="23.2" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#diagram-readability"><i class="fa fa-check"></i><b>23.2</b> Diagram Readability</a></li>
+<li class="chapter" data-level="23.3" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#box-shape"><i class="fa fa-check"></i><b>23.3</b> Box Shape</a></li>
+<li class="chapter" data-level="23.4" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#edit-box-shape-arrows"><i class="fa fa-check"></i><b>23.4</b> Edit Box Shape: Arrows</a></li>
+<li class="chapter" data-level="23.5" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#restriction-map"><i class="fa fa-check"></i><b>23.5</b> Restriction Map</a></li>
+<li class="chapter" data-level="23.6" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#tracks-on-tracks"><i class="fa fa-check"></i><b>23.6</b> Tracks on Tracks</a></li>
+<li class="chapter" data-level="23.7" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#cross-link-data"><i class="fa fa-check"></i><b>23.7</b> Cross-link Data</a></li>
+<li class="chapter" data-level="23.8" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#clean-cross-link"><i class="fa fa-check"></i><b>23.8</b> Clean Cross-Link</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="biopython-chromosome-modeling.html"><a href="biopython-chromosome-modeling.html"><i class="fa fa-check"></i><b>24</b> – Biopython: Chromosome Modeling</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="biopython-chromosome-modeling.html"><a href="biopython-chromosome-modeling.html#gene-feature-modeling"><i class="fa fa-check"></i><b>24.1</b> Gene Feature Modeling</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html"><i class="fa fa-check"></i><b>25</b> – Biopython: Sequence Parsing with Plots</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#histograms-1"><i class="fa fa-check"></i><b>25.1</b> Histograms</a></li>
+<li class="chapter" data-level="25.2" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#gc-content"><i class="fa fa-check"></i><b>25.2</b> GC Content</a></li>
+<li class="chapter" data-level="25.3" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#nt-alignment-dot-plot"><i class="fa fa-check"></i><b>25.3</b> Nt Alignment Dot Plot</a></li>
+<li class="chapter" data-level="25.4" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#bigger-dots-for-the-dot-plot"><i class="fa fa-check"></i><b>25.4</b> Bigger Dots for the Dot Plot</a></li>
+<li class="chapter" data-level="25.5" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#fastq-we-did-not-forget-you"><i class="fa fa-check"></i><b>25.5</b> FASTQ we did not forget you</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html"><i class="fa fa-check"></i><b>26</b> – Python: Web Scraping w/ BeautifulSoup</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#introduction"><i class="fa fa-check"></i><b>26.1</b> Introduction</a></li>
+<li class="chapter" data-level="26.2" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#installation"><i class="fa fa-check"></i><b>26.2</b> Installation</a></li>
+<li class="chapter" data-level="26.3" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#getting-started-1"><i class="fa fa-check"></i><b>26.3</b> Getting started</a></li>
+<li class="chapter" data-level="26.4" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#mining-all-matching-tags"><i class="fa fa-check"></i><b>26.4</b> Mining all matching tags</a></li>
+<li class="chapter" data-level="26.5" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#mining-tags-by-class-or-id"><i class="fa fa-check"></i><b>26.5</b> Mining tags by class or id</a></li>
+<li class="chapter" data-level="26.6" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#use-css-selectors-for-positional-mining"><i class="fa fa-check"></i><b>26.6</b> Use CSS Selectors for positional mining</a></li>
+<li class="chapter" data-level="26.7" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#weather-page-example"><i class="fa fa-check"></i><b>26.7</b> Weather Page Example</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="python-subprocess.html"><a href="python-subprocess.html"><i class="fa fa-check"></i><b>27</b> – Python Subprocess</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="python-subprocess.html"><a href="python-subprocess.html#introduction-and-installation"><i class="fa fa-check"></i><b>27.1</b> Introduction and Installation</a></li>
+<li class="chapter" data-level="27.2" data-path="python-subprocess.html"><a href="python-subprocess.html#creating-your-first-python-script-w-bbtools"><i class="fa fa-check"></i><b>27.2</b> Creating your first python script w/ BBTools</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html"><i class="fa fa-check"></i><b>28</b> – Control Structures &amp; Loops in R</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#controling-the-flow"><i class="fa fa-check"></i><b>28.1</b> Controling the flow</a></li>
+<li class="chapter" data-level="28.2" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#conditional-if"><i class="fa fa-check"></i><b>28.2</b> Conditional <code>if</code></a></li>
+<li class="chapter" data-level="28.3" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#conditional-if-and-else"><i class="fa fa-check"></i><b>28.3</b> Conditional <code>if</code> and <code>else</code></a></li>
+<li class="chapter" data-level="28.4" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#nested-conditionals-if-else-and-if-else"><i class="fa fa-check"></i><b>28.4</b> Nested conditionals <code>if</code>, <code>else</code>, and <code>if else</code></a></li>
+<li class="chapter" data-level="28.5" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#conditional-ifelse"><i class="fa fa-check"></i><b>28.5</b> Conditional <code>ifelse</code></a></li>
+<li class="chapter" data-level="28.6" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#loops-that-control-iterations-and-repeations"><i class="fa fa-check"></i><b>28.6</b> Loops that control iterations and repeations</a></li>
+<li class="chapter" data-level="28.7" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-for-loop"><i class="fa fa-check"></i><b>28.7</b> The <code>for</code> Loop</a></li>
+<li class="chapter" data-level="28.8" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-while-loop"><i class="fa fa-check"></i><b>28.8</b> The <code>while</code> Loop</a></li>
+<li class="chapter" data-level="28.9" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-repeat-loop"><i class="fa fa-check"></i><b>28.9</b> The <code>repeat</code> Loop</a></li>
+<li class="chapter" data-level="28.10" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-next-and-break-statements"><i class="fa fa-check"></i><b>28.10</b> The <code>next</code> and <code>break</code> statements</a></li>
+<li class="chapter" data-level="28.11" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functions"><i class="fa fa-check"></i><b>28.11</b> Other loop functions</a></li>
+<li class="chapter" data-level="28.12" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#lapply-functions"><i class="fa fa-check"></i><b>28.12</b> <code>lapply</code> functions</a></li>
+<li class="chapter" data-level="28.13" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsapply"><i class="fa fa-check"></i><b>28.13</b> Other loop functions:<code>apply</code></a></li>
+<li class="chapter" data-level="28.14" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsmapply"><i class="fa fa-check"></i><b>28.14</b> Other loop functions:<code>mapply</code></a></li>
+<li class="chapter" data-level="28.15" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionstapply"><i class="fa fa-check"></i><b>28.15</b> Other loop functions:<code>tapply</code></a></li>
+<li class="chapter" data-level="28.16" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionssplit"><i class="fa fa-check"></i><b>28.16</b> Other loop functions:<code>split</code></a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html"><i class="fa fa-check"></i><b>29</b> – Bioinformatics Literature</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#peer-reviewed-bioinformatics-journals"><i class="fa fa-check"></i><b>29.1</b> Peer-reviewed bioinformatics journals</a></li>
+<li class="chapter" data-level="29.2" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#access-to-journals-articles"><i class="fa fa-check"></i><b>29.2</b> Access to journals articles</a></li>
+<li class="chapter" data-level="29.3" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#informal-access-to-code-preprints-and-vignettes"><i class="fa fa-check"></i><b>29.3</b> Informal access to code: Preprints and vignettes</a></li>
+<li class="chapter" data-level="29.4" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#online-bioinformatics-courses"><i class="fa fa-check"></i><b>29.4</b> Online bioinformatics courses</a></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html"><i class="fa fa-check"></i><b>30</b> – Importing/Exporting Data into R</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#typing-directly"><i class="fa fa-check"></i><b>30.1</b> Typing directly</a></li>
+<li class="chapter" data-level="30.2" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#importing-from-a-file"><i class="fa fa-check"></i><b>30.2</b> Importing from a file</a></li>
+<li class="chapter" data-level="30.3" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#saving-data-to-a-file"><i class="fa fa-check"></i><b>30.3</b> Saving data to a file</a></li>
+<li class="chapter" data-level="30.4" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#saving-data-as-rdata-.rdata-.rda"><i class="fa fa-check"></i><b>30.4</b> Saving data as Rdata (.rdata, .rda)</a></li>
+<li class="chapter" data-level="30.5" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#import-excel-formated-data"><i class="fa fa-check"></i><b>30.5</b> Import Excel formated data</a></li>
+<li class="chapter" data-level="30.6" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#save-data-as-excel-formated-file"><i class="fa fa-check"></i><b>30.6</b> Save data as Excel formated file</a></li>
+<li class="chapter" data-level="30.7" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#downloading-data-files-github"><i class="fa fa-check"></i><b>30.7</b> Downloading data files (GitHub)</a></li>
+<li class="chapter" data-level="30.8" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#accessing-online-data"><i class="fa fa-check"></i><b>30.8</b> Accessing online data</a></li>
+<li class="chapter" data-level="30.9" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#fixing-problems-while-importing-datasets"><i class="fa fa-check"></i><b>30.9</b> Fixing problems while importing datasets</a></li>
+<li class="chapter" data-level="30.10" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-from-clinicaltrials.gov"><i class="fa fa-check"></i><b>30.10</b> Data from clinicaltrials.gov</a></li>
+<li class="chapter" data-level="30.11" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-scrapping-from-a-website"><i class="fa fa-check"></i><b>30.11</b> Data scrapping from a website</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>31</b> – Miscellaneous</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="miscellaneous.html"><a href="miscellaneous.html#sampling-from-a-vector-of-names"><i class="fa fa-check"></i><b>31.1</b> Sampling from a vector of names</a></li>
+<li class="chapter" data-level="31.2" data-path="miscellaneous.html"><a href="miscellaneous.html#read-a-text-from-an-article-pdf"><i class="fa fa-check"></i><b>31.2</b> Read a text from an article pdf</a></li>
+<li class="chapter" data-level="31.3" data-path="miscellaneous.html"><a href="miscellaneous.html#read-a-text-from-a-website"><i class="fa fa-check"></i><b>31.3</b> Read a text from a website</a></li>
+<li class="chapter" data-level="31.4" data-path="miscellaneous.html"><a href="miscellaneous.html#read-a-text-from-a-file"><i class="fa fa-check"></i><b>31.4</b> Read a text from a file</a></li>
+<li class="chapter" data-level="31.5" data-path="miscellaneous.html"><a href="miscellaneous.html#generate-the-word-cloud"><i class="fa fa-check"></i><b>31.5</b> Generate the word cloud</a></li>
+<li class="chapter" data-level="31.6" data-path="miscellaneous.html"><a href="miscellaneous.html#worldcloud-pdf"><i class="fa fa-check"></i><b>31.6</b> worldcloud – PDF</a></li>
+<li class="chapter" data-level="31.7" data-path="miscellaneous.html"><a href="miscellaneous.html#worldcloud-website"><i class="fa fa-check"></i><b>31.7</b> worldcloud – website</a></li>
+<li class="chapter" data-level="31.8" data-path="miscellaneous.html"><a href="miscellaneous.html#worldcloud-text"><i class="fa fa-check"></i><b>31.8</b> worldcloud – text</a></li>
+<li class="chapter" data-level="31.9" data-path="miscellaneous.html"><a href="miscellaneous.html#miscellaneous-1"><i class="fa fa-check"></i><b>31.9</b> Miscellaneous</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bioinformatics Workshop Gitbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="importingexporting-data-into-r" class="section level1" number="30">
+<h1><span class="header-section-number">Session 30</span> – Importing/Exporting Data into R</h1>
+<p>Importing data is crucial for analyses in R as most of these are produced, retrieved or generated by other software. For example, measurements might be collected and annotated in excel sheets, sequences might be encoded in fasta/fastq forma in text files, images are stored as .tiff, .jpeg or other formats, sound might be encoded in .wav, etc. A great advantage of R is that the same base software or R-packages can serve to bring those datasets into the R environment. However, most of these are imported as standard R data structures as data frames (i.e., similar to matrices with columns and rows that contain a single value). Next, we will survey the most common forms to data input</p>
+<div id="typing-directly" class="section level2" number="30.1">
+<h2><span class="header-section-number">30.1</span> Typing directly</h2>
+<p><strong>1)</strong> The simples way to input data in R by typing data in the R console. We explain this in more detail when we describe data structures. However, this should intuitive as follows.</p>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="importingexporting-data-into-r.html#cb617-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a vector with some values named &#39;my_vector&#39;</span></span>
+<span id="cb617-2"><a href="importingexporting-data-into-r.html#cb617-2" aria-hidden="true" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">20</span>,<span class="dv">99</span>)</span>
+<span id="cb617-3"><a href="importingexporting-data-into-r.html#cb617-3" aria-hidden="true" tabindex="-1"></a>my_vector</span>
+<span id="cb617-4"><a href="importingexporting-data-into-r.html#cb617-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1  4  5  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 99</span></span></code></pre></div>
+</div>
+<div id="importing-from-a-file" class="section level2" number="30.2">
+<h2><span class="header-section-number">30.2</span> Importing from a file</h2>
+<p><strong>2)</strong> In most cases, you already have your data file in some folder in your computer or plan to import it from some online repository. In the case of importing data from file from a known folder in your computer, this can be done as easily in R.</p>
+<p>First, I will describe to import data from a text file with a tab delimited columns with numeric and character values.</p>
+<p><strong>macOS:</strong> You need to get the path (folder location in your hard drive) so you can indicate R where to retrieve such information. For example, the file that you want is known folder. You just <strong>drag &amp; drop</strong> the folder in the R console and the path information will appear on it.</p>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="importingexporting-data-into-r.html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ~/Desktop/Teach_R/class_datasets</span></span>
+<span id="cb618-2"><a href="importingexporting-data-into-r.html#cb618-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Next, we can explore what files are inside such folder. </span></span>
+<span id="cb618-3"><a href="importingexporting-data-into-r.html#cb618-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co"> THAT THIS PATH IS SPECIFIC FOR YOUR COMPUTER</span></span>
+<span id="cb618-4"><a href="importingexporting-data-into-r.html#cb618-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/class_datasets&quot;</span>)</span>
+<span id="cb618-5"><a href="importingexporting-data-into-r.html#cb618-5" aria-hidden="true" tabindex="-1"></a>path_to_my_datafiles <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets&quot;</span></span></code></pre></div>
+<p>Note: You can get the path directly to the file by <strong>drag &amp; drop</strong> the file into the R console.</p>
+<p><strong>Windows:</strong> For PCs, to get the path (folder location in your hard drive) so you can indicate R where to retrieve such information. For example, the file that you want is known folder. You need to find the path to this working directory. For this you need to highlight this folder, hold down the <strong>Shift</strong> key and <strong>right-click</strong> the file.</p>
+<p>Then, you click on <strong>Properties</strong> and copy the names (text) of <strong>Location</strong> that includes the folder and file names. For example, if you want to change your working directory to the folder icon <code>class_datasets</code> (this is a made-up folder, you can name it as you wish or might one specific one).</p>
+<p>Find its location: <code>C:\Users\myPC\Desktop</code></p>
+<p>You will get its path name as: <code>C:\Users\myPC\Desktop\my_working_directory\class_datasets</code></p>
+<p>Then use the <code>setwd()</code> function as follows</p>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="importingexporting-data-into-r.html#cb619-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:\Users\myPC\Desktop\my_working_directory\class_datasets&quot;</span>)</span></code></pre></div>
+<p>In some PCs, this will change the working directory to its desired path. However, in most, you will get the following error</p>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="importingexporting-data-into-r.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:\Users\myPC\Desktop\my_working_directory\class_datasets&quot;</span>)</span>
+<span id="cb620-2"><a href="importingexporting-data-into-r.html#cb620-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Error: &#39;\U&#39; used without hex digits in character string starting &quot;&quot;C:\U&quot;</span></span></code></pre></div>
+<p>This indicates that the R is recognizing the <code>\</code> (backslashes) as part of regular expressions. To make it work, you will need to change such <code>\</code> character to <code>/</code> (forward slashes).</p>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="importingexporting-data-into-r.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/myPC/Desktop/my_working_directory/class_datasets&quot;</span>)</span>
+<span id="cb621-2"><a href="importingexporting-data-into-r.html#cb621-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb621-3"><a href="importingexporting-data-into-r.html#cb621-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;C:/Users/myPC/Desktop/my_working_directory/class_datasets&quot;</span></span></code></pre></div>
+<p>Other have reported is to use double backslashes <code>\\</code></p>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="importingexporting-data-into-r.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">myPC</span><span class="sc">\\</span><span class="st">Desktop</span><span class="sc">\\</span><span class="st">my_working_directory</span><span class="sc">\\</span><span class="st">class_datasets&quot;</span>)</span>
+<span id="cb622-2"><a href="importingexporting-data-into-r.html#cb622-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb622-3"><a href="importingexporting-data-into-r.html#cb622-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;C:/Users/myPC/Desktop/my_working_directory/class_datasets &quot;</span></span></code></pre></div>
+<p>Note: Like in macOS, you can apply the same protocol for a file rather than a folder.</p>
+<p><strong>3)</strong> You can get a list of files inside that working directory using <code>file.list()</code>.</p>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="importingexporting-data-into-r.html#cb623-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/class_datasets&quot;</span>)</span>
+<span id="cb623-2"><a href="importingexporting-data-into-r.html#cb623-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb623-3"><a href="importingexporting-data-into-r.html#cb623-3" aria-hidden="true" tabindex="-1"></a>path_to_my_datafiles <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets&quot;</span></span>
+<span id="cb623-4"><a href="importingexporting-data-into-r.html#cb623-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb623-5"><a href="importingexporting-data-into-r.html#cb623-5" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path =</span> path_to_my_datafiles, </span>
+<span id="cb623-6"><a href="importingexporting-data-into-r.html#cb623-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">pattern =</span> <span class="cn">NULL</span>,</span>
+<span id="cb623-7"><a href="importingexporting-data-into-r.html#cb623-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb623-8"><a href="importingexporting-data-into-r.html#cb623-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/juansantos/Desktop/Teach_R/class_datasets/acetylcholine_receptor_popset_1248341763_protein.txt&quot;</span></span>
+<span id="cb623-9"><a href="importingexporting-data-into-r.html#cb623-9" aria-hidden="true" tabindex="-1"></a><span class="co">#[2] &quot;/Users/juansantos/Desktop/Teach_R/class_datasets/acetylcholine_receptor_popset_1248341763.txt&quot;        </span></span>
+<span id="cb623-10"><a href="importingexporting-data-into-r.html#cb623-10" aria-hidden="true" tabindex="-1"></a><span class="co">#[3] &quot;/Users/juansantos/Desktop/Teach_R/class_datasets/acetylcholine_receptor_Uniprot.txt&quot;                  </span></span>
+<span id="cb623-11"><a href="importingexporting-data-into-r.html#cb623-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[4] &quot;/Users/juansantos/Desktop/Teach_R/class_datasets/airway_scaledcounts.csv&quot;  </span></span>
+<span id="cb623-12"><a href="importingexporting-data-into-r.html#cb623-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb623-13"><a href="importingexporting-data-into-r.html#cb623-13" aria-hidden="true" tabindex="-1"></a>my_vector_of_paths <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> path_to_my_datafiles, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>You can select the type of text pattern or extension (e.g., .txt, .csv, .xlsx) to reduce the list of files.</p>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="importingexporting-data-into-r.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we could select only those that have a .csv (comma delimited) files</span></span>
+<span id="cb624-2"><a href="importingexporting-data-into-r.html#cb624-2" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path =</span> path_to_my_datafiles, </span>
+<span id="cb624-3"><a href="importingexporting-data-into-r.html#cb624-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">pattern =</span> <span class="st">&quot;*.csv&quot;</span>,</span>
+<span id="cb624-4"><a href="importingexporting-data-into-r.html#cb624-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb624-5"><a href="importingexporting-data-into-r.html#cb624-5" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;/Users/santosj/Desktop/Teach_R/class_datasets/airway_scaledcounts.csv&quot;</span></span>
+<span id="cb624-6"><a href="importingexporting-data-into-r.html#cb624-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [2] &quot;/Users/santosj/Desktop/Teach_R/class_datasets/mtcars2_csv.csv&quot;        </span></span></code></pre></div>
+<p><strong>4)</strong> We can now import the data of tab and comma delimited files as data frames (a data structure).</p>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="importingexporting-data-into-r.html#cb625-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for tab delimited files while preserving headers</span></span>
+<span id="cb625-2"><a href="importingexporting-data-into-r.html#cb625-2" aria-hidden="true" tabindex="-1"></a>my_mtcars2_file_df <span class="ot">&lt;-</span> <span class="fu">read.table</span> (<span class="at">file =</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets/mtcars2_file_tab.txt&quot;</span>, </span>
+<span id="cb625-3"><a href="importingexporting-data-into-r.html#cb625-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb625-4"><a href="importingexporting-data-into-r.html#cb625-4" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb625-5"><a href="importingexporting-data-into-r.html#cb625-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb625-6"><a href="importingexporting-data-into-r.html#cb625-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_mtcars2_file_df)</span>
+<span id="cb625-7"><a href="importingexporting-data-into-r.html#cb625-7" aria-hidden="true" tabindex="-1"></a><span class="co">#               cars  mpg cyl disp  hp drat    wt  qsec vs am gear carb</span></span>
+<span id="cb625-8"><a href="importingexporting-data-into-r.html#cb625-8" aria-hidden="true" tabindex="-1"></a><span class="co">#1         Mazda_RX4 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4</span></span>
+<span id="cb625-9"><a href="importingexporting-data-into-r.html#cb625-9" aria-hidden="true" tabindex="-1"></a><span class="co">#2     Mazda_RX4_Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4</span></span>
+<span id="cb625-10"><a href="importingexporting-data-into-r.html#cb625-10" aria-hidden="true" tabindex="-1"></a><span class="co">#3        Datsun_710 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1</span></span>
+<span id="cb625-11"><a href="importingexporting-data-into-r.html#cb625-11" aria-hidden="true" tabindex="-1"></a><span class="co">#4    Hornet_4_Drive 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1</span></span>
+<span id="cb625-12"><a href="importingexporting-data-into-r.html#cb625-12" aria-hidden="true" tabindex="-1"></a><span class="co">#5 Hornet_Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2</span></span>
+<span id="cb625-13"><a href="importingexporting-data-into-r.html#cb625-13" aria-hidden="true" tabindex="-1"></a><span class="co">#6           Valiant 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</span></span></code></pre></div>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="importingexporting-data-into-r.html#cb626-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for comma delimited files while preserving headers</span></span>
+<span id="cb626-2"><a href="importingexporting-data-into-r.html#cb626-2" aria-hidden="true" tabindex="-1"></a>my_airway_file_df <span class="ot">&lt;-</span> <span class="fu">read.table</span> (<span class="at">file =</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets/airway_scaledcounts.csv&quot;</span>, </span>
+<span id="cb626-3"><a href="importingexporting-data-into-r.html#cb626-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb626-4"><a href="importingexporting-data-into-r.html#cb626-4" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>,</span>
+<span id="cb626-5"><a href="importingexporting-data-into-r.html#cb626-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb626-6"><a href="importingexporting-data-into-r.html#cb626-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_airway_file_df)</span>
+<span id="cb626-7"><a href="importingexporting-data-into-r.html#cb626-7" aria-hidden="true" tabindex="-1"></a><span class="co">#          ensgene SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
+<span id="cb626-8"><a href="importingexporting-data-into-r.html#cb626-8" aria-hidden="true" tabindex="-1"></a><span class="co">#1 ENSG00000000003        723        486        904        445       1170       1097        806        604</span></span>
+<span id="cb626-9"><a href="importingexporting-data-into-r.html#cb626-9" aria-hidden="true" tabindex="-1"></a><span class="co">#2 ENSG00000000005          0          0          0          0          0          0          0          0</span></span>
+<span id="cb626-10"><a href="importingexporting-data-into-r.html#cb626-10" aria-hidden="true" tabindex="-1"></a><span class="co">#3 ENSG00000000419        467        523        616        371        582        781        417        509</span></span>
+<span id="cb626-11"><a href="importingexporting-data-into-r.html#cb626-11" aria-hidden="true" tabindex="-1"></a><span class="co">#4 ENSG00000000457        347        258        364        237        318        447        330        324</span></span>
+<span id="cb626-12"><a href="importingexporting-data-into-r.html#cb626-12" aria-hidden="true" tabindex="-1"></a><span class="co">#5 ENSG00000000460         96         81         73         66        118         94        102         74</span></span>
+<span id="cb626-13"><a href="importingexporting-data-into-r.html#cb626-13" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000000938          0          0          1          0          2          0          0          0</span></span></code></pre></div>
+</div>
+<div id="saving-data-to-a-file" class="section level2" number="30.3">
+<h2><span class="header-section-number">30.3</span> Saving data to a file</h2>
+<p><strong>5)</strong> You can save data frames as tab or comma delimited files using the function <code>write.table()</code>. However, you should make sure that the folder where you will like your files to be saved is defined.</p>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="importingexporting-data-into-r.html#cb627-1" aria-hidden="true" tabindex="-1"></a><span class="co">#define the the output folder</span></span>
+<span id="cb627-2"><a href="importingexporting-data-into-r.html#cb627-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/class_datasets&quot;</span>)</span>
+<span id="cb627-3"><a href="importingexporting-data-into-r.html#cb627-3" aria-hidden="true" tabindex="-1"></a><span class="co">#confirm that the output directory is correct</span></span>
+<span id="cb627-4"><a href="importingexporting-data-into-r.html#cb627-4" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb627-5"><a href="importingexporting-data-into-r.html#cb627-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/juansantos/Desktop/Teach_R/class_datasets&quot;&quot;</span></span>
+<span id="cb627-6"><a href="importingexporting-data-into-r.html#cb627-6" aria-hidden="true" tabindex="-1"></a><span class="co"># to determine the separation between columns is defined by the argument &#39;sep =&#39;. For tabs, you use sep =”\t” and for commas you use sep =”,”</span></span>
+<span id="cb627-7"><a href="importingexporting-data-into-r.html#cb627-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(my_mtcars2_file_df, </span>
+<span id="cb627-8"><a href="importingexporting-data-into-r.html#cb627-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">file =</span> <span class="st">&quot;mtcars2_file_tab.txt&quot;</span>, </span>
+<span id="cb627-9"><a href="importingexporting-data-into-r.html#cb627-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb627-10"><a href="importingexporting-data-into-r.html#cb627-10" aria-hidden="true" tabindex="-1"></a> <span class="at">col.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+</div>
+<div id="saving-data-as-rdata-.rdata-.rda" class="section level2" number="30.4">
+<h2><span class="header-section-number">30.4</span> Saving data as Rdata (.rdata, .rda)</h2>
+<p>You might feel compelled to save your R session. This action will store your complete R workspace or selected “objects” from a workspace in a <a href="https://cran.r-project.org/doc/manuals/r-release/R-data.pdf" target="_blank"><strong>R-Data</strong></a> file with extension .rdata and .rda that can be loaded back by R. In most cases, you will do this to save you time in your next session. I do not usually save my R sessions, as the <em>.rdata and </em>.rda files are not human readable, and in most cases my interest are in the functionality of the scripts that call data and run functions within R rather than going back a preloaded session.</p>
+</div>
+<div id="import-excel-formated-data" class="section level2" number="30.5">
+<h2><span class="header-section-number">30.5</span> Import Excel formated data</h2>
+<p><strong>6)</strong> We can now import the data from Excel spreadsheet files as data frames (a data structure). We could use R-package <a href="https://cran.r-project.org/web/packages/openxlsx/index.html" target="_blank"><strong>openxlsx</strong></a> and its function <code>read.xlsx()</code>.</p>
+<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="importingexporting-data-into-r.html#cb628-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install package if not present in your library</span></span>
+<span id="cb628-2"><a href="importingexporting-data-into-r.html#cb628-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;openxlsx&quot;</span>)</span>
+<span id="cb628-3"><a href="importingexporting-data-into-r.html#cb628-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code></pre></div>
+<p>You can load the FIRST sheet to a data frame that has headers on the first row.</p>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="importingexporting-data-into-r.html#cb629-1" aria-hidden="true" tabindex="-1"></a>my_mtcars2_xlsx_df <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="at">xlsxFile =</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets/mixed_datasets.xlsx&quot;</span>,</span>
+<span id="cb629-2"><a href="importingexporting-data-into-r.html#cb629-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">sheet =</span> <span class="dv">1</span>,</span>
+<span id="cb629-3"><a href="importingexporting-data-into-r.html#cb629-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">startRow =</span> <span class="dv">1</span>,</span>
+<span id="cb629-4"><a href="importingexporting-data-into-r.html#cb629-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">colNames =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb629-5"><a href="importingexporting-data-into-r.html#cb629-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_mtcars2_xlsx_df)</span>
+<span id="cb629-6"><a href="importingexporting-data-into-r.html#cb629-6" aria-hidden="true" tabindex="-1"></a><span class="co">#               cars  mpg cyl disp  hp drat    wt  qsec vs am gear carb</span></span>
+<span id="cb629-7"><a href="importingexporting-data-into-r.html#cb629-7" aria-hidden="true" tabindex="-1"></a><span class="co">#1         Mazda_RX4 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4</span></span>
+<span id="cb629-8"><a href="importingexporting-data-into-r.html#cb629-8" aria-hidden="true" tabindex="-1"></a><span class="co">#2     Mazda_RX4_Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4</span></span>
+<span id="cb629-9"><a href="importingexporting-data-into-r.html#cb629-9" aria-hidden="true" tabindex="-1"></a><span class="co">#3        Datsun_710 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1</span></span>
+<span id="cb629-10"><a href="importingexporting-data-into-r.html#cb629-10" aria-hidden="true" tabindex="-1"></a><span class="co">#4    Hornet_4_Drive 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1</span></span>
+<span id="cb629-11"><a href="importingexporting-data-into-r.html#cb629-11" aria-hidden="true" tabindex="-1"></a><span class="co">#5 Hornet_Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2</span></span>
+<span id="cb629-12"><a href="importingexporting-data-into-r.html#cb629-12" aria-hidden="true" tabindex="-1"></a><span class="co">#6           Valiant 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</span></span></code></pre></div>
+<p>Now, you can load the SECOND sheet to a data frame that has headers on the first row.</p>
+<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="importingexporting-data-into-r.html#cb630-1" aria-hidden="true" tabindex="-1"></a>my_airway_xlsx_df <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="at">xlsxFile =</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets/mixed_datasets.xlsx&quot;</span>,</span>
+<span id="cb630-2"><a href="importingexporting-data-into-r.html#cb630-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">sheet =</span> <span class="dv">2</span>,</span>
+<span id="cb630-3"><a href="importingexporting-data-into-r.html#cb630-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">startRow =</span> <span class="dv">1</span>,</span>
+<span id="cb630-4"><a href="importingexporting-data-into-r.html#cb630-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">colNames =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb630-5"><a href="importingexporting-data-into-r.html#cb630-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_airway_xlsx_df)</span>
+<span id="cb630-6"><a href="importingexporting-data-into-r.html#cb630-6" aria-hidden="true" tabindex="-1"></a><span class="co">#          ensgene SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
+<span id="cb630-7"><a href="importingexporting-data-into-r.html#cb630-7" aria-hidden="true" tabindex="-1"></a><span class="co">#1 ENSG00000000003        723        486        904        445       1170       1097        806        604</span></span>
+<span id="cb630-8"><a href="importingexporting-data-into-r.html#cb630-8" aria-hidden="true" tabindex="-1"></a><span class="co">#2 ENSG00000000005          0          0          0          0          0          0          0          0</span></span>
+<span id="cb630-9"><a href="importingexporting-data-into-r.html#cb630-9" aria-hidden="true" tabindex="-1"></a><span class="co">#3 ENSG00000000419        467        523        616        371        582        781        417        509</span></span>
+<span id="cb630-10"><a href="importingexporting-data-into-r.html#cb630-10" aria-hidden="true" tabindex="-1"></a><span class="co">#4 ENSG00000000457        347        258        364        237        318        447        330        324</span></span>
+<span id="cb630-11"><a href="importingexporting-data-into-r.html#cb630-11" aria-hidden="true" tabindex="-1"></a><span class="co">#5 ENSG00000000460         96         81         73         66        118         94        102         74</span></span>
+<span id="cb630-12"><a href="importingexporting-data-into-r.html#cb630-12" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000000938          0          0          1          0          2          0          0          0</span></span></code></pre></div>
+</div>
+<div id="save-data-as-excel-formated-file" class="section level2" number="30.6">
+<h2><span class="header-section-number">30.6</span> Save data as Excel formated file</h2>
+<p><strong>7)</strong> We can save a data frame as an Excel spreadsheet with R-package <a href="https://cran.r-project.org/web/packages/openxlsx/index.html" target="_blank"><strong>openxlsx</strong></a> and its function <code>write.xlsx()</code>.</p>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="importingexporting-data-into-r.html#cb631-1" aria-hidden="true" tabindex="-1"></a><span class="co">#define the the output folder</span></span>
+<span id="cb631-2"><a href="importingexporting-data-into-r.html#cb631-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/class_datasets&quot;</span>)</span>
+<span id="cb631-3"><a href="importingexporting-data-into-r.html#cb631-3" aria-hidden="true" tabindex="-1"></a><span class="co">#confirm that the output directory is correct</span></span>
+<span id="cb631-4"><a href="importingexporting-data-into-r.html#cb631-4" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb631-5"><a href="importingexporting-data-into-r.html#cb631-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/juansantos/Desktop/Teach_R/class_datasets&quot;&quot;</span></span>
+<span id="cb631-6"><a href="importingexporting-data-into-r.html#cb631-6" aria-hidden="true" tabindex="-1"></a>my_airway_xlsx_df <span class="ot">&lt;-</span> <span class="fu">write.xlsx</span>(my_mtcars2_file_df,</span>
+<span id="cb631-7"><a href="importingexporting-data-into-r.html#cb631-7" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">sheetName =</span> <span class="st">&quot;my_mtcars_xlsx_sheet&quot;</span>,</span>
+<span id="cb631-8"><a href="importingexporting-data-into-r.html#cb631-8" aria-hidden="true" tabindex="-1"></a>                                              <span class="at">file =</span> <span class="st">&quot;mtcars_xlsx.xlsx&quot;</span>)</span></code></pre></div>
+</div>
+<div id="downloading-data-files-github" class="section level2" number="30.7">
+<h2><span class="header-section-number">30.7</span> Downloading data files (GitHub)</h2>
+<p><strong>IMPORTANT</strong> I uploaded some files of this class, you can access those and download them from this <a href="https://github.com/corytophanes/BIO_BIT_Bioinformatics_209/tree/main/ref_files_pdfs" target="_blank"><strong>LINK TO FILES of BIO/BIT 209</strong></a> to a folder of your choosing.</p>
+<p>You can <strong>download individual files</strong> based in their extension. In the case of text files (e.g., <strong>.csv</strong>, <strong>.fasta</strong>, <strong>.txt</strong>), you can follow these steps:</p>
+<p><strong>1)</strong> Go to the file you want to download. Click on the file that you want to download. You will see the file contents.</p>
+<p><img src="figures/session_2_figs/2_file_to_donwload_txt2.png" width="100%" /></p>
+<p><strong>2)</strong> In the top right, you will see a tab that says <code>Raw</code> and click on this button.</p>
+<p><img src="figures/session_2_figs/3_file_to_donwload_raw.png" width="100%" /></p>
+<p><strong>3)</strong> A new tab will appear and you can save this file as <code>your_file.txt</code> (if this is fasta or csv, use the appropriate extension). In Firefox (MACs), you will click on <strong>File &gt; Save page as…</strong> and can name this file as <code>your_file.txt</code></p>
+<p><img src="figures/session_2_figs/4_file_to_donwload_newpage.png" width="100%" />
+<strong>4)</strong> You probably want to have a working directory where you will store these files. You should make these folders with easy and accessible paths (e.g., in your desktop).</p>
+<p>In case of <strong>other files </strong>like PDFs, images, word, and excel files (e.g., <strong>.pdf</strong>, <strong>.jpg</strong>, <strong>.png</strong>, <strong>.xlxs</strong>, <strong>.docx</strong>), you can download those individually with the following steps:</p>
+<p><strong>1)</strong> Go to the file you want to download.</p>
+<p><img src="figures/session_2_figs/5_file_to_donwload_PDF2.png" width="100%" /></p>
+<p><strong>2)</strong> Click on the file that you want to download. You will see a tab that says <code>Download</code> and click on this button.</p>
+<p><img src="figures/session_2_figs/6_file_to_donwload_PDF_download.png" width="100%" /></p>
+<p><strong>3)</strong> A new tab will appear and you can save this file as <code>your_file</code> and select the extension that best suits this file. In Firefox (MACs), you will click on <strong>File &gt; Save page as…</strong> and can name this file as <code>your_file.txt</code></p>
+<p><strong>4)</strong> You probably want to have a working directory where you will store these files. You should make these folders with easy and accessible paths (e.g., in your desktop).</p>
+<p>You can <strong>download an entire GitHub repository</strong>. You can download these archives from the main repository by clicking on <code>Code</code>. A submenu will appear, and you can click on <code>Download ZIP</code> and you can place this uncompressed folder in your desktop or other working directory.</p>
+<p><img src="figures/session_2_figs/7_download_repository.png" width="100%" /></p>
+</div>
+<div id="accessing-online-data" class="section level2" number="30.8">
+<h2><span class="header-section-number">30.8</span> Accessing online data</h2>
+<p>You might want to access data for your own research, data comparisons with previous published studies, and/or complement your own datasets and projects. This can be done using and accessing several online databases. One of the most important is <a href="https://datadryad.org/stash" target="_blank"><strong>DRYAD</strong></a>. From their website, Dryad Digital Repository mission is to serve as an indefinity repository of curated (i.e., revised) digital resources that makes published data discoverable, freely reusable, and citable. Therefore, these data can then be re-used to create new knowledge. Dryad is an initiative &gt;300 journals and scientific societies that adopted a joint data archiving policy (JDAP) for their publications, and their recognition that open data, easy-to-use, not-for-profit, community-governed data infrastructure is fundamental to maintain such digital resources. Dryad stores mostly biological and medical data used in peer-reviewed journals.</p>
+<p>To access Dryad, you can first determine if the article of interest has archived data in this repository. We will use this article that you can access from <strong>PubMed</strong>:</p>
+<p><strong>Allen, R. C., Angst, D. C., &amp; Hall, A. R. (2019). Resistance Gene Carriage Predicts Growth of Natural and Clinical Escherichia coli Isolates in the Absence of Antibiotics. Applied and environmental microbiology, 85(4), e02111-18.</strong> <a href="https://doi.org/10.1128/AEM.02111-18" target="_blank">https://doi.org/10.1128/AEM.02111-18</a></p>
+<p><strong>1)</strong> For this example, we find the digital article by searching <a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank"><strong>PubMed</strong></a>. The results show that it can be accessed by a <a href="https://pubmed.ncbi.nlm.nih.gov/30530714/" target="_blank"><strong>PubMed link</strong></a> or by a <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6365833/" target="_blank"><strong>PMC link</strong></a>.</p>
+<p><img src="figures/session_14_figs/1_article_in_PMC.png" width="100%" /></p>
+<p><strong>2)</strong> Most times, the authors will report that they have a supplementary material in their methods or in special section at the end of the article (e.g., footnotes, supplementary material, etc). In this case, it provides only a PDF and a link to journal digital article.</p>
+<p><img src="figures/session_14_figs/2_article_SM_PMC.png" width="100%" /></p>
+<p><strong>3)</strong> Like in many cases, there is no mention of a Dryad submission or DOI in the text of the paper. However, you can try to determine if such digital repository exists by searching the title of the article directly in <a href="https://datadryad.org/stash" target="_blank"><strong>DRYAD</strong></a>. I suggest doing this and not use the Dryad DOI (sometimes this is a broken link). To search in the Dryad website, you will paste the title of the article on the <strong>Search tab</strong> in the top right side.
+<img src="figures/session_14_figs/3_dryad_intro.png" width="100%" /></p>
+<p><strong>4)</strong> If associated data files exist for this paper, you will see how many entries are associated to the paper title. In this case, only one exists and you can click on such link.</p>
+<p><img src="figures/session_14_figs/4_dryad_example_1.png" width="100%" /></p>
+<p><strong>5)</strong> In the webpage associated with the data, you will see a title like <strong>Data from:…</strong>, a summary/abstract of the paper, and a link to the <strong>Data Files</strong> with a tab to <strong>Download dataset</strong>. You can click on the latter to get the associated zip file.</p>
+<p><img src="figures/session_14_figs/5_dryad_example_2.png" width="100%" /></p>
+<p><strong>6)</strong> The associated data is in a compressed file called <code>doi_10.5061_dryad.d0q331t__v1.zip</code>. After uncompressing this file, you can identify several archives and folders that include a <code>Readme.txt</code> with explanation of the contents of each data file with a <code>*.csv</code> extension.</p>
+<p><img src="figures/session_14_figs/6_dryad_example_3.png" width="100%" /></p>
+<p>I added these files to the <a href="https://github.com/corytophanes/BIO_BIT_Bioinformatics_209/tree/main/ref_files_pdfs" target="_blank"><strong>LINK TO FILES of BIO/BIT 209</strong></a>.</p>
+<p><strong>7)</strong> After downloading, you can explore those files in a text editor and they can be easily imported into R or excel. For reference, we can import two of these datasets (<code>ARG_Raw.csv</code> and <code>Growth_Curves.csv</code>) as explained in section <strong>2.6 Importing and exporting data</strong>.</p>
+<p>We can start with <code>ARG_Raw.csv</code></p>
+<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="importingexporting-data-into-r.html#cb632-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We start by readinf the metadata about such file in the text of README_for_Data_Files.txt. </span></span>
+<span id="cb632-2"><a href="importingexporting-data-into-r.html#cb632-2" aria-hidden="true" tabindex="-1"></a><span class="do">## We found the following:</span></span>
+<span id="cb632-3"><a href="importingexporting-data-into-r.html#cb632-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-4"><a href="importingexporting-data-into-r.html#cb632-4" aria-hidden="true" tabindex="-1"></a>ARG_Raw.csv</span>
+<span id="cb632-5"><a href="importingexporting-data-into-r.html#cb632-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-6"><a href="importingexporting-data-into-r.html#cb632-6" aria-hidden="true" tabindex="-1"></a>This is a data table of the output of running BLASTn with the contigs of the draft </span>
+<span id="cb632-7"><a href="importingexporting-data-into-r.html#cb632-7" aria-hidden="true" tabindex="-1"></a>genome assemblies of the isolates against the ResFinder <span class="fu">database</span> (nucleotide). The </span>
+<span id="cb632-8"><a href="importingexporting-data-into-r.html#cb632-8" aria-hidden="true" tabindex="-1"></a>column headings mostly correspond to standard blast outputs but are outlined below<span class="sc">:</span></span>
+<span id="cb632-9"><a href="importingexporting-data-into-r.html#cb632-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-10"><a href="importingexporting-data-into-r.html#cb632-10" aria-hidden="true" tabindex="-1"></a>   Strain<span class="sc">-</span>Which strain genome the hit was.</span>
+<span id="cb632-11"><a href="importingexporting-data-into-r.html#cb632-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-12"><a href="importingexporting-data-into-r.html#cb632-12" aria-hidden="true" tabindex="-1"></a>   Contig<span class="sc">-</span>Most genomes are draft assemblies so there are multiple <span class="fu">segments</span> (here </span>
+<span id="cb632-13"><a href="importingexporting-data-into-r.html#cb632-13" aria-hidden="true" tabindex="-1"></a>   called nodes), this shows which node the hit occurred in.</span>
+<span id="cb632-14"><a href="importingexporting-data-into-r.html#cb632-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-15"><a href="importingexporting-data-into-r.html#cb632-15" aria-hidden="true" tabindex="-1"></a>   ARG<span class="sc">-</span> which antibiotic resistance gene <span class="cf">in</span> the query matched the sequence.</span>
+<span id="cb632-16"><a href="importingexporting-data-into-r.html#cb632-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-17"><a href="importingexporting-data-into-r.html#cb632-17" aria-hidden="true" tabindex="-1"></a>   Per.ID<span class="sc">-</span> Percentage identity.</span>
+<span id="cb632-18"><a href="importingexporting-data-into-r.html#cb632-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-19"><a href="importingexporting-data-into-r.html#cb632-19" aria-hidden="true" tabindex="-1"></a>   Length<span class="sc">-</span> Length of the matching region</span>
+<span id="cb632-20"><a href="importingexporting-data-into-r.html#cb632-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-21"><a href="importingexporting-data-into-r.html#cb632-21" aria-hidden="true" tabindex="-1"></a>   MiMa<span class="sc">-</span> Number of mismatches </span>
+<span id="cb632-22"><a href="importingexporting-data-into-r.html#cb632-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-23"><a href="importingexporting-data-into-r.html#cb632-23" aria-hidden="true" tabindex="-1"></a>   Gap<span class="sc">-</span> Total length of gaps</span>
+<span id="cb632-24"><a href="importingexporting-data-into-r.html#cb632-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-25"><a href="importingexporting-data-into-r.html#cb632-25" aria-hidden="true" tabindex="-1"></a>   C.Start <span class="sc">&amp;</span> C.End<span class="sc">-</span> Start and end of the matching region on the contig</span>
+<span id="cb632-26"><a href="importingexporting-data-into-r.html#cb632-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-27"><a href="importingexporting-data-into-r.html#cb632-27" aria-hidden="true" tabindex="-1"></a>   A.Start <span class="sc">&amp;</span> A.End<span class="sc">-</span> Start and end of the matching region on the query</span>
+<span id="cb632-28"><a href="importingexporting-data-into-r.html#cb632-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-29"><a href="importingexporting-data-into-r.html#cb632-29" aria-hidden="true" tabindex="-1"></a>   E. value<span class="sc">-</span> Significance value <span class="cf">for</span> the hit, calculated within strain.</span>
+<span id="cb632-30"><a href="importingexporting-data-into-r.html#cb632-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-31"><a href="importingexporting-data-into-r.html#cb632-31" aria-hidden="true" tabindex="-1"></a>   Bit.Score<span class="sc">-</span> overall score <span class="cf">for</span> the strength of the Hit. For overlapping</span>
+<span id="cb632-32"><a href="importingexporting-data-into-r.html#cb632-32" aria-hidden="true" tabindex="-1"></a>   hits, only the highest bit score was retained.</span>
+<span id="cb632-33"><a href="importingexporting-data-into-r.html#cb632-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-34"><a href="importingexporting-data-into-r.html#cb632-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-35"><a href="importingexporting-data-into-r.html#cb632-35" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to find the path to the corresponding file by &quot;drag-and-drop&quot; in </span></span>
+<span id="cb632-36"><a href="importingexporting-data-into-r.html#cb632-36" aria-hidden="true" tabindex="-1"></a><span class="do">## MACs or finding file properties in PCs. </span></span>
+<span id="cb632-37"><a href="importingexporting-data-into-r.html#cb632-37" aria-hidden="true" tabindex="-1"></a><span class="do">## In my computer (MAC), they look like this:</span></span>
+<span id="cb632-38"><a href="importingexporting-data-into-r.html#cb632-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-39"><a href="importingexporting-data-into-r.html#cb632-39" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span><span class="er">/</span>Desktop<span class="sc">/</span>Teach_R<span class="sc">/</span>class_datasets<span class="sc">/</span>Dryad_example_for_Data_Files<span class="sc">/</span>ARG_Raw.csv</span>
+<span id="cb632-40"><a href="importingexporting-data-into-r.html#cb632-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-41"><a href="importingexporting-data-into-r.html#cb632-41" aria-hidden="true" tabindex="-1"></a><span class="do">## Both files are *.csv (i.e., comma delimited files), so they can be easily </span></span>
+<span id="cb632-42"><a href="importingexporting-data-into-r.html#cb632-42" aria-hidden="true" tabindex="-1"></a><span class="do">## imported with the read.table function. </span></span>
+<span id="cb632-43"><a href="importingexporting-data-into-r.html#cb632-43" aria-hidden="true" tabindex="-1"></a><span class="do">## These files have data as comma delimited and we want to preserve headers</span></span>
+<span id="cb632-44"><a href="importingexporting-data-into-r.html#cb632-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-45"><a href="importingexporting-data-into-r.html#cb632-45" aria-hidden="true" tabindex="-1"></a>ARG_Raw_Allen_etal_2019_df <span class="ot">&lt;-</span> <span class="fu">read.table</span> (<span class="at">file =</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets/Dryad_example_for_Data_Files/ARG_Raw.csv&quot;</span>, </span>
+<span id="cb632-46"><a href="importingexporting-data-into-r.html#cb632-46" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb632-47"><a href="importingexporting-data-into-r.html#cb632-47" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>,</span>
+<span id="cb632-48"><a href="importingexporting-data-into-r.html#cb632-48" aria-hidden="true" tabindex="-1"></a>                          <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb632-49"><a href="importingexporting-data-into-r.html#cb632-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-50"><a href="importingexporting-data-into-r.html#cb632-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-51"><a href="importingexporting-data-into-r.html#cb632-51" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ARG_Raw_Allen_etal_2019_df)</span>
+<span id="cb632-52"><a href="importingexporting-data-into-r.html#cb632-52" aria-hidden="true" tabindex="-1"></a><span class="co">#    X Strain  Contig                  ARG  Per.ID Length MiMa Gap C.Start  C.End A.Start A.End E.val Bit.Score</span></span>
+<span id="cb632-53"><a href="importingexporting-data-into-r.html#cb632-53" aria-hidden="true" tabindex="-1"></a><span class="co">#1  2 705963  NODE_6      mdf(A)_1_Y08743  97.891   1233   26   0   40970  42202       1  1233     0      2134</span></span>
+<span id="cb632-54"><a href="importingexporting-data-into-r.html#cb632-54" aria-hidden="true" tabindex="-1"></a><span class="co">#2  1 706090  NODE_4      mdf(A)_1_Y08743  97.891   1233   26   0   19449  20681       1  1233     0      2134</span></span>
+<span id="cb632-55"><a href="importingexporting-data-into-r.html#cb632-55" aria-hidden="true" tabindex="-1"></a><span class="co">#3 50 707404 NODE_12      mdf(A)_1_Y08743  97.567   1233   30   0  113267 114499    1233     1     0      2111</span></span>
+<span id="cb632-56"><a href="importingexporting-data-into-r.html#cb632-56" aria-hidden="true" tabindex="-1"></a><span class="co">#4  6 707404 NODE_23      sul2_2_AY034138 100.000    816    0   0    8928   9743       1   816     0      1507</span></span>
+<span id="cb632-57"><a href="importingexporting-data-into-r.html#cb632-57" aria-hidden="true" tabindex="-1"></a><span class="co">#5 28 707404 NODE_23 aph(3)-Ib_5_AF321551 100.000    529    0   0    9804  10332       1   529     0       977</span></span>
+<span id="cb632-58"><a href="importingexporting-data-into-r.html#cb632-58" aria-hidden="true" tabindex="-1"></a><span class="co">#6 38 707404 NODE_23    dfrA14_5_DQ388123  99.793    483    1   0   10343  10825       1   483     0       887</span></span>
+<span id="cb632-59"><a href="importingexporting-data-into-r.html#cb632-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-60"><a href="importingexporting-data-into-r.html#cb632-60" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ARG_Raw_Allen_etal_2019_df)</span>
+<span id="cb632-61"><a href="importingexporting-data-into-r.html#cb632-61" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  36 obs. of  14 variables:</span></span>
+<span id="cb632-62"><a href="importingexporting-data-into-r.html#cb632-62" aria-hidden="true" tabindex="-1"></a><span class="co"># $ X        : int  2 1 50 6 28 38 11 5 21 61 ...</span></span>
+<span id="cb632-63"><a href="importingexporting-data-into-r.html#cb632-63" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Strain   : chr  &quot;705963&quot; &quot;706090&quot; &quot;707404&quot; &quot;707404&quot; ...</span></span>
+<span id="cb632-64"><a href="importingexporting-data-into-r.html#cb632-64" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Contig   : chr  &quot;NODE_6&quot; &quot;NODE_4&quot; &quot;NODE_12&quot; &quot;NODE_23&quot; ...</span></span>
+<span id="cb632-65"><a href="importingexporting-data-into-r.html#cb632-65" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ARG      : chr  &quot;mdf(A)_1_Y08743&quot; &quot;mdf(A)_1_Y08743&quot; &quot;mdf(A)_1_Y08743&quot; &quot;sul2_2_AY034138&quot; ...</span></span>
+<span id="cb632-66"><a href="importingexporting-data-into-r.html#cb632-66" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Per.ID   : num  97.9 97.9 97.6 100 100 ...</span></span>
+<span id="cb632-67"><a href="importingexporting-data-into-r.html#cb632-67" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Length   : int  1233 1233 1233 816 529 483 837 1233 1206 861 ...</span></span>
+<span id="cb632-68"><a href="importingexporting-data-into-r.html#cb632-68" aria-hidden="true" tabindex="-1"></a><span class="co"># $ MiMa     : int  26 26 30 0 0 1 0 26 0 0 ...</span></span>
+<span id="cb632-69"><a href="importingexporting-data-into-r.html#cb632-69" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Gap      : int  0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb632-70"><a href="importingexporting-data-into-r.html#cb632-70" aria-hidden="true" tabindex="-1"></a><span class="co"># $ C.Start  : int  40970 19449 113267 8928 9804 10343 11175 28147 2128 4849 ...</span></span>
+<span id="cb632-71"><a href="importingexporting-data-into-r.html#cb632-71" aria-hidden="true" tabindex="-1"></a><span class="co"># $ C.End    : int  42202 20681 114499 9743 10332 10825 12011 29379 3333 5709 ...</span></span>
+<span id="cb632-72"><a href="importingexporting-data-into-r.html#cb632-72" aria-hidden="true" tabindex="-1"></a><span class="co"># $ A.Start  : int  1 1 1233 1 1 1 1 1233 1 1 ...</span></span>
+<span id="cb632-73"><a href="importingexporting-data-into-r.html#cb632-73" aria-hidden="true" tabindex="-1"></a><span class="co"># $ A.End    : int  1233 1233 1 816 529 483 837 1 1206 861 ...</span></span>
+<span id="cb632-74"><a href="importingexporting-data-into-r.html#cb632-74" aria-hidden="true" tabindex="-1"></a><span class="co"># $ E.val    : num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb632-75"><a href="importingexporting-data-into-r.html#cb632-75" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Bit.Score: int  2134 2134 2111 1507 977 887 1546 2134 2228 1591 ...</span></span>
+<span id="cb632-76"><a href="importingexporting-data-into-r.html#cb632-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-77"><a href="importingexporting-data-into-r.html#cb632-77" aria-hidden="true" tabindex="-1"></a><span class="do">## We notice this data frame has LESS rows (only 36) than the original dataset </span></span>
+<span id="cb632-78"><a href="importingexporting-data-into-r.html#cb632-78" aria-hidden="true" tabindex="-1"></a><span class="do">## that has 230 rows (you can check this by opening the ARG_Raw.csv file in a text editor). </span></span>
+<span id="cb632-79"><a href="importingexporting-data-into-r.html#cb632-79" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(ARG_Raw_Allen_etal_2019_df)</span>
+<span id="cb632-80"><a href="importingexporting-data-into-r.html#cb632-80" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 36 14</span></span>
+<span id="cb632-81"><a href="importingexporting-data-into-r.html#cb632-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-82"><a href="importingexporting-data-into-r.html#cb632-82" aria-hidden="true" tabindex="-1"></a><span class="do">## If we explore the original file: ARG_Raw.csv, this has special characters (&#39;). </span></span>
+<span id="cb632-83"><a href="importingexporting-data-into-r.html#cb632-83" aria-hidden="true" tabindex="-1"></a><span class="do">## This character can be problematic, so we find a replace it  with &quot;_&quot; or removing </span></span>
+<span id="cb632-84"><a href="importingexporting-data-into-r.html#cb632-84" aria-hidden="true" tabindex="-1"></a><span class="do">## them completely using a text editor. After removing this special character, we </span></span>
+<span id="cb632-85"><a href="importingexporting-data-into-r.html#cb632-85" aria-hidden="true" tabindex="-1"></a><span class="do">## save the new modified file as ARG_Raw_modified.csv and we can import it to R.</span></span>
+<span id="cb632-86"><a href="importingexporting-data-into-r.html#cb632-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-87"><a href="importingexporting-data-into-r.html#cb632-87" aria-hidden="true" tabindex="-1"></a>ARG_Raw_modified_Allen_etal_2019_df <span class="ot">&lt;-</span> <span class="fu">read.table</span> (<span class="at">file =</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets/Dryad_example_for_Data_Files/ARG_Raw_modified.csv&quot;</span>, </span>
+<span id="cb632-88"><a href="importingexporting-data-into-r.html#cb632-88" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb632-89"><a href="importingexporting-data-into-r.html#cb632-89" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>,</span>
+<span id="cb632-90"><a href="importingexporting-data-into-r.html#cb632-90" aria-hidden="true" tabindex="-1"></a>                          <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb632-91"><a href="importingexporting-data-into-r.html#cb632-91" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ARG_Raw_modified_Allen_etal_2019_df)</span>
+<span id="cb632-92"><a href="importingexporting-data-into-r.html#cb632-92" aria-hidden="true" tabindex="-1"></a><span class="co">#    X Strain  Contig                    ARG  Per.ID Length MiMa Gap C.Start  C.End A.Start A.End E.val Bit.Score</span></span>
+<span id="cb632-93"><a href="importingexporting-data-into-r.html#cb632-93" aria-hidden="true" tabindex="-1"></a><span class="co">#1  2 705963  NODE_6        mdf(A)_1_Y08743  97.891   1233   26   0   40970  42202       1  1233     0      2134</span></span>
+<span id="cb632-94"><a href="importingexporting-data-into-r.html#cb632-94" aria-hidden="true" tabindex="-1"></a><span class="co">#2  1 706090  NODE_4        mdf(A)_1_Y08743  97.891   1233   26   0   19449  20681       1  1233     0      2134</span></span>
+<span id="cb632-95"><a href="importingexporting-data-into-r.html#cb632-95" aria-hidden="true" tabindex="-1"></a><span class="co">#3 50 707404 NODE_12        mdf(A)_1_Y08743  97.567   1233   30   0  113267 114499    1233     1     0      2111</span></span>
+<span id="cb632-96"><a href="importingexporting-data-into-r.html#cb632-96" aria-hidden="true" tabindex="-1"></a><span class="co">#4  6 707404 NODE_23        sul2_2_AY034138 100.000    816    0   0    8928   9743       1   816     0      1507</span></span>
+<span id="cb632-97"><a href="importingexporting-data-into-r.html#cb632-97" aria-hidden="true" tabindex="-1"></a><span class="co">#5 28 707404 NODE_23 aph(3__)-Ib_5_AF321551 100.000    529    0   0    9804  10332       1   529     0       977</span></span>
+<span id="cb632-98"><a href="importingexporting-data-into-r.html#cb632-98" aria-hidden="true" tabindex="-1"></a><span class="co">#6 38 707404 NODE_23      dfrA14_5_DQ388123  99.793    483    1   0   10343  10825       1   483     0       887</span></span>
+<span id="cb632-99"><a href="importingexporting-data-into-r.html#cb632-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-100"><a href="importingexporting-data-into-r.html#cb632-100" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ARG_Raw_modified_Allen_etal_2019_df)</span>
+<span id="cb632-101"><a href="importingexporting-data-into-r.html#cb632-101" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;&#39;data.frame&#39;: 230 obs. of  14 variables:</span></span>
+<span id="cb632-102"><a href="importingexporting-data-into-r.html#cb632-102" aria-hidden="true" tabindex="-1"></a><span class="co"># $ X        : int  2 1 50 6 28 38 11 5 21 61 ...</span></span>
+<span id="cb632-103"><a href="importingexporting-data-into-r.html#cb632-103" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Strain   : chr  &quot;705963&quot; &quot;706090&quot; &quot;707404&quot; &quot;707404&quot; ...</span></span>
+<span id="cb632-104"><a href="importingexporting-data-into-r.html#cb632-104" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Contig   : chr  &quot;NODE_6&quot; &quot;NODE_4&quot; &quot;NODE_12&quot; &quot;NODE_23&quot; ...</span></span>
+<span id="cb632-105"><a href="importingexporting-data-into-r.html#cb632-105" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ARG      : chr  &quot;mdf(A)_1_Y08743&quot; &quot;mdf(A)_1_Y08743&quot; &quot;mdf(A)_1_Y08743&quot; &quot;sul2_2_AY034138&quot; ...</span></span>
+<span id="cb632-106"><a href="importingexporting-data-into-r.html#cb632-106" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Per.ID   : num  97.9 97.9 97.6 100 100 ...</span></span>
+<span id="cb632-107"><a href="importingexporting-data-into-r.html#cb632-107" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Length   : int  1233 1233 1233 816 529 483 837 1233 1206 861 ...</span></span>
+<span id="cb632-108"><a href="importingexporting-data-into-r.html#cb632-108" aria-hidden="true" tabindex="-1"></a><span class="co"># $ MiMa     : int  26 26 30 0 0 1 0 26 0 0 ...</span></span>
+<span id="cb632-109"><a href="importingexporting-data-into-r.html#cb632-109" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Gap      : int  0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb632-110"><a href="importingexporting-data-into-r.html#cb632-110" aria-hidden="true" tabindex="-1"></a><span class="co"># $ C.Start  : int  40970 19449 113267 8928 9804 10343 11175 28147 2128 4849 ...</span></span>
+<span id="cb632-111"><a href="importingexporting-data-into-r.html#cb632-111" aria-hidden="true" tabindex="-1"></a><span class="co"># $ C.End    : int  42202 20681 114499 9743 10332 10825 12011 29379 3333 5709 ...</span></span>
+<span id="cb632-112"><a href="importingexporting-data-into-r.html#cb632-112" aria-hidden="true" tabindex="-1"></a><span class="co"># $ A.Start  : int  1 1 1233 1 1 1 1 1233 1 1 ...</span></span>
+<span id="cb632-113"><a href="importingexporting-data-into-r.html#cb632-113" aria-hidden="true" tabindex="-1"></a><span class="co"># $ A.End    : int  1233 1233 1 816 529 483 837 1 1206 861 ...</span></span>
+<span id="cb632-114"><a href="importingexporting-data-into-r.html#cb632-114" aria-hidden="true" tabindex="-1"></a><span class="co"># $ E.val    : num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb632-115"><a href="importingexporting-data-into-r.html#cb632-115" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Bit.Score: int  2134 2134 2111 1507 977 887 1546 2134 2228 1591 ...</span></span>
+<span id="cb632-116"><a href="importingexporting-data-into-r.html#cb632-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-117"><a href="importingexporting-data-into-r.html#cb632-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-118"><a href="importingexporting-data-into-r.html#cb632-118" aria-hidden="true" tabindex="-1"></a><span class="do">## We notice that have imported dataset has the corrected number of rows (230) </span></span>
+<span id="cb632-119"><a href="importingexporting-data-into-r.html#cb632-119" aria-hidden="true" tabindex="-1"></a><span class="do">## and it is ready for our use in your analyses</span></span>
+<span id="cb632-120"><a href="importingexporting-data-into-r.html#cb632-120" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(ARG_Raw_modified_Allen_etal_2019_df)</span>
+<span id="cb632-121"><a href="importingexporting-data-into-r.html#cb632-121" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 230  14</span></span></code></pre></div>
+<p>Now, we import the next file <code>Growth_Curves.csv</code>. We follow the similar procedure as explained in section <strong>2.6 Importing and exporting data</strong>.</p>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="importingexporting-data-into-r.html#cb633-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We start by readinf the metadata about such file in the text of README_for_Data_Files.txt. </span></span>
+<span id="cb633-2"><a href="importingexporting-data-into-r.html#cb633-2" aria-hidden="true" tabindex="-1"></a><span class="do">## We found the following:</span></span>
+<span id="cb633-3"><a href="importingexporting-data-into-r.html#cb633-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-4"><a href="importingexporting-data-into-r.html#cb633-4" aria-hidden="true" tabindex="-1"></a>Growth_Curves.csv</span>
+<span id="cb633-5"><a href="importingexporting-data-into-r.html#cb633-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-6"><a href="importingexporting-data-into-r.html#cb633-6" aria-hidden="true" tabindex="-1"></a>This file contains the raw growth data which was used to fit the Gompertz growth curves. </span>
+<span id="cb633-7"><a href="importingexporting-data-into-r.html#cb633-7" aria-hidden="true" tabindex="-1"></a>The column headings are<span class="sc">:</span></span>
+<span id="cb633-8"><a href="importingexporting-data-into-r.html#cb633-8" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb633-9"><a href="importingexporting-data-into-r.html#cb633-9" aria-hidden="true" tabindex="-1"></a>   Master<span class="sc">-</span>Which of the two frozen master plates was used to inoculate the </span>
+<span id="cb633-10"><a href="importingexporting-data-into-r.html#cb633-10" aria-hidden="true" tabindex="-1"></a>   overnight culture which inoculated this assay plate.</span>
+<span id="cb633-11"><a href="importingexporting-data-into-r.html#cb633-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-12"><a href="importingexporting-data-into-r.html#cb633-12" aria-hidden="true" tabindex="-1"></a>   Sub.plate<span class="sc">-</span>Which of the <span class="dv">2</span> plates inoculated by the master plate this is. Thus </span>
+<span id="cb633-13"><a href="importingexporting-data-into-r.html#cb633-13" aria-hidden="true" tabindex="-1"></a>   there are <span class="dv">4</span> replicates.</span>
+<span id="cb633-14"><a href="importingexporting-data-into-r.html#cb633-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-15"><a href="importingexporting-data-into-r.html#cb633-15" aria-hidden="true" tabindex="-1"></a>   Treatment<span class="sc">-</span>Which of the <span class="dv">3</span> environmental conditions this growth was for.</span>
+<span id="cb633-16"><a href="importingexporting-data-into-r.html#cb633-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-17"><a href="importingexporting-data-into-r.html#cb633-17" aria-hidden="true" tabindex="-1"></a>   Strain<span class="sc">-</span>Which strain the measurement came from. Those marked as blank had </span>
+<span id="cb633-18"><a href="importingexporting-data-into-r.html#cb633-18" aria-hidden="true" tabindex="-1"></a>   no strain inoculated. Blanks have not been subtracted,there was a single </span>
+<span id="cb633-19"><a href="importingexporting-data-into-r.html#cb633-19" aria-hidden="true" tabindex="-1"></a>   blank on each plate.</span>
+<span id="cb633-20"><a href="importingexporting-data-into-r.html#cb633-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-21"><a href="importingexporting-data-into-r.html#cb633-21" aria-hidden="true" tabindex="-1"></a>   OD<span class="sc">-</span>Optical density measured at 595nm.</span>
+<span id="cb633-22"><a href="importingexporting-data-into-r.html#cb633-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-23"><a href="importingexporting-data-into-r.html#cb633-23" aria-hidden="true" tabindex="-1"></a>   Read<span class="sc">-</span>An integer value <span class="cf">for</span> which read this is, takes values of <span class="dv">1</span><span class="fl">-41.</span></span>
+<span id="cb633-24"><a href="importingexporting-data-into-r.html#cb633-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-25"><a href="importingexporting-data-into-r.html#cb633-25" aria-hidden="true" tabindex="-1"></a>   Time<span class="sc">-</span>The exact <span class="fu">time</span> (relative to the start of the growth experiment) </span>
+<span id="cb633-26"><a href="importingexporting-data-into-r.html#cb633-26" aria-hidden="true" tabindex="-1"></a>   that the read was taken <span class="cf">in</span> hours, shown as a <span class="fu">fraction</span> (e.g. <span class="fl">4.5</span> is 4Hrs30Mins).</span>
+<span id="cb633-27"><a href="importingexporting-data-into-r.html#cb633-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-28"><a href="importingexporting-data-into-r.html#cb633-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-29"><a href="importingexporting-data-into-r.html#cb633-29" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to find the path to the corresponding file by &quot;drag-and_drop&quot; in MACs </span></span>
+<span id="cb633-30"><a href="importingexporting-data-into-r.html#cb633-30" aria-hidden="true" tabindex="-1"></a><span class="do">## or finding file properties in PCs. </span></span>
+<span id="cb633-31"><a href="importingexporting-data-into-r.html#cb633-31" aria-hidden="true" tabindex="-1"></a><span class="do">## In my computer (MAC), they look like this:</span></span>
+<span id="cb633-32"><a href="importingexporting-data-into-r.html#cb633-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-33"><a href="importingexporting-data-into-r.html#cb633-33" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span><span class="er">/</span>Desktop<span class="sc">/</span>Teach_R<span class="sc">/</span>class_datasets<span class="sc">/</span>Dryad_example_for_Data_Files<span class="sc">/</span>Growth_Curves.csv</span>
+<span id="cb633-34"><a href="importingexporting-data-into-r.html#cb633-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-35"><a href="importingexporting-data-into-r.html#cb633-35" aria-hidden="true" tabindex="-1"></a><span class="do">## Both files are *.csv (i.e., comma delimited files), so they can be easily </span></span>
+<span id="cb633-36"><a href="importingexporting-data-into-r.html#cb633-36" aria-hidden="true" tabindex="-1"></a><span class="do">## imported with the read.table function. These files have data as comma </span></span>
+<span id="cb633-37"><a href="importingexporting-data-into-r.html#cb633-37" aria-hidden="true" tabindex="-1"></a><span class="do">## delimited and we want to preserve headers</span></span>
+<span id="cb633-38"><a href="importingexporting-data-into-r.html#cb633-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-39"><a href="importingexporting-data-into-r.html#cb633-39" aria-hidden="true" tabindex="-1"></a>Growth_Curves_Allen_etal_2019_df <span class="ot">&lt;-</span> <span class="fu">read.table</span> (<span class="at">file =</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets/Dryad_example_for_Data_Files/Growth_Curves.csv&quot;</span>, </span>
+<span id="cb633-40"><a href="importingexporting-data-into-r.html#cb633-40" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb633-41"><a href="importingexporting-data-into-r.html#cb633-41" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>,</span>
+<span id="cb633-42"><a href="importingexporting-data-into-r.html#cb633-42" aria-hidden="true" tabindex="-1"></a>                          <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb633-43"><a href="importingexporting-data-into-r.html#cb633-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-44"><a href="importingexporting-data-into-r.html#cb633-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-45"><a href="importingexporting-data-into-r.html#cb633-45" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Growth_Curves_Allen_etal_2019_df)</span>
+<span id="cb633-46"><a href="importingexporting-data-into-r.html#cb633-46" aria-hidden="true" tabindex="-1"></a><span class="co">#      X Master Sub.plate Treatment Strain     OD Read      Time</span></span>
+<span id="cb633-47"><a href="importingexporting-data-into-r.html#cb633-47" aria-hidden="true" tabindex="-1"></a><span class="co">#1 1      2         1     Basal ECOR31 0.3877   38 44.488156</span></span>
+<span id="cb633-48"><a href="importingexporting-data-into-r.html#cb633-48" aria-hidden="true" tabindex="-1"></a><span class="co">#2 2      2         1     Basal ECOR31 0.5019   12 13.760846</span></span>
+<span id="cb633-49"><a href="importingexporting-data-into-r.html#cb633-49" aria-hidden="true" tabindex="-1"></a><span class="co">#3 3      2         1     Basal ECOR31 0.4839   11 12.588198</span></span>
+<span id="cb633-50"><a href="importingexporting-data-into-r.html#cb633-50" aria-hidden="true" tabindex="-1"></a><span class="co">#4 4      2         1     Basal ECOR31 0.5245   20 23.211779</span></span>
+<span id="cb633-51"><a href="importingexporting-data-into-r.html#cb633-51" aria-hidden="true" tabindex="-1"></a><span class="co">#5 5      2         1     Basal ECOR31 0.4581   29 33.816143</span></span>
+<span id="cb633-52"><a href="importingexporting-data-into-r.html#cb633-52" aria-hidden="true" tabindex="-1"></a><span class="co">#6 6      2         1     Basal ECOR31 0.0590    2  1.977896</span></span>
+<span id="cb633-53"><a href="importingexporting-data-into-r.html#cb633-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-54"><a href="importingexporting-data-into-r.html#cb633-54" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Growth_Curves_Allen_etal_2019_df)</span>
+<span id="cb633-55"><a href="importingexporting-data-into-r.html#cb633-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;&#39;data.frame&#39;: 45756 obs. of  8 variables:</span></span>
+<span id="cb633-56"><a href="importingexporting-data-into-r.html#cb633-56" aria-hidden="true" tabindex="-1"></a><span class="co"># $ X        : int  1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span id="cb633-57"><a href="importingexporting-data-into-r.html#cb633-57" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Master   : int  2 2 2 2 2 2 2 2 2 2 ...</span></span>
+<span id="cb633-58"><a href="importingexporting-data-into-r.html#cb633-58" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Sub.plate: int  1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span id="cb633-59"><a href="importingexporting-data-into-r.html#cb633-59" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Treatment: chr  &quot;Basal&quot; &quot;Basal&quot; &quot;Basal&quot; &quot;Basal&quot; ...</span></span>
+<span id="cb633-60"><a href="importingexporting-data-into-r.html#cb633-60" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Strain   : chr  &quot;ECOR31&quot; &quot;ECOR31&quot; &quot;ECOR31&quot; &quot;ECOR31&quot; ...</span></span>
+<span id="cb633-61"><a href="importingexporting-data-into-r.html#cb633-61" aria-hidden="true" tabindex="-1"></a><span class="co"># $ OD       : num  0.388 0.502 0.484 0.524 0.458 ...</span></span>
+<span id="cb633-62"><a href="importingexporting-data-into-r.html#cb633-62" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Read     : int  38 12 11 20 29 2 21 39 18 4 ...</span></span>
+<span id="cb633-63"><a href="importingexporting-data-into-r.html#cb633-63" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Time     : num  44.5 13.8 12.6 23.2 33.8 ...</span></span>
+<span id="cb633-64"><a href="importingexporting-data-into-r.html#cb633-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb633-65"><a href="importingexporting-data-into-r.html#cb633-65" aria-hidden="true" tabindex="-1"></a><span class="do">## We notice this data frame, this has EXACT number of rows than the original </span></span>
+<span id="cb633-66"><a href="importingexporting-data-into-r.html#cb633-66" aria-hidden="true" tabindex="-1"></a><span class="do">## that the original files with 45756 rows. </span></span>
+<span id="cb633-67"><a href="importingexporting-data-into-r.html#cb633-67" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Growth_Curves_Allen_etal_2019_df)</span>
+<span id="cb633-68"><a href="importingexporting-data-into-r.html#cb633-68" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 45756     8</span></span></code></pre></div>
+</div>
+<div id="fixing-problems-while-importing-datasets" class="section level2" number="30.9">
+<h2><span class="header-section-number">30.9</span> Fixing problems while importing datasets</h2>
+<p>It is not unusual to you might have problems while importing datasets from DRYAD or any other source into R. These usually must do column titles, unusual characters, uneven number of entries (i.e., some rows have more than the others). These can easily be preprocess directly in the text or excel files before you import and save you time.</p>
+<p><strong>7)</strong> You can start by determine if R is unable to open or input data from your file. We can test with a file with errors <code>mtcars2_file_tab_with_errors.txt</code></p>
+<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="importingexporting-data-into-r.html#cb634-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We try to import this file and it has error</span></span>
+<span id="cb634-2"><a href="importingexporting-data-into-r.html#cb634-2" aria-hidden="true" tabindex="-1"></a>my_mtcars2_file_df <span class="ot">&lt;-</span> <span class="fu">read.table</span> (<span class="at">file =</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets/mtcars2_file_tab_with_errors.txt&quot;</span>, </span>
+<span id="cb634-3"><a href="importingexporting-data-into-r.html#cb634-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb634-4"><a href="importingexporting-data-into-r.html#cb634-4" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb634-5"><a href="importingexporting-data-into-r.html#cb634-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb634-6"><a href="importingexporting-data-into-r.html#cb634-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb634-7"><a href="importingexporting-data-into-r.html#cb634-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb634-8"><a href="importingexporting-data-into-r.html#cb634-8" aria-hidden="true" tabindex="-1"></a><span class="do">## some examples of errors will be</span></span>
+<span id="cb634-9"><a href="importingexporting-data-into-r.html#cb634-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb634-10"><a href="importingexporting-data-into-r.html#cb634-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Error in read.table(file = &quot;~/Desktop/Teach_R/class_datasets/mtcars2_file_tab_with_errors.txt&quot;,  : </span></span>
+<span id="cb634-11"><a href="importingexporting-data-into-r.html#cb634-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  more columns than column names</span></span>
+<span id="cb634-12"><a href="importingexporting-data-into-r.html#cb634-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb634-13"><a href="importingexporting-data-into-r.html#cb634-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Error in scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  : </span></span>
+<span id="cb634-14"><a href="importingexporting-data-into-r.html#cb634-14" aria-hidden="true" tabindex="-1"></a><span class="co"># line 3 did not have 15 elements</span></span>
+<span id="cb634-15"><a href="importingexporting-data-into-r.html#cb634-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb634-16"><a href="importingexporting-data-into-r.html#cb634-16" aria-hidden="true" tabindex="-1"></a><span class="do">## if you try to see if you have loaded that dataset, you get an error</span></span>
+<span id="cb634-17"><a href="importingexporting-data-into-r.html#cb634-17" aria-hidden="true" tabindex="-1"></a>my_mtcars2_file_df</span>
+<span id="cb634-18"><a href="importingexporting-data-into-r.html#cb634-18" aria-hidden="true" tabindex="-1"></a><span class="co">#Error: object &#39;my_mtcars2_file_df&#39; not found</span></span></code></pre></div>
+<p>The output indicates that the number of column names does not match the number of entries in a row of the dataset.</p>
+<p><strong>8)</strong> You can start by opening the file in excel and notice if the column names (i.e., variable names) do match the number of columns. If they do not, you need to add a missing name(s). Likewise, no rows can have more values than those of the column names, unless you are planning to import without column names. It is not uncommon that some values might have incorrectly entered and you have to correct those before you import your dataset into R.</p>
+<p><img src="figures/session_14_figs/7_entry_data_error_1.png" width="100%" /></p>
+<p>We notice that rows <code>2</code>, <code>3</code>,<code>5</code> and <code>6</code> have misplaced values, that need to be corrected. Some might need to be removed (e.g., as in rows <code>2</code> and <code>6</code>) or the text that should be in one column
+has moved to the next column (e.g., as in rows <code>3</code> and <code>5</code>). Here is this table after correction:</p>
+<p><img src="figures/session_14_figs/8_entry_data_error_2.png" width="100%" /></p>
+<p>We probably will be able to import this dataset, but we need to clean it up a bit more</p>
+<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="importingexporting-data-into-r.html#cb635-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We try to import this file again</span></span>
+<span id="cb635-2"><a href="importingexporting-data-into-r.html#cb635-2" aria-hidden="true" tabindex="-1"></a>my_mtcars2_file_df <span class="ot">&lt;-</span> <span class="fu">read.table</span> (<span class="at">file =</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets/mtcars2_file_tab_with_errors2.txt&quot;</span>, </span>
+<span id="cb635-3"><a href="importingexporting-data-into-r.html#cb635-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb635-4"><a href="importingexporting-data-into-r.html#cb635-4" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb635-5"><a href="importingexporting-data-into-r.html#cb635-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb635-6"><a href="importingexporting-data-into-r.html#cb635-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_mtcars2_file_df)</span>
+<span id="cb635-7"><a href="importingexporting-data-into-r.html#cb635-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  cars.XX.            mpg.XX cyl.XX This.9s.a...very.complex.......Name  hp drat   wt  qsec    vs am gear carb X</span></span>
+<span id="cb635-8"><a href="importingexporting-data-into-r.html#cb635-8" aria-hidden="true" tabindex="-1"></a><span class="co">#1        1         Mazda_RX4   21.0                                   6 160  110 3.90 2.620 16.46  0    1    4 4</span></span>
+<span id="cb635-9"><a href="importingexporting-data-into-r.html#cb635-9" aria-hidden="true" tabindex="-1"></a><span class="co">#2        2     Mazda_RX4_Wag   21.0                                   6 160  110 3.90 2.875 17.02  0    1    4 4</span></span>
+<span id="cb635-10"><a href="importingexporting-data-into-r.html#cb635-10" aria-hidden="true" tabindex="-1"></a><span class="co">#3        3        Datsun_710   22.8                                   4 108   93 3.85 2.320 18.61  1    1    4 1</span></span>
+<span id="cb635-11"><a href="importingexporting-data-into-r.html#cb635-11" aria-hidden="true" tabindex="-1"></a><span class="co">#4        4    Hornet_4_Drive   21.4                                   6 258  110 3.08 3.215 19.44  1    0    3 1</span></span>
+<span id="cb635-12"><a href="importingexporting-data-into-r.html#cb635-12" aria-hidden="true" tabindex="-1"></a><span class="co">#5        5 Hornet_Sportabout   18.7                                   8 360  175 3.15 3.440 17.02  0    0    3 2</span></span>
+<span id="cb635-13"><a href="importingexporting-data-into-r.html#cb635-13" aria-hidden="true" tabindex="-1"></a><span class="co">#6        6           Valiant   18.1                                   6 225  105 2.76 3.460 20.22  1    0    3 1</span></span>
+<span id="cb635-14"><a href="importingexporting-data-into-r.html#cb635-14" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(my_mtcars2_file_df)</span>
+<span id="cb635-15"><a href="importingexporting-data-into-r.html#cb635-15" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;cars.XX.&quot;                            &quot;mpg.XX&quot;                              &quot;cyl.XX&quot;                              &quot;This.9s.a...very.complex.......Name&quot; &quot;hp&quot;                                 </span></span>
+<span id="cb635-16"><a href="importingexporting-data-into-r.html#cb635-16" aria-hidden="true" tabindex="-1"></a><span class="co">#[6] &quot;drat&quot;                                &quot;wt&quot;                                  &quot;qsec&quot;                                &quot;vs&quot;                                  &quot;am&quot;                                 </span></span>
+<span id="cb635-17"><a href="importingexporting-data-into-r.html#cb635-17" aria-hidden="true" tabindex="-1"></a><span class="co">#[11] &quot;gear&quot;                                &quot;carb&quot;                                &quot;X&quot; </span></span></code></pre></div>
+<p><strong>9)</strong> We notice that the names for the last column has been assigned a title of a generic <code>X</code> and the column 1 has only the row increasing numbers (i.e., is a useless column). We can move the names of the columns by one cell and delete the column 1.</p>
+<p><img src="figures/session_14_figs/9_entry_data_error_3.png" width="100%" /></p>
+<p>We probably will be able to import this dataset again, but we need to clean it up a bit more</p>
+<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="importingexporting-data-into-r.html#cb636-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We try to import this file again</span></span>
+<span id="cb636-2"><a href="importingexporting-data-into-r.html#cb636-2" aria-hidden="true" tabindex="-1"></a>my_mtcars2_file_df <span class="ot">&lt;-</span> <span class="fu">read.table</span> (<span class="at">file =</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets/mtcars2_file_tab_with_errors3.txt&quot;</span>, </span>
+<span id="cb636-3"><a href="importingexporting-data-into-r.html#cb636-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb636-4"><a href="importingexporting-data-into-r.html#cb636-4" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb636-5"><a href="importingexporting-data-into-r.html#cb636-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb636-6"><a href="importingexporting-data-into-r.html#cb636-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_mtcars2_file_df)</span>
+<span id="cb636-7"><a href="importingexporting-data-into-r.html#cb636-7" aria-hidden="true" tabindex="-1"></a><span class="co">#             cars.XX. mpg.XX cyl.XX This.9s.a...very.complex.......Name  hp drat    wt  qsec vs am gear carb</span></span>
+<span id="cb636-8"><a href="importingexporting-data-into-r.html#cb636-8" aria-hidden="true" tabindex="-1"></a><span class="co">#1         Mazda_RX4   21.0      6                                 160 110 3.90 2.620 16.46  0  1    4    4</span></span>
+<span id="cb636-9"><a href="importingexporting-data-into-r.html#cb636-9" aria-hidden="true" tabindex="-1"></a><span class="co">#2     Mazda_RX4_Wag   21.0      6                                 160 110 3.90 2.875 17.02  0  1    4    4</span></span>
+<span id="cb636-10"><a href="importingexporting-data-into-r.html#cb636-10" aria-hidden="true" tabindex="-1"></a><span class="co">#3        Datsun_710   22.8      4                                 108  93 3.85 2.320 18.61  1  1    4    1</span></span>
+<span id="cb636-11"><a href="importingexporting-data-into-r.html#cb636-11" aria-hidden="true" tabindex="-1"></a><span class="co">#4    Hornet_4_Drive   21.4      6                                 258 110 3.08 3.215 19.44  1  0    3    1</span></span>
+<span id="cb636-12"><a href="importingexporting-data-into-r.html#cb636-12" aria-hidden="true" tabindex="-1"></a><span class="co">#5 Hornet_Sportabout   18.7      8                                 360 175 3.15 3.440 17.02  0  0    3    2</span></span>
+<span id="cb636-13"><a href="importingexporting-data-into-r.html#cb636-13" aria-hidden="true" tabindex="-1"></a><span class="co">#6           Valiant   18.1      6                                 225 105 2.76 3.460 20.22  1  0    3    1names(my_mtcars2_file_df)</span></span>
+<span id="cb636-14"><a href="importingexporting-data-into-r.html#cb636-14" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(my_mtcars2_file_df)</span>
+<span id="cb636-15"><a href="importingexporting-data-into-r.html#cb636-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;cars.XX.&quot;                            &quot;mpg.XX&quot;                              &quot;cyl.XX&quot;                              &quot;This.9s.a...very.complex.......Name&quot; &quot;hp&quot;                                 </span></span>
+<span id="cb636-16"><a href="importingexporting-data-into-r.html#cb636-16" aria-hidden="true" tabindex="-1"></a><span class="co"># [6] &quot;drat&quot;                                &quot;wt&quot;                                  &quot;qsec&quot;                                &quot;vs&quot;                                  &quot;am&quot;                                 </span></span>
+<span id="cb636-17"><a href="importingexporting-data-into-r.html#cb636-17" aria-hidden="true" tabindex="-1"></a><span class="co">#[11] &quot;gear&quot;                                &quot;carb&quot;</span></span></code></pre></div>
+<p><strong>10)</strong> We can simplify the column names and texts if you have character columns by replacing spaces, <code>.</code>, <code>;</code>, <code>,</code>, <code>( )</code>, <code>[ ]</code>, <code>{ }</code>, <code>=</code>, <code>"</code>, <code>/</code>, <code>\</code>, <code>+</code>, <code>?</code>, <code>$</code>, <code>%</code>, <code>*</code>, <code>#</code> or any other strange symbols with <code>_</code>. Likewise, this will make the column names short and easy to interpret.</p>
+<p><img src="figures/session_14_figs/10_entry_data_error_4.png" width="100%" /></p>
+<p>We probably will be able to import this dataset again and this might be good for your analyses.</p>
+<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb637-1"><a href="importingexporting-data-into-r.html#cb637-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We try to import this file again</span></span>
+<span id="cb637-2"><a href="importingexporting-data-into-r.html#cb637-2" aria-hidden="true" tabindex="-1"></a>my_mtcars2_file_df <span class="ot">&lt;-</span> <span class="fu">read.table</span> (<span class="at">file =</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets/mtcars2_file_tab.txt&quot;</span>, </span>
+<span id="cb637-3"><a href="importingexporting-data-into-r.html#cb637-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb637-4"><a href="importingexporting-data-into-r.html#cb637-4" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb637-5"><a href="importingexporting-data-into-r.html#cb637-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb637-6"><a href="importingexporting-data-into-r.html#cb637-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_mtcars2_file_df)</span>
+<span id="cb637-7"><a href="importingexporting-data-into-r.html#cb637-7" aria-hidden="true" tabindex="-1"></a><span class="co">#               cars  mpg cyl disp  hp drat    wt  qsec vs am gear carb</span></span>
+<span id="cb637-8"><a href="importingexporting-data-into-r.html#cb637-8" aria-hidden="true" tabindex="-1"></a><span class="co">#1         Mazda_RX4 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4</span></span>
+<span id="cb637-9"><a href="importingexporting-data-into-r.html#cb637-9" aria-hidden="true" tabindex="-1"></a><span class="co">#2     Mazda_RX4_Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4</span></span>
+<span id="cb637-10"><a href="importingexporting-data-into-r.html#cb637-10" aria-hidden="true" tabindex="-1"></a><span class="co">#3        Datsun_710 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1</span></span>
+<span id="cb637-11"><a href="importingexporting-data-into-r.html#cb637-11" aria-hidden="true" tabindex="-1"></a><span class="co">#4    Hornet_4_Drive 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1</span></span>
+<span id="cb637-12"><a href="importingexporting-data-into-r.html#cb637-12" aria-hidden="true" tabindex="-1"></a><span class="co">#5 Hornet_Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2</span></span>
+<span id="cb637-13"><a href="importingexporting-data-into-r.html#cb637-13" aria-hidden="true" tabindex="-1"></a><span class="co">#6           Valiant 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</span></span>
+<span id="cb637-14"><a href="importingexporting-data-into-r.html#cb637-14" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(my_mtcars2_file_df)</span>
+<span id="cb637-15"><a href="importingexporting-data-into-r.html#cb637-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;cars&quot; &quot;mpg&quot;  &quot;cyl&quot;  &quot;disp&quot; &quot;hp&quot;   &quot;drat&quot; &quot;wt&quot;   &quot;qsec&quot; &quot;vs&quot;   &quot;am&quot;   &quot;gear&quot; &quot;carb&quot;  </span></span></code></pre></div>
+</div>
+<div id="data-from-clinicaltrials.gov" class="section level2" number="30.10">
+<h2><span class="header-section-number">30.10</span> Data from clinicaltrials.gov</h2>
+<p>Sometimes you have data that is published in a website and you want to extract some for your analyses. For example,
+<a href="https://clinicaltrials.gov/" target="_blank"><strong>NCBI Clinical Trials</strong></a> is an online registry and repository database
+of research studies conducted in the United States and around the world about treatments, diseases, and others.</p>
+<p><img src="figures/session_14_figs/11_clinical_trials.png" width="100%" /></p>
+<p>You can search results of a clinical trial by key terms. For example, we could do a search for studies for asthma in Jamaica, NY, USA.</p>
+<p><img src="figures/session_14_figs/12_asthma_in_jamaica.png" width="100%" /></p>
+<p>As of today (02/01/2023) this search resulted in two completed studies on asthma that include people in Jamaica, NY, USA.</p>
+<p><img src="figures/session_14_figs/13_asthma_page2.png" width="100%" /></p>
+<p>If you click on the first study, you will get to the results for this locality.</p>
+<p><img src="figures/session_14_figs/14_asthma_page3.png" width="100%" /></p>
+<p>On this page, you can click on the <strong>Study Results</strong> tab and you can access the tabular results of this study. You could click on Beta.ClinicalTrials.gov tab for an alternative format view of these results.</p>
+<p><img src="figures/session_14_figs/15_asthma_page4.png" width="100%" /></p>
+<p>I could not find a easy way to get the results as tables other than copy such summary tables in text editor. More in the future.</p>
+</div>
+<div id="data-scrapping-from-a-website" class="section level2" number="30.11">
+<h2><span class="header-section-number">30.11</span> Data scrapping from a website</h2>
+<p>You can force text scraping from a website (e.g., the clinical trial results), but will require that you do the cleaning and selection of the data.
+One useful R-package is <a href="https://cran.r-project.org/web/packages/rvest/index.html" target="_blank"><strong>rvest</strong></a> for an easy harvest (scrape) of web pages.
+You can read the <a href="https://cran.r-project.org/web/packages/rvest/vignettes/rvest.html" target="_blank"><strong>rvest vignette</strong></a>.</p>
+<p>A simple scrapping for a not a very complicated webpage.</p>
+<div class="sourceCode" id="cb638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb638-1"><a href="importingexporting-data-into-r.html#cb638-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load rvest</span></span>
+<span id="cb638-2"><a href="importingexporting-data-into-r.html#cb638-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rvest&quot;</span>)</span>
+<span id="cb638-3"><a href="importingexporting-data-into-r.html#cb638-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (rvest)</span>
+<span id="cb638-4"><a href="importingexporting-data-into-r.html#cb638-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb638-5"><a href="importingexporting-data-into-r.html#cb638-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Change to working directory</span></span>
+<span id="cb638-6"><a href="importingexporting-data-into-r.html#cb638-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb638-7"><a href="importingexporting-data-into-r.html#cb638-7" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/Some_directoty&quot;</span>)</span>
+<span id="cb638-8"><a href="importingexporting-data-into-r.html#cb638-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb638-9"><a href="importingexporting-data-into-r.html#cb638-9" aria-hidden="true" tabindex="-1"></a><span class="co"># create an vector with web address </span></span>
+<span id="cb638-10"><a href="importingexporting-data-into-r.html#cb638-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb638-11"><a href="importingexporting-data-into-r.html#cb638-11" aria-hidden="true" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://www.stjohns.edu/academics/office-registrar/academic-calendar/final-exam-schedule&quot;</span>)</span>
+<span id="cb638-12"><a href="importingexporting-data-into-r.html#cb638-12" aria-hidden="true" tabindex="-1"></a>html</span>
+<span id="cb638-13"><a href="importingexporting-data-into-r.html#cb638-13" aria-hidden="true" tabindex="-1"></a><span class="co">#{{html_document}</span></span>
+<span id="cb638-14"><a href="importingexporting-data-into-r.html#cb638-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot; prefix=&quot;content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# &quot;&gt;</span></span>
+<span id="cb638-15"><a href="importingexporting-data-into-r.html#cb638-15" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &lt;head&gt;\n&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;\n&lt;meta charset=&quot;utf-8&quot;&gt;\n&lt;script type=&quot;text/javascript&quot;&gt;(window.NREUM|| ...</span></span>
+<span id="cb638-16"><a href="importingexporting-data-into-r.html#cb638-16" aria-hidden="true" tabindex="-1"></a><span class="co">#[2] &lt;body&gt;\n    &lt;!-- Google Tag Manager --&gt;\n    &lt;noscript&gt;&lt;iframe src=&quot;//www.googletagmanager.com/ns.html?id=GTM-5STJNB&quot; height=&quot;0&quot; width=&quot;0&quot; style=&quot;d ...</span></span>
+<span id="cb638-17"><a href="importingexporting-data-into-r.html#cb638-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb638-18"><a href="importingexporting-data-into-r.html#cb638-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Get dates as table</span></span>
+<span id="cb638-19"><a href="importingexporting-data-into-r.html#cb638-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb638-20"><a href="importingexporting-data-into-r.html#cb638-20" aria-hidden="true" tabindex="-1"></a>exams_table <span class="ot">&lt;-</span> <span class="fu">html_node</span>(html , <span class="st">&quot;table&quot;</span>)</span>
+<span id="cb638-21"><a href="importingexporting-data-into-r.html#cb638-21" aria-hidden="true" tabindex="-1"></a>exams_table_tibble <span class="ot">&lt;-</span> <span class="fu">html_table</span>(exams_table)</span>
+<span id="cb638-22"><a href="importingexporting-data-into-r.html#cb638-22" aria-hidden="true" tabindex="-1"></a>exams_table_tibble</span>
+<span id="cb638-23"><a href="importingexporting-data-into-r.html#cb638-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb638-24"><a href="importingexporting-data-into-r.html#cb638-24" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 31 × 4</span></span>
+<span id="cb638-25"><a href="importingexporting-data-into-r.html#cb638-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   `Class Meeting` Time                   `Final Exam/Final Class` Time                  </span></span>
+<span id="cb638-26"><a href="importingexporting-data-into-r.html#cb638-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;chr&gt;           &lt;chr&gt;                  &lt;chr&gt;                    &lt;chr&gt;                 </span></span>
+<span id="cb638-27"><a href="importingexporting-data-into-r.html#cb638-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 &quot;Days&quot;          &quot;Time&quot;                 &quot;Date&quot;                   &quot;Time&quot;                </span></span>
+<span id="cb638-28"><a href="importingexporting-data-into-r.html#cb638-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 &quot;M-R&quot;           &quot;9:05 a.m.-10:30 a.m.&quot; &quot;May 4 (R)&quot;              &quot;9:05 a.m.-11:05 a.m.&quot;</span></span>
+<span id="cb638-29"><a href="importingexporting-data-into-r.html#cb638-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 &quot;M-R&quot;           &quot;12:15 p.m.-1:40 p.m.&quot; &quot;May 4 (R)&quot;              &quot;12:15 p.m.-2:15 p.m.&quot;</span></span>
+<span id="cb638-30"><a href="importingexporting-data-into-r.html#cb638-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 &quot;M-R&quot;           &quot;5:00 p.m.-6:25 p.m.&quot;  &quot;May 4 (R)&quot;              &quot;5:00 p.m.-7:00 p.m.&quot; </span></span>
+<span id="cb638-31"><a href="importingexporting-data-into-r.html#cb638-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 &quot;M-R&quot;           &quot;8:45 p.m.-10:10 p.m.&quot; &quot;May 4 (R)&quot;              &quot;8:45 p.m.-10:45 p.m.&quot;</span></span>
+<span id="cb638-32"><a href="importingexporting-data-into-r.html#cb638-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 6 &quot;&quot;              &quot;&quot;                     &quot;&quot;                       &quot;&quot;                    </span></span>
+<span id="cb638-33"><a href="importingexporting-data-into-r.html#cb638-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 7 &quot;T-F&quot;           &quot;9:05 a.m.-10:30 a.m.&quot; &quot;May 5 (F)&quot;              &quot;9:05 a.m.-11:05 a.m.&quot;</span></span>
+<span id="cb638-34"><a href="importingexporting-data-into-r.html#cb638-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 8 &quot;T-F&quot;           &quot;12:15 p.m.-1:40 p.m.&quot; &quot;May 5 (F)&quot;              &quot;12:15 p.m.-2:15 p.m.&quot;</span></span>
+<span id="cb638-35"><a href="importingexporting-data-into-r.html#cb638-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 9 &quot;T-F&quot;           &quot;3:25 p.m.-4:50 p.m.&quot;  &quot;May 5 (F)&quot;              &quot;3:25 p.m.-5:25 p.m.&quot; </span></span>
+<span id="cb638-36"><a href="importingexporting-data-into-r.html#cb638-36" aria-hidden="true" tabindex="-1"></a><span class="co">#10 &quot;T-F&quot;           &quot;7:10 p.m.-8:35 p.m.&quot;  &quot;May 5 (F)&quot;              &quot;7:10 p.m.-9:10 p.m.&quot; </span></span>
+<span id="cb638-37"><a href="importingexporting-data-into-r.html#cb638-37" aria-hidden="true" tabindex="-1"></a><span class="co"># … with 21 more rows</span></span>
+<span id="cb638-38"><a href="importingexporting-data-into-r.html#cb638-38" aria-hidden="true" tabindex="-1"></a><span class="co"># ℹ Use `print(n = ...)` to see more rows</span></span>
+<span id="cb638-39"><a href="importingexporting-data-into-r.html#cb638-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb638-40"><a href="importingexporting-data-into-r.html#cb638-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb638-41"><a href="importingexporting-data-into-r.html#cb638-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Write such table in a text file in your working directory</span></span>
+<span id="cb638-42"><a href="importingexporting-data-into-r.html#cb638-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb638-43"><a href="importingexporting-data-into-r.html#cb638-43" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(exams_table_tibble, <span class="st">&quot;sju_academic_calendar_scrap.csv&quot;</span>)</span>
+<span id="cb638-44"><a href="importingexporting-data-into-r.html#cb638-44" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(exams_table_tibble, <span class="st">&quot;sju_academic_calendar_scrap.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<p>A scrapping from more complex web pages will require you to work on the text data derived from it.</p>
+<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="importingexporting-data-into-r.html#cb639-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change to working directory</span></span>
+<span id="cb639-2"><a href="importingexporting-data-into-r.html#cb639-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb639-3"><a href="importingexporting-data-into-r.html#cb639-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/Some_directoty&quot;</span>)</span>
+<span id="cb639-4"><a href="importingexporting-data-into-r.html#cb639-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb639-5"><a href="importingexporting-data-into-r.html#cb639-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an vector with web address (for example a clinical trial results)</span></span>
+<span id="cb639-6"><a href="importingexporting-data-into-r.html#cb639-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb639-7"><a href="importingexporting-data-into-r.html#cb639-7" aria-hidden="true" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://clinicaltrials.gov/ct2/show/results/NCT02414854?cond=Asthma&amp;cntry=US&amp;state=US%3ANY&amp;city=Jamaica&amp;draw=2&amp;rank=1&quot;</span>)</span>
+<span id="cb639-8"><a href="importingexporting-data-into-r.html#cb639-8" aria-hidden="true" tabindex="-1"></a>html</span>
+<span id="cb639-9"><a href="importingexporting-data-into-r.html#cb639-9" aria-hidden="true" tabindex="-1"></a><span class="co">#{html_document}</span></span>
+<span id="cb639-10"><a href="importingexporting-data-into-r.html#cb639-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;html xmlns=&quot;https://www.w3.org/1999/xhtml&quot; lang=&quot;en&quot;&gt;</span></span>
+<span id="cb639-11"><a href="importingexporting-data-into-r.html#cb639-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &lt;head&gt;\n&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;\n&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;\n&lt;meta http-equ ...</span></span>
+<span id="cb639-12"><a href="importingexporting-data-into-r.html#cb639-12" aria-hidden="true" tabindex="-1"></a><span class="co">#[2] &lt;body&gt; \n&lt;script type=&quot;text/javascript&quot;&gt;\n    jQuery.getScript(&quot;https://www.ncbi.nlm.nih.gov/core/alerts/alerts.js&quot;, function () {\n      galert([&#39; ...</span></span>
+<span id="cb639-13"><a href="importingexporting-data-into-r.html#cb639-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb639-14"><a href="importingexporting-data-into-r.html#cb639-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Get all the text in a vector</span></span>
+<span id="cb639-15"><a href="importingexporting-data-into-r.html#cb639-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb639-16"><a href="importingexporting-data-into-r.html#cb639-16" aria-hidden="true" tabindex="-1"></a>text_on_webpage <span class="ot">&lt;-</span> <span class="fu">html_text</span>(html)</span>
+<span id="cb639-17"><a href="importingexporting-data-into-r.html#cb639-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(text_on_webpage)</span>
+<span id="cb639-18"><a href="importingexporting-data-into-r.html#cb639-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb639-19"><a href="importingexporting-data-into-r.html#cb639-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Write such vector in a text file in your working directory</span></span>
+<span id="cb639-20"><a href="importingexporting-data-into-r.html#cb639-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb639-21"><a href="importingexporting-data-into-r.html#cb639-21" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(text_on_webpage, <span class="st">&quot;text_on_webapge.txt&quot;</span>)</span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="bioinformatics-literature.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="miscellaneous.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/30-Import_data_in_R_v10.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
