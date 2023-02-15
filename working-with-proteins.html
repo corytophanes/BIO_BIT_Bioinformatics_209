@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Session 31 – Working with Proteins | Bioinformatics Workshop Gitbook</title>
+  <meta name="description" content="none" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Session 31 – Working with Proteins | Bioinformatics Workshop Gitbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="none" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Session 31 – Working with Proteins | Bioinformatics Workshop Gitbook" />
+  
+  <meta name="twitter:description" content="none" />
+  
+
+<meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
+
+
+<meta name="date" content="2023-02-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="importingexporting-data-into-r.html"/>
+<link rel="next" href="miscellaneous.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Bioinformatics Workshop Gitbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>1</b> – Getting Started with R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#why-do-we-use-r"><i class="fa fa-check"></i><b>1.1</b> Why do we use R?</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#get-a-good-text-editor"><i class="fa fa-check"></i><b>1.2</b> Get a good text editor</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#r-studio"><i class="fa fa-check"></i><b>1.3</b> R studio</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-r"><i class="fa fa-check"></i><b>1.4</b> Installing R</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#annotating-code"><i class="fa fa-check"></i><b>1.5</b> Annotating code</a></li>
+<li class="chapter" data-level="1.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#defining-a-working-directory-in-r"><i class="fa fa-check"></i><b>1.6</b> Defining a working directory in R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html"><i class="fa fa-check"></i><b>2</b> – Using R, Installing Packages and Importing/Exporting Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#your-first-session"><i class="fa fa-check"></i><b>2.1</b> Your first session</a></li>
+<li class="chapter" data-level="2.2" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#doing-some-base-functions-and-getting-help"><i class="fa fa-check"></i><b>2.2</b> Doing some base functions and getting help</a></li>
+<li class="chapter" data-level="2.3" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#functions-between-two-or-more-vectors"><i class="fa fa-check"></i><b>2.3</b> Functions between two or more vectors</a></li>
+<li class="chapter" data-level="2.4" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#about-r-packages"><i class="fa fa-check"></i><b>2.4</b> About R-packages</a></li>
+<li class="chapter" data-level="2.5" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#installing-packages"><i class="fa fa-check"></i><b>2.5</b> Installing packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html"><i class="fa fa-check"></i><b>3</b> – Basic Data Structures in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#scalars-and-vectors"><i class="fa fa-check"></i><b>3.1</b> Scalars and vectors</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#matrices"><i class="fa fa-check"></i><b>3.2</b> Matrices</a></li>
+<li class="chapter" data-level="3.3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#arrays"><i class="fa fa-check"></i><b>3.3</b> Arrays</a></li>
+<li class="chapter" data-level="3.4" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-frames"><i class="fa fa-check"></i><b>3.4</b> Data Frames</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tables"><i class="fa fa-check"></i><b>3.5</b> Tables</a></li>
+<li class="chapter" data-level="3.6" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#lists"><i class="fa fa-check"></i><b>3.6</b> Lists</a></li>
+<li class="chapter" data-level="3.7" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-tables"><i class="fa fa-check"></i><b>3.7</b> Data Tables</a></li>
+<li class="chapter" data-level="3.8" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tibbles"><i class="fa fa-check"></i><b>3.8</b> Tibbles</a></li>
+<li class="chapter" data-level="3.9" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#dnastringsets-rnastringsets-and-aastringsets"><i class="fa fa-check"></i><b>3.9</b> DNAStringSets, RNAStringSets and AAStringSets</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html"><i class="fa fa-check"></i><b>4</b> – Text Editing and Data Transformations</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#working-with-character-strings"><i class="fa fa-check"></i><b>4.1</b> Working with character strings</a></li>
+<li class="chapter" data-level="4.2" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#regular-expressions-regex"><i class="fa fa-check"></i><b>4.2</b> Regular expressions (Regex)</a></li>
+<li class="chapter" data-level="4.3" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#comparing-ordering-and-simplifying-vectors"><i class="fa fa-check"></i><b>4.3</b> Comparing, ordering and simplifying vectors</a></li>
+<li class="chapter" data-level="4.4" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#useful-functions-of-stringr"><i class="fa fa-check"></i><b>4.4</b> Useful functions of <code>stringr</code></a></li>
+<li class="chapter" data-level="4.5" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#data-transformations"><i class="fa fa-check"></i><b>4.5</b> Data transformations</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html"><i class="fa fa-check"></i><b>5</b> – Getting Biological Data from Public Repositories</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#ncbi-databases-genbank-and-others"><i class="fa fa-check"></i><b>5.1</b> NCBI databases: GenBank and others</a></li>
+<li class="chapter" data-level="5.2" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#accessing-ncbi-within-r-rentrez"><i class="fa fa-check"></i><b>5.2</b> Accessing NCBI within R: <code>rentrez</code></a></li>
+<li class="chapter" data-level="5.3" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#retrieving-pubmed-references"><i class="fa fa-check"></i><b>5.3</b> Retrieving PubMed references</a></li>
+<li class="chapter" data-level="5.4" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#comparing-sequences-blast"><i class="fa fa-check"></i><b>5.4</b> Comparing sequences: BLAST</a></li>
+<li class="chapter" data-level="5.5" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-uniprot"><i class="fa fa-check"></i><b>5.5</b> Other databases: UniProt</a></li>
+<li class="chapter" data-level="5.6" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-ensembl"><i class="fa fa-check"></i><b>5.6</b> Other databases: Ensembl</a></li>
+<li class="chapter" data-level="5.7" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-taxonomy-phylogenetic-trees-and-species-distributions"><i class="fa fa-check"></i><b>5.7</b> Other databases: Taxonomy, phylogenetic trees and species distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html"><i class="fa fa-check"></i><b>6</b> – Basic Statistics in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#exploring-your-data"><i class="fa fa-check"></i><b>6.1</b> Exploring your data</a></li>
+<li class="chapter" data-level="6.2" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#sub-setting-your-dataset"><i class="fa fa-check"></i><b>6.2</b> Sub-setting your dataset</a></li>
+<li class="chapter" data-level="6.3" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#transposing-rotating-your-dataset"><i class="fa fa-check"></i><b>6.3</b> Transposing (rotating) your dataset</a></li>
+<li class="chapter" data-level="6.4" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#dealing-with-missing-na-values"><i class="fa fa-check"></i><b>6.4</b> Dealing with missing (NA) values</a></li>
+<li class="chapter" data-level="6.5" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#about-p-values"><i class="fa fa-check"></i><b>6.5</b> About p-values</a></li>
+<li class="chapter" data-level="6.6" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#how-to-read-p-values"><i class="fa fa-check"></i><b>6.6</b> How to read p-values</a></li>
+<li class="chapter" data-level="6.7" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#multiple-testing-corrections"><i class="fa fa-check"></i><b>6.7</b> Multiple testing corrections</a></li>
+<li class="chapter" data-level="6.8" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#normalizing-your-data"><i class="fa fa-check"></i><b>6.8</b> Normalizing your data</a></li>
+<li class="chapter" data-level="6.9" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#what-test-should-i-use"><i class="fa fa-check"></i><b>6.9</b> What test should I use?</a></li>
+<li class="chapter" data-level="6.10" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#type-of-variables-in-dataset"><i class="fa fa-check"></i><b>6.10</b> Type of variables in dataset</a></li>
+<li class="chapter" data-level="6.11" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-means-t-test"><i class="fa fa-check"></i><b>6.11</b> Comparing means: t-test</a></li>
+<li class="chapter" data-level="6.12" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#two-sample-t-test"><i class="fa fa-check"></i><b>6.12</b> Two sample t-test</a></li>
+<li class="chapter" data-level="6.13" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>6.13</b> Beyond t-test: Wilcoxon signed rank test</a></li>
+<li class="chapter" data-level="6.14" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-binomial-test"><i class="fa fa-check"></i><b>6.14</b> Beyond t-test: Binomial test</a></li>
+<li class="chapter" data-level="6.15" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-chi-square-goodness-of-fit"><i class="fa fa-check"></i><b>6.15</b> Beyond t-test: Chi-square goodness of fit</a></li>
+<li class="chapter" data-level="6.16" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-mcnemars-test"><i class="fa fa-check"></i><b>6.16</b> Beyond t-test: McNemar’s test</a></li>
+<li class="chapter" data-level="6.17" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-fishers-exact-test"><i class="fa fa-check"></i><b>6.17</b> Beyond t-test: Fisher’s exact test</a></li>
+<li class="chapter" data-level="6.18" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.18</b> Correlations</a></li>
+<li class="chapter" data-level="6.19" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.19</b> Comparing distributions</a></li>
+<li class="chapter" data-level="6.20" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#bootstraps"><i class="fa fa-check"></i><b>6.20</b> Bootstraps</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html"><i class="fa fa-check"></i><b>7</b> – Regressions and ANOVA in R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#linear-regressions"><i class="fa fa-check"></i><b>7.1</b> Linear regressions</a></li>
+<li class="chapter" data-level="7.2" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#anatomy-of-a-linear-regression"><i class="fa fa-check"></i><b>7.2</b> Anatomy of a linear regression</a></li>
+<li class="chapter" data-level="7.3" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#multiple-linear-regressions"><i class="fa fa-check"></i><b>7.3</b> Multiple linear regressions</a></li>
+<li class="chapter" data-level="7.4" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#diagnostic-plots-for-regressions"><i class="fa fa-check"></i><b>7.4</b> Diagnostic plots for regressions</a></li>
+<li class="chapter" data-level="7.5" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#regression-influential-measurements"><i class="fa fa-check"></i><b>7.5</b> Regression influential measurements</a></li>
+<li class="chapter" data-level="7.6" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#regression-anova-coefficients-ci"><i class="fa fa-check"></i><b>7.6</b> Regression (ANOVA, coefficients, CI)</a></li>
+<li class="chapter" data-level="7.7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#selecting-predictors"><i class="fa fa-check"></i><b>7.7</b> Selecting predictors</a></li>
+<li class="chapter" data-level="7.8" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#regression-predictions"><i class="fa fa-check"></i><b>7.8</b> Regression predictions</a></li>
+<li class="chapter" data-level="7.9" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#logistic-regressions"><i class="fa fa-check"></i><b>7.9</b> Logistic regressions</a></li>
+<li class="chapter" data-level="7.10" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#logistic-regressions-requirements"><i class="fa fa-check"></i><b>7.10</b> Logistic regressions requirements</a></li>
+<li class="chapter" data-level="7.11" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#non-linear-regressions"><i class="fa fa-check"></i><b>7.11</b> Non-linear regressions</a></li>
+<li class="chapter" data-level="7.12" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#toy-datasets-for-regressions"><i class="fa fa-check"></i><b>7.12</b> Toy datasets for regressions</a></li>
+<li class="chapter" data-level="7.13" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#anova"><i class="fa fa-check"></i><b>7.13</b> ANOVA</a></li>
+<li class="chapter" data-level="7.14" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#one-way-anova"><i class="fa fa-check"></i><b>7.14</b> One-way ANOVA</a></li>
+<li class="chapter" data-level="7.15" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#two-way-anova"><i class="fa fa-check"></i><b>7.15</b> Two-way ANOVA</a></li>
+<li class="chapter" data-level="7.16" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#anova-post-hoc-tests"><i class="fa fa-check"></i><b>7.16</b> ANOVA Post-hoc tests</a></li>
+<li class="chapter" data-level="7.17" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#beyond-anova-kruskal-wallis-test"><i class="fa fa-check"></i><b>7.17</b> Beyond ANOVA: Kruskal-Wallis Test</a></li>
+<li class="chapter" data-level="7.18" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#toy-datasets-for-anova"><i class="fa fa-check"></i><b>7.18</b> Toy datasets for ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="multidimensional-data-in-r.html"><a href="multidimensional-data-in-r.html"><i class="fa fa-check"></i><b>8</b> – Multidimensional Data in R</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="multidimensional-data-in-r.html"><a href="multidimensional-data-in-r.html#principal-component-analysis"><i class="fa fa-check"></i><b>8.1</b> Principal Component Analysis</a></li>
+<li class="chapter" data-level="8.2" data-path="multidimensional-data-in-r.html"><a href="multidimensional-data-in-r.html#multidimensional-scaling"><i class="fa fa-check"></i><b>8.2</b> Multidimensional scaling</a></li>
+<li class="chapter" data-level="8.3" data-path="multidimensional-data-in-r.html"><a href="multidimensional-data-in-r.html#cluster-analysis-dfa"><i class="fa fa-check"></i><b>8.3</b> Cluster analysis: DFA</a></li>
+<li class="chapter" data-level="8.4" data-path="multidimensional-data-in-r.html"><a href="multidimensional-data-in-r.html#cluster-analysis-k-means-unsupervised"><i class="fa fa-check"></i><b>8.4</b> Cluster analysis: <em>k</em>-means (unsupervised)</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html"><i class="fa fa-check"></i><b>9</b> – Graphics and Colors</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#avoid-bad-graphics"><i class="fa fa-check"></i><b>9.1</b> Avoid bad graphics</a></li>
+<li class="chapter" data-level="9.2" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#graphics-in-r-ggplot2"><i class="fa fa-check"></i><b>9.2</b> Graphics in R – ggplot2</a></li>
+<li class="chapter" data-level="9.3" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#preparing-your-dataset"><i class="fa fa-check"></i><b>9.3</b> Preparing your dataset</a></li>
+<li class="chapter" data-level="9.4" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#color-palettes-online"><i class="fa fa-check"></i><b>9.4</b> Color palettes online</a></li>
+<li class="chapter" data-level="9.5" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#ggplot2-default-palette"><i class="fa fa-check"></i><b>9.5</b> <code>ggplot2</code> default palette</a></li>
+<li class="chapter" data-level="9.6" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#heatmaps-or-tiled-charts"><i class="fa fa-check"></i><b>9.6</b> Heatmaps or tiled charts</a></li>
+<li class="chapter" data-level="9.7" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#r-packages-about-color"><i class="fa fa-check"></i><b>9.7</b> R-packages about color</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#viridis-package"><i class="fa fa-check"></i><b>9.7.1</b> <code>viridis</code> package</a></li>
+<li class="chapter" data-level="9.7.2" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#rcolorbrewer-package"><i class="fa fa-check"></i><b>9.7.2</b> <code>RColorBrewer</code> package</a></li>
+<li class="chapter" data-level="9.7.3" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#ggsci-package"><i class="fa fa-check"></i><b>9.7.3</b> <code>ggsci</code> package</a></li>
+<li class="chapter" data-level="9.7.4" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#wesanderson-package"><i class="fa fa-check"></i><b>9.7.4</b> <code>wesanderson</code> package</a></li>
+<li class="chapter" data-level="9.7.5" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#rcartocolor-package"><i class="fa fa-check"></i><b>9.7.5</b> <code>rcartocolor</code> package</a></li>
+<li class="chapter" data-level="9.7.6" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#colorspace-package"><i class="fa fa-check"></i><b>9.7.6</b> <code>colorspace</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#making-your-own-palette"><i class="fa fa-check"></i><b>9.8</b> Making your own palette</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="basic-graphics.html"><a href="basic-graphics.html"><i class="fa fa-check"></i><b>10</b> – Basic Graphics</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="basic-graphics.html"><a href="basic-graphics.html#what-would-you-like-to-show"><i class="fa fa-check"></i><b>10.1</b> What would you like to show?</a></li>
+<li class="chapter" data-level="10.2" data-path="basic-graphics.html"><a href="basic-graphics.html#bar-charts"><i class="fa fa-check"></i><b>10.2</b> Bar charts</a></li>
+<li class="chapter" data-level="10.3" data-path="basic-graphics.html"><a href="basic-graphics.html#stacked-bar-charts"><i class="fa fa-check"></i><b>10.3</b> Stacked bar charts</a></li>
+<li class="chapter" data-level="10.4" data-path="basic-graphics.html"><a href="basic-graphics.html#histograms"><i class="fa fa-check"></i><b>10.4</b> Histograms</a></li>
+<li class="chapter" data-level="10.5" data-path="basic-graphics.html"><a href="basic-graphics.html#multiple-histograms"><i class="fa fa-check"></i><b>10.5</b> Multiple histograms</a></li>
+<li class="chapter" data-level="10.6" data-path="basic-graphics.html"><a href="basic-graphics.html#density-plots"><i class="fa fa-check"></i><b>10.6</b> Density plots</a></li>
+<li class="chapter" data-level="10.7" data-path="basic-graphics.html"><a href="basic-graphics.html#box-plots"><i class="fa fa-check"></i><b>10.7</b> Box plots</a></li>
+<li class="chapter" data-level="10.8" data-path="basic-graphics.html"><a href="basic-graphics.html#violin-plots"><i class="fa fa-check"></i><b>10.8</b> Violin plots</a></li>
+<li class="chapter" data-level="10.9" data-path="basic-graphics.html"><a href="basic-graphics.html#scatterplots"><i class="fa fa-check"></i><b>10.9</b> Scatterplots</a></li>
+<li class="chapter" data-level="10.10" data-path="basic-graphics.html"><a href="basic-graphics.html#lines-and-scatterplots"><i class="fa fa-check"></i><b>10.10</b> Lines and Scatterplots</a></li>
+<li class="chapter" data-level="10.11" data-path="basic-graphics.html"><a href="basic-graphics.html#save-your-plots-as-pdf-or-png"><i class="fa fa-check"></i><b>10.11</b> Save your plots as PDF or PNG</a></li>
+<li class="chapter" data-level="10.12" data-path="basic-graphics.html"><a href="basic-graphics.html#ggplot2-add-on-packages-treemapify"><i class="fa fa-check"></i><b>10.12</b> ggplot2 add-on packages: <code>treemapify</code></a></li>
+<li class="chapter" data-level="10.13" data-path="basic-graphics.html"><a href="basic-graphics.html#other-resources"><i class="fa fa-check"></i><b>10.13</b> Other resources</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="sequence-alignments.html"><a href="sequence-alignments.html"><i class="fa fa-check"></i><b>11</b> – Sequence Alignments</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="sequence-alignments.html"><a href="sequence-alignments.html#retrieving-sequences-using-rentrez"><i class="fa fa-check"></i><b>11.1</b> Retrieving sequences using ‘rentrez’</a></li>
+<li class="chapter" data-level="11.2" data-path="sequence-alignments.html"><a href="sequence-alignments.html#retrieving-sequences-manually-from-ncbi"><i class="fa fa-check"></i><b>11.2</b> Retrieving sequences manually from NCBI</a></li>
+<li class="chapter" data-level="11.3" data-path="sequence-alignments.html"><a href="sequence-alignments.html#retrieving-accession-numbers"><i class="fa fa-check"></i><b>11.3</b> Retrieving accession numbers</a></li>
+<li class="chapter" data-level="11.4" data-path="sequence-alignments.html"><a href="sequence-alignments.html#alignment-with-decipher"><i class="fa fa-check"></i><b>11.4</b> Alignment with <code>DECIPHER</code></a></li>
+<li class="chapter" data-level="11.5" data-path="sequence-alignments.html"><a href="sequence-alignments.html#visualize-alignment"><i class="fa fa-check"></i><b>11.5</b> Visualize alignment</a></li>
+<li class="chapter" data-level="11.6" data-path="sequence-alignments.html"><a href="sequence-alignments.html#save-alignment-to-file"><i class="fa fa-check"></i><b>11.6</b> Save alignment to file</a></li>
+<li class="chapter" data-level="11.7" data-path="sequence-alignments.html"><a href="sequence-alignments.html#concatenate-and-align-several-markers"><i class="fa fa-check"></i><b>11.7</b> Concatenate and align several markers</a></li>
+<li class="chapter" data-level="11.8" data-path="sequence-alignments.html"><a href="sequence-alignments.html#concatenate-with-data.table"><i class="fa fa-check"></i><b>11.8</b> Concatenate with <code>data.table</code></a></li>
+<li class="chapter" data-level="11.9" data-path="sequence-alignments.html"><a href="sequence-alignments.html#concatenate-with-biostrings"><i class="fa fa-check"></i><b>11.9</b> Concatenate with <code>Biostrings</code></a></li>
+<li class="chapter" data-level="11.10" data-path="sequence-alignments.html"><a href="sequence-alignments.html#visualizing-alignments-in-r"><i class="fa fa-check"></i><b>11.10</b> Visualizing alignments in R</a></li>
+<li class="chapter" data-level="11.11" data-path="sequence-alignments.html"><a href="sequence-alignments.html#other-sequence-alignment-software"><i class="fa fa-check"></i><b>11.11</b> Other sequence alignment software</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html"><i class="fa fa-check"></i><b>12</b> – Estimating Phylogenetic Trees</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#phylogeny-inference-with-iqtree2"><i class="fa fa-check"></i><b>12.1</b> Phylogeny inference with <code>iqtree2</code></a></li>
+<li class="chapter" data-level="12.2" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#installing-iqtree2-in-macos"><i class="fa fa-check"></i><b>12.2</b> Installing <code>iqtree2</code> in macOS</a></li>
+<li class="chapter" data-level="12.3" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#installing-and-running-iqtree2-in-a-pc"><i class="fa fa-check"></i><b>12.3</b> Installing and running <code>iqtree2</code> in a PC</a></li>
+<li class="chapter" data-level="12.4" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#loading-the-iqtree_runner_r-function"><i class="fa fa-check"></i><b>12.4</b> Loading the <code>iqtree_runner_R</code> function</a></li>
+<li class="chapter" data-level="12.5" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#running-iqtree2-from-r"><i class="fa fa-check"></i><b>12.5</b> Running <code>iqtree2</code> from R</a></li>
+<li class="chapter" data-level="12.6" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#one-marker-and-no-partitions"><i class="fa fa-check"></i><b>12.6</b> One marker and no partitions</a></li>
+<li class="chapter" data-level="12.7" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#one-marker-and-with-partitions"><i class="fa fa-check"></i><b>12.7</b> One marker and with partitions</a></li>
+<li class="chapter" data-level="12.8" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#bootstrap-support"><i class="fa fa-check"></i><b>12.8</b> Bootstrap support</a></li>
+<li class="chapter" data-level="12.9" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#many-markers-and-with-partitions"><i class="fa fa-check"></i><b>12.9</b> Many markers and with partitions</a></li>
+<li class="chapter" data-level="12.10" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#other-sequence-phylogenetic-tree-estimation-software"><i class="fa fa-check"></i><b>12.10</b> Other sequence phylogenetic tree estimation software</a></li>
+<li class="chapter" data-level="12.11" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#drawing-phylogenetic-trees-with-ggtree"><i class="fa fa-check"></i><b>12.11</b> Drawing phylogenetic trees with <code>ggtree</code></a></li>
+<li class="chapter" data-level="12.12" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#save-ggtree-plots-as-pdf-or-png"><i class="fa fa-check"></i><b>12.12</b> Save ggtree plots as PDF or PNG</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html"><i class="fa fa-check"></i><b>13</b> – Mining from a reference dataset</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#a-worked-example-using-the-mtcars-dataset"><i class="fa fa-check"></i><b>13.1</b> A worked example using the <code>mtcars</code> dataset</a></li>
+<li class="chapter" data-level="13.2" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#build-a-reference-dataset"><i class="fa fa-check"></i><b>13.2</b> Build a reference dataset</a></li>
+<li class="chapter" data-level="13.3" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#build-a-sampling-dataset"><i class="fa fa-check"></i><b>13.3</b> Build a sampling dataset</a></li>
+<li class="chapter" data-level="13.4" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#extracting-from-reference-dataset"><i class="fa fa-check"></i><b>13.4</b> Extracting from reference dataset</a></li>
+<li class="chapter" data-level="13.5" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#plots-of-the-extracted-data"><i class="fa fa-check"></i><b>13.5</b> Plots of the extracted data</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="introduction-to-python.html"><a href="introduction-to-python.html"><i class="fa fa-check"></i><b>14</b> – Introduction to Python</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="introduction-to-python.html"><a href="introduction-to-python.html#welcome-to-python-why-python"><i class="fa fa-check"></i><b>14.1</b> Welcome to Python! Why Python?</a></li>
+<li class="chapter" data-level="14.2" data-path="introduction-to-python.html"><a href="introduction-to-python.html#which-python-should-i-install"><i class="fa fa-check"></i><b>14.2</b> Which Python should I install?</a></li>
+<li class="chapter" data-level="14.3" data-path="introduction-to-python.html"><a href="introduction-to-python.html#mac-os-x-python-installations"><i class="fa fa-check"></i><b>14.3</b> Mac OS X Python Installations</a></li>
+<li class="chapter" data-level="14.4" data-path="introduction-to-python.html"><a href="introduction-to-python.html#windows-python-installations"><i class="fa fa-check"></i><b>14.4</b> Windows Python Installations</a></li>
+<li class="chapter" data-level="14.5" data-path="introduction-to-python.html"><a href="introduction-to-python.html#install-an-ide-or-integrated-development-environment"><i class="fa fa-check"></i><b>14.5</b> Install an IDE, or integrated development environment</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="python-keywords-and-identifiers.html"><a href="python-keywords-and-identifiers.html"><i class="fa fa-check"></i><b>15</b> – Python: Keywords and Identifiers</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="python-keywords-and-identifiers.html"><a href="python-keywords-and-identifiers.html#keywords-in-python"><i class="fa fa-check"></i><b>15.1</b> Keywords in Python</a></li>
+<li class="chapter" data-level="15.2" data-path="python-keywords-and-identifiers.html"><a href="python-keywords-and-identifiers.html#identifiers-in-python"><i class="fa fa-check"></i><b>15.2</b> Identifiers in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html"><i class="fa fa-check"></i><b>16</b> – Python: Statements and Expressions</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#what-are-statements"><i class="fa fa-check"></i><b>16.1</b> What are statements?</a></li>
+<li class="chapter" data-level="16.2" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#expressions-in-python"><i class="fa fa-check"></i><b>16.2</b> Expressions in Python</a></li>
+<li class="chapter" data-level="16.3" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#simple-assignment-statements-in-python"><i class="fa fa-check"></i><b>16.3</b> Simple Assignment Statements in Python</a></li>
+<li class="chapter" data-level="16.4" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#augmented-assignment-statements-in-python"><i class="fa fa-check"></i><b>16.4</b> Augmented Assignment Statements in Python</a></li>
+<li class="chapter" data-level="16.5" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#explicit-and-implicit-line-continuation"><i class="fa fa-check"></i><b>16.5</b> Explicit and Implicit Line Continuation</a></li>
+<li class="chapter" data-level="16.6" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#indentation-in-python-is-crucial-to-proper-code-function"><i class="fa fa-check"></i><b>16.6</b> Indentation in Python is Crucial to Proper Code function</a></li>
+<li class="chapter" data-level="16.7" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#comments"><i class="fa fa-check"></i><b>16.7</b> Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="python-data-types.html"><a href="python-data-types.html"><i class="fa fa-check"></i><b>17</b> – Python: Data Types</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="python-data-types.html"><a href="python-data-types.html#booleans"><i class="fa fa-check"></i><b>17.1</b> Booleans</a></li>
+<li class="chapter" data-level="17.2" data-path="python-data-types.html"><a href="python-data-types.html#numbers-int-float-and-complex"><i class="fa fa-check"></i><b>17.2</b> Numbers: int, float and complex</a></li>
+<li class="chapter" data-level="17.3" data-path="python-data-types.html"><a href="python-data-types.html#strings"><i class="fa fa-check"></i><b>17.3</b> Strings</a></li>
+<li class="chapter" data-level="17.4" data-path="python-data-types.html"><a href="python-data-types.html#bytes"><i class="fa fa-check"></i><b>17.4</b> Bytes</a></li>
+<li class="chapter" data-level="17.5" data-path="python-data-types.html"><a href="python-data-types.html#lists-1"><i class="fa fa-check"></i><b>17.5</b> Lists</a></li>
+<li class="chapter" data-level="17.6" data-path="python-data-types.html"><a href="python-data-types.html#tuples"><i class="fa fa-check"></i><b>17.6</b> Tuples</a></li>
+<li class="chapter" data-level="17.7" data-path="python-data-types.html"><a href="python-data-types.html#sets"><i class="fa fa-check"></i><b>17.7</b> Sets</a></li>
+<li class="chapter" data-level="17.8" data-path="python-data-types.html"><a href="python-data-types.html#dictionary"><i class="fa fa-check"></i><b>17.8</b> Dictionary</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="python-strings.html"><a href="python-strings.html"><i class="fa fa-check"></i><b>18</b> – Python: Strings</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="python-strings.html"><a href="python-strings.html#string-operators"><i class="fa fa-check"></i><b>18.1</b> String Operators</a></li>
+<li class="chapter" data-level="18.2" data-path="python-strings.html"><a href="python-strings.html#other-string-modifiers"><i class="fa fa-check"></i><b>18.2</b> Other String Modifiers</a></li>
+<li class="chapter" data-level="18.3" data-path="python-strings.html"><a href="python-strings.html#format-characters-in-strings"><i class="fa fa-check"></i><b>18.3</b> Format-Characters in Strings</a></li>
+<li class="chapter" data-level="18.4" data-path="python-strings.html"><a href="python-strings.html#comparisons-with-strings"><i class="fa fa-check"></i><b>18.4</b> Comparisons with Strings</a></li>
+<li class="chapter" data-level="18.5" data-path="python-strings.html"><a href="python-strings.html#padding-strings"><i class="fa fa-check"></i><b>18.5</b> Padding strings</a></li>
+<li class="chapter" data-level="18.6" data-path="python-strings.html"><a href="python-strings.html#search-for-words-in-string-and-output-location"><i class="fa fa-check"></i><b>18.6</b> Search for words in string and output location</a></li>
+<li class="chapter" data-level="18.7" data-path="python-strings.html"><a href="python-strings.html#seek-and-replace-in-strings"><i class="fa fa-check"></i><b>18.7</b> Seek and replace in strings</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="python-operators.html"><a href="python-operators.html"><i class="fa fa-check"></i><b>19</b> – Python: Operators</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="python-operators.html"><a href="python-operators.html#many-types-of-operators"><i class="fa fa-check"></i><b>19.1</b> Many types of operators</a></li>
+<li class="chapter" data-level="19.2" data-path="python-operators.html"><a href="python-operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>19.2</b> Arithmetic operators</a></li>
+<li class="chapter" data-level="19.3" data-path="python-operators.html"><a href="python-operators.html#comparison-operators"><i class="fa fa-check"></i><b>19.3</b> Comparison operators</a></li>
+<li class="chapter" data-level="19.4" data-path="python-operators.html"><a href="python-operators.html#logical-operators"><i class="fa fa-check"></i><b>19.4</b> Logical operators</a></li>
+<li class="chapter" data-level="19.5" data-path="python-operators.html"><a href="python-operators.html#bitwise-operators"><i class="fa fa-check"></i><b>19.5</b> Bitwise operators</a></li>
+<li class="chapter" data-level="19.6" data-path="python-operators.html"><a href="python-operators.html#identity-operators"><i class="fa fa-check"></i><b>19.6</b> Identity Operators</a></li>
+<li class="chapter" data-level="19.7" data-path="python-operators.html"><a href="python-operators.html#membership-operators"><i class="fa fa-check"></i><b>19.7</b> Membership operators</a></li>
+<li class="chapter" data-level="19.8" data-path="python-operators.html"><a href="python-operators.html#what-is-the-order-of-operations-with-operators"><i class="fa fa-check"></i><b>19.8</b> What is the order of operations with operators?</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="biopython.html"><a href="biopython.html"><i class="fa fa-check"></i><b>20</b> – Biopython</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="biopython.html"><a href="biopython.html#introduction-to-biopython"><i class="fa fa-check"></i><b>20.1</b> Introduction to Biopython</a></li>
+<li class="chapter" data-level="20.2" data-path="biopython.html"><a href="biopython.html#biopython-installation"><i class="fa fa-check"></i><b>20.2</b> Biopython Installation</a></li>
+<li class="chapter" data-level="20.3" data-path="biopython.html"><a href="biopython.html#getting-started"><i class="fa fa-check"></i><b>20.3</b> Getting Started</a></li>
+<li class="chapter" data-level="20.4" data-path="biopython.html"><a href="biopython.html#parsing-my-fasta"><i class="fa fa-check"></i><b>20.4</b> Parsing my FASTA</a></li>
+<li class="chapter" data-level="20.5" data-path="biopython.html"><a href="biopython.html#parsing-my-genbank-or-genpept"><i class="fa fa-check"></i><b>20.5</b> Parsing my GenBank or GenPept</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="biopython-sequences.html"><a href="biopython-sequences.html"><i class="fa fa-check"></i><b>21</b> – Biopython: Sequences</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="biopython-sequences.html"><a href="biopython-sequences.html#sequence-objects"><i class="fa fa-check"></i><b>21.1</b> Sequence Objects</a></li>
+<li class="chapter" data-level="21.2" data-path="biopython-sequences.html"><a href="biopython-sequences.html#concatenation-with-sequences"><i class="fa fa-check"></i><b>21.2</b> Concatenation with Sequences</a></li>
+<li class="chapter" data-level="21.3" data-path="biopython-sequences.html"><a href="biopython-sequences.html#transcription-dna-to-mrna"><i class="fa fa-check"></i><b>21.3</b> Transcription: DNA to mRNA</a></li>
+<li class="chapter" data-level="21.4" data-path="biopython-sequences.html"><a href="biopython-sequences.html#translation-rna-to-prot"><i class="fa fa-check"></i><b>21.4</b> Translation: RNA to PROT</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="biopython-mulitple-sequence-alignments.html"><a href="biopython-mulitple-sequence-alignments.html"><i class="fa fa-check"></i><b>22</b> – Biopython: Mulitple Sequence Alignments</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="biopython-mulitple-sequence-alignments.html"><a href="biopython-mulitple-sequence-alignments.html#pairwise2"><i class="fa fa-check"></i><b>22.1</b> pairwise2</a></li>
+<li class="chapter" data-level="22.2" data-path="biopython-mulitple-sequence-alignments.html"><a href="biopython-mulitple-sequence-alignments.html#pairwisealigner"><i class="fa fa-check"></i><b>22.2</b> PairwiseAligner</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html"><i class="fa fa-check"></i><b>23</b> – Biopython: GenomeDiagram</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#linearcircular-gene-diagrams"><i class="fa fa-check"></i><b>23.1</b> Linear/Circular Gene Diagrams</a></li>
+<li class="chapter" data-level="23.2" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#diagram-readability"><i class="fa fa-check"></i><b>23.2</b> Diagram Readability</a></li>
+<li class="chapter" data-level="23.3" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#box-shape"><i class="fa fa-check"></i><b>23.3</b> Box Shape</a></li>
+<li class="chapter" data-level="23.4" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#edit-box-shape-arrows"><i class="fa fa-check"></i><b>23.4</b> Edit Box Shape: Arrows</a></li>
+<li class="chapter" data-level="23.5" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#restriction-map"><i class="fa fa-check"></i><b>23.5</b> Restriction Map</a></li>
+<li class="chapter" data-level="23.6" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#tracks-on-tracks"><i class="fa fa-check"></i><b>23.6</b> Tracks on Tracks</a></li>
+<li class="chapter" data-level="23.7" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#cross-link-data"><i class="fa fa-check"></i><b>23.7</b> Cross-link Data</a></li>
+<li class="chapter" data-level="23.8" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#clean-cross-link"><i class="fa fa-check"></i><b>23.8</b> Clean Cross-Link</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="biopython-chromosome-modeling.html"><a href="biopython-chromosome-modeling.html"><i class="fa fa-check"></i><b>24</b> – Biopython: Chromosome Modeling</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="biopython-chromosome-modeling.html"><a href="biopython-chromosome-modeling.html#gene-feature-modeling"><i class="fa fa-check"></i><b>24.1</b> Gene Feature Modeling</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html"><i class="fa fa-check"></i><b>25</b> – Biopython: Sequence Parsing with Plots</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#histograms-1"><i class="fa fa-check"></i><b>25.1</b> Histograms</a></li>
+<li class="chapter" data-level="25.2" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#gc-content"><i class="fa fa-check"></i><b>25.2</b> GC Content</a></li>
+<li class="chapter" data-level="25.3" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#nt-alignment-dot-plot"><i class="fa fa-check"></i><b>25.3</b> Nt Alignment Dot Plot</a></li>
+<li class="chapter" data-level="25.4" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#bigger-dots-for-the-dot-plot"><i class="fa fa-check"></i><b>25.4</b> Bigger Dots for the Dot Plot</a></li>
+<li class="chapter" data-level="25.5" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#fastq-we-did-not-forget-you"><i class="fa fa-check"></i><b>25.5</b> FASTQ we did not forget you</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html"><i class="fa fa-check"></i><b>26</b> – Python: Web Scraping w/ BeautifulSoup</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#introduction"><i class="fa fa-check"></i><b>26.1</b> Introduction</a></li>
+<li class="chapter" data-level="26.2" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#installation"><i class="fa fa-check"></i><b>26.2</b> Installation</a></li>
+<li class="chapter" data-level="26.3" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#getting-started-1"><i class="fa fa-check"></i><b>26.3</b> Getting started</a></li>
+<li class="chapter" data-level="26.4" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#mining-all-matching-tags"><i class="fa fa-check"></i><b>26.4</b> Mining all matching tags</a></li>
+<li class="chapter" data-level="26.5" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#mining-tags-by-class-or-id"><i class="fa fa-check"></i><b>26.5</b> Mining tags by class or id</a></li>
+<li class="chapter" data-level="26.6" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#use-css-selectors-for-positional-mining"><i class="fa fa-check"></i><b>26.6</b> Use CSS Selectors for positional mining</a></li>
+<li class="chapter" data-level="26.7" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#weather-page-example"><i class="fa fa-check"></i><b>26.7</b> Weather Page Example</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="python-subprocess.html"><a href="python-subprocess.html"><i class="fa fa-check"></i><b>27</b> – Python Subprocess</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="python-subprocess.html"><a href="python-subprocess.html#introduction-and-installation"><i class="fa fa-check"></i><b>27.1</b> Introduction and Installation</a></li>
+<li class="chapter" data-level="27.2" data-path="python-subprocess.html"><a href="python-subprocess.html#creating-your-first-python-script-w-bbtools"><i class="fa fa-check"></i><b>27.2</b> Creating your first python script w/ BBTools</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html"><i class="fa fa-check"></i><b>28</b> – Control Structures &amp; Loops in R</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#controling-the-flow"><i class="fa fa-check"></i><b>28.1</b> Controling the flow</a></li>
+<li class="chapter" data-level="28.2" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#conditional-if"><i class="fa fa-check"></i><b>28.2</b> Conditional <code>if</code></a></li>
+<li class="chapter" data-level="28.3" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#conditional-if-and-else"><i class="fa fa-check"></i><b>28.3</b> Conditional <code>if</code> and <code>else</code></a></li>
+<li class="chapter" data-level="28.4" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#nested-conditionals-if-else-and-if-else"><i class="fa fa-check"></i><b>28.4</b> Nested conditionals <code>if</code>, <code>else</code>, and <code>if else</code></a></li>
+<li class="chapter" data-level="28.5" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#conditional-ifelse"><i class="fa fa-check"></i><b>28.5</b> Conditional <code>ifelse</code></a></li>
+<li class="chapter" data-level="28.6" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#loops-that-control-iterations-and-repeations"><i class="fa fa-check"></i><b>28.6</b> Loops that control iterations and repeations</a></li>
+<li class="chapter" data-level="28.7" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-for-loop"><i class="fa fa-check"></i><b>28.7</b> The <code>for</code> Loop</a></li>
+<li class="chapter" data-level="28.8" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-while-loop"><i class="fa fa-check"></i><b>28.8</b> The <code>while</code> Loop</a></li>
+<li class="chapter" data-level="28.9" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-repeat-loop"><i class="fa fa-check"></i><b>28.9</b> The <code>repeat</code> Loop</a></li>
+<li class="chapter" data-level="28.10" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-next-and-break-statements"><i class="fa fa-check"></i><b>28.10</b> The <code>next</code> and <code>break</code> statements</a></li>
+<li class="chapter" data-level="28.11" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functions"><i class="fa fa-check"></i><b>28.11</b> Other loop functions</a></li>
+<li class="chapter" data-level="28.12" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#lapply-functions"><i class="fa fa-check"></i><b>28.12</b> <code>lapply</code> functions</a></li>
+<li class="chapter" data-level="28.13" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsapply"><i class="fa fa-check"></i><b>28.13</b> Other loop functions:<code>apply</code></a></li>
+<li class="chapter" data-level="28.14" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsmapply"><i class="fa fa-check"></i><b>28.14</b> Other loop functions:<code>mapply</code></a></li>
+<li class="chapter" data-level="28.15" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionstapply"><i class="fa fa-check"></i><b>28.15</b> Other loop functions:<code>tapply</code></a></li>
+<li class="chapter" data-level="28.16" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionssplit"><i class="fa fa-check"></i><b>28.16</b> Other loop functions:<code>split</code></a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html"><i class="fa fa-check"></i><b>29</b> – Bioinformatics Literature</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#peer-reviewed-bioinformatics-journals"><i class="fa fa-check"></i><b>29.1</b> Peer-reviewed bioinformatics journals</a></li>
+<li class="chapter" data-level="29.2" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#access-to-journals-articles"><i class="fa fa-check"></i><b>29.2</b> Access to journals articles</a></li>
+<li class="chapter" data-level="29.3" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#informal-access-to-code-preprints-and-vignettes"><i class="fa fa-check"></i><b>29.3</b> Informal access to code: Preprints and vignettes</a></li>
+<li class="chapter" data-level="29.4" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#online-bioinformatics-courses"><i class="fa fa-check"></i><b>29.4</b> Online bioinformatics courses</a></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html"><i class="fa fa-check"></i><b>30</b> – Importing/Exporting Data into R</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#typing-directly"><i class="fa fa-check"></i><b>30.1</b> Typing directly</a></li>
+<li class="chapter" data-level="30.2" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#summary-versus-raw-data"><i class="fa fa-check"></i><b>30.2</b> Summary versus raw data</a></li>
+<li class="chapter" data-level="30.3" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#importing-data-from-a-file"><i class="fa fa-check"></i><b>30.3</b> Importing data from a file</a></li>
+<li class="chapter" data-level="30.4" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#saving-data-to-a-file"><i class="fa fa-check"></i><b>30.4</b> Saving data to a file</a></li>
+<li class="chapter" data-level="30.5" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#saving-data-as-rdata-.rdata-.rda"><i class="fa fa-check"></i><b>30.5</b> Saving data as Rdata (.rdata, .rda)</a></li>
+<li class="chapter" data-level="30.6" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#import-excel-formated-data"><i class="fa fa-check"></i><b>30.6</b> Import Excel formated data</a></li>
+<li class="chapter" data-level="30.7" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#save-data-as-excel-formated-file"><i class="fa fa-check"></i><b>30.7</b> Save data as Excel formated file</a></li>
+<li class="chapter" data-level="30.8" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#downloading-data-files-github"><i class="fa fa-check"></i><b>30.8</b> Downloading data files (GitHub)</a></li>
+<li class="chapter" data-level="30.9" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#accessing-online-data"><i class="fa fa-check"></i><b>30.9</b> Accessing online data</a></li>
+<li class="chapter" data-level="30.10" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#fixing-problems-while-importing-datasets"><i class="fa fa-check"></i><b>30.10</b> Fixing problems while importing datasets</a></li>
+<li class="chapter" data-level="30.11" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-from-clinicaltrials.gov"><i class="fa fa-check"></i><b>30.11</b> Data from clinicaltrials.gov</a></li>
+<li class="chapter" data-level="30.12" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-scrapping-from-a-website"><i class="fa fa-check"></i><b>30.12</b> Data scrapping from a website</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="working-with-proteins.html"><a href="working-with-proteins.html"><i class="fa fa-check"></i><b>31</b> – Working with Proteins</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="working-with-proteins.html"><a href="working-with-proteins.html#sequences-in-fasta-format"><i class="fa fa-check"></i><b>31.1</b> Sequences in FASTA format</a></li>
+<li class="chapter" data-level="31.2" data-path="working-with-proteins.html"><a href="working-with-proteins.html#fetching-aa-sequences-from-ncbi"><i class="fa fa-check"></i><b>31.2</b> Fetching AA sequences from NCBI</a></li>
+<li class="chapter" data-level="31.3" data-path="working-with-proteins.html"><a href="working-with-proteins.html#importing-aa-sequences-in-r"><i class="fa fa-check"></i><b>31.3</b> Importing AA sequences in R</a></li>
+<li class="chapter" data-level="31.4" data-path="working-with-proteins.html"><a href="working-with-proteins.html#importing-nucleotide-sequences-in-r"><i class="fa fa-check"></i><b>31.4</b> Importing nucleotide sequences in R</a></li>
+<li class="chapter" data-level="31.5" data-path="working-with-proteins.html"><a href="working-with-proteins.html#translating-a-nucleotides-to-aa"><i class="fa fa-check"></i><b>31.5</b> Translating a nucleotides to AA</a></li>
+<li class="chapter" data-level="31.6" data-path="working-with-proteins.html"><a href="working-with-proteins.html#finding-orfs-in-a-nucleotide-sequence"><i class="fa fa-check"></i><b>31.6</b> Finding ORFs in a nucleotide sequence</a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>32</b> – Miscellaneous</a>
+<ul>
+<li class="chapter" data-level="32.1" data-path="miscellaneous.html"><a href="miscellaneous.html#sampling-from-a-vector-of-names"><i class="fa fa-check"></i><b>32.1</b> Sampling from a vector of names</a></li>
+<li class="chapter" data-level="32.2" data-path="miscellaneous.html"><a href="miscellaneous.html#read-a-text-from-an-article-pdf"><i class="fa fa-check"></i><b>32.2</b> Read a text from an article pdf</a></li>
+<li class="chapter" data-level="32.3" data-path="miscellaneous.html"><a href="miscellaneous.html#read-a-text-from-a-website"><i class="fa fa-check"></i><b>32.3</b> Read a text from a website</a></li>
+<li class="chapter" data-level="32.4" data-path="miscellaneous.html"><a href="miscellaneous.html#read-a-text-from-a-file"><i class="fa fa-check"></i><b>32.4</b> Read a text from a file</a></li>
+<li class="chapter" data-level="32.5" data-path="miscellaneous.html"><a href="miscellaneous.html#generate-the-word-cloud"><i class="fa fa-check"></i><b>32.5</b> Generate the word cloud</a></li>
+<li class="chapter" data-level="32.6" data-path="miscellaneous.html"><a href="miscellaneous.html#worldcloud-pdf"><i class="fa fa-check"></i><b>32.6</b> worldcloud – PDF</a></li>
+<li class="chapter" data-level="32.7" data-path="miscellaneous.html"><a href="miscellaneous.html#worldcloud-website"><i class="fa fa-check"></i><b>32.7</b> worldcloud – website</a></li>
+<li class="chapter" data-level="32.8" data-path="miscellaneous.html"><a href="miscellaneous.html#worldcloud-text"><i class="fa fa-check"></i><b>32.8</b> worldcloud – text</a></li>
+<li class="chapter" data-level="32.9" data-path="miscellaneous.html"><a href="miscellaneous.html#miscellaneous-1"><i class="fa fa-check"></i><b>32.9</b> Miscellaneous</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bioinformatics Workshop Gitbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="working-with-proteins" class="section level1" number="31">
+<h1><span class="header-section-number">Session 31</span> – Working with Proteins</h1>
+<p>Most bioinformatics uses sequences from proteins derived from protein sequencing or translation (DNA/RNA to protein) from nucleotide sequences. Such protein analyses usually include sequence analyses (e.g., amino acid composition), protein 2D-3D structure analyses, and comparison between organisms or species (evolution analyses). At the most basic stage, we can compare an amino acid sequence of an unknown protein to those in the ever-growing databases of proteins with known functions. This approach will help us to identify and possible infer protein function, location of expression (e.g., cell region or tissue), and new/novel changes on the amino acid sequence. Protein structure analyses usually involve complex mathematical calculations and biophysical studies to infer how protein looks in a living organism. Using bioinformatics can help us to infer the folding and stability of proteins and to predict the secondary structures from amino acid sequences. Lastly, as we explore the diversity of life as more and more species have their genomes/transcriptomes sequenced, we might want to infer the connection between the phenotype (how an organism looks like or its observable characteristics) and the underlying genotype (genome and gene sequences) as there are expressed in response to the environment. For this purpose, we can use phylogenetic methods to find homologous proteins and similar protein regions that might perform similar enzymatic functions. In this session, we will explore how to work with amino acid sequences.</p>
+<div id="sequences-in-fasta-format" class="section level2" number="31.1">
+<h2><span class="header-section-number">31.1</span> Sequences in FASTA format</h2>
+<p>Nucleotide and amino sequences can be encoded in FASTA that is a text-based format where a single letter represent a nucleotide or amino acid.
+FASTA has a standard configuration that includes two main components: (1) A single-line description that starts with “&gt;” symbol. This usually includes information for the user to identify the gene or protein sequences that might follow in the next line; and (2) A single-line or wrapped text that includes the nucleotide or amino acid sequence.
+This second line includes very specific codes for nucleotides and amino acids in the standard IUB/IUPAC and additional codes.</p>
+<p>The nucleic acid codes supported are:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Nucleic Acid Code</th>
+<th>Meaning</th>
+<th>Mnemonic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>A</td>
+<td>Adenine</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>C</td>
+<td>Cytosine</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td>G</td>
+<td>Guanine</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td>Thymine</td>
+</tr>
+<tr class="odd">
+<td>U</td>
+<td>U</td>
+<td>Uracil</td>
+</tr>
+<tr class="even">
+<td>(i)</td>
+<td>i</td>
+<td>inosine (non-standard)</td>
+</tr>
+<tr class="odd">
+<td>R</td>
+<td>A or G (I)</td>
+<td>puRine</td>
+</tr>
+<tr class="even">
+<td>Y</td>
+<td>C, T or U</td>
+<td>pYrimidines</td>
+</tr>
+<tr class="odd">
+<td>K</td>
+<td>G, T or U</td>
+<td>bases which are Ketones</td>
+</tr>
+<tr class="even">
+<td>M</td>
+<td>A or C</td>
+<td>bases with aMino groups</td>
+</tr>
+<tr class="odd">
+<td>S</td>
+<td>C or G</td>
+<td>Strong interaction</td>
+</tr>
+<tr class="even">
+<td>W</td>
+<td>A, T or U</td>
+<td>Weak interaction</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>not A (i.e. C, G, T or U)</td>
+<td>B comes after A</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>not C (i.e. A, G, T or U)</td>
+<td>D comes after C</td>
+</tr>
+<tr class="odd">
+<td>H</td>
+<td>not G (i.e., A, C, T or U)</td>
+<td>H comes after G</td>
+</tr>
+<tr class="even">
+<td>V</td>
+<td>neither T nor U (i.e. A, C or G)</td>
+<td>V comes after U</td>
+</tr>
+<tr class="odd">
+<td>N</td>
+<td>A C G T U</td>
+<td>Nucleic acid</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>gap of indeterminate length</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The amino acid codes supported (22 amino acids and 3 special codes) are:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Amino Acid Code</th>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>ALA</td>
+<td>alanine</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>ASX</td>
+<td>aspartate or asparagine</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>CYS</td>
+<td>cystine</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>ASP</td>
+<td>aspartate</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td>GLU</td>
+<td>glutamate</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>PHE</td>
+<td>phenylalanine</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td>GLY</td>
+<td>glycine</td>
+</tr>
+<tr class="even">
+<td>H</td>
+<td>HIS</td>
+<td>histidine</td>
+</tr>
+<tr class="odd">
+<td>I</td>
+<td>ILE</td>
+<td>isoleucine</td>
+</tr>
+<tr class="even">
+<td>K</td>
+<td>LYS</td>
+<td>lysine</td>
+</tr>
+<tr class="odd">
+<td>L</td>
+<td>LEU</td>
+<td>leucine</td>
+</tr>
+<tr class="even">
+<td>M</td>
+<td>MET</td>
+<td>methionine</td>
+</tr>
+<tr class="odd">
+<td>N</td>
+<td>ASN</td>
+<td>asparagine</td>
+</tr>
+<tr class="even">
+<td>P</td>
+<td>PRO</td>
+<td>proline</td>
+</tr>
+<tr class="odd">
+<td>Q</td>
+<td>GLN</td>
+<td>glutamine</td>
+</tr>
+<tr class="even">
+<td>R</td>
+<td>ARG</td>
+<td>arginine</td>
+</tr>
+<tr class="odd">
+<td>S</td>
+<td>SER</td>
+<td>serine</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>THR</td>
+<td>threonine</td>
+</tr>
+<tr class="odd">
+<td>U</td>
+<td></td>
+<td>selenocysteine</td>
+</tr>
+<tr class="even">
+<td>V</td>
+<td>VAL</td>
+<td>valine</td>
+</tr>
+<tr class="odd">
+<td>W</td>
+<td>TRP</td>
+<td>tryptophan</td>
+</tr>
+<tr class="even">
+<td>Y</td>
+<td>TYR</td>
+<td>tyrosine</td>
+</tr>
+<tr class="odd">
+<td>Z</td>
+<td>GLX</td>
+<td>glutamate or glutamine</td>
+</tr>
+<tr class="even">
+<td>X</td>
+<td></td>
+<td>any</td>
+</tr>
+<tr class="odd">
+<td>*</td>
+<td></td>
+<td>translation stop</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td></td>
+<td>gap of indeterminate length</td>
+</tr>
+</tbody>
+</table>
+<p>More information can be found <a href="https://en.wikipedia.org/wiki/FASTA_format" target="_blank"><strong>here</strong></a>.</p>
+</div>
+<div id="fetching-aa-sequences-from-ncbi" class="section level2" number="31.2">
+<h2><span class="header-section-number">31.2</span> Fetching AA sequences from NCBI</h2>
+<p><strong>1)</strong> To import amino acid (AA) sequences into R, we want to read a file with AA sequences to create a character vector contains text (e.g., sequence of letters for nucleotide or amino acid sequence). In R, you can easily interact with <a href="https://www.ncbi.nlm.nih.gov/" target="_blank"><strong>NCBI</strong></a> database and <strong>fetch</strong> sequences as vectors
+without the need to save those sequences into a file. For example, we will download protein sequences of a COX1 mitochondrial gene of <a href="https://amphibiaweb.org/species/6581" target="_blank"><em>Epipedobates anthonyi</em></a>.</p>
+<p>We will follow the example from previous sessions using the R-package <a href="https://cran.r-project.org/web/packages/rentrez/index.html" target="_blank"><strong>rentrez</strong></a>.</p>
+<div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="working-with-proteins.html#cb640-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rentrez)</span>
+<span id="cb640-2"><a href="working-with-proteins.html#cb640-2" aria-hidden="true" tabindex="-1"></a><span class="co"># if you need to install R-package &#39;rentrez&#39;, use install.packages(&quot;rentrez&quot;)</span></span>
+<span id="cb640-3"><a href="working-with-proteins.html#cb640-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb640-4"><a href="working-with-proteins.html#cb640-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Download some amino sequences from NCBI for Epipedobates anthonyi[Organism] that correspond to the gene COI</span></span>
+<span id="cb640-5"><a href="working-with-proteins.html#cb640-5" aria-hidden="true" tabindex="-1"></a>froggy_name_COX1_prot <span class="ot">&lt;-</span> <span class="st">&quot;Epipedobates anthonyi[Organism] AND COI[Gene]&quot;</span></span>
+<span id="cb640-6"><a href="working-with-proteins.html#cb640-6" aria-hidden="true" tabindex="-1"></a>froggy_seq_IDs_prot <span class="ot">&lt;-</span> <span class="fu">entrez_search</span>(<span class="at">db=</span><span class="st">&quot;protein&quot;</span>, <span class="at">term=</span> froggy_name_COX1_prot)</span>
+<span id="cb640-7"><a href="working-with-proteins.html#cb640-7" aria-hidden="true" tabindex="-1"></a>froggy_seq_IDs_prot</span>
+<span id="cb640-8"><a href="working-with-proteins.html#cb640-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Entrez search result with 2 hits (object contains 2 IDs and no web_history object)</span></span>
+<span id="cb640-9"><a href="working-with-proteins.html#cb640-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Search term (as translated):  &quot;Epipedobates anthonyi&quot;[Organism] AND COI[Gene] </span></span>
+<span id="cb640-10"><a href="working-with-proteins.html#cb640-10" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb640-11"><a href="working-with-proteins.html#cb640-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb640-12"><a href="working-with-proteins.html#cb640-12" aria-hidden="true" tabindex="-1"></a><span class="co"># revising the structure of &#39;froggy_seq_IDs_prot&#39; that there are 2 sequence in NCBI protein database</span></span>
+<span id="cb640-13"><a href="working-with-proteins.html#cb640-13" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(froggy_seq_IDs_prot)</span>
+<span id="cb640-14"><a href="working-with-proteins.html#cb640-14" aria-hidden="true" tabindex="-1"></a><span class="co">#List of 5</span></span>
+<span id="cb640-15"><a href="working-with-proteins.html#cb640-15" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ids             : chr [1:2] &quot;1952638368&quot; &quot;110332819&quot;</span></span>
+<span id="cb640-16"><a href="working-with-proteins.html#cb640-16" aria-hidden="true" tabindex="-1"></a><span class="co"># $ count           : int 2</span></span>
+<span id="cb640-17"><a href="working-with-proteins.html#cb640-17" aria-hidden="true" tabindex="-1"></a><span class="co"># $ retmax          : int 2</span></span>
+<span id="cb640-18"><a href="working-with-proteins.html#cb640-18" aria-hidden="true" tabindex="-1"></a><span class="co"># $ QueryTranslation: chr &quot;\&quot;Epipedobates anthonyi\&quot;[Organism] AND COI[Gene]&quot;</span></span>
+<span id="cb640-19"><a href="working-with-proteins.html#cb640-19" aria-hidden="true" tabindex="-1"></a><span class="co"># $ file            :Classes &#39;XMLInternalDocument&#39;, &#39;XMLAbstractDocument&#39; &lt;externalptr&gt; </span></span>
+<span id="cb640-20"><a href="working-with-proteins.html#cb640-20" aria-hidden="true" tabindex="-1"></a><span class="co"># - attr(*, &quot;class&quot;)= chr [1:2] &quot;esearch&quot; &quot;list&quot;</span></span>
+<span id="cb640-21"><a href="working-with-proteins.html#cb640-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb640-22"><a href="working-with-proteins.html#cb640-22" aria-hidden="true" tabindex="-1"></a>froggy_seqs_prot_fasta <span class="ot">&lt;-</span> <span class="fu">entrez_fetch</span>(<span class="at">db=</span><span class="st">&quot;protein&quot;</span>, <span class="at">id=</span>froggy_seq_IDs_prot<span class="sc">$</span>ids, <span class="at">rettype=</span><span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb640-23"><a href="working-with-proteins.html#cb640-23" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(froggy_seqs_prot_fasta)</span>
+<span id="cb640-24"><a href="working-with-proteins.html#cb640-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;QQL01627.1 cytochrome oxidase subunit I, partial (mitochondrion) [Epipedobates anthonyi]</span></span>
+<span id="cb640-25"><a href="working-with-proteins.html#cb640-25" aria-hidden="true" tabindex="-1"></a><span class="co">#VMITRWLFSTNHKDIGTLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMV</span></span>
+<span id="cb640-26"><a href="working-with-proteins.html#cb640-26" aria-hidden="true" tabindex="-1"></a><span class="co">#MPILIGGFGNWLVPLMIGAPDMAFPRMNNMSFWLLPPSFLLLLASAGVEAGAGTGWTVYPPLAGNLAHAG</span></span>
+<span id="cb640-27"><a href="working-with-proteins.html#cb640-27" aria-hidden="true" tabindex="-1"></a><span class="co">#PSVDLTIFSLHLAGVSSILGAINFITTTLNMKPPSLTQYQTPLFVWSVLITAVLLLLSLPVLAAGITMLL</span></span>
+<span id="cb640-28"><a href="working-with-proteins.html#cb640-28" aria-hidden="true" tabindex="-1"></a><span class="co">#TDRNLNTTFFDPAGGGDPILYQHLFWFFGHPEVYILILPGFGIISHVVTFYSSKKEPFGYMGMVWAMMSI</span></span>
+<span id="cb640-29"><a href="working-with-proteins.html#cb640-29" aria-hidden="true" tabindex="-1"></a><span class="co">#GLLGFIVWAHHMFTTDLNVDTRAYFTSATMIIAIPTGVKVFSWLATMHGGIIKWDAAMLWALGFIFLFTV</span></span>
+<span id="cb640-30"><a href="working-with-proteins.html#cb640-30" aria-hidden="true" tabindex="-1"></a><span class="co">#GGLTGIVLANSSLDIVLHDTYYVVAHFHYVLSMGAVFAIMAGFVHWFPLFTGFTLHEAWTKIHFGVMFAG</span></span>
+<span id="cb640-31"><a href="working-with-proteins.html#cb640-31" aria-hidden="true" tabindex="-1"></a><span class="co">#VNLTFFPQHFLGLAGMPRRYSDYPDAYTLWNTVSSVGSLISLVAVIIMMFIIWEAFSSKRLFLNAEMTPT</span></span>
+<span id="cb640-32"><a href="working-with-proteins.html#cb640-32" aria-hidden="true" tabindex="-1"></a><span class="co">#NVEWLYGSPPPYHTFEEAVYSKV</span></span>
+<span id="cb640-33"><a href="working-with-proteins.html#cb640-33" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb640-34"><a href="working-with-proteins.html#cb640-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;ABG67395.1 cytochrome oxidase subunit I, partial (mitochondrion) [Epipedobates anthonyi]</span></span>
+<span id="cb640-35"><a href="working-with-proteins.html#cb640-35" aria-hidden="true" tabindex="-1"></a><span class="co">#TLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVMPILIGGFGNWLVPLM</span></span>
+<span id="cb640-36"><a href="working-with-proteins.html#cb640-36" aria-hidden="true" tabindex="-1"></a><span class="co">#IGAPDMAFPRMNNMSFWLLPPSFLLLLASTGVEAGAGTGWTVYPPLAGNLAHAGPSVDLTIFSLHLAGVS</span></span>
+<span id="cb640-37"><a href="working-with-proteins.html#cb640-37" aria-hidden="true" tabindex="-1"></a><span class="co">#SILGAINFITTTLNMKPPSLTQYQTPLFVWSVLITAVLLLLSLPVLAAGITMLLTDRNLNTTFFDPAGGG</span></span>
+<span id="cb640-38"><a href="working-with-proteins.html#cb640-38" aria-hidden="true" tabindex="-1"></a><span class="co">#DPILYQHLF</span></span></code></pre></div>
+<p>We can save these sequences in a text file in your working directory.</p>
+<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="working-with-proteins.html#cb641-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is exclusive to your OWN COMPUTER change it accordingly</span></span>
+<span id="cb641-2"><a href="working-with-proteins.html#cb641-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory&quot;</span>)</span>
+<span id="cb641-3"><a href="working-with-proteins.html#cb641-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(froggy_seqs_prot_fasta, <span class="st">&quot;Eanthonyi_COI_prot_seqs.fasta&quot;</span>)</span></code></pre></div>
+<p><strong>2)</strong> Alternatively, you can import nucleotide sequences into R and then translate them to protein. As above, we want to read a file with nucleotide sequences to create a character vector contains text (e.g., sequence of letters for nucleotide sequences). In R, you can easily interact with <a href="https://www.ncbi.nlm.nih.gov/" target="_blank"><strong>NCBI</strong></a> database and <strong>fetch</strong> sequences as vectors
+without the need to save those sequences into a file.</p>
+<p>We will follow the example from previous sessions using the R-package <a href="https://cran.r-project.org/web/packages/rentrez/index.html" target="_blank"><strong>rentrez</strong></a>.
+However, we will work with a more complicated sequence for the mitochondrial ND2 gene.</p>
+<div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="working-with-proteins.html#cb642-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rentrez)</span>
+<span id="cb642-2"><a href="working-with-proteins.html#cb642-2" aria-hidden="true" tabindex="-1"></a><span class="co"># if you need to install R-package &#39;rentrez&#39;, use install.packages(&quot;rentrez&quot;)</span></span>
+<span id="cb642-3"><a href="working-with-proteins.html#cb642-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb642-4"><a href="working-with-proteins.html#cb642-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Download some amino sequences from NCBI for Epipedobates anthonyi[Organism] that correspond to the gene ND2</span></span>
+<span id="cb642-5"><a href="working-with-proteins.html#cb642-5" aria-hidden="true" tabindex="-1"></a>froggy_name_ND2_nuc <span class="ot">&lt;-</span> <span class="st">&quot;Epipedobates anthonyi[Organism] AND ND2[Gene]&quot;</span></span>
+<span id="cb642-6"><a href="working-with-proteins.html#cb642-6" aria-hidden="true" tabindex="-1"></a>froggy_seq_IDs_nuc <span class="ot">&lt;-</span> <span class="fu">entrez_search</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">term=</span> froggy_name_ND2_nuc)</span>
+<span id="cb642-7"><a href="working-with-proteins.html#cb642-7" aria-hidden="true" tabindex="-1"></a>froggy_seq_IDs_nuc</span>
+<span id="cb642-8"><a href="working-with-proteins.html#cb642-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Entrez search result with 1 hits (object contains 1 IDs and no web_history object)</span></span>
+<span id="cb642-9"><a href="working-with-proteins.html#cb642-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Search term (as translated):  &quot;Epipedobates anthonyi&quot;[Organism] AND ND2[Gene] </span></span>
+<span id="cb642-10"><a href="working-with-proteins.html#cb642-10" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb642-11"><a href="working-with-proteins.html#cb642-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb642-12"><a href="working-with-proteins.html#cb642-12" aria-hidden="true" tabindex="-1"></a><span class="co"># revising the structure of &#39;froggy_seq_IDs_nuc&#39; that there are 1 sequence in NCBI protein database</span></span>
+<span id="cb642-13"><a href="working-with-proteins.html#cb642-13" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(froggy_seq_IDs_nuc)</span>
+<span id="cb642-14"><a href="working-with-proteins.html#cb642-14" aria-hidden="true" tabindex="-1"></a><span class="co">#List of 5</span></span>
+<span id="cb642-15"><a href="working-with-proteins.html#cb642-15" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ids             : chr &quot;328728262&quot;</span></span>
+<span id="cb642-16"><a href="working-with-proteins.html#cb642-16" aria-hidden="true" tabindex="-1"></a><span class="co"># $ count           : int 1</span></span>
+<span id="cb642-17"><a href="working-with-proteins.html#cb642-17" aria-hidden="true" tabindex="-1"></a><span class="co"># $ retmax          : int 1</span></span>
+<span id="cb642-18"><a href="working-with-proteins.html#cb642-18" aria-hidden="true" tabindex="-1"></a><span class="co"># $ QueryTranslation: chr &quot;\&quot;Epipedobates anthonyi\&quot;[Organism] AND ND2[Gene]&quot;</span></span>
+<span id="cb642-19"><a href="working-with-proteins.html#cb642-19" aria-hidden="true" tabindex="-1"></a><span class="co"># $ file            :Classes &#39;XMLInternalDocument&#39;, &#39;XMLAbstractDocument&#39; &lt;externalptr&gt; </span></span>
+<span id="cb642-20"><a href="working-with-proteins.html#cb642-20" aria-hidden="true" tabindex="-1"></a><span class="co"># - attr(*, &quot;class&quot;)= chr [1:2] &quot;esearch&quot; &quot;list&quot;</span></span>
+<span id="cb642-21"><a href="working-with-proteins.html#cb642-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb642-22"><a href="working-with-proteins.html#cb642-22" aria-hidden="true" tabindex="-1"></a>froggy_seqs_nuc_fasta <span class="ot">&lt;-</span> <span class="fu">entrez_fetch</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">id=</span>froggy_seq_IDs_nuc<span class="sc">$</span>ids, <span class="at">rettype=</span><span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb642-23"><a href="working-with-proteins.html#cb642-23" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(froggy_seqs_nuc_fasta)</span>
+<span id="cb642-24"><a href="working-with-proteins.html#cb642-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;HQ290995.1 Epipedobates anthonyi 12S ribosomal RNA gene, partial sequence; tRNA-Val, 16S ribosomal RNA, and tRNA-Leu genes, complete sequence; NADH dehydrogenase subunit 1 (ND1) gene, partial cds; tRNA-Ile, tRNA-Gln, and tRNA-Met genes, complete sequence; and NADH dehydrogenase subunit 2 (ND2) gene, complete cds; mitochondrial</span></span>
+<span id="cb642-25"><a href="working-with-proteins.html#cb642-25" aria-hidden="true" tabindex="-1"></a><span class="co">#AAGGTTTGGTCCTAGCCTTGAAATCAGTTATTATTTAATATACACATGCAAGTCTCCGCACCCCTGTGAA</span></span>
+<span id="cb642-26"><a href="working-with-proteins.html#cb642-26" aria-hidden="true" tabindex="-1"></a><span class="co">#AACGCCCTTATTCTCCCCTACAGGGAGCAGGAGCCGGTATCAGGCACAAATTTTTGCCCATAACACCTAG</span></span>
+<span id="cb642-27"><a href="working-with-proteins.html#cb642-27" aria-hidden="true" tabindex="-1"></a><span class="co">#CATCGCCACACCCACAAGGGACTTCAGCAGTGATTAACATTGAGCATAAGCGATAGCTTGACTCAGTTAA</span></span>
+<span id="cb642-28"><a href="working-with-proteins.html#cb642-28" aria-hidden="true" tabindex="-1"></a><span class="co">#ACTAAACAGAGCCGGCCAATCTGGTGCCAGCCGCCGCGGTTACACCACTGTGGCTCAAATTGATTTCTAT</span></span>
+<span id="cb642-29"><a href="working-with-proteins.html#cb642-29" aria-hidden="true" tabindex="-1"></a><span class="co">#CGGCGTAAAGCGTGATTAAAGATTAATCTTTTGGAGTTAAACTAAAATTAAGCTGTGACACGCTTATTAC</span></span>
+<span id="cb642-30"><a href="working-with-proteins.html#cb642-30" aria-hidden="true" tabindex="-1"></a><span class="co">#CTAAGAAAATCATAAACGAAAGCTACTCCAATATTACCAACTTGAATTCACGACAACTGAGGAACAAACT</span></span>
+<span id="cb642-31"><a href="working-with-proteins.html#cb642-31" aria-hidden="true" tabindex="-1"></a><span class="co">#GGGATTAGATACCCCACTATGCTCAGTCGTAAACTTTAACTTACATCTTTCTACTCGCCAGGGAACTACG</span></span>
+<span id="cb642-32"><a href="working-with-proteins.html#cb642-32" aria-hidden="true" tabindex="-1"></a><span class="co">#AGCTAAGCTTAAAACCCAAAGGACTTGACGGTACCCCATATCCCCCTAGAGGAGCCTGTCCTATAATCGA</span></span>
+<span id="cb642-33"><a href="working-with-proteins.html#cb642-33" aria-hidden="true" tabindex="-1"></a><span class="co">#TAACCCCCGTTTTACCTCACCATTTTTTGTTAATCAGCCTGTATACCTCCGTCGTCAGCTTACCACGTGA</span></span>
+<span id="cb642-34"><a href="working-with-proteins.html#cb642-34" aria-hidden="true" tabindex="-1"></a><span class="co">#GCGTGTGAGCTAAATGTTTTTTTCAACCACACGTCAGGTCAAGGTGCAGCAAATAAAATGGAAAGAGATG</span></span>
+<span id="cb642-35"><a href="working-with-proteins.html#cb642-35" aria-hidden="true" tabindex="-1"></a><span class="co">#GGCTACACTCTCTATTCTAGAATAAACAAAAGACTAAATGAAACCCGGTCAGAAGGCGGATTTAGCAGTA</span></span>
+<span id="cb642-36"><a href="working-with-proteins.html#cb642-36" aria-hidden="true" tabindex="-1"></a><span class="co">#AAATGAAACTAGAGCGTTCATTTAAACATGGCACTGGGGTGTGTACACACCGCCCGTCACCCTCCTCAAT</span></span>
+<span id="cb642-37"><a href="working-with-proteins.html#cb642-37" aria-hidden="true" tabindex="-1"></a><span class="co">#GCTTCAAAACAGTATTTCACACTTTTTAGCTCCACAGAAGAGGCAAGTCGTAACATGGTAAGTATACCGG</span></span>
+<span id="cb642-38"><a href="working-with-proteins.html#cb642-38" aria-hidden="true" tabindex="-1"></a><span class="co">#AAGGTATGCTTGGAATCAAAATGTAACTTAAAATAAAGTATTTCGCTTACACCGAAAAAACATCAGTGTA</span></span>
+<span id="cb642-39"><a href="working-with-proteins.html#cb642-39" aria-hidden="true" tabindex="-1"></a><span class="co">#ACCCTGATCATTTTGAGCTAAAAATTTAGCCCCACCCATCCGCATATTCTTTCCGTATTTATTCCTATAA</span></span>
+<span id="cb642-40"><a href="working-with-proteins.html#cb642-40" aria-hidden="true" tabindex="-1"></a><span class="co">#ACTAAAACATTTTTTATATTTAGTAAAGGCGATTAAAAAATTTTTATGGAGCAATAACCACAGTACCGCA</span></span>
+<span id="cb642-41"><a href="working-with-proteins.html#cb642-41" aria-hidden="true" tabindex="-1"></a><span class="co">#AGGGAAAAATGAAATAAAAATGAAACATTCTCAAGCATAAAAAAGTAGAGCTAAATCCTCGTACCTTTTG</span></span>
+<span id="cb642-42"><a href="working-with-proteins.html#cb642-42" aria-hidden="true" tabindex="-1"></a><span class="co">#CATCATGATTTAACTAGTCTAATAAAGCAAAAAGATTTTTAGTTTTAATTCCCGAACCTAGACGAGCTAT</span></span>
+<span id="cb642-43"><a href="working-with-proteins.html#cb642-43" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
+<p>This sequence contains both coding (i.e., translatable to AA sequences) and non-coding sequences (i.e., ribosomal and tRNAs). We can save these sequences in a text file in your working directory.</p>
+<p>We can append a nucleotide sequence to this vector that can be directly translated to AA sequences</p>
+<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="working-with-proteins.html#cb643-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rentrez)</span>
+<span id="cb643-2"><a href="working-with-proteins.html#cb643-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb643-3"><a href="working-with-proteins.html#cb643-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Download some COI sequences from NCBI for Epipedobates anthonyi[Organism] that correspond to the gene COI</span></span>
+<span id="cb643-4"><a href="working-with-proteins.html#cb643-4" aria-hidden="true" tabindex="-1"></a>COX1_nuc <span class="ot">&lt;-</span> <span class="st">&quot;Epipedobates anthonyi[Organism] AND COI[Gene]&quot;</span></span>
+<span id="cb643-5"><a href="working-with-proteins.html#cb643-5" aria-hidden="true" tabindex="-1"></a>COX1_IDs <span class="ot">&lt;-</span> <span class="fu">entrez_search</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">term=</span> COX1_nuc)</span>
+<span id="cb643-6"><a href="working-with-proteins.html#cb643-6" aria-hidden="true" tabindex="-1"></a>COX1_nuc_fasta <span class="ot">&lt;-</span> <span class="fu">entrez_fetch</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">id=</span>COX1_IDs<span class="sc">$</span>ids, <span class="at">rettype=</span><span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb643-7"><a href="working-with-proteins.html#cb643-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb643-8"><a href="working-with-proteins.html#cb643-8" aria-hidden="true" tabindex="-1"></a><span class="do">## append to ND2 vector</span></span>
+<span id="cb643-9"><a href="working-with-proteins.html#cb643-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb643-10"><a href="working-with-proteins.html#cb643-10" aria-hidden="true" tabindex="-1"></a>more_nuc_fasta <span class="ot">&lt;-</span> <span class="fu">c</span>(froggy_seqs_nuc_fasta,COX1_nuc_fasta)</span>
+<span id="cb643-11"><a href="working-with-proteins.html#cb643-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(more_nuc_fasta)</span></code></pre></div>
+<p>We can save these sequences in a text file in your working directory.</p>
+<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="working-with-proteins.html#cb644-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is exclusive to your OWN COMPUTER change it accordingly</span></span>
+<span id="cb644-2"><a href="working-with-proteins.html#cb644-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory&quot;</span>)</span>
+<span id="cb644-3"><a href="working-with-proteins.html#cb644-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(more_nuc_fasta, <span class="st">&quot;Eanthonyi_ND2_nuc_seqs.fasta&quot;</span>)</span></code></pre></div>
+</div>
+<div id="importing-aa-sequences-in-r" class="section level2" number="31.3">
+<h2><span class="header-section-number">31.3</span> Importing AA sequences in R</h2>
+<p>We can import the amino acid sequences of from a file in FASTA format. We need to load the R-package <a href="https://bioconductor.org/packages/release/bioc/html/Biostrings.html" target="_blank"><strong>Biostrings</strong></a>.</p>
+<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="working-with-proteins.html#cb645-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load biostring</span></span>
+<span id="cb645-2"><a href="working-with-proteins.html#cb645-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Biostrings)</span>
+<span id="cb645-3"><a href="working-with-proteins.html#cb645-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb645-4"><a href="working-with-proteins.html#cb645-4" aria-hidden="true" tabindex="-1"></a><span class="do">## we can import if we have sequences in FASTA</span></span>
+<span id="cb645-5"><a href="working-with-proteins.html#cb645-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb645-6"><a href="working-with-proteins.html#cb645-6" aria-hidden="true" tabindex="-1"></a>my_AA_Biostrings_set <span class="ot">&lt;-</span> <span class="fu">readAAStringSet</span>(<span class="at">filepath =</span> <span class="st">&quot;~/Desktop/Teach_R/my_working_directory/Eanthonyi_COI_prot_seqs.fasta&quot;</span>, </span>
+<span id="cb645-7"><a href="working-with-proteins.html#cb645-7" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">format =</span> <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb645-8"><a href="working-with-proteins.html#cb645-8" aria-hidden="true" tabindex="-1"></a>my_AA_Biostrings_set</span>
+<span id="cb645-9"><a href="working-with-proteins.html#cb645-9" aria-hidden="true" tabindex="-1"></a><span class="co">#AAStringSet object of length 2:</span></span>
+<span id="cb645-10"><a href="working-with-proteins.html#cb645-10" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq                                                                                                                 names               </span></span>
+<span id="cb645-11"><a href="working-with-proteins.html#cb645-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]   513 VMITRWLFSTNHKDIGTLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNV...SLISLVAVIIMMFIIWEAFSSKRLFLNAEMTPTNVEWLYGSPPPYHTFEEAVYSKV QQL01627.1 cytoch...</span></span>
+<span id="cb645-12"><a href="working-with-proteins.html#cb645-12" aria-hidden="true" tabindex="-1"></a><span class="co">#[2]   219 TLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVMP...QTPLFVWSVLITAVLLLLSLPVLAAGITMLLTDRNLNTTFFDPAGGGDPILYQHLF ABG67395.1 cytoch...</span></span></code></pre></div>
+</div>
+<div id="importing-nucleotide-sequences-in-r" class="section level2" number="31.4">
+<h2><span class="header-section-number">31.4</span> Importing nucleotide sequences in R</h2>
+<p>We can import nucleotide sequences of from a file in FASTA or FASTQ formats. The last sequence format is similat to FASTA but include sequence (nucleotides) and its corresponding quality scores from the sequencing experiment for more information see <a href="https://en.wikipedia.org/wiki/FASTQ_format" target="_blank"><strong>here</strong></a>.</p>
+<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="working-with-proteins.html#cb646-1" aria-hidden="true" tabindex="-1"></a>my_nuc_Biostrings_set <span class="ot">&lt;-</span> <span class="fu">readDNAStringSet</span>(<span class="at">filepath =</span> <span class="st">&quot;~/Desktop/Teach_R/my_working_directory/Eanthonyi_ND2_nuc_seqs.fasta&quot;</span>, </span>
+<span id="cb646-2"><a href="working-with-proteins.html#cb646-2" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">format =</span> <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb646-3"><a href="working-with-proteins.html#cb646-3" aria-hidden="true" tabindex="-1"></a>my_nuc_Biostrings_set</span>
+<span id="cb646-4"><a href="working-with-proteins.html#cb646-4" aria-hidden="true" tabindex="-1"></a><span class="co">#DNAStringSet object of length 3:</span></span>
+<span id="cb646-5"><a href="working-with-proteins.html#cb646-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq                                                                                                                 names               </span></span>
+<span id="cb646-6"><a href="working-with-proteins.html#cb646-6" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  4886 AAGGTTTGGTCCTAGCCTTGAAATCAGTTATTATTTAATATACACATGCAAGTCTC...TCACTCTCTGCCTTCTTCCTATTTCCCCATTTTTTTTACTATTTATTAGAAACTTA HQ290995.1 Epiped...</span></span>
+<span id="cb646-7"><a href="working-with-proteins.html#cb646-7" aria-hidden="true" tabindex="-1"></a><span class="co">#[2]  1539 GTGATAATTACCCGATGATTATTCTCCACAAACCATAAAGATATCGGAACCCTATA...TATATGGCTCCCCTCCTCCTTATCACACATTTGAGGAAGCTGTTTATTCTAAAGTA MW042033.1 Epiped...</span></span>
+<span id="cb646-8"><a href="working-with-proteins.html#cb646-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[3]   658 AACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCC...CCACTTTCTTTGACCCAGCAGGTGGAGGTGACCCCATTCTTTATCAACATCTCTTC DQ502853.1 Epiped...</span></span></code></pre></div>
+</div>
+<div id="translating-a-nucleotides-to-aa" class="section level2" number="31.5">
+<h2><span class="header-section-number">31.5</span> Translating a nucleotides to AA</h2>
+<p>We need to translate nucleotide to AA sequences to further explore protein properties. For this purpose, we use the function <code>translate()</code> from <a href="https://bioconductor.org/packages/release/bioc/html/Biostrings.html" target="_blank"><strong>Biostrings</strong></a>.
+Yet, you need to make sure that you know the <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi"><strong>genetic code</strong></a>{{target=“_blank”}. The most common are the “SGC0” for the standard genetic code or “SGC1” for the vertebrate mitochondrial code.
+In our example, the sequeces were derived from a mitochondrial genome of a frog (so, we should use “SGC1”). Notice that we need to define the genetic code with the function <code>getGeneticCode()</code>.</p>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="working-with-proteins.html#cb647-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Vertebrate Mitochondrial code</span></span>
+<span id="cb647-2"><a href="working-with-proteins.html#cb647-2" aria-hidden="true" tabindex="-1"></a>SGC1 <span class="ot">&lt;-</span> <span class="fu">getGeneticCode</span>(<span class="st">&quot;SGC1&quot;</span>)</span>
+<span id="cb647-3"><a href="working-with-proteins.html#cb647-3" aria-hidden="true" tabindex="-1"></a>SGC1</span>
+<span id="cb647-4"><a href="working-with-proteins.html#cb647-4" aria-hidden="true" tabindex="-1"></a><span class="co">#TTT TTC TTA TTG TCT TCC TCA TCG TAT TAC TAA TAG TGT TGC TGA TGG CTT CTC CTA CTG CCT CCC CCA CCG CAT CAC CAA CAG CGT CGC CGA CGG ATT ATC ATA ATG </span></span>
+<span id="cb647-5"><a href="working-with-proteins.html#cb647-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;F&quot; &quot;F&quot; &quot;L&quot; &quot;L&quot; &quot;S&quot; &quot;S&quot; &quot;S&quot; &quot;S&quot; &quot;Y&quot; &quot;Y&quot; &quot;*&quot; &quot;*&quot; &quot;C&quot; &quot;C&quot; &quot;W&quot; &quot;W&quot; &quot;L&quot; &quot;L&quot; &quot;L&quot; &quot;L&quot; &quot;P&quot; &quot;P&quot; &quot;P&quot; &quot;P&quot; &quot;H&quot; &quot;H&quot; &quot;Q&quot; &quot;Q&quot; &quot;R&quot; &quot;R&quot; &quot;R&quot; &quot;R&quot; &quot;I&quot; &quot;I&quot; &quot;M&quot; &quot;M&quot; </span></span>
+<span id="cb647-6"><a href="working-with-proteins.html#cb647-6" aria-hidden="true" tabindex="-1"></a><span class="co">#ACT ACC ACA ACG AAT AAC AAA AAG AGT AGC AGA AGG GTT GTC GTA GTG GCT GCC GCA GCG GAT GAC GAA GAG GGT GGC GGA GGG </span></span>
+<span id="cb647-7"><a href="working-with-proteins.html#cb647-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;N&quot; &quot;N&quot; &quot;K&quot; &quot;K&quot; &quot;S&quot; &quot;S&quot; &quot;*&quot; &quot;*&quot; &quot;V&quot; &quot;V&quot; &quot;V&quot; &quot;V&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;D&quot; &quot;D&quot; &quot;E&quot; &quot;E&quot; &quot;G&quot; &quot;G&quot; &quot;G&quot; &quot;G&quot; </span></span>
+<span id="cb647-8"><a href="working-with-proteins.html#cb647-8" aria-hidden="true" tabindex="-1"></a><span class="co">#attr(,&quot;alt_init_codons&quot;)</span></span>
+<span id="cb647-9"><a href="working-with-proteins.html#cb647-9" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;ATT&quot; &quot;ATC&quot; &quot;GTG&quot;</span></span>
+<span id="cb647-10"><a href="working-with-proteins.html#cb647-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb647-11"><a href="working-with-proteins.html#cb647-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Translating DNA/RNA:</span></span>
+<span id="cb647-12"><a href="working-with-proteins.html#cb647-12" aria-hidden="true" tabindex="-1"></a>my_aa_translated_Biostrings_set <span class="ot">&lt;-</span> Biostrings<span class="sc">::</span><span class="fu">translate</span>(my_nuc_Biostrings_set, <span class="at">genetic.code=</span> SGC1, <span class="at">no.init.codon=</span><span class="cn">FALSE</span>)</span>
+<span id="cb647-13"><a href="working-with-proteins.html#cb647-13" aria-hidden="true" tabindex="-1"></a>my_aa_translated_Biostrings_set</span>
+<span id="cb647-14"><a href="working-with-proteins.html#cb647-14" aria-hidden="true" tabindex="-1"></a><span class="co">#AAStringSet object of length 3:</span></span>
+<span id="cb647-15"><a href="working-with-proteins.html#cb647-15" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq                                                                                                                 names               </span></span>
+<span id="cb647-16"><a href="working-with-proteins.html#cb647-16" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1628 KVWS*PWNQLLFNMHMQVSAPLWKRPYSPLQGAGAGI*HKFLPMTPSIATPT*DFS...FFIFA*HMLYP*H*HLTHPSPHHPEILTKKMIYLFLPSSLSAFFLFPHFFYYLLET HQ290995.1 Epiped...</span></span>
+<span id="cb647-17"><a href="working-with-proteins.html#cb647-17" aria-hidden="true" tabindex="-1"></a><span class="co">#[2]   513 MMITRWLFSTNHKDIGTLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNV...SLISLVAVIIMMFIIWEAFSSKRLFLNAEMTPTNVEWLYGSPPPYHTFEEAVYSKV MW042033.1 Epiped...</span></span>
+<span id="cb647-18"><a href="working-with-proteins.html#cb647-18" aria-hidden="true" tabindex="-1"></a><span class="co">#[3]   219 NPMFSIWGMSRNS*NSPKPLNSS*IKSTWVLTGRWPDL*CNRNCPCFRHNLLHGYA...PNSFICLISSNHRSTSSSFSSCPSC*NYNAFNWSKP*HHFLWPS*W*WPHSLSTSL DQ502853.1 Epiped...</span></span></code></pre></div>
+<p>If we check each element in the AAstringset object we notice something particular</p>
+<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="working-with-proteins.html#cb648-1" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_1 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(my_aa_translated_Biostrings_set[<span class="dv">1</span>]))</span>
+<span id="cb648-2"><a href="working-with-proteins.html#cb648-2" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_1</span>
+<span id="cb648-3"><a href="working-with-proteins.html#cb648-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;KVWS*PWNQLLFNMHMQVSAPLWKRPYSPLQGAGAGI*HKFLPMTPSIATPT*DFSSD*HWA*AMAWLS*...</span></span>
+<span id="cb648-4"><a href="working-with-proteins.html#cb648-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb648-5"><a href="working-with-proteins.html#cb648-5" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_2 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(my_aa_translated_Biostrings_set[<span class="dv">2</span>]))</span>
+<span id="cb648-6"><a href="working-with-proteins.html#cb648-6" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_2</span>
+<span id="cb648-7"><a href="working-with-proteins.html#cb648-7" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;MMITRWLFSTNHKDIGTLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVM...</span></span>
+<span id="cb648-8"><a href="working-with-proteins.html#cb648-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb648-9"><a href="working-with-proteins.html#cb648-9" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_3 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(my_aa_translated_Biostrings_set[<span class="dv">3</span>]))</span>
+<span id="cb648-10"><a href="working-with-proteins.html#cb648-10" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_3</span>
+<span id="cb648-11"><a href="working-with-proteins.html#cb648-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;NPMFSIWGMSRNS*NSPKPLNSS*IKSTWVLTGRWPDL*CNRNCPCFRHNLLHGYAYSNWWIWKLTGTFNN...</span></span></code></pre></div>
+<p>Only sequence <code>seqs_as_vector_2</code> or the second line has no <code>*</code> or stop codons. The other two: <code>seqs_as_vector_1</code> and <code>seqs_as_vector_3</code> have lots of <code>*</code> or stop codons.
+The reason is that <code>seqs_as_vector_1</code> has ribosomal and tRNAs in the sequence and we have to isolate the coding regions (CDS).
+For <code>seqs_as_vector_3</code> the reason is that the starting base is not the first codon position and we have to shift to the correct one to do the translation.</p>
+<p>To fix the translation in <code>seqs_as_vector_3</code> is easier, we need to indicate that start codon is in position .</p>
+<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="working-with-proteins.html#cb649-1" aria-hidden="true" tabindex="-1"></a>nuc_seq_3 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(my_nuc_Biostrings_set[<span class="dv">3</span>]))</span>
+<span id="cb649-2"><a href="working-with-proteins.html#cb649-2" aria-hidden="true" tabindex="-1"></a>nuc_seq_3</span>
+<span id="cb649-3"><a href="working-with-proteins.html#cb649-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;AACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCCTCTTAATTCGAGCAGA...</span></span>
+<span id="cb649-4"><a href="working-with-proteins.html#cb649-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb649-5"><a href="working-with-proteins.html#cb649-5" aria-hidden="true" tabindex="-1"></a><span class="do">## remove first character</span></span>
+<span id="cb649-6"><a href="working-with-proteins.html#cb649-6" aria-hidden="true" tabindex="-1"></a>nuc_seq_3_red <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">&#39;.&#39;</span>, <span class="st">&#39;&#39;</span>, nuc_seq_3)</span>
+<span id="cb649-7"><a href="working-with-proteins.html#cb649-7" aria-hidden="true" tabindex="-1"></a>nuc_seq_3_red </span>
+<span id="cb649-8"><a href="working-with-proteins.html#cb649-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;ACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCCTCTTAATTCGAGCAGA...</span></span>
+<span id="cb649-9"><a href="working-with-proteins.html#cb649-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb649-10"><a href="working-with-proteins.html#cb649-10" aria-hidden="true" tabindex="-1"></a><span class="do">## create a new string set and translate</span></span>
+<span id="cb649-11"><a href="working-with-proteins.html#cb649-11" aria-hidden="true" tabindex="-1"></a>nuc_seq_3_red <span class="ot">&lt;-</span> <span class="fu">DNAStringSet</span>(nuc_seq_3_red)</span>
+<span id="cb649-12"><a href="working-with-proteins.html#cb649-12" aria-hidden="true" tabindex="-1"></a>nuc_seq_3_red_translated <span class="ot">&lt;-</span> Biostrings<span class="sc">::</span><span class="fu">translate</span>(nuc_seq_3_red, <span class="at">genetic.code=</span> SGC1, <span class="at">no.init.codon=</span><span class="cn">FALSE</span>)</span>
+<span id="cb649-13"><a href="working-with-proteins.html#cb649-13" aria-hidden="true" tabindex="-1"></a>nuc_seq_3_red_translated</span>
+<span id="cb649-14"><a href="working-with-proteins.html#cb649-14" aria-hidden="true" tabindex="-1"></a><span class="co">#AAStringSet object of length 1:</span></span>
+<span id="cb649-15"><a href="working-with-proteins.html#cb649-15" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq</span></span>
+<span id="cb649-16"><a href="working-with-proteins.html#cb649-16" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]   219 TLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVMPILIGGFGNWLV...NMKPPSLTQYQTPLFVWSVLITAVLLLLSLPVLAAGITMLLTDRNLNTTFFDPAGGGDPILYQHLF</span></span>
+<span id="cb649-17"><a href="working-with-proteins.html#cb649-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb649-18"><a href="working-with-proteins.html#cb649-18" aria-hidden="true" tabindex="-1"></a><span class="co"># save as vector and replace in original AAStringSet</span></span>
+<span id="cb649-19"><a href="working-with-proteins.html#cb649-19" aria-hidden="true" tabindex="-1"></a>AA_seq_3 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(nuc_seq_3_red_translated))</span>
+<span id="cb649-20"><a href="working-with-proteins.html#cb649-20" aria-hidden="true" tabindex="-1"></a>AA_seq_3 </span>
+<span id="cb649-21"><a href="working-with-proteins.html#cb649-21" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;TLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVMP....</span></span>
+<span id="cb649-22"><a href="working-with-proteins.html#cb649-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb649-23"><a href="working-with-proteins.html#cb649-23" aria-hidden="true" tabindex="-1"></a>my_aa_translated_Biostrings_set[<span class="dv">3</span>] <span class="ot">&lt;-</span> AA_seq_3</span>
+<span id="cb649-24"><a href="working-with-proteins.html#cb649-24" aria-hidden="true" tabindex="-1"></a>my_aa_translated_Biostrings_set</span>
+<span id="cb649-25"><a href="working-with-proteins.html#cb649-25" aria-hidden="true" tabindex="-1"></a><span class="co">#AAStringSet object of length 3:</span></span>
+<span id="cb649-26"><a href="working-with-proteins.html#cb649-26" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq                                                                                                                 names               </span></span>
+<span id="cb649-27"><a href="working-with-proteins.html#cb649-27" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1628 KVWS*PWNQLLFNMHMQVSAPLWKRPYSPLQGAGAGI*HKFLPMTPSIATPT*DFS...FFIFA*HMLYP*H*HLTHPSPHHPEILTKKMIYLFLPSSLSAFFLFPHFFYYLLET HQ290995.1 Epiped...</span></span>
+<span id="cb649-28"><a href="working-with-proteins.html#cb649-28" aria-hidden="true" tabindex="-1"></a><span class="co">#[2]   513 MMITRWLFSTNHKDIGTLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNV...SLISLVAVIIMMFIIWEAFSSKRLFLNAEMTPTNVEWLYGSPPPYHTFEEAVYSKV MW042033.1 Epiped...</span></span>
+<span id="cb649-29"><a href="working-with-proteins.html#cb649-29" aria-hidden="true" tabindex="-1"></a><span class="co">#[3]   219 TLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVMP...QTPLFVWSVLITAVLLLLSLPVLAAGITMLLTDRNLNTTFFDPAGGGDPILYQHLF DQ502853.1 Epiped...</span></span></code></pre></div>
+</div>
+<div id="finding-orfs-in-a-nucleotide-sequence" class="section level2" number="31.6">
+<h2><span class="header-section-number">31.6</span> Finding ORFs in a nucleotide sequence</h2>
+<p>In most instances, only segments of sequences contain information that can be translated to long string of AA without stop codons (e.g., functional proteins).
+Those segments are called Open Reading Frames (ORFs) which is the part of a reading frame that has the ability to be translated.
+You most like want to find the longest ORFs, yet not every ORF has the potential to be translated to a functional protein or be an exon of larger gene.
+Finding ORFs is crucial to discover novel genes, annotate unknown sequences of DNA, find exons among others.
+However, you can select to find <strong>CDS</strong> which are continuous reading frames that do not need to begin or end with start or stop codons.</p>
+<p>There are many tools to find such ORFs or CDSs, we will use the R-packages
+<a href="https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html" target="_blank"><strong>systemPipeR</strong></a> and it has several vignettes for you to explore.</p>
+<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="working-with-proteins.html#cb650-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install and load systemPipeR</span></span>
+<span id="cb650-2"><a href="working-with-proteins.html#cb650-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb650-3"><a href="working-with-proteins.html#cb650-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
+<span id="cb650-4"><a href="working-with-proteins.html#cb650-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-5"><a href="working-with-proteins.html#cb650-5" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;systemPipeR&quot;</span>)</span>
+<span id="cb650-6"><a href="working-with-proteins.html#cb650-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-7"><a href="working-with-proteins.html#cb650-7" aria-hidden="true" tabindex="-1"></a><span class="co"># load library</span></span>
+<span id="cb650-8"><a href="working-with-proteins.html#cb650-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(systemPipeR)</span>
+<span id="cb650-9"><a href="working-with-proteins.html#cb650-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rentrez)</span>
+<span id="cb650-10"><a href="working-with-proteins.html#cb650-10" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory&quot;</span>)</span>
+<span id="cb650-11"><a href="working-with-proteins.html#cb650-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-12"><a href="working-with-proteins.html#cb650-12" aria-hidden="true" tabindex="-1"></a><span class="co"># we will work with nuclear coding segment for gene </span></span>
+<span id="cb650-13"><a href="working-with-proteins.html#cb650-13" aria-hidden="true" tabindex="-1"></a>hb_nuc <span class="ot">&lt;-</span> <span class="st">&quot;BT081428&quot;</span></span>
+<span id="cb650-14"><a href="working-with-proteins.html#cb650-14" aria-hidden="true" tabindex="-1"></a>hb_IDs <span class="ot">&lt;-</span> <span class="fu">entrez_search</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">term=</span> hb_nuc)</span>
+<span id="cb650-15"><a href="working-with-proteins.html#cb650-15" aria-hidden="true" tabindex="-1"></a>hb_nuc_fasta <span class="ot">&lt;-</span> <span class="fu">entrez_fetch</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">id=</span>hb_IDs<span class="sc">$</span>ids, <span class="at">rettype=</span><span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb650-16"><a href="working-with-proteins.html#cb650-16" aria-hidden="true" tabindex="-1"></a>hb_nuc_fasta</span>
+<span id="cb650-17"><a href="working-with-proteins.html#cb650-17" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;&gt;BT081428.1 Rana catesbeiana clone rcat-evr-539-243 Hemoglobin subunit alpha-3 putative mRNA, </span></span>
+<span id="cb650-18"><a href="working-with-proteins.html#cb650-18" aria-hidden="true" tabindex="-1"></a><span class="co"># complete cds\nGGGGGGGACTTTACTTGAGTTGCCAAGCTAATCTAACGTGTACTACACCAACTCCCGATCATCACAATGA\nGTCTATCTGCA...</span></span>
+<span id="cb650-19"><a href="working-with-proteins.html#cb650-19" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(hb_nuc_fasta, <span class="st">&quot;Rana_hb_nuc_seqs.fasta&quot;</span>)</span>
+<span id="cb650-20"><a href="working-with-proteins.html#cb650-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-21"><a href="working-with-proteins.html#cb650-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-22"><a href="working-with-proteins.html#cb650-22" aria-hidden="true" tabindex="-1"></a><span class="co"># define path to file with sequences in fasta</span></span>
+<span id="cb650-23"><a href="working-with-proteins.html#cb650-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-24"><a href="working-with-proteins.html#cb650-24" aria-hidden="true" tabindex="-1"></a>my_nuc_fasta_file_path <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/Teach_R/my_working_directory/Rana_hb_nuc_seqs.fasta&quot;</span></span>
+<span id="cb650-25"><a href="working-with-proteins.html#cb650-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-26"><a href="working-with-proteins.html#cb650-26" aria-hidden="true" tabindex="-1"></a><span class="co"># To store ORF sequences (you need indexed genome .fai file):</span></span>
+<span id="cb650-27"><a href="working-with-proteins.html#cb650-27" aria-hidden="true" tabindex="-1"></a>my_base_nuc_Biostrings_set <span class="ot">&lt;-</span> <span class="fu">readDNAStringSet</span>(<span class="at">filepath =</span> my_nuc_fasta_file_path, </span>
+<span id="cb650-28"><a href="working-with-proteins.html#cb650-28" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">format =</span> <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb650-29"><a href="working-with-proteins.html#cb650-29" aria-hidden="true" tabindex="-1"></a>my_base_nuc_Biostrings_set</span>
+<span id="cb650-30"><a href="working-with-proteins.html#cb650-30" aria-hidden="true" tabindex="-1"></a><span class="co">#DNAStringSet object of length 1:</span></span>
+<span id="cb650-31"><a href="working-with-proteins.html#cb650-31" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq                                                                                                                 names               </span></span>
+<span id="cb650-32"><a href="working-with-proteins.html#cb650-32" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]   677 GGGGGGGACTTTACTTGAGTTGCCAAGCTAATCTAACGTGTACTACACCAACTCCC...AAATTGTCCATCAAATATAAATCTGATGTACTCTTAAATAAAACTGAAAATAATTT BT081428.1 Rana c...</span></span>
+<span id="cb650-33"><a href="working-with-proteins.html#cb650-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-34"><a href="working-with-proteins.html#cb650-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-35"><a href="working-with-proteins.html#cb650-35" aria-hidden="true" tabindex="-1"></a><span class="co"># get longest CDS with option mode = &quot;CDS&quot;</span></span>
+<span id="cb650-36"><a href="working-with-proteins.html#cb650-36" aria-hidden="true" tabindex="-1"></a>my_CDSs <span class="ot">&lt;-</span> <span class="fu">predORF</span>(my_base_nuc_Biostrings_set, </span>
+<span id="cb650-37"><a href="working-with-proteins.html#cb650-37" aria-hidden="true" tabindex="-1"></a>                      <span class="at">n =</span> <span class="dv">1</span>, </span>
+<span id="cb650-38"><a href="working-with-proteins.html#cb650-38" aria-hidden="true" tabindex="-1"></a>                   <span class="at">type =</span> <span class="st">&quot;grl&quot;</span>, </span>
+<span id="cb650-39"><a href="working-with-proteins.html#cb650-39" aria-hidden="true" tabindex="-1"></a>                   <span class="at">mode =</span> <span class="st">&quot;CDS&quot;</span>, </span>
+<span id="cb650-40"><a href="working-with-proteins.html#cb650-40" aria-hidden="true" tabindex="-1"></a>                 <span class="at">strand =</span> <span class="st">&quot;sense&quot;</span>, </span>
+<span id="cb650-41"><a href="working-with-proteins.html#cb650-41" aria-hidden="true" tabindex="-1"></a>       <span class="at">longest_disjoint =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb650-42"><a href="working-with-proteins.html#cb650-42" aria-hidden="true" tabindex="-1"></a>             <span class="at">startcodon =</span> <span class="st">&quot;ATG&quot;</span>,</span>
+<span id="cb650-43"><a href="working-with-proteins.html#cb650-43" aria-hidden="true" tabindex="-1"></a>              <span class="at">stopcodon =</span> <span class="fu">c</span>(<span class="st">&quot;TAA&quot;</span>, <span class="st">&quot;TAG&quot;</span>, <span class="st">&quot;TGA&quot;</span>)) </span>
+<span id="cb650-44"><a href="working-with-proteins.html#cb650-44" aria-hidden="true" tabindex="-1"></a>my_CDSs</span>
+<span id="cb650-45"><a href="working-with-proteins.html#cb650-45" aria-hidden="true" tabindex="-1"></a><span class="co">#GRangesList object of length 1:</span></span>
+<span id="cb650-46"><a href="working-with-proteins.html#cb650-46" aria-hidden="true" tabindex="-1"></a><span class="co">#$`BT081428.1 Rana catesbeiana clone rcat-evr-539-243 Hemoglobin subunit alpha-3 putative mRNA, complete cds`</span></span>
+<span id="cb650-47"><a href="working-with-proteins.html#cb650-47" aria-hidden="true" tabindex="-1"></a><span class="co">#GRanges object with 1 range and 2 metadata columns:</span></span>
+<span id="cb650-48"><a href="working-with-proteins.html#cb650-48" aria-hidden="true" tabindex="-1"></a><span class="co">#                    seqnames    ranges strand | subject_id inframe2end</span></span>
+<span id="cb650-49"><a href="working-with-proteins.html#cb650-49" aria-hidden="true" tabindex="-1"></a><span class="co">#                       &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;integer&gt;   &lt;numeric&gt;</span></span>
+<span id="cb650-50"><a href="working-with-proteins.html#cb650-50" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] BT081428.1 Rana cate..    67-495      + |          1           3</span></span>
+<span id="cb650-51"><a href="working-with-proteins.html#cb650-51" aria-hidden="true" tabindex="-1"></a><span class="co">#  -------</span></span>
+<span id="cb650-52"><a href="working-with-proteins.html#cb650-52" aria-hidden="true" tabindex="-1"></a><span class="co">#  seqinfo: 1 sequence from an unspecified genome; no seqlengths</span></span>
+<span id="cb650-53"><a href="working-with-proteins.html#cb650-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-54"><a href="working-with-proteins.html#cb650-54" aria-hidden="true" tabindex="-1"></a><span class="co"># get CDS sequences </span></span>
+<span id="cb650-55"><a href="working-with-proteins.html#cb650-55" aria-hidden="true" tabindex="-1"></a>cds_seqs <span class="ot">&lt;-</span> <span class="fu">getSeq</span>(my_base_nuc_Biostrings_set, my_CDSs)</span>
+<span id="cb650-56"><a href="working-with-proteins.html#cb650-56" aria-hidden="true" tabindex="-1"></a>my_CDS_long <span class="ot">&lt;-</span> cds_seqs[[<span class="dv">1</span>]]</span>
+<span id="cb650-57"><a href="working-with-proteins.html#cb650-57" aria-hidden="true" tabindex="-1"></a>my_CDS_long</span>
+<span id="cb650-58"><a href="working-with-proteins.html#cb650-58" aria-hidden="true" tabindex="-1"></a><span class="co">#DNAStringSet object of length 1:</span></span>
+<span id="cb650-59"><a href="working-with-proteins.html#cb650-59" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq</span></span>
+<span id="cb650-60"><a href="working-with-proteins.html#cb650-60" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]   429 ATGAGTCTATCTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAGTGGGAAAGATTGGATCTCAGGCCA...GTTCAGGCTGCCTGGGACAAATTCCTTGCTCTAGTTTCTGCAGTCCTCACCTCCAAGTACAGATAA</span></span>
+<span id="cb650-61"><a href="working-with-proteins.html#cb650-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-62"><a href="working-with-proteins.html#cb650-62" aria-hidden="true" tabindex="-1"></a><span class="co"># name of fasta seq</span></span>
+<span id="cb650-63"><a href="working-with-proteins.html#cb650-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-64"><a href="working-with-proteins.html#cb650-64" aria-hidden="true" tabindex="-1"></a>name_seq <span class="ot">&lt;-</span> <span class="fu">names</span>(cds_seqs)[<span class="dv">1</span>]</span>
+<span id="cb650-65"><a href="working-with-proteins.html#cb650-65" aria-hidden="true" tabindex="-1"></a>name_seq <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;&gt;Long_CDS_&quot;</span>,name_seq,<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb650-66"><a href="working-with-proteins.html#cb650-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-67"><a href="working-with-proteins.html#cb650-67" aria-hidden="true" tabindex="-1"></a><span class="co"># build vector to write</span></span>
+<span id="cb650-68"><a href="working-with-proteins.html#cb650-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-69"><a href="working-with-proteins.html#cb650-69" aria-hidden="true" tabindex="-1"></a>my_CDS_long_vec <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(my_CDS_long))</span>
+<span id="cb650-70"><a href="working-with-proteins.html#cb650-70" aria-hidden="true" tabindex="-1"></a>final_my_CDS_long_vec <span class="ot">&lt;-</span> <span class="fu">paste0</span>(name_seq,my_CDS_long_vec)</span>
+<span id="cb650-71"><a href="working-with-proteins.html#cb650-71" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(final_my_CDS_long_vec)</span>
+<span id="cb650-72"><a href="working-with-proteins.html#cb650-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;Long_CDS_BT081428.1 Rana catesbeiana clone rcat-evr-539-243 Hemoglobin subunit alpha-3 putative mRNA, complete cds</span></span>
+<span id="cb650-73"><a href="working-with-proteins.html#cb650-73" aria-hidden="true" tabindex="-1"></a><span class="co">#ATGAGTCTATCTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAGTGGGAAAGATTGGATCTCAGGCCAGTGCTCTGGGCTCTGAGGCTTTGACCAGGCTTTTCCTTAGCTTCCCCCA...</span></span>
+<span id="cb650-74"><a href="working-with-proteins.html#cb650-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-75"><a href="working-with-proteins.html#cb650-75" aria-hidden="true" tabindex="-1"></a><span class="co"># write fasta file</span></span>
+<span id="cb650-76"><a href="working-with-proteins.html#cb650-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-77"><a href="working-with-proteins.html#cb650-77" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(final_my_CDS_long_vec, <span class="st">&quot;Rana_hb_CDS_seqs.fasta&quot;</span>)</span></code></pre></div>
+<p>Another approach is with <a href="https://bioconductor.org/packages/release/bioc/html/ORFik.html" target="_blank"><strong>ORFik</strong></a> and it has several vignettes for you to explore.</p>
+<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="working-with-proteins.html#cb651-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install and load ORFik</span></span>
+<span id="cb651-2"><a href="working-with-proteins.html#cb651-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb651-3"><a href="working-with-proteins.html#cb651-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
+<span id="cb651-4"><a href="working-with-proteins.html#cb651-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-5"><a href="working-with-proteins.html#cb651-5" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;ORFik&quot;</span>)</span>
+<span id="cb651-6"><a href="working-with-proteins.html#cb651-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-7"><a href="working-with-proteins.html#cb651-7" aria-hidden="true" tabindex="-1"></a><span class="co"># load library ORFik</span></span>
+<span id="cb651-8"><a href="working-with-proteins.html#cb651-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-9"><a href="working-with-proteins.html#cb651-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ORFik)</span>
+<span id="cb651-10"><a href="working-with-proteins.html#cb651-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-11"><a href="working-with-proteins.html#cb651-11" aria-hidden="true" tabindex="-1"></a><span class="co"># define path to file with sequences in fasta</span></span>
+<span id="cb651-12"><a href="working-with-proteins.html#cb651-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-13"><a href="working-with-proteins.html#cb651-13" aria-hidden="true" tabindex="-1"></a>my_nuc_fasta_file_path <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/Teach_R/my_working_directory/Rana_hb_nuc_seqs.fasta&quot;</span></span>
+<span id="cb651-14"><a href="working-with-proteins.html#cb651-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-15"><a href="working-with-proteins.html#cb651-15" aria-hidden="true" tabindex="-1"></a><span class="co"># identify ORFs in fasta file</span></span>
+<span id="cb651-16"><a href="working-with-proteins.html#cb651-16" aria-hidden="true" tabindex="-1"></a>orfs <span class="ot">&lt;-</span> <span class="fu">findORFsFasta</span>(my_nuc_fasta_file_path)</span>
+<span id="cb651-17"><a href="working-with-proteins.html#cb651-17" aria-hidden="true" tabindex="-1"></a>orfs</span>
+<span id="cb651-18"><a href="working-with-proteins.html#cb651-18" aria-hidden="true" tabindex="-1"></a><span class="co">#GRanges object with 31 ranges and 0 metadata columns:</span></span>
+<span id="cb651-19"><a href="working-with-proteins.html#cb651-19" aria-hidden="true" tabindex="-1"></a><span class="co">#         seqnames    ranges strand</span></span>
+<span id="cb651-20"><a href="working-with-proteins.html#cb651-20" aria-hidden="true" tabindex="-1"></a><span class="co">#            &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt;</span></span>
+<span id="cb651-21"><a href="working-with-proteins.html#cb651-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   [1] BT081428.1    67-495      +</span></span>
+<span id="cb651-22"><a href="working-with-proteins.html#cb651-22" aria-hidden="true" tabindex="-1"></a><span class="co">#   [2] BT081428.1     20-31      +</span></span>
+<span id="cb651-23"><a href="working-with-proteins.html#cb651-23" aria-hidden="true" tabindex="-1"></a><span class="co">#   [3] BT081428.1    77-109      +</span></span>
+<span id="cb651-24"><a href="working-with-proteins.html#cb651-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   [4] BT081428.1   119-157      +</span></span>
+<span id="cb651-25"><a href="working-with-proteins.html#cb651-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   [5] BT081428.1   206-214      +</span></span>
+<span id="cb651-26"><a href="working-with-proteins.html#cb651-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   ...        ...       ...    ...</span></span>
+<span id="cb651-27"><a href="working-with-proteins.html#cb651-27" aria-hidden="true" tabindex="-1"></a><span class="co">#  [27] BT081428.1   192-281      -</span></span>
+<span id="cb651-28"><a href="working-with-proteins.html#cb651-28" aria-hidden="true" tabindex="-1"></a><span class="co">#  [28] BT081428.1   282-320      -</span></span>
+<span id="cb651-29"><a href="working-with-proteins.html#cb651-29" aria-hidden="true" tabindex="-1"></a><span class="co">#  [29] BT081428.1   333-380      -</span></span>
+<span id="cb651-30"><a href="working-with-proteins.html#cb651-30" aria-hidden="true" tabindex="-1"></a><span class="co">#  [30] BT081428.1   432-587      -</span></span>
+<span id="cb651-31"><a href="working-with-proteins.html#cb651-31" aria-hidden="true" tabindex="-1"></a><span class="co">#  [31] BT081428.1   612-635      -</span></span>
+<span id="cb651-32"><a href="working-with-proteins.html#cb651-32" aria-hidden="true" tabindex="-1"></a><span class="co">#  -------</span></span>
+<span id="cb651-33"><a href="working-with-proteins.html#cb651-33" aria-hidden="true" tabindex="-1"></a><span class="co">#  seqinfo: 1 sequence from an unspecified genome; no seqlengths</span></span>
+<span id="cb651-34"><a href="working-with-proteins.html#cb651-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-35"><a href="working-with-proteins.html#cb651-35" aria-hidden="true" tabindex="-1"></a><span class="co"># To store ORF sequences (you need indexed genome .fai file):</span></span>
+<span id="cb651-36"><a href="working-with-proteins.html#cb651-36" aria-hidden="true" tabindex="-1"></a>my_nuc_fasta <span class="ot">&lt;-</span> <span class="fu">FaFile</span>(my_nuc_fasta_file_path)</span>
+<span id="cb651-37"><a href="working-with-proteins.html#cb651-37" aria-hidden="true" tabindex="-1"></a>orf_seqs <span class="ot">&lt;-</span> <span class="fu">getSeq</span>(my_nuc_fasta, orfs)</span>
+<span id="cb651-38"><a href="working-with-proteins.html#cb651-38" aria-hidden="true" tabindex="-1"></a>orf_seqs</span>
+<span id="cb651-39"><a href="working-with-proteins.html#cb651-39" aria-hidden="true" tabindex="-1"></a><span class="co">#DNAStringSet object of length 31:</span></span>
+<span id="cb651-40"><a href="working-with-proteins.html#cb651-40" aria-hidden="true" tabindex="-1"></a><span class="co">#     width seq                                                                                                                names               </span></span>
+<span id="cb651-41"><a href="working-with-proteins.html#cb651-41" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]   429 ATGAGTCTATCTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAGTGGGAAAGATTGG...CTGGGACAAATTCCTTGCTCTAGTTTCTGCAGTCCTCACCTCCAAGTACAGATAA BT081428.1</span></span>
+<span id="cb651-42"><a href="working-with-proteins.html#cb651-42" aria-hidden="true" tabindex="-1"></a><span class="co"># [2]    12 TTGCCAAGCTAA                                                                                                       BT081428.1</span></span>
+<span id="cb651-43"><a href="working-with-proteins.html#cb651-43" aria-hidden="true" tabindex="-1"></a><span class="co"># [3]    33 CTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAG                                                                                  BT081428.1</span></span>
+<span id="cb651-44"><a href="working-with-proteins.html#cb651-44" aria-hidden="true" tabindex="-1"></a><span class="co"># [4]    39 TTGGATCTCAGGCCAGTGCTCTGGGCTCTGAGGCTTTGA                                                                            BT081428.1</span></span>
+<span id="cb651-45"><a href="working-with-proteins.html#cb651-45" aria-hidden="true" tabindex="-1"></a><span class="co"># [5]     9 TTGACCTGA                                                                                                          BT081428.1</span></span>
+<span id="cb651-46"><a href="working-with-proteins.html#cb651-46" aria-hidden="true" tabindex="-1"></a><span class="co"># ...   ... ...</span></span>
+<span id="cb651-47"><a href="working-with-proteins.html#cb651-47" aria-hidden="true" tabindex="-1"></a><span class="co">#[27]    90 TTGGCTGCACCTGCAAGAGCATTAATAATCTTTCCACCATGTTTGTTGAGGTCAGCAGAGCCAGGGGTCAGGTCAAAGTGGGGGAAATAA                         BT081428.1</span></span>
+<span id="cb651-48"><a href="working-with-proteins.html#cb651-48" aria-hidden="true" tabindex="-1"></a><span class="co">#[28]    39 CTGAGGGAGGACAGGCTGCCAGCAAGGTCATCCAGATGA                                                                            BT081428.1</span></span>
+<span id="cb651-49"><a href="working-with-proteins.html#cb651-49" aria-hidden="true" tabindex="-1"></a><span class="co">#[29]    48 ATGCGAGCCAGCAGAGGAAAGTTTCCTGGATCCACTCTTAGGTTGTAG                                                                   BT081428.1</span></span>
+<span id="cb651-50"><a href="working-with-proteins.html#cb651-50" aria-hidden="true" tabindex="-1"></a><span class="co">#[30]   156 TTGGTTGTAACTGAAATGGGCCCAAAGAACACTTCATTGCACGTTGTATTACTTGC...CTTGGAGGTGAGGACTGCAGAAACTAGAGCAAGGAATTTGTCCCAGGCAGCCTGA BT081428.1</span></span>
+<span id="cb651-51"><a href="working-with-proteins.html#cb651-51" aria-hidden="true" tabindex="-1"></a><span class="co">#[31]    24 TTGATGGACAATTTACACAAGTAA                                                                                           BT081428.1</span></span>
+<span id="cb651-52"><a href="working-with-proteins.html#cb651-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-53"><a href="working-with-proteins.html#cb651-53" aria-hidden="true" tabindex="-1"></a><span class="co"># order by the longest to shortest ORF</span></span>
+<span id="cb651-54"><a href="working-with-proteins.html#cb651-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-55"><a href="working-with-proteins.html#cb651-55" aria-hidden="true" tabindex="-1"></a>orf_seqs_ordered <span class="ot">&lt;-</span> orf_seqs[<span class="fu">order</span>(<span class="fu">width</span>(orf_seqs), <span class="at">decreasing =</span> T),]</span>
+<span id="cb651-56"><a href="working-with-proteins.html#cb651-56" aria-hidden="true" tabindex="-1"></a>orf_seqs_ordered </span>
+<span id="cb651-57"><a href="working-with-proteins.html#cb651-57" aria-hidden="true" tabindex="-1"></a><span class="co">#DNAStringSet object of length 31:</span></span>
+<span id="cb651-58"><a href="working-with-proteins.html#cb651-58" aria-hidden="true" tabindex="-1"></a><span class="co">#     width seq                                                                                                                names               </span></span>
+<span id="cb651-59"><a href="working-with-proteins.html#cb651-59" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]   429 ATGAGTCTATCTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAGTGGGAAAGATTGG...CTGGGACAAATTCCTTGCTCTAGTTTCTGCAGTCCTCACCTCCAAGTACAGATAA BT081428.1</span></span>
+<span id="cb651-60"><a href="working-with-proteins.html#cb651-60" aria-hidden="true" tabindex="-1"></a><span class="co"># [2]   258 ATGCAGGCCACTGAGGGAGGACAGGCTGCCAGCAAGGTCATCCAGATGATTGGCTG...GAGATCCAATCTTTCCCACTATGGAAAGCACAGCAGCCTTCTCACTTGCAGATAG BT081428.1</span></span>
+<span id="cb651-61"><a href="working-with-proteins.html#cb651-61" aria-hidden="true" tabindex="-1"></a><span class="co"># [3]   156 TTGGTTGTAACTGAAATGGGCCCAAAGAACACTTCATTGCACGTTGTATTACTTGC...CTTGGAGGTGAGGACTGCAGAAACTAGAGCAAGGAATTTGTCCCAGGCAGCCTGA BT081428.1</span></span>
+<span id="cb651-62"><a href="working-with-proteins.html#cb651-62" aria-hidden="true" tabindex="-1"></a><span class="co"># [4]   138 CTGCAGTCCTCACCTCCAAGTACAGATAAATCCACCCTGTATAACAGGCTACATCA...AATGAAGTGTTCTTTGGGCCCATTTCAGTTACAACCAAGTTGCAATGTTTTTTGA BT081428.1</span></span>
+<span id="cb651-63"><a href="working-with-proteins.html#cb651-63" aria-hidden="true" tabindex="-1"></a><span class="co"># [5]   126 CTGGCTCTGCTGACCTCAACAAACATGGTGGAAAGATTATTAATGCTCTTGCAGGT...GATGACCTTGCTGGCAGCCTGTCCTCCCTCAGTGGCCTGCATGCCTACAACCTAA BT081428.1</span></span>
+<span id="cb651-64"><a href="working-with-proteins.html#cb651-64" aria-hidden="true" tabindex="-1"></a><span class="co"># ...   ... ...</span></span>
+<span id="cb651-65"><a href="working-with-proteins.html#cb651-65" aria-hidden="true" tabindex="-1"></a><span class="co">#[27]    12 TTGCCAAGCTAA                                                                                                       BT081428.1</span></span>
+<span id="cb651-66"><a href="working-with-proteins.html#cb651-66" aria-hidden="true" tabindex="-1"></a><span class="co">#[28]     9 TTGACCTGA                                                                                                          BT081428.1</span></span>
+<span id="cb651-67"><a href="working-with-proteins.html#cb651-67" aria-hidden="true" tabindex="-1"></a><span class="co">#[29]     9 TTGGTGTAG                                                                                                          BT081428.1</span></span>
+<span id="cb651-68"><a href="working-with-proteins.html#cb651-68" aria-hidden="true" tabindex="-1"></a><span class="co">#[30]     9 CTGATGTAG                                                                                                          BT081428.1</span></span>
+<span id="cb651-69"><a href="working-with-proteins.html#cb651-69" aria-hidden="true" tabindex="-1"></a><span class="co">#[31]     6 TTGTAA                                                                                                             BT081428.1</span></span>
+<span id="cb651-70"><a href="working-with-proteins.html#cb651-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-71"><a href="working-with-proteins.html#cb651-71" aria-hidden="true" tabindex="-1"></a><span class="co"># name of fasta seq</span></span>
+<span id="cb651-72"><a href="working-with-proteins.html#cb651-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-73"><a href="working-with-proteins.html#cb651-73" aria-hidden="true" tabindex="-1"></a>name_seq_orfik <span class="ot">&lt;-</span> <span class="fu">names</span>(orf_seqs_ordered)[<span class="dv">1</span>]</span>
+<span id="cb651-74"><a href="working-with-proteins.html#cb651-74" aria-hidden="true" tabindex="-1"></a>name_seq_orfik <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;&gt;Long_ORF_orfik_&quot;</span>,name_seq_orfik,<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb651-75"><a href="working-with-proteins.html#cb651-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-76"><a href="working-with-proteins.html#cb651-76" aria-hidden="true" tabindex="-1"></a><span class="co"># build vector to write</span></span>
+<span id="cb651-77"><a href="working-with-proteins.html#cb651-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-78"><a href="working-with-proteins.html#cb651-78" aria-hidden="true" tabindex="-1"></a>my_CDS_long_orfik_vec <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(orf_seqs_ordered[<span class="dv">1</span>]))</span>
+<span id="cb651-79"><a href="working-with-proteins.html#cb651-79" aria-hidden="true" tabindex="-1"></a>final_my_CDS_long_orfik_vec <span class="ot">&lt;-</span> <span class="fu">paste0</span>(name_seq_orfik,my_CDS_long_orfik_vec)</span>
+<span id="cb651-80"><a href="working-with-proteins.html#cb651-80" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(final_my_CDS_long_orfik_vec)</span>
+<span id="cb651-81"><a href="working-with-proteins.html#cb651-81" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;Long_ORF_orfik_BT081428.1</span></span>
+<span id="cb651-82"><a href="working-with-proteins.html#cb651-82" aria-hidden="true" tabindex="-1"></a><span class="co">#ATGAGTCTATCTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAGTGGGAAAGATTGGATCTCAGGCCAGTGCTCTGGGCTCTGAGGCTTTGACCAGGCTTTTCCTTAGCTTCCCCCAGACCAAGACTTA...</span></span>
+<span id="cb651-83"><a href="working-with-proteins.html#cb651-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-84"><a href="working-with-proteins.html#cb651-84" aria-hidden="true" tabindex="-1"></a><span class="co"># write fasta file</span></span>
+<span id="cb651-85"><a href="working-with-proteins.html#cb651-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-86"><a href="working-with-proteins.html#cb651-86" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(final_my_CDS_long_orfik_vec, <span class="st">&quot;Rana_hb_ORF_orfik_seqs.fasta&quot;</span>)</span>
+<span id="cb651-87"><a href="working-with-proteins.html#cb651-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-88"><a href="working-with-proteins.html#cb651-88" aria-hidden="true" tabindex="-1"></a><span class="co">#tools:</span></span>
+<span id="cb651-89"><a href="working-with-proteins.html#cb651-89" aria-hidden="true" tabindex="-1"></a><span class="co">#http://csbg.cnb.csic.es/PB/</span></span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="importingexporting-data-into-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="miscellaneous.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/31-Proteins_v4.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
