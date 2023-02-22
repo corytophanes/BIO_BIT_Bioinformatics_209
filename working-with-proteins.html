@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2023-02-15" />
+<meta name="date" content="2023-02-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -458,8 +458,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="30.8" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#downloading-data-files-github"><i class="fa fa-check"></i><b>30.8</b> Downloading data files (GitHub)</a></li>
 <li class="chapter" data-level="30.9" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#accessing-online-data"><i class="fa fa-check"></i><b>30.9</b> Accessing online data</a></li>
 <li class="chapter" data-level="30.10" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#fixing-problems-while-importing-datasets"><i class="fa fa-check"></i><b>30.10</b> Fixing problems while importing datasets</a></li>
-<li class="chapter" data-level="30.11" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-from-clinicaltrials.gov"><i class="fa fa-check"></i><b>30.11</b> Data from clinicaltrials.gov</a></li>
-<li class="chapter" data-level="30.12" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-scrapping-from-a-website"><i class="fa fa-check"></i><b>30.12</b> Data scrapping from a website</a></li>
+<li class="chapter" data-level="30.11" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#simplifying-embellished-excel-datasets"><i class="fa fa-check"></i><b>30.11</b> Simplifying embellished excel datasets</a></li>
+<li class="chapter" data-level="30.12" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-from-clinicaltrials.gov"><i class="fa fa-check"></i><b>30.12</b> Data from clinicaltrials.gov</a></li>
+<li class="chapter" data-level="30.13" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-scrapping-from-a-website"><i class="fa fa-check"></i><b>30.13</b> Data scrapping from a website</a></li>
 </ul></li>
 <li class="chapter" data-level="31" data-path="working-with-proteins.html"><a href="working-with-proteins.html"><i class="fa fa-check"></i><b>31</b> – Working with Proteins</a>
 <ul>
@@ -761,209 +762,209 @@ This second line includes very specific codes for nucleotides and amino acids in
 <p><strong>1)</strong> To import amino acid (AA) sequences into R, we want to read a file with AA sequences to create a character vector contains text (e.g., sequence of letters for nucleotide or amino acid sequence). In R, you can easily interact with <a href="https://www.ncbi.nlm.nih.gov/" target="_blank"><strong>NCBI</strong></a> database and <strong>fetch</strong> sequences as vectors
 without the need to save those sequences into a file. For example, we will download protein sequences of a COX1 mitochondrial gene of <a href="https://amphibiaweb.org/species/6581" target="_blank"><em>Epipedobates anthonyi</em></a>.</p>
 <p>We will follow the example from previous sessions using the R-package <a href="https://cran.r-project.org/web/packages/rentrez/index.html" target="_blank"><strong>rentrez</strong></a>.</p>
-<div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="working-with-proteins.html#cb640-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rentrez)</span>
-<span id="cb640-2"><a href="working-with-proteins.html#cb640-2" aria-hidden="true" tabindex="-1"></a><span class="co"># if you need to install R-package &#39;rentrez&#39;, use install.packages(&quot;rentrez&quot;)</span></span>
-<span id="cb640-3"><a href="working-with-proteins.html#cb640-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb640-4"><a href="working-with-proteins.html#cb640-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Download some amino sequences from NCBI for Epipedobates anthonyi[Organism] that correspond to the gene COI</span></span>
-<span id="cb640-5"><a href="working-with-proteins.html#cb640-5" aria-hidden="true" tabindex="-1"></a>froggy_name_COX1_prot <span class="ot">&lt;-</span> <span class="st">&quot;Epipedobates anthonyi[Organism] AND COI[Gene]&quot;</span></span>
-<span id="cb640-6"><a href="working-with-proteins.html#cb640-6" aria-hidden="true" tabindex="-1"></a>froggy_seq_IDs_prot <span class="ot">&lt;-</span> <span class="fu">entrez_search</span>(<span class="at">db=</span><span class="st">&quot;protein&quot;</span>, <span class="at">term=</span> froggy_name_COX1_prot)</span>
-<span id="cb640-7"><a href="working-with-proteins.html#cb640-7" aria-hidden="true" tabindex="-1"></a>froggy_seq_IDs_prot</span>
-<span id="cb640-8"><a href="working-with-proteins.html#cb640-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Entrez search result with 2 hits (object contains 2 IDs and no web_history object)</span></span>
-<span id="cb640-9"><a href="working-with-proteins.html#cb640-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Search term (as translated):  &quot;Epipedobates anthonyi&quot;[Organism] AND COI[Gene] </span></span>
-<span id="cb640-10"><a href="working-with-proteins.html#cb640-10" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb640-11"><a href="working-with-proteins.html#cb640-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb640-12"><a href="working-with-proteins.html#cb640-12" aria-hidden="true" tabindex="-1"></a><span class="co"># revising the structure of &#39;froggy_seq_IDs_prot&#39; that there are 2 sequence in NCBI protein database</span></span>
-<span id="cb640-13"><a href="working-with-proteins.html#cb640-13" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(froggy_seq_IDs_prot)</span>
-<span id="cb640-14"><a href="working-with-proteins.html#cb640-14" aria-hidden="true" tabindex="-1"></a><span class="co">#List of 5</span></span>
-<span id="cb640-15"><a href="working-with-proteins.html#cb640-15" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ids             : chr [1:2] &quot;1952638368&quot; &quot;110332819&quot;</span></span>
-<span id="cb640-16"><a href="working-with-proteins.html#cb640-16" aria-hidden="true" tabindex="-1"></a><span class="co"># $ count           : int 2</span></span>
-<span id="cb640-17"><a href="working-with-proteins.html#cb640-17" aria-hidden="true" tabindex="-1"></a><span class="co"># $ retmax          : int 2</span></span>
-<span id="cb640-18"><a href="working-with-proteins.html#cb640-18" aria-hidden="true" tabindex="-1"></a><span class="co"># $ QueryTranslation: chr &quot;\&quot;Epipedobates anthonyi\&quot;[Organism] AND COI[Gene]&quot;</span></span>
-<span id="cb640-19"><a href="working-with-proteins.html#cb640-19" aria-hidden="true" tabindex="-1"></a><span class="co"># $ file            :Classes &#39;XMLInternalDocument&#39;, &#39;XMLAbstractDocument&#39; &lt;externalptr&gt; </span></span>
-<span id="cb640-20"><a href="working-with-proteins.html#cb640-20" aria-hidden="true" tabindex="-1"></a><span class="co"># - attr(*, &quot;class&quot;)= chr [1:2] &quot;esearch&quot; &quot;list&quot;</span></span>
-<span id="cb640-21"><a href="working-with-proteins.html#cb640-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb640-22"><a href="working-with-proteins.html#cb640-22" aria-hidden="true" tabindex="-1"></a>froggy_seqs_prot_fasta <span class="ot">&lt;-</span> <span class="fu">entrez_fetch</span>(<span class="at">db=</span><span class="st">&quot;protein&quot;</span>, <span class="at">id=</span>froggy_seq_IDs_prot<span class="sc">$</span>ids, <span class="at">rettype=</span><span class="st">&quot;fasta&quot;</span>)</span>
-<span id="cb640-23"><a href="working-with-proteins.html#cb640-23" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(froggy_seqs_prot_fasta)</span>
-<span id="cb640-24"><a href="working-with-proteins.html#cb640-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;QQL01627.1 cytochrome oxidase subunit I, partial (mitochondrion) [Epipedobates anthonyi]</span></span>
-<span id="cb640-25"><a href="working-with-proteins.html#cb640-25" aria-hidden="true" tabindex="-1"></a><span class="co">#VMITRWLFSTNHKDIGTLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMV</span></span>
-<span id="cb640-26"><a href="working-with-proteins.html#cb640-26" aria-hidden="true" tabindex="-1"></a><span class="co">#MPILIGGFGNWLVPLMIGAPDMAFPRMNNMSFWLLPPSFLLLLASAGVEAGAGTGWTVYPPLAGNLAHAG</span></span>
-<span id="cb640-27"><a href="working-with-proteins.html#cb640-27" aria-hidden="true" tabindex="-1"></a><span class="co">#PSVDLTIFSLHLAGVSSILGAINFITTTLNMKPPSLTQYQTPLFVWSVLITAVLLLLSLPVLAAGITMLL</span></span>
-<span id="cb640-28"><a href="working-with-proteins.html#cb640-28" aria-hidden="true" tabindex="-1"></a><span class="co">#TDRNLNTTFFDPAGGGDPILYQHLFWFFGHPEVYILILPGFGIISHVVTFYSSKKEPFGYMGMVWAMMSI</span></span>
-<span id="cb640-29"><a href="working-with-proteins.html#cb640-29" aria-hidden="true" tabindex="-1"></a><span class="co">#GLLGFIVWAHHMFTTDLNVDTRAYFTSATMIIAIPTGVKVFSWLATMHGGIIKWDAAMLWALGFIFLFTV</span></span>
-<span id="cb640-30"><a href="working-with-proteins.html#cb640-30" aria-hidden="true" tabindex="-1"></a><span class="co">#GGLTGIVLANSSLDIVLHDTYYVVAHFHYVLSMGAVFAIMAGFVHWFPLFTGFTLHEAWTKIHFGVMFAG</span></span>
-<span id="cb640-31"><a href="working-with-proteins.html#cb640-31" aria-hidden="true" tabindex="-1"></a><span class="co">#VNLTFFPQHFLGLAGMPRRYSDYPDAYTLWNTVSSVGSLISLVAVIIMMFIIWEAFSSKRLFLNAEMTPT</span></span>
-<span id="cb640-32"><a href="working-with-proteins.html#cb640-32" aria-hidden="true" tabindex="-1"></a><span class="co">#NVEWLYGSPPPYHTFEEAVYSKV</span></span>
-<span id="cb640-33"><a href="working-with-proteins.html#cb640-33" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb640-34"><a href="working-with-proteins.html#cb640-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;ABG67395.1 cytochrome oxidase subunit I, partial (mitochondrion) [Epipedobates anthonyi]</span></span>
-<span id="cb640-35"><a href="working-with-proteins.html#cb640-35" aria-hidden="true" tabindex="-1"></a><span class="co">#TLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVMPILIGGFGNWLVPLM</span></span>
-<span id="cb640-36"><a href="working-with-proteins.html#cb640-36" aria-hidden="true" tabindex="-1"></a><span class="co">#IGAPDMAFPRMNNMSFWLLPPSFLLLLASTGVEAGAGTGWTVYPPLAGNLAHAGPSVDLTIFSLHLAGVS</span></span>
-<span id="cb640-37"><a href="working-with-proteins.html#cb640-37" aria-hidden="true" tabindex="-1"></a><span class="co">#SILGAINFITTTLNMKPPSLTQYQTPLFVWSVLITAVLLLLSLPVLAAGITMLLTDRNLNTTFFDPAGGG</span></span>
-<span id="cb640-38"><a href="working-with-proteins.html#cb640-38" aria-hidden="true" tabindex="-1"></a><span class="co">#DPILYQHLF</span></span></code></pre></div>
+<div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="working-with-proteins.html#cb642-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rentrez)</span>
+<span id="cb642-2"><a href="working-with-proteins.html#cb642-2" aria-hidden="true" tabindex="-1"></a><span class="co"># if you need to install R-package &#39;rentrez&#39;, use install.packages(&quot;rentrez&quot;)</span></span>
+<span id="cb642-3"><a href="working-with-proteins.html#cb642-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb642-4"><a href="working-with-proteins.html#cb642-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Download some amino sequences from NCBI for Epipedobates anthonyi[Organism] that correspond to the gene COI</span></span>
+<span id="cb642-5"><a href="working-with-proteins.html#cb642-5" aria-hidden="true" tabindex="-1"></a>froggy_name_COX1_prot <span class="ot">&lt;-</span> <span class="st">&quot;Epipedobates anthonyi[Organism] AND COI[Gene]&quot;</span></span>
+<span id="cb642-6"><a href="working-with-proteins.html#cb642-6" aria-hidden="true" tabindex="-1"></a>froggy_seq_IDs_prot <span class="ot">&lt;-</span> <span class="fu">entrez_search</span>(<span class="at">db=</span><span class="st">&quot;protein&quot;</span>, <span class="at">term=</span> froggy_name_COX1_prot)</span>
+<span id="cb642-7"><a href="working-with-proteins.html#cb642-7" aria-hidden="true" tabindex="-1"></a>froggy_seq_IDs_prot</span>
+<span id="cb642-8"><a href="working-with-proteins.html#cb642-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Entrez search result with 2 hits (object contains 2 IDs and no web_history object)</span></span>
+<span id="cb642-9"><a href="working-with-proteins.html#cb642-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Search term (as translated):  &quot;Epipedobates anthonyi&quot;[Organism] AND COI[Gene] </span></span>
+<span id="cb642-10"><a href="working-with-proteins.html#cb642-10" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb642-11"><a href="working-with-proteins.html#cb642-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb642-12"><a href="working-with-proteins.html#cb642-12" aria-hidden="true" tabindex="-1"></a><span class="co"># revising the structure of &#39;froggy_seq_IDs_prot&#39; that there are 2 sequence in NCBI protein database</span></span>
+<span id="cb642-13"><a href="working-with-proteins.html#cb642-13" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(froggy_seq_IDs_prot)</span>
+<span id="cb642-14"><a href="working-with-proteins.html#cb642-14" aria-hidden="true" tabindex="-1"></a><span class="co">#List of 5</span></span>
+<span id="cb642-15"><a href="working-with-proteins.html#cb642-15" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ids             : chr [1:2] &quot;1952638368&quot; &quot;110332819&quot;</span></span>
+<span id="cb642-16"><a href="working-with-proteins.html#cb642-16" aria-hidden="true" tabindex="-1"></a><span class="co"># $ count           : int 2</span></span>
+<span id="cb642-17"><a href="working-with-proteins.html#cb642-17" aria-hidden="true" tabindex="-1"></a><span class="co"># $ retmax          : int 2</span></span>
+<span id="cb642-18"><a href="working-with-proteins.html#cb642-18" aria-hidden="true" tabindex="-1"></a><span class="co"># $ QueryTranslation: chr &quot;\&quot;Epipedobates anthonyi\&quot;[Organism] AND COI[Gene]&quot;</span></span>
+<span id="cb642-19"><a href="working-with-proteins.html#cb642-19" aria-hidden="true" tabindex="-1"></a><span class="co"># $ file            :Classes &#39;XMLInternalDocument&#39;, &#39;XMLAbstractDocument&#39; &lt;externalptr&gt; </span></span>
+<span id="cb642-20"><a href="working-with-proteins.html#cb642-20" aria-hidden="true" tabindex="-1"></a><span class="co"># - attr(*, &quot;class&quot;)= chr [1:2] &quot;esearch&quot; &quot;list&quot;</span></span>
+<span id="cb642-21"><a href="working-with-proteins.html#cb642-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb642-22"><a href="working-with-proteins.html#cb642-22" aria-hidden="true" tabindex="-1"></a>froggy_seqs_prot_fasta <span class="ot">&lt;-</span> <span class="fu">entrez_fetch</span>(<span class="at">db=</span><span class="st">&quot;protein&quot;</span>, <span class="at">id=</span>froggy_seq_IDs_prot<span class="sc">$</span>ids, <span class="at">rettype=</span><span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb642-23"><a href="working-with-proteins.html#cb642-23" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(froggy_seqs_prot_fasta)</span>
+<span id="cb642-24"><a href="working-with-proteins.html#cb642-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;QQL01627.1 cytochrome oxidase subunit I, partial (mitochondrion) [Epipedobates anthonyi]</span></span>
+<span id="cb642-25"><a href="working-with-proteins.html#cb642-25" aria-hidden="true" tabindex="-1"></a><span class="co">#VMITRWLFSTNHKDIGTLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMV</span></span>
+<span id="cb642-26"><a href="working-with-proteins.html#cb642-26" aria-hidden="true" tabindex="-1"></a><span class="co">#MPILIGGFGNWLVPLMIGAPDMAFPRMNNMSFWLLPPSFLLLLASAGVEAGAGTGWTVYPPLAGNLAHAG</span></span>
+<span id="cb642-27"><a href="working-with-proteins.html#cb642-27" aria-hidden="true" tabindex="-1"></a><span class="co">#PSVDLTIFSLHLAGVSSILGAINFITTTLNMKPPSLTQYQTPLFVWSVLITAVLLLLSLPVLAAGITMLL</span></span>
+<span id="cb642-28"><a href="working-with-proteins.html#cb642-28" aria-hidden="true" tabindex="-1"></a><span class="co">#TDRNLNTTFFDPAGGGDPILYQHLFWFFGHPEVYILILPGFGIISHVVTFYSSKKEPFGYMGMVWAMMSI</span></span>
+<span id="cb642-29"><a href="working-with-proteins.html#cb642-29" aria-hidden="true" tabindex="-1"></a><span class="co">#GLLGFIVWAHHMFTTDLNVDTRAYFTSATMIIAIPTGVKVFSWLATMHGGIIKWDAAMLWALGFIFLFTV</span></span>
+<span id="cb642-30"><a href="working-with-proteins.html#cb642-30" aria-hidden="true" tabindex="-1"></a><span class="co">#GGLTGIVLANSSLDIVLHDTYYVVAHFHYVLSMGAVFAIMAGFVHWFPLFTGFTLHEAWTKIHFGVMFAG</span></span>
+<span id="cb642-31"><a href="working-with-proteins.html#cb642-31" aria-hidden="true" tabindex="-1"></a><span class="co">#VNLTFFPQHFLGLAGMPRRYSDYPDAYTLWNTVSSVGSLISLVAVIIMMFIIWEAFSSKRLFLNAEMTPT</span></span>
+<span id="cb642-32"><a href="working-with-proteins.html#cb642-32" aria-hidden="true" tabindex="-1"></a><span class="co">#NVEWLYGSPPPYHTFEEAVYSKV</span></span>
+<span id="cb642-33"><a href="working-with-proteins.html#cb642-33" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb642-34"><a href="working-with-proteins.html#cb642-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;ABG67395.1 cytochrome oxidase subunit I, partial (mitochondrion) [Epipedobates anthonyi]</span></span>
+<span id="cb642-35"><a href="working-with-proteins.html#cb642-35" aria-hidden="true" tabindex="-1"></a><span class="co">#TLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVMPILIGGFGNWLVPLM</span></span>
+<span id="cb642-36"><a href="working-with-proteins.html#cb642-36" aria-hidden="true" tabindex="-1"></a><span class="co">#IGAPDMAFPRMNNMSFWLLPPSFLLLLASTGVEAGAGTGWTVYPPLAGNLAHAGPSVDLTIFSLHLAGVS</span></span>
+<span id="cb642-37"><a href="working-with-proteins.html#cb642-37" aria-hidden="true" tabindex="-1"></a><span class="co">#SILGAINFITTTLNMKPPSLTQYQTPLFVWSVLITAVLLLLSLPVLAAGITMLLTDRNLNTTFFDPAGGG</span></span>
+<span id="cb642-38"><a href="working-with-proteins.html#cb642-38" aria-hidden="true" tabindex="-1"></a><span class="co">#DPILYQHLF</span></span></code></pre></div>
 <p>We can save these sequences in a text file in your working directory.</p>
-<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="working-with-proteins.html#cb641-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is exclusive to your OWN COMPUTER change it accordingly</span></span>
-<span id="cb641-2"><a href="working-with-proteins.html#cb641-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory&quot;</span>)</span>
-<span id="cb641-3"><a href="working-with-proteins.html#cb641-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(froggy_seqs_prot_fasta, <span class="st">&quot;Eanthonyi_COI_prot_seqs.fasta&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="working-with-proteins.html#cb643-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is exclusive to your OWN COMPUTER change it accordingly</span></span>
+<span id="cb643-2"><a href="working-with-proteins.html#cb643-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory&quot;</span>)</span>
+<span id="cb643-3"><a href="working-with-proteins.html#cb643-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(froggy_seqs_prot_fasta, <span class="st">&quot;Eanthonyi_COI_prot_seqs.fasta&quot;</span>)</span></code></pre></div>
 <p><strong>2)</strong> Alternatively, you can import nucleotide sequences into R and then translate them to protein. As above, we want to read a file with nucleotide sequences to create a character vector contains text (e.g., sequence of letters for nucleotide sequences). In R, you can easily interact with <a href="https://www.ncbi.nlm.nih.gov/" target="_blank"><strong>NCBI</strong></a> database and <strong>fetch</strong> sequences as vectors
 without the need to save those sequences into a file.</p>
 <p>We will follow the example from previous sessions using the R-package <a href="https://cran.r-project.org/web/packages/rentrez/index.html" target="_blank"><strong>rentrez</strong></a>.
 However, we will work with a more complicated sequence for the mitochondrial ND2 gene.</p>
-<div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="working-with-proteins.html#cb642-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rentrez)</span>
-<span id="cb642-2"><a href="working-with-proteins.html#cb642-2" aria-hidden="true" tabindex="-1"></a><span class="co"># if you need to install R-package &#39;rentrez&#39;, use install.packages(&quot;rentrez&quot;)</span></span>
-<span id="cb642-3"><a href="working-with-proteins.html#cb642-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb642-4"><a href="working-with-proteins.html#cb642-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Download some amino sequences from NCBI for Epipedobates anthonyi[Organism] that correspond to the gene ND2</span></span>
-<span id="cb642-5"><a href="working-with-proteins.html#cb642-5" aria-hidden="true" tabindex="-1"></a>froggy_name_ND2_nuc <span class="ot">&lt;-</span> <span class="st">&quot;Epipedobates anthonyi[Organism] AND ND2[Gene]&quot;</span></span>
-<span id="cb642-6"><a href="working-with-proteins.html#cb642-6" aria-hidden="true" tabindex="-1"></a>froggy_seq_IDs_nuc <span class="ot">&lt;-</span> <span class="fu">entrez_search</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">term=</span> froggy_name_ND2_nuc)</span>
-<span id="cb642-7"><a href="working-with-proteins.html#cb642-7" aria-hidden="true" tabindex="-1"></a>froggy_seq_IDs_nuc</span>
-<span id="cb642-8"><a href="working-with-proteins.html#cb642-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Entrez search result with 1 hits (object contains 1 IDs and no web_history object)</span></span>
-<span id="cb642-9"><a href="working-with-proteins.html#cb642-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Search term (as translated):  &quot;Epipedobates anthonyi&quot;[Organism] AND ND2[Gene] </span></span>
-<span id="cb642-10"><a href="working-with-proteins.html#cb642-10" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb642-11"><a href="working-with-proteins.html#cb642-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb642-12"><a href="working-with-proteins.html#cb642-12" aria-hidden="true" tabindex="-1"></a><span class="co"># revising the structure of &#39;froggy_seq_IDs_nuc&#39; that there are 1 sequence in NCBI protein database</span></span>
-<span id="cb642-13"><a href="working-with-proteins.html#cb642-13" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(froggy_seq_IDs_nuc)</span>
-<span id="cb642-14"><a href="working-with-proteins.html#cb642-14" aria-hidden="true" tabindex="-1"></a><span class="co">#List of 5</span></span>
-<span id="cb642-15"><a href="working-with-proteins.html#cb642-15" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ids             : chr &quot;328728262&quot;</span></span>
-<span id="cb642-16"><a href="working-with-proteins.html#cb642-16" aria-hidden="true" tabindex="-1"></a><span class="co"># $ count           : int 1</span></span>
-<span id="cb642-17"><a href="working-with-proteins.html#cb642-17" aria-hidden="true" tabindex="-1"></a><span class="co"># $ retmax          : int 1</span></span>
-<span id="cb642-18"><a href="working-with-proteins.html#cb642-18" aria-hidden="true" tabindex="-1"></a><span class="co"># $ QueryTranslation: chr &quot;\&quot;Epipedobates anthonyi\&quot;[Organism] AND ND2[Gene]&quot;</span></span>
-<span id="cb642-19"><a href="working-with-proteins.html#cb642-19" aria-hidden="true" tabindex="-1"></a><span class="co"># $ file            :Classes &#39;XMLInternalDocument&#39;, &#39;XMLAbstractDocument&#39; &lt;externalptr&gt; </span></span>
-<span id="cb642-20"><a href="working-with-proteins.html#cb642-20" aria-hidden="true" tabindex="-1"></a><span class="co"># - attr(*, &quot;class&quot;)= chr [1:2] &quot;esearch&quot; &quot;list&quot;</span></span>
-<span id="cb642-21"><a href="working-with-proteins.html#cb642-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb642-22"><a href="working-with-proteins.html#cb642-22" aria-hidden="true" tabindex="-1"></a>froggy_seqs_nuc_fasta <span class="ot">&lt;-</span> <span class="fu">entrez_fetch</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">id=</span>froggy_seq_IDs_nuc<span class="sc">$</span>ids, <span class="at">rettype=</span><span class="st">&quot;fasta&quot;</span>)</span>
-<span id="cb642-23"><a href="working-with-proteins.html#cb642-23" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(froggy_seqs_nuc_fasta)</span>
-<span id="cb642-24"><a href="working-with-proteins.html#cb642-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;HQ290995.1 Epipedobates anthonyi 12S ribosomal RNA gene, partial sequence; tRNA-Val, 16S ribosomal RNA, and tRNA-Leu genes, complete sequence; NADH dehydrogenase subunit 1 (ND1) gene, partial cds; tRNA-Ile, tRNA-Gln, and tRNA-Met genes, complete sequence; and NADH dehydrogenase subunit 2 (ND2) gene, complete cds; mitochondrial</span></span>
-<span id="cb642-25"><a href="working-with-proteins.html#cb642-25" aria-hidden="true" tabindex="-1"></a><span class="co">#AAGGTTTGGTCCTAGCCTTGAAATCAGTTATTATTTAATATACACATGCAAGTCTCCGCACCCCTGTGAA</span></span>
-<span id="cb642-26"><a href="working-with-proteins.html#cb642-26" aria-hidden="true" tabindex="-1"></a><span class="co">#AACGCCCTTATTCTCCCCTACAGGGAGCAGGAGCCGGTATCAGGCACAAATTTTTGCCCATAACACCTAG</span></span>
-<span id="cb642-27"><a href="working-with-proteins.html#cb642-27" aria-hidden="true" tabindex="-1"></a><span class="co">#CATCGCCACACCCACAAGGGACTTCAGCAGTGATTAACATTGAGCATAAGCGATAGCTTGACTCAGTTAA</span></span>
-<span id="cb642-28"><a href="working-with-proteins.html#cb642-28" aria-hidden="true" tabindex="-1"></a><span class="co">#ACTAAACAGAGCCGGCCAATCTGGTGCCAGCCGCCGCGGTTACACCACTGTGGCTCAAATTGATTTCTAT</span></span>
-<span id="cb642-29"><a href="working-with-proteins.html#cb642-29" aria-hidden="true" tabindex="-1"></a><span class="co">#CGGCGTAAAGCGTGATTAAAGATTAATCTTTTGGAGTTAAACTAAAATTAAGCTGTGACACGCTTATTAC</span></span>
-<span id="cb642-30"><a href="working-with-proteins.html#cb642-30" aria-hidden="true" tabindex="-1"></a><span class="co">#CTAAGAAAATCATAAACGAAAGCTACTCCAATATTACCAACTTGAATTCACGACAACTGAGGAACAAACT</span></span>
-<span id="cb642-31"><a href="working-with-proteins.html#cb642-31" aria-hidden="true" tabindex="-1"></a><span class="co">#GGGATTAGATACCCCACTATGCTCAGTCGTAAACTTTAACTTACATCTTTCTACTCGCCAGGGAACTACG</span></span>
-<span id="cb642-32"><a href="working-with-proteins.html#cb642-32" aria-hidden="true" tabindex="-1"></a><span class="co">#AGCTAAGCTTAAAACCCAAAGGACTTGACGGTACCCCATATCCCCCTAGAGGAGCCTGTCCTATAATCGA</span></span>
-<span id="cb642-33"><a href="working-with-proteins.html#cb642-33" aria-hidden="true" tabindex="-1"></a><span class="co">#TAACCCCCGTTTTACCTCACCATTTTTTGTTAATCAGCCTGTATACCTCCGTCGTCAGCTTACCACGTGA</span></span>
-<span id="cb642-34"><a href="working-with-proteins.html#cb642-34" aria-hidden="true" tabindex="-1"></a><span class="co">#GCGTGTGAGCTAAATGTTTTTTTCAACCACACGTCAGGTCAAGGTGCAGCAAATAAAATGGAAAGAGATG</span></span>
-<span id="cb642-35"><a href="working-with-proteins.html#cb642-35" aria-hidden="true" tabindex="-1"></a><span class="co">#GGCTACACTCTCTATTCTAGAATAAACAAAAGACTAAATGAAACCCGGTCAGAAGGCGGATTTAGCAGTA</span></span>
-<span id="cb642-36"><a href="working-with-proteins.html#cb642-36" aria-hidden="true" tabindex="-1"></a><span class="co">#AAATGAAACTAGAGCGTTCATTTAAACATGGCACTGGGGTGTGTACACACCGCCCGTCACCCTCCTCAAT</span></span>
-<span id="cb642-37"><a href="working-with-proteins.html#cb642-37" aria-hidden="true" tabindex="-1"></a><span class="co">#GCTTCAAAACAGTATTTCACACTTTTTAGCTCCACAGAAGAGGCAAGTCGTAACATGGTAAGTATACCGG</span></span>
-<span id="cb642-38"><a href="working-with-proteins.html#cb642-38" aria-hidden="true" tabindex="-1"></a><span class="co">#AAGGTATGCTTGGAATCAAAATGTAACTTAAAATAAAGTATTTCGCTTACACCGAAAAAACATCAGTGTA</span></span>
-<span id="cb642-39"><a href="working-with-proteins.html#cb642-39" aria-hidden="true" tabindex="-1"></a><span class="co">#ACCCTGATCATTTTGAGCTAAAAATTTAGCCCCACCCATCCGCATATTCTTTCCGTATTTATTCCTATAA</span></span>
-<span id="cb642-40"><a href="working-with-proteins.html#cb642-40" aria-hidden="true" tabindex="-1"></a><span class="co">#ACTAAAACATTTTTTATATTTAGTAAAGGCGATTAAAAAATTTTTATGGAGCAATAACCACAGTACCGCA</span></span>
-<span id="cb642-41"><a href="working-with-proteins.html#cb642-41" aria-hidden="true" tabindex="-1"></a><span class="co">#AGGGAAAAATGAAATAAAAATGAAACATTCTCAAGCATAAAAAAGTAGAGCTAAATCCTCGTACCTTTTG</span></span>
-<span id="cb642-42"><a href="working-with-proteins.html#cb642-42" aria-hidden="true" tabindex="-1"></a><span class="co">#CATCATGATTTAACTAGTCTAATAAAGCAAAAAGATTTTTAGTTTTAATTCCCGAACCTAGACGAGCTAT</span></span>
-<span id="cb642-43"><a href="working-with-proteins.html#cb642-43" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
+<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="working-with-proteins.html#cb644-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rentrez)</span>
+<span id="cb644-2"><a href="working-with-proteins.html#cb644-2" aria-hidden="true" tabindex="-1"></a><span class="co"># if you need to install R-package &#39;rentrez&#39;, use install.packages(&quot;rentrez&quot;)</span></span>
+<span id="cb644-3"><a href="working-with-proteins.html#cb644-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb644-4"><a href="working-with-proteins.html#cb644-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Download some amino sequences from NCBI for Epipedobates anthonyi[Organism] that correspond to the gene ND2</span></span>
+<span id="cb644-5"><a href="working-with-proteins.html#cb644-5" aria-hidden="true" tabindex="-1"></a>froggy_name_ND2_nuc <span class="ot">&lt;-</span> <span class="st">&quot;Epipedobates anthonyi[Organism] AND ND2[Gene]&quot;</span></span>
+<span id="cb644-6"><a href="working-with-proteins.html#cb644-6" aria-hidden="true" tabindex="-1"></a>froggy_seq_IDs_nuc <span class="ot">&lt;-</span> <span class="fu">entrez_search</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">term=</span> froggy_name_ND2_nuc)</span>
+<span id="cb644-7"><a href="working-with-proteins.html#cb644-7" aria-hidden="true" tabindex="-1"></a>froggy_seq_IDs_nuc</span>
+<span id="cb644-8"><a href="working-with-proteins.html#cb644-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Entrez search result with 1 hits (object contains 1 IDs and no web_history object)</span></span>
+<span id="cb644-9"><a href="working-with-proteins.html#cb644-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Search term (as translated):  &quot;Epipedobates anthonyi&quot;[Organism] AND ND2[Gene] </span></span>
+<span id="cb644-10"><a href="working-with-proteins.html#cb644-10" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb644-11"><a href="working-with-proteins.html#cb644-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb644-12"><a href="working-with-proteins.html#cb644-12" aria-hidden="true" tabindex="-1"></a><span class="co"># revising the structure of &#39;froggy_seq_IDs_nuc&#39; that there are 1 sequence in NCBI protein database</span></span>
+<span id="cb644-13"><a href="working-with-proteins.html#cb644-13" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(froggy_seq_IDs_nuc)</span>
+<span id="cb644-14"><a href="working-with-proteins.html#cb644-14" aria-hidden="true" tabindex="-1"></a><span class="co">#List of 5</span></span>
+<span id="cb644-15"><a href="working-with-proteins.html#cb644-15" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ids             : chr &quot;328728262&quot;</span></span>
+<span id="cb644-16"><a href="working-with-proteins.html#cb644-16" aria-hidden="true" tabindex="-1"></a><span class="co"># $ count           : int 1</span></span>
+<span id="cb644-17"><a href="working-with-proteins.html#cb644-17" aria-hidden="true" tabindex="-1"></a><span class="co"># $ retmax          : int 1</span></span>
+<span id="cb644-18"><a href="working-with-proteins.html#cb644-18" aria-hidden="true" tabindex="-1"></a><span class="co"># $ QueryTranslation: chr &quot;\&quot;Epipedobates anthonyi\&quot;[Organism] AND ND2[Gene]&quot;</span></span>
+<span id="cb644-19"><a href="working-with-proteins.html#cb644-19" aria-hidden="true" tabindex="-1"></a><span class="co"># $ file            :Classes &#39;XMLInternalDocument&#39;, &#39;XMLAbstractDocument&#39; &lt;externalptr&gt; </span></span>
+<span id="cb644-20"><a href="working-with-proteins.html#cb644-20" aria-hidden="true" tabindex="-1"></a><span class="co"># - attr(*, &quot;class&quot;)= chr [1:2] &quot;esearch&quot; &quot;list&quot;</span></span>
+<span id="cb644-21"><a href="working-with-proteins.html#cb644-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb644-22"><a href="working-with-proteins.html#cb644-22" aria-hidden="true" tabindex="-1"></a>froggy_seqs_nuc_fasta <span class="ot">&lt;-</span> <span class="fu">entrez_fetch</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">id=</span>froggy_seq_IDs_nuc<span class="sc">$</span>ids, <span class="at">rettype=</span><span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb644-23"><a href="working-with-proteins.html#cb644-23" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(froggy_seqs_nuc_fasta)</span>
+<span id="cb644-24"><a href="working-with-proteins.html#cb644-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;HQ290995.1 Epipedobates anthonyi 12S ribosomal RNA gene, partial sequence; tRNA-Val, 16S ribosomal RNA, and tRNA-Leu genes, complete sequence; NADH dehydrogenase subunit 1 (ND1) gene, partial cds; tRNA-Ile, tRNA-Gln, and tRNA-Met genes, complete sequence; and NADH dehydrogenase subunit 2 (ND2) gene, complete cds; mitochondrial</span></span>
+<span id="cb644-25"><a href="working-with-proteins.html#cb644-25" aria-hidden="true" tabindex="-1"></a><span class="co">#AAGGTTTGGTCCTAGCCTTGAAATCAGTTATTATTTAATATACACATGCAAGTCTCCGCACCCCTGTGAA</span></span>
+<span id="cb644-26"><a href="working-with-proteins.html#cb644-26" aria-hidden="true" tabindex="-1"></a><span class="co">#AACGCCCTTATTCTCCCCTACAGGGAGCAGGAGCCGGTATCAGGCACAAATTTTTGCCCATAACACCTAG</span></span>
+<span id="cb644-27"><a href="working-with-proteins.html#cb644-27" aria-hidden="true" tabindex="-1"></a><span class="co">#CATCGCCACACCCACAAGGGACTTCAGCAGTGATTAACATTGAGCATAAGCGATAGCTTGACTCAGTTAA</span></span>
+<span id="cb644-28"><a href="working-with-proteins.html#cb644-28" aria-hidden="true" tabindex="-1"></a><span class="co">#ACTAAACAGAGCCGGCCAATCTGGTGCCAGCCGCCGCGGTTACACCACTGTGGCTCAAATTGATTTCTAT</span></span>
+<span id="cb644-29"><a href="working-with-proteins.html#cb644-29" aria-hidden="true" tabindex="-1"></a><span class="co">#CGGCGTAAAGCGTGATTAAAGATTAATCTTTTGGAGTTAAACTAAAATTAAGCTGTGACACGCTTATTAC</span></span>
+<span id="cb644-30"><a href="working-with-proteins.html#cb644-30" aria-hidden="true" tabindex="-1"></a><span class="co">#CTAAGAAAATCATAAACGAAAGCTACTCCAATATTACCAACTTGAATTCACGACAACTGAGGAACAAACT</span></span>
+<span id="cb644-31"><a href="working-with-proteins.html#cb644-31" aria-hidden="true" tabindex="-1"></a><span class="co">#GGGATTAGATACCCCACTATGCTCAGTCGTAAACTTTAACTTACATCTTTCTACTCGCCAGGGAACTACG</span></span>
+<span id="cb644-32"><a href="working-with-proteins.html#cb644-32" aria-hidden="true" tabindex="-1"></a><span class="co">#AGCTAAGCTTAAAACCCAAAGGACTTGACGGTACCCCATATCCCCCTAGAGGAGCCTGTCCTATAATCGA</span></span>
+<span id="cb644-33"><a href="working-with-proteins.html#cb644-33" aria-hidden="true" tabindex="-1"></a><span class="co">#TAACCCCCGTTTTACCTCACCATTTTTTGTTAATCAGCCTGTATACCTCCGTCGTCAGCTTACCACGTGA</span></span>
+<span id="cb644-34"><a href="working-with-proteins.html#cb644-34" aria-hidden="true" tabindex="-1"></a><span class="co">#GCGTGTGAGCTAAATGTTTTTTTCAACCACACGTCAGGTCAAGGTGCAGCAAATAAAATGGAAAGAGATG</span></span>
+<span id="cb644-35"><a href="working-with-proteins.html#cb644-35" aria-hidden="true" tabindex="-1"></a><span class="co">#GGCTACACTCTCTATTCTAGAATAAACAAAAGACTAAATGAAACCCGGTCAGAAGGCGGATTTAGCAGTA</span></span>
+<span id="cb644-36"><a href="working-with-proteins.html#cb644-36" aria-hidden="true" tabindex="-1"></a><span class="co">#AAATGAAACTAGAGCGTTCATTTAAACATGGCACTGGGGTGTGTACACACCGCCCGTCACCCTCCTCAAT</span></span>
+<span id="cb644-37"><a href="working-with-proteins.html#cb644-37" aria-hidden="true" tabindex="-1"></a><span class="co">#GCTTCAAAACAGTATTTCACACTTTTTAGCTCCACAGAAGAGGCAAGTCGTAACATGGTAAGTATACCGG</span></span>
+<span id="cb644-38"><a href="working-with-proteins.html#cb644-38" aria-hidden="true" tabindex="-1"></a><span class="co">#AAGGTATGCTTGGAATCAAAATGTAACTTAAAATAAAGTATTTCGCTTACACCGAAAAAACATCAGTGTA</span></span>
+<span id="cb644-39"><a href="working-with-proteins.html#cb644-39" aria-hidden="true" tabindex="-1"></a><span class="co">#ACCCTGATCATTTTGAGCTAAAAATTTAGCCCCACCCATCCGCATATTCTTTCCGTATTTATTCCTATAA</span></span>
+<span id="cb644-40"><a href="working-with-proteins.html#cb644-40" aria-hidden="true" tabindex="-1"></a><span class="co">#ACTAAAACATTTTTTATATTTAGTAAAGGCGATTAAAAAATTTTTATGGAGCAATAACCACAGTACCGCA</span></span>
+<span id="cb644-41"><a href="working-with-proteins.html#cb644-41" aria-hidden="true" tabindex="-1"></a><span class="co">#AGGGAAAAATGAAATAAAAATGAAACATTCTCAAGCATAAAAAAGTAGAGCTAAATCCTCGTACCTTTTG</span></span>
+<span id="cb644-42"><a href="working-with-proteins.html#cb644-42" aria-hidden="true" tabindex="-1"></a><span class="co">#CATCATGATTTAACTAGTCTAATAAAGCAAAAAGATTTTTAGTTTTAATTCCCGAACCTAGACGAGCTAT</span></span>
+<span id="cb644-43"><a href="working-with-proteins.html#cb644-43" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
 <p>This sequence contains both coding (i.e., translatable to AA sequences) and non-coding sequences (i.e., ribosomal and tRNAs). We can save these sequences in a text file in your working directory.</p>
 <p>We can append a nucleotide sequence to this vector that can be directly translated to AA sequences</p>
-<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="working-with-proteins.html#cb643-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rentrez)</span>
-<span id="cb643-2"><a href="working-with-proteins.html#cb643-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb643-3"><a href="working-with-proteins.html#cb643-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Download some COI sequences from NCBI for Epipedobates anthonyi[Organism] that correspond to the gene COI</span></span>
-<span id="cb643-4"><a href="working-with-proteins.html#cb643-4" aria-hidden="true" tabindex="-1"></a>COX1_nuc <span class="ot">&lt;-</span> <span class="st">&quot;Epipedobates anthonyi[Organism] AND COI[Gene]&quot;</span></span>
-<span id="cb643-5"><a href="working-with-proteins.html#cb643-5" aria-hidden="true" tabindex="-1"></a>COX1_IDs <span class="ot">&lt;-</span> <span class="fu">entrez_search</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">term=</span> COX1_nuc)</span>
-<span id="cb643-6"><a href="working-with-proteins.html#cb643-6" aria-hidden="true" tabindex="-1"></a>COX1_nuc_fasta <span class="ot">&lt;-</span> <span class="fu">entrez_fetch</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">id=</span>COX1_IDs<span class="sc">$</span>ids, <span class="at">rettype=</span><span class="st">&quot;fasta&quot;</span>)</span>
-<span id="cb643-7"><a href="working-with-proteins.html#cb643-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb643-8"><a href="working-with-proteins.html#cb643-8" aria-hidden="true" tabindex="-1"></a><span class="do">## append to ND2 vector</span></span>
-<span id="cb643-9"><a href="working-with-proteins.html#cb643-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb643-10"><a href="working-with-proteins.html#cb643-10" aria-hidden="true" tabindex="-1"></a>more_nuc_fasta <span class="ot">&lt;-</span> <span class="fu">c</span>(froggy_seqs_nuc_fasta,COX1_nuc_fasta)</span>
-<span id="cb643-11"><a href="working-with-proteins.html#cb643-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(more_nuc_fasta)</span></code></pre></div>
+<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="working-with-proteins.html#cb645-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rentrez)</span>
+<span id="cb645-2"><a href="working-with-proteins.html#cb645-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb645-3"><a href="working-with-proteins.html#cb645-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Download some COI sequences from NCBI for Epipedobates anthonyi[Organism] that correspond to the gene COI</span></span>
+<span id="cb645-4"><a href="working-with-proteins.html#cb645-4" aria-hidden="true" tabindex="-1"></a>COX1_nuc <span class="ot">&lt;-</span> <span class="st">&quot;Epipedobates anthonyi[Organism] AND COI[Gene]&quot;</span></span>
+<span id="cb645-5"><a href="working-with-proteins.html#cb645-5" aria-hidden="true" tabindex="-1"></a>COX1_IDs <span class="ot">&lt;-</span> <span class="fu">entrez_search</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">term=</span> COX1_nuc)</span>
+<span id="cb645-6"><a href="working-with-proteins.html#cb645-6" aria-hidden="true" tabindex="-1"></a>COX1_nuc_fasta <span class="ot">&lt;-</span> <span class="fu">entrez_fetch</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">id=</span>COX1_IDs<span class="sc">$</span>ids, <span class="at">rettype=</span><span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb645-7"><a href="working-with-proteins.html#cb645-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb645-8"><a href="working-with-proteins.html#cb645-8" aria-hidden="true" tabindex="-1"></a><span class="do">## append to ND2 vector</span></span>
+<span id="cb645-9"><a href="working-with-proteins.html#cb645-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb645-10"><a href="working-with-proteins.html#cb645-10" aria-hidden="true" tabindex="-1"></a>more_nuc_fasta <span class="ot">&lt;-</span> <span class="fu">c</span>(froggy_seqs_nuc_fasta,COX1_nuc_fasta)</span>
+<span id="cb645-11"><a href="working-with-proteins.html#cb645-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(more_nuc_fasta)</span></code></pre></div>
 <p>We can save these sequences in a text file in your working directory.</p>
-<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="working-with-proteins.html#cb644-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is exclusive to your OWN COMPUTER change it accordingly</span></span>
-<span id="cb644-2"><a href="working-with-proteins.html#cb644-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory&quot;</span>)</span>
-<span id="cb644-3"><a href="working-with-proteins.html#cb644-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(more_nuc_fasta, <span class="st">&quot;Eanthonyi_ND2_nuc_seqs.fasta&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="working-with-proteins.html#cb646-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is exclusive to your OWN COMPUTER change it accordingly</span></span>
+<span id="cb646-2"><a href="working-with-proteins.html#cb646-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory&quot;</span>)</span>
+<span id="cb646-3"><a href="working-with-proteins.html#cb646-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(more_nuc_fasta, <span class="st">&quot;Eanthonyi_ND2_nuc_seqs.fasta&quot;</span>)</span></code></pre></div>
 </div>
 <div id="importing-aa-sequences-in-r" class="section level2" number="31.3">
 <h2><span class="header-section-number">31.3</span> Importing AA sequences in R</h2>
 <p>We can import the amino acid sequences of from a file in FASTA format. We need to load the R-package <a href="https://bioconductor.org/packages/release/bioc/html/Biostrings.html" target="_blank"><strong>Biostrings</strong></a>.</p>
-<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="working-with-proteins.html#cb645-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load biostring</span></span>
-<span id="cb645-2"><a href="working-with-proteins.html#cb645-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Biostrings)</span>
-<span id="cb645-3"><a href="working-with-proteins.html#cb645-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb645-4"><a href="working-with-proteins.html#cb645-4" aria-hidden="true" tabindex="-1"></a><span class="do">## we can import if we have sequences in FASTA</span></span>
-<span id="cb645-5"><a href="working-with-proteins.html#cb645-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb645-6"><a href="working-with-proteins.html#cb645-6" aria-hidden="true" tabindex="-1"></a>my_AA_Biostrings_set <span class="ot">&lt;-</span> <span class="fu">readAAStringSet</span>(<span class="at">filepath =</span> <span class="st">&quot;~/Desktop/Teach_R/my_working_directory/Eanthonyi_COI_prot_seqs.fasta&quot;</span>, </span>
-<span id="cb645-7"><a href="working-with-proteins.html#cb645-7" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">format =</span> <span class="st">&quot;fasta&quot;</span>)</span>
-<span id="cb645-8"><a href="working-with-proteins.html#cb645-8" aria-hidden="true" tabindex="-1"></a>my_AA_Biostrings_set</span>
-<span id="cb645-9"><a href="working-with-proteins.html#cb645-9" aria-hidden="true" tabindex="-1"></a><span class="co">#AAStringSet object of length 2:</span></span>
-<span id="cb645-10"><a href="working-with-proteins.html#cb645-10" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq                                                                                                                 names               </span></span>
-<span id="cb645-11"><a href="working-with-proteins.html#cb645-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]   513 VMITRWLFSTNHKDIGTLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNV...SLISLVAVIIMMFIIWEAFSSKRLFLNAEMTPTNVEWLYGSPPPYHTFEEAVYSKV QQL01627.1 cytoch...</span></span>
-<span id="cb645-12"><a href="working-with-proteins.html#cb645-12" aria-hidden="true" tabindex="-1"></a><span class="co">#[2]   219 TLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVMP...QTPLFVWSVLITAVLLLLSLPVLAAGITMLLTDRNLNTTFFDPAGGGDPILYQHLF ABG67395.1 cytoch...</span></span></code></pre></div>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="working-with-proteins.html#cb647-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load biostring</span></span>
+<span id="cb647-2"><a href="working-with-proteins.html#cb647-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Biostrings)</span>
+<span id="cb647-3"><a href="working-with-proteins.html#cb647-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb647-4"><a href="working-with-proteins.html#cb647-4" aria-hidden="true" tabindex="-1"></a><span class="do">## we can import if we have sequences in FASTA</span></span>
+<span id="cb647-5"><a href="working-with-proteins.html#cb647-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb647-6"><a href="working-with-proteins.html#cb647-6" aria-hidden="true" tabindex="-1"></a>my_AA_Biostrings_set <span class="ot">&lt;-</span> <span class="fu">readAAStringSet</span>(<span class="at">filepath =</span> <span class="st">&quot;~/Desktop/Teach_R/my_working_directory/Eanthonyi_COI_prot_seqs.fasta&quot;</span>, </span>
+<span id="cb647-7"><a href="working-with-proteins.html#cb647-7" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">format =</span> <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb647-8"><a href="working-with-proteins.html#cb647-8" aria-hidden="true" tabindex="-1"></a>my_AA_Biostrings_set</span>
+<span id="cb647-9"><a href="working-with-proteins.html#cb647-9" aria-hidden="true" tabindex="-1"></a><span class="co">#AAStringSet object of length 2:</span></span>
+<span id="cb647-10"><a href="working-with-proteins.html#cb647-10" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq                                                                                                                 names               </span></span>
+<span id="cb647-11"><a href="working-with-proteins.html#cb647-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]   513 VMITRWLFSTNHKDIGTLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNV...SLISLVAVIIMMFIIWEAFSSKRLFLNAEMTPTNVEWLYGSPPPYHTFEEAVYSKV QQL01627.1 cytoch...</span></span>
+<span id="cb647-12"><a href="working-with-proteins.html#cb647-12" aria-hidden="true" tabindex="-1"></a><span class="co">#[2]   219 TLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVMP...QTPLFVWSVLITAVLLLLSLPVLAAGITMLLTDRNLNTTFFDPAGGGDPILYQHLF ABG67395.1 cytoch...</span></span></code></pre></div>
 </div>
 <div id="importing-nucleotide-sequences-in-r" class="section level2" number="31.4">
 <h2><span class="header-section-number">31.4</span> Importing nucleotide sequences in R</h2>
 <p>We can import nucleotide sequences of from a file in FASTA or FASTQ formats. The last sequence format is similat to FASTA but include sequence (nucleotides) and its corresponding quality scores from the sequencing experiment for more information see <a href="https://en.wikipedia.org/wiki/FASTQ_format" target="_blank"><strong>here</strong></a>.</p>
-<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="working-with-proteins.html#cb646-1" aria-hidden="true" tabindex="-1"></a>my_nuc_Biostrings_set <span class="ot">&lt;-</span> <span class="fu">readDNAStringSet</span>(<span class="at">filepath =</span> <span class="st">&quot;~/Desktop/Teach_R/my_working_directory/Eanthonyi_ND2_nuc_seqs.fasta&quot;</span>, </span>
-<span id="cb646-2"><a href="working-with-proteins.html#cb646-2" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">format =</span> <span class="st">&quot;fasta&quot;</span>)</span>
-<span id="cb646-3"><a href="working-with-proteins.html#cb646-3" aria-hidden="true" tabindex="-1"></a>my_nuc_Biostrings_set</span>
-<span id="cb646-4"><a href="working-with-proteins.html#cb646-4" aria-hidden="true" tabindex="-1"></a><span class="co">#DNAStringSet object of length 3:</span></span>
-<span id="cb646-5"><a href="working-with-proteins.html#cb646-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq                                                                                                                 names               </span></span>
-<span id="cb646-6"><a href="working-with-proteins.html#cb646-6" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  4886 AAGGTTTGGTCCTAGCCTTGAAATCAGTTATTATTTAATATACACATGCAAGTCTC...TCACTCTCTGCCTTCTTCCTATTTCCCCATTTTTTTTACTATTTATTAGAAACTTA HQ290995.1 Epiped...</span></span>
-<span id="cb646-7"><a href="working-with-proteins.html#cb646-7" aria-hidden="true" tabindex="-1"></a><span class="co">#[2]  1539 GTGATAATTACCCGATGATTATTCTCCACAAACCATAAAGATATCGGAACCCTATA...TATATGGCTCCCCTCCTCCTTATCACACATTTGAGGAAGCTGTTTATTCTAAAGTA MW042033.1 Epiped...</span></span>
-<span id="cb646-8"><a href="working-with-proteins.html#cb646-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[3]   658 AACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCC...CCACTTTCTTTGACCCAGCAGGTGGAGGTGACCCCATTCTTTATCAACATCTCTTC DQ502853.1 Epiped...</span></span></code></pre></div>
+<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="working-with-proteins.html#cb648-1" aria-hidden="true" tabindex="-1"></a>my_nuc_Biostrings_set <span class="ot">&lt;-</span> <span class="fu">readDNAStringSet</span>(<span class="at">filepath =</span> <span class="st">&quot;~/Desktop/Teach_R/my_working_directory/Eanthonyi_ND2_nuc_seqs.fasta&quot;</span>, </span>
+<span id="cb648-2"><a href="working-with-proteins.html#cb648-2" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">format =</span> <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb648-3"><a href="working-with-proteins.html#cb648-3" aria-hidden="true" tabindex="-1"></a>my_nuc_Biostrings_set</span>
+<span id="cb648-4"><a href="working-with-proteins.html#cb648-4" aria-hidden="true" tabindex="-1"></a><span class="co">#DNAStringSet object of length 3:</span></span>
+<span id="cb648-5"><a href="working-with-proteins.html#cb648-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq                                                                                                                 names               </span></span>
+<span id="cb648-6"><a href="working-with-proteins.html#cb648-6" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  4886 AAGGTTTGGTCCTAGCCTTGAAATCAGTTATTATTTAATATACACATGCAAGTCTC...TCACTCTCTGCCTTCTTCCTATTTCCCCATTTTTTTTACTATTTATTAGAAACTTA HQ290995.1 Epiped...</span></span>
+<span id="cb648-7"><a href="working-with-proteins.html#cb648-7" aria-hidden="true" tabindex="-1"></a><span class="co">#[2]  1539 GTGATAATTACCCGATGATTATTCTCCACAAACCATAAAGATATCGGAACCCTATA...TATATGGCTCCCCTCCTCCTTATCACACATTTGAGGAAGCTGTTTATTCTAAAGTA MW042033.1 Epiped...</span></span>
+<span id="cb648-8"><a href="working-with-proteins.html#cb648-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[3]   658 AACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCC...CCACTTTCTTTGACCCAGCAGGTGGAGGTGACCCCATTCTTTATCAACATCTCTTC DQ502853.1 Epiped...</span></span></code></pre></div>
 </div>
 <div id="translating-a-nucleotides-to-aa" class="section level2" number="31.5">
 <h2><span class="header-section-number">31.5</span> Translating a nucleotides to AA</h2>
 <p>We need to translate nucleotide to AA sequences to further explore protein properties. For this purpose, we use the function <code>translate()</code> from <a href="https://bioconductor.org/packages/release/bioc/html/Biostrings.html" target="_blank"><strong>Biostrings</strong></a>.
 Yet, you need to make sure that you know the <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi"><strong>genetic code</strong></a>{{target=“_blank”}. The most common are the “SGC0” for the standard genetic code or “SGC1” for the vertebrate mitochondrial code.
 In our example, the sequeces were derived from a mitochondrial genome of a frog (so, we should use “SGC1”). Notice that we need to define the genetic code with the function <code>getGeneticCode()</code>.</p>
-<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="working-with-proteins.html#cb647-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Vertebrate Mitochondrial code</span></span>
-<span id="cb647-2"><a href="working-with-proteins.html#cb647-2" aria-hidden="true" tabindex="-1"></a>SGC1 <span class="ot">&lt;-</span> <span class="fu">getGeneticCode</span>(<span class="st">&quot;SGC1&quot;</span>)</span>
-<span id="cb647-3"><a href="working-with-proteins.html#cb647-3" aria-hidden="true" tabindex="-1"></a>SGC1</span>
-<span id="cb647-4"><a href="working-with-proteins.html#cb647-4" aria-hidden="true" tabindex="-1"></a><span class="co">#TTT TTC TTA TTG TCT TCC TCA TCG TAT TAC TAA TAG TGT TGC TGA TGG CTT CTC CTA CTG CCT CCC CCA CCG CAT CAC CAA CAG CGT CGC CGA CGG ATT ATC ATA ATG </span></span>
-<span id="cb647-5"><a href="working-with-proteins.html#cb647-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;F&quot; &quot;F&quot; &quot;L&quot; &quot;L&quot; &quot;S&quot; &quot;S&quot; &quot;S&quot; &quot;S&quot; &quot;Y&quot; &quot;Y&quot; &quot;*&quot; &quot;*&quot; &quot;C&quot; &quot;C&quot; &quot;W&quot; &quot;W&quot; &quot;L&quot; &quot;L&quot; &quot;L&quot; &quot;L&quot; &quot;P&quot; &quot;P&quot; &quot;P&quot; &quot;P&quot; &quot;H&quot; &quot;H&quot; &quot;Q&quot; &quot;Q&quot; &quot;R&quot; &quot;R&quot; &quot;R&quot; &quot;R&quot; &quot;I&quot; &quot;I&quot; &quot;M&quot; &quot;M&quot; </span></span>
-<span id="cb647-6"><a href="working-with-proteins.html#cb647-6" aria-hidden="true" tabindex="-1"></a><span class="co">#ACT ACC ACA ACG AAT AAC AAA AAG AGT AGC AGA AGG GTT GTC GTA GTG GCT GCC GCA GCG GAT GAC GAA GAG GGT GGC GGA GGG </span></span>
-<span id="cb647-7"><a href="working-with-proteins.html#cb647-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;N&quot; &quot;N&quot; &quot;K&quot; &quot;K&quot; &quot;S&quot; &quot;S&quot; &quot;*&quot; &quot;*&quot; &quot;V&quot; &quot;V&quot; &quot;V&quot; &quot;V&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;D&quot; &quot;D&quot; &quot;E&quot; &quot;E&quot; &quot;G&quot; &quot;G&quot; &quot;G&quot; &quot;G&quot; </span></span>
-<span id="cb647-8"><a href="working-with-proteins.html#cb647-8" aria-hidden="true" tabindex="-1"></a><span class="co">#attr(,&quot;alt_init_codons&quot;)</span></span>
-<span id="cb647-9"><a href="working-with-proteins.html#cb647-9" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;ATT&quot; &quot;ATC&quot; &quot;GTG&quot;</span></span>
-<span id="cb647-10"><a href="working-with-proteins.html#cb647-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb647-11"><a href="working-with-proteins.html#cb647-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Translating DNA/RNA:</span></span>
-<span id="cb647-12"><a href="working-with-proteins.html#cb647-12" aria-hidden="true" tabindex="-1"></a>my_aa_translated_Biostrings_set <span class="ot">&lt;-</span> Biostrings<span class="sc">::</span><span class="fu">translate</span>(my_nuc_Biostrings_set, <span class="at">genetic.code=</span> SGC1, <span class="at">no.init.codon=</span><span class="cn">FALSE</span>)</span>
-<span id="cb647-13"><a href="working-with-proteins.html#cb647-13" aria-hidden="true" tabindex="-1"></a>my_aa_translated_Biostrings_set</span>
-<span id="cb647-14"><a href="working-with-proteins.html#cb647-14" aria-hidden="true" tabindex="-1"></a><span class="co">#AAStringSet object of length 3:</span></span>
-<span id="cb647-15"><a href="working-with-proteins.html#cb647-15" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq                                                                                                                 names               </span></span>
-<span id="cb647-16"><a href="working-with-proteins.html#cb647-16" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1628 KVWS*PWNQLLFNMHMQVSAPLWKRPYSPLQGAGAGI*HKFLPMTPSIATPT*DFS...FFIFA*HMLYP*H*HLTHPSPHHPEILTKKMIYLFLPSSLSAFFLFPHFFYYLLET HQ290995.1 Epiped...</span></span>
-<span id="cb647-17"><a href="working-with-proteins.html#cb647-17" aria-hidden="true" tabindex="-1"></a><span class="co">#[2]   513 MMITRWLFSTNHKDIGTLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNV...SLISLVAVIIMMFIIWEAFSSKRLFLNAEMTPTNVEWLYGSPPPYHTFEEAVYSKV MW042033.1 Epiped...</span></span>
-<span id="cb647-18"><a href="working-with-proteins.html#cb647-18" aria-hidden="true" tabindex="-1"></a><span class="co">#[3]   219 NPMFSIWGMSRNS*NSPKPLNSS*IKSTWVLTGRWPDL*CNRNCPCFRHNLLHGYA...PNSFICLISSNHRSTSSSFSSCPSC*NYNAFNWSKP*HHFLWPS*W*WPHSLSTSL DQ502853.1 Epiped...</span></span></code></pre></div>
+<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="working-with-proteins.html#cb649-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Vertebrate Mitochondrial code</span></span>
+<span id="cb649-2"><a href="working-with-proteins.html#cb649-2" aria-hidden="true" tabindex="-1"></a>SGC1 <span class="ot">&lt;-</span> <span class="fu">getGeneticCode</span>(<span class="st">&quot;SGC1&quot;</span>)</span>
+<span id="cb649-3"><a href="working-with-proteins.html#cb649-3" aria-hidden="true" tabindex="-1"></a>SGC1</span>
+<span id="cb649-4"><a href="working-with-proteins.html#cb649-4" aria-hidden="true" tabindex="-1"></a><span class="co">#TTT TTC TTA TTG TCT TCC TCA TCG TAT TAC TAA TAG TGT TGC TGA TGG CTT CTC CTA CTG CCT CCC CCA CCG CAT CAC CAA CAG CGT CGC CGA CGG ATT ATC ATA ATG </span></span>
+<span id="cb649-5"><a href="working-with-proteins.html#cb649-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;F&quot; &quot;F&quot; &quot;L&quot; &quot;L&quot; &quot;S&quot; &quot;S&quot; &quot;S&quot; &quot;S&quot; &quot;Y&quot; &quot;Y&quot; &quot;*&quot; &quot;*&quot; &quot;C&quot; &quot;C&quot; &quot;W&quot; &quot;W&quot; &quot;L&quot; &quot;L&quot; &quot;L&quot; &quot;L&quot; &quot;P&quot; &quot;P&quot; &quot;P&quot; &quot;P&quot; &quot;H&quot; &quot;H&quot; &quot;Q&quot; &quot;Q&quot; &quot;R&quot; &quot;R&quot; &quot;R&quot; &quot;R&quot; &quot;I&quot; &quot;I&quot; &quot;M&quot; &quot;M&quot; </span></span>
+<span id="cb649-6"><a href="working-with-proteins.html#cb649-6" aria-hidden="true" tabindex="-1"></a><span class="co">#ACT ACC ACA ACG AAT AAC AAA AAG AGT AGC AGA AGG GTT GTC GTA GTG GCT GCC GCA GCG GAT GAC GAA GAG GGT GGC GGA GGG </span></span>
+<span id="cb649-7"><a href="working-with-proteins.html#cb649-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;N&quot; &quot;N&quot; &quot;K&quot; &quot;K&quot; &quot;S&quot; &quot;S&quot; &quot;*&quot; &quot;*&quot; &quot;V&quot; &quot;V&quot; &quot;V&quot; &quot;V&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;D&quot; &quot;D&quot; &quot;E&quot; &quot;E&quot; &quot;G&quot; &quot;G&quot; &quot;G&quot; &quot;G&quot; </span></span>
+<span id="cb649-8"><a href="working-with-proteins.html#cb649-8" aria-hidden="true" tabindex="-1"></a><span class="co">#attr(,&quot;alt_init_codons&quot;)</span></span>
+<span id="cb649-9"><a href="working-with-proteins.html#cb649-9" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;ATT&quot; &quot;ATC&quot; &quot;GTG&quot;</span></span>
+<span id="cb649-10"><a href="working-with-proteins.html#cb649-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb649-11"><a href="working-with-proteins.html#cb649-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Translating DNA/RNA:</span></span>
+<span id="cb649-12"><a href="working-with-proteins.html#cb649-12" aria-hidden="true" tabindex="-1"></a>my_aa_translated_Biostrings_set <span class="ot">&lt;-</span> Biostrings<span class="sc">::</span><span class="fu">translate</span>(my_nuc_Biostrings_set, <span class="at">genetic.code=</span> SGC1, <span class="at">no.init.codon=</span><span class="cn">FALSE</span>)</span>
+<span id="cb649-13"><a href="working-with-proteins.html#cb649-13" aria-hidden="true" tabindex="-1"></a>my_aa_translated_Biostrings_set</span>
+<span id="cb649-14"><a href="working-with-proteins.html#cb649-14" aria-hidden="true" tabindex="-1"></a><span class="co">#AAStringSet object of length 3:</span></span>
+<span id="cb649-15"><a href="working-with-proteins.html#cb649-15" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq                                                                                                                 names               </span></span>
+<span id="cb649-16"><a href="working-with-proteins.html#cb649-16" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1628 KVWS*PWNQLLFNMHMQVSAPLWKRPYSPLQGAGAGI*HKFLPMTPSIATPT*DFS...FFIFA*HMLYP*H*HLTHPSPHHPEILTKKMIYLFLPSSLSAFFLFPHFFYYLLET HQ290995.1 Epiped...</span></span>
+<span id="cb649-17"><a href="working-with-proteins.html#cb649-17" aria-hidden="true" tabindex="-1"></a><span class="co">#[2]   513 MMITRWLFSTNHKDIGTLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNV...SLISLVAVIIMMFIIWEAFSSKRLFLNAEMTPTNVEWLYGSPPPYHTFEEAVYSKV MW042033.1 Epiped...</span></span>
+<span id="cb649-18"><a href="working-with-proteins.html#cb649-18" aria-hidden="true" tabindex="-1"></a><span class="co">#[3]   219 NPMFSIWGMSRNS*NSPKPLNSS*IKSTWVLTGRWPDL*CNRNCPCFRHNLLHGYA...PNSFICLISSNHRSTSSSFSSCPSC*NYNAFNWSKP*HHFLWPS*W*WPHSLSTSL DQ502853.1 Epiped...</span></span></code></pre></div>
 <p>If we check each element in the AAstringset object we notice something particular</p>
-<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="working-with-proteins.html#cb648-1" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_1 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(my_aa_translated_Biostrings_set[<span class="dv">1</span>]))</span>
-<span id="cb648-2"><a href="working-with-proteins.html#cb648-2" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_1</span>
-<span id="cb648-3"><a href="working-with-proteins.html#cb648-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;KVWS*PWNQLLFNMHMQVSAPLWKRPYSPLQGAGAGI*HKFLPMTPSIATPT*DFSSD*HWA*AMAWLS*...</span></span>
-<span id="cb648-4"><a href="working-with-proteins.html#cb648-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb648-5"><a href="working-with-proteins.html#cb648-5" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_2 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(my_aa_translated_Biostrings_set[<span class="dv">2</span>]))</span>
-<span id="cb648-6"><a href="working-with-proteins.html#cb648-6" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_2</span>
-<span id="cb648-7"><a href="working-with-proteins.html#cb648-7" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;MMITRWLFSTNHKDIGTLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVM...</span></span>
-<span id="cb648-8"><a href="working-with-proteins.html#cb648-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb648-9"><a href="working-with-proteins.html#cb648-9" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_3 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(my_aa_translated_Biostrings_set[<span class="dv">3</span>]))</span>
-<span id="cb648-10"><a href="working-with-proteins.html#cb648-10" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_3</span>
-<span id="cb648-11"><a href="working-with-proteins.html#cb648-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;NPMFSIWGMSRNS*NSPKPLNSS*IKSTWVLTGRWPDL*CNRNCPCFRHNLLHGYAYSNWWIWKLTGTFNN...</span></span></code></pre></div>
+<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="working-with-proteins.html#cb650-1" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_1 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(my_aa_translated_Biostrings_set[<span class="dv">1</span>]))</span>
+<span id="cb650-2"><a href="working-with-proteins.html#cb650-2" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_1</span>
+<span id="cb650-3"><a href="working-with-proteins.html#cb650-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;KVWS*PWNQLLFNMHMQVSAPLWKRPYSPLQGAGAGI*HKFLPMTPSIATPT*DFSSD*HWA*AMAWLS*...</span></span>
+<span id="cb650-4"><a href="working-with-proteins.html#cb650-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-5"><a href="working-with-proteins.html#cb650-5" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_2 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(my_aa_translated_Biostrings_set[<span class="dv">2</span>]))</span>
+<span id="cb650-6"><a href="working-with-proteins.html#cb650-6" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_2</span>
+<span id="cb650-7"><a href="working-with-proteins.html#cb650-7" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;MMITRWLFSTNHKDIGTLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVM...</span></span>
+<span id="cb650-8"><a href="working-with-proteins.html#cb650-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-9"><a href="working-with-proteins.html#cb650-9" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_3 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(my_aa_translated_Biostrings_set[<span class="dv">3</span>]))</span>
+<span id="cb650-10"><a href="working-with-proteins.html#cb650-10" aria-hidden="true" tabindex="-1"></a>seqs_as_vector_3</span>
+<span id="cb650-11"><a href="working-with-proteins.html#cb650-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;NPMFSIWGMSRNS*NSPKPLNSS*IKSTWVLTGRWPDL*CNRNCPCFRHNLLHGYAYSNWWIWKLTGTFNN...</span></span></code></pre></div>
 <p>Only sequence <code>seqs_as_vector_2</code> or the second line has no <code>*</code> or stop codons. The other two: <code>seqs_as_vector_1</code> and <code>seqs_as_vector_3</code> have lots of <code>*</code> or stop codons.
 The reason is that <code>seqs_as_vector_1</code> has ribosomal and tRNAs in the sequence and we have to isolate the coding regions (CDS).
 For <code>seqs_as_vector_3</code> the reason is that the starting base is not the first codon position and we have to shift to the correct one to do the translation.</p>
 <p>To fix the translation in <code>seqs_as_vector_3</code> is easier, we need to indicate that start codon is in position .</p>
-<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="working-with-proteins.html#cb649-1" aria-hidden="true" tabindex="-1"></a>nuc_seq_3 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(my_nuc_Biostrings_set[<span class="dv">3</span>]))</span>
-<span id="cb649-2"><a href="working-with-proteins.html#cb649-2" aria-hidden="true" tabindex="-1"></a>nuc_seq_3</span>
-<span id="cb649-3"><a href="working-with-proteins.html#cb649-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;AACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCCTCTTAATTCGAGCAGA...</span></span>
-<span id="cb649-4"><a href="working-with-proteins.html#cb649-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb649-5"><a href="working-with-proteins.html#cb649-5" aria-hidden="true" tabindex="-1"></a><span class="do">## remove first character</span></span>
-<span id="cb649-6"><a href="working-with-proteins.html#cb649-6" aria-hidden="true" tabindex="-1"></a>nuc_seq_3_red <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">&#39;.&#39;</span>, <span class="st">&#39;&#39;</span>, nuc_seq_3)</span>
-<span id="cb649-7"><a href="working-with-proteins.html#cb649-7" aria-hidden="true" tabindex="-1"></a>nuc_seq_3_red </span>
-<span id="cb649-8"><a href="working-with-proteins.html#cb649-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;ACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCCTCTTAATTCGAGCAGA...</span></span>
-<span id="cb649-9"><a href="working-with-proteins.html#cb649-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb649-10"><a href="working-with-proteins.html#cb649-10" aria-hidden="true" tabindex="-1"></a><span class="do">## create a new string set and translate</span></span>
-<span id="cb649-11"><a href="working-with-proteins.html#cb649-11" aria-hidden="true" tabindex="-1"></a>nuc_seq_3_red <span class="ot">&lt;-</span> <span class="fu">DNAStringSet</span>(nuc_seq_3_red)</span>
-<span id="cb649-12"><a href="working-with-proteins.html#cb649-12" aria-hidden="true" tabindex="-1"></a>nuc_seq_3_red_translated <span class="ot">&lt;-</span> Biostrings<span class="sc">::</span><span class="fu">translate</span>(nuc_seq_3_red, <span class="at">genetic.code=</span> SGC1, <span class="at">no.init.codon=</span><span class="cn">FALSE</span>)</span>
-<span id="cb649-13"><a href="working-with-proteins.html#cb649-13" aria-hidden="true" tabindex="-1"></a>nuc_seq_3_red_translated</span>
-<span id="cb649-14"><a href="working-with-proteins.html#cb649-14" aria-hidden="true" tabindex="-1"></a><span class="co">#AAStringSet object of length 1:</span></span>
-<span id="cb649-15"><a href="working-with-proteins.html#cb649-15" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq</span></span>
-<span id="cb649-16"><a href="working-with-proteins.html#cb649-16" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]   219 TLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVMPILIGGFGNWLV...NMKPPSLTQYQTPLFVWSVLITAVLLLLSLPVLAAGITMLLTDRNLNTTFFDPAGGGDPILYQHLF</span></span>
-<span id="cb649-17"><a href="working-with-proteins.html#cb649-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb649-18"><a href="working-with-proteins.html#cb649-18" aria-hidden="true" tabindex="-1"></a><span class="co"># save as vector and replace in original AAStringSet</span></span>
-<span id="cb649-19"><a href="working-with-proteins.html#cb649-19" aria-hidden="true" tabindex="-1"></a>AA_seq_3 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(nuc_seq_3_red_translated))</span>
-<span id="cb649-20"><a href="working-with-proteins.html#cb649-20" aria-hidden="true" tabindex="-1"></a>AA_seq_3 </span>
-<span id="cb649-21"><a href="working-with-proteins.html#cb649-21" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;TLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVMP....</span></span>
-<span id="cb649-22"><a href="working-with-proteins.html#cb649-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb649-23"><a href="working-with-proteins.html#cb649-23" aria-hidden="true" tabindex="-1"></a>my_aa_translated_Biostrings_set[<span class="dv">3</span>] <span class="ot">&lt;-</span> AA_seq_3</span>
-<span id="cb649-24"><a href="working-with-proteins.html#cb649-24" aria-hidden="true" tabindex="-1"></a>my_aa_translated_Biostrings_set</span>
-<span id="cb649-25"><a href="working-with-proteins.html#cb649-25" aria-hidden="true" tabindex="-1"></a><span class="co">#AAStringSet object of length 3:</span></span>
-<span id="cb649-26"><a href="working-with-proteins.html#cb649-26" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq                                                                                                                 names               </span></span>
-<span id="cb649-27"><a href="working-with-proteins.html#cb649-27" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1628 KVWS*PWNQLLFNMHMQVSAPLWKRPYSPLQGAGAGI*HKFLPMTPSIATPT*DFS...FFIFA*HMLYP*H*HLTHPSPHHPEILTKKMIYLFLPSSLSAFFLFPHFFYYLLET HQ290995.1 Epiped...</span></span>
-<span id="cb649-28"><a href="working-with-proteins.html#cb649-28" aria-hidden="true" tabindex="-1"></a><span class="co">#[2]   513 MMITRWLFSTNHKDIGTLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNV...SLISLVAVIIMMFIIWEAFSSKRLFLNAEMTPTNVEWLYGSPPPYHTFEEAVYSKV MW042033.1 Epiped...</span></span>
-<span id="cb649-29"><a href="working-with-proteins.html#cb649-29" aria-hidden="true" tabindex="-1"></a><span class="co">#[3]   219 TLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVMP...QTPLFVWSVLITAVLLLLSLPVLAAGITMLLTDRNLNTTFFDPAGGGDPILYQHLF DQ502853.1 Epiped...</span></span></code></pre></div>
+<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="working-with-proteins.html#cb651-1" aria-hidden="true" tabindex="-1"></a>nuc_seq_3 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(my_nuc_Biostrings_set[<span class="dv">3</span>]))</span>
+<span id="cb651-2"><a href="working-with-proteins.html#cb651-2" aria-hidden="true" tabindex="-1"></a>nuc_seq_3</span>
+<span id="cb651-3"><a href="working-with-proteins.html#cb651-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;AACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCCTCTTAATTCGAGCAGA...</span></span>
+<span id="cb651-4"><a href="working-with-proteins.html#cb651-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-5"><a href="working-with-proteins.html#cb651-5" aria-hidden="true" tabindex="-1"></a><span class="do">## remove first character</span></span>
+<span id="cb651-6"><a href="working-with-proteins.html#cb651-6" aria-hidden="true" tabindex="-1"></a>nuc_seq_3_red <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">&#39;.&#39;</span>, <span class="st">&#39;&#39;</span>, nuc_seq_3)</span>
+<span id="cb651-7"><a href="working-with-proteins.html#cb651-7" aria-hidden="true" tabindex="-1"></a>nuc_seq_3_red </span>
+<span id="cb651-8"><a href="working-with-proteins.html#cb651-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;ACCCTATATTTAGTATTTGGGGCATGAGCCGGAATAGTAGGAACAGCCCTAAGCCTCTTAATTCGAGCAGA...</span></span>
+<span id="cb651-9"><a href="working-with-proteins.html#cb651-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-10"><a href="working-with-proteins.html#cb651-10" aria-hidden="true" tabindex="-1"></a><span class="do">## create a new string set and translate</span></span>
+<span id="cb651-11"><a href="working-with-proteins.html#cb651-11" aria-hidden="true" tabindex="-1"></a>nuc_seq_3_red <span class="ot">&lt;-</span> <span class="fu">DNAStringSet</span>(nuc_seq_3_red)</span>
+<span id="cb651-12"><a href="working-with-proteins.html#cb651-12" aria-hidden="true" tabindex="-1"></a>nuc_seq_3_red_translated <span class="ot">&lt;-</span> Biostrings<span class="sc">::</span><span class="fu">translate</span>(nuc_seq_3_red, <span class="at">genetic.code=</span> SGC1, <span class="at">no.init.codon=</span><span class="cn">FALSE</span>)</span>
+<span id="cb651-13"><a href="working-with-proteins.html#cb651-13" aria-hidden="true" tabindex="-1"></a>nuc_seq_3_red_translated</span>
+<span id="cb651-14"><a href="working-with-proteins.html#cb651-14" aria-hidden="true" tabindex="-1"></a><span class="co">#AAStringSet object of length 1:</span></span>
+<span id="cb651-15"><a href="working-with-proteins.html#cb651-15" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq</span></span>
+<span id="cb651-16"><a href="working-with-proteins.html#cb651-16" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]   219 TLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVMPILIGGFGNWLV...NMKPPSLTQYQTPLFVWSVLITAVLLLLSLPVLAAGITMLLTDRNLNTTFFDPAGGGDPILYQHLF</span></span>
+<span id="cb651-17"><a href="working-with-proteins.html#cb651-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-18"><a href="working-with-proteins.html#cb651-18" aria-hidden="true" tabindex="-1"></a><span class="co"># save as vector and replace in original AAStringSet</span></span>
+<span id="cb651-19"><a href="working-with-proteins.html#cb651-19" aria-hidden="true" tabindex="-1"></a>AA_seq_3 <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(nuc_seq_3_red_translated))</span>
+<span id="cb651-20"><a href="working-with-proteins.html#cb651-20" aria-hidden="true" tabindex="-1"></a>AA_seq_3 </span>
+<span id="cb651-21"><a href="working-with-proteins.html#cb651-21" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;TLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVMP....</span></span>
+<span id="cb651-22"><a href="working-with-proteins.html#cb651-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb651-23"><a href="working-with-proteins.html#cb651-23" aria-hidden="true" tabindex="-1"></a>my_aa_translated_Biostrings_set[<span class="dv">3</span>] <span class="ot">&lt;-</span> AA_seq_3</span>
+<span id="cb651-24"><a href="working-with-proteins.html#cb651-24" aria-hidden="true" tabindex="-1"></a>my_aa_translated_Biostrings_set</span>
+<span id="cb651-25"><a href="working-with-proteins.html#cb651-25" aria-hidden="true" tabindex="-1"></a><span class="co">#AAStringSet object of length 3:</span></span>
+<span id="cb651-26"><a href="working-with-proteins.html#cb651-26" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq                                                                                                                 names               </span></span>
+<span id="cb651-27"><a href="working-with-proteins.html#cb651-27" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1628 KVWS*PWNQLLFNMHMQVSAPLWKRPYSPLQGAGAGI*HKFLPMTPSIATPT*DFS...FFIFA*HMLYP*H*HLTHPSPHHPEILTKKMIYLFLPSSLSAFFLFPHFFYYLLET HQ290995.1 Epiped...</span></span>
+<span id="cb651-28"><a href="working-with-proteins.html#cb651-28" aria-hidden="true" tabindex="-1"></a><span class="co">#[2]   513 MMITRWLFSTNHKDIGTLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNV...SLISLVAVIIMMFIIWEAFSSKRLFLNAEMTPTNVEWLYGSPPPYHTFEEAVYSKV MW042033.1 Epiped...</span></span>
+<span id="cb651-29"><a href="working-with-proteins.html#cb651-29" aria-hidden="true" tabindex="-1"></a><span class="co">#[3]   219 TLYLVFGAWAGMVGTALSLLIRAELSQPGSLLGDDQIYNVIVTAHAFVMIFFMVMP...QTPLFVWSVLITAVLLLLSLPVLAAGITMLLTDRNLNTTFFDPAGGGDPILYQHLF DQ502853.1 Epiped...</span></span></code></pre></div>
 </div>
 <div id="finding-orfs-in-a-nucleotide-sequence" class="section level2" number="31.6">
 <h2><span class="header-section-number">31.6</span> Finding ORFs in a nucleotide sequence</h2>
@@ -974,173 +975,173 @@ Finding ORFs is crucial to discover novel genes, annotate unknown sequences of D
 However, you can select to find <strong>CDS</strong> which are continuous reading frames that do not need to begin or end with start or stop codons.</p>
 <p>There are many tools to find such ORFs or CDSs, we will use the R-packages
 <a href="https://www.bioconductor.org/packages/release/bioc/html/systemPipeR.html" target="_blank"><strong>systemPipeR</strong></a> and it has several vignettes for you to explore.</p>
-<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="working-with-proteins.html#cb650-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install and load systemPipeR</span></span>
-<span id="cb650-2"><a href="working-with-proteins.html#cb650-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb650-3"><a href="working-with-proteins.html#cb650-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
-<span id="cb650-4"><a href="working-with-proteins.html#cb650-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb650-5"><a href="working-with-proteins.html#cb650-5" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;systemPipeR&quot;</span>)</span>
-<span id="cb650-6"><a href="working-with-proteins.html#cb650-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb650-7"><a href="working-with-proteins.html#cb650-7" aria-hidden="true" tabindex="-1"></a><span class="co"># load library</span></span>
-<span id="cb650-8"><a href="working-with-proteins.html#cb650-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(systemPipeR)</span>
-<span id="cb650-9"><a href="working-with-proteins.html#cb650-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rentrez)</span>
-<span id="cb650-10"><a href="working-with-proteins.html#cb650-10" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory&quot;</span>)</span>
-<span id="cb650-11"><a href="working-with-proteins.html#cb650-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb650-12"><a href="working-with-proteins.html#cb650-12" aria-hidden="true" tabindex="-1"></a><span class="co"># we will work with nuclear coding segment for gene </span></span>
-<span id="cb650-13"><a href="working-with-proteins.html#cb650-13" aria-hidden="true" tabindex="-1"></a>hb_nuc <span class="ot">&lt;-</span> <span class="st">&quot;BT081428&quot;</span></span>
-<span id="cb650-14"><a href="working-with-proteins.html#cb650-14" aria-hidden="true" tabindex="-1"></a>hb_IDs <span class="ot">&lt;-</span> <span class="fu">entrez_search</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">term=</span> hb_nuc)</span>
-<span id="cb650-15"><a href="working-with-proteins.html#cb650-15" aria-hidden="true" tabindex="-1"></a>hb_nuc_fasta <span class="ot">&lt;-</span> <span class="fu">entrez_fetch</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">id=</span>hb_IDs<span class="sc">$</span>ids, <span class="at">rettype=</span><span class="st">&quot;fasta&quot;</span>)</span>
-<span id="cb650-16"><a href="working-with-proteins.html#cb650-16" aria-hidden="true" tabindex="-1"></a>hb_nuc_fasta</span>
-<span id="cb650-17"><a href="working-with-proteins.html#cb650-17" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;&gt;BT081428.1 Rana catesbeiana clone rcat-evr-539-243 Hemoglobin subunit alpha-3 putative mRNA, </span></span>
-<span id="cb650-18"><a href="working-with-proteins.html#cb650-18" aria-hidden="true" tabindex="-1"></a><span class="co"># complete cds\nGGGGGGGACTTTACTTGAGTTGCCAAGCTAATCTAACGTGTACTACACCAACTCCCGATCATCACAATGA\nGTCTATCTGCA...</span></span>
-<span id="cb650-19"><a href="working-with-proteins.html#cb650-19" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(hb_nuc_fasta, <span class="st">&quot;Rana_hb_nuc_seqs.fasta&quot;</span>)</span>
-<span id="cb650-20"><a href="working-with-proteins.html#cb650-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb650-21"><a href="working-with-proteins.html#cb650-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb650-22"><a href="working-with-proteins.html#cb650-22" aria-hidden="true" tabindex="-1"></a><span class="co"># define path to file with sequences in fasta</span></span>
-<span id="cb650-23"><a href="working-with-proteins.html#cb650-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb650-24"><a href="working-with-proteins.html#cb650-24" aria-hidden="true" tabindex="-1"></a>my_nuc_fasta_file_path <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/Teach_R/my_working_directory/Rana_hb_nuc_seqs.fasta&quot;</span></span>
-<span id="cb650-25"><a href="working-with-proteins.html#cb650-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb650-26"><a href="working-with-proteins.html#cb650-26" aria-hidden="true" tabindex="-1"></a><span class="co"># To store ORF sequences (you need indexed genome .fai file):</span></span>
-<span id="cb650-27"><a href="working-with-proteins.html#cb650-27" aria-hidden="true" tabindex="-1"></a>my_base_nuc_Biostrings_set <span class="ot">&lt;-</span> <span class="fu">readDNAStringSet</span>(<span class="at">filepath =</span> my_nuc_fasta_file_path, </span>
-<span id="cb650-28"><a href="working-with-proteins.html#cb650-28" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">format =</span> <span class="st">&quot;fasta&quot;</span>)</span>
-<span id="cb650-29"><a href="working-with-proteins.html#cb650-29" aria-hidden="true" tabindex="-1"></a>my_base_nuc_Biostrings_set</span>
-<span id="cb650-30"><a href="working-with-proteins.html#cb650-30" aria-hidden="true" tabindex="-1"></a><span class="co">#DNAStringSet object of length 1:</span></span>
-<span id="cb650-31"><a href="working-with-proteins.html#cb650-31" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq                                                                                                                 names               </span></span>
-<span id="cb650-32"><a href="working-with-proteins.html#cb650-32" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]   677 GGGGGGGACTTTACTTGAGTTGCCAAGCTAATCTAACGTGTACTACACCAACTCCC...AAATTGTCCATCAAATATAAATCTGATGTACTCTTAAATAAAACTGAAAATAATTT BT081428.1 Rana c...</span></span>
-<span id="cb650-33"><a href="working-with-proteins.html#cb650-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb650-34"><a href="working-with-proteins.html#cb650-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb650-35"><a href="working-with-proteins.html#cb650-35" aria-hidden="true" tabindex="-1"></a><span class="co"># get longest CDS with option mode = &quot;CDS&quot;</span></span>
-<span id="cb650-36"><a href="working-with-proteins.html#cb650-36" aria-hidden="true" tabindex="-1"></a>my_CDSs <span class="ot">&lt;-</span> <span class="fu">predORF</span>(my_base_nuc_Biostrings_set, </span>
-<span id="cb650-37"><a href="working-with-proteins.html#cb650-37" aria-hidden="true" tabindex="-1"></a>                      <span class="at">n =</span> <span class="dv">1</span>, </span>
-<span id="cb650-38"><a href="working-with-proteins.html#cb650-38" aria-hidden="true" tabindex="-1"></a>                   <span class="at">type =</span> <span class="st">&quot;grl&quot;</span>, </span>
-<span id="cb650-39"><a href="working-with-proteins.html#cb650-39" aria-hidden="true" tabindex="-1"></a>                   <span class="at">mode =</span> <span class="st">&quot;CDS&quot;</span>, </span>
-<span id="cb650-40"><a href="working-with-proteins.html#cb650-40" aria-hidden="true" tabindex="-1"></a>                 <span class="at">strand =</span> <span class="st">&quot;sense&quot;</span>, </span>
-<span id="cb650-41"><a href="working-with-proteins.html#cb650-41" aria-hidden="true" tabindex="-1"></a>       <span class="at">longest_disjoint =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb650-42"><a href="working-with-proteins.html#cb650-42" aria-hidden="true" tabindex="-1"></a>             <span class="at">startcodon =</span> <span class="st">&quot;ATG&quot;</span>,</span>
-<span id="cb650-43"><a href="working-with-proteins.html#cb650-43" aria-hidden="true" tabindex="-1"></a>              <span class="at">stopcodon =</span> <span class="fu">c</span>(<span class="st">&quot;TAA&quot;</span>, <span class="st">&quot;TAG&quot;</span>, <span class="st">&quot;TGA&quot;</span>)) </span>
-<span id="cb650-44"><a href="working-with-proteins.html#cb650-44" aria-hidden="true" tabindex="-1"></a>my_CDSs</span>
-<span id="cb650-45"><a href="working-with-proteins.html#cb650-45" aria-hidden="true" tabindex="-1"></a><span class="co">#GRangesList object of length 1:</span></span>
-<span id="cb650-46"><a href="working-with-proteins.html#cb650-46" aria-hidden="true" tabindex="-1"></a><span class="co">#$`BT081428.1 Rana catesbeiana clone rcat-evr-539-243 Hemoglobin subunit alpha-3 putative mRNA, complete cds`</span></span>
-<span id="cb650-47"><a href="working-with-proteins.html#cb650-47" aria-hidden="true" tabindex="-1"></a><span class="co">#GRanges object with 1 range and 2 metadata columns:</span></span>
-<span id="cb650-48"><a href="working-with-proteins.html#cb650-48" aria-hidden="true" tabindex="-1"></a><span class="co">#                    seqnames    ranges strand | subject_id inframe2end</span></span>
-<span id="cb650-49"><a href="working-with-proteins.html#cb650-49" aria-hidden="true" tabindex="-1"></a><span class="co">#                       &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;integer&gt;   &lt;numeric&gt;</span></span>
-<span id="cb650-50"><a href="working-with-proteins.html#cb650-50" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] BT081428.1 Rana cate..    67-495      + |          1           3</span></span>
-<span id="cb650-51"><a href="working-with-proteins.html#cb650-51" aria-hidden="true" tabindex="-1"></a><span class="co">#  -------</span></span>
-<span id="cb650-52"><a href="working-with-proteins.html#cb650-52" aria-hidden="true" tabindex="-1"></a><span class="co">#  seqinfo: 1 sequence from an unspecified genome; no seqlengths</span></span>
-<span id="cb650-53"><a href="working-with-proteins.html#cb650-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb650-54"><a href="working-with-proteins.html#cb650-54" aria-hidden="true" tabindex="-1"></a><span class="co"># get CDS sequences </span></span>
-<span id="cb650-55"><a href="working-with-proteins.html#cb650-55" aria-hidden="true" tabindex="-1"></a>cds_seqs <span class="ot">&lt;-</span> <span class="fu">getSeq</span>(my_base_nuc_Biostrings_set, my_CDSs)</span>
-<span id="cb650-56"><a href="working-with-proteins.html#cb650-56" aria-hidden="true" tabindex="-1"></a>my_CDS_long <span class="ot">&lt;-</span> cds_seqs[[<span class="dv">1</span>]]</span>
-<span id="cb650-57"><a href="working-with-proteins.html#cb650-57" aria-hidden="true" tabindex="-1"></a>my_CDS_long</span>
-<span id="cb650-58"><a href="working-with-proteins.html#cb650-58" aria-hidden="true" tabindex="-1"></a><span class="co">#DNAStringSet object of length 1:</span></span>
-<span id="cb650-59"><a href="working-with-proteins.html#cb650-59" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq</span></span>
-<span id="cb650-60"><a href="working-with-proteins.html#cb650-60" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]   429 ATGAGTCTATCTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAGTGGGAAAGATTGGATCTCAGGCCA...GTTCAGGCTGCCTGGGACAAATTCCTTGCTCTAGTTTCTGCAGTCCTCACCTCCAAGTACAGATAA</span></span>
-<span id="cb650-61"><a href="working-with-proteins.html#cb650-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb650-62"><a href="working-with-proteins.html#cb650-62" aria-hidden="true" tabindex="-1"></a><span class="co"># name of fasta seq</span></span>
-<span id="cb650-63"><a href="working-with-proteins.html#cb650-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb650-64"><a href="working-with-proteins.html#cb650-64" aria-hidden="true" tabindex="-1"></a>name_seq <span class="ot">&lt;-</span> <span class="fu">names</span>(cds_seqs)[<span class="dv">1</span>]</span>
-<span id="cb650-65"><a href="working-with-proteins.html#cb650-65" aria-hidden="true" tabindex="-1"></a>name_seq <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;&gt;Long_CDS_&quot;</span>,name_seq,<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb650-66"><a href="working-with-proteins.html#cb650-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb650-67"><a href="working-with-proteins.html#cb650-67" aria-hidden="true" tabindex="-1"></a><span class="co"># build vector to write</span></span>
-<span id="cb650-68"><a href="working-with-proteins.html#cb650-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb650-69"><a href="working-with-proteins.html#cb650-69" aria-hidden="true" tabindex="-1"></a>my_CDS_long_vec <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(my_CDS_long))</span>
-<span id="cb650-70"><a href="working-with-proteins.html#cb650-70" aria-hidden="true" tabindex="-1"></a>final_my_CDS_long_vec <span class="ot">&lt;-</span> <span class="fu">paste0</span>(name_seq,my_CDS_long_vec)</span>
-<span id="cb650-71"><a href="working-with-proteins.html#cb650-71" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(final_my_CDS_long_vec)</span>
-<span id="cb650-72"><a href="working-with-proteins.html#cb650-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;Long_CDS_BT081428.1 Rana catesbeiana clone rcat-evr-539-243 Hemoglobin subunit alpha-3 putative mRNA, complete cds</span></span>
-<span id="cb650-73"><a href="working-with-proteins.html#cb650-73" aria-hidden="true" tabindex="-1"></a><span class="co">#ATGAGTCTATCTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAGTGGGAAAGATTGGATCTCAGGCCAGTGCTCTGGGCTCTGAGGCTTTGACCAGGCTTTTCCTTAGCTTCCCCCA...</span></span>
-<span id="cb650-74"><a href="working-with-proteins.html#cb650-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb650-75"><a href="working-with-proteins.html#cb650-75" aria-hidden="true" tabindex="-1"></a><span class="co"># write fasta file</span></span>
-<span id="cb650-76"><a href="working-with-proteins.html#cb650-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb650-77"><a href="working-with-proteins.html#cb650-77" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(final_my_CDS_long_vec, <span class="st">&quot;Rana_hb_CDS_seqs.fasta&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="working-with-proteins.html#cb652-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install and load systemPipeR</span></span>
+<span id="cb652-2"><a href="working-with-proteins.html#cb652-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb652-3"><a href="working-with-proteins.html#cb652-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
+<span id="cb652-4"><a href="working-with-proteins.html#cb652-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb652-5"><a href="working-with-proteins.html#cb652-5" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;systemPipeR&quot;</span>)</span>
+<span id="cb652-6"><a href="working-with-proteins.html#cb652-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb652-7"><a href="working-with-proteins.html#cb652-7" aria-hidden="true" tabindex="-1"></a><span class="co"># load library</span></span>
+<span id="cb652-8"><a href="working-with-proteins.html#cb652-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(systemPipeR)</span>
+<span id="cb652-9"><a href="working-with-proteins.html#cb652-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rentrez)</span>
+<span id="cb652-10"><a href="working-with-proteins.html#cb652-10" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory&quot;</span>)</span>
+<span id="cb652-11"><a href="working-with-proteins.html#cb652-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb652-12"><a href="working-with-proteins.html#cb652-12" aria-hidden="true" tabindex="-1"></a><span class="co"># we will work with nuclear coding segment for gene </span></span>
+<span id="cb652-13"><a href="working-with-proteins.html#cb652-13" aria-hidden="true" tabindex="-1"></a>hb_nuc <span class="ot">&lt;-</span> <span class="st">&quot;BT081428&quot;</span></span>
+<span id="cb652-14"><a href="working-with-proteins.html#cb652-14" aria-hidden="true" tabindex="-1"></a>hb_IDs <span class="ot">&lt;-</span> <span class="fu">entrez_search</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">term=</span> hb_nuc)</span>
+<span id="cb652-15"><a href="working-with-proteins.html#cb652-15" aria-hidden="true" tabindex="-1"></a>hb_nuc_fasta <span class="ot">&lt;-</span> <span class="fu">entrez_fetch</span>(<span class="at">db=</span><span class="st">&quot;nuccore&quot;</span>, <span class="at">id=</span>hb_IDs<span class="sc">$</span>ids, <span class="at">rettype=</span><span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb652-16"><a href="working-with-proteins.html#cb652-16" aria-hidden="true" tabindex="-1"></a>hb_nuc_fasta</span>
+<span id="cb652-17"><a href="working-with-proteins.html#cb652-17" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;&gt;BT081428.1 Rana catesbeiana clone rcat-evr-539-243 Hemoglobin subunit alpha-3 putative mRNA, </span></span>
+<span id="cb652-18"><a href="working-with-proteins.html#cb652-18" aria-hidden="true" tabindex="-1"></a><span class="co"># complete cds\nGGGGGGGACTTTACTTGAGTTGCCAAGCTAATCTAACGTGTACTACACCAACTCCCGATCATCACAATGA\nGTCTATCTGCA...</span></span>
+<span id="cb652-19"><a href="working-with-proteins.html#cb652-19" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(hb_nuc_fasta, <span class="st">&quot;Rana_hb_nuc_seqs.fasta&quot;</span>)</span>
+<span id="cb652-20"><a href="working-with-proteins.html#cb652-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb652-21"><a href="working-with-proteins.html#cb652-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb652-22"><a href="working-with-proteins.html#cb652-22" aria-hidden="true" tabindex="-1"></a><span class="co"># define path to file with sequences in fasta</span></span>
+<span id="cb652-23"><a href="working-with-proteins.html#cb652-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb652-24"><a href="working-with-proteins.html#cb652-24" aria-hidden="true" tabindex="-1"></a>my_nuc_fasta_file_path <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/Teach_R/my_working_directory/Rana_hb_nuc_seqs.fasta&quot;</span></span>
+<span id="cb652-25"><a href="working-with-proteins.html#cb652-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb652-26"><a href="working-with-proteins.html#cb652-26" aria-hidden="true" tabindex="-1"></a><span class="co"># To store ORF sequences (you need indexed genome .fai file):</span></span>
+<span id="cb652-27"><a href="working-with-proteins.html#cb652-27" aria-hidden="true" tabindex="-1"></a>my_base_nuc_Biostrings_set <span class="ot">&lt;-</span> <span class="fu">readDNAStringSet</span>(<span class="at">filepath =</span> my_nuc_fasta_file_path, </span>
+<span id="cb652-28"><a href="working-with-proteins.html#cb652-28" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">format =</span> <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb652-29"><a href="working-with-proteins.html#cb652-29" aria-hidden="true" tabindex="-1"></a>my_base_nuc_Biostrings_set</span>
+<span id="cb652-30"><a href="working-with-proteins.html#cb652-30" aria-hidden="true" tabindex="-1"></a><span class="co">#DNAStringSet object of length 1:</span></span>
+<span id="cb652-31"><a href="working-with-proteins.html#cb652-31" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq                                                                                                                 names               </span></span>
+<span id="cb652-32"><a href="working-with-proteins.html#cb652-32" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]   677 GGGGGGGACTTTACTTGAGTTGCCAAGCTAATCTAACGTGTACTACACCAACTCCC...AAATTGTCCATCAAATATAAATCTGATGTACTCTTAAATAAAACTGAAAATAATTT BT081428.1 Rana c...</span></span>
+<span id="cb652-33"><a href="working-with-proteins.html#cb652-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb652-34"><a href="working-with-proteins.html#cb652-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb652-35"><a href="working-with-proteins.html#cb652-35" aria-hidden="true" tabindex="-1"></a><span class="co"># get longest CDS with option mode = &quot;CDS&quot;</span></span>
+<span id="cb652-36"><a href="working-with-proteins.html#cb652-36" aria-hidden="true" tabindex="-1"></a>my_CDSs <span class="ot">&lt;-</span> <span class="fu">predORF</span>(my_base_nuc_Biostrings_set, </span>
+<span id="cb652-37"><a href="working-with-proteins.html#cb652-37" aria-hidden="true" tabindex="-1"></a>                      <span class="at">n =</span> <span class="dv">1</span>, </span>
+<span id="cb652-38"><a href="working-with-proteins.html#cb652-38" aria-hidden="true" tabindex="-1"></a>                   <span class="at">type =</span> <span class="st">&quot;grl&quot;</span>, </span>
+<span id="cb652-39"><a href="working-with-proteins.html#cb652-39" aria-hidden="true" tabindex="-1"></a>                   <span class="at">mode =</span> <span class="st">&quot;CDS&quot;</span>, </span>
+<span id="cb652-40"><a href="working-with-proteins.html#cb652-40" aria-hidden="true" tabindex="-1"></a>                 <span class="at">strand =</span> <span class="st">&quot;sense&quot;</span>, </span>
+<span id="cb652-41"><a href="working-with-proteins.html#cb652-41" aria-hidden="true" tabindex="-1"></a>       <span class="at">longest_disjoint =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb652-42"><a href="working-with-proteins.html#cb652-42" aria-hidden="true" tabindex="-1"></a>             <span class="at">startcodon =</span> <span class="st">&quot;ATG&quot;</span>,</span>
+<span id="cb652-43"><a href="working-with-proteins.html#cb652-43" aria-hidden="true" tabindex="-1"></a>              <span class="at">stopcodon =</span> <span class="fu">c</span>(<span class="st">&quot;TAA&quot;</span>, <span class="st">&quot;TAG&quot;</span>, <span class="st">&quot;TGA&quot;</span>)) </span>
+<span id="cb652-44"><a href="working-with-proteins.html#cb652-44" aria-hidden="true" tabindex="-1"></a>my_CDSs</span>
+<span id="cb652-45"><a href="working-with-proteins.html#cb652-45" aria-hidden="true" tabindex="-1"></a><span class="co">#GRangesList object of length 1:</span></span>
+<span id="cb652-46"><a href="working-with-proteins.html#cb652-46" aria-hidden="true" tabindex="-1"></a><span class="co">#$`BT081428.1 Rana catesbeiana clone rcat-evr-539-243 Hemoglobin subunit alpha-3 putative mRNA, complete cds`</span></span>
+<span id="cb652-47"><a href="working-with-proteins.html#cb652-47" aria-hidden="true" tabindex="-1"></a><span class="co">#GRanges object with 1 range and 2 metadata columns:</span></span>
+<span id="cb652-48"><a href="working-with-proteins.html#cb652-48" aria-hidden="true" tabindex="-1"></a><span class="co">#                    seqnames    ranges strand | subject_id inframe2end</span></span>
+<span id="cb652-49"><a href="working-with-proteins.html#cb652-49" aria-hidden="true" tabindex="-1"></a><span class="co">#                       &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;integer&gt;   &lt;numeric&gt;</span></span>
+<span id="cb652-50"><a href="working-with-proteins.html#cb652-50" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] BT081428.1 Rana cate..    67-495      + |          1           3</span></span>
+<span id="cb652-51"><a href="working-with-proteins.html#cb652-51" aria-hidden="true" tabindex="-1"></a><span class="co">#  -------</span></span>
+<span id="cb652-52"><a href="working-with-proteins.html#cb652-52" aria-hidden="true" tabindex="-1"></a><span class="co">#  seqinfo: 1 sequence from an unspecified genome; no seqlengths</span></span>
+<span id="cb652-53"><a href="working-with-proteins.html#cb652-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb652-54"><a href="working-with-proteins.html#cb652-54" aria-hidden="true" tabindex="-1"></a><span class="co"># get CDS sequences </span></span>
+<span id="cb652-55"><a href="working-with-proteins.html#cb652-55" aria-hidden="true" tabindex="-1"></a>cds_seqs <span class="ot">&lt;-</span> <span class="fu">getSeq</span>(my_base_nuc_Biostrings_set, my_CDSs)</span>
+<span id="cb652-56"><a href="working-with-proteins.html#cb652-56" aria-hidden="true" tabindex="-1"></a>my_CDS_long <span class="ot">&lt;-</span> cds_seqs[[<span class="dv">1</span>]]</span>
+<span id="cb652-57"><a href="working-with-proteins.html#cb652-57" aria-hidden="true" tabindex="-1"></a>my_CDS_long</span>
+<span id="cb652-58"><a href="working-with-proteins.html#cb652-58" aria-hidden="true" tabindex="-1"></a><span class="co">#DNAStringSet object of length 1:</span></span>
+<span id="cb652-59"><a href="working-with-proteins.html#cb652-59" aria-hidden="true" tabindex="-1"></a><span class="co">#    width seq</span></span>
+<span id="cb652-60"><a href="working-with-proteins.html#cb652-60" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]   429 ATGAGTCTATCTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAGTGGGAAAGATTGGATCTCAGGCCA...GTTCAGGCTGCCTGGGACAAATTCCTTGCTCTAGTTTCTGCAGTCCTCACCTCCAAGTACAGATAA</span></span>
+<span id="cb652-61"><a href="working-with-proteins.html#cb652-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb652-62"><a href="working-with-proteins.html#cb652-62" aria-hidden="true" tabindex="-1"></a><span class="co"># name of fasta seq</span></span>
+<span id="cb652-63"><a href="working-with-proteins.html#cb652-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb652-64"><a href="working-with-proteins.html#cb652-64" aria-hidden="true" tabindex="-1"></a>name_seq <span class="ot">&lt;-</span> <span class="fu">names</span>(cds_seqs)[<span class="dv">1</span>]</span>
+<span id="cb652-65"><a href="working-with-proteins.html#cb652-65" aria-hidden="true" tabindex="-1"></a>name_seq <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;&gt;Long_CDS_&quot;</span>,name_seq,<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb652-66"><a href="working-with-proteins.html#cb652-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb652-67"><a href="working-with-proteins.html#cb652-67" aria-hidden="true" tabindex="-1"></a><span class="co"># build vector to write</span></span>
+<span id="cb652-68"><a href="working-with-proteins.html#cb652-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb652-69"><a href="working-with-proteins.html#cb652-69" aria-hidden="true" tabindex="-1"></a>my_CDS_long_vec <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(my_CDS_long))</span>
+<span id="cb652-70"><a href="working-with-proteins.html#cb652-70" aria-hidden="true" tabindex="-1"></a>final_my_CDS_long_vec <span class="ot">&lt;-</span> <span class="fu">paste0</span>(name_seq,my_CDS_long_vec)</span>
+<span id="cb652-71"><a href="working-with-proteins.html#cb652-71" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(final_my_CDS_long_vec)</span>
+<span id="cb652-72"><a href="working-with-proteins.html#cb652-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;Long_CDS_BT081428.1 Rana catesbeiana clone rcat-evr-539-243 Hemoglobin subunit alpha-3 putative mRNA, complete cds</span></span>
+<span id="cb652-73"><a href="working-with-proteins.html#cb652-73" aria-hidden="true" tabindex="-1"></a><span class="co">#ATGAGTCTATCTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAGTGGGAAAGATTGGATCTCAGGCCAGTGCTCTGGGCTCTGAGGCTTTGACCAGGCTTTTCCTTAGCTTCCCCCA...</span></span>
+<span id="cb652-74"><a href="working-with-proteins.html#cb652-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb652-75"><a href="working-with-proteins.html#cb652-75" aria-hidden="true" tabindex="-1"></a><span class="co"># write fasta file</span></span>
+<span id="cb652-76"><a href="working-with-proteins.html#cb652-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb652-77"><a href="working-with-proteins.html#cb652-77" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(final_my_CDS_long_vec, <span class="st">&quot;Rana_hb_CDS_seqs.fasta&quot;</span>)</span></code></pre></div>
 <p>Another approach is with <a href="https://bioconductor.org/packages/release/bioc/html/ORFik.html" target="_blank"><strong>ORFik</strong></a> and it has several vignettes for you to explore.</p>
-<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="working-with-proteins.html#cb651-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install and load ORFik</span></span>
-<span id="cb651-2"><a href="working-with-proteins.html#cb651-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb651-3"><a href="working-with-proteins.html#cb651-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
-<span id="cb651-4"><a href="working-with-proteins.html#cb651-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb651-5"><a href="working-with-proteins.html#cb651-5" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;ORFik&quot;</span>)</span>
-<span id="cb651-6"><a href="working-with-proteins.html#cb651-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb651-7"><a href="working-with-proteins.html#cb651-7" aria-hidden="true" tabindex="-1"></a><span class="co"># load library ORFik</span></span>
-<span id="cb651-8"><a href="working-with-proteins.html#cb651-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb651-9"><a href="working-with-proteins.html#cb651-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ORFik)</span>
-<span id="cb651-10"><a href="working-with-proteins.html#cb651-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb651-11"><a href="working-with-proteins.html#cb651-11" aria-hidden="true" tabindex="-1"></a><span class="co"># define path to file with sequences in fasta</span></span>
-<span id="cb651-12"><a href="working-with-proteins.html#cb651-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb651-13"><a href="working-with-proteins.html#cb651-13" aria-hidden="true" tabindex="-1"></a>my_nuc_fasta_file_path <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/Teach_R/my_working_directory/Rana_hb_nuc_seqs.fasta&quot;</span></span>
-<span id="cb651-14"><a href="working-with-proteins.html#cb651-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb651-15"><a href="working-with-proteins.html#cb651-15" aria-hidden="true" tabindex="-1"></a><span class="co"># identify ORFs in fasta file</span></span>
-<span id="cb651-16"><a href="working-with-proteins.html#cb651-16" aria-hidden="true" tabindex="-1"></a>orfs <span class="ot">&lt;-</span> <span class="fu">findORFsFasta</span>(my_nuc_fasta_file_path)</span>
-<span id="cb651-17"><a href="working-with-proteins.html#cb651-17" aria-hidden="true" tabindex="-1"></a>orfs</span>
-<span id="cb651-18"><a href="working-with-proteins.html#cb651-18" aria-hidden="true" tabindex="-1"></a><span class="co">#GRanges object with 31 ranges and 0 metadata columns:</span></span>
-<span id="cb651-19"><a href="working-with-proteins.html#cb651-19" aria-hidden="true" tabindex="-1"></a><span class="co">#         seqnames    ranges strand</span></span>
-<span id="cb651-20"><a href="working-with-proteins.html#cb651-20" aria-hidden="true" tabindex="-1"></a><span class="co">#            &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt;</span></span>
-<span id="cb651-21"><a href="working-with-proteins.html#cb651-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   [1] BT081428.1    67-495      +</span></span>
-<span id="cb651-22"><a href="working-with-proteins.html#cb651-22" aria-hidden="true" tabindex="-1"></a><span class="co">#   [2] BT081428.1     20-31      +</span></span>
-<span id="cb651-23"><a href="working-with-proteins.html#cb651-23" aria-hidden="true" tabindex="-1"></a><span class="co">#   [3] BT081428.1    77-109      +</span></span>
-<span id="cb651-24"><a href="working-with-proteins.html#cb651-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   [4] BT081428.1   119-157      +</span></span>
-<span id="cb651-25"><a href="working-with-proteins.html#cb651-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   [5] BT081428.1   206-214      +</span></span>
-<span id="cb651-26"><a href="working-with-proteins.html#cb651-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   ...        ...       ...    ...</span></span>
-<span id="cb651-27"><a href="working-with-proteins.html#cb651-27" aria-hidden="true" tabindex="-1"></a><span class="co">#  [27] BT081428.1   192-281      -</span></span>
-<span id="cb651-28"><a href="working-with-proteins.html#cb651-28" aria-hidden="true" tabindex="-1"></a><span class="co">#  [28] BT081428.1   282-320      -</span></span>
-<span id="cb651-29"><a href="working-with-proteins.html#cb651-29" aria-hidden="true" tabindex="-1"></a><span class="co">#  [29] BT081428.1   333-380      -</span></span>
-<span id="cb651-30"><a href="working-with-proteins.html#cb651-30" aria-hidden="true" tabindex="-1"></a><span class="co">#  [30] BT081428.1   432-587      -</span></span>
-<span id="cb651-31"><a href="working-with-proteins.html#cb651-31" aria-hidden="true" tabindex="-1"></a><span class="co">#  [31] BT081428.1   612-635      -</span></span>
-<span id="cb651-32"><a href="working-with-proteins.html#cb651-32" aria-hidden="true" tabindex="-1"></a><span class="co">#  -------</span></span>
-<span id="cb651-33"><a href="working-with-proteins.html#cb651-33" aria-hidden="true" tabindex="-1"></a><span class="co">#  seqinfo: 1 sequence from an unspecified genome; no seqlengths</span></span>
-<span id="cb651-34"><a href="working-with-proteins.html#cb651-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb651-35"><a href="working-with-proteins.html#cb651-35" aria-hidden="true" tabindex="-1"></a><span class="co"># To store ORF sequences (you need indexed genome .fai file):</span></span>
-<span id="cb651-36"><a href="working-with-proteins.html#cb651-36" aria-hidden="true" tabindex="-1"></a>my_nuc_fasta <span class="ot">&lt;-</span> <span class="fu">FaFile</span>(my_nuc_fasta_file_path)</span>
-<span id="cb651-37"><a href="working-with-proteins.html#cb651-37" aria-hidden="true" tabindex="-1"></a>orf_seqs <span class="ot">&lt;-</span> <span class="fu">getSeq</span>(my_nuc_fasta, orfs)</span>
-<span id="cb651-38"><a href="working-with-proteins.html#cb651-38" aria-hidden="true" tabindex="-1"></a>orf_seqs</span>
-<span id="cb651-39"><a href="working-with-proteins.html#cb651-39" aria-hidden="true" tabindex="-1"></a><span class="co">#DNAStringSet object of length 31:</span></span>
-<span id="cb651-40"><a href="working-with-proteins.html#cb651-40" aria-hidden="true" tabindex="-1"></a><span class="co">#     width seq                                                                                                                names               </span></span>
-<span id="cb651-41"><a href="working-with-proteins.html#cb651-41" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]   429 ATGAGTCTATCTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAGTGGGAAAGATTGG...CTGGGACAAATTCCTTGCTCTAGTTTCTGCAGTCCTCACCTCCAAGTACAGATAA BT081428.1</span></span>
-<span id="cb651-42"><a href="working-with-proteins.html#cb651-42" aria-hidden="true" tabindex="-1"></a><span class="co"># [2]    12 TTGCCAAGCTAA                                                                                                       BT081428.1</span></span>
-<span id="cb651-43"><a href="working-with-proteins.html#cb651-43" aria-hidden="true" tabindex="-1"></a><span class="co"># [3]    33 CTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAG                                                                                  BT081428.1</span></span>
-<span id="cb651-44"><a href="working-with-proteins.html#cb651-44" aria-hidden="true" tabindex="-1"></a><span class="co"># [4]    39 TTGGATCTCAGGCCAGTGCTCTGGGCTCTGAGGCTTTGA                                                                            BT081428.1</span></span>
-<span id="cb651-45"><a href="working-with-proteins.html#cb651-45" aria-hidden="true" tabindex="-1"></a><span class="co"># [5]     9 TTGACCTGA                                                                                                          BT081428.1</span></span>
-<span id="cb651-46"><a href="working-with-proteins.html#cb651-46" aria-hidden="true" tabindex="-1"></a><span class="co"># ...   ... ...</span></span>
-<span id="cb651-47"><a href="working-with-proteins.html#cb651-47" aria-hidden="true" tabindex="-1"></a><span class="co">#[27]    90 TTGGCTGCACCTGCAAGAGCATTAATAATCTTTCCACCATGTTTGTTGAGGTCAGCAGAGCCAGGGGTCAGGTCAAAGTGGGGGAAATAA                         BT081428.1</span></span>
-<span id="cb651-48"><a href="working-with-proteins.html#cb651-48" aria-hidden="true" tabindex="-1"></a><span class="co">#[28]    39 CTGAGGGAGGACAGGCTGCCAGCAAGGTCATCCAGATGA                                                                            BT081428.1</span></span>
-<span id="cb651-49"><a href="working-with-proteins.html#cb651-49" aria-hidden="true" tabindex="-1"></a><span class="co">#[29]    48 ATGCGAGCCAGCAGAGGAAAGTTTCCTGGATCCACTCTTAGGTTGTAG                                                                   BT081428.1</span></span>
-<span id="cb651-50"><a href="working-with-proteins.html#cb651-50" aria-hidden="true" tabindex="-1"></a><span class="co">#[30]   156 TTGGTTGTAACTGAAATGGGCCCAAAGAACACTTCATTGCACGTTGTATTACTTGC...CTTGGAGGTGAGGACTGCAGAAACTAGAGCAAGGAATTTGTCCCAGGCAGCCTGA BT081428.1</span></span>
-<span id="cb651-51"><a href="working-with-proteins.html#cb651-51" aria-hidden="true" tabindex="-1"></a><span class="co">#[31]    24 TTGATGGACAATTTACACAAGTAA                                                                                           BT081428.1</span></span>
-<span id="cb651-52"><a href="working-with-proteins.html#cb651-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb651-53"><a href="working-with-proteins.html#cb651-53" aria-hidden="true" tabindex="-1"></a><span class="co"># order by the longest to shortest ORF</span></span>
-<span id="cb651-54"><a href="working-with-proteins.html#cb651-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb651-55"><a href="working-with-proteins.html#cb651-55" aria-hidden="true" tabindex="-1"></a>orf_seqs_ordered <span class="ot">&lt;-</span> orf_seqs[<span class="fu">order</span>(<span class="fu">width</span>(orf_seqs), <span class="at">decreasing =</span> T),]</span>
-<span id="cb651-56"><a href="working-with-proteins.html#cb651-56" aria-hidden="true" tabindex="-1"></a>orf_seqs_ordered </span>
-<span id="cb651-57"><a href="working-with-proteins.html#cb651-57" aria-hidden="true" tabindex="-1"></a><span class="co">#DNAStringSet object of length 31:</span></span>
-<span id="cb651-58"><a href="working-with-proteins.html#cb651-58" aria-hidden="true" tabindex="-1"></a><span class="co">#     width seq                                                                                                                names               </span></span>
-<span id="cb651-59"><a href="working-with-proteins.html#cb651-59" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]   429 ATGAGTCTATCTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAGTGGGAAAGATTGG...CTGGGACAAATTCCTTGCTCTAGTTTCTGCAGTCCTCACCTCCAAGTACAGATAA BT081428.1</span></span>
-<span id="cb651-60"><a href="working-with-proteins.html#cb651-60" aria-hidden="true" tabindex="-1"></a><span class="co"># [2]   258 ATGCAGGCCACTGAGGGAGGACAGGCTGCCAGCAAGGTCATCCAGATGATTGGCTG...GAGATCCAATCTTTCCCACTATGGAAAGCACAGCAGCCTTCTCACTTGCAGATAG BT081428.1</span></span>
-<span id="cb651-61"><a href="working-with-proteins.html#cb651-61" aria-hidden="true" tabindex="-1"></a><span class="co"># [3]   156 TTGGTTGTAACTGAAATGGGCCCAAAGAACACTTCATTGCACGTTGTATTACTTGC...CTTGGAGGTGAGGACTGCAGAAACTAGAGCAAGGAATTTGTCCCAGGCAGCCTGA BT081428.1</span></span>
-<span id="cb651-62"><a href="working-with-proteins.html#cb651-62" aria-hidden="true" tabindex="-1"></a><span class="co"># [4]   138 CTGCAGTCCTCACCTCCAAGTACAGATAAATCCACCCTGTATAACAGGCTACATCA...AATGAAGTGTTCTTTGGGCCCATTTCAGTTACAACCAAGTTGCAATGTTTTTTGA BT081428.1</span></span>
-<span id="cb651-63"><a href="working-with-proteins.html#cb651-63" aria-hidden="true" tabindex="-1"></a><span class="co"># [5]   126 CTGGCTCTGCTGACCTCAACAAACATGGTGGAAAGATTATTAATGCTCTTGCAGGT...GATGACCTTGCTGGCAGCCTGTCCTCCCTCAGTGGCCTGCATGCCTACAACCTAA BT081428.1</span></span>
-<span id="cb651-64"><a href="working-with-proteins.html#cb651-64" aria-hidden="true" tabindex="-1"></a><span class="co"># ...   ... ...</span></span>
-<span id="cb651-65"><a href="working-with-proteins.html#cb651-65" aria-hidden="true" tabindex="-1"></a><span class="co">#[27]    12 TTGCCAAGCTAA                                                                                                       BT081428.1</span></span>
-<span id="cb651-66"><a href="working-with-proteins.html#cb651-66" aria-hidden="true" tabindex="-1"></a><span class="co">#[28]     9 TTGACCTGA                                                                                                          BT081428.1</span></span>
-<span id="cb651-67"><a href="working-with-proteins.html#cb651-67" aria-hidden="true" tabindex="-1"></a><span class="co">#[29]     9 TTGGTGTAG                                                                                                          BT081428.1</span></span>
-<span id="cb651-68"><a href="working-with-proteins.html#cb651-68" aria-hidden="true" tabindex="-1"></a><span class="co">#[30]     9 CTGATGTAG                                                                                                          BT081428.1</span></span>
-<span id="cb651-69"><a href="working-with-proteins.html#cb651-69" aria-hidden="true" tabindex="-1"></a><span class="co">#[31]     6 TTGTAA                                                                                                             BT081428.1</span></span>
-<span id="cb651-70"><a href="working-with-proteins.html#cb651-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb651-71"><a href="working-with-proteins.html#cb651-71" aria-hidden="true" tabindex="-1"></a><span class="co"># name of fasta seq</span></span>
-<span id="cb651-72"><a href="working-with-proteins.html#cb651-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb651-73"><a href="working-with-proteins.html#cb651-73" aria-hidden="true" tabindex="-1"></a>name_seq_orfik <span class="ot">&lt;-</span> <span class="fu">names</span>(orf_seqs_ordered)[<span class="dv">1</span>]</span>
-<span id="cb651-74"><a href="working-with-proteins.html#cb651-74" aria-hidden="true" tabindex="-1"></a>name_seq_orfik <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;&gt;Long_ORF_orfik_&quot;</span>,name_seq_orfik,<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb651-75"><a href="working-with-proteins.html#cb651-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb651-76"><a href="working-with-proteins.html#cb651-76" aria-hidden="true" tabindex="-1"></a><span class="co"># build vector to write</span></span>
-<span id="cb651-77"><a href="working-with-proteins.html#cb651-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb651-78"><a href="working-with-proteins.html#cb651-78" aria-hidden="true" tabindex="-1"></a>my_CDS_long_orfik_vec <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(orf_seqs_ordered[<span class="dv">1</span>]))</span>
-<span id="cb651-79"><a href="working-with-proteins.html#cb651-79" aria-hidden="true" tabindex="-1"></a>final_my_CDS_long_orfik_vec <span class="ot">&lt;-</span> <span class="fu">paste0</span>(name_seq_orfik,my_CDS_long_orfik_vec)</span>
-<span id="cb651-80"><a href="working-with-proteins.html#cb651-80" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(final_my_CDS_long_orfik_vec)</span>
-<span id="cb651-81"><a href="working-with-proteins.html#cb651-81" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;Long_ORF_orfik_BT081428.1</span></span>
-<span id="cb651-82"><a href="working-with-proteins.html#cb651-82" aria-hidden="true" tabindex="-1"></a><span class="co">#ATGAGTCTATCTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAGTGGGAAAGATTGGATCTCAGGCCAGTGCTCTGGGCTCTGAGGCTTTGACCAGGCTTTTCCTTAGCTTCCCCCAGACCAAGACTTA...</span></span>
-<span id="cb651-83"><a href="working-with-proteins.html#cb651-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb651-84"><a href="working-with-proteins.html#cb651-84" aria-hidden="true" tabindex="-1"></a><span class="co"># write fasta file</span></span>
-<span id="cb651-85"><a href="working-with-proteins.html#cb651-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb651-86"><a href="working-with-proteins.html#cb651-86" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(final_my_CDS_long_orfik_vec, <span class="st">&quot;Rana_hb_ORF_orfik_seqs.fasta&quot;</span>)</span>
-<span id="cb651-87"><a href="working-with-proteins.html#cb651-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb651-88"><a href="working-with-proteins.html#cb651-88" aria-hidden="true" tabindex="-1"></a><span class="co">#tools:</span></span>
-<span id="cb651-89"><a href="working-with-proteins.html#cb651-89" aria-hidden="true" tabindex="-1"></a><span class="co">#http://csbg.cnb.csic.es/PB/</span></span></code></pre></div>
+<div class="sourceCode" id="cb653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb653-1"><a href="working-with-proteins.html#cb653-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install and load ORFik</span></span>
+<span id="cb653-2"><a href="working-with-proteins.html#cb653-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb653-3"><a href="working-with-proteins.html#cb653-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
+<span id="cb653-4"><a href="working-with-proteins.html#cb653-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb653-5"><a href="working-with-proteins.html#cb653-5" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;ORFik&quot;</span>)</span>
+<span id="cb653-6"><a href="working-with-proteins.html#cb653-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb653-7"><a href="working-with-proteins.html#cb653-7" aria-hidden="true" tabindex="-1"></a><span class="co"># load library ORFik</span></span>
+<span id="cb653-8"><a href="working-with-proteins.html#cb653-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb653-9"><a href="working-with-proteins.html#cb653-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ORFik)</span>
+<span id="cb653-10"><a href="working-with-proteins.html#cb653-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb653-11"><a href="working-with-proteins.html#cb653-11" aria-hidden="true" tabindex="-1"></a><span class="co"># define path to file with sequences in fasta</span></span>
+<span id="cb653-12"><a href="working-with-proteins.html#cb653-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb653-13"><a href="working-with-proteins.html#cb653-13" aria-hidden="true" tabindex="-1"></a>my_nuc_fasta_file_path <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/Teach_R/my_working_directory/Rana_hb_nuc_seqs.fasta&quot;</span></span>
+<span id="cb653-14"><a href="working-with-proteins.html#cb653-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb653-15"><a href="working-with-proteins.html#cb653-15" aria-hidden="true" tabindex="-1"></a><span class="co"># identify ORFs in fasta file</span></span>
+<span id="cb653-16"><a href="working-with-proteins.html#cb653-16" aria-hidden="true" tabindex="-1"></a>orfs <span class="ot">&lt;-</span> <span class="fu">findORFsFasta</span>(my_nuc_fasta_file_path)</span>
+<span id="cb653-17"><a href="working-with-proteins.html#cb653-17" aria-hidden="true" tabindex="-1"></a>orfs</span>
+<span id="cb653-18"><a href="working-with-proteins.html#cb653-18" aria-hidden="true" tabindex="-1"></a><span class="co">#GRanges object with 31 ranges and 0 metadata columns:</span></span>
+<span id="cb653-19"><a href="working-with-proteins.html#cb653-19" aria-hidden="true" tabindex="-1"></a><span class="co">#         seqnames    ranges strand</span></span>
+<span id="cb653-20"><a href="working-with-proteins.html#cb653-20" aria-hidden="true" tabindex="-1"></a><span class="co">#            &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt;</span></span>
+<span id="cb653-21"><a href="working-with-proteins.html#cb653-21" aria-hidden="true" tabindex="-1"></a><span class="co">#   [1] BT081428.1    67-495      +</span></span>
+<span id="cb653-22"><a href="working-with-proteins.html#cb653-22" aria-hidden="true" tabindex="-1"></a><span class="co">#   [2] BT081428.1     20-31      +</span></span>
+<span id="cb653-23"><a href="working-with-proteins.html#cb653-23" aria-hidden="true" tabindex="-1"></a><span class="co">#   [3] BT081428.1    77-109      +</span></span>
+<span id="cb653-24"><a href="working-with-proteins.html#cb653-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   [4] BT081428.1   119-157      +</span></span>
+<span id="cb653-25"><a href="working-with-proteins.html#cb653-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   [5] BT081428.1   206-214      +</span></span>
+<span id="cb653-26"><a href="working-with-proteins.html#cb653-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   ...        ...       ...    ...</span></span>
+<span id="cb653-27"><a href="working-with-proteins.html#cb653-27" aria-hidden="true" tabindex="-1"></a><span class="co">#  [27] BT081428.1   192-281      -</span></span>
+<span id="cb653-28"><a href="working-with-proteins.html#cb653-28" aria-hidden="true" tabindex="-1"></a><span class="co">#  [28] BT081428.1   282-320      -</span></span>
+<span id="cb653-29"><a href="working-with-proteins.html#cb653-29" aria-hidden="true" tabindex="-1"></a><span class="co">#  [29] BT081428.1   333-380      -</span></span>
+<span id="cb653-30"><a href="working-with-proteins.html#cb653-30" aria-hidden="true" tabindex="-1"></a><span class="co">#  [30] BT081428.1   432-587      -</span></span>
+<span id="cb653-31"><a href="working-with-proteins.html#cb653-31" aria-hidden="true" tabindex="-1"></a><span class="co">#  [31] BT081428.1   612-635      -</span></span>
+<span id="cb653-32"><a href="working-with-proteins.html#cb653-32" aria-hidden="true" tabindex="-1"></a><span class="co">#  -------</span></span>
+<span id="cb653-33"><a href="working-with-proteins.html#cb653-33" aria-hidden="true" tabindex="-1"></a><span class="co">#  seqinfo: 1 sequence from an unspecified genome; no seqlengths</span></span>
+<span id="cb653-34"><a href="working-with-proteins.html#cb653-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb653-35"><a href="working-with-proteins.html#cb653-35" aria-hidden="true" tabindex="-1"></a><span class="co"># To store ORF sequences (you need indexed genome .fai file):</span></span>
+<span id="cb653-36"><a href="working-with-proteins.html#cb653-36" aria-hidden="true" tabindex="-1"></a>my_nuc_fasta <span class="ot">&lt;-</span> <span class="fu">FaFile</span>(my_nuc_fasta_file_path)</span>
+<span id="cb653-37"><a href="working-with-proteins.html#cb653-37" aria-hidden="true" tabindex="-1"></a>orf_seqs <span class="ot">&lt;-</span> <span class="fu">getSeq</span>(my_nuc_fasta, orfs)</span>
+<span id="cb653-38"><a href="working-with-proteins.html#cb653-38" aria-hidden="true" tabindex="-1"></a>orf_seqs</span>
+<span id="cb653-39"><a href="working-with-proteins.html#cb653-39" aria-hidden="true" tabindex="-1"></a><span class="co">#DNAStringSet object of length 31:</span></span>
+<span id="cb653-40"><a href="working-with-proteins.html#cb653-40" aria-hidden="true" tabindex="-1"></a><span class="co">#     width seq                                                                                                                names               </span></span>
+<span id="cb653-41"><a href="working-with-proteins.html#cb653-41" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]   429 ATGAGTCTATCTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAGTGGGAAAGATTGG...CTGGGACAAATTCCTTGCTCTAGTTTCTGCAGTCCTCACCTCCAAGTACAGATAA BT081428.1</span></span>
+<span id="cb653-42"><a href="working-with-proteins.html#cb653-42" aria-hidden="true" tabindex="-1"></a><span class="co"># [2]    12 TTGCCAAGCTAA                                                                                                       BT081428.1</span></span>
+<span id="cb653-43"><a href="working-with-proteins.html#cb653-43" aria-hidden="true" tabindex="-1"></a><span class="co"># [3]    33 CTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAG                                                                                  BT081428.1</span></span>
+<span id="cb653-44"><a href="working-with-proteins.html#cb653-44" aria-hidden="true" tabindex="-1"></a><span class="co"># [4]    39 TTGGATCTCAGGCCAGTGCTCTGGGCTCTGAGGCTTTGA                                                                            BT081428.1</span></span>
+<span id="cb653-45"><a href="working-with-proteins.html#cb653-45" aria-hidden="true" tabindex="-1"></a><span class="co"># [5]     9 TTGACCTGA                                                                                                          BT081428.1</span></span>
+<span id="cb653-46"><a href="working-with-proteins.html#cb653-46" aria-hidden="true" tabindex="-1"></a><span class="co"># ...   ... ...</span></span>
+<span id="cb653-47"><a href="working-with-proteins.html#cb653-47" aria-hidden="true" tabindex="-1"></a><span class="co">#[27]    90 TTGGCTGCACCTGCAAGAGCATTAATAATCTTTCCACCATGTTTGTTGAGGTCAGCAGAGCCAGGGGTCAGGTCAAAGTGGGGGAAATAA                         BT081428.1</span></span>
+<span id="cb653-48"><a href="working-with-proteins.html#cb653-48" aria-hidden="true" tabindex="-1"></a><span class="co">#[28]    39 CTGAGGGAGGACAGGCTGCCAGCAAGGTCATCCAGATGA                                                                            BT081428.1</span></span>
+<span id="cb653-49"><a href="working-with-proteins.html#cb653-49" aria-hidden="true" tabindex="-1"></a><span class="co">#[29]    48 ATGCGAGCCAGCAGAGGAAAGTTTCCTGGATCCACTCTTAGGTTGTAG                                                                   BT081428.1</span></span>
+<span id="cb653-50"><a href="working-with-proteins.html#cb653-50" aria-hidden="true" tabindex="-1"></a><span class="co">#[30]   156 TTGGTTGTAACTGAAATGGGCCCAAAGAACACTTCATTGCACGTTGTATTACTTGC...CTTGGAGGTGAGGACTGCAGAAACTAGAGCAAGGAATTTGTCCCAGGCAGCCTGA BT081428.1</span></span>
+<span id="cb653-51"><a href="working-with-proteins.html#cb653-51" aria-hidden="true" tabindex="-1"></a><span class="co">#[31]    24 TTGATGGACAATTTACACAAGTAA                                                                                           BT081428.1</span></span>
+<span id="cb653-52"><a href="working-with-proteins.html#cb653-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb653-53"><a href="working-with-proteins.html#cb653-53" aria-hidden="true" tabindex="-1"></a><span class="co"># order by the longest to shortest ORF</span></span>
+<span id="cb653-54"><a href="working-with-proteins.html#cb653-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb653-55"><a href="working-with-proteins.html#cb653-55" aria-hidden="true" tabindex="-1"></a>orf_seqs_ordered <span class="ot">&lt;-</span> orf_seqs[<span class="fu">order</span>(<span class="fu">width</span>(orf_seqs), <span class="at">decreasing =</span> T),]</span>
+<span id="cb653-56"><a href="working-with-proteins.html#cb653-56" aria-hidden="true" tabindex="-1"></a>orf_seqs_ordered </span>
+<span id="cb653-57"><a href="working-with-proteins.html#cb653-57" aria-hidden="true" tabindex="-1"></a><span class="co">#DNAStringSet object of length 31:</span></span>
+<span id="cb653-58"><a href="working-with-proteins.html#cb653-58" aria-hidden="true" tabindex="-1"></a><span class="co">#     width seq                                                                                                                names               </span></span>
+<span id="cb653-59"><a href="working-with-proteins.html#cb653-59" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]   429 ATGAGTCTATCTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAGTGGGAAAGATTGG...CTGGGACAAATTCCTTGCTCTAGTTTCTGCAGTCCTCACCTCCAAGTACAGATAA BT081428.1</span></span>
+<span id="cb653-60"><a href="working-with-proteins.html#cb653-60" aria-hidden="true" tabindex="-1"></a><span class="co"># [2]   258 ATGCAGGCCACTGAGGGAGGACAGGCTGCCAGCAAGGTCATCCAGATGATTGGCTG...GAGATCCAATCTTTCCCACTATGGAAAGCACAGCAGCCTTCTCACTTGCAGATAG BT081428.1</span></span>
+<span id="cb653-61"><a href="working-with-proteins.html#cb653-61" aria-hidden="true" tabindex="-1"></a><span class="co"># [3]   156 TTGGTTGTAACTGAAATGGGCCCAAAGAACACTTCATTGCACGTTGTATTACTTGC...CTTGGAGGTGAGGACTGCAGAAACTAGAGCAAGGAATTTGTCCCAGGCAGCCTGA BT081428.1</span></span>
+<span id="cb653-62"><a href="working-with-proteins.html#cb653-62" aria-hidden="true" tabindex="-1"></a><span class="co"># [4]   138 CTGCAGTCCTCACCTCCAAGTACAGATAAATCCACCCTGTATAACAGGCTACATCA...AATGAAGTGTTCTTTGGGCCCATTTCAGTTACAACCAAGTTGCAATGTTTTTTGA BT081428.1</span></span>
+<span id="cb653-63"><a href="working-with-proteins.html#cb653-63" aria-hidden="true" tabindex="-1"></a><span class="co"># [5]   126 CTGGCTCTGCTGACCTCAACAAACATGGTGGAAAGATTATTAATGCTCTTGCAGGT...GATGACCTTGCTGGCAGCCTGTCCTCCCTCAGTGGCCTGCATGCCTACAACCTAA BT081428.1</span></span>
+<span id="cb653-64"><a href="working-with-proteins.html#cb653-64" aria-hidden="true" tabindex="-1"></a><span class="co"># ...   ... ...</span></span>
+<span id="cb653-65"><a href="working-with-proteins.html#cb653-65" aria-hidden="true" tabindex="-1"></a><span class="co">#[27]    12 TTGCCAAGCTAA                                                                                                       BT081428.1</span></span>
+<span id="cb653-66"><a href="working-with-proteins.html#cb653-66" aria-hidden="true" tabindex="-1"></a><span class="co">#[28]     9 TTGACCTGA                                                                                                          BT081428.1</span></span>
+<span id="cb653-67"><a href="working-with-proteins.html#cb653-67" aria-hidden="true" tabindex="-1"></a><span class="co">#[29]     9 TTGGTGTAG                                                                                                          BT081428.1</span></span>
+<span id="cb653-68"><a href="working-with-proteins.html#cb653-68" aria-hidden="true" tabindex="-1"></a><span class="co">#[30]     9 CTGATGTAG                                                                                                          BT081428.1</span></span>
+<span id="cb653-69"><a href="working-with-proteins.html#cb653-69" aria-hidden="true" tabindex="-1"></a><span class="co">#[31]     6 TTGTAA                                                                                                             BT081428.1</span></span>
+<span id="cb653-70"><a href="working-with-proteins.html#cb653-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb653-71"><a href="working-with-proteins.html#cb653-71" aria-hidden="true" tabindex="-1"></a><span class="co"># name of fasta seq</span></span>
+<span id="cb653-72"><a href="working-with-proteins.html#cb653-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb653-73"><a href="working-with-proteins.html#cb653-73" aria-hidden="true" tabindex="-1"></a>name_seq_orfik <span class="ot">&lt;-</span> <span class="fu">names</span>(orf_seqs_ordered)[<span class="dv">1</span>]</span>
+<span id="cb653-74"><a href="working-with-proteins.html#cb653-74" aria-hidden="true" tabindex="-1"></a>name_seq_orfik <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;&gt;Long_ORF_orfik_&quot;</span>,name_seq_orfik,<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb653-75"><a href="working-with-proteins.html#cb653-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb653-76"><a href="working-with-proteins.html#cb653-76" aria-hidden="true" tabindex="-1"></a><span class="co"># build vector to write</span></span>
+<span id="cb653-77"><a href="working-with-proteins.html#cb653-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb653-78"><a href="working-with-proteins.html#cb653-78" aria-hidden="true" tabindex="-1"></a>my_CDS_long_orfik_vec <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(orf_seqs_ordered[<span class="dv">1</span>]))</span>
+<span id="cb653-79"><a href="working-with-proteins.html#cb653-79" aria-hidden="true" tabindex="-1"></a>final_my_CDS_long_orfik_vec <span class="ot">&lt;-</span> <span class="fu">paste0</span>(name_seq_orfik,my_CDS_long_orfik_vec)</span>
+<span id="cb653-80"><a href="working-with-proteins.html#cb653-80" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(final_my_CDS_long_orfik_vec)</span>
+<span id="cb653-81"><a href="working-with-proteins.html#cb653-81" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;Long_ORF_orfik_BT081428.1</span></span>
+<span id="cb653-82"><a href="working-with-proteins.html#cb653-82" aria-hidden="true" tabindex="-1"></a><span class="co">#ATGAGTCTATCTGCAAGTGAGAAGGCTGCTGTGCTTTCCATAGTGGGAAAGATTGGATCTCAGGCCAGTGCTCTGGGCTCTGAGGCTTTGACCAGGCTTTTCCTTAGCTTCCCCCAGACCAAGACTTA...</span></span>
+<span id="cb653-83"><a href="working-with-proteins.html#cb653-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb653-84"><a href="working-with-proteins.html#cb653-84" aria-hidden="true" tabindex="-1"></a><span class="co"># write fasta file</span></span>
+<span id="cb653-85"><a href="working-with-proteins.html#cb653-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb653-86"><a href="working-with-proteins.html#cb653-86" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(final_my_CDS_long_orfik_vec, <span class="st">&quot;Rana_hb_ORF_orfik_seqs.fasta&quot;</span>)</span>
+<span id="cb653-87"><a href="working-with-proteins.html#cb653-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb653-88"><a href="working-with-proteins.html#cb653-88" aria-hidden="true" tabindex="-1"></a><span class="co">#tools:</span></span>
+<span id="cb653-89"><a href="working-with-proteins.html#cb653-89" aria-hidden="true" tabindex="-1"></a><span class="co">#http://csbg.cnb.csic.es/PB/</span></span></code></pre></div>
 
 </div>
 </div>

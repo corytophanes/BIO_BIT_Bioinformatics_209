@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2023-02-15" />
+<meta name="date" content="2023-02-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -458,8 +458,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="30.8" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#downloading-data-files-github"><i class="fa fa-check"></i><b>30.8</b> Downloading data files (GitHub)</a></li>
 <li class="chapter" data-level="30.9" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#accessing-online-data"><i class="fa fa-check"></i><b>30.9</b> Accessing online data</a></li>
 <li class="chapter" data-level="30.10" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#fixing-problems-while-importing-datasets"><i class="fa fa-check"></i><b>30.10</b> Fixing problems while importing datasets</a></li>
-<li class="chapter" data-level="30.11" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-from-clinicaltrials.gov"><i class="fa fa-check"></i><b>30.11</b> Data from clinicaltrials.gov</a></li>
-<li class="chapter" data-level="30.12" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-scrapping-from-a-website"><i class="fa fa-check"></i><b>30.12</b> Data scrapping from a website</a></li>
+<li class="chapter" data-level="30.11" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#simplifying-embellished-excel-datasets"><i class="fa fa-check"></i><b>30.11</b> Simplifying embellished excel datasets</a></li>
+<li class="chapter" data-level="30.12" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-from-clinicaltrials.gov"><i class="fa fa-check"></i><b>30.12</b> Data from clinicaltrials.gov</a></li>
+<li class="chapter" data-level="30.13" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-scrapping-from-a-website"><i class="fa fa-check"></i><b>30.13</b> Data scrapping from a website</a></li>
 </ul></li>
 <li class="chapter" data-level="31" data-path="working-with-proteins.html"><a href="working-with-proteins.html"><i class="fa fa-check"></i><b>31</b> – Working with Proteins</a>
 <ul>
@@ -675,7 +676,7 @@ As graduate students, you are encouraged to use your own datasets (i.e., this is
 <span id="cb253-3"><a href="basic-statistics-in-r.html#cb253-3" aria-hidden="true" tabindex="-1"></a>contigency_result <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">table</span>(airway_data_reduced[,<span class="dv">1</span>], airway_data_reduced[,<span class="dv">2</span>]))</span>
 <span id="cb253-4"><a href="basic-statistics-in-r.html#cb253-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(title_test, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>); <span class="fu">print</span>(contigency_result)</span>
 <span id="cb253-5"><a href="basic-statistics-in-r.html#cb253-5" aria-hidden="true" tabindex="-1"></a><span class="co">#SRR1039508..vs..SRR1039509 </span></span>
-<span id="cb253-6"><a href="basic-statistics-in-r.html#cb253-6" aria-hidden="true" tabindex="-1"></a><span class="co">#ENumber of cases in table: 38694 </span></span>
+<span id="cb253-6"><a href="basic-statistics-in-r.html#cb253-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Number of cases in table: 38694 </span></span>
 <span id="cb253-7"><a href="basic-statistics-in-r.html#cb253-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Number of factors: 2 </span></span>
 <span id="cb253-8"><a href="basic-statistics-in-r.html#cb253-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Test for independence of all factors:</span></span>
 <span id="cb253-9"><a href="basic-statistics-in-r.html#cb253-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Chisq = 58193, df = 4, p-value = 0</span></span>
@@ -1258,7 +1259,7 @@ This can be easily applied in R and usually require a vector containing the p-va
 <span id="cb271-7"><a href="basic-statistics-in-r.html#cb271-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2</span></span>
 <span id="cb271-8"><a href="basic-statistics-in-r.html#cb271-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</span></span>
 <span id="cb271-9"><a href="basic-statistics-in-r.html#cb271-9" aria-hidden="true" tabindex="-1"></a>cars_data_scaled <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">modify</span>(cars_data, scale)</span>
-<span id="cb271-10"><a href="basic-statistics-in-r.html#cb271-10" aria-hidden="true" tabindex="-1"></a><span class="co"># head(cars_data_scaled)</span></span>
+<span id="cb271-10"><a href="basic-statistics-in-r.html#cb271-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cars_data_scaled)</span>
 <span id="cb271-11"><a href="basic-statistics-in-r.html#cb271-11" aria-hidden="true" tabindex="-1"></a><span class="co">#                        mpg        cyl        disp         hp       drat           wt       qsec         vs         am       gear       carb</span></span>
 <span id="cb271-12"><a href="basic-statistics-in-r.html#cb271-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4          0.1508848 -0.1049878 -0.57061982 -0.5350928  0.5675137 -0.610399567 -0.7771651 -0.8680278  1.1899014  0.4235542  0.7352031</span></span>
 <span id="cb271-13"><a href="basic-statistics-in-r.html#cb271-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4 Wag      0.1508848 -0.1049878 -0.57061982 -0.5350928  0.5675137 -0.349785269 -0.4637808 -0.8680278  1.1899014  0.4235542  0.7352031</span></span>
@@ -1641,7 +1642,7 @@ and <code>status</code> (i.e., alive or dead). Two are categorical such as <code
 <p><strong>9)</strong> We can perform one sample <a href="https://en.wikipedia.org/wiki/Student%27s_t-test" target="_blank"><strong>t-test</strong></a> on vectors using the function <code>t.test()</code>. For this test, you can test if its mean is statistically different from a given value specified by the <code>mu</code> argument equal such value.</p>
 <div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="basic-statistics-in-r.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we will test the mean of sample SRR1039508 equal to mu = 546.5 for </span></span>
 <span id="cb282-2"><a href="basic-statistics-in-r.html#cb282-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(cars_data)[<span class="dv">7</span>]</span>
-<span id="cb282-3"><a href="basic-statistics-in-r.html#cb282-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;qsec&quot;</span></span>
+<span id="cb282-3"><a href="basic-statistics-in-r.html#cb282-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;qsec&quot;</span></span>
 <span id="cb282-4"><a href="basic-statistics-in-r.html#cb282-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(cars_data<span class="sc">$</span>qsec, <span class="at">mu =</span> <span class="dv">11</span>)</span>
 <span id="cb282-5"><a href="basic-statistics-in-r.html#cb282-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
 <span id="cb282-6"><a href="basic-statistics-in-r.html#cb282-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   One Sample t-test</span></span>

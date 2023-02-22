@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2023-02-15" />
+<meta name="date" content="2023-02-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -458,8 +458,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="30.8" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#downloading-data-files-github"><i class="fa fa-check"></i><b>30.8</b> Downloading data files (GitHub)</a></li>
 <li class="chapter" data-level="30.9" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#accessing-online-data"><i class="fa fa-check"></i><b>30.9</b> Accessing online data</a></li>
 <li class="chapter" data-level="30.10" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#fixing-problems-while-importing-datasets"><i class="fa fa-check"></i><b>30.10</b> Fixing problems while importing datasets</a></li>
-<li class="chapter" data-level="30.11" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-from-clinicaltrials.gov"><i class="fa fa-check"></i><b>30.11</b> Data from clinicaltrials.gov</a></li>
-<li class="chapter" data-level="30.12" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-scrapping-from-a-website"><i class="fa fa-check"></i><b>30.12</b> Data scrapping from a website</a></li>
+<li class="chapter" data-level="30.11" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#simplifying-embellished-excel-datasets"><i class="fa fa-check"></i><b>30.11</b> Simplifying embellished excel datasets</a></li>
+<li class="chapter" data-level="30.12" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-from-clinicaltrials.gov"><i class="fa fa-check"></i><b>30.12</b> Data from clinicaltrials.gov</a></li>
+<li class="chapter" data-level="30.13" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-scrapping-from-a-website"><i class="fa fa-check"></i><b>30.13</b> Data scrapping from a website</a></li>
 </ul></li>
 <li class="chapter" data-level="31" data-path="working-with-proteins.html"><a href="working-with-proteins.html"><i class="fa fa-check"></i><b>31</b> – Working with Proteins</a>
 <ul>
@@ -903,29 +904,30 @@ and <strong>all coefficients</strong> with the exception for <strong>CL</strong>
 <p>You can also get a list of influential measurements using functions <code>influence.measures()</code> and <code>influence()</code>. These measurements might be outliers or errors in data input (i.e., miss typing, incorrect instrument calibration, contamination, etc.)</p>
 <div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="regressions-and-anova-in-r.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Notice values with an asterisk (*)</span></span>
 <span id="cb313-2"><a href="regressions-and-anova-in-r.html#cb313-2" aria-hidden="true" tabindex="-1"></a>influence_values <span class="ot">&lt;-</span> <span class="fu">influence.measures</span>(crab_multiple_lm)</span>
-<span id="cb313-3"><a href="regressions-and-anova-in-r.html#cb313-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Influence measures of</span></span>
-<span id="cb313-4"><a href="regressions-and-anova-in-r.html#cb313-4" aria-hidden="true" tabindex="-1"></a><span class="co">#    lm(formula = BD ~ FL + RW + CL + CW, data = crab_dataset) :</span></span>
-<span id="cb313-5"><a href="regressions-and-anova-in-r.html#cb313-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb313-6"><a href="regressions-and-anova-in-r.html#cb313-6" aria-hidden="true" tabindex="-1"></a><span class="co">#       dfb.1_    dfb.FL    dfb.RW    dfb.CL    dfb.CW     dffit cov.r   cook.d     hat inf</span></span>
-<span id="cb313-7"><a href="regressions-and-anova-in-r.html#cb313-7" aria-hidden="true" tabindex="-1"></a><span class="co">#1    0.230383  1.06e-01 -1.27e-01 -1.15e-01  9.97e-02  0.272172 1.022 1.48e-02 0.04052    </span></span>
-<span id="cb313-8"><a href="regressions-and-anova-in-r.html#cb313-8" aria-hidden="true" tabindex="-1"></a><span class="co">#2   -0.009954 -4.12e-05  1.55e-03 -6.81e-05  5.21e-04 -0.010550 1.053 2.24e-05 0.02556    </span></span>
-<span id="cb313-9"><a href="regressions-and-anova-in-r.html#cb313-9" aria-hidden="true" tabindex="-1"></a><span class="co">#3    0.018286  6.27e-03 -9.58e-03 -9.30e-03  9.08e-03  0.022461 1.056 1.01e-04 0.02866    </span></span>
-<span id="cb313-10"><a href="regressions-and-anova-in-r.html#cb313-10" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
-<span id="cb313-11"><a href="regressions-and-anova-in-r.html#cb313-11" aria-hidden="true" tabindex="-1"></a><span class="co">#46   0.076014 -8.84e-02  2.99e-01  1.25e-01 -1.87e-01 -0.426499 0.914 3.55e-02 0.03051   *</span></span>
-<span id="cb313-12"><a href="regressions-and-anova-in-r.html#cb313-12" aria-hidden="true" tabindex="-1"></a><span class="co">#47   0.037663 -1.85e-02  3.83e-02  4.76e-02 -6.15e-02 -0.088701 1.057 1.58e-03 0.03509    </span></span>
-<span id="cb313-13"><a href="regressions-and-anova-in-r.html#cb313-13" aria-hidden="true" tabindex="-1"></a><span class="co">#48  -0.027395  8.70e-03 -7.23e-02 -3.70e-02  6.03e-02  0.115458 1.077 2.68e-03 0.05319   *</span></span>
-<span id="cb313-14"><a href="regressions-and-anova-in-r.html#cb313-14" aria-hidden="true" tabindex="-1"></a><span class="co">#49  -0.017943  1.88e-02 -4.78e-02 -3.53e-02  4.67e-02  0.071147 1.077 1.02e-03 0.04985   *</span></span>
-<span id="cb313-15"><a href="regressions-and-anova-in-r.html#cb313-15" aria-hidden="true" tabindex="-1"></a><span class="co">#50  -0.023874  7.47e-05 -3.10e-02 -2.11e-02  3.51e-02  0.063645 1.110 8.14e-04 0.07675   *</span></span>
-<span id="cb313-16"><a href="regressions-and-anova-in-r.html#cb313-16" aria-hidden="true" tabindex="-1"></a><span class="co">#51   0.127156  8.62e-03 -2.53e-02 -8.99e-03  2.53e-03  0.133549 1.052 3.58e-03 0.03666    </span></span>
-<span id="cb313-17"><a href="regressions-and-anova-in-r.html#cb313-17" aria-hidden="true" tabindex="-1"></a><span class="co">#32  -0.020620 -6.29e-02 -1.96e-02 -3.45e-03  4.20e-02  0.145671 1.028 4.25e-03 0.02396    </span></span>
-<span id="cb313-18"><a href="regressions-and-anova-in-r.html#cb313-18" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
-<span id="cb313-19"><a href="regressions-and-anova-in-r.html#cb313-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb313-20"><a href="regressions-and-anova-in-r.html#cb313-20" aria-hidden="true" tabindex="-1"></a><span class="do">## now we can get the identity of these values organized in a vector by focusing in column &#39;hat&#39;</span></span>
-<span id="cb313-21"><a href="regressions-and-anova-in-r.html#cb313-21" aria-hidden="true" tabindex="-1"></a>influence_df <span class="ot">&lt;-</span> <span class="fu">influence</span>(crab_multiple_lm)</span>
-<span id="cb313-22"><a href="regressions-and-anova-in-r.html#cb313-22" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(influence_df)</span>
-<span id="cb313-23"><a href="regressions-and-anova-in-r.html#cb313-23" aria-hidden="true" tabindex="-1"></a><span class="co"># we can the 10 most influential value</span></span>
-<span id="cb313-24"><a href="regressions-and-anova-in-r.html#cb313-24" aria-hidden="true" tabindex="-1"></a><span class="fu">order</span>(influence_df<span class="sc">$</span>hat, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
-<span id="cb313-25"><a href="regressions-and-anova-in-r.html#cb313-25" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  50 145 199 195  98 200  99 144 186  97</span></span></code></pre></div>
+<span id="cb313-3"><a href="regressions-and-anova-in-r.html#cb313-3" aria-hidden="true" tabindex="-1"></a>influence_values</span>
+<span id="cb313-4"><a href="regressions-and-anova-in-r.html#cb313-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Influence measures of</span></span>
+<span id="cb313-5"><a href="regressions-and-anova-in-r.html#cb313-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    lm(formula = BD ~ FL + RW + CL + CW, data = crab_dataset) :</span></span>
+<span id="cb313-6"><a href="regressions-and-anova-in-r.html#cb313-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb313-7"><a href="regressions-and-anova-in-r.html#cb313-7" aria-hidden="true" tabindex="-1"></a><span class="co">#       dfb.1_    dfb.FL    dfb.RW    dfb.CL    dfb.CW     dffit cov.r   cook.d     hat inf</span></span>
+<span id="cb313-8"><a href="regressions-and-anova-in-r.html#cb313-8" aria-hidden="true" tabindex="-1"></a><span class="co">#1    0.230383  1.06e-01 -1.27e-01 -1.15e-01  9.97e-02  0.272172 1.022 1.48e-02 0.04052    </span></span>
+<span id="cb313-9"><a href="regressions-and-anova-in-r.html#cb313-9" aria-hidden="true" tabindex="-1"></a><span class="co">#2   -0.009954 -4.12e-05  1.55e-03 -6.81e-05  5.21e-04 -0.010550 1.053 2.24e-05 0.02556    </span></span>
+<span id="cb313-10"><a href="regressions-and-anova-in-r.html#cb313-10" aria-hidden="true" tabindex="-1"></a><span class="co">#3    0.018286  6.27e-03 -9.58e-03 -9.30e-03  9.08e-03  0.022461 1.056 1.01e-04 0.02866    </span></span>
+<span id="cb313-11"><a href="regressions-and-anova-in-r.html#cb313-11" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
+<span id="cb313-12"><a href="regressions-and-anova-in-r.html#cb313-12" aria-hidden="true" tabindex="-1"></a><span class="co">#46   0.076014 -8.84e-02  2.99e-01  1.25e-01 -1.87e-01 -0.426499 0.914 3.55e-02 0.03051   *</span></span>
+<span id="cb313-13"><a href="regressions-and-anova-in-r.html#cb313-13" aria-hidden="true" tabindex="-1"></a><span class="co">#47   0.037663 -1.85e-02  3.83e-02  4.76e-02 -6.15e-02 -0.088701 1.057 1.58e-03 0.03509    </span></span>
+<span id="cb313-14"><a href="regressions-and-anova-in-r.html#cb313-14" aria-hidden="true" tabindex="-1"></a><span class="co">#48  -0.027395  8.70e-03 -7.23e-02 -3.70e-02  6.03e-02  0.115458 1.077 2.68e-03 0.05319   *</span></span>
+<span id="cb313-15"><a href="regressions-and-anova-in-r.html#cb313-15" aria-hidden="true" tabindex="-1"></a><span class="co">#49  -0.017943  1.88e-02 -4.78e-02 -3.53e-02  4.67e-02  0.071147 1.077 1.02e-03 0.04985   *</span></span>
+<span id="cb313-16"><a href="regressions-and-anova-in-r.html#cb313-16" aria-hidden="true" tabindex="-1"></a><span class="co">#50  -0.023874  7.47e-05 -3.10e-02 -2.11e-02  3.51e-02  0.063645 1.110 8.14e-04 0.07675   *</span></span>
+<span id="cb313-17"><a href="regressions-and-anova-in-r.html#cb313-17" aria-hidden="true" tabindex="-1"></a><span class="co">#51   0.127156  8.62e-03 -2.53e-02 -8.99e-03  2.53e-03  0.133549 1.052 3.58e-03 0.03666    </span></span>
+<span id="cb313-18"><a href="regressions-and-anova-in-r.html#cb313-18" aria-hidden="true" tabindex="-1"></a><span class="co">#32  -0.020620 -6.29e-02 -1.96e-02 -3.45e-03  4.20e-02  0.145671 1.028 4.25e-03 0.02396    </span></span>
+<span id="cb313-19"><a href="regressions-and-anova-in-r.html#cb313-19" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
+<span id="cb313-20"><a href="regressions-and-anova-in-r.html#cb313-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb313-21"><a href="regressions-and-anova-in-r.html#cb313-21" aria-hidden="true" tabindex="-1"></a><span class="do">## now we can get the identity of these values organized in a vector by focusing in column &#39;hat&#39;</span></span>
+<span id="cb313-22"><a href="regressions-and-anova-in-r.html#cb313-22" aria-hidden="true" tabindex="-1"></a>influence_df <span class="ot">&lt;-</span> <span class="fu">influence</span>(crab_multiple_lm)</span>
+<span id="cb313-23"><a href="regressions-and-anova-in-r.html#cb313-23" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(influence_df)</span>
+<span id="cb313-24"><a href="regressions-and-anova-in-r.html#cb313-24" aria-hidden="true" tabindex="-1"></a><span class="co"># we can the 10 most influential value</span></span>
+<span id="cb313-25"><a href="regressions-and-anova-in-r.html#cb313-25" aria-hidden="true" tabindex="-1"></a><span class="fu">order</span>(influence_df<span class="sc">$</span>hat, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb313-26"><a href="regressions-and-anova-in-r.html#cb313-26" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  50 145 199 195  98 200  99 144 186  97</span></span></code></pre></div>
 </div>
 <div id="regression-anova-coefficients-ci" class="section level2" number="7.6">
 <h2><span class="header-section-number">7.6</span> Regression (ANOVA, coefficients, CI)</h2>
@@ -961,7 +963,7 @@ and <strong>all coefficients</strong> with the exception for <strong>CL</strong>
 <span id="cb315-6"><a href="regressions-and-anova-in-r.html#cb315-6" aria-hidden="true" tabindex="-1"></a><span class="co">#-0.97615668  0.42022057  0.03768281  0.59511478 -0.30559587 </span></span></code></pre></div>
 <p>Get the model confidence intervals for regression coefficients (i.e., range that contains the estimate regression coefficients) using the function <code>confint()</code>.</p>
 <div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="regressions-and-anova-in-r.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(log_brain_body)</span>
-<span id="cb316-2"><a href="regressions-and-anova-in-r.html#cb316-2" aria-hidden="true" tabindex="-1"></a>                <span class="fl">2.5</span> <span class="sc">%    97.5 %</span></span>
+<span id="cb316-2"><a href="regressions-and-anova-in-r.html#cb316-2" aria-hidden="true" tabindex="-1"></a><span class="co">#                2.5 %    97.5 %</span></span>
 <span id="cb316-3"><a href="regressions-and-anova-in-r.html#cb316-3" aria-hidden="true" tabindex="-1"></a><span class="co">#(Intercept) 0.8436923 1.0105616</span></span>
 <span id="cb316-4"><a href="regressions-and-anova-in-r.html#cb316-4" aria-hidden="true" tabindex="-1"></a><span class="co">#body        0.6947503 0.8086215</span></span>
 <span id="cb316-5"><a href="regressions-and-anova-in-r.html#cb316-5" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(crab_multiple_lm)</span>
