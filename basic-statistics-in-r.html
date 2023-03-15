@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2023-02-22" />
+<meta name="date" content="2023-03-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -199,13 +199,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.11" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-means-t-test"><i class="fa fa-check"></i><b>6.11</b> Comparing means: t-test</a></li>
 <li class="chapter" data-level="6.12" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#two-sample-t-test"><i class="fa fa-check"></i><b>6.12</b> Two sample t-test</a></li>
 <li class="chapter" data-level="6.13" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>6.13</b> Beyond t-test: Wilcoxon signed rank test</a></li>
-<li class="chapter" data-level="6.14" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-binomial-test"><i class="fa fa-check"></i><b>6.14</b> Beyond t-test: Binomial test</a></li>
-<li class="chapter" data-level="6.15" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-chi-square-goodness-of-fit"><i class="fa fa-check"></i><b>6.15</b> Beyond t-test: Chi-square goodness of fit</a></li>
-<li class="chapter" data-level="6.16" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-mcnemars-test"><i class="fa fa-check"></i><b>6.16</b> Beyond t-test: McNemar’s test</a></li>
-<li class="chapter" data-level="6.17" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-fishers-exact-test"><i class="fa fa-check"></i><b>6.17</b> Beyond t-test: Fisher’s exact test</a></li>
-<li class="chapter" data-level="6.18" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.18</b> Correlations</a></li>
-<li class="chapter" data-level="6.19" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.19</b> Comparing distributions</a></li>
-<li class="chapter" data-level="6.20" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#bootstraps"><i class="fa fa-check"></i><b>6.20</b> Bootstraps</a></li>
+<li class="chapter" data-level="6.14" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#tabulation-and-cross-tabulation"><i class="fa fa-check"></i><b>6.14</b> Tabulation and Cross-Tabulation</a></li>
+<li class="chapter" data-level="6.15" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-binomial-test"><i class="fa fa-check"></i><b>6.15</b> Beyond t-test: Binomial test</a></li>
+<li class="chapter" data-level="6.16" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-chi-square-goodness-of-fit"><i class="fa fa-check"></i><b>6.16</b> Beyond t-test: Chi-square goodness of fit</a></li>
+<li class="chapter" data-level="6.17" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-mcnemars-test"><i class="fa fa-check"></i><b>6.17</b> Beyond t-test: McNemar’s test</a></li>
+<li class="chapter" data-level="6.18" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-fishers-exact-test"><i class="fa fa-check"></i><b>6.18</b> Beyond t-test: Fisher’s exact test</a></li>
+<li class="chapter" data-level="6.19" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.19</b> Correlations</a></li>
+<li class="chapter" data-level="6.20" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.20</b> Comparing distributions</a></li>
+<li class="chapter" data-level="6.21" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#bootstraps"><i class="fa fa-check"></i><b>6.21</b> Bootstraps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html"><i class="fa fa-check"></i><b>7</b> – Regressions and ANOVA in R</a>
 <ul>
@@ -612,25 +613,25 @@ As graduate students, you are encouraged to use your own datasets (i.e., this is
 <span id="cb249-4"><a href="basic-statistics-in-r.html#cb249-4" aria-hidden="true" tabindex="-1"></a>airway_data_very_high_low <span class="ot">&lt;-</span> airway_data</span>
 <span id="cb249-5"><a href="basic-statistics-in-r.html#cb249-5" aria-hidden="true" tabindex="-1"></a><span class="co"># We will apply a the conditional</span></span>
 <span id="cb249-6"><a href="basic-statistics-in-r.html#cb249-6" aria-hidden="true" tabindex="-1"></a>airway_data_very_high_low <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">modify</span>(airway_data_very_high_low,<span class="cf">function</span>(x) {<span class="fu">ifelse</span>(x <span class="sc">&gt;=</span> <span class="dv">10000</span>, <span class="st">&quot;very_high&quot;</span>,</span>
-<span id="cb249-7"><a href="basic-statistics-in-r.html#cb249-7" aria-hidden="true" tabindex="-1"></a>                                                                                     <span class="fu">ifelse</span>( x <span class="sc">&gt;=</span> <span class="dv">1000</span>, <span class="st">&quot;high&quot;</span>, <span class="st">&quot;low&quot;</span>))})</span>
+<span id="cb249-7"><a href="basic-statistics-in-r.html#cb249-7" aria-hidden="true" tabindex="-1"></a>                                                                                     <span class="fu">ifelse</span>( x <span class="sc">&gt;=</span> <span class="dv">100</span>, <span class="st">&quot;high&quot;</span>, <span class="st">&quot;low&quot;</span>))})</span>
 <span id="cb249-8"><a href="basic-statistics-in-r.html#cb249-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data_very_high_low)</span>
 <span id="cb249-9"><a href="basic-statistics-in-r.html#cb249-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    ensgene SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
-<span id="cb249-10"><a href="basic-statistics-in-r.html#cb249-10" aria-hidden="true" tabindex="-1"></a><span class="co">#1 very_high        low        low        low        low       high       high        low        low</span></span>
+<span id="cb249-10"><a href="basic-statistics-in-r.html#cb249-10" aria-hidden="true" tabindex="-1"></a><span class="co">#1 very_high       high       high       high       high       high       high       high       high</span></span>
 <span id="cb249-11"><a href="basic-statistics-in-r.html#cb249-11" aria-hidden="true" tabindex="-1"></a><span class="co">#2 very_high        low        low        low        low        low        low        low        low</span></span>
-<span id="cb249-12"><a href="basic-statistics-in-r.html#cb249-12" aria-hidden="true" tabindex="-1"></a><span class="co">#3 very_high        low        low        low        low        low        low        low        low</span></span>
-<span id="cb249-13"><a href="basic-statistics-in-r.html#cb249-13" aria-hidden="true" tabindex="-1"></a><span class="co">#4 very_high        low        low        low        low        low        low        low        low</span></span>
-<span id="cb249-14"><a href="basic-statistics-in-r.html#cb249-14" aria-hidden="true" tabindex="-1"></a><span class="co">#5 very_high        low        low        low        low        low        low        low        low</span></span>
+<span id="cb249-12"><a href="basic-statistics-in-r.html#cb249-12" aria-hidden="true" tabindex="-1"></a><span class="co">#3 very_high       high       high       high       high       high       high       high       high</span></span>
+<span id="cb249-13"><a href="basic-statistics-in-r.html#cb249-13" aria-hidden="true" tabindex="-1"></a><span class="co">#4 very_high       high       high       high       high       high       high       high       high</span></span>
+<span id="cb249-14"><a href="basic-statistics-in-r.html#cb249-14" aria-hidden="true" tabindex="-1"></a><span class="co">#5 very_high        low        low        low        low       high        low       high        low</span></span>
 <span id="cb249-15"><a href="basic-statistics-in-r.html#cb249-15" aria-hidden="true" tabindex="-1"></a><span class="co">#6 very_high        low        low        low        low        low        low        low        low</span></span>
 <span id="cb249-16"><a href="basic-statistics-in-r.html#cb249-16" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
 <p>During the process above, we have “lost” the values of our variable <code>ensgene</code> that contains the names of the loci. We can add it back from our original data frame <code>airway_data</code> as indicated next.</p>
 <div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="basic-statistics-in-r.html#cb250-1" aria-hidden="true" tabindex="-1"></a>airway_data_very_high_low<span class="sc">$</span>ensgene <span class="ot">&lt;-</span> airway_data<span class="sc">$</span>ensgene</span>
 <span id="cb250-2"><a href="basic-statistics-in-r.html#cb250-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data_very_high_low)</span>
 <span id="cb250-3"><a href="basic-statistics-in-r.html#cb250-3" aria-hidden="true" tabindex="-1"></a><span class="co">#          ensgene SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
-<span id="cb250-4"><a href="basic-statistics-in-r.html#cb250-4" aria-hidden="true" tabindex="-1"></a><span class="co">#1 ENSG00000000003        low        low        low        low       high       high        low        low</span></span>
+<span id="cb250-4"><a href="basic-statistics-in-r.html#cb250-4" aria-hidden="true" tabindex="-1"></a><span class="co">#1 ENSG00000000003       high       high       high       high       high       high       high       high</span></span>
 <span id="cb250-5"><a href="basic-statistics-in-r.html#cb250-5" aria-hidden="true" tabindex="-1"></a><span class="co">#2 ENSG00000000005        low        low        low        low        low        low        low        low</span></span>
-<span id="cb250-6"><a href="basic-statistics-in-r.html#cb250-6" aria-hidden="true" tabindex="-1"></a><span class="co">#3 ENSG00000000419        low        low        low        low        low        low        low        low</span></span>
-<span id="cb250-7"><a href="basic-statistics-in-r.html#cb250-7" aria-hidden="true" tabindex="-1"></a><span class="co">#4 ENSG00000000457        low        low        low        low        low        low        low        low</span></span>
-<span id="cb250-8"><a href="basic-statistics-in-r.html#cb250-8" aria-hidden="true" tabindex="-1"></a><span class="co">#5 ENSG00000000460        low        low        low        low        low        low        low        low</span></span>
+<span id="cb250-6"><a href="basic-statistics-in-r.html#cb250-6" aria-hidden="true" tabindex="-1"></a><span class="do">##3 ENSG00000000419       high       high       high       high       high       high       high       high</span></span>
+<span id="cb250-7"><a href="basic-statistics-in-r.html#cb250-7" aria-hidden="true" tabindex="-1"></a><span class="co">#4 ENSG00000000457       high       high       high       high       high       high       high       high</span></span>
+<span id="cb250-8"><a href="basic-statistics-in-r.html#cb250-8" aria-hidden="true" tabindex="-1"></a><span class="co">#5 ENSG00000000460        low        low        low        low       high        low       high        low</span></span>
 <span id="cb250-9"><a href="basic-statistics-in-r.html#cb250-9" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000000938        low        low        low        low        low        low        low        low</span></span>
 <span id="cb250-10"><a href="basic-statistics-in-r.html#cb250-10" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
 <p><strong>4)</strong> With this discretized data frame <code>airway_data_very_high_low</code>, we can perform contingency tables. These are a type of table in a matrix format that displays the frequency distribution of the variables tested. We will exclude the first column <code>ensgene</code> because it has unique values.</p>
@@ -651,23 +652,24 @@ As graduate students, you are encouraged to use your own datasets (i.e., this is
 <span id="cb251-15"><a href="basic-statistics-in-r.html#cb251-15" aria-hidden="true" tabindex="-1"></a>    summary_frequencies_airway_data[[i]] <span class="ot">&lt;-</span> one_data_frame     </span>
 <span id="cb251-16"><a href="basic-statistics-in-r.html#cb251-16" aria-hidden="true" tabindex="-1"></a>                                }</span>
 <span id="cb251-17"><a href="basic-statistics-in-r.html#cb251-17" aria-hidden="true" tabindex="-1"></a>summary_frequencies_airway_data</span>
-<span id="cb251-18"><a href="basic-statistics-in-r.html#cb251-18" aria-hidden="true" tabindex="-1"></a><span class="co">#[[1]]</span></span>
+<span id="cb251-18"><a href="basic-statistics-in-r.html#cb251-18" aria-hidden="true" tabindex="-1"></a><span class="co">#[[[1]]</span></span>
 <span id="cb251-19"><a href="basic-statistics-in-r.html#cb251-19" aria-hidden="true" tabindex="-1"></a><span class="co">#          SRR1039508</span></span>
-<span id="cb251-20"><a href="basic-statistics-in-r.html#cb251-20" aria-hidden="true" tabindex="-1"></a><span class="co">#high            3732</span></span>
-<span id="cb251-21"><a href="basic-statistics-in-r.html#cb251-21" aria-hidden="true" tabindex="-1"></a><span class="co">#low            34691</span></span>
+<span id="cb251-20"><a href="basic-statistics-in-r.html#cb251-20" aria-hidden="true" tabindex="-1"></a><span class="co">#high           11051</span></span>
+<span id="cb251-21"><a href="basic-statistics-in-r.html#cb251-21" aria-hidden="true" tabindex="-1"></a><span class="co">#low            27372</span></span>
 <span id="cb251-22"><a href="basic-statistics-in-r.html#cb251-22" aria-hidden="true" tabindex="-1"></a><span class="co">#very_high        271</span></span>
-<span id="cb251-23"><a href="basic-statistics-in-r.html#cb251-23" aria-hidden="true" tabindex="-1"></a><span class="co">#[[2]]</span></span>
-<span id="cb251-24"><a href="basic-statistics-in-r.html#cb251-24" aria-hidden="true" tabindex="-1"></a><span class="co">#          SRR1039509</span></span>
-<span id="cb251-25"><a href="basic-statistics-in-r.html#cb251-25" aria-hidden="true" tabindex="-1"></a><span class="co">#high            3444</span></span>
-<span id="cb251-26"><a href="basic-statistics-in-r.html#cb251-26" aria-hidden="true" tabindex="-1"></a><span class="co">#low            34986</span></span>
-<span id="cb251-27"><a href="basic-statistics-in-r.html#cb251-27" aria-hidden="true" tabindex="-1"></a><span class="co">#very_high        264</span></span>
-<span id="cb251-28"><a href="basic-statistics-in-r.html#cb251-28" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
+<span id="cb251-23"><a href="basic-statistics-in-r.html#cb251-23" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb251-24"><a href="basic-statistics-in-r.html#cb251-24" aria-hidden="true" tabindex="-1"></a><span class="co">#[[2]]</span></span>
+<span id="cb251-25"><a href="basic-statistics-in-r.html#cb251-25" aria-hidden="true" tabindex="-1"></a><span class="co">#          SRR1039509</span></span>
+<span id="cb251-26"><a href="basic-statistics-in-r.html#cb251-26" aria-hidden="true" tabindex="-1"></a><span class="co">#high           10708</span></span>
+<span id="cb251-27"><a href="basic-statistics-in-r.html#cb251-27" aria-hidden="true" tabindex="-1"></a><span class="co">#low            27722</span></span>
+<span id="cb251-28"><a href="basic-statistics-in-r.html#cb251-28" aria-hidden="true" tabindex="-1"></a><span class="co">#very_high        264</span></span>
+<span id="cb251-29"><a href="basic-statistics-in-r.html#cb251-29" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
 <p>With the list <code>summary_frequencies_airway_data</code>, we can cover it to a data frame by binding each vector as a column using two functions <code>do.call()</code> and <code>cbind()</code>.</p>
 <div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="basic-statistics-in-r.html#cb252-1" aria-hidden="true" tabindex="-1"></a>final_summary_all_samples_df <span class="ot">&lt;-</span> <span class="fu">do.call</span>(cbind, summary_frequencies_airway_data)</span>
 <span id="cb252-2"><a href="basic-statistics-in-r.html#cb252-2" aria-hidden="true" tabindex="-1"></a>final_summary_all_samples_df</span>
 <span id="cb252-3"><a href="basic-statistics-in-r.html#cb252-3" aria-hidden="true" tabindex="-1"></a><span class="co">#          SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
-<span id="cb252-4"><a href="basic-statistics-in-r.html#cb252-4" aria-hidden="true" tabindex="-1"></a><span class="co">#high            3732       3444       4118       2607       4155       4703       3432       3683</span></span>
-<span id="cb252-5"><a href="basic-statistics-in-r.html#cb252-5" aria-hidden="true" tabindex="-1"></a><span class="co">#low            34691      34986      34216      35902      34196      33500      35024      34725</span></span>
+<span id="cb252-4"><a href="basic-statistics-in-r.html#cb252-4" aria-hidden="true" tabindex="-1"></a><span class="co">#high           11051      10708      11268      10107      11203      11242      10946      10813</span></span>
+<span id="cb252-5"><a href="basic-statistics-in-r.html#cb252-5" aria-hidden="true" tabindex="-1"></a><span class="co">#low            27372      27722      27066      28402      27148      26961      27510      27595</span></span>
 <span id="cb252-6"><a href="basic-statistics-in-r.html#cb252-6" aria-hidden="true" tabindex="-1"></a><span class="co">#very_high        271        264        360        185        343        491        238        286</span></span></code></pre></div>
 <p><strong>5)</strong> With this data frame, we can test these discretized variables for independence using a chi-squared test with the function <code>summary()</code>.</p>
 <p>For example, we can compare two of the <code>airway_data_reduced</code> samples (i.e., columns). Notice that I use a <code>;</code> command at the end of one line of commands, this allows you to paste several commands next to each other as if they were in new lines.</p>
@@ -1382,7 +1384,7 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>N/A</td>
 <td>N/A</td>
 <td>one-sample t-test</td>
-<td><strong>6.4</strong></td>
+<td><strong>6.11</strong></td>
 </tr>
 <tr class="even">
 <td>1 &amp; two populations</td>
@@ -1390,7 +1392,7 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>N/A</td>
 <td>N/A</td>
 <td>two-sample t-test</td>
-<td><strong>6.4</strong></td>
+<td><strong>6.12</strong></td>
 </tr>
 <tr class="odd">
 <td>1 &amp; one population</td>
@@ -1398,7 +1400,7 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>N/A</td>
 <td>N/A</td>
 <td>one-sample median or Wilcoxon signed rank test</td>
-<td><strong>6.5</strong></td>
+<td><strong>6.13</strong></td>
 </tr>
 <tr class="even">
 <td>1 &amp; two populations</td>
@@ -1406,7 +1408,7 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>N/A</td>
 <td>N/A</td>
 <td>two-sample median or Wilcoxon signed rank test</td>
-<td><strong>6.5</strong></td>
+<td><strong>6.13</strong></td>
 </tr>
 <tr class="odd">
 <td>1 &amp; one population</td>
@@ -1414,7 +1416,7 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>N/A</td>
 <td>N/A</td>
 <td>binomial test</td>
-<td><strong>6.6</strong></td>
+<td><strong>6.15</strong></td>
 </tr>
 <tr class="even">
 <td>1 &amp; one population</td>
@@ -1422,7 +1424,7 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>N/A</td>
 <td>N/A</td>
 <td>Chi-square goodness-of-fit</td>
-<td><strong>6.7</strong></td>
+<td><strong>6.16</strong></td>
 </tr>
 <tr class="odd">
 <td>1 &amp; two populations</td>
@@ -1430,31 +1432,47 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>N/A</td>
 <td>N/A</td>
 <td>Chi-square goodness-of-fit</td>
-<td><strong>6.7</strong></td>
+<td><strong>6.16</strong></td>
 </tr>
 <tr class="even">
 <td>1 &amp; two populations</td>
 <td>categorical (multiple categories)</td>
 <td>N/A</td>
 <td>N/A</td>
-<td>Fisher’s exact test</td>
-<td><strong>6.9</strong></td>
+<td>McNemar’s test</td>
+<td><strong>6.17</strong></td>
 </tr>
 <tr class="odd">
+<td>1 &amp; two populations</td>
+<td>categorical (multiple categories)</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Fisher’s exact test</td>
+<td><strong>6.18</strong></td>
+</tr>
+<tr class="even">
 <td>1 &amp; one population</td>
 <td>continuous (normal)</td>
 <td>1</td>
 <td>continuous (normal)</td>
 <td>correlation</td>
-<td><strong>6.10</strong></td>
+<td><strong>6.19</strong></td>
+</tr>
+<tr class="odd">
+<td>Comparing distributions</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>6.20</strong></td>
 </tr>
 <tr class="even">
-<td>bootstraps</td>
+<td>Bootstraps</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
-<td><strong>6.11</strong></td>
+<td><strong>6.21</strong></td>
 </tr>
 <tr class="odd">
 <td>1 &amp; one population</td>
@@ -1470,7 +1488,7 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>many</td>
 <td>continuous (normal)</td>
 <td>multiple linear regression</td>
-<td><strong>7.1</strong></td>
+<td><strong>7.3</strong></td>
 </tr>
 <tr class="odd">
 <td>1 &amp; one population</td>
@@ -1478,7 +1496,7 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>1</td>
 <td>continuous or ordinal</td>
 <td>simple logistic regression</td>
-<td><strong>7.3</strong></td>
+<td><strong>7.9</strong></td>
 </tr>
 <tr class="even">
 <td>1 &amp; one population</td>
@@ -1486,7 +1504,7 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>1</td>
 <td>continuous or ordinal</td>
 <td>non-parametric correlation</td>
-<td><strong>7.4</strong></td>
+<td><strong>7.11</strong></td>
 </tr>
 <tr class="odd">
 <td>1 &amp; one population</td>
@@ -1494,7 +1512,7 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>1</td>
 <td>categorical (2 or more categories)</td>
 <td>one-way ANOVA</td>
-<td><strong>7.7</strong></td>
+<td><strong>7.13</strong></td>
 </tr>
 <tr class="even">
 <td>1 &amp; one population</td>
@@ -1502,7 +1520,7 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>1</td>
 <td>categorical (2 or more categories)</td>
 <td>one-way ANOVA</td>
-<td><strong>7.7</strong></td>
+<td><strong>7.14</strong></td>
 </tr>
 <tr class="odd">
 <td>1 &amp; one population</td>
@@ -1510,7 +1528,15 @@ In this boxplot, we can see an outlier and it is skewed towards lower values of 
 <td>2</td>
 <td>categorical (2 or more categories)</td>
 <td>two-way ANOVA</td>
-<td><strong>7.8</strong></td>
+<td><strong>7.15</strong></td>
+</tr>
+<tr class="even">
+<td>1 &amp; one population</td>
+<td>continuous (non-normal)</td>
+<td>2</td>
+<td>categorical (2 or more categories)</td>
+<td>Kruskal-Wallis Test</td>
+<td><strong>7.17</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1743,294 +1769,425 @@ and <code>status</code> (i.e., alive or dead). Two are categorical such as <code
 <span id="cb285-25"><a href="basic-statistics-in-r.html#cb285-25" aria-hidden="true" tabindex="-1"></a><span class="co">#V = 147963112, p-value &lt; 2.2e-16</span></span>
 <span id="cb285-26"><a href="basic-statistics-in-r.html#cb285-26" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true location shift is not equal to 0</span></span></code></pre></div>
 </div>
-<div id="beyond-t-test-binomial-test" class="section level2" number="6.14">
-<h2><span class="header-section-number">6.14</span> Beyond t-test: Binomial test</h2>
+<div id="tabulation-and-cross-tabulation" class="section level2" number="6.14">
+<h2><span class="header-section-number">6.14</span> Tabulation and Cross-Tabulation</h2>
+<p>Some data analyses require that the information be in the form of frequency tables or cross-tabulation of one variable against another.
+We can explore some functions to help us with tabulation: <code>table()</code> and <code>xtabs()</code>. We can start with a vector of repeated values that can be included in a table.test</p>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="basic-statistics-in-r.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we create two vectors of some values</span></span>
+<span id="cb286-2"><a href="basic-statistics-in-r.html#cb286-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb286-3"><a href="basic-statistics-in-r.html#cb286-3" aria-hidden="true" tabindex="-1"></a>vector_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;red&quot;</span>,<span class="st">&quot;black&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;green&quot;</span>,<span class="st">&quot;green&quot;</span>,<span class="st">&quot;green&quot;</span>,<span class="st">&quot;green&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb286-4"><a href="basic-statistics-in-r.html#cb286-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vector_colors)</span>
+<span id="cb286-5"><a href="basic-statistics-in-r.html#cb286-5" aria-hidden="true" tabindex="-1"></a><span class="co">#chr [1:13] &quot;red&quot; &quot;red&quot; &quot;black&quot; &quot;blue&quot; &quot;green&quot; &quot;green&quot; &quot;green&quot; &quot;green&quot; &quot;blue&quot; &quot;blue&quot; &quot;blue&quot; &quot;blue&quot; &quot;blue&quot;</span></span>
+<span id="cb286-6"><a href="basic-statistics-in-r.html#cb286-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb286-7"><a href="basic-statistics-in-r.html#cb286-7" aria-hidden="true" tabindex="-1"></a>vector_numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">6</span>)</span>
+<span id="cb286-8"><a href="basic-statistics-in-r.html#cb286-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vector_numbers)</span>
+<span id="cb286-9"><a href="basic-statistics-in-r.html#cb286-9" aria-hidden="true" tabindex="-1"></a><span class="co"># num [1:25] 1 1 1 2 2 2 2 3 3 3 ...</span></span></code></pre></div>
+<p>you can also create such vectors of repeated elements if you know how many times each is repeated using the function <code>rep()</code> to replicate elements of vectors.</p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="basic-statistics-in-r.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we recreate two vectors from above</span></span>
+<span id="cb287-2"><a href="basic-statistics-in-r.html#cb287-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb287-3"><a href="basic-statistics-in-r.html#cb287-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb287-4"><a href="basic-statistics-in-r.html#cb287-4" aria-hidden="true" tabindex="-1"></a>vector_color_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;green&quot;</span>,<span class="st">&quot;red&quot;</span>)</span>
+<span id="cb287-5"><a href="basic-statistics-in-r.html#cb287-5" aria-hidden="true" tabindex="-1"></a>number_color_is_repeated <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">2</span>)</span>
+<span id="cb287-6"><a href="basic-statistics-in-r.html#cb287-6" aria-hidden="true" tabindex="-1"></a>vector_colors <span class="ot">&lt;-</span> <span class="fu">rep</span>(vector_color_names, number_color_is_repeated)</span>
+<span id="cb287-7"><a href="basic-statistics-in-r.html#cb287-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vector_colors)</span>
+<span id="cb287-8"><a href="basic-statistics-in-r.html#cb287-8" aria-hidden="true" tabindex="-1"></a><span class="co">#chr [1:13] &quot;black&quot; &quot;blue&quot; &quot;blue&quot; &quot;blue&quot; &quot;blue&quot; &quot;blue&quot; &quot;blue&quot; &quot;green&quot; &quot;green&quot; &quot;green&quot; &quot;green&quot; &quot;red&quot; &quot;red&quot;</span></span>
+<span id="cb287-9"><a href="basic-statistics-in-r.html#cb287-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb287-10"><a href="basic-statistics-in-r.html#cb287-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb287-11"><a href="basic-statistics-in-r.html#cb287-11" aria-hidden="true" tabindex="-1"></a>vector_value_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>)</span>
+<span id="cb287-12"><a href="basic-statistics-in-r.html#cb287-12" aria-hidden="true" tabindex="-1"></a>number_value_is_repeated <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>)</span>
+<span id="cb287-13"><a href="basic-statistics-in-r.html#cb287-13" aria-hidden="true" tabindex="-1"></a>vector_numbers <span class="ot">&lt;-</span> <span class="fu">rep</span>(vector_value_names, number_value_is_repeated)</span>
+<span id="cb287-14"><a href="basic-statistics-in-r.html#cb287-14" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(vector_numbers)</span>
+<span id="cb287-15"><a href="basic-statistics-in-r.html#cb287-15" aria-hidden="true" tabindex="-1"></a><span class="co"># num [1:25] 1 1 1 2 2 2 2 3 3 3 ...</span></span></code></pre></div>
+<p>We now can create table object using the function <code>table()</code>. These tables contain a frequency count of the number of times that a unique elements on each vector is repeated.</p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="basic-statistics-in-r.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we create table objects using the two previous vectors</span></span>
+<span id="cb288-2"><a href="basic-statistics-in-r.html#cb288-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb288-3"><a href="basic-statistics-in-r.html#cb288-3" aria-hidden="true" tabindex="-1"></a>table_numbers <span class="ot">&lt;-</span> <span class="fu">table</span>(vector_numbers)</span>
+<span id="cb288-4"><a href="basic-statistics-in-r.html#cb288-4" aria-hidden="true" tabindex="-1"></a>table_numbers</span>
+<span id="cb288-5"><a href="basic-statistics-in-r.html#cb288-5" aria-hidden="true" tabindex="-1"></a><span class="co"># vector_numbers</span></span>
+<span id="cb288-6"><a href="basic-statistics-in-r.html#cb288-6" aria-hidden="true" tabindex="-1"></a><span class="co">#1 2 3 4 6 </span></span>
+<span id="cb288-7"><a href="basic-statistics-in-r.html#cb288-7" aria-hidden="true" tabindex="-1"></a><span class="co">#3 4 4 6 8 </span></span>
+<span id="cb288-8"><a href="basic-statistics-in-r.html#cb288-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb288-9"><a href="basic-statistics-in-r.html#cb288-9" aria-hidden="true" tabindex="-1"></a>table_colors <span class="ot">&lt;-</span> <span class="fu">table</span>(vector_colors)</span>
+<span id="cb288-10"><a href="basic-statistics-in-r.html#cb288-10" aria-hidden="true" tabindex="-1"></a>table_colors</span>
+<span id="cb288-11"><a href="basic-statistics-in-r.html#cb288-11" aria-hidden="true" tabindex="-1"></a><span class="co"># vector_colors</span></span>
+<span id="cb288-12"><a href="basic-statistics-in-r.html#cb288-12" aria-hidden="true" tabindex="-1"></a><span class="co"># black  blue green   red </span></span>
+<span id="cb288-13"><a href="basic-statistics-in-r.html#cb288-13" aria-hidden="true" tabindex="-1"></a><span class="co">#    1     6     4     2 </span></span></code></pre></div>
+<p>These table objects contain three lines. The first line tell us that we are looking at a tabulation of the vector named: <code>vector_numbers</code> and <code>vector_colors</code>.
+On the second line it lists all the different elements such as unique numbers (i.e., <code>1</code>,<code>2</code>,<code>3</code>,<code>4</code>,<code>6</code>) or colors (i.e., <code>black</code>, <code>blue</code>, <code>green</code>, <code>red</code>) that exist in each vector, and on the third line it tells
+you how many times that each unique element appears in the data.</p>
+<p>We can create a cross-tabulation, if we have two or more vectors that have the same number of elements and tells us when the two elements (one for the first vector and one for the second vector) cooccur.</p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="basic-statistics-in-r.html#cb289-1" aria-hidden="true" tabindex="-1"></a>vaccinated_vector        <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;YES&quot;</span>,<span class="st">&quot;NO&quot;</span>,<span class="st">&quot;YES&quot;</span>,<span class="st">&quot;YES&quot;</span>,<span class="st">&quot;YES&quot;</span>,<span class="st">&quot;YES&quot;</span>,<span class="st">&quot;YES&quot;</span>,<span class="st">&quot;NO&quot;</span>,<span class="st">&quot;NO&quot;</span>,<span class="st">&quot;YES&quot;</span>,<span class="st">&quot;NO&quot;</span>,<span class="st">&quot;YES&quot;</span>,<span class="st">&quot;NO&quot;</span>)</span>
+<span id="cb289-2"><a href="basic-statistics-in-r.html#cb289-2" aria-hidden="true" tabindex="-1"></a>healthy_0_sick_1_vector  <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">0</span>,    <span class="dv">1</span>,   <span class="dv">0</span>,     <span class="dv">1</span>,    <span class="dv">1</span>,    <span class="dv">0</span>,    <span class="dv">0</span>,   <span class="dv">1</span>,    <span class="dv">0</span>,  <span class="dv">0</span>,    <span class="dv">1</span>,  <span class="dv">0</span>,  <span class="dv">1</span>)</span>
+<span id="cb289-3"><a href="basic-statistics-in-r.html#cb289-3" aria-hidden="true" tabindex="-1"></a>outcome_crosstab <span class="ot">&lt;-</span> <span class="fu">table</span>(vaccinated_vector,healthy_0_sick_1_vector)</span>
+<span id="cb289-4"><a href="basic-statistics-in-r.html#cb289-4" aria-hidden="true" tabindex="-1"></a>outcome_crosstab</span>
+<span id="cb289-5"><a href="basic-statistics-in-r.html#cb289-5" aria-hidden="true" tabindex="-1"></a><span class="co">#                 healthy_0_sick_1_vector</span></span>
+<span id="cb289-6"><a href="basic-statistics-in-r.html#cb289-6" aria-hidden="true" tabindex="-1"></a><span class="co"># vaccinated_vector 0 1</span></span>
+<span id="cb289-7"><a href="basic-statistics-in-r.html#cb289-7" aria-hidden="true" tabindex="-1"></a><span class="co">#               NO  1 4</span></span>
+<span id="cb289-8"><a href="basic-statistics-in-r.html#cb289-8" aria-hidden="true" tabindex="-1"></a><span class="co">#               YES 6 2</span></span></code></pre></div>
+<p>You can create tables from data frames. We will create a <code>data.frame()</code> from the example above.</p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="basic-statistics-in-r.html#cb290-1" aria-hidden="true" tabindex="-1"></a>vac_health_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(vaccinated_vector, healthy_0_sick_1_vector)</span>
+<span id="cb290-2"><a href="basic-statistics-in-r.html#cb290-2" aria-hidden="true" tabindex="-1"></a>vac_health_df</span>
+<span id="cb290-3"><a href="basic-statistics-in-r.html#cb290-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   vaccinated_vector healthy_0_sick_1_vector</span></span>
+<span id="cb290-4"><a href="basic-statistics-in-r.html#cb290-4" aria-hidden="true" tabindex="-1"></a><span class="co">#1                YES                       0</span></span>
+<span id="cb290-5"><a href="basic-statistics-in-r.html#cb290-5" aria-hidden="true" tabindex="-1"></a><span class="co">#2                 NO                       1</span></span>
+<span id="cb290-6"><a href="basic-statistics-in-r.html#cb290-6" aria-hidden="true" tabindex="-1"></a><span class="co">#3                YES                       0</span></span>
+<span id="cb290-7"><a href="basic-statistics-in-r.html#cb290-7" aria-hidden="true" tabindex="-1"></a><span class="co">#4                YES                       1</span></span>
+<span id="cb290-8"><a href="basic-statistics-in-r.html#cb290-8" aria-hidden="true" tabindex="-1"></a><span class="co">#5                YES                       1</span></span>
+<span id="cb290-9"><a href="basic-statistics-in-r.html#cb290-9" aria-hidden="true" tabindex="-1"></a><span class="co">#6                YES                       0</span></span>
+<span id="cb290-10"><a href="basic-statistics-in-r.html#cb290-10" aria-hidden="true" tabindex="-1"></a><span class="co">#7                YES                       0</span></span>
+<span id="cb290-11"><a href="basic-statistics-in-r.html#cb290-11" aria-hidden="true" tabindex="-1"></a><span class="co">#8                 NO                       1</span></span>
+<span id="cb290-12"><a href="basic-statistics-in-r.html#cb290-12" aria-hidden="true" tabindex="-1"></a><span class="co">#9                 NO                       0</span></span>
+<span id="cb290-13"><a href="basic-statistics-in-r.html#cb290-13" aria-hidden="true" tabindex="-1"></a><span class="co">#10               YES                       0</span></span>
+<span id="cb290-14"><a href="basic-statistics-in-r.html#cb290-14" aria-hidden="true" tabindex="-1"></a><span class="co">#11                NO                       1</span></span>
+<span id="cb290-15"><a href="basic-statistics-in-r.html#cb290-15" aria-hidden="true" tabindex="-1"></a><span class="co">#12               YES                       0</span></span>
+<span id="cb290-16"><a href="basic-statistics-in-r.html#cb290-16" aria-hidden="true" tabindex="-1"></a><span class="co">#13                NO                       1</span></span></code></pre></div>
+<p>We will add another variable to our data frame such as sex, remember that it has to have the same number of row as the data frame (i.e., 13).</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="basic-statistics-in-r.html#cb291-1" aria-hidden="true" tabindex="-1"></a>sex <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;m&quot;</span>,<span class="st">&quot;f&quot;</span>,<span class="st">&quot;m&quot;</span>,<span class="st">&quot;f&quot;</span>,<span class="st">&quot;f&quot;</span>,<span class="st">&quot;f&quot;</span>,<span class="st">&quot;f&quot;</span>,<span class="st">&quot;f&quot;</span>,<span class="st">&quot;f&quot;</span>,<span class="st">&quot;m&quot;</span>,<span class="st">&quot;m&quot;</span>,<span class="st">&quot;m&quot;</span>,<span class="st">&quot;m&quot;</span>)</span>
+<span id="cb291-2"><a href="basic-statistics-in-r.html#cb291-2" aria-hidden="true" tabindex="-1"></a>vac_health_df<span class="sc">$</span>sex <span class="ot">&lt;-</span> sex</span>
+<span id="cb291-3"><a href="basic-statistics-in-r.html#cb291-3" aria-hidden="true" tabindex="-1"></a>vac_health_df</span>
+<span id="cb291-4"><a href="basic-statistics-in-r.html#cb291-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   vaccinated_vector healthy_0_sick_1_vector sex</span></span>
+<span id="cb291-5"><a href="basic-statistics-in-r.html#cb291-5" aria-hidden="true" tabindex="-1"></a><span class="co">#1                YES                       0   m</span></span>
+<span id="cb291-6"><a href="basic-statistics-in-r.html#cb291-6" aria-hidden="true" tabindex="-1"></a><span class="co">#2                 NO                       1   f</span></span>
+<span id="cb291-7"><a href="basic-statistics-in-r.html#cb291-7" aria-hidden="true" tabindex="-1"></a><span class="co">#3                YES                       0   m</span></span>
+<span id="cb291-8"><a href="basic-statistics-in-r.html#cb291-8" aria-hidden="true" tabindex="-1"></a><span class="co">#4                YES                       1   f</span></span>
+<span id="cb291-9"><a href="basic-statistics-in-r.html#cb291-9" aria-hidden="true" tabindex="-1"></a><span class="co">#5                YES                       1   f</span></span>
+<span id="cb291-10"><a href="basic-statistics-in-r.html#cb291-10" aria-hidden="true" tabindex="-1"></a><span class="co">#6                YES                       0   f</span></span>
+<span id="cb291-11"><a href="basic-statistics-in-r.html#cb291-11" aria-hidden="true" tabindex="-1"></a><span class="co">#7                YES                       0   f</span></span>
+<span id="cb291-12"><a href="basic-statistics-in-r.html#cb291-12" aria-hidden="true" tabindex="-1"></a><span class="co">#8                 NO                       1   f</span></span>
+<span id="cb291-13"><a href="basic-statistics-in-r.html#cb291-13" aria-hidden="true" tabindex="-1"></a><span class="co">#9                 NO                       0   f</span></span>
+<span id="cb291-14"><a href="basic-statistics-in-r.html#cb291-14" aria-hidden="true" tabindex="-1"></a><span class="co">#10               YES                       0   m</span></span>
+<span id="cb291-15"><a href="basic-statistics-in-r.html#cb291-15" aria-hidden="true" tabindex="-1"></a><span class="co">#11                NO                       1   m</span></span>
+<span id="cb291-16"><a href="basic-statistics-in-r.html#cb291-16" aria-hidden="true" tabindex="-1"></a><span class="co">#12               YES                       0   m</span></span>
+<span id="cb291-17"><a href="basic-statistics-in-r.html#cb291-17" aria-hidden="true" tabindex="-1"></a><span class="co">#13                NO                       1   m</span></span></code></pre></div>
+<p>Now you can select particular set of variables from the data frame to tabulate using the function <code>xtabs()</code>. In this function, you input a one sided formula in order to list all the variables you want to cross-tabulate, and the name of the data frame that stores the data.</p>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="basic-statistics-in-r.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="do">## one variable</span></span>
+<span id="cb292-2"><a href="basic-statistics-in-r.html#cb292-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb292-3"><a href="basic-statistics-in-r.html#cb292-3" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>( <span class="at">formula =</span> <span class="sc">~</span> vaccinated_vector, <span class="at">data =</span> vac_health_df)</span>
+<span id="cb292-4"><a href="basic-statistics-in-r.html#cb292-4" aria-hidden="true" tabindex="-1"></a><span class="co">#vaccinated_vector</span></span>
+<span id="cb292-5"><a href="basic-statistics-in-r.html#cb292-5" aria-hidden="true" tabindex="-1"></a><span class="co">#NO YES </span></span>
+<span id="cb292-6"><a href="basic-statistics-in-r.html#cb292-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  5   8 </span></span>
+<span id="cb292-7"><a href="basic-statistics-in-r.html#cb292-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb292-8"><a href="basic-statistics-in-r.html#cb292-8" aria-hidden="true" tabindex="-1"></a><span class="do">## two variables cross-tabulation</span></span>
+<span id="cb292-9"><a href="basic-statistics-in-r.html#cb292-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb292-10"><a href="basic-statistics-in-r.html#cb292-10" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>( <span class="at">formula =</span> <span class="sc">~</span> vaccinated_vector <span class="sc">+</span> healthy_0_sick_1_vector, <span class="at">data =</span> vac_health_df)</span>
+<span id="cb292-11"><a href="basic-statistics-in-r.html#cb292-11" aria-hidden="true" tabindex="-1"></a><span class="co">#                 healthy_0_sick_1_vector</span></span>
+<span id="cb292-12"><a href="basic-statistics-in-r.html#cb292-12" aria-hidden="true" tabindex="-1"></a><span class="co">#vaccinated_vector 0 1</span></span>
+<span id="cb292-13"><a href="basic-statistics-in-r.html#cb292-13" aria-hidden="true" tabindex="-1"></a><span class="co">#              NO  1 4</span></span>
+<span id="cb292-14"><a href="basic-statistics-in-r.html#cb292-14" aria-hidden="true" tabindex="-1"></a><span class="co">#              YES 6 2</span></span>
+<span id="cb292-15"><a href="basic-statistics-in-r.html#cb292-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb292-16"><a href="basic-statistics-in-r.html#cb292-16" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>( <span class="at">formula =</span> <span class="sc">~</span> vaccinated_vector <span class="sc">+</span> sex, <span class="at">data =</span> vac_health_df)</span>
+<span id="cb292-17"><a href="basic-statistics-in-r.html#cb292-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb292-18"><a href="basic-statistics-in-r.html#cb292-18" aria-hidden="true" tabindex="-1"></a><span class="co">#                 sex</span></span>
+<span id="cb292-19"><a href="basic-statistics-in-r.html#cb292-19" aria-hidden="true" tabindex="-1"></a><span class="co">#vaccinated_vector f m</span></span>
+<span id="cb292-20"><a href="basic-statistics-in-r.html#cb292-20" aria-hidden="true" tabindex="-1"></a><span class="co">#              NO  3 2</span></span>
+<span id="cb292-21"><a href="basic-statistics-in-r.html#cb292-21" aria-hidden="true" tabindex="-1"></a><span class="co">#              YES 4 4</span></span>
+<span id="cb292-22"><a href="basic-statistics-in-r.html#cb292-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb292-23"><a href="basic-statistics-in-r.html#cb292-23" aria-hidden="true" tabindex="-1"></a><span class="do">## three variables cross-tabulation</span></span>
+<span id="cb292-24"><a href="basic-statistics-in-r.html#cb292-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb292-25"><a href="basic-statistics-in-r.html#cb292-25" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>( <span class="at">formula =</span> <span class="sc">~</span> vaccinated_vector <span class="sc">+</span> healthy_0_sick_1_vector <span class="sc">+</span> sex, <span class="at">data =</span> vac_health_df)</span>
+<span id="cb292-26"><a href="basic-statistics-in-r.html#cb292-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb292-27"><a href="basic-statistics-in-r.html#cb292-27" aria-hidden="true" tabindex="-1"></a><span class="co">#, , sex = f</span></span>
+<span id="cb292-28"><a href="basic-statistics-in-r.html#cb292-28" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb292-29"><a href="basic-statistics-in-r.html#cb292-29" aria-hidden="true" tabindex="-1"></a><span class="co">#                 healthy_0_sick_1_vector</span></span>
+<span id="cb292-30"><a href="basic-statistics-in-r.html#cb292-30" aria-hidden="true" tabindex="-1"></a><span class="co">#vaccinated_vector 0 1</span></span>
+<span id="cb292-31"><a href="basic-statistics-in-r.html#cb292-31" aria-hidden="true" tabindex="-1"></a><span class="co">#              NO  1 2</span></span>
+<span id="cb292-32"><a href="basic-statistics-in-r.html#cb292-32" aria-hidden="true" tabindex="-1"></a><span class="co">#              YES 2 2</span></span>
+<span id="cb292-33"><a href="basic-statistics-in-r.html#cb292-33" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb292-34"><a href="basic-statistics-in-r.html#cb292-34" aria-hidden="true" tabindex="-1"></a><span class="co">#, , sex = m</span></span>
+<span id="cb292-35"><a href="basic-statistics-in-r.html#cb292-35" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb292-36"><a href="basic-statistics-in-r.html#cb292-36" aria-hidden="true" tabindex="-1"></a><span class="co">#                 healthy_0_sick_1_vector</span></span>
+<span id="cb292-37"><a href="basic-statistics-in-r.html#cb292-37" aria-hidden="true" tabindex="-1"></a><span class="co">#vaccinated_vector 0 1</span></span>
+<span id="cb292-38"><a href="basic-statistics-in-r.html#cb292-38" aria-hidden="true" tabindex="-1"></a><span class="co">#              NO  0 2</span></span>
+<span id="cb292-39"><a href="basic-statistics-in-r.html#cb292-39" aria-hidden="true" tabindex="-1"></a><span class="co">#              YES 4 0</span></span></code></pre></div>
+</div>
+<div id="beyond-t-test-binomial-test" class="section level2" number="6.15">
+<h2><span class="header-section-number">6.15</span> Beyond t-test: Binomial test</h2>
 <p><strong>12)</strong> The <a href="https://en.wikipedia.org/wiki/Binomial_test" target="_blank"><strong>binomial test</strong></a> will determine the significance of deviations from expected distribution of observations into two groups of categorical variable. One common use of this test is when an experiment has two possible outcomes (i.e. success/failure) and you have an expectation (i.e., probability) success. For example, if you flip fair coin you have expectation of 50/50 chance of heads of tail every flip. You can apply a binomial test to a population with two categories using the function <code>prop.test()</code>.</p>
 <p>For example, we can test if the number of females in a population is <code>p = 0.51</code> (i.e., the chance of being female is 51%). We will use function <code>rbinom()</code> to create such population of 1000 individuals.</p>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="basic-statistics-in-r.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we create a binomial variable assigned to males of females.</span></span>
-<span id="cb286-2"><a href="basic-statistics-in-r.html#cb286-2" aria-hidden="true" tabindex="-1"></a><span class="do">## we assume that if female is 1 and 0 if male</span></span>
-<span id="cb286-3"><a href="basic-statistics-in-r.html#cb286-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb286-4"><a href="basic-statistics-in-r.html#cb286-4" aria-hidden="true" tabindex="-1"></a>one_population <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob=</span> <span class="fl">0.51</span>)</span>
-<span id="cb286-5"><a href="basic-statistics-in-r.html#cb286-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(one_population)</span>
-<span id="cb286-6"><a href="basic-statistics-in-r.html#cb286-6" aria-hidden="true" tabindex="-1"></a><span class="co">#int [1:1000] 0 0 0 0 1 0 1 0 0 1 ...</span></span>
-<span id="cb286-7"><a href="basic-statistics-in-r.html#cb286-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb286-8"><a href="basic-statistics-in-r.html#cb286-8" aria-hidden="true" tabindex="-1"></a><span class="do">## you can tabulate the data in your one_population to visualize that the data follows </span></span>
-<span id="cb286-9"><a href="basic-statistics-in-r.html#cb286-9" aria-hidden="true" tabindex="-1"></a><span class="do">## roughly the predicted proportion of 0-state (0.49 or 49%) and 1-state (0.51 or 51%)</span></span>
-<span id="cb286-10"><a href="basic-statistics-in-r.html#cb286-10" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(one_population)</span>
-<span id="cb286-11"><a href="basic-statistics-in-r.html#cb286-11" aria-hidden="true" tabindex="-1"></a><span class="co">#one_population</span></span>
-<span id="cb286-12"><a href="basic-statistics-in-r.html#cb286-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  0   1 </span></span>
-<span id="cb286-13"><a href="basic-statistics-in-r.html#cb286-13" aria-hidden="true" tabindex="-1"></a><span class="co">#487 513 </span></span>
-<span id="cb286-14"><a href="basic-statistics-in-r.html#cb286-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb286-15"><a href="basic-statistics-in-r.html#cb286-15" aria-hidden="true" tabindex="-1"></a><span class="do">## we can perform the bionomial test</span></span>
-<span id="cb286-16"><a href="basic-statistics-in-r.html#cb286-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb286-17"><a href="basic-statistics-in-r.html#cb286-17" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="fu">sum</span>(one_population), <span class="fu">length</span>(one_population), <span class="at">p =</span> <span class="fl">0.51</span>)</span>
-<span id="cb286-18"><a href="basic-statistics-in-r.html#cb286-18" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb286-19"><a href="basic-statistics-in-r.html#cb286-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   1-sample proportions test with continuity correction</span></span>
-<span id="cb286-20"><a href="basic-statistics-in-r.html#cb286-20" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb286-21"><a href="basic-statistics-in-r.html#cb286-21" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  sum(one_population) out of length(one_population), null probability 0.51</span></span>
-<span id="cb286-22"><a href="basic-statistics-in-r.html#cb286-22" aria-hidden="true" tabindex="-1"></a><span class="co">#X-squared = 0.04902, df = 1, p-value = 0.8248</span></span>
-<span id="cb286-23"><a href="basic-statistics-in-r.html#cb286-23" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true p is not equal to 0.51</span></span>
-<span id="cb286-24"><a href="basic-statistics-in-r.html#cb286-24" aria-hidden="true" tabindex="-1"></a><span class="co">#95 percent confidence interval:</span></span>
-<span id="cb286-25"><a href="basic-statistics-in-r.html#cb286-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.4745504 0.5374029</span></span>
-<span id="cb286-26"><a href="basic-statistics-in-r.html#cb286-26" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
-<span id="cb286-27"><a href="basic-statistics-in-r.html#cb286-27" aria-hidden="true" tabindex="-1"></a><span class="co">#    p </span></span>
-<span id="cb286-28"><a href="basic-statistics-in-r.html#cb286-28" aria-hidden="true" tabindex="-1"></a><span class="co">#0.506 </span></span></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="basic-statistics-in-r.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we create a binomial variable assigned to males of females.</span></span>
+<span id="cb293-2"><a href="basic-statistics-in-r.html#cb293-2" aria-hidden="true" tabindex="-1"></a><span class="do">## we assume that if female is 1 and 0 if male</span></span>
+<span id="cb293-3"><a href="basic-statistics-in-r.html#cb293-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb293-4"><a href="basic-statistics-in-r.html#cb293-4" aria-hidden="true" tabindex="-1"></a>one_population <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob=</span> <span class="fl">0.51</span>)</span>
+<span id="cb293-5"><a href="basic-statistics-in-r.html#cb293-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(one_population)</span>
+<span id="cb293-6"><a href="basic-statistics-in-r.html#cb293-6" aria-hidden="true" tabindex="-1"></a><span class="co">#int [1:1000] 0 0 0 0 1 0 1 0 0 1 ...</span></span>
+<span id="cb293-7"><a href="basic-statistics-in-r.html#cb293-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb293-8"><a href="basic-statistics-in-r.html#cb293-8" aria-hidden="true" tabindex="-1"></a><span class="do">## you can tabulate the data in your one_population to visualize that the data follows </span></span>
+<span id="cb293-9"><a href="basic-statistics-in-r.html#cb293-9" aria-hidden="true" tabindex="-1"></a><span class="do">## roughly the predicted proportion of 0-state (0.49 or 49%) and 1-state (0.51 or 51%)</span></span>
+<span id="cb293-10"><a href="basic-statistics-in-r.html#cb293-10" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(one_population)</span>
+<span id="cb293-11"><a href="basic-statistics-in-r.html#cb293-11" aria-hidden="true" tabindex="-1"></a><span class="co">#one_population</span></span>
+<span id="cb293-12"><a href="basic-statistics-in-r.html#cb293-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  0   1 </span></span>
+<span id="cb293-13"><a href="basic-statistics-in-r.html#cb293-13" aria-hidden="true" tabindex="-1"></a><span class="co">#487 513 </span></span>
+<span id="cb293-14"><a href="basic-statistics-in-r.html#cb293-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb293-15"><a href="basic-statistics-in-r.html#cb293-15" aria-hidden="true" tabindex="-1"></a><span class="do">## we can perform the bionomial test</span></span>
+<span id="cb293-16"><a href="basic-statistics-in-r.html#cb293-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb293-17"><a href="basic-statistics-in-r.html#cb293-17" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="fu">sum</span>(one_population), <span class="fu">length</span>(one_population), <span class="at">p =</span> <span class="fl">0.51</span>)</span>
+<span id="cb293-18"><a href="basic-statistics-in-r.html#cb293-18" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb293-19"><a href="basic-statistics-in-r.html#cb293-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   1-sample proportions test with continuity correction</span></span>
+<span id="cb293-20"><a href="basic-statistics-in-r.html#cb293-20" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb293-21"><a href="basic-statistics-in-r.html#cb293-21" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  sum(one_population) out of length(one_population), null probability 0.51</span></span>
+<span id="cb293-22"><a href="basic-statistics-in-r.html#cb293-22" aria-hidden="true" tabindex="-1"></a><span class="co">#X-squared = 0.04902, df = 1, p-value = 0.8248</span></span>
+<span id="cb293-23"><a href="basic-statistics-in-r.html#cb293-23" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true p is not equal to 0.51</span></span>
+<span id="cb293-24"><a href="basic-statistics-in-r.html#cb293-24" aria-hidden="true" tabindex="-1"></a><span class="co">#95 percent confidence interval:</span></span>
+<span id="cb293-25"><a href="basic-statistics-in-r.html#cb293-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.4745504 0.5374029</span></span>
+<span id="cb293-26"><a href="basic-statistics-in-r.html#cb293-26" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
+<span id="cb293-27"><a href="basic-statistics-in-r.html#cb293-27" aria-hidden="true" tabindex="-1"></a><span class="co">#    p </span></span>
+<span id="cb293-28"><a href="basic-statistics-in-r.html#cb293-28" aria-hidden="true" tabindex="-1"></a><span class="co">#0.506 </span></span></code></pre></div>
 <p>In the case above, we found a non-significant result <code>p-value = 0.8248</code> and this population is likely to have 51% chance of females. However, less create a biased population towards males.</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="basic-statistics-in-r.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we create a binomial variable assigned to males of females.</span></span>
-<span id="cb287-2"><a href="basic-statistics-in-r.html#cb287-2" aria-hidden="true" tabindex="-1"></a><span class="do">## we assume that if female is 1 and 0 if male</span></span>
-<span id="cb287-3"><a href="basic-statistics-in-r.html#cb287-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb287-4"><a href="basic-statistics-in-r.html#cb287-4" aria-hidden="true" tabindex="-1"></a>other_population <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob=</span> <span class="fl">0.40</span>)</span>
-<span id="cb287-5"><a href="basic-statistics-in-r.html#cb287-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(other_population)</span>
-<span id="cb287-6"><a href="basic-statistics-in-r.html#cb287-6" aria-hidden="true" tabindex="-1"></a><span class="co">#int [1:1000] 0 0 0 0 1 1 0 1 0 0 ...</span></span>
-<span id="cb287-7"><a href="basic-statistics-in-r.html#cb287-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb287-8"><a href="basic-statistics-in-r.html#cb287-8" aria-hidden="true" tabindex="-1"></a><span class="do">## you can tabulate the data in your one_population to visualize that the data follows </span></span>
-<span id="cb287-9"><a href="basic-statistics-in-r.html#cb287-9" aria-hidden="true" tabindex="-1"></a><span class="do">## roughly the predicted proportion of 0-state (0.60 or 60%) and 1-state (0.40 or 40%)</span></span>
-<span id="cb287-10"><a href="basic-statistics-in-r.html#cb287-10" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(other_population)</span>
-<span id="cb287-11"><a href="basic-statistics-in-r.html#cb287-11" aria-hidden="true" tabindex="-1"></a><span class="co">#other_population</span></span>
-<span id="cb287-12"><a href="basic-statistics-in-r.html#cb287-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  0   1 </span></span>
-<span id="cb287-13"><a href="basic-statistics-in-r.html#cb287-13" aria-hidden="true" tabindex="-1"></a><span class="co">#603 397 </span></span>
-<span id="cb287-14"><a href="basic-statistics-in-r.html#cb287-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb287-15"><a href="basic-statistics-in-r.html#cb287-15" aria-hidden="true" tabindex="-1"></a><span class="do">## we can perform the binomial test</span></span>
-<span id="cb287-16"><a href="basic-statistics-in-r.html#cb287-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb287-17"><a href="basic-statistics-in-r.html#cb287-17" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="fu">sum</span>(other_population), <span class="fu">length</span>(other_population), <span class="at">p =</span> <span class="fl">0.51</span>)</span>
-<span id="cb287-18"><a href="basic-statistics-in-r.html#cb287-18" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb287-19"><a href="basic-statistics-in-r.html#cb287-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   1-sample proportions test with continuity correction</span></span>
-<span id="cb287-20"><a href="basic-statistics-in-r.html#cb287-20" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb287-21"><a href="basic-statistics-in-r.html#cb287-21" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  sum(other_population) out of length(other_population), null probability 0.51</span></span>
-<span id="cb287-22"><a href="basic-statistics-in-r.html#cb287-22" aria-hidden="true" tabindex="-1"></a><span class="co">#X-squared = 45.387, df = 1, p-value = 1.617e-11</span></span>
-<span id="cb287-23"><a href="basic-statistics-in-r.html#cb287-23" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true p is not equal to 0.51</span></span>
-<span id="cb287-24"><a href="basic-statistics-in-r.html#cb287-24" aria-hidden="true" tabindex="-1"></a><span class="co">#95 percent confidence interval:</span></span>
-<span id="cb287-25"><a href="basic-statistics-in-r.html#cb287-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.3725342 0.4342204</span></span>
-<span id="cb287-26"><a href="basic-statistics-in-r.html#cb287-26" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
-<span id="cb287-27"><a href="basic-statistics-in-r.html#cb287-27" aria-hidden="true" tabindex="-1"></a><span class="co">#    p </span></span>
-<span id="cb287-28"><a href="basic-statistics-in-r.html#cb287-28" aria-hidden="true" tabindex="-1"></a><span class="co">#0.403</span></span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="basic-statistics-in-r.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we create a binomial variable assigned to males of females.</span></span>
+<span id="cb294-2"><a href="basic-statistics-in-r.html#cb294-2" aria-hidden="true" tabindex="-1"></a><span class="do">## we assume that if female is 1 and 0 if male</span></span>
+<span id="cb294-3"><a href="basic-statistics-in-r.html#cb294-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb294-4"><a href="basic-statistics-in-r.html#cb294-4" aria-hidden="true" tabindex="-1"></a>other_population <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob=</span> <span class="fl">0.40</span>)</span>
+<span id="cb294-5"><a href="basic-statistics-in-r.html#cb294-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(other_population)</span>
+<span id="cb294-6"><a href="basic-statistics-in-r.html#cb294-6" aria-hidden="true" tabindex="-1"></a><span class="co">#int [1:1000] 0 0 0 0 1 1 0 1 0 0 ...</span></span>
+<span id="cb294-7"><a href="basic-statistics-in-r.html#cb294-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb294-8"><a href="basic-statistics-in-r.html#cb294-8" aria-hidden="true" tabindex="-1"></a><span class="do">## you can tabulate the data in your one_population to visualize that the data follows </span></span>
+<span id="cb294-9"><a href="basic-statistics-in-r.html#cb294-9" aria-hidden="true" tabindex="-1"></a><span class="do">## roughly the predicted proportion of 0-state (0.60 or 60%) and 1-state (0.40 or 40%)</span></span>
+<span id="cb294-10"><a href="basic-statistics-in-r.html#cb294-10" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(other_population)</span>
+<span id="cb294-11"><a href="basic-statistics-in-r.html#cb294-11" aria-hidden="true" tabindex="-1"></a><span class="co">#other_population</span></span>
+<span id="cb294-12"><a href="basic-statistics-in-r.html#cb294-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  0   1 </span></span>
+<span id="cb294-13"><a href="basic-statistics-in-r.html#cb294-13" aria-hidden="true" tabindex="-1"></a><span class="co">#603 397 </span></span>
+<span id="cb294-14"><a href="basic-statistics-in-r.html#cb294-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb294-15"><a href="basic-statistics-in-r.html#cb294-15" aria-hidden="true" tabindex="-1"></a><span class="do">## we can perform the binomial test</span></span>
+<span id="cb294-16"><a href="basic-statistics-in-r.html#cb294-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb294-17"><a href="basic-statistics-in-r.html#cb294-17" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="fu">sum</span>(other_population), <span class="fu">length</span>(other_population), <span class="at">p =</span> <span class="fl">0.51</span>)</span>
+<span id="cb294-18"><a href="basic-statistics-in-r.html#cb294-18" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb294-19"><a href="basic-statistics-in-r.html#cb294-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   1-sample proportions test with continuity correction</span></span>
+<span id="cb294-20"><a href="basic-statistics-in-r.html#cb294-20" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb294-21"><a href="basic-statistics-in-r.html#cb294-21" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  sum(other_population) out of length(other_population), null probability 0.51</span></span>
+<span id="cb294-22"><a href="basic-statistics-in-r.html#cb294-22" aria-hidden="true" tabindex="-1"></a><span class="co">#X-squared = 45.387, df = 1, p-value = 1.617e-11</span></span>
+<span id="cb294-23"><a href="basic-statistics-in-r.html#cb294-23" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true p is not equal to 0.51</span></span>
+<span id="cb294-24"><a href="basic-statistics-in-r.html#cb294-24" aria-hidden="true" tabindex="-1"></a><span class="co">#95 percent confidence interval:</span></span>
+<span id="cb294-25"><a href="basic-statistics-in-r.html#cb294-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.3725342 0.4342204</span></span>
+<span id="cb294-26"><a href="basic-statistics-in-r.html#cb294-26" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
+<span id="cb294-27"><a href="basic-statistics-in-r.html#cb294-27" aria-hidden="true" tabindex="-1"></a><span class="co">#    p </span></span>
+<span id="cb294-28"><a href="basic-statistics-in-r.html#cb294-28" aria-hidden="true" tabindex="-1"></a><span class="co">#0.403</span></span></code></pre></div>
 <p>In the case above, we found a significant result <code>p-value = 1.617e-11</code> and this population unlikely has 51% chance of females.</p>
 </div>
-<div id="beyond-t-test-chi-square-goodness-of-fit" class="section level2" number="6.15">
-<h2><span class="header-section-number">6.15</span> Beyond t-test: Chi-square goodness of fit</h2>
+<div id="beyond-t-test-chi-square-goodness-of-fit" class="section level2" number="6.16">
+<h2><span class="header-section-number">6.16</span> Beyond t-test: Chi-square goodness of fit</h2>
 <p><strong>13)</strong> The <a href="https://en.wikipedia.org/wiki/Chi-squared_test" target="_blank"><strong>Chi-square goodness of fit test</strong>*</a> will determine the significance of deviations from expected probabilities of multiple categories in a population. For example, you might want to compare the observed distribution of categories of a population to an expected distribution of such categories. We will perform this test using a table object with multiple categories with the function <code>chisq.test()</code> and an argument of probabilities for each category <code>p</code>.</p>
 <p>For example, we can test if the proportion of nitrogen fixing bacteria in a population collected of dataset <code>rhizobium</code> from R package <code>ade4</code>.</p>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="basic-statistics-in-r.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load rhizobium dataset from ade4 R package</span></span>
-<span id="cb288-2"><a href="basic-statistics-in-r.html#cb288-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)</span>
-<span id="cb288-3"><a href="basic-statistics-in-r.html#cb288-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(rhizobium)</span>
-<span id="cb288-4"><a href="basic-statistics-in-r.html#cb288-4" aria-hidden="true" tabindex="-1"></a>rhizobium_pop <span class="ot">&lt;-</span> <span class="fu">as.character</span>(rhizobium<span class="sc">$</span>pop)</span>
-<span id="cb288-5"><a href="basic-statistics-in-r.html#cb288-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(rhizobium_pop)</span>
-<span id="cb288-6"><a href="basic-statistics-in-r.html#cb288-6" aria-hidden="true" tabindex="-1"></a><span class="co">#chr [1:215] &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; ...</span></span>
-<span id="cb288-7"><a href="basic-statistics-in-r.html#cb288-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb288-8"><a href="basic-statistics-in-r.html#cb288-8" aria-hidden="true" tabindex="-1"></a><span class="do">## get a idea of the unique character elements in the rhizobium_pop object</span></span>
-<span id="cb288-9"><a href="basic-statistics-in-r.html#cb288-9" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(rhizobium_pop)</span>
-<span id="cb288-10"><a href="basic-statistics-in-r.html#cb288-10" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;FTmdc&quot;  &quot;FTmlt&quot;  &quot;TETmdc&quot; &quot;THLmlt&quot; &quot;TELmlt&quot; &quot;TETmlt&quot; &quot;THTmlt&quot;</span></span>
-<span id="cb288-11"><a href="basic-statistics-in-r.html#cb288-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb288-12"><a href="basic-statistics-in-r.html#cb288-12" aria-hidden="true" tabindex="-1"></a><span class="co">#we can see 7 unique text elements</span></span>
-<span id="cb288-13"><a href="basic-statistics-in-r.html#cb288-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb288-14"><a href="basic-statistics-in-r.html#cb288-14" aria-hidden="true" tabindex="-1"></a><span class="do">## create a table object</span></span>
-<span id="cb288-15"><a href="basic-statistics-in-r.html#cb288-15" aria-hidden="true" tabindex="-1"></a>rhizobium_pop_table <span class="ot">&lt;-</span> <span class="fu">table</span>(rhizobium_pop)</span>
-<span id="cb288-16"><a href="basic-statistics-in-r.html#cb288-16" aria-hidden="true" tabindex="-1"></a>rhizobium_pop_table</span>
-<span id="cb288-17"><a href="basic-statistics-in-r.html#cb288-17" aria-hidden="true" tabindex="-1"></a><span class="co">#rhizobium_pop</span></span>
-<span id="cb288-18"><a href="basic-statistics-in-r.html#cb288-18" aria-hidden="true" tabindex="-1"></a><span class="co"># FTmdc  FTmlt TELmlt TETmdc TETmlt THLmlt THTmlt </span></span>
-<span id="cb288-19"><a href="basic-statistics-in-r.html#cb288-19" aria-hidden="true" tabindex="-1"></a><span class="co">#    46     43     20     20     24     20     42</span></span>
-<span id="cb288-20"><a href="basic-statistics-in-r.html#cb288-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb288-21"><a href="basic-statistics-in-r.html#cb288-21" aria-hidden="true" tabindex="-1"></a><span class="do">## we have 7 categories. We will assume that they should be in equal proportion (i.e., 1/7 each).</span></span>
-<span id="cb288-22"><a href="basic-statistics-in-r.html#cb288-22" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(rhizobium_pop_table, <span class="at">p =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>))</span>
-<span id="cb288-23"><a href="basic-statistics-in-r.html#cb288-23" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb288-24"><a href="basic-statistics-in-r.html#cb288-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   Chi-squared test for given probabilities</span></span>
-<span id="cb288-25"><a href="basic-statistics-in-r.html#cb288-25" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb288-26"><a href="basic-statistics-in-r.html#cb288-26" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  rhizobium_pop_table</span></span>
-<span id="cb288-27"><a href="basic-statistics-in-r.html#cb288-27" aria-hidden="true" tabindex="-1"></a><span class="co">#X-squared = 29.349, df = 6, p-value = 5.225e-05</span></span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="basic-statistics-in-r.html#cb295-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load rhizobium dataset from ade4 R package</span></span>
+<span id="cb295-2"><a href="basic-statistics-in-r.html#cb295-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)</span>
+<span id="cb295-3"><a href="basic-statistics-in-r.html#cb295-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(rhizobium)</span>
+<span id="cb295-4"><a href="basic-statistics-in-r.html#cb295-4" aria-hidden="true" tabindex="-1"></a>rhizobium_pop <span class="ot">&lt;-</span> <span class="fu">as.character</span>(rhizobium<span class="sc">$</span>pop)</span>
+<span id="cb295-5"><a href="basic-statistics-in-r.html#cb295-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(rhizobium_pop)</span>
+<span id="cb295-6"><a href="basic-statistics-in-r.html#cb295-6" aria-hidden="true" tabindex="-1"></a><span class="co">#chr [1:215] &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; ...</span></span>
+<span id="cb295-7"><a href="basic-statistics-in-r.html#cb295-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb295-8"><a href="basic-statistics-in-r.html#cb295-8" aria-hidden="true" tabindex="-1"></a><span class="do">## get a idea of the unique character elements in the rhizobium_pop object</span></span>
+<span id="cb295-9"><a href="basic-statistics-in-r.html#cb295-9" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(rhizobium_pop)</span>
+<span id="cb295-10"><a href="basic-statistics-in-r.html#cb295-10" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;FTmdc&quot;  &quot;FTmlt&quot;  &quot;TETmdc&quot; &quot;THLmlt&quot; &quot;TELmlt&quot; &quot;TETmlt&quot; &quot;THTmlt&quot;</span></span>
+<span id="cb295-11"><a href="basic-statistics-in-r.html#cb295-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb295-12"><a href="basic-statistics-in-r.html#cb295-12" aria-hidden="true" tabindex="-1"></a><span class="co">#we can see 7 unique text elements</span></span>
+<span id="cb295-13"><a href="basic-statistics-in-r.html#cb295-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb295-14"><a href="basic-statistics-in-r.html#cb295-14" aria-hidden="true" tabindex="-1"></a><span class="do">## create a table object</span></span>
+<span id="cb295-15"><a href="basic-statistics-in-r.html#cb295-15" aria-hidden="true" tabindex="-1"></a>rhizobium_pop_table <span class="ot">&lt;-</span> <span class="fu">table</span>(rhizobium_pop)</span>
+<span id="cb295-16"><a href="basic-statistics-in-r.html#cb295-16" aria-hidden="true" tabindex="-1"></a>rhizobium_pop_table</span>
+<span id="cb295-17"><a href="basic-statistics-in-r.html#cb295-17" aria-hidden="true" tabindex="-1"></a><span class="co">#rhizobium_pop</span></span>
+<span id="cb295-18"><a href="basic-statistics-in-r.html#cb295-18" aria-hidden="true" tabindex="-1"></a><span class="co"># FTmdc  FTmlt TELmlt TETmdc TETmlt THLmlt THTmlt </span></span>
+<span id="cb295-19"><a href="basic-statistics-in-r.html#cb295-19" aria-hidden="true" tabindex="-1"></a><span class="co">#    46     43     20     20     24     20     42</span></span>
+<span id="cb295-20"><a href="basic-statistics-in-r.html#cb295-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb295-21"><a href="basic-statistics-in-r.html#cb295-21" aria-hidden="true" tabindex="-1"></a><span class="do">## we have 7 categories. We will assume that they should be in equal proportion (i.e., 1/7 each).</span></span>
+<span id="cb295-22"><a href="basic-statistics-in-r.html#cb295-22" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(rhizobium_pop_table, <span class="at">p =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>))</span>
+<span id="cb295-23"><a href="basic-statistics-in-r.html#cb295-23" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb295-24"><a href="basic-statistics-in-r.html#cb295-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   Chi-squared test for given probabilities</span></span>
+<span id="cb295-25"><a href="basic-statistics-in-r.html#cb295-25" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb295-26"><a href="basic-statistics-in-r.html#cb295-26" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  rhizobium_pop_table</span></span>
+<span id="cb295-27"><a href="basic-statistics-in-r.html#cb295-27" aria-hidden="true" tabindex="-1"></a><span class="co">#X-squared = 29.349, df = 6, p-value = 5.225e-05</span></span></code></pre></div>
 <p><strong>14)</strong> You can also cross tabulate results of two measurements of population that result in two or more categories for each and determine if they are related using a Chi-square goodness of fit test. The goal is to create a contingency table where your compare the outcomes for two different measurements of the same population and determine if they tend to be in agreement or not.</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="basic-statistics-in-r.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we can have a population and determine a categorical variable that result in two category (0, 1) like for example: healthy and sick</span></span>
-<span id="cb289-2"><a href="basic-statistics-in-r.html#cb289-2" aria-hidden="true" tabindex="-1"></a>sample_population <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob=</span> <span class="fl">0.40</span>)</span>
-<span id="cb289-3"><a href="basic-statistics-in-r.html#cb289-3" aria-hidden="true" tabindex="-1"></a>population_states <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(sample_population  <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&quot;sick&quot;</span>, <span class="st">&quot;healthy&quot;</span>)</span>
-<span id="cb289-4"><a href="basic-statistics-in-r.html#cb289-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(sample_population) <span class="ot">&lt;-</span> population_states</span>
-<span id="cb289-5"><a href="basic-statistics-in-r.html#cb289-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample_population)</span>
-<span id="cb289-6"><a href="basic-statistics-in-r.html#cb289-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  healthy   sick healthy healthy healthy healthy </span></span>
-<span id="cb289-7"><a href="basic-statistics-in-r.html#cb289-7" aria-hidden="true" tabindex="-1"></a><span class="co">#      0       1       0       0       0       0 </span></span>
-<span id="cb289-8"><a href="basic-statistics-in-r.html#cb289-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb289-9"><a href="basic-statistics-in-r.html#cb289-9" aria-hidden="true" tabindex="-1"></a><span class="do">## we can have the same population and determine a different categorical variable that result in two categories (0, 1) like for example: with_virus and no_infected</span></span>
-<span id="cb289-10"><a href="basic-statistics-in-r.html#cb289-10" aria-hidden="true" tabindex="-1"></a>sample_virus <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob=</span> <span class="fl">0.40</span>)</span>
-<span id="cb289-11"><a href="basic-statistics-in-r.html#cb289-11" aria-hidden="true" tabindex="-1"></a>virus_names <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(sample_virus  <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&quot;with_virus&quot;</span>, <span class="st">&quot;no_infected&quot;</span>)</span>
-<span id="cb289-12"><a href="basic-statistics-in-r.html#cb289-12" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(sample_virus) <span class="ot">&lt;-</span> virus_names</span>
-<span id="cb289-13"><a href="basic-statistics-in-r.html#cb289-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample_virus)</span>
-<span id="cb289-14"><a href="basic-statistics-in-r.html#cb289-14" aria-hidden="true" tabindex="-1"></a><span class="co">#    no_infected no_infected no_infected no_infected  with_virus no_infected </span></span>
-<span id="cb289-15"><a href="basic-statistics-in-r.html#cb289-15" aria-hidden="true" tabindex="-1"></a><span class="co">#          0           0           0           0           1           0 </span></span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="basic-statistics-in-r.html#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we can have a population and determine a categorical variable that result in two category (0, 1) like for example: healthy and sick</span></span>
+<span id="cb296-2"><a href="basic-statistics-in-r.html#cb296-2" aria-hidden="true" tabindex="-1"></a>sample_population <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob=</span> <span class="fl">0.40</span>)</span>
+<span id="cb296-3"><a href="basic-statistics-in-r.html#cb296-3" aria-hidden="true" tabindex="-1"></a>population_states <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(sample_population  <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&quot;sick&quot;</span>, <span class="st">&quot;healthy&quot;</span>)</span>
+<span id="cb296-4"><a href="basic-statistics-in-r.html#cb296-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(sample_population) <span class="ot">&lt;-</span> population_states</span>
+<span id="cb296-5"><a href="basic-statistics-in-r.html#cb296-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample_population)</span>
+<span id="cb296-6"><a href="basic-statistics-in-r.html#cb296-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  healthy   sick healthy healthy healthy healthy </span></span>
+<span id="cb296-7"><a href="basic-statistics-in-r.html#cb296-7" aria-hidden="true" tabindex="-1"></a><span class="co">#      0       1       0       0       0       0 </span></span>
+<span id="cb296-8"><a href="basic-statistics-in-r.html#cb296-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb296-9"><a href="basic-statistics-in-r.html#cb296-9" aria-hidden="true" tabindex="-1"></a><span class="do">## we can have the same population and determine a different categorical variable that result in two categories (0, 1) like for example: with_virus and no_infected</span></span>
+<span id="cb296-10"><a href="basic-statistics-in-r.html#cb296-10" aria-hidden="true" tabindex="-1"></a>sample_virus <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob=</span> <span class="fl">0.40</span>)</span>
+<span id="cb296-11"><a href="basic-statistics-in-r.html#cb296-11" aria-hidden="true" tabindex="-1"></a>virus_names <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(sample_virus  <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&quot;with_virus&quot;</span>, <span class="st">&quot;no_infected&quot;</span>)</span>
+<span id="cb296-12"><a href="basic-statistics-in-r.html#cb296-12" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(sample_virus) <span class="ot">&lt;-</span> virus_names</span>
+<span id="cb296-13"><a href="basic-statistics-in-r.html#cb296-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample_virus)</span>
+<span id="cb296-14"><a href="basic-statistics-in-r.html#cb296-14" aria-hidden="true" tabindex="-1"></a><span class="co">#    no_infected no_infected no_infected no_infected  with_virus no_infected </span></span>
+<span id="cb296-15"><a href="basic-statistics-in-r.html#cb296-15" aria-hidden="true" tabindex="-1"></a><span class="co">#          0           0           0           0           1           0 </span></span></code></pre></div>
 <p>We cross-tabulate these results and it is important to understand this table. The outcomes for <code>sample_population</code> and <code>sample_virus</code> are <code>0 1</code> as indicated in the first row and column. The agreements are when the outcomes of both experiments are the same as each experiment was executed <code>0-0</code> and <code>1-1</code>. All others are disagreements (e.g., <code>0-1</code>, <code>1-0</code>).</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="basic-statistics-in-r.html#cb290-1" aria-hidden="true" tabindex="-1"></a>cross_tab <span class="ot">&lt;-</span> <span class="fu">table</span>(sample_population, sample_virus)</span>
-<span id="cb290-2"><a href="basic-statistics-in-r.html#cb290-2" aria-hidden="true" tabindex="-1"></a>cross_tab</span>
-<span id="cb290-3"><a href="basic-statistics-in-r.html#cb290-3" aria-hidden="true" tabindex="-1"></a><span class="co">#                  sample_virus</span></span>
-<span id="cb290-4"><a href="basic-statistics-in-r.html#cb290-4" aria-hidden="true" tabindex="-1"></a><span class="co">#sample_population  0  1</span></span>
-<span id="cb290-5"><a href="basic-statistics-in-r.html#cb290-5" aria-hidden="true" tabindex="-1"></a><span class="co">#                0 44 13</span></span>
-<span id="cb290-6"><a href="basic-statistics-in-r.html#cb290-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                1 35  8</span></span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="basic-statistics-in-r.html#cb297-1" aria-hidden="true" tabindex="-1"></a>cross_tab <span class="ot">&lt;-</span> <span class="fu">table</span>(sample_population, sample_virus)</span>
+<span id="cb297-2"><a href="basic-statistics-in-r.html#cb297-2" aria-hidden="true" tabindex="-1"></a>cross_tab</span>
+<span id="cb297-3"><a href="basic-statistics-in-r.html#cb297-3" aria-hidden="true" tabindex="-1"></a><span class="co">#                  sample_virus</span></span>
+<span id="cb297-4"><a href="basic-statistics-in-r.html#cb297-4" aria-hidden="true" tabindex="-1"></a><span class="co">#sample_population  0  1</span></span>
+<span id="cb297-5"><a href="basic-statistics-in-r.html#cb297-5" aria-hidden="true" tabindex="-1"></a><span class="co">#                0 44 13</span></span>
+<span id="cb297-6"><a href="basic-statistics-in-r.html#cb297-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                1 35  8</span></span></code></pre></div>
 <p>We can now estimate if such agreements and disagreements are different using Chi-squared Test for Count Data with the function <code>chisq.test()</code>.</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="basic-statistics-in-r.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(cross_tab)</span>
-<span id="cb291-2"><a href="basic-statistics-in-r.html#cb291-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb291-3"><a href="basic-statistics-in-r.html#cb291-3" aria-hidden="true" tabindex="-1"></a><span class="co">#       Pearson&#39;s Chi-squared test with Yates&#39; continuity correction</span></span>
-<span id="cb291-4"><a href="basic-statistics-in-r.html#cb291-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb291-5"><a href="basic-statistics-in-r.html#cb291-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  cross_tab</span></span>
-<span id="cb291-6"><a href="basic-statistics-in-r.html#cb291-6" aria-hidden="true" tabindex="-1"></a><span class="co"># X-squared = 0.069082, df = 1, p-value = 0.7927</span></span></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="basic-statistics-in-r.html#cb298-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(cross_tab)</span>
+<span id="cb298-2"><a href="basic-statistics-in-r.html#cb298-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb298-3"><a href="basic-statistics-in-r.html#cb298-3" aria-hidden="true" tabindex="-1"></a><span class="co">#       Pearson&#39;s Chi-squared test with Yates&#39; continuity correction</span></span>
+<span id="cb298-4"><a href="basic-statistics-in-r.html#cb298-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb298-5"><a href="basic-statistics-in-r.html#cb298-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  cross_tab</span></span>
+<span id="cb298-6"><a href="basic-statistics-in-r.html#cb298-6" aria-hidden="true" tabindex="-1"></a><span class="co"># X-squared = 0.069082, df = 1, p-value = 0.7927</span></span></code></pre></div>
 <p>In this case, we found that they were non-significant different. In this case, if the sick people might not have this made-up virus.</p>
 <p>Here is another example, in this case we will make people that are sick more likely to have a virus.test</p>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="basic-statistics-in-r.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="co">#$ we construct a data frame</span></span>
-<span id="cb292-2"><a href="basic-statistics-in-r.html#cb292-2" aria-hidden="true" tabindex="-1"></a>sample_virus_2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span> (<span class="at">population_1_if_sick =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>),</span>
-<span id="cb292-3"><a href="basic-statistics-in-r.html#cb292-3" aria-hidden="true" tabindex="-1"></a>                               <span class="at">virus_1_if_detected =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb292-4"><a href="basic-statistics-in-r.html#cb292-4" aria-hidden="true" tabindex="-1"></a>sample_virus_2</span>
-<span id="cb292-5"><a href="basic-statistics-in-r.html#cb292-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   population_1_if_sick virus_1_if_detected</span></span>
-<span id="cb292-6"><a href="basic-statistics-in-r.html#cb292-6" aria-hidden="true" tabindex="-1"></a><span class="co">#1                     0                   0</span></span>
-<span id="cb292-7"><a href="basic-statistics-in-r.html#cb292-7" aria-hidden="true" tabindex="-1"></a><span class="co">#2                     0                   0</span></span>
-<span id="cb292-8"><a href="basic-statistics-in-r.html#cb292-8" aria-hidden="true" tabindex="-1"></a><span class="co">#3                     0                   0</span></span>
-<span id="cb292-9"><a href="basic-statistics-in-r.html#cb292-9" aria-hidden="true" tabindex="-1"></a><span class="co">#4                     1                   1</span></span>
-<span id="cb292-10"><a href="basic-statistics-in-r.html#cb292-10" aria-hidden="true" tabindex="-1"></a><span class="co">#5                     1                   1</span></span>
-<span id="cb292-11"><a href="basic-statistics-in-r.html#cb292-11" aria-hidden="true" tabindex="-1"></a><span class="co">#6                     1                   1</span></span>
-<span id="cb292-12"><a href="basic-statistics-in-r.html#cb292-12" aria-hidden="true" tabindex="-1"></a><span class="co">#7                     1                   1</span></span>
-<span id="cb292-13"><a href="basic-statistics-in-r.html#cb292-13" aria-hidden="true" tabindex="-1"></a><span class="co">#8                     1                   0</span></span>
-<span id="cb292-14"><a href="basic-statistics-in-r.html#cb292-14" aria-hidden="true" tabindex="-1"></a><span class="co">#9                     0                   0</span></span>
-<span id="cb292-15"><a href="basic-statistics-in-r.html#cb292-15" aria-hidden="true" tabindex="-1"></a><span class="co">#10                    1                   1</span></span>
-<span id="cb292-16"><a href="basic-statistics-in-r.html#cb292-16" aria-hidden="true" tabindex="-1"></a><span class="co">#11                    1                   1</span></span>
-<span id="cb292-17"><a href="basic-statistics-in-r.html#cb292-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb292-18"><a href="basic-statistics-in-r.html#cb292-18" aria-hidden="true" tabindex="-1"></a><span class="do">## we save to numeric vectors</span></span>
-<span id="cb292-19"><a href="basic-statistics-in-r.html#cb292-19" aria-hidden="true" tabindex="-1"></a>population_1_if_sick <span class="ot">&lt;-</span> sample_virus_2<span class="sc">$</span>population_1_if_sick</span>
-<span id="cb292-20"><a href="basic-statistics-in-r.html#cb292-20" aria-hidden="true" tabindex="-1"></a>virus_1_if_detected <span class="ot">&lt;-</span> sample_virus_2<span class="sc">$</span>virus_1_if_detected</span>
-<span id="cb292-21"><a href="basic-statistics-in-r.html#cb292-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb292-22"><a href="basic-statistics-in-r.html#cb292-22" aria-hidden="true" tabindex="-1"></a><span class="do">## we do a crosstabulation</span></span>
-<span id="cb292-23"><a href="basic-statistics-in-r.html#cb292-23" aria-hidden="true" tabindex="-1"></a>cross_tab2 <span class="ot">&lt;-</span> <span class="fu">table</span>(population_1_if_sick, virus_1_if_detected)</span>
-<span id="cb292-24"><a href="basic-statistics-in-r.html#cb292-24" aria-hidden="true" tabindex="-1"></a>cross_tab2</span>
-<span id="cb292-25"><a href="basic-statistics-in-r.html#cb292-25" aria-hidden="true" tabindex="-1"></a><span class="co">#                    virus_1_if_detected</span></span>
-<span id="cb292-26"><a href="basic-statistics-in-r.html#cb292-26" aria-hidden="true" tabindex="-1"></a><span class="co">#population_1_if_sick 0 1</span></span>
-<span id="cb292-27"><a href="basic-statistics-in-r.html#cb292-27" aria-hidden="true" tabindex="-1"></a><span class="co">#                   0 4 0</span></span>
-<span id="cb292-28"><a href="basic-statistics-in-r.html#cb292-28" aria-hidden="true" tabindex="-1"></a><span class="co">#                   1 1 6</span></span>
-<span id="cb292-29"><a href="basic-statistics-in-r.html#cb292-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb292-30"><a href="basic-statistics-in-r.html#cb292-30" aria-hidden="true" tabindex="-1"></a><span class="do">## we perform the chisq.test</span></span>
-<span id="cb292-31"><a href="basic-statistics-in-r.html#cb292-31" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(cross_tab2)</span>
-<span id="cb292-32"><a href="basic-statistics-in-r.html#cb292-32" aria-hidden="true" tabindex="-1"></a><span class="co">#   Pearson&#39;s Chi-squared test with Yates&#39; continuity correction</span></span>
-<span id="cb292-33"><a href="basic-statistics-in-r.html#cb292-33" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb292-34"><a href="basic-statistics-in-r.html#cb292-34" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  cross_tab2</span></span>
-<span id="cb292-35"><a href="basic-statistics-in-r.html#cb292-35" aria-hidden="true" tabindex="-1"></a><span class="co"># X-squared = 4.4818, df = 1, p-value = 0.03426</span></span>
-<span id="cb292-36"><a href="basic-statistics-in-r.html#cb292-36" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb292-37"><a href="basic-statistics-in-r.html#cb292-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Warning message:</span></span>
-<span id="cb292-38"><a href="basic-statistics-in-r.html#cb292-38" aria-hidden="true" tabindex="-1"></a><span class="co"># In chisq.test(cross_tab2) : Chi-squared approximation may be incorrect</span></span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="basic-statistics-in-r.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="co">#$ we construct a data frame</span></span>
+<span id="cb299-2"><a href="basic-statistics-in-r.html#cb299-2" aria-hidden="true" tabindex="-1"></a>sample_virus_2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span> (<span class="at">population_1_if_sick =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>),</span>
+<span id="cb299-3"><a href="basic-statistics-in-r.html#cb299-3" aria-hidden="true" tabindex="-1"></a>                               <span class="at">virus_1_if_detected =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb299-4"><a href="basic-statistics-in-r.html#cb299-4" aria-hidden="true" tabindex="-1"></a>sample_virus_2</span>
+<span id="cb299-5"><a href="basic-statistics-in-r.html#cb299-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   population_1_if_sick virus_1_if_detected</span></span>
+<span id="cb299-6"><a href="basic-statistics-in-r.html#cb299-6" aria-hidden="true" tabindex="-1"></a><span class="co">#1                     0                   0</span></span>
+<span id="cb299-7"><a href="basic-statistics-in-r.html#cb299-7" aria-hidden="true" tabindex="-1"></a><span class="co">#2                     0                   0</span></span>
+<span id="cb299-8"><a href="basic-statistics-in-r.html#cb299-8" aria-hidden="true" tabindex="-1"></a><span class="co">#3                     0                   0</span></span>
+<span id="cb299-9"><a href="basic-statistics-in-r.html#cb299-9" aria-hidden="true" tabindex="-1"></a><span class="co">#4                     1                   1</span></span>
+<span id="cb299-10"><a href="basic-statistics-in-r.html#cb299-10" aria-hidden="true" tabindex="-1"></a><span class="co">#5                     1                   1</span></span>
+<span id="cb299-11"><a href="basic-statistics-in-r.html#cb299-11" aria-hidden="true" tabindex="-1"></a><span class="co">#6                     1                   1</span></span>
+<span id="cb299-12"><a href="basic-statistics-in-r.html#cb299-12" aria-hidden="true" tabindex="-1"></a><span class="co">#7                     1                   1</span></span>
+<span id="cb299-13"><a href="basic-statistics-in-r.html#cb299-13" aria-hidden="true" tabindex="-1"></a><span class="co">#8                     1                   0</span></span>
+<span id="cb299-14"><a href="basic-statistics-in-r.html#cb299-14" aria-hidden="true" tabindex="-1"></a><span class="co">#9                     0                   0</span></span>
+<span id="cb299-15"><a href="basic-statistics-in-r.html#cb299-15" aria-hidden="true" tabindex="-1"></a><span class="co">#10                    1                   1</span></span>
+<span id="cb299-16"><a href="basic-statistics-in-r.html#cb299-16" aria-hidden="true" tabindex="-1"></a><span class="co">#11                    1                   1</span></span>
+<span id="cb299-17"><a href="basic-statistics-in-r.html#cb299-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb299-18"><a href="basic-statistics-in-r.html#cb299-18" aria-hidden="true" tabindex="-1"></a><span class="do">## we save to numeric vectors</span></span>
+<span id="cb299-19"><a href="basic-statistics-in-r.html#cb299-19" aria-hidden="true" tabindex="-1"></a>population_1_if_sick <span class="ot">&lt;-</span> sample_virus_2<span class="sc">$</span>population_1_if_sick</span>
+<span id="cb299-20"><a href="basic-statistics-in-r.html#cb299-20" aria-hidden="true" tabindex="-1"></a>virus_1_if_detected <span class="ot">&lt;-</span> sample_virus_2<span class="sc">$</span>virus_1_if_detected</span>
+<span id="cb299-21"><a href="basic-statistics-in-r.html#cb299-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb299-22"><a href="basic-statistics-in-r.html#cb299-22" aria-hidden="true" tabindex="-1"></a><span class="do">## we do a crosstabulation</span></span>
+<span id="cb299-23"><a href="basic-statistics-in-r.html#cb299-23" aria-hidden="true" tabindex="-1"></a>cross_tab2 <span class="ot">&lt;-</span> <span class="fu">table</span>(population_1_if_sick, virus_1_if_detected)</span>
+<span id="cb299-24"><a href="basic-statistics-in-r.html#cb299-24" aria-hidden="true" tabindex="-1"></a>cross_tab2</span>
+<span id="cb299-25"><a href="basic-statistics-in-r.html#cb299-25" aria-hidden="true" tabindex="-1"></a><span class="co">#                    virus_1_if_detected</span></span>
+<span id="cb299-26"><a href="basic-statistics-in-r.html#cb299-26" aria-hidden="true" tabindex="-1"></a><span class="co">#population_1_if_sick 0 1</span></span>
+<span id="cb299-27"><a href="basic-statistics-in-r.html#cb299-27" aria-hidden="true" tabindex="-1"></a><span class="co">#                   0 4 0</span></span>
+<span id="cb299-28"><a href="basic-statistics-in-r.html#cb299-28" aria-hidden="true" tabindex="-1"></a><span class="co">#                   1 1 6</span></span>
+<span id="cb299-29"><a href="basic-statistics-in-r.html#cb299-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb299-30"><a href="basic-statistics-in-r.html#cb299-30" aria-hidden="true" tabindex="-1"></a><span class="do">## we perform the chisq.test</span></span>
+<span id="cb299-31"><a href="basic-statistics-in-r.html#cb299-31" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(cross_tab2)</span>
+<span id="cb299-32"><a href="basic-statistics-in-r.html#cb299-32" aria-hidden="true" tabindex="-1"></a><span class="co">#   Pearson&#39;s Chi-squared test with Yates&#39; continuity correction</span></span>
+<span id="cb299-33"><a href="basic-statistics-in-r.html#cb299-33" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb299-34"><a href="basic-statistics-in-r.html#cb299-34" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  cross_tab2</span></span>
+<span id="cb299-35"><a href="basic-statistics-in-r.html#cb299-35" aria-hidden="true" tabindex="-1"></a><span class="co"># X-squared = 4.4818, df = 1, p-value = 0.03426</span></span>
+<span id="cb299-36"><a href="basic-statistics-in-r.html#cb299-36" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb299-37"><a href="basic-statistics-in-r.html#cb299-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Warning message:</span></span>
+<span id="cb299-38"><a href="basic-statistics-in-r.html#cb299-38" aria-hidden="true" tabindex="-1"></a><span class="co"># In chisq.test(cross_tab2) : Chi-squared approximation may be incorrect</span></span></code></pre></div>
 <p>We found that people sick most likely have the virus and this is significant.</p>
 </div>
-<div id="beyond-t-test-mcnemars-test" class="section level2" number="6.16">
-<h2><span class="header-section-number">6.16</span> Beyond t-test: McNemar’s test</h2>
+<div id="beyond-t-test-mcnemars-test" class="section level2" number="6.17">
+<h2><span class="header-section-number">6.17</span> Beyond t-test: McNemar’s test</h2>
 <p><strong>15)</strong> This is a similar test to the Chi-square goodness of fit and it is used with paired nominal data in 2 × 2 contingency tables derived from dichotomous trait (i.e., YES or NO; Present or Absent), with matched pairs of subjects, to determine whether the row and column marginal frequencies are equal (see <a href="https://en.wikipedia.org/wiki/McNemar%27s_test" target="_blank"><strong>here</strong></a>).</p>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="basic-statistics-in-r.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we can use the same cross tabulation example</span></span>
-<span id="cb293-2"><a href="basic-statistics-in-r.html#cb293-2" aria-hidden="true" tabindex="-1"></a>cross_tab <span class="ot">&lt;-</span> <span class="fu">table</span>(sample_population, sample_virus)</span>
-<span id="cb293-3"><a href="basic-statistics-in-r.html#cb293-3" aria-hidden="true" tabindex="-1"></a>cross_tab</span>
-<span id="cb293-4"><a href="basic-statistics-in-r.html#cb293-4" aria-hidden="true" tabindex="-1"></a><span class="co">#                  sample_virus</span></span>
-<span id="cb293-5"><a href="basic-statistics-in-r.html#cb293-5" aria-hidden="true" tabindex="-1"></a><span class="co">#sample_population  0  1</span></span>
-<span id="cb293-6"><a href="basic-statistics-in-r.html#cb293-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                0 44 13</span></span>
-<span id="cb293-7"><a href="basic-statistics-in-r.html#cb293-7" aria-hidden="true" tabindex="-1"></a><span class="co">#                1 35  8</span></span>
-<span id="cb293-8"><a href="basic-statistics-in-r.html#cb293-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb293-9"><a href="basic-statistics-in-r.html#cb293-9" aria-hidden="true" tabindex="-1"></a><span class="do">## we apply the McNemar&#39;s test</span></span>
-<span id="cb293-10"><a href="basic-statistics-in-r.html#cb293-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb293-11"><a href="basic-statistics-in-r.html#cb293-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mcnemar.test</span>(cross_tab)</span>
-<span id="cb293-12"><a href="basic-statistics-in-r.html#cb293-12" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb293-13"><a href="basic-statistics-in-r.html#cb293-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   McNemar&#39;s Chi-squared test with continuity correction</span></span>
-<span id="cb293-14"><a href="basic-statistics-in-r.html#cb293-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb293-15"><a href="basic-statistics-in-r.html#cb293-15" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  cross_tab</span></span>
-<span id="cb293-16"><a href="basic-statistics-in-r.html#cb293-16" aria-hidden="true" tabindex="-1"></a><span class="co"># McNemar&#39;s chi-squared = 9.1875, df = 1, p-value = 0.002437</span></span></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="basic-statistics-in-r.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we can use the same cross tabulation example</span></span>
+<span id="cb300-2"><a href="basic-statistics-in-r.html#cb300-2" aria-hidden="true" tabindex="-1"></a>cross_tab <span class="ot">&lt;-</span> <span class="fu">table</span>(sample_population, sample_virus)</span>
+<span id="cb300-3"><a href="basic-statistics-in-r.html#cb300-3" aria-hidden="true" tabindex="-1"></a>cross_tab</span>
+<span id="cb300-4"><a href="basic-statistics-in-r.html#cb300-4" aria-hidden="true" tabindex="-1"></a><span class="co">#                  sample_virus</span></span>
+<span id="cb300-5"><a href="basic-statistics-in-r.html#cb300-5" aria-hidden="true" tabindex="-1"></a><span class="co">#sample_population  0  1</span></span>
+<span id="cb300-6"><a href="basic-statistics-in-r.html#cb300-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                0 44 13</span></span>
+<span id="cb300-7"><a href="basic-statistics-in-r.html#cb300-7" aria-hidden="true" tabindex="-1"></a><span class="co">#                1 35  8</span></span>
+<span id="cb300-8"><a href="basic-statistics-in-r.html#cb300-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb300-9"><a href="basic-statistics-in-r.html#cb300-9" aria-hidden="true" tabindex="-1"></a><span class="do">## we apply the McNemar&#39;s test</span></span>
+<span id="cb300-10"><a href="basic-statistics-in-r.html#cb300-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb300-11"><a href="basic-statistics-in-r.html#cb300-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mcnemar.test</span>(cross_tab)</span>
+<span id="cb300-12"><a href="basic-statistics-in-r.html#cb300-12" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb300-13"><a href="basic-statistics-in-r.html#cb300-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   McNemar&#39;s Chi-squared test with continuity correction</span></span>
+<span id="cb300-14"><a href="basic-statistics-in-r.html#cb300-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb300-15"><a href="basic-statistics-in-r.html#cb300-15" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  cross_tab</span></span>
+<span id="cb300-16"><a href="basic-statistics-in-r.html#cb300-16" aria-hidden="true" tabindex="-1"></a><span class="co"># McNemar&#39;s chi-squared = 9.1875, df = 1, p-value = 0.002437</span></span></code></pre></div>
 <p>In this case, we found that the same result as the Chi-squared test and McNemar-s test was also non-significant. In this case, if the sick people might not have this made-up virus.</p>
 </div>
-<div id="beyond-t-test-fishers-exact-test" class="section level2" number="6.17">
-<h2><span class="header-section-number">6.17</span> Beyond t-test: Fisher’s exact test</h2>
+<div id="beyond-t-test-fishers-exact-test" class="section level2" number="6.18">
+<h2><span class="header-section-number">6.18</span> Beyond t-test: Fisher’s exact test</h2>
 <p><strong>16)</strong> This is a similar test to the Chi-square goodness of fit and can be used with populations with small samples. The <a href="https://en.wikipedia.org/wiki/Fisher%27s_exact_test" target="_blank"><strong>Fisher’s exact test</strong></a> will examine the significance of the association (contingency) between the two kinds of classification. The null hypothesis is that both classifications are dependent. We can use the same dataset as above with the function <code>fisher.test()</code>.</p>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="basic-statistics-in-r.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fisher.test</span>(cross_tab)</span>
-<span id="cb294-2"><a href="basic-statistics-in-r.html#cb294-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb294-3"><a href="basic-statistics-in-r.html#cb294-3" aria-hidden="true" tabindex="-1"></a><span class="co">#     Fisher&#39;s Exact Test for Count Data</span></span>
-<span id="cb294-4"><a href="basic-statistics-in-r.html#cb294-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb294-5"><a href="basic-statistics-in-r.html#cb294-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  cross_tab</span></span>
-<span id="cb294-6"><a href="basic-statistics-in-r.html#cb294-6" aria-hidden="true" tabindex="-1"></a><span class="co"># p-value = 0.8047</span></span>
-<span id="cb294-7"><a href="basic-statistics-in-r.html#cb294-7" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true odds ratio is not equal to 1</span></span>
-<span id="cb294-8"><a href="basic-statistics-in-r.html#cb294-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
-<span id="cb294-9"><a href="basic-statistics-in-r.html#cb294-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.2488368 2.2877938</span></span>
-<span id="cb294-10"><a href="basic-statistics-in-r.html#cb294-10" aria-hidden="true" tabindex="-1"></a><span class="co"># sample estimates:</span></span>
-<span id="cb294-11"><a href="basic-statistics-in-r.html#cb294-11" aria-hidden="true" tabindex="-1"></a><span class="co"># odds ratio </span></span>
-<span id="cb294-12"><a href="basic-statistics-in-r.html#cb294-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.7755955 </span></span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="basic-statistics-in-r.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fisher.test</span>(cross_tab)</span>
+<span id="cb301-2"><a href="basic-statistics-in-r.html#cb301-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb301-3"><a href="basic-statistics-in-r.html#cb301-3" aria-hidden="true" tabindex="-1"></a><span class="co">#     Fisher&#39;s Exact Test for Count Data</span></span>
+<span id="cb301-4"><a href="basic-statistics-in-r.html#cb301-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb301-5"><a href="basic-statistics-in-r.html#cb301-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  cross_tab</span></span>
+<span id="cb301-6"><a href="basic-statistics-in-r.html#cb301-6" aria-hidden="true" tabindex="-1"></a><span class="co"># p-value = 0.8047</span></span>
+<span id="cb301-7"><a href="basic-statistics-in-r.html#cb301-7" aria-hidden="true" tabindex="-1"></a><span class="co"># alternative hypothesis: true odds ratio is not equal to 1</span></span>
+<span id="cb301-8"><a href="basic-statistics-in-r.html#cb301-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
+<span id="cb301-9"><a href="basic-statistics-in-r.html#cb301-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.2488368 2.2877938</span></span>
+<span id="cb301-10"><a href="basic-statistics-in-r.html#cb301-10" aria-hidden="true" tabindex="-1"></a><span class="co"># sample estimates:</span></span>
+<span id="cb301-11"><a href="basic-statistics-in-r.html#cb301-11" aria-hidden="true" tabindex="-1"></a><span class="co"># odds ratio </span></span>
+<span id="cb301-12"><a href="basic-statistics-in-r.html#cb301-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  0.7755955 </span></span></code></pre></div>
 <p>In this case, we found that they were barely significant different. In this case, if the sick people might not have this made-up virus.</p>
 </div>
-<div id="correlations" class="section level2" number="6.18">
-<h2><span class="header-section-number">6.18</span> Correlations</h2>
+<div id="correlations" class="section level2" number="6.19">
+<h2><span class="header-section-number">6.19</span> Correlations</h2>
 <p><strong>17)</strong> We can determine correlation between two variables using <code>cor()</code> and test for its significance using <code>cor.test()</code>. Correlation is the dependence or association between variables, and it usually refers to the degree to which a pair of variables are linearly related. For practical uses, correlations can provide a predictive relationship that can derived from one variable on the other. However, the evidence of correlation does not mean a causal relationship (i.e., A does not necessarily cause B). Likewise, it is important to determine if such correlations are significant and these can be performed for normal or non-normal distributions (in this case use the use argument <code>method = "spearman"</code>).</p>
 <p>We will determine a correlation and test for its significance between two samples of the <code>airway_data</code>.</p>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="basic-statistics-in-r.html#cb295-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(airway_data[,<span class="dv">2</span>], airway_data[,<span class="dv">3</span>])</span>
-<span id="cb295-2"><a href="basic-statistics-in-r.html#cb295-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.9646265</span></span>
-<span id="cb295-3"><a href="basic-statistics-in-r.html#cb295-3" aria-hidden="true" tabindex="-1"></a><span class="co"># we will assume that these are not normal</span></span>
-<span id="cb295-4"><a href="basic-statistics-in-r.html#cb295-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(airway_data[,<span class="dv">2</span>], airway_data[,<span class="dv">3</span>], <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span>
-<span id="cb295-5"><a href="basic-statistics-in-r.html#cb295-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb295-6"><a href="basic-statistics-in-r.html#cb295-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Spearman&#39;s rank correlation rho</span></span>
-<span id="cb295-7"><a href="basic-statistics-in-r.html#cb295-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb295-8"><a href="basic-statistics-in-r.html#cb295-8" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  airway_data[, 2] and airway_data[, 3]</span></span>
-<span id="cb295-9"><a href="basic-statistics-in-r.html#cb295-9" aria-hidden="true" tabindex="-1"></a><span class="co">#S = 4.8345e+11, p-value &lt; 2.2e-16</span></span>
-<span id="cb295-10"><a href="basic-statistics-in-r.html#cb295-10" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true rho is not equal to 0</span></span>
-<span id="cb295-11"><a href="basic-statistics-in-r.html#cb295-11" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
-<span id="cb295-12"><a href="basic-statistics-in-r.html#cb295-12" aria-hidden="true" tabindex="-1"></a><span class="co">#      rho </span></span>
-<span id="cb295-13"><a href="basic-statistics-in-r.html#cb295-13" aria-hidden="true" tabindex="-1"></a><span class="co">#0.9499302 </span></span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="basic-statistics-in-r.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(airway_data[,<span class="dv">2</span>], airway_data[,<span class="dv">3</span>])</span>
+<span id="cb302-2"><a href="basic-statistics-in-r.html#cb302-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.9646265</span></span>
+<span id="cb302-3"><a href="basic-statistics-in-r.html#cb302-3" aria-hidden="true" tabindex="-1"></a><span class="co"># we will assume that these are not normal</span></span>
+<span id="cb302-4"><a href="basic-statistics-in-r.html#cb302-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(airway_data[,<span class="dv">2</span>], airway_data[,<span class="dv">3</span>], <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span>
+<span id="cb302-5"><a href="basic-statistics-in-r.html#cb302-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb302-6"><a href="basic-statistics-in-r.html#cb302-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Spearman&#39;s rank correlation rho</span></span>
+<span id="cb302-7"><a href="basic-statistics-in-r.html#cb302-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb302-8"><a href="basic-statistics-in-r.html#cb302-8" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  airway_data[, 2] and airway_data[, 3]</span></span>
+<span id="cb302-9"><a href="basic-statistics-in-r.html#cb302-9" aria-hidden="true" tabindex="-1"></a><span class="co">#S = 4.8345e+11, p-value &lt; 2.2e-16</span></span>
+<span id="cb302-10"><a href="basic-statistics-in-r.html#cb302-10" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true rho is not equal to 0</span></span>
+<span id="cb302-11"><a href="basic-statistics-in-r.html#cb302-11" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
+<span id="cb302-12"><a href="basic-statistics-in-r.html#cb302-12" aria-hidden="true" tabindex="-1"></a><span class="co">#      rho </span></span>
+<span id="cb302-13"><a href="basic-statistics-in-r.html#cb302-13" aria-hidden="true" tabindex="-1"></a><span class="co">#0.9499302 </span></span></code></pre></div>
 </div>
-<div id="comparing-distributions" class="section level2" number="6.19">
-<h2><span class="header-section-number">6.19</span> Comparing distributions</h2>
+<div id="comparing-distributions" class="section level2" number="6.20">
+<h2><span class="header-section-number">6.20</span> Comparing distributions</h2>
 <p><strong>18)</strong> We can also determine if two variables come from the same distribution using Kolmogorov-Smirnov test <code>ks.test()</code>. The data does not require to be normal.</p>
 <p>We will determine if two samples of the <code>airway_data</code> have the same distribution.</p>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="basic-statistics-in-r.html#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(airway_data[,<span class="dv">2</span>], airway_data[,<span class="dv">3</span>])</span>
-<span id="cb296-2"><a href="basic-statistics-in-r.html#cb296-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb296-3"><a href="basic-statistics-in-r.html#cb296-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Two-sample Kolmogorov-Smirnov test</span></span>
-<span id="cb296-4"><a href="basic-statistics-in-r.html#cb296-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb296-5"><a href="basic-statistics-in-r.html#cb296-5" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  airway_data[, 2] and airway_data[, 3]</span></span>
-<span id="cb296-6"><a href="basic-statistics-in-r.html#cb296-6" aria-hidden="true" tabindex="-1"></a><span class="co">#D = 0.013413, p-value = 0.001896</span></span>
-<span id="cb296-7"><a href="basic-statistics-in-r.html#cb296-7" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: two-sided</span></span>
-<span id="cb296-8"><a href="basic-statistics-in-r.html#cb296-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb296-9"><a href="basic-statistics-in-r.html#cb296-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Warning message:</span></span>
-<span id="cb296-10"><a href="basic-statistics-in-r.html#cb296-10" aria-hidden="true" tabindex="-1"></a><span class="co">#In ks.test(airway_data[, 2], airway_data[, 3]) :</span></span>
-<span id="cb296-11"><a href="basic-statistics-in-r.html#cb296-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  p-value will be approximate in the presence of ties</span></span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="basic-statistics-in-r.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(airway_data[,<span class="dv">2</span>], airway_data[,<span class="dv">3</span>])</span>
+<span id="cb303-2"><a href="basic-statistics-in-r.html#cb303-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb303-3"><a href="basic-statistics-in-r.html#cb303-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Two-sample Kolmogorov-Smirnov test</span></span>
+<span id="cb303-4"><a href="basic-statistics-in-r.html#cb303-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb303-5"><a href="basic-statistics-in-r.html#cb303-5" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  airway_data[, 2] and airway_data[, 3]</span></span>
+<span id="cb303-6"><a href="basic-statistics-in-r.html#cb303-6" aria-hidden="true" tabindex="-1"></a><span class="co">#D = 0.013413, p-value = 0.001896</span></span>
+<span id="cb303-7"><a href="basic-statistics-in-r.html#cb303-7" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: two-sided</span></span>
+<span id="cb303-8"><a href="basic-statistics-in-r.html#cb303-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb303-9"><a href="basic-statistics-in-r.html#cb303-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Warning message:</span></span>
+<span id="cb303-10"><a href="basic-statistics-in-r.html#cb303-10" aria-hidden="true" tabindex="-1"></a><span class="co">#In ks.test(airway_data[, 2], airway_data[, 3]) :</span></span>
+<span id="cb303-11"><a href="basic-statistics-in-r.html#cb303-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  p-value will be approximate in the presence of ties</span></span></code></pre></div>
 <p>We can conclude that these two samples do not have the same distribution (i.e., <code>p-value = 0.001896</code>).</p>
 <p><strong>19)</strong> We can compare two groups that have some individuals in such groups being exposed treatment versus control using</p>
 <p>from the R-package <a href="https://cran.r-project.org/web/packages/pROC/index.html" target="_blank"><strong>pROC</strong></a> using the functions <code>roc()</code> and <code>roc.test()</code>.
 This test will compare the AUC (area under the curve) of two <a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Basic_concept" target="_blank">ROC</a> (receiver operating characteristic) curves.
 These are graphical plots useful in the diagnostic of a binary classifier (e.g., “control-0” or “exposed-1”) as its discrimination threshold is varied (i.e., what is the cutoff to consider a measurement as “exposed-1”).</p>
 <p>We will illustrate this test using two <code>airway_data</code> by assigning “control” and “exposed” to sample of rows.</p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="basic-statistics-in-r.html#cb297-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you need to instal the package &quot;pROC&quot;</span></span>
-<span id="cb297-2"><a href="basic-statistics-in-r.html#cb297-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;pROC&quot;</span>)</span>
-<span id="cb297-3"><a href="basic-statistics-in-r.html#cb297-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="basic-statistics-in-r.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you need to instal the package &quot;pROC&quot;</span></span>
+<span id="cb304-2"><a href="basic-statistics-in-r.html#cb304-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;pROC&quot;</span>)</span>
+<span id="cb304-3"><a href="basic-statistics-in-r.html#cb304-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span></code></pre></div>
 <p>We can prepare two samples of <code>airway_data</code> and assign some of elements of each as “control” and “exposed”.</p>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="basic-statistics-in-r.html#cb298-1" aria-hidden="true" tabindex="-1"></a><span class="do">## set two samples</span></span>
-<span id="cb298-2"><a href="basic-statistics-in-r.html#cb298-2" aria-hidden="true" tabindex="-1"></a>sample_SRR1039508 <span class="ot">&lt;-</span> airway_data<span class="sc">$</span>SRR1039508 </span>
-<span id="cb298-3"><a href="basic-statistics-in-r.html#cb298-3" aria-hidden="true" tabindex="-1"></a>sample_SRR1039509 <span class="ot">&lt;-</span> airway_data<span class="sc">$</span>SRR1039509</span>
-<span id="cb298-4"><a href="basic-statistics-in-r.html#cb298-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb298-5"><a href="basic-statistics-in-r.html#cb298-5" aria-hidden="true" tabindex="-1"></a><span class="do">## get summaries of each</span></span>
-<span id="cb298-6"><a href="basic-statistics-in-r.html#cb298-6" aria-hidden="true" tabindex="-1"></a>summary_SRR1039508 <span class="ot">&lt;-</span> <span class="fu">summary</span>(sample_SRR1039508)</span>
-<span id="cb298-7"><a href="basic-statistics-in-r.html#cb298-7" aria-hidden="true" tabindex="-1"></a>summary_SRR1039508</span>
-<span id="cb298-8"><a href="basic-statistics-in-r.html#cb298-8" aria-hidden="true" tabindex="-1"></a><span class="co">#    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. </span></span>
-<span id="cb298-9"><a href="basic-statistics-in-r.html#cb298-9" aria-hidden="true" tabindex="-1"></a><span class="co">#     0.0      0.0      1.0    546.5    203.0 287372.0 </span></span>
-<span id="cb298-10"><a href="basic-statistics-in-r.html#cb298-10" aria-hidden="true" tabindex="-1"></a>summary_SRR1039509 <span class="ot">&lt;-</span> <span class="fu">summary</span>(sample_SRR1039509)</span>
-<span id="cb298-11"><a href="basic-statistics-in-r.html#cb298-11" aria-hidden="true" tabindex="-1"></a>summary_SRR1039509</span>
-<span id="cb298-12"><a href="basic-statistics-in-r.html#cb298-12" aria-hidden="true" tabindex="-1"></a><span class="co">#    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. </span></span>
-<span id="cb298-13"><a href="basic-statistics-in-r.html#cb298-13" aria-hidden="true" tabindex="-1"></a><span class="co">#     0.0      0.0      1.0    501.1    172.0 244921.0</span></span>
-<span id="cb298-14"><a href="basic-statistics-in-r.html#cb298-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb298-15"><a href="basic-statistics-in-r.html#cb298-15" aria-hidden="true" tabindex="-1"></a><span class="do">## assign  &quot;control&quot; if less than 3rd quartile of each</span></span>
-<span id="cb298-16"><a href="basic-statistics-in-r.html#cb298-16" aria-hidden="true" tabindex="-1"></a>SRR1039508_binary <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(sample_SRR1039508 <span class="sc">&gt;</span> summary_SRR1039508[<span class="dv">5</span>], <span class="st">&quot;exposed&quot;</span>, <span class="st">&quot;control&quot;</span>)</span>
-<span id="cb298-17"><a href="basic-statistics-in-r.html#cb298-17" aria-hidden="true" tabindex="-1"></a><span class="do">## assign  &quot;control&quot; if more than 3rd quartile of each -- a reverse from last sample</span></span>
-<span id="cb298-18"><a href="basic-statistics-in-r.html#cb298-18" aria-hidden="true" tabindex="-1"></a>SRR1039509_binary <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(sample_SRR1039509 <span class="sc">&gt;</span> summary_SRR1039509[<span class="dv">5</span>], <span class="st">&quot;control&quot;</span>, <span class="st">&quot;exposed&quot;</span>)</span>
-<span id="cb298-19"><a href="basic-statistics-in-r.html#cb298-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb298-20"><a href="basic-statistics-in-r.html#cb298-20" aria-hidden="true" tabindex="-1"></a><span class="do">## create a roc object for each sample</span></span>
-<span id="cb298-21"><a href="basic-statistics-in-r.html#cb298-21" aria-hidden="true" tabindex="-1"></a>roc_SRR1039508 <span class="ot">&lt;-</span> <span class="fu">roc</span>(SRR1039508_binary, sample_SRR1039508, <span class="at">direction =</span> <span class="st">&quot;&lt;&quot;</span>)</span>
-<span id="cb298-22"><a href="basic-statistics-in-r.html#cb298-22" aria-hidden="true" tabindex="-1"></a><span class="co">#Setting levels: control = control, case = exposed</span></span>
-<span id="cb298-23"><a href="basic-statistics-in-r.html#cb298-23" aria-hidden="true" tabindex="-1"></a>roc_SRR1039509 <span class="ot">&lt;-</span> <span class="fu">roc</span>(SRR1039509_binary, sample_SRR1039509, <span class="at">direction =</span> <span class="st">&quot;&lt;&quot;</span>)</span>
-<span id="cb298-24"><a href="basic-statistics-in-r.html#cb298-24" aria-hidden="true" tabindex="-1"></a><span class="co">#Setting levels: control = control, case = exposed</span></span>
-<span id="cb298-25"><a href="basic-statistics-in-r.html#cb298-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb298-26"><a href="basic-statistics-in-r.html#cb298-26" aria-hidden="true" tabindex="-1"></a><span class="do">## perform the roc.test and increase boot.n for a more precise p-value:</span></span>
-<span id="cb298-27"><a href="basic-statistics-in-r.html#cb298-27" aria-hidden="true" tabindex="-1"></a><span class="fu">roc.test</span>(roc_SRR1039508, roc_SRR1039509, <span class="at">method=</span><span class="st">&quot;bootstrap&quot;</span>, <span class="at">boot.n=</span><span class="dv">1000</span>)</span>
-<span id="cb298-28"><a href="basic-statistics-in-r.html#cb298-28" aria-hidden="true" tabindex="-1"></a><span class="co">#    |=========================================================================================================================================================================| 100%</span></span>
-<span id="cb298-29"><a href="basic-statistics-in-r.html#cb298-29" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb298-30"><a href="basic-statistics-in-r.html#cb298-30" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bootstrap test for two ROC curves</span></span>
-<span id="cb298-31"><a href="basic-statistics-in-r.html#cb298-31" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb298-32"><a href="basic-statistics-in-r.html#cb298-32" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  roc_SRR1039508 and roc_SRR1039509</span></span>
-<span id="cb298-33"><a href="basic-statistics-in-r.html#cb298-33" aria-hidden="true" tabindex="-1"></a><span class="co">#D = Inf, boot.n = 1000, boot.stratified = 1, p-value &lt; 2.2e-16</span></span>
-<span id="cb298-34"><a href="basic-statistics-in-r.html#cb298-34" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true difference in AUC is not equal to 0</span></span>
-<span id="cb298-35"><a href="basic-statistics-in-r.html#cb298-35" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
-<span id="cb298-36"><a href="basic-statistics-in-r.html#cb298-36" aria-hidden="true" tabindex="-1"></a><span class="co">#AUC of roc1 AUC of roc2 </span></span>
-<span id="cb298-37"><a href="basic-statistics-in-r.html#cb298-37" aria-hidden="true" tabindex="-1"></a><span class="co">#          1           0 </span></span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="basic-statistics-in-r.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="do">## set two samples</span></span>
+<span id="cb305-2"><a href="basic-statistics-in-r.html#cb305-2" aria-hidden="true" tabindex="-1"></a>sample_SRR1039508 <span class="ot">&lt;-</span> airway_data<span class="sc">$</span>SRR1039508 </span>
+<span id="cb305-3"><a href="basic-statistics-in-r.html#cb305-3" aria-hidden="true" tabindex="-1"></a>sample_SRR1039509 <span class="ot">&lt;-</span> airway_data<span class="sc">$</span>SRR1039509</span>
+<span id="cb305-4"><a href="basic-statistics-in-r.html#cb305-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb305-5"><a href="basic-statistics-in-r.html#cb305-5" aria-hidden="true" tabindex="-1"></a><span class="do">## get summaries of each</span></span>
+<span id="cb305-6"><a href="basic-statistics-in-r.html#cb305-6" aria-hidden="true" tabindex="-1"></a>summary_SRR1039508 <span class="ot">&lt;-</span> <span class="fu">summary</span>(sample_SRR1039508)</span>
+<span id="cb305-7"><a href="basic-statistics-in-r.html#cb305-7" aria-hidden="true" tabindex="-1"></a>summary_SRR1039508</span>
+<span id="cb305-8"><a href="basic-statistics-in-r.html#cb305-8" aria-hidden="true" tabindex="-1"></a><span class="co">#    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. </span></span>
+<span id="cb305-9"><a href="basic-statistics-in-r.html#cb305-9" aria-hidden="true" tabindex="-1"></a><span class="co">#     0.0      0.0      1.0    546.5    203.0 287372.0 </span></span>
+<span id="cb305-10"><a href="basic-statistics-in-r.html#cb305-10" aria-hidden="true" tabindex="-1"></a>summary_SRR1039509 <span class="ot">&lt;-</span> <span class="fu">summary</span>(sample_SRR1039509)</span>
+<span id="cb305-11"><a href="basic-statistics-in-r.html#cb305-11" aria-hidden="true" tabindex="-1"></a>summary_SRR1039509</span>
+<span id="cb305-12"><a href="basic-statistics-in-r.html#cb305-12" aria-hidden="true" tabindex="-1"></a><span class="co">#    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. </span></span>
+<span id="cb305-13"><a href="basic-statistics-in-r.html#cb305-13" aria-hidden="true" tabindex="-1"></a><span class="co">#     0.0      0.0      1.0    501.1    172.0 244921.0</span></span>
+<span id="cb305-14"><a href="basic-statistics-in-r.html#cb305-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb305-15"><a href="basic-statistics-in-r.html#cb305-15" aria-hidden="true" tabindex="-1"></a><span class="do">## assign  &quot;control&quot; if less than 3rd quartile of each</span></span>
+<span id="cb305-16"><a href="basic-statistics-in-r.html#cb305-16" aria-hidden="true" tabindex="-1"></a>SRR1039508_binary <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(sample_SRR1039508 <span class="sc">&gt;</span> summary_SRR1039508[<span class="dv">5</span>], <span class="st">&quot;exposed&quot;</span>, <span class="st">&quot;control&quot;</span>)</span>
+<span id="cb305-17"><a href="basic-statistics-in-r.html#cb305-17" aria-hidden="true" tabindex="-1"></a><span class="do">## assign  &quot;control&quot; if more than 3rd quartile of each -- a reverse from last sample</span></span>
+<span id="cb305-18"><a href="basic-statistics-in-r.html#cb305-18" aria-hidden="true" tabindex="-1"></a>SRR1039509_binary <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(sample_SRR1039509 <span class="sc">&gt;</span> summary_SRR1039509[<span class="dv">5</span>], <span class="st">&quot;control&quot;</span>, <span class="st">&quot;exposed&quot;</span>)</span>
+<span id="cb305-19"><a href="basic-statistics-in-r.html#cb305-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb305-20"><a href="basic-statistics-in-r.html#cb305-20" aria-hidden="true" tabindex="-1"></a><span class="do">## create a roc object for each sample</span></span>
+<span id="cb305-21"><a href="basic-statistics-in-r.html#cb305-21" aria-hidden="true" tabindex="-1"></a>roc_SRR1039508 <span class="ot">&lt;-</span> <span class="fu">roc</span>(SRR1039508_binary, sample_SRR1039508, <span class="at">direction =</span> <span class="st">&quot;&lt;&quot;</span>)</span>
+<span id="cb305-22"><a href="basic-statistics-in-r.html#cb305-22" aria-hidden="true" tabindex="-1"></a><span class="co">#Setting levels: control = control, case = exposed</span></span>
+<span id="cb305-23"><a href="basic-statistics-in-r.html#cb305-23" aria-hidden="true" tabindex="-1"></a>roc_SRR1039509 <span class="ot">&lt;-</span> <span class="fu">roc</span>(SRR1039509_binary, sample_SRR1039509, <span class="at">direction =</span> <span class="st">&quot;&lt;&quot;</span>)</span>
+<span id="cb305-24"><a href="basic-statistics-in-r.html#cb305-24" aria-hidden="true" tabindex="-1"></a><span class="co">#Setting levels: control = control, case = exposed</span></span>
+<span id="cb305-25"><a href="basic-statistics-in-r.html#cb305-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb305-26"><a href="basic-statistics-in-r.html#cb305-26" aria-hidden="true" tabindex="-1"></a><span class="do">## perform the roc.test and increase boot.n for a more precise p-value:</span></span>
+<span id="cb305-27"><a href="basic-statistics-in-r.html#cb305-27" aria-hidden="true" tabindex="-1"></a><span class="fu">roc.test</span>(roc_SRR1039508, roc_SRR1039509, <span class="at">method=</span><span class="st">&quot;bootstrap&quot;</span>, <span class="at">boot.n=</span><span class="dv">1000</span>)</span>
+<span id="cb305-28"><a href="basic-statistics-in-r.html#cb305-28" aria-hidden="true" tabindex="-1"></a><span class="co">#    |=========================================================================================================================================================================| 100%</span></span>
+<span id="cb305-29"><a href="basic-statistics-in-r.html#cb305-29" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb305-30"><a href="basic-statistics-in-r.html#cb305-30" aria-hidden="true" tabindex="-1"></a><span class="co">#   Bootstrap test for two ROC curves</span></span>
+<span id="cb305-31"><a href="basic-statistics-in-r.html#cb305-31" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb305-32"><a href="basic-statistics-in-r.html#cb305-32" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  roc_SRR1039508 and roc_SRR1039509</span></span>
+<span id="cb305-33"><a href="basic-statistics-in-r.html#cb305-33" aria-hidden="true" tabindex="-1"></a><span class="co">#D = Inf, boot.n = 1000, boot.stratified = 1, p-value &lt; 2.2e-16</span></span>
+<span id="cb305-34"><a href="basic-statistics-in-r.html#cb305-34" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true difference in AUC is not equal to 0</span></span>
+<span id="cb305-35"><a href="basic-statistics-in-r.html#cb305-35" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
+<span id="cb305-36"><a href="basic-statistics-in-r.html#cb305-36" aria-hidden="true" tabindex="-1"></a><span class="co">#AUC of roc1 AUC of roc2 </span></span>
+<span id="cb305-37"><a href="basic-statistics-in-r.html#cb305-37" aria-hidden="true" tabindex="-1"></a><span class="co">#          1           0 </span></span></code></pre></div>
 <p>We can conclude that for SRR1039508 and SRR1039509 are different in their distribution in reference to outcomes for “control” versus “exposed”.</p>
 </div>
-<div id="bootstraps" class="section level2" number="6.20">
-<h2><span class="header-section-number">6.20</span> Bootstraps</h2>
+<div id="bootstraps" class="section level2" number="6.21">
+<h2><span class="header-section-number">6.21</span> Bootstraps</h2>
 <p>This is a non-parametric method of repeated resampling from collection of data with replacement.
 With enough sampling repetitions (usually in thousands),
 we can estimate the distribution of a parameter(s) of a population where an original data collection can be used a source
@@ -2047,78 +2204,78 @@ and collect those to calculate of distribution where its mean (expected value fo
 (a measure of the uncertainty about that value of the statistic) can be used to estimate a confidence interval of such
 statistic.</p>
 <p>We need to install the R-package <a href="https://cran.r-project.org/web/packages/boot/index.html" target="_blank"><strong>boot</strong></a>.</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="basic-statistics-in-r.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;boot&#39;</span>)</span>
-<span id="cb299-2"><a href="basic-statistics-in-r.html#cb299-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(boot)</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="basic-statistics-in-r.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;boot&#39;</span>)</span>
+<span id="cb306-2"><a href="basic-statistics-in-r.html#cb306-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(boot)</span></code></pre></div>
 <p>We will use the <strong>mtcars</strong> to illustrate the estimate of mean and correlation between some of the variables.</p>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="basic-statistics-in-r.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load get mtcars dataset -- this a preloaded dataset in R</span></span>
-<span id="cb300-2"><a href="basic-statistics-in-r.html#cb300-2" aria-hidden="true" tabindex="-1"></a>cars_data <span class="ot">&lt;-</span> mtcars</span>
-<span id="cb300-3"><a href="basic-statistics-in-r.html#cb300-3" aria-hidden="true" tabindex="-1"></a>cars_data</span>
-<span id="cb300-4"><a href="basic-statistics-in-r.html#cb300-4" aria-hidden="true" tabindex="-1"></a><span class="co">#                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb</span></span>
-<span id="cb300-5"><a href="basic-statistics-in-r.html#cb300-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4</span></span>
-<span id="cb300-6"><a href="basic-statistics-in-r.html#cb300-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4</span></span>
-<span id="cb300-7"><a href="basic-statistics-in-r.html#cb300-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1</span></span>
-<span id="cb300-8"><a href="basic-statistics-in-r.html#cb300-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1</span></span>
-<span id="cb300-9"><a href="basic-statistics-in-r.html#cb300-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2</span></span>
-<span id="cb300-10"><a href="basic-statistics-in-r.html#cb300-10" aria-hidden="true" tabindex="-1"></a><span class="co">#..</span></span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="basic-statistics-in-r.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load get mtcars dataset -- this a preloaded dataset in R</span></span>
+<span id="cb307-2"><a href="basic-statistics-in-r.html#cb307-2" aria-hidden="true" tabindex="-1"></a>cars_data <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb307-3"><a href="basic-statistics-in-r.html#cb307-3" aria-hidden="true" tabindex="-1"></a>cars_data</span>
+<span id="cb307-4"><a href="basic-statistics-in-r.html#cb307-4" aria-hidden="true" tabindex="-1"></a><span class="co">#                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb</span></span>
+<span id="cb307-5"><a href="basic-statistics-in-r.html#cb307-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4</span></span>
+<span id="cb307-6"><a href="basic-statistics-in-r.html#cb307-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4</span></span>
+<span id="cb307-7"><a href="basic-statistics-in-r.html#cb307-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1</span></span>
+<span id="cb307-8"><a href="basic-statistics-in-r.html#cb307-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1</span></span>
+<span id="cb307-9"><a href="basic-statistics-in-r.html#cb307-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2</span></span>
+<span id="cb307-10"><a href="basic-statistics-in-r.html#cb307-10" aria-hidden="true" tabindex="-1"></a><span class="co">#..</span></span></code></pre></div>
 <p>We can estimate the mean of the <code>mpg</code> variable</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="basic-statistics-in-r.html#cb301-1" aria-hidden="true" tabindex="-1"></a>mpg_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(cars_data<span class="sc">$</span>mpg)</span>
-<span id="cb301-2"><a href="basic-statistics-in-r.html#cb301-2" aria-hidden="true" tabindex="-1"></a>mpg_mean</span>
-<span id="cb301-3"><a href="basic-statistics-in-r.html#cb301-3" aria-hidden="true" tabindex="-1"></a><span class="co">#1] 20.09062</span></span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="basic-statistics-in-r.html#cb308-1" aria-hidden="true" tabindex="-1"></a>mpg_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(cars_data<span class="sc">$</span>mpg)</span>
+<span id="cb308-2"><a href="basic-statistics-in-r.html#cb308-2" aria-hidden="true" tabindex="-1"></a>mpg_mean</span>
+<span id="cb308-3"><a href="basic-statistics-in-r.html#cb308-3" aria-hidden="true" tabindex="-1"></a><span class="co">#1] 20.09062</span></span></code></pre></div>
 <p>We can now use boot to calculate how confident we are on the mean estimates</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="basic-statistics-in-r.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="do">## First, we need a function that calculate a mean for each sample</span></span>
-<span id="cb302-2"><a href="basic-statistics-in-r.html#cb302-2" aria-hidden="true" tabindex="-1"></a>function_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(data, i){</span>
-<span id="cb302-3"><a href="basic-statistics-in-r.html#cb302-3" aria-hidden="true" tabindex="-1"></a>                              my_data2 <span class="ot">&lt;-</span> data[i,] </span>
-<span id="cb302-4"><a href="basic-statistics-in-r.html#cb302-4" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">return</span>(<span class="fu">mean</span>(my_data2<span class="sc">$</span>mpg))</span>
-<span id="cb302-5"><a href="basic-statistics-in-r.html#cb302-5" aria-hidden="true" tabindex="-1"></a>                                  }</span>
-<span id="cb302-6"><a href="basic-statistics-in-r.html#cb302-6" aria-hidden="true" tabindex="-1"></a><span class="co"># The arguments of this function are data or the source dataset </span></span>
-<span id="cb302-7"><a href="basic-statistics-in-r.html#cb302-7" aria-hidden="true" tabindex="-1"></a><span class="co"># and [i] is the vector index of which rows from the source dataset will be draw to build a bootstrap sample.</span></span>
-<span id="cb302-8"><a href="basic-statistics-in-r.html#cb302-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb302-9"><a href="basic-statistics-in-r.html#cb302-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Second, we can run our bootstrap with 100000 bootstrap replicates</span></span>
-<span id="cb302-10"><a href="basic-statistics-in-r.html#cb302-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb302-11"><a href="basic-statistics-in-r.html#cb302-11" aria-hidden="true" tabindex="-1"></a>bootstrap_mpg_mean <span class="ot">&lt;-</span> <span class="fu">boot</span>(<span class="at">data =</span> cars_data, <span class="at">statistic =</span> function_mean, <span class="at">R =</span> <span class="dv">10000</span>)</span>
-<span id="cb302-12"><a href="basic-statistics-in-r.html#cb302-12" aria-hidden="true" tabindex="-1"></a>bootstrap_mpg_mean</span>
-<span id="cb302-13"><a href="basic-statistics-in-r.html#cb302-13" aria-hidden="true" tabindex="-1"></a><span class="co">#ORDINARY NONPARAMETRIC BOOTSTRAP</span></span>
-<span id="cb302-14"><a href="basic-statistics-in-r.html#cb302-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb302-15"><a href="basic-statistics-in-r.html#cb302-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Call:</span></span>
-<span id="cb302-16"><a href="basic-statistics-in-r.html#cb302-16" aria-hidden="true" tabindex="-1"></a><span class="co">#boot(data = cars_data, statistic = function_mean, R = 10000)</span></span>
-<span id="cb302-17"><a href="basic-statistics-in-r.html#cb302-17" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb302-18"><a href="basic-statistics-in-r.html#cb302-18" aria-hidden="true" tabindex="-1"></a><span class="co">#Bootstrap Statistics :</span></span>
-<span id="cb302-19"><a href="basic-statistics-in-r.html#cb302-19" aria-hidden="true" tabindex="-1"></a><span class="co">#    original      bias    std. error</span></span>
-<span id="cb302-20"><a href="basic-statistics-in-r.html#cb302-20" aria-hidden="true" tabindex="-1"></a><span class="co">#t1* 20.09062 0.002242188    1.053944</span></span>
-<span id="cb302-21"><a href="basic-statistics-in-r.html#cb302-21" aria-hidden="true" tabindex="-1"></a>bootstrap_mpg_mean<span class="sc">$</span>t0</span>
-<span id="cb302-22"><a href="basic-statistics-in-r.html#cb302-22" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 20.09062</span></span>
-<span id="cb302-23"><a href="basic-statistics-in-r.html#cb302-23" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bootstrap_mpg_mean<span class="sc">$</span>t)</span>
-<span id="cb302-24"><a href="basic-statistics-in-r.html#cb302-24" aria-hidden="true" tabindex="-1"></a><span class="co">#         [,1]</span></span>
-<span id="cb302-25"><a href="basic-statistics-in-r.html#cb302-25" aria-hidden="true" tabindex="-1"></a><span class="co">#[1,] 20.16562</span></span>
-<span id="cb302-26"><a href="basic-statistics-in-r.html#cb302-26" aria-hidden="true" tabindex="-1"></a><span class="co">#[2,] 20.05937</span></span>
-<span id="cb302-27"><a href="basic-statistics-in-r.html#cb302-27" aria-hidden="true" tabindex="-1"></a><span class="co">#[3,] 20.42188</span></span>
-<span id="cb302-28"><a href="basic-statistics-in-r.html#cb302-28" aria-hidden="true" tabindex="-1"></a><span class="co">#[4,] 20.45000</span></span>
-<span id="cb302-29"><a href="basic-statistics-in-r.html#cb302-29" aria-hidden="true" tabindex="-1"></a><span class="co">#[5,] 20.48125</span></span>
-<span id="cb302-30"><a href="basic-statistics-in-r.html#cb302-30" aria-hidden="true" tabindex="-1"></a><span class="co">#[6,] 21.81875</span></span>
-<span id="cb302-31"><a href="basic-statistics-in-r.html#cb302-31" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
-<span id="cb302-32"><a href="basic-statistics-in-r.html#cb302-32" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(bootstrap_mpg_mean<span class="sc">$</span>t)</span>
-<span id="cb302-33"><a href="basic-statistics-in-r.html#cb302-33" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 10000     1</span></span>
-<span id="cb302-34"><a href="basic-statistics-in-r.html#cb302-34" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bootstrap_mpg_mean<span class="sc">$</span>t)</span>
-<span id="cb302-35"><a href="basic-statistics-in-r.html#cb302-35" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 20.09287</span></span>
-<span id="cb302-36"><a href="basic-statistics-in-r.html#cb302-36" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(bootstrap_mpg_mean<span class="sc">$</span>t)</span>
-<span id="cb302-37"><a href="basic-statistics-in-r.html#cb302-37" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 15.7375 24.3375</span></span>
-<span id="cb302-38"><a href="basic-statistics-in-r.html#cb302-38" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(bootstrap_mpg_mean<span class="sc">$</span>t)</span>
-<span id="cb302-39"><a href="basic-statistics-in-r.html#cb302-39" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 1.053944</span></span>
-<span id="cb302-40"><a href="basic-statistics-in-r.html#cb302-40" aria-hidden="true" tabindex="-1"></a><span class="fu">boot.ci</span>(<span class="at">boot.out=</span>bootstrap_mpg_mean,<span class="at">type=</span><span class="st">&quot;norm&quot;</span>)</span>
-<span id="cb302-41"><a href="basic-statistics-in-r.html#cb302-41" aria-hidden="true" tabindex="-1"></a><span class="co">#BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS</span></span>
-<span id="cb302-42"><a href="basic-statistics-in-r.html#cb302-42" aria-hidden="true" tabindex="-1"></a><span class="co">#Based on 10000 bootstrap replicates</span></span>
-<span id="cb302-43"><a href="basic-statistics-in-r.html#cb302-43" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb302-44"><a href="basic-statistics-in-r.html#cb302-44" aria-hidden="true" tabindex="-1"></a><span class="co">#CALL : </span></span>
-<span id="cb302-45"><a href="basic-statistics-in-r.html#cb302-45" aria-hidden="true" tabindex="-1"></a><span class="co">#boot.ci(boot.out = bootstrap_mpg_mean, type = &quot;norm&quot;)</span></span>
-<span id="cb302-46"><a href="basic-statistics-in-r.html#cb302-46" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb302-47"><a href="basic-statistics-in-r.html#cb302-47" aria-hidden="true" tabindex="-1"></a><span class="co">#Intervals : </span></span>
-<span id="cb302-48"><a href="basic-statistics-in-r.html#cb302-48" aria-hidden="true" tabindex="-1"></a><span class="co">#Level      Normal        </span></span>
-<span id="cb302-49"><a href="basic-statistics-in-r.html#cb302-49" aria-hidden="true" tabindex="-1"></a><span class="co">#95%   (18.02, 22.15 )  </span></span>
-<span id="cb302-50"><a href="basic-statistics-in-r.html#cb302-50" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculations and Intervals on Original Scale</span></span>
-<span id="cb302-51"><a href="basic-statistics-in-r.html#cb302-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb302-52"><a href="basic-statistics-in-r.html#cb302-52" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(bootstrap_mpg_mean<span class="sc">$</span>t, <span class="at">breaks=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;dodgerblue1&quot;</span>, <span class="at">main=</span><span class="st">&quot;Bootstrap Distribution of the Mean: mpg&quot;</span>)</span>
-<span id="cb302-53"><a href="basic-statistics-in-r.html#cb302-53" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> <span class="fu">density</span>(<span class="at">x =</span> bootstrap_mpg_mean<span class="sc">$</span>t))</span>
-<span id="cb302-54"><a href="basic-statistics-in-r.html#cb302-54" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(bootstrap_mpg_mean<span class="sc">$</span>t), <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="basic-statistics-in-r.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="do">## First, we need a function that calculate a mean for each sample</span></span>
+<span id="cb309-2"><a href="basic-statistics-in-r.html#cb309-2" aria-hidden="true" tabindex="-1"></a>function_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(data, i){</span>
+<span id="cb309-3"><a href="basic-statistics-in-r.html#cb309-3" aria-hidden="true" tabindex="-1"></a>                              my_data2 <span class="ot">&lt;-</span> data[i,] </span>
+<span id="cb309-4"><a href="basic-statistics-in-r.html#cb309-4" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">return</span>(<span class="fu">mean</span>(my_data2<span class="sc">$</span>mpg))</span>
+<span id="cb309-5"><a href="basic-statistics-in-r.html#cb309-5" aria-hidden="true" tabindex="-1"></a>                                  }</span>
+<span id="cb309-6"><a href="basic-statistics-in-r.html#cb309-6" aria-hidden="true" tabindex="-1"></a><span class="co"># The arguments of this function are data or the source dataset </span></span>
+<span id="cb309-7"><a href="basic-statistics-in-r.html#cb309-7" aria-hidden="true" tabindex="-1"></a><span class="co"># and [i] is the vector index of which rows from the source dataset will be draw to build a bootstrap sample.</span></span>
+<span id="cb309-8"><a href="basic-statistics-in-r.html#cb309-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb309-9"><a href="basic-statistics-in-r.html#cb309-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Second, we can run our bootstrap with 100000 bootstrap replicates</span></span>
+<span id="cb309-10"><a href="basic-statistics-in-r.html#cb309-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb309-11"><a href="basic-statistics-in-r.html#cb309-11" aria-hidden="true" tabindex="-1"></a>bootstrap_mpg_mean <span class="ot">&lt;-</span> <span class="fu">boot</span>(<span class="at">data =</span> cars_data, <span class="at">statistic =</span> function_mean, <span class="at">R =</span> <span class="dv">10000</span>)</span>
+<span id="cb309-12"><a href="basic-statistics-in-r.html#cb309-12" aria-hidden="true" tabindex="-1"></a>bootstrap_mpg_mean</span>
+<span id="cb309-13"><a href="basic-statistics-in-r.html#cb309-13" aria-hidden="true" tabindex="-1"></a><span class="co">#ORDINARY NONPARAMETRIC BOOTSTRAP</span></span>
+<span id="cb309-14"><a href="basic-statistics-in-r.html#cb309-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb309-15"><a href="basic-statistics-in-r.html#cb309-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Call:</span></span>
+<span id="cb309-16"><a href="basic-statistics-in-r.html#cb309-16" aria-hidden="true" tabindex="-1"></a><span class="co">#boot(data = cars_data, statistic = function_mean, R = 10000)</span></span>
+<span id="cb309-17"><a href="basic-statistics-in-r.html#cb309-17" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb309-18"><a href="basic-statistics-in-r.html#cb309-18" aria-hidden="true" tabindex="-1"></a><span class="co">#Bootstrap Statistics :</span></span>
+<span id="cb309-19"><a href="basic-statistics-in-r.html#cb309-19" aria-hidden="true" tabindex="-1"></a><span class="co">#    original      bias    std. error</span></span>
+<span id="cb309-20"><a href="basic-statistics-in-r.html#cb309-20" aria-hidden="true" tabindex="-1"></a><span class="co">#t1* 20.09062 0.002242188    1.053944</span></span>
+<span id="cb309-21"><a href="basic-statistics-in-r.html#cb309-21" aria-hidden="true" tabindex="-1"></a>bootstrap_mpg_mean<span class="sc">$</span>t0</span>
+<span id="cb309-22"><a href="basic-statistics-in-r.html#cb309-22" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 20.09062</span></span>
+<span id="cb309-23"><a href="basic-statistics-in-r.html#cb309-23" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bootstrap_mpg_mean<span class="sc">$</span>t)</span>
+<span id="cb309-24"><a href="basic-statistics-in-r.html#cb309-24" aria-hidden="true" tabindex="-1"></a><span class="co">#         [,1]</span></span>
+<span id="cb309-25"><a href="basic-statistics-in-r.html#cb309-25" aria-hidden="true" tabindex="-1"></a><span class="co">#[1,] 20.16562</span></span>
+<span id="cb309-26"><a href="basic-statistics-in-r.html#cb309-26" aria-hidden="true" tabindex="-1"></a><span class="co">#[2,] 20.05937</span></span>
+<span id="cb309-27"><a href="basic-statistics-in-r.html#cb309-27" aria-hidden="true" tabindex="-1"></a><span class="co">#[3,] 20.42188</span></span>
+<span id="cb309-28"><a href="basic-statistics-in-r.html#cb309-28" aria-hidden="true" tabindex="-1"></a><span class="co">#[4,] 20.45000</span></span>
+<span id="cb309-29"><a href="basic-statistics-in-r.html#cb309-29" aria-hidden="true" tabindex="-1"></a><span class="co">#[5,] 20.48125</span></span>
+<span id="cb309-30"><a href="basic-statistics-in-r.html#cb309-30" aria-hidden="true" tabindex="-1"></a><span class="co">#[6,] 21.81875</span></span>
+<span id="cb309-31"><a href="basic-statistics-in-r.html#cb309-31" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
+<span id="cb309-32"><a href="basic-statistics-in-r.html#cb309-32" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(bootstrap_mpg_mean<span class="sc">$</span>t)</span>
+<span id="cb309-33"><a href="basic-statistics-in-r.html#cb309-33" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 10000     1</span></span>
+<span id="cb309-34"><a href="basic-statistics-in-r.html#cb309-34" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bootstrap_mpg_mean<span class="sc">$</span>t)</span>
+<span id="cb309-35"><a href="basic-statistics-in-r.html#cb309-35" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 20.09287</span></span>
+<span id="cb309-36"><a href="basic-statistics-in-r.html#cb309-36" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(bootstrap_mpg_mean<span class="sc">$</span>t)</span>
+<span id="cb309-37"><a href="basic-statistics-in-r.html#cb309-37" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 15.7375 24.3375</span></span>
+<span id="cb309-38"><a href="basic-statistics-in-r.html#cb309-38" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(bootstrap_mpg_mean<span class="sc">$</span>t)</span>
+<span id="cb309-39"><a href="basic-statistics-in-r.html#cb309-39" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 1.053944</span></span>
+<span id="cb309-40"><a href="basic-statistics-in-r.html#cb309-40" aria-hidden="true" tabindex="-1"></a><span class="fu">boot.ci</span>(<span class="at">boot.out=</span>bootstrap_mpg_mean,<span class="at">type=</span><span class="st">&quot;norm&quot;</span>)</span>
+<span id="cb309-41"><a href="basic-statistics-in-r.html#cb309-41" aria-hidden="true" tabindex="-1"></a><span class="co">#BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS</span></span>
+<span id="cb309-42"><a href="basic-statistics-in-r.html#cb309-42" aria-hidden="true" tabindex="-1"></a><span class="co">#Based on 10000 bootstrap replicates</span></span>
+<span id="cb309-43"><a href="basic-statistics-in-r.html#cb309-43" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb309-44"><a href="basic-statistics-in-r.html#cb309-44" aria-hidden="true" tabindex="-1"></a><span class="co">#CALL : </span></span>
+<span id="cb309-45"><a href="basic-statistics-in-r.html#cb309-45" aria-hidden="true" tabindex="-1"></a><span class="co">#boot.ci(boot.out = bootstrap_mpg_mean, type = &quot;norm&quot;)</span></span>
+<span id="cb309-46"><a href="basic-statistics-in-r.html#cb309-46" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb309-47"><a href="basic-statistics-in-r.html#cb309-47" aria-hidden="true" tabindex="-1"></a><span class="co">#Intervals : </span></span>
+<span id="cb309-48"><a href="basic-statistics-in-r.html#cb309-48" aria-hidden="true" tabindex="-1"></a><span class="co">#Level      Normal        </span></span>
+<span id="cb309-49"><a href="basic-statistics-in-r.html#cb309-49" aria-hidden="true" tabindex="-1"></a><span class="co">#95%   (18.02, 22.15 )  </span></span>
+<span id="cb309-50"><a href="basic-statistics-in-r.html#cb309-50" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculations and Intervals on Original Scale</span></span>
+<span id="cb309-51"><a href="basic-statistics-in-r.html#cb309-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb309-52"><a href="basic-statistics-in-r.html#cb309-52" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(bootstrap_mpg_mean<span class="sc">$</span>t, <span class="at">breaks=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;dodgerblue1&quot;</span>, <span class="at">main=</span><span class="st">&quot;Bootstrap Distribution of the Mean: mpg&quot;</span>)</span>
+<span id="cb309-53"><a href="basic-statistics-in-r.html#cb309-53" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> <span class="fu">density</span>(<span class="at">x =</span> bootstrap_mpg_mean<span class="sc">$</span>t))</span>
+<span id="cb309-54"><a href="basic-statistics-in-r.html#cb309-54" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(bootstrap_mpg_mean<span class="sc">$</span>t), <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="figures/session_6_figs/7_boostrap_mean.png" width="100%" /></p>
 <p>The results are as follows: <strong>t0</strong> are the values of the statistic (i.e., mean) in original dataset,
 <strong>t</strong> is a matrix of 10000 rows (i.e., number of bootstrap repetitions) that we use to draw our estimate of the mean.
@@ -2126,61 +2283,61 @@ The original mean value is <strong>20.09062</strong> and the bootstrap estimate 
 very close at <strong>20.09287</strong>, with a 95% CI between <strong>18.02</strong> and <strong>22.15</strong>. Therefore, it is some variability
 in the original sample for <code>mpg</code>.</p>
 <p>Now, we can try another more complex analysis. For example, the correlation between <code>disp</code> and <code>wt</code>.</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="basic-statistics-in-r.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="do">## null estimate of correlation</span></span>
-<span id="cb303-2"><a href="basic-statistics-in-r.html#cb303-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(cars_data<span class="sc">$</span>disp, cars_data<span class="sc">$</span>wt)</span>
-<span id="cb303-3"><a href="basic-statistics-in-r.html#cb303-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.8879799</span></span>
-<span id="cb303-4"><a href="basic-statistics-in-r.html#cb303-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb303-5"><a href="basic-statistics-in-r.html#cb303-5" aria-hidden="true" tabindex="-1"></a><span class="do">## First, we need a function that calculate correlation for each sample</span></span>
-<span id="cb303-6"><a href="basic-statistics-in-r.html#cb303-6" aria-hidden="true" tabindex="-1"></a>function_correlation <span class="ot">&lt;-</span> <span class="cf">function</span>(data, i){</span>
-<span id="cb303-7"><a href="basic-statistics-in-r.html#cb303-7" aria-hidden="true" tabindex="-1"></a>                              my_data2 <span class="ot">&lt;-</span> data[i,] </span>
-<span id="cb303-8"><a href="basic-statistics-in-r.html#cb303-8" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">return</span>(<span class="fu">cor</span>(my_data2<span class="sc">$</span>disp, my_data2<span class="sc">$</span>wt))</span>
-<span id="cb303-9"><a href="basic-statistics-in-r.html#cb303-9" aria-hidden="true" tabindex="-1"></a>                                  }</span>
-<span id="cb303-10"><a href="basic-statistics-in-r.html#cb303-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Second, we can run our bootstrap with 100000 bootstrap replicates</span></span>
-<span id="cb303-11"><a href="basic-statistics-in-r.html#cb303-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb303-12"><a href="basic-statistics-in-r.html#cb303-12" aria-hidden="true" tabindex="-1"></a>bootstrap_cor_dis_and_wt <span class="ot">&lt;-</span> <span class="fu">boot</span>(<span class="at">data =</span> cars_data, <span class="at">statistic =</span> function_correlation, <span class="at">R =</span> <span class="dv">10000</span>)</span>
-<span id="cb303-13"><a href="basic-statistics-in-r.html#cb303-13" aria-hidden="true" tabindex="-1"></a>bootstrap_cor_dis_and_wt</span>
-<span id="cb303-14"><a href="basic-statistics-in-r.html#cb303-14" aria-hidden="true" tabindex="-1"></a><span class="co">#ORDINARY NONPARAMETRIC BOOTSTRAP</span></span>
-<span id="cb303-15"><a href="basic-statistics-in-r.html#cb303-15" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb303-16"><a href="basic-statistics-in-r.html#cb303-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Call:</span></span>
-<span id="cb303-17"><a href="basic-statistics-in-r.html#cb303-17" aria-hidden="true" tabindex="-1"></a><span class="co">#boot(data = cars_data, statistic = function_correlation, R = 10000)</span></span>
-<span id="cb303-18"><a href="basic-statistics-in-r.html#cb303-18" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb303-19"><a href="basic-statistics-in-r.html#cb303-19" aria-hidden="true" tabindex="-1"></a><span class="co">#Bootstrap Statistics :</span></span>
-<span id="cb303-20"><a href="basic-statistics-in-r.html#cb303-20" aria-hidden="true" tabindex="-1"></a><span class="co">#     original       bias    std. error</span></span>
-<span id="cb303-21"><a href="basic-statistics-in-r.html#cb303-21" aria-hidden="true" tabindex="-1"></a><span class="co">#t1* 0.8879799 -0.003775209  0.03749136</span></span>
-<span id="cb303-22"><a href="basic-statistics-in-r.html#cb303-22" aria-hidden="true" tabindex="-1"></a>bootstrap_cor_dis_and_wt<span class="sc">$</span>t0</span>
-<span id="cb303-23"><a href="basic-statistics-in-r.html#cb303-23" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.8879799</span></span>
-<span id="cb303-24"><a href="basic-statistics-in-r.html#cb303-24" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t)</span>
-<span id="cb303-25"><a href="basic-statistics-in-r.html#cb303-25" aria-hidden="true" tabindex="-1"></a><span class="co">#         [,1]</span></span>
-<span id="cb303-26"><a href="basic-statistics-in-r.html#cb303-26" aria-hidden="true" tabindex="-1"></a><span class="co">#[1,] 0.8612517</span></span>
-<span id="cb303-27"><a href="basic-statistics-in-r.html#cb303-27" aria-hidden="true" tabindex="-1"></a><span class="co">#[2,] 0.7704631</span></span>
-<span id="cb303-28"><a href="basic-statistics-in-r.html#cb303-28" aria-hidden="true" tabindex="-1"></a><span class="co">#[3,] 0.9229136</span></span>
-<span id="cb303-29"><a href="basic-statistics-in-r.html#cb303-29" aria-hidden="true" tabindex="-1"></a><span class="co">#[4,] 0.8536788</span></span>
-<span id="cb303-30"><a href="basic-statistics-in-r.html#cb303-30" aria-hidden="true" tabindex="-1"></a><span class="co">#[5,] 0.8677477</span></span>
-<span id="cb303-31"><a href="basic-statistics-in-r.html#cb303-31" aria-hidden="true" tabindex="-1"></a><span class="co">#[6,] 0.8298354</span></span>
-<span id="cb303-32"><a href="basic-statistics-in-r.html#cb303-32" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
-<span id="cb303-33"><a href="basic-statistics-in-r.html#cb303-33" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t)</span>
-<span id="cb303-34"><a href="basic-statistics-in-r.html#cb303-34" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 10000     1</span></span>
-<span id="cb303-35"><a href="basic-statistics-in-r.html#cb303-35" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t)</span>
-<span id="cb303-36"><a href="basic-statistics-in-r.html#cb303-36" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.8842047</span></span>
-<span id="cb303-37"><a href="basic-statistics-in-r.html#cb303-37" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t)</span>
-<span id="cb303-38"><a href="basic-statistics-in-r.html#cb303-38" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.6994762 0.9806787</span></span>
-<span id="cb303-39"><a href="basic-statistics-in-r.html#cb303-39" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t)</span>
-<span id="cb303-40"><a href="basic-statistics-in-r.html#cb303-40" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.03749136</span></span>
-<span id="cb303-41"><a href="basic-statistics-in-r.html#cb303-41" aria-hidden="true" tabindex="-1"></a><span class="fu">boot.ci</span>(<span class="at">boot.out=</span>bootstrap_cor_dis_and_wt,<span class="at">type=</span><span class="st">&quot;norm&quot;</span>)</span>
-<span id="cb303-42"><a href="basic-statistics-in-r.html#cb303-42" aria-hidden="true" tabindex="-1"></a><span class="co">#BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS</span></span>
-<span id="cb303-43"><a href="basic-statistics-in-r.html#cb303-43" aria-hidden="true" tabindex="-1"></a><span class="co">#Based on 10000 bootstrap replicates</span></span>
-<span id="cb303-44"><a href="basic-statistics-in-r.html#cb303-44" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb303-45"><a href="basic-statistics-in-r.html#cb303-45" aria-hidden="true" tabindex="-1"></a><span class="co">#CALL : </span></span>
-<span id="cb303-46"><a href="basic-statistics-in-r.html#cb303-46" aria-hidden="true" tabindex="-1"></a><span class="co">#boot.ci(boot.out = bootstrap_cor_dis_and_wt, type = &quot;norm&quot;)</span></span>
-<span id="cb303-47"><a href="basic-statistics-in-r.html#cb303-47" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb303-48"><a href="basic-statistics-in-r.html#cb303-48" aria-hidden="true" tabindex="-1"></a><span class="co">#Intervals : </span></span>
-<span id="cb303-49"><a href="basic-statistics-in-r.html#cb303-49" aria-hidden="true" tabindex="-1"></a><span class="co">#Level      Normal        </span></span>
-<span id="cb303-50"><a href="basic-statistics-in-r.html#cb303-50" aria-hidden="true" tabindex="-1"></a><span class="co">#95%   ( 0.8183,  0.9652 )  </span></span>
-<span id="cb303-51"><a href="basic-statistics-in-r.html#cb303-51" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculations and Intervals on Original Scale</span></span>
-<span id="cb303-52"><a href="basic-statistics-in-r.html#cb303-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb303-53"><a href="basic-statistics-in-r.html#cb303-53" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t, <span class="at">breaks=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;firebrick2&quot;</span>, <span class="at">main=</span><span class="st">&quot;Bootstrap Distribution of the Correlation: dis vs wt&quot;</span>)</span>
-<span id="cb303-54"><a href="basic-statistics-in-r.html#cb303-54" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> <span class="fu">density</span>(<span class="at">x =</span> bootstrap_cor_dis_and_wt<span class="sc">$</span>t))</span>
-<span id="cb303-55"><a href="basic-statistics-in-r.html#cb303-55" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t), <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="basic-statistics-in-r.html#cb310-1" aria-hidden="true" tabindex="-1"></a><span class="do">## null estimate of correlation</span></span>
+<span id="cb310-2"><a href="basic-statistics-in-r.html#cb310-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(cars_data<span class="sc">$</span>disp, cars_data<span class="sc">$</span>wt)</span>
+<span id="cb310-3"><a href="basic-statistics-in-r.html#cb310-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.8879799</span></span>
+<span id="cb310-4"><a href="basic-statistics-in-r.html#cb310-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb310-5"><a href="basic-statistics-in-r.html#cb310-5" aria-hidden="true" tabindex="-1"></a><span class="do">## First, we need a function that calculate correlation for each sample</span></span>
+<span id="cb310-6"><a href="basic-statistics-in-r.html#cb310-6" aria-hidden="true" tabindex="-1"></a>function_correlation <span class="ot">&lt;-</span> <span class="cf">function</span>(data, i){</span>
+<span id="cb310-7"><a href="basic-statistics-in-r.html#cb310-7" aria-hidden="true" tabindex="-1"></a>                              my_data2 <span class="ot">&lt;-</span> data[i,] </span>
+<span id="cb310-8"><a href="basic-statistics-in-r.html#cb310-8" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">return</span>(<span class="fu">cor</span>(my_data2<span class="sc">$</span>disp, my_data2<span class="sc">$</span>wt))</span>
+<span id="cb310-9"><a href="basic-statistics-in-r.html#cb310-9" aria-hidden="true" tabindex="-1"></a>                                  }</span>
+<span id="cb310-10"><a href="basic-statistics-in-r.html#cb310-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Second, we can run our bootstrap with 100000 bootstrap replicates</span></span>
+<span id="cb310-11"><a href="basic-statistics-in-r.html#cb310-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb310-12"><a href="basic-statistics-in-r.html#cb310-12" aria-hidden="true" tabindex="-1"></a>bootstrap_cor_dis_and_wt <span class="ot">&lt;-</span> <span class="fu">boot</span>(<span class="at">data =</span> cars_data, <span class="at">statistic =</span> function_correlation, <span class="at">R =</span> <span class="dv">10000</span>)</span>
+<span id="cb310-13"><a href="basic-statistics-in-r.html#cb310-13" aria-hidden="true" tabindex="-1"></a>bootstrap_cor_dis_and_wt</span>
+<span id="cb310-14"><a href="basic-statistics-in-r.html#cb310-14" aria-hidden="true" tabindex="-1"></a><span class="co">#ORDINARY NONPARAMETRIC BOOTSTRAP</span></span>
+<span id="cb310-15"><a href="basic-statistics-in-r.html#cb310-15" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb310-16"><a href="basic-statistics-in-r.html#cb310-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Call:</span></span>
+<span id="cb310-17"><a href="basic-statistics-in-r.html#cb310-17" aria-hidden="true" tabindex="-1"></a><span class="co">#boot(data = cars_data, statistic = function_correlation, R = 10000)</span></span>
+<span id="cb310-18"><a href="basic-statistics-in-r.html#cb310-18" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb310-19"><a href="basic-statistics-in-r.html#cb310-19" aria-hidden="true" tabindex="-1"></a><span class="co">#Bootstrap Statistics :</span></span>
+<span id="cb310-20"><a href="basic-statistics-in-r.html#cb310-20" aria-hidden="true" tabindex="-1"></a><span class="co">#     original       bias    std. error</span></span>
+<span id="cb310-21"><a href="basic-statistics-in-r.html#cb310-21" aria-hidden="true" tabindex="-1"></a><span class="co">#t1* 0.8879799 -0.003775209  0.03749136</span></span>
+<span id="cb310-22"><a href="basic-statistics-in-r.html#cb310-22" aria-hidden="true" tabindex="-1"></a>bootstrap_cor_dis_and_wt<span class="sc">$</span>t0</span>
+<span id="cb310-23"><a href="basic-statistics-in-r.html#cb310-23" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.8879799</span></span>
+<span id="cb310-24"><a href="basic-statistics-in-r.html#cb310-24" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t)</span>
+<span id="cb310-25"><a href="basic-statistics-in-r.html#cb310-25" aria-hidden="true" tabindex="-1"></a><span class="co">#         [,1]</span></span>
+<span id="cb310-26"><a href="basic-statistics-in-r.html#cb310-26" aria-hidden="true" tabindex="-1"></a><span class="co">#[1,] 0.8612517</span></span>
+<span id="cb310-27"><a href="basic-statistics-in-r.html#cb310-27" aria-hidden="true" tabindex="-1"></a><span class="co">#[2,] 0.7704631</span></span>
+<span id="cb310-28"><a href="basic-statistics-in-r.html#cb310-28" aria-hidden="true" tabindex="-1"></a><span class="co">#[3,] 0.9229136</span></span>
+<span id="cb310-29"><a href="basic-statistics-in-r.html#cb310-29" aria-hidden="true" tabindex="-1"></a><span class="co">#[4,] 0.8536788</span></span>
+<span id="cb310-30"><a href="basic-statistics-in-r.html#cb310-30" aria-hidden="true" tabindex="-1"></a><span class="co">#[5,] 0.8677477</span></span>
+<span id="cb310-31"><a href="basic-statistics-in-r.html#cb310-31" aria-hidden="true" tabindex="-1"></a><span class="co">#[6,] 0.8298354</span></span>
+<span id="cb310-32"><a href="basic-statistics-in-r.html#cb310-32" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
+<span id="cb310-33"><a href="basic-statistics-in-r.html#cb310-33" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t)</span>
+<span id="cb310-34"><a href="basic-statistics-in-r.html#cb310-34" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 10000     1</span></span>
+<span id="cb310-35"><a href="basic-statistics-in-r.html#cb310-35" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t)</span>
+<span id="cb310-36"><a href="basic-statistics-in-r.html#cb310-36" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.8842047</span></span>
+<span id="cb310-37"><a href="basic-statistics-in-r.html#cb310-37" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t)</span>
+<span id="cb310-38"><a href="basic-statistics-in-r.html#cb310-38" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.6994762 0.9806787</span></span>
+<span id="cb310-39"><a href="basic-statistics-in-r.html#cb310-39" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t)</span>
+<span id="cb310-40"><a href="basic-statistics-in-r.html#cb310-40" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.03749136</span></span>
+<span id="cb310-41"><a href="basic-statistics-in-r.html#cb310-41" aria-hidden="true" tabindex="-1"></a><span class="fu">boot.ci</span>(<span class="at">boot.out=</span>bootstrap_cor_dis_and_wt,<span class="at">type=</span><span class="st">&quot;norm&quot;</span>)</span>
+<span id="cb310-42"><a href="basic-statistics-in-r.html#cb310-42" aria-hidden="true" tabindex="-1"></a><span class="co">#BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS</span></span>
+<span id="cb310-43"><a href="basic-statistics-in-r.html#cb310-43" aria-hidden="true" tabindex="-1"></a><span class="co">#Based on 10000 bootstrap replicates</span></span>
+<span id="cb310-44"><a href="basic-statistics-in-r.html#cb310-44" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb310-45"><a href="basic-statistics-in-r.html#cb310-45" aria-hidden="true" tabindex="-1"></a><span class="co">#CALL : </span></span>
+<span id="cb310-46"><a href="basic-statistics-in-r.html#cb310-46" aria-hidden="true" tabindex="-1"></a><span class="co">#boot.ci(boot.out = bootstrap_cor_dis_and_wt, type = &quot;norm&quot;)</span></span>
+<span id="cb310-47"><a href="basic-statistics-in-r.html#cb310-47" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb310-48"><a href="basic-statistics-in-r.html#cb310-48" aria-hidden="true" tabindex="-1"></a><span class="co">#Intervals : </span></span>
+<span id="cb310-49"><a href="basic-statistics-in-r.html#cb310-49" aria-hidden="true" tabindex="-1"></a><span class="co">#Level      Normal        </span></span>
+<span id="cb310-50"><a href="basic-statistics-in-r.html#cb310-50" aria-hidden="true" tabindex="-1"></a><span class="co">#95%   ( 0.8183,  0.9652 )  </span></span>
+<span id="cb310-51"><a href="basic-statistics-in-r.html#cb310-51" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculations and Intervals on Original Scale</span></span>
+<span id="cb310-52"><a href="basic-statistics-in-r.html#cb310-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb310-53"><a href="basic-statistics-in-r.html#cb310-53" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t, <span class="at">breaks=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;firebrick2&quot;</span>, <span class="at">main=</span><span class="st">&quot;Bootstrap Distribution of the Correlation: dis vs wt&quot;</span>)</span>
+<span id="cb310-54"><a href="basic-statistics-in-r.html#cb310-54" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> <span class="fu">density</span>(<span class="at">x =</span> bootstrap_cor_dis_and_wt<span class="sc">$</span>t))</span>
+<span id="cb310-55"><a href="basic-statistics-in-r.html#cb310-55" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(bootstrap_cor_dis_and_wt<span class="sc">$</span>t), <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="figures/session_6_figs/8_boostrap_correlation.png" width="100%" /></p>
 <p>The results are as follows: <strong>t0</strong> are the values of the statistic (i.e., correlation) in original dataset,
 <strong>t</strong> is a matrix of 10000 rows (i.e., number of bootstrap repetitions) that we use to draw our estimate of this correlation.
@@ -2227,7 +2384,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-General-Statistics_v19.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-General-Statistics_v20.Rmd",
 "text": "Edit"
 },
 "history": {

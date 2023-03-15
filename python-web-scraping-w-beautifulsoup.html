@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2023-02-22" />
+<meta name="date" content="2023-03-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -199,13 +199,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.11" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-means-t-test"><i class="fa fa-check"></i><b>6.11</b> Comparing means: t-test</a></li>
 <li class="chapter" data-level="6.12" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#two-sample-t-test"><i class="fa fa-check"></i><b>6.12</b> Two sample t-test</a></li>
 <li class="chapter" data-level="6.13" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>6.13</b> Beyond t-test: Wilcoxon signed rank test</a></li>
-<li class="chapter" data-level="6.14" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-binomial-test"><i class="fa fa-check"></i><b>6.14</b> Beyond t-test: Binomial test</a></li>
-<li class="chapter" data-level="6.15" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-chi-square-goodness-of-fit"><i class="fa fa-check"></i><b>6.15</b> Beyond t-test: Chi-square goodness of fit</a></li>
-<li class="chapter" data-level="6.16" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-mcnemars-test"><i class="fa fa-check"></i><b>6.16</b> Beyond t-test: McNemar’s test</a></li>
-<li class="chapter" data-level="6.17" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-fishers-exact-test"><i class="fa fa-check"></i><b>6.17</b> Beyond t-test: Fisher’s exact test</a></li>
-<li class="chapter" data-level="6.18" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.18</b> Correlations</a></li>
-<li class="chapter" data-level="6.19" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.19</b> Comparing distributions</a></li>
-<li class="chapter" data-level="6.20" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#bootstraps"><i class="fa fa-check"></i><b>6.20</b> Bootstraps</a></li>
+<li class="chapter" data-level="6.14" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#tabulation-and-cross-tabulation"><i class="fa fa-check"></i><b>6.14</b> Tabulation and Cross-Tabulation</a></li>
+<li class="chapter" data-level="6.15" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-binomial-test"><i class="fa fa-check"></i><b>6.15</b> Beyond t-test: Binomial test</a></li>
+<li class="chapter" data-level="6.16" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-chi-square-goodness-of-fit"><i class="fa fa-check"></i><b>6.16</b> Beyond t-test: Chi-square goodness of fit</a></li>
+<li class="chapter" data-level="6.17" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-mcnemars-test"><i class="fa fa-check"></i><b>6.17</b> Beyond t-test: McNemar’s test</a></li>
+<li class="chapter" data-level="6.18" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-fishers-exact-test"><i class="fa fa-check"></i><b>6.18</b> Beyond t-test: Fisher’s exact test</a></li>
+<li class="chapter" data-level="6.19" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.19</b> Correlations</a></li>
+<li class="chapter" data-level="6.20" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.20</b> Comparing distributions</a></li>
+<li class="chapter" data-level="6.21" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#bootstraps"><i class="fa fa-check"></i><b>6.21</b> Bootstraps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html"><i class="fa fa-check"></i><b>7</b> – Regressions and ANOVA in R</a>
 <ul>
@@ -520,143 +521,143 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="getting-started-1" class="section level2" number="26.3">
 <h2><span class="header-section-number">26.3</span> Getting started</h2>
 <p>Open the Python Version in which BeautifulSoup was installed in and change to your working directory for the class.</p>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="python-web-scraping-w-beautifulsoup.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import request</span></span>
-<span id="cb587-2"><a href="python-web-scraping-w-beautifulsoup.html#cb587-2" aria-hidden="true" tabindex="-1"></a>import requests</span>
-<span id="cb587-3"><a href="python-web-scraping-w-beautifulsoup.html#cb587-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-4"><a href="python-web-scraping-w-beautifulsoup.html#cb587-4" aria-hidden="true" tabindex="-1"></a><span class="co"># get webpage data</span></span>
-<span id="cb587-5"><a href="python-web-scraping-w-beautifulsoup.html#cb587-5" aria-hidden="true" tabindex="-1"></a>page <span class="ot">=</span> <span class="fu">requests.get</span>(<span class="st">&quot;https://dataquestio.github.io/web-scraping-pages/simple.html&quot;</span>)</span>
-<span id="cb587-6"><a href="python-web-scraping-w-beautifulsoup.html#cb587-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-7"><a href="python-web-scraping-w-beautifulsoup.html#cb587-7" aria-hidden="true" tabindex="-1"></a><span class="co"># if page provides output then we successfully downloaded the page into Python</span></span>
-<span id="cb587-8"><a href="python-web-scraping-w-beautifulsoup.html#cb587-8" aria-hidden="true" tabindex="-1"></a>page</span>
-<span id="cb587-9"><a href="python-web-scraping-w-beautifulsoup.html#cb587-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-10"><a href="python-web-scraping-w-beautifulsoup.html#cb587-10" aria-hidden="true" tabindex="-1"></a><span class="co"># you can even get the status code of the webpage</span></span>
-<span id="cb587-11"><a href="python-web-scraping-w-beautifulsoup.html#cb587-11" aria-hidden="true" tabindex="-1"></a>page.status_code</span>
-<span id="cb587-12"><a href="python-web-scraping-w-beautifulsoup.html#cb587-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-13"><a href="python-web-scraping-w-beautifulsoup.html#cb587-13" aria-hidden="true" tabindex="-1"></a><span class="co"># you can print the HTML content that was downloaded</span></span>
-<span id="cb587-14"><a href="python-web-scraping-w-beautifulsoup.html#cb587-14" aria-hidden="true" tabindex="-1"></a>page.content</span>
-<span id="cb587-15"><a href="python-web-scraping-w-beautifulsoup.html#cb587-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-16"><a href="python-web-scraping-w-beautifulsoup.html#cb587-16" aria-hidden="true" tabindex="-1"></a><span class="co"># now that we downloaded the webpage we can use beautifulsoup to parse, the actual scraping of the content saved above</span></span>
-<span id="cb587-17"><a href="python-web-scraping-w-beautifulsoup.html#cb587-17" aria-hidden="true" tabindex="-1"></a>from bs4 import BeautifulSoup</span>
-<span id="cb587-18"><a href="python-web-scraping-w-beautifulsoup.html#cb587-18" aria-hidden="true" tabindex="-1"></a>soup <span class="ot">=</span> <span class="fu">BeautifulSoup</span>(page.content, <span class="st">&#39;html.parser&#39;</span>)</span>
-<span id="cb587-19"><a href="python-web-scraping-w-beautifulsoup.html#cb587-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-20"><a href="python-web-scraping-w-beautifulsoup.html#cb587-20" aria-hidden="true" tabindex="-1"></a><span class="co"># and we can view the html in a structured format</span></span>
-<span id="cb587-21"><a href="python-web-scraping-w-beautifulsoup.html#cb587-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">soup.prettify</span>())</span>
-<span id="cb587-22"><a href="python-web-scraping-w-beautifulsoup.html#cb587-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-23"><a href="python-web-scraping-w-beautifulsoup.html#cb587-23" aria-hidden="true" tabindex="-1"></a><span class="co"># we can call the HTML as a list with soup</span></span>
-<span id="cb587-24"><a href="python-web-scraping-w-beautifulsoup.html#cb587-24" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(soup.children)</span>
-<span id="cb587-25"><a href="python-web-scraping-w-beautifulsoup.html#cb587-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-26"><a href="python-web-scraping-w-beautifulsoup.html#cb587-26" aria-hidden="true" tabindex="-1"></a><span class="co"># we can lookup the element types involved</span></span>
-<span id="cb587-27"><a href="python-web-scraping-w-beautifulsoup.html#cb587-27" aria-hidden="true" tabindex="-1"></a>[<span class="fu">type</span>(item) <span class="cf">for</span> item <span class="cf">in</span> <span class="fu">list</span>(soup.children)]</span>
-<span id="cb587-28"><a href="python-web-scraping-w-beautifulsoup.html#cb587-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-29"><a href="python-web-scraping-w-beautifulsoup.html#cb587-29" aria-hidden="true" tabindex="-1"></a><span class="co"># We only want to look at the Tags in this case</span></span>
-<span id="cb587-30"><a href="python-web-scraping-w-beautifulsoup.html#cb587-30" aria-hidden="true" tabindex="-1"></a>html <span class="ot">=</span> <span class="fu">list</span>(soup.children)[<span class="dv">2</span>]</span>
-<span id="cb587-31"><a href="python-web-scraping-w-beautifulsoup.html#cb587-31" aria-hidden="true" tabindex="-1"></a>html</span>
-<span id="cb587-32"><a href="python-web-scraping-w-beautifulsoup.html#cb587-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-33"><a href="python-web-scraping-w-beautifulsoup.html#cb587-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Reformat html tags as a list</span></span>
-<span id="cb587-34"><a href="python-web-scraping-w-beautifulsoup.html#cb587-34" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(html.children)</span>
-<span id="cb587-35"><a href="python-web-scraping-w-beautifulsoup.html#cb587-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-36"><a href="python-web-scraping-w-beautifulsoup.html#cb587-36" aria-hidden="true" tabindex="-1"></a><span class="co"># We can now further select the html tag from this new list</span></span>
-<span id="cb587-37"><a href="python-web-scraping-w-beautifulsoup.html#cb587-37" aria-hidden="true" tabindex="-1"></a>body <span class="ot">=</span> <span class="fu">list</span>(html.children)[<span class="dv">3</span>]</span>
-<span id="cb587-38"><a href="python-web-scraping-w-beautifulsoup.html#cb587-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-39"><a href="python-web-scraping-w-beautifulsoup.html#cb587-39" aria-hidden="true" tabindex="-1"></a><span class="co"># And make that into a list! We are making so many lists</span></span>
-<span id="cb587-40"><a href="python-web-scraping-w-beautifulsoup.html#cb587-40" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(body.children)</span>
-<span id="cb587-41"><a href="python-web-scraping-w-beautifulsoup.html#cb587-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-42"><a href="python-web-scraping-w-beautifulsoup.html#cb587-42" aria-hidden="true" tabindex="-1"></a><span class="co"># we can now select the 2nd item in the list</span></span>
-<span id="cb587-43"><a href="python-web-scraping-w-beautifulsoup.html#cb587-43" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fu">list</span>(body.children)[<span class="dv">1</span>]</span>
-<span id="cb587-44"><a href="python-web-scraping-w-beautifulsoup.html#cb587-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-45"><a href="python-web-scraping-w-beautifulsoup.html#cb587-45" aria-hidden="true" tabindex="-1"></a><span class="co"># and finally we can extract only the text from that element without the html code that flanks it</span></span>
-<span id="cb587-46"><a href="python-web-scraping-w-beautifulsoup.html#cb587-46" aria-hidden="true" tabindex="-1"></a><span class="fu">p.get_text</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="python-web-scraping-w-beautifulsoup.html#cb594-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import request</span></span>
+<span id="cb594-2"><a href="python-web-scraping-w-beautifulsoup.html#cb594-2" aria-hidden="true" tabindex="-1"></a>import requests</span>
+<span id="cb594-3"><a href="python-web-scraping-w-beautifulsoup.html#cb594-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb594-4"><a href="python-web-scraping-w-beautifulsoup.html#cb594-4" aria-hidden="true" tabindex="-1"></a><span class="co"># get webpage data</span></span>
+<span id="cb594-5"><a href="python-web-scraping-w-beautifulsoup.html#cb594-5" aria-hidden="true" tabindex="-1"></a>page <span class="ot">=</span> <span class="fu">requests.get</span>(<span class="st">&quot;https://dataquestio.github.io/web-scraping-pages/simple.html&quot;</span>)</span>
+<span id="cb594-6"><a href="python-web-scraping-w-beautifulsoup.html#cb594-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb594-7"><a href="python-web-scraping-w-beautifulsoup.html#cb594-7" aria-hidden="true" tabindex="-1"></a><span class="co"># if page provides output then we successfully downloaded the page into Python</span></span>
+<span id="cb594-8"><a href="python-web-scraping-w-beautifulsoup.html#cb594-8" aria-hidden="true" tabindex="-1"></a>page</span>
+<span id="cb594-9"><a href="python-web-scraping-w-beautifulsoup.html#cb594-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb594-10"><a href="python-web-scraping-w-beautifulsoup.html#cb594-10" aria-hidden="true" tabindex="-1"></a><span class="co"># you can even get the status code of the webpage</span></span>
+<span id="cb594-11"><a href="python-web-scraping-w-beautifulsoup.html#cb594-11" aria-hidden="true" tabindex="-1"></a>page.status_code</span>
+<span id="cb594-12"><a href="python-web-scraping-w-beautifulsoup.html#cb594-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb594-13"><a href="python-web-scraping-w-beautifulsoup.html#cb594-13" aria-hidden="true" tabindex="-1"></a><span class="co"># you can print the HTML content that was downloaded</span></span>
+<span id="cb594-14"><a href="python-web-scraping-w-beautifulsoup.html#cb594-14" aria-hidden="true" tabindex="-1"></a>page.content</span>
+<span id="cb594-15"><a href="python-web-scraping-w-beautifulsoup.html#cb594-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb594-16"><a href="python-web-scraping-w-beautifulsoup.html#cb594-16" aria-hidden="true" tabindex="-1"></a><span class="co"># now that we downloaded the webpage we can use beautifulsoup to parse, the actual scraping of the content saved above</span></span>
+<span id="cb594-17"><a href="python-web-scraping-w-beautifulsoup.html#cb594-17" aria-hidden="true" tabindex="-1"></a>from bs4 import BeautifulSoup</span>
+<span id="cb594-18"><a href="python-web-scraping-w-beautifulsoup.html#cb594-18" aria-hidden="true" tabindex="-1"></a>soup <span class="ot">=</span> <span class="fu">BeautifulSoup</span>(page.content, <span class="st">&#39;html.parser&#39;</span>)</span>
+<span id="cb594-19"><a href="python-web-scraping-w-beautifulsoup.html#cb594-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb594-20"><a href="python-web-scraping-w-beautifulsoup.html#cb594-20" aria-hidden="true" tabindex="-1"></a><span class="co"># and we can view the html in a structured format</span></span>
+<span id="cb594-21"><a href="python-web-scraping-w-beautifulsoup.html#cb594-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">soup.prettify</span>())</span>
+<span id="cb594-22"><a href="python-web-scraping-w-beautifulsoup.html#cb594-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb594-23"><a href="python-web-scraping-w-beautifulsoup.html#cb594-23" aria-hidden="true" tabindex="-1"></a><span class="co"># we can call the HTML as a list with soup</span></span>
+<span id="cb594-24"><a href="python-web-scraping-w-beautifulsoup.html#cb594-24" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(soup.children)</span>
+<span id="cb594-25"><a href="python-web-scraping-w-beautifulsoup.html#cb594-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb594-26"><a href="python-web-scraping-w-beautifulsoup.html#cb594-26" aria-hidden="true" tabindex="-1"></a><span class="co"># we can lookup the element types involved</span></span>
+<span id="cb594-27"><a href="python-web-scraping-w-beautifulsoup.html#cb594-27" aria-hidden="true" tabindex="-1"></a>[<span class="fu">type</span>(item) <span class="cf">for</span> item <span class="cf">in</span> <span class="fu">list</span>(soup.children)]</span>
+<span id="cb594-28"><a href="python-web-scraping-w-beautifulsoup.html#cb594-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb594-29"><a href="python-web-scraping-w-beautifulsoup.html#cb594-29" aria-hidden="true" tabindex="-1"></a><span class="co"># We only want to look at the Tags in this case</span></span>
+<span id="cb594-30"><a href="python-web-scraping-w-beautifulsoup.html#cb594-30" aria-hidden="true" tabindex="-1"></a>html <span class="ot">=</span> <span class="fu">list</span>(soup.children)[<span class="dv">2</span>]</span>
+<span id="cb594-31"><a href="python-web-scraping-w-beautifulsoup.html#cb594-31" aria-hidden="true" tabindex="-1"></a>html</span>
+<span id="cb594-32"><a href="python-web-scraping-w-beautifulsoup.html#cb594-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb594-33"><a href="python-web-scraping-w-beautifulsoup.html#cb594-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Reformat html tags as a list</span></span>
+<span id="cb594-34"><a href="python-web-scraping-w-beautifulsoup.html#cb594-34" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(html.children)</span>
+<span id="cb594-35"><a href="python-web-scraping-w-beautifulsoup.html#cb594-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb594-36"><a href="python-web-scraping-w-beautifulsoup.html#cb594-36" aria-hidden="true" tabindex="-1"></a><span class="co"># We can now further select the html tag from this new list</span></span>
+<span id="cb594-37"><a href="python-web-scraping-w-beautifulsoup.html#cb594-37" aria-hidden="true" tabindex="-1"></a>body <span class="ot">=</span> <span class="fu">list</span>(html.children)[<span class="dv">3</span>]</span>
+<span id="cb594-38"><a href="python-web-scraping-w-beautifulsoup.html#cb594-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb594-39"><a href="python-web-scraping-w-beautifulsoup.html#cb594-39" aria-hidden="true" tabindex="-1"></a><span class="co"># And make that into a list! We are making so many lists</span></span>
+<span id="cb594-40"><a href="python-web-scraping-w-beautifulsoup.html#cb594-40" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(body.children)</span>
+<span id="cb594-41"><a href="python-web-scraping-w-beautifulsoup.html#cb594-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb594-42"><a href="python-web-scraping-w-beautifulsoup.html#cb594-42" aria-hidden="true" tabindex="-1"></a><span class="co"># we can now select the 2nd item in the list</span></span>
+<span id="cb594-43"><a href="python-web-scraping-w-beautifulsoup.html#cb594-43" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fu">list</span>(body.children)[<span class="dv">1</span>]</span>
+<span id="cb594-44"><a href="python-web-scraping-w-beautifulsoup.html#cb594-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb594-45"><a href="python-web-scraping-w-beautifulsoup.html#cb594-45" aria-hidden="true" tabindex="-1"></a><span class="co"># and finally we can extract only the text from that element without the html code that flanks it</span></span>
+<span id="cb594-46"><a href="python-web-scraping-w-beautifulsoup.html#cb594-46" aria-hidden="true" tabindex="-1"></a><span class="fu">p.get_text</span>()</span></code></pre></div>
 <p>This is the key to web scraping. Finding the part of the HTML or XML code that you are interested in and mining it.</p>
 </div>
 <div id="mining-all-matching-tags" class="section level2" number="26.4">
 <h2><span class="header-section-number">26.4</span> Mining all matching tags</h2>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="python-web-scraping-w-beautifulsoup.html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can mine all tags as long as they are identical</span></span>
-<span id="cb588-2"><a href="python-web-scraping-w-beautifulsoup.html#cb588-2" aria-hidden="true" tabindex="-1"></a>soup <span class="ot">=</span> <span class="fu">BeautifulSoup</span>(page.content, <span class="st">&#39;html.parser&#39;</span>)</span>
-<span id="cb588-3"><a href="python-web-scraping-w-beautifulsoup.html#cb588-3" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.find_all</span>(<span class="st">&#39;p&#39;</span>)</span>
-<span id="cb588-4"><a href="python-web-scraping-w-beautifulsoup.html#cb588-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb588-5"><a href="python-web-scraping-w-beautifulsoup.html#cb588-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Then you can subsequently extract the text</span></span>
-<span id="cb588-6"><a href="python-web-scraping-w-beautifulsoup.html#cb588-6" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.find_all</span>(<span class="st">&#39;p&#39;</span>)[<span class="dv">0</span>]<span class="fu">.get_text</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="python-web-scraping-w-beautifulsoup.html#cb595-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can mine all tags as long as they are identical</span></span>
+<span id="cb595-2"><a href="python-web-scraping-w-beautifulsoup.html#cb595-2" aria-hidden="true" tabindex="-1"></a>soup <span class="ot">=</span> <span class="fu">BeautifulSoup</span>(page.content, <span class="st">&#39;html.parser&#39;</span>)</span>
+<span id="cb595-3"><a href="python-web-scraping-w-beautifulsoup.html#cb595-3" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.find_all</span>(<span class="st">&#39;p&#39;</span>)</span>
+<span id="cb595-4"><a href="python-web-scraping-w-beautifulsoup.html#cb595-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb595-5"><a href="python-web-scraping-w-beautifulsoup.html#cb595-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Then you can subsequently extract the text</span></span>
+<span id="cb595-6"><a href="python-web-scraping-w-beautifulsoup.html#cb595-6" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.find_all</span>(<span class="st">&#39;p&#39;</span>)[<span class="dv">0</span>]<span class="fu">.get_text</span>()</span></code></pre></div>
 <p>You can see how shorter and simpler this code was. As we get more accustomed to web scraping our code evolves and allows us to quickly parse webpages.</p>
 <p>If you want to mine the first matching tag and ignore the others, that can be done as well.</p>
-<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="python-web-scraping-w-beautifulsoup.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find will return the first instance</span></span>
-<span id="cb589-2"><a href="python-web-scraping-w-beautifulsoup.html#cb589-2" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.find</span>(<span class="st">&#39;p&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="python-web-scraping-w-beautifulsoup.html#cb596-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find will return the first instance</span></span>
+<span id="cb596-2"><a href="python-web-scraping-w-beautifulsoup.html#cb596-2" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.find</span>(<span class="st">&#39;p&#39;</span>)</span></code></pre></div>
 </div>
 <div id="mining-tags-by-class-or-id" class="section level2" number="26.5">
 <h2><span class="header-section-number">26.5</span> Mining tags by class or id</h2>
-<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="python-web-scraping-w-beautifulsoup.html#cb590-1" aria-hidden="true" tabindex="-1"></a>page <span class="ot">=</span> <span class="fu">requests.get</span>(<span class="st">&quot;https://dataquestio.github.io/web-scraping-pages/ids_and_classes.html&quot;</span>)</span>
-<span id="cb590-2"><a href="python-web-scraping-w-beautifulsoup.html#cb590-2" aria-hidden="true" tabindex="-1"></a>soup <span class="ot">=</span> <span class="fu">BeautifulSoup</span>(page.content, <span class="st">&#39;html.parser&#39;</span>)</span>
-<span id="cb590-3"><a href="python-web-scraping-w-beautifulsoup.html#cb590-3" aria-hidden="true" tabindex="-1"></a>soup</span>
-<span id="cb590-4"><a href="python-web-scraping-w-beautifulsoup.html#cb590-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb590-5"><a href="python-web-scraping-w-beautifulsoup.html#cb590-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb590-6"><a href="python-web-scraping-w-beautifulsoup.html#cb590-6" aria-hidden="true" tabindex="-1"></a><span class="co"># search tag and class</span></span>
-<span id="cb590-7"><a href="python-web-scraping-w-beautifulsoup.html#cb590-7" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.find_all</span>(<span class="st">&#39;p&#39;</span>, <span class="at">class_=</span><span class="st">&#39;outer-text&#39;</span>)</span>
-<span id="cb590-8"><a href="python-web-scraping-w-beautifulsoup.html#cb590-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb590-9"><a href="python-web-scraping-w-beautifulsoup.html#cb590-9" aria-hidden="true" tabindex="-1"></a><span class="co"># search only class</span></span>
-<span id="cb590-10"><a href="python-web-scraping-w-beautifulsoup.html#cb590-10" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.find_all</span>(<span class="at">class_=</span><span class="st">&quot;outer-text&quot;</span>)</span>
-<span id="cb590-11"><a href="python-web-scraping-w-beautifulsoup.html#cb590-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb590-12"><a href="python-web-scraping-w-beautifulsoup.html#cb590-12" aria-hidden="true" tabindex="-1"></a><span class="co"># search only id</span></span>
-<span id="cb590-13"><a href="python-web-scraping-w-beautifulsoup.html#cb590-13" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.find_all</span>(<span class="at">id=</span><span class="st">&quot;first&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="python-web-scraping-w-beautifulsoup.html#cb597-1" aria-hidden="true" tabindex="-1"></a>page <span class="ot">=</span> <span class="fu">requests.get</span>(<span class="st">&quot;https://dataquestio.github.io/web-scraping-pages/ids_and_classes.html&quot;</span>)</span>
+<span id="cb597-2"><a href="python-web-scraping-w-beautifulsoup.html#cb597-2" aria-hidden="true" tabindex="-1"></a>soup <span class="ot">=</span> <span class="fu">BeautifulSoup</span>(page.content, <span class="st">&#39;html.parser&#39;</span>)</span>
+<span id="cb597-3"><a href="python-web-scraping-w-beautifulsoup.html#cb597-3" aria-hidden="true" tabindex="-1"></a>soup</span>
+<span id="cb597-4"><a href="python-web-scraping-w-beautifulsoup.html#cb597-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb597-5"><a href="python-web-scraping-w-beautifulsoup.html#cb597-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb597-6"><a href="python-web-scraping-w-beautifulsoup.html#cb597-6" aria-hidden="true" tabindex="-1"></a><span class="co"># search tag and class</span></span>
+<span id="cb597-7"><a href="python-web-scraping-w-beautifulsoup.html#cb597-7" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.find_all</span>(<span class="st">&#39;p&#39;</span>, <span class="at">class_=</span><span class="st">&#39;outer-text&#39;</span>)</span>
+<span id="cb597-8"><a href="python-web-scraping-w-beautifulsoup.html#cb597-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb597-9"><a href="python-web-scraping-w-beautifulsoup.html#cb597-9" aria-hidden="true" tabindex="-1"></a><span class="co"># search only class</span></span>
+<span id="cb597-10"><a href="python-web-scraping-w-beautifulsoup.html#cb597-10" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.find_all</span>(<span class="at">class_=</span><span class="st">&quot;outer-text&quot;</span>)</span>
+<span id="cb597-11"><a href="python-web-scraping-w-beautifulsoup.html#cb597-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb597-12"><a href="python-web-scraping-w-beautifulsoup.html#cb597-12" aria-hidden="true" tabindex="-1"></a><span class="co"># search only id</span></span>
+<span id="cb597-13"><a href="python-web-scraping-w-beautifulsoup.html#cb597-13" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.find_all</span>(<span class="at">id=</span><span class="st">&quot;first&quot;</span>)</span></code></pre></div>
 </div>
 <div id="use-css-selectors-for-positional-mining" class="section level2" number="26.6">
 <h2><span class="header-section-number">26.6</span> Use CSS Selectors for positional mining</h2>
-<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="python-web-scraping-w-beautifulsoup.html#cb591-1" aria-hidden="true" tabindex="-1"></a><span class="co"># finds all p tags inside of div tag</span></span>
-<span id="cb591-2"><a href="python-web-scraping-w-beautifulsoup.html#cb591-2" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.select</span>(<span class="st">&quot;div p&quot;</span>)</span>
-<span id="cb591-3"><a href="python-web-scraping-w-beautifulsoup.html#cb591-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb591-4"><a href="python-web-scraping-w-beautifulsoup.html#cb591-4" aria-hidden="true" tabindex="-1"></a><span class="co"># find all p tags with a class of outer-text</span></span>
-<span id="cb591-5"><a href="python-web-scraping-w-beautifulsoup.html#cb591-5" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.select</span>(<span class="st">&quot;p.outer-text&quot;</span>)</span>
-<span id="cb591-6"><a href="python-web-scraping-w-beautifulsoup.html#cb591-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb591-7"><a href="python-web-scraping-w-beautifulsoup.html#cb591-7" aria-hidden="true" tabindex="-1"></a><span class="co"># find all p tags with an id of first</span></span>
-<span id="cb591-8"><a href="python-web-scraping-w-beautifulsoup.html#cb591-8" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.select</span>(<span class="st">&quot;p#first&quot;</span>)</span>
-<span id="cb591-9"><a href="python-web-scraping-w-beautifulsoup.html#cb591-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb591-10"><a href="python-web-scraping-w-beautifulsoup.html#cb591-10" aria-hidden="true" tabindex="-1"></a><span class="co"># find all p tags with class outer-text inside of body tag</span></span>
-<span id="cb591-11"><a href="python-web-scraping-w-beautifulsoup.html#cb591-11" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.select</span>(<span class="st">&quot;body p.outer-text&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="python-web-scraping-w-beautifulsoup.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="co"># finds all p tags inside of div tag</span></span>
+<span id="cb598-2"><a href="python-web-scraping-w-beautifulsoup.html#cb598-2" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.select</span>(<span class="st">&quot;div p&quot;</span>)</span>
+<span id="cb598-3"><a href="python-web-scraping-w-beautifulsoup.html#cb598-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb598-4"><a href="python-web-scraping-w-beautifulsoup.html#cb598-4" aria-hidden="true" tabindex="-1"></a><span class="co"># find all p tags with a class of outer-text</span></span>
+<span id="cb598-5"><a href="python-web-scraping-w-beautifulsoup.html#cb598-5" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.select</span>(<span class="st">&quot;p.outer-text&quot;</span>)</span>
+<span id="cb598-6"><a href="python-web-scraping-w-beautifulsoup.html#cb598-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb598-7"><a href="python-web-scraping-w-beautifulsoup.html#cb598-7" aria-hidden="true" tabindex="-1"></a><span class="co"># find all p tags with an id of first</span></span>
+<span id="cb598-8"><a href="python-web-scraping-w-beautifulsoup.html#cb598-8" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.select</span>(<span class="st">&quot;p#first&quot;</span>)</span>
+<span id="cb598-9"><a href="python-web-scraping-w-beautifulsoup.html#cb598-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb598-10"><a href="python-web-scraping-w-beautifulsoup.html#cb598-10" aria-hidden="true" tabindex="-1"></a><span class="co"># find all p tags with class outer-text inside of body tag</span></span>
+<span id="cb598-11"><a href="python-web-scraping-w-beautifulsoup.html#cb598-11" aria-hidden="true" tabindex="-1"></a><span class="fu">soup.select</span>(<span class="st">&quot;body p.outer-text&quot;</span>)</span></code></pre></div>
 </div>
 <div id="weather-page-example" class="section level2" number="26.7">
 <h2><span class="header-section-number">26.7</span> Weather Page Example</h2>
 <p>We can mine specific data from a weather website:</p>
-<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="python-web-scraping-w-beautifulsoup.html#cb592-1" aria-hidden="true" tabindex="-1"></a>page <span class="ot">=</span> <span class="fu">requests.get</span>(<span class="st">&quot;https://forecast.weather.gov/MapClick.php?lat=37.7772&amp;lon=-122.4168&quot;</span>)</span>
-<span id="cb592-2"><a href="python-web-scraping-w-beautifulsoup.html#cb592-2" aria-hidden="true" tabindex="-1"></a>soup <span class="ot">=</span> <span class="fu">BeautifulSoup</span>(page.content, <span class="st">&#39;html.parser&#39;</span>)</span>
-<span id="cb592-3"><a href="python-web-scraping-w-beautifulsoup.html#cb592-3" aria-hidden="true" tabindex="-1"></a>seven_day <span class="ot">=</span> <span class="fu">soup.find</span>(<span class="at">id=</span><span class="st">&quot;seven-day-forecast&quot;</span>)</span>
-<span id="cb592-4"><a href="python-web-scraping-w-beautifulsoup.html#cb592-4" aria-hidden="true" tabindex="-1"></a>forecast_items <span class="ot">=</span> <span class="fu">seven_day.find_all</span>(<span class="at">class_=</span><span class="st">&quot;tombstone-container&quot;</span>)</span>
-<span id="cb592-5"><a href="python-web-scraping-w-beautifulsoup.html#cb592-5" aria-hidden="true" tabindex="-1"></a>tonight <span class="ot">=</span> forecast_items[<span class="dv">0</span>]</span>
-<span id="cb592-6"><a href="python-web-scraping-w-beautifulsoup.html#cb592-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tonight.prettify</span>())</span>
-<span id="cb592-7"><a href="python-web-scraping-w-beautifulsoup.html#cb592-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb592-8"><a href="python-web-scraping-w-beautifulsoup.html#cb592-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb592-9"><a href="python-web-scraping-w-beautifulsoup.html#cb592-9" aria-hidden="true" tabindex="-1"></a>period <span class="ot">=</span> <span class="fu">tonight.find</span>(<span class="at">class_=</span><span class="st">&quot;period-name&quot;</span>)<span class="fu">.get_text</span>()</span>
-<span id="cb592-10"><a href="python-web-scraping-w-beautifulsoup.html#cb592-10" aria-hidden="true" tabindex="-1"></a>short_desc <span class="ot">=</span> <span class="fu">tonight.find</span>(<span class="at">class_=</span><span class="st">&quot;short-desc&quot;</span>)<span class="fu">.get_text</span>()</span>
-<span id="cb592-11"><a href="python-web-scraping-w-beautifulsoup.html#cb592-11" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">=</span> <span class="fu">tonight.find</span>(<span class="at">class_=</span><span class="st">&quot;temp&quot;</span>)<span class="fu">.get_text</span>()</span>
-<span id="cb592-12"><a href="python-web-scraping-w-beautifulsoup.html#cb592-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(period)</span>
-<span id="cb592-13"><a href="python-web-scraping-w-beautifulsoup.html#cb592-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(short_desc)</span>
-<span id="cb592-14"><a href="python-web-scraping-w-beautifulsoup.html#cb592-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(temp)</span>
-<span id="cb592-15"><a href="python-web-scraping-w-beautifulsoup.html#cb592-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb592-16"><a href="python-web-scraping-w-beautifulsoup.html#cb592-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb592-17"><a href="python-web-scraping-w-beautifulsoup.html#cb592-17" aria-hidden="true" tabindex="-1"></a>img <span class="ot">=</span> <span class="fu">tonight.find</span>(<span class="st">&quot;img&quot;</span>)</span>
-<span id="cb592-18"><a href="python-web-scraping-w-beautifulsoup.html#cb592-18" aria-hidden="true" tabindex="-1"></a>desc <span class="ot">=</span> img[<span class="st">&#39;title&#39;</span>]</span>
-<span id="cb592-19"><a href="python-web-scraping-w-beautifulsoup.html#cb592-19" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(desc)</span></code></pre></div>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="python-web-scraping-w-beautifulsoup.html#cb599-1" aria-hidden="true" tabindex="-1"></a>page <span class="ot">=</span> <span class="fu">requests.get</span>(<span class="st">&quot;https://forecast.weather.gov/MapClick.php?lat=37.7772&amp;lon=-122.4168&quot;</span>)</span>
+<span id="cb599-2"><a href="python-web-scraping-w-beautifulsoup.html#cb599-2" aria-hidden="true" tabindex="-1"></a>soup <span class="ot">=</span> <span class="fu">BeautifulSoup</span>(page.content, <span class="st">&#39;html.parser&#39;</span>)</span>
+<span id="cb599-3"><a href="python-web-scraping-w-beautifulsoup.html#cb599-3" aria-hidden="true" tabindex="-1"></a>seven_day <span class="ot">=</span> <span class="fu">soup.find</span>(<span class="at">id=</span><span class="st">&quot;seven-day-forecast&quot;</span>)</span>
+<span id="cb599-4"><a href="python-web-scraping-w-beautifulsoup.html#cb599-4" aria-hidden="true" tabindex="-1"></a>forecast_items <span class="ot">=</span> <span class="fu">seven_day.find_all</span>(<span class="at">class_=</span><span class="st">&quot;tombstone-container&quot;</span>)</span>
+<span id="cb599-5"><a href="python-web-scraping-w-beautifulsoup.html#cb599-5" aria-hidden="true" tabindex="-1"></a>tonight <span class="ot">=</span> forecast_items[<span class="dv">0</span>]</span>
+<span id="cb599-6"><a href="python-web-scraping-w-beautifulsoup.html#cb599-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tonight.prettify</span>())</span>
+<span id="cb599-7"><a href="python-web-scraping-w-beautifulsoup.html#cb599-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb599-8"><a href="python-web-scraping-w-beautifulsoup.html#cb599-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb599-9"><a href="python-web-scraping-w-beautifulsoup.html#cb599-9" aria-hidden="true" tabindex="-1"></a>period <span class="ot">=</span> <span class="fu">tonight.find</span>(<span class="at">class_=</span><span class="st">&quot;period-name&quot;</span>)<span class="fu">.get_text</span>()</span>
+<span id="cb599-10"><a href="python-web-scraping-w-beautifulsoup.html#cb599-10" aria-hidden="true" tabindex="-1"></a>short_desc <span class="ot">=</span> <span class="fu">tonight.find</span>(<span class="at">class_=</span><span class="st">&quot;short-desc&quot;</span>)<span class="fu">.get_text</span>()</span>
+<span id="cb599-11"><a href="python-web-scraping-w-beautifulsoup.html#cb599-11" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">=</span> <span class="fu">tonight.find</span>(<span class="at">class_=</span><span class="st">&quot;temp&quot;</span>)<span class="fu">.get_text</span>()</span>
+<span id="cb599-12"><a href="python-web-scraping-w-beautifulsoup.html#cb599-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(period)</span>
+<span id="cb599-13"><a href="python-web-scraping-w-beautifulsoup.html#cb599-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(short_desc)</span>
+<span id="cb599-14"><a href="python-web-scraping-w-beautifulsoup.html#cb599-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(temp)</span>
+<span id="cb599-15"><a href="python-web-scraping-w-beautifulsoup.html#cb599-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb599-16"><a href="python-web-scraping-w-beautifulsoup.html#cb599-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb599-17"><a href="python-web-scraping-w-beautifulsoup.html#cb599-17" aria-hidden="true" tabindex="-1"></a>img <span class="ot">=</span> <span class="fu">tonight.find</span>(<span class="st">&quot;img&quot;</span>)</span>
+<span id="cb599-18"><a href="python-web-scraping-w-beautifulsoup.html#cb599-18" aria-hidden="true" tabindex="-1"></a>desc <span class="ot">=</span> img[<span class="st">&#39;title&#39;</span>]</span>
+<span id="cb599-19"><a href="python-web-scraping-w-beautifulsoup.html#cb599-19" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(desc)</span></code></pre></div>
 <p>We can extract all the information instead of just pieces:</p>
-<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="python-web-scraping-w-beautifulsoup.html#cb593-1" aria-hidden="true" tabindex="-1"></a><span class="co"># chunks of info</span></span>
-<span id="cb593-2"><a href="python-web-scraping-w-beautifulsoup.html#cb593-2" aria-hidden="true" tabindex="-1"></a>period_tags <span class="ot">=</span> <span class="fu">seven_day.select</span>(<span class="st">&quot;.tombstone-container .period-name&quot;</span>)</span>
-<span id="cb593-3"><a href="python-web-scraping-w-beautifulsoup.html#cb593-3" aria-hidden="true" tabindex="-1"></a>periods <span class="ot">=</span> [<span class="fu">pt.get_text</span>() <span class="cf">for</span> pt <span class="cf">in</span> period_tags]</span>
-<span id="cb593-4"><a href="python-web-scraping-w-beautifulsoup.html#cb593-4" aria-hidden="true" tabindex="-1"></a>periods</span>
-<span id="cb593-5"><a href="python-web-scraping-w-beautifulsoup.html#cb593-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb593-6"><a href="python-web-scraping-w-beautifulsoup.html#cb593-6" aria-hidden="true" tabindex="-1"></a><span class="co"># all info</span></span>
-<span id="cb593-7"><a href="python-web-scraping-w-beautifulsoup.html#cb593-7" aria-hidden="true" tabindex="-1"></a>short_descs <span class="ot">=</span> [<span class="fu">sd.get_text</span>() <span class="cf">for</span> sd <span class="cf">in</span> <span class="fu">seven_day.select</span>(<span class="st">&quot;.tombstone-container .short-desc&quot;</span>)]</span>
-<span id="cb593-8"><a href="python-web-scraping-w-beautifulsoup.html#cb593-8" aria-hidden="true" tabindex="-1"></a>temps <span class="ot">=</span> [<span class="fu">t.get_text</span>() <span class="cf">for</span> t <span class="cf">in</span> <span class="fu">seven_day.select</span>(<span class="st">&quot;.tombstone-container .temp&quot;</span>)]</span>
-<span id="cb593-9"><a href="python-web-scraping-w-beautifulsoup.html#cb593-9" aria-hidden="true" tabindex="-1"></a>descs <span class="ot">=</span> [d[<span class="st">&quot;title&quot;</span>] <span class="cf">for</span> d <span class="cf">in</span> <span class="fu">seven_day.select</span>(<span class="st">&quot;.tombstone-container img&quot;</span>)]</span>
-<span id="cb593-10"><a href="python-web-scraping-w-beautifulsoup.html#cb593-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(short_descs)</span>
-<span id="cb593-11"><a href="python-web-scraping-w-beautifulsoup.html#cb593-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(temps)</span>
-<span id="cb593-12"><a href="python-web-scraping-w-beautifulsoup.html#cb593-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(descs)</span></code></pre></div>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="python-web-scraping-w-beautifulsoup.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="co"># chunks of info</span></span>
+<span id="cb600-2"><a href="python-web-scraping-w-beautifulsoup.html#cb600-2" aria-hidden="true" tabindex="-1"></a>period_tags <span class="ot">=</span> <span class="fu">seven_day.select</span>(<span class="st">&quot;.tombstone-container .period-name&quot;</span>)</span>
+<span id="cb600-3"><a href="python-web-scraping-w-beautifulsoup.html#cb600-3" aria-hidden="true" tabindex="-1"></a>periods <span class="ot">=</span> [<span class="fu">pt.get_text</span>() <span class="cf">for</span> pt <span class="cf">in</span> period_tags]</span>
+<span id="cb600-4"><a href="python-web-scraping-w-beautifulsoup.html#cb600-4" aria-hidden="true" tabindex="-1"></a>periods</span>
+<span id="cb600-5"><a href="python-web-scraping-w-beautifulsoup.html#cb600-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb600-6"><a href="python-web-scraping-w-beautifulsoup.html#cb600-6" aria-hidden="true" tabindex="-1"></a><span class="co"># all info</span></span>
+<span id="cb600-7"><a href="python-web-scraping-w-beautifulsoup.html#cb600-7" aria-hidden="true" tabindex="-1"></a>short_descs <span class="ot">=</span> [<span class="fu">sd.get_text</span>() <span class="cf">for</span> sd <span class="cf">in</span> <span class="fu">seven_day.select</span>(<span class="st">&quot;.tombstone-container .short-desc&quot;</span>)]</span>
+<span id="cb600-8"><a href="python-web-scraping-w-beautifulsoup.html#cb600-8" aria-hidden="true" tabindex="-1"></a>temps <span class="ot">=</span> [<span class="fu">t.get_text</span>() <span class="cf">for</span> t <span class="cf">in</span> <span class="fu">seven_day.select</span>(<span class="st">&quot;.tombstone-container .temp&quot;</span>)]</span>
+<span id="cb600-9"><a href="python-web-scraping-w-beautifulsoup.html#cb600-9" aria-hidden="true" tabindex="-1"></a>descs <span class="ot">=</span> [d[<span class="st">&quot;title&quot;</span>] <span class="cf">for</span> d <span class="cf">in</span> <span class="fu">seven_day.select</span>(<span class="st">&quot;.tombstone-container img&quot;</span>)]</span>
+<span id="cb600-10"><a href="python-web-scraping-w-beautifulsoup.html#cb600-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(short_descs)</span>
+<span id="cb600-11"><a href="python-web-scraping-w-beautifulsoup.html#cb600-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(temps)</span>
+<span id="cb600-12"><a href="python-web-scraping-w-beautifulsoup.html#cb600-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(descs)</span></code></pre></div>
 <p>We can then create a table with that scraped data:</p>
 <p>Install Pandas:
 $ pip install pandas</p>
-<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="python-web-scraping-w-beautifulsoup.html#cb594-1" aria-hidden="true" tabindex="-1"></a>import pandas as pd</span>
-<span id="cb594-2"><a href="python-web-scraping-w-beautifulsoup.html#cb594-2" aria-hidden="true" tabindex="-1"></a>weather <span class="ot">=</span> <span class="fu">pd.DataFrame</span>({</span>
-<span id="cb594-3"><a href="python-web-scraping-w-beautifulsoup.html#cb594-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;period&quot;</span><span class="sc">:</span> periods,</span>
-<span id="cb594-4"><a href="python-web-scraping-w-beautifulsoup.html#cb594-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;short_desc&quot;</span><span class="sc">:</span> short_descs,</span>
-<span id="cb594-5"><a href="python-web-scraping-w-beautifulsoup.html#cb594-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;temp&quot;</span><span class="sc">:</span> temps,</span>
-<span id="cb594-6"><a href="python-web-scraping-w-beautifulsoup.html#cb594-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;desc&quot;</span><span class="sc">:</span>descs</span>
-<span id="cb594-7"><a href="python-web-scraping-w-beautifulsoup.html#cb594-7" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb594-8"><a href="python-web-scraping-w-beautifulsoup.html#cb594-8" aria-hidden="true" tabindex="-1"></a>weather</span></code></pre></div>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="python-web-scraping-w-beautifulsoup.html#cb601-1" aria-hidden="true" tabindex="-1"></a>import pandas as pd</span>
+<span id="cb601-2"><a href="python-web-scraping-w-beautifulsoup.html#cb601-2" aria-hidden="true" tabindex="-1"></a>weather <span class="ot">=</span> <span class="fu">pd.DataFrame</span>({</span>
+<span id="cb601-3"><a href="python-web-scraping-w-beautifulsoup.html#cb601-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;period&quot;</span><span class="sc">:</span> periods,</span>
+<span id="cb601-4"><a href="python-web-scraping-w-beautifulsoup.html#cb601-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;short_desc&quot;</span><span class="sc">:</span> short_descs,</span>
+<span id="cb601-5"><a href="python-web-scraping-w-beautifulsoup.html#cb601-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;temp&quot;</span><span class="sc">:</span> temps,</span>
+<span id="cb601-6"><a href="python-web-scraping-w-beautifulsoup.html#cb601-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;desc&quot;</span><span class="sc">:</span>descs</span>
+<span id="cb601-7"><a href="python-web-scraping-w-beautifulsoup.html#cb601-7" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb601-8"><a href="python-web-scraping-w-beautifulsoup.html#cb601-8" aria-hidden="true" tabindex="-1"></a>weather</span></code></pre></div>
 
 </div>
 </div>

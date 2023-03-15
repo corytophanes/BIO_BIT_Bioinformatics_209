@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2023-02-22" />
+<meta name="date" content="2023-03-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -199,13 +199,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.11" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-means-t-test"><i class="fa fa-check"></i><b>6.11</b> Comparing means: t-test</a></li>
 <li class="chapter" data-level="6.12" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#two-sample-t-test"><i class="fa fa-check"></i><b>6.12</b> Two sample t-test</a></li>
 <li class="chapter" data-level="6.13" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>6.13</b> Beyond t-test: Wilcoxon signed rank test</a></li>
-<li class="chapter" data-level="6.14" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-binomial-test"><i class="fa fa-check"></i><b>6.14</b> Beyond t-test: Binomial test</a></li>
-<li class="chapter" data-level="6.15" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-chi-square-goodness-of-fit"><i class="fa fa-check"></i><b>6.15</b> Beyond t-test: Chi-square goodness of fit</a></li>
-<li class="chapter" data-level="6.16" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-mcnemars-test"><i class="fa fa-check"></i><b>6.16</b> Beyond t-test: McNemar’s test</a></li>
-<li class="chapter" data-level="6.17" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-fishers-exact-test"><i class="fa fa-check"></i><b>6.17</b> Beyond t-test: Fisher’s exact test</a></li>
-<li class="chapter" data-level="6.18" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.18</b> Correlations</a></li>
-<li class="chapter" data-level="6.19" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.19</b> Comparing distributions</a></li>
-<li class="chapter" data-level="6.20" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#bootstraps"><i class="fa fa-check"></i><b>6.20</b> Bootstraps</a></li>
+<li class="chapter" data-level="6.14" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#tabulation-and-cross-tabulation"><i class="fa fa-check"></i><b>6.14</b> Tabulation and Cross-Tabulation</a></li>
+<li class="chapter" data-level="6.15" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-binomial-test"><i class="fa fa-check"></i><b>6.15</b> Beyond t-test: Binomial test</a></li>
+<li class="chapter" data-level="6.16" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-chi-square-goodness-of-fit"><i class="fa fa-check"></i><b>6.16</b> Beyond t-test: Chi-square goodness of fit</a></li>
+<li class="chapter" data-level="6.17" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-mcnemars-test"><i class="fa fa-check"></i><b>6.17</b> Beyond t-test: McNemar’s test</a></li>
+<li class="chapter" data-level="6.18" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-fishers-exact-test"><i class="fa fa-check"></i><b>6.18</b> Beyond t-test: Fisher’s exact test</a></li>
+<li class="chapter" data-level="6.19" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.19</b> Correlations</a></li>
+<li class="chapter" data-level="6.20" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.20</b> Comparing distributions</a></li>
+<li class="chapter" data-level="6.21" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#bootstraps"><i class="fa fa-check"></i><b>6.21</b> Bootstraps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html"><i class="fa fa-check"></i><b>7</b> – Regressions and ANOVA in R</a>
 <ul>
@@ -509,344 +510,344 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="sampling-from-a-vector-of-names" class="section level2" number="32.1">
 <h2><span class="header-section-number">32.1</span> Sampling from a vector of names</h2>
 <p>We need that 2-3 students give a presentation about the topics of previous class every week, so we can use R to do the selection for us. We will use the function <code>sample</code></p>
-<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="miscellaneous.html#cb654-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need a list of the 17 students last names for BIO/BIT 209 as their unique identifiers</span></span>
-<span id="cb654-2"><a href="miscellaneous.html#cb654-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb654-3"><a href="miscellaneous.html#cb654-3" aria-hidden="true" tabindex="-1"></a>students_BIO209 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Ardire&quot;</span>, <span class="st">&quot;Carlucci&quot;</span>, <span class="st">&quot;Da_Costa_Morais&quot;</span>, <span class="st">&quot;Davidov&quot;</span>, <span class="st">&quot;Deda&quot;</span>, </span>
-<span id="cb654-4"><a href="miscellaneous.html#cb654-4" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Dimitrijevic&quot;</span>, <span class="st">&quot;Fasano&quot;</span>,  <span class="st">&quot;Javed&quot;</span>, <span class="st">&quot;Mahadeo&quot;</span>, <span class="st">&quot;Mowla&quot;</span>, <span class="st">&quot;Njie&quot;</span>, </span>
-<span id="cb654-5"><a href="miscellaneous.html#cb654-5" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Rahman&quot;</span>, <span class="st">&quot;Siddique&quot;</span>, <span class="st">&quot;Sukhram&quot;</span>,<span class="st">&quot;Tan&quot;</span>, <span class="st">&quot;Tiumalu&quot;</span>, <span class="st">&quot;Vu&quot;</span>)</span>
-<span id="cb654-6"><a href="miscellaneous.html#cb654-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb654-7"><a href="miscellaneous.html#cb654-7" aria-hidden="true" tabindex="-1"></a>students_BIO209 </span>
-<span id="cb654-8"><a href="miscellaneous.html#cb654-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Ardire&quot;          &quot;Carlucci&quot;        &quot;Da_Costa_Morais&quot; &quot;Davidov&quot;         &quot;Deda&quot;           </span></span>
-<span id="cb654-9"><a href="miscellaneous.html#cb654-9" aria-hidden="true" tabindex="-1"></a><span class="co">#[6] &quot;Dimitrijevic&quot;    &quot;Fasano&quot;          &quot;Javed&quot;           &quot;Mahadeo&quot;         &quot;Mowla&quot;          </span></span>
-<span id="cb654-10"><a href="miscellaneous.html#cb654-10" aria-hidden="true" tabindex="-1"></a><span class="co">#[11] &quot;Njie&quot;            &quot;Rahman&quot;          &quot;Siddique&quot;        &quot;Sukhram&quot;         &quot;Tan&quot;            </span></span>
-<span id="cb654-11"><a href="miscellaneous.html#cb654-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[16] &quot;Tiumalu&quot;         &quot;Vu&quot; </span></span>
-<span id="cb654-12"><a href="miscellaneous.html#cb654-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb654-13"><a href="miscellaneous.html#cb654-13" aria-hidden="true" tabindex="-1"></a><span class="do">## we order them alphabetically</span></span>
-<span id="cb654-14"><a href="miscellaneous.html#cb654-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb654-15"><a href="miscellaneous.html#cb654-15" aria-hidden="true" tabindex="-1"></a>students_BIO209_order <span class="ot">&lt;-</span> <span class="fu">sort</span>(students_BIO209)</span>
-<span id="cb654-16"><a href="miscellaneous.html#cb654-16" aria-hidden="true" tabindex="-1"></a>students_BIO209_order</span>
-<span id="cb654-17"><a href="miscellaneous.html#cb654-17" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Ardire&quot;          &quot;Carlucci&quot;        &quot;Da_Costa_Morais&quot; &quot;Davidov&quot;         &quot;Deda&quot;           </span></span>
-<span id="cb654-18"><a href="miscellaneous.html#cb654-18" aria-hidden="true" tabindex="-1"></a><span class="co">#[6] &quot;Dimitrijevic&quot;    &quot;Fasano&quot;          &quot;Javed&quot;           &quot;Mahadeo&quot;         &quot;Mowla&quot;          </span></span>
-<span id="cb654-19"><a href="miscellaneous.html#cb654-19" aria-hidden="true" tabindex="-1"></a><span class="co">#[11] &quot;Njie&quot;            &quot;Rahman&quot;          &quot;Siddique&quot;        &quot;Sukhram&quot;         &quot;Tan&quot;            </span></span>
-<span id="cb654-20"><a href="miscellaneous.html#cb654-20" aria-hidden="true" tabindex="-1"></a><span class="co">#[16] &quot;Tiumalu&quot;         &quot;Vu&quot; </span></span>
-<span id="cb654-21"><a href="miscellaneous.html#cb654-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb654-22"><a href="miscellaneous.html#cb654-22" aria-hidden="true" tabindex="-1"></a><span class="do">## numeric code for each student</span></span>
-<span id="cb654-23"><a href="miscellaneous.html#cb654-23" aria-hidden="true" tabindex="-1"></a>students_BIO209_order_c <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, students_BIO209_order, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)</span>
-<span id="cb654-24"><a href="miscellaneous.html#cb654-24" aria-hidden="true" tabindex="-1"></a>students_BIO209_order_c </span>
-<span id="cb654-25"><a href="miscellaneous.html#cb654-25" aria-hidden="true" tabindex="-1"></a><span class="co">#[[1] &quot;1_Ardire&quot;          &quot;2_Carlucci&quot;        &quot;3_Da_Costa_Morais&quot; &quot;4_Davidov&quot;         &quot;5_Deda&quot;           </span></span>
-<span id="cb654-26"><a href="miscellaneous.html#cb654-26" aria-hidden="true" tabindex="-1"></a><span class="co">#[6] &quot;6_Dimitrijevic&quot;    &quot;7_Fasano&quot;          &quot;8_Javed&quot;           &quot;9_Mahadeo&quot;         &quot;10_Mowla&quot;         </span></span>
-<span id="cb654-27"><a href="miscellaneous.html#cb654-27" aria-hidden="true" tabindex="-1"></a><span class="co">#[11] &quot;11_Njie&quot;           &quot;12_Rahman&quot;         &quot;13_Siddique&quot;       &quot;14_Sukhram&quot;        &quot;15_Tan&quot;           </span></span>
-<span id="cb654-28"><a href="miscellaneous.html#cb654-28" aria-hidden="true" tabindex="-1"></a><span class="co">#[16] &quot;16_Tiumalu&quot;        &quot;17_Vu&quot;</span></span>
-<span id="cb654-29"><a href="miscellaneous.html#cb654-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb654-30"><a href="miscellaneous.html#cb654-30" aria-hidden="true" tabindex="-1"></a><span class="do">## we sample 2 students to give a review of last class</span></span>
-<span id="cb654-31"><a href="miscellaneous.html#cb654-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb654-32"><a href="miscellaneous.html#cb654-32" aria-hidden="true" tabindex="-1"></a>todays_2_students_code <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">prob =</span> <span class="cn">NULL</span>)</span>
-<span id="cb654-33"><a href="miscellaneous.html#cb654-33" aria-hidden="true" tabindex="-1"></a>todays_2_students_code</span>
-<span id="cb654-34"><a href="miscellaneous.html#cb654-34" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 16 13</span></span>
-<span id="cb654-35"><a href="miscellaneous.html#cb654-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb654-36"><a href="miscellaneous.html#cb654-36" aria-hidden="true" tabindex="-1"></a><span class="do">## we identify such students by name</span></span>
-<span id="cb654-37"><a href="miscellaneous.html#cb654-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb654-38"><a href="miscellaneous.html#cb654-38" aria-hidden="true" tabindex="-1"></a>today_students <span class="ot">&lt;-</span> students_BIO209_order_c[todays_2_students_code]</span>
-<span id="cb654-39"><a href="miscellaneous.html#cb654-39" aria-hidden="true" tabindex="-1"></a>today_students</span>
-<span id="cb654-40"><a href="miscellaneous.html#cb654-40" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;16_Tiumalu&quot;  &quot;13_Siddique&quot;</span></span>
-<span id="cb654-41"><a href="miscellaneous.html#cb654-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb654-42"><a href="miscellaneous.html#cb654-42" aria-hidden="true" tabindex="-1"></a><span class="do">## NEXT WEEK: we need 2 students again, but we want to remove those that already gave a lesson</span></span>
-<span id="cb654-43"><a href="miscellaneous.html#cb654-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb654-44"><a href="miscellaneous.html#cb654-44" aria-hidden="true" tabindex="-1"></a>remaining_students_code <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, <span class="fu">c</span>(<span class="dv">16</span>,<span class="dv">13</span>))</span>
-<span id="cb654-45"><a href="miscellaneous.html#cb654-45" aria-hidden="true" tabindex="-1"></a>remaining_students_code</span>
-<span id="cb654-46"><a href="miscellaneous.html#cb654-46" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1  2  3  4  5  6  7  8  9 10 11 12 14 15 17</span></span>
-<span id="cb654-47"><a href="miscellaneous.html#cb654-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb654-48"><a href="miscellaneous.html#cb654-48" aria-hidden="true" tabindex="-1"></a><span class="do">## NEXT WEEK: we sample 2 students to give a review of last class</span></span>
-<span id="cb654-49"><a href="miscellaneous.html#cb654-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb654-50"><a href="miscellaneous.html#cb654-50" aria-hidden="true" tabindex="-1"></a>todays_2_students_code <span class="ot">&lt;-</span> <span class="fu">sample</span>(remaining_students_code, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">prob =</span> <span class="cn">NULL</span>)</span>
-<span id="cb654-51"><a href="miscellaneous.html#cb654-51" aria-hidden="true" tabindex="-1"></a>todays_2_students_code</span>
-<span id="cb654-52"><a href="miscellaneous.html#cb654-52" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  7 15</span></span>
-<span id="cb654-53"><a href="miscellaneous.html#cb654-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb654-54"><a href="miscellaneous.html#cb654-54" aria-hidden="true" tabindex="-1"></a><span class="do">## NEXT WEEK: we identify such students by name</span></span>
-<span id="cb654-55"><a href="miscellaneous.html#cb654-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb654-56"><a href="miscellaneous.html#cb654-56" aria-hidden="true" tabindex="-1"></a>today_students <span class="ot">&lt;-</span> students_BIO209_order_c[todays_2_students_code]</span>
-<span id="cb654-57"><a href="miscellaneous.html#cb654-57" aria-hidden="true" tabindex="-1"></a>today_students</span>
-<span id="cb654-58"><a href="miscellaneous.html#cb654-58" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;7_Fasano&quot; &quot;15_Tan&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="miscellaneous.html#cb661-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need a list of the 17 students last names for BIO/BIT 209 as their unique identifiers</span></span>
+<span id="cb661-2"><a href="miscellaneous.html#cb661-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-3"><a href="miscellaneous.html#cb661-3" aria-hidden="true" tabindex="-1"></a>students_BIO209 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Ardire&quot;</span>, <span class="st">&quot;Carlucci&quot;</span>, <span class="st">&quot;Da_Costa_Morais&quot;</span>, <span class="st">&quot;Davidov&quot;</span>, <span class="st">&quot;Deda&quot;</span>, </span>
+<span id="cb661-4"><a href="miscellaneous.html#cb661-4" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Dimitrijevic&quot;</span>, <span class="st">&quot;Fasano&quot;</span>,  <span class="st">&quot;Javed&quot;</span>, <span class="st">&quot;Mahadeo&quot;</span>, <span class="st">&quot;Mowla&quot;</span>, <span class="st">&quot;Njie&quot;</span>, </span>
+<span id="cb661-5"><a href="miscellaneous.html#cb661-5" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Rahman&quot;</span>, <span class="st">&quot;Siddique&quot;</span>, <span class="st">&quot;Sukhram&quot;</span>,<span class="st">&quot;Tan&quot;</span>, <span class="st">&quot;Tiumalu&quot;</span>, <span class="st">&quot;Vu&quot;</span>)</span>
+<span id="cb661-6"><a href="miscellaneous.html#cb661-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-7"><a href="miscellaneous.html#cb661-7" aria-hidden="true" tabindex="-1"></a>students_BIO209 </span>
+<span id="cb661-8"><a href="miscellaneous.html#cb661-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Ardire&quot;          &quot;Carlucci&quot;        &quot;Da_Costa_Morais&quot; &quot;Davidov&quot;         &quot;Deda&quot;           </span></span>
+<span id="cb661-9"><a href="miscellaneous.html#cb661-9" aria-hidden="true" tabindex="-1"></a><span class="co">#[6] &quot;Dimitrijevic&quot;    &quot;Fasano&quot;          &quot;Javed&quot;           &quot;Mahadeo&quot;         &quot;Mowla&quot;          </span></span>
+<span id="cb661-10"><a href="miscellaneous.html#cb661-10" aria-hidden="true" tabindex="-1"></a><span class="co">#[11] &quot;Njie&quot;            &quot;Rahman&quot;          &quot;Siddique&quot;        &quot;Sukhram&quot;         &quot;Tan&quot;            </span></span>
+<span id="cb661-11"><a href="miscellaneous.html#cb661-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[16] &quot;Tiumalu&quot;         &quot;Vu&quot; </span></span>
+<span id="cb661-12"><a href="miscellaneous.html#cb661-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-13"><a href="miscellaneous.html#cb661-13" aria-hidden="true" tabindex="-1"></a><span class="do">## we order them alphabetically</span></span>
+<span id="cb661-14"><a href="miscellaneous.html#cb661-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-15"><a href="miscellaneous.html#cb661-15" aria-hidden="true" tabindex="-1"></a>students_BIO209_order <span class="ot">&lt;-</span> <span class="fu">sort</span>(students_BIO209)</span>
+<span id="cb661-16"><a href="miscellaneous.html#cb661-16" aria-hidden="true" tabindex="-1"></a>students_BIO209_order</span>
+<span id="cb661-17"><a href="miscellaneous.html#cb661-17" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;Ardire&quot;          &quot;Carlucci&quot;        &quot;Da_Costa_Morais&quot; &quot;Davidov&quot;         &quot;Deda&quot;           </span></span>
+<span id="cb661-18"><a href="miscellaneous.html#cb661-18" aria-hidden="true" tabindex="-1"></a><span class="co">#[6] &quot;Dimitrijevic&quot;    &quot;Fasano&quot;          &quot;Javed&quot;           &quot;Mahadeo&quot;         &quot;Mowla&quot;          </span></span>
+<span id="cb661-19"><a href="miscellaneous.html#cb661-19" aria-hidden="true" tabindex="-1"></a><span class="co">#[11] &quot;Njie&quot;            &quot;Rahman&quot;          &quot;Siddique&quot;        &quot;Sukhram&quot;         &quot;Tan&quot;            </span></span>
+<span id="cb661-20"><a href="miscellaneous.html#cb661-20" aria-hidden="true" tabindex="-1"></a><span class="co">#[16] &quot;Tiumalu&quot;         &quot;Vu&quot; </span></span>
+<span id="cb661-21"><a href="miscellaneous.html#cb661-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-22"><a href="miscellaneous.html#cb661-22" aria-hidden="true" tabindex="-1"></a><span class="do">## numeric code for each student</span></span>
+<span id="cb661-23"><a href="miscellaneous.html#cb661-23" aria-hidden="true" tabindex="-1"></a>students_BIO209_order_c <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, students_BIO209_order, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)</span>
+<span id="cb661-24"><a href="miscellaneous.html#cb661-24" aria-hidden="true" tabindex="-1"></a>students_BIO209_order_c </span>
+<span id="cb661-25"><a href="miscellaneous.html#cb661-25" aria-hidden="true" tabindex="-1"></a><span class="co">#[[1] &quot;1_Ardire&quot;          &quot;2_Carlucci&quot;        &quot;3_Da_Costa_Morais&quot; &quot;4_Davidov&quot;         &quot;5_Deda&quot;           </span></span>
+<span id="cb661-26"><a href="miscellaneous.html#cb661-26" aria-hidden="true" tabindex="-1"></a><span class="co">#[6] &quot;6_Dimitrijevic&quot;    &quot;7_Fasano&quot;          &quot;8_Javed&quot;           &quot;9_Mahadeo&quot;         &quot;10_Mowla&quot;         </span></span>
+<span id="cb661-27"><a href="miscellaneous.html#cb661-27" aria-hidden="true" tabindex="-1"></a><span class="co">#[11] &quot;11_Njie&quot;           &quot;12_Rahman&quot;         &quot;13_Siddique&quot;       &quot;14_Sukhram&quot;        &quot;15_Tan&quot;           </span></span>
+<span id="cb661-28"><a href="miscellaneous.html#cb661-28" aria-hidden="true" tabindex="-1"></a><span class="co">#[16] &quot;16_Tiumalu&quot;        &quot;17_Vu&quot;</span></span>
+<span id="cb661-29"><a href="miscellaneous.html#cb661-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-30"><a href="miscellaneous.html#cb661-30" aria-hidden="true" tabindex="-1"></a><span class="do">## we sample 2 students to give a review of last class</span></span>
+<span id="cb661-31"><a href="miscellaneous.html#cb661-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-32"><a href="miscellaneous.html#cb661-32" aria-hidden="true" tabindex="-1"></a>todays_2_students_code <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">prob =</span> <span class="cn">NULL</span>)</span>
+<span id="cb661-33"><a href="miscellaneous.html#cb661-33" aria-hidden="true" tabindex="-1"></a>todays_2_students_code</span>
+<span id="cb661-34"><a href="miscellaneous.html#cb661-34" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 16 13</span></span>
+<span id="cb661-35"><a href="miscellaneous.html#cb661-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-36"><a href="miscellaneous.html#cb661-36" aria-hidden="true" tabindex="-1"></a><span class="do">## we identify such students by name</span></span>
+<span id="cb661-37"><a href="miscellaneous.html#cb661-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-38"><a href="miscellaneous.html#cb661-38" aria-hidden="true" tabindex="-1"></a>today_students <span class="ot">&lt;-</span> students_BIO209_order_c[todays_2_students_code]</span>
+<span id="cb661-39"><a href="miscellaneous.html#cb661-39" aria-hidden="true" tabindex="-1"></a>today_students</span>
+<span id="cb661-40"><a href="miscellaneous.html#cb661-40" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;16_Tiumalu&quot;  &quot;13_Siddique&quot;</span></span>
+<span id="cb661-41"><a href="miscellaneous.html#cb661-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-42"><a href="miscellaneous.html#cb661-42" aria-hidden="true" tabindex="-1"></a><span class="do">## NEXT WEEK: we need 2 students again, but we want to remove those that already gave a lesson</span></span>
+<span id="cb661-43"><a href="miscellaneous.html#cb661-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-44"><a href="miscellaneous.html#cb661-44" aria-hidden="true" tabindex="-1"></a>remaining_students_code <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">17</span>, <span class="fu">c</span>(<span class="dv">16</span>,<span class="dv">13</span>))</span>
+<span id="cb661-45"><a href="miscellaneous.html#cb661-45" aria-hidden="true" tabindex="-1"></a>remaining_students_code</span>
+<span id="cb661-46"><a href="miscellaneous.html#cb661-46" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  1  2  3  4  5  6  7  8  9 10 11 12 14 15 17</span></span>
+<span id="cb661-47"><a href="miscellaneous.html#cb661-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-48"><a href="miscellaneous.html#cb661-48" aria-hidden="true" tabindex="-1"></a><span class="do">## NEXT WEEK: we sample 2 students to give a review of last class</span></span>
+<span id="cb661-49"><a href="miscellaneous.html#cb661-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-50"><a href="miscellaneous.html#cb661-50" aria-hidden="true" tabindex="-1"></a>todays_2_students_code <span class="ot">&lt;-</span> <span class="fu">sample</span>(remaining_students_code, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">prob =</span> <span class="cn">NULL</span>)</span>
+<span id="cb661-51"><a href="miscellaneous.html#cb661-51" aria-hidden="true" tabindex="-1"></a>todays_2_students_code</span>
+<span id="cb661-52"><a href="miscellaneous.html#cb661-52" aria-hidden="true" tabindex="-1"></a><span class="co">#[1]  7 15</span></span>
+<span id="cb661-53"><a href="miscellaneous.html#cb661-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-54"><a href="miscellaneous.html#cb661-54" aria-hidden="true" tabindex="-1"></a><span class="do">## NEXT WEEK: we identify such students by name</span></span>
+<span id="cb661-55"><a href="miscellaneous.html#cb661-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-56"><a href="miscellaneous.html#cb661-56" aria-hidden="true" tabindex="-1"></a>today_students <span class="ot">&lt;-</span> students_BIO209_order_c[todays_2_students_code]</span>
+<span id="cb661-57"><a href="miscellaneous.html#cb661-57" aria-hidden="true" tabindex="-1"></a>today_students</span>
+<span id="cb661-58"><a href="miscellaneous.html#cb661-58" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;7_Fasano&quot; &quot;15_Tan&quot;</span></span></code></pre></div>
 </div>
 <div id="read-a-text-from-an-article-pdf" class="section level2" number="32.2">
 <h2><span class="header-section-number">32.2</span> Read a text from an article pdf</h2>
 <p>We can often summarize a pdf of paper or article using a world cloud. For this purpose, we need to read a pdf from our desktop using the R-package <a href="https://cran.r-project.org/web/packages/pdftools/" target="_blank"><strong>pdftools</strong></a>
 and read the text to a vector using <a href="https://cran.r-project.org/web/packages/tm/index.html" target="_blank"><strong>tm: Text Mining Package</strong></a>.</p>
-<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb655-1"><a href="miscellaneous.html#cb655-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install and load some R-packages</span></span>
-<span id="cb655-2"><a href="miscellaneous.html#cb655-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;pdftools&quot;</span>)</span>
-<span id="cb655-3"><a href="miscellaneous.html#cb655-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pdftools)</span>
-<span id="cb655-4"><a href="miscellaneous.html#cb655-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tm&quot;</span>)</span>
-<span id="cb655-5"><a href="miscellaneous.html#cb655-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tm)</span>
-<span id="cb655-6"><a href="miscellaneous.html#cb655-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb655-7"><a href="miscellaneous.html#cb655-7" aria-hidden="true" tabindex="-1"></a><span class="do">## file path to my pdf file</span></span>
-<span id="cb655-8"><a href="miscellaneous.html#cb655-8" aria-hidden="true" tabindex="-1"></a>my_pdf_file_path <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory/Almeida_Paiva_etal_2022.pdf&quot;</span></span>
-<span id="cb655-9"><a href="miscellaneous.html#cb655-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb655-10"><a href="miscellaneous.html#cb655-10" aria-hidden="true" tabindex="-1"></a><span class="do">## read pdf text to a vector</span></span>
-<span id="cb655-11"><a href="miscellaneous.html#cb655-11" aria-hidden="true" tabindex="-1"></a>pdf_text <span class="ot">&lt;-</span> <span class="fu">pdf_text</span>(my_pdf_file_path, <span class="at">opw =</span> <span class="st">&quot;&quot;</span>, <span class="at">upw =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb655-12"><a href="miscellaneous.html#cb655-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb655-13"><a href="miscellaneous.html#cb655-13" aria-hidden="true" tabindex="-1"></a><span class="do">## remove special characters like &quot;–&quot;</span></span>
-<span id="cb655-14"><a href="miscellaneous.html#cb655-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb655-15"><a href="miscellaneous.html#cb655-15" aria-hidden="true" tabindex="-1"></a>pdf_text <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;–&quot;</span>,<span class="st">&quot; &quot;</span>, pdf_text)</span>
-<span id="cb655-16"><a href="miscellaneous.html#cb655-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb655-17"><a href="miscellaneous.html#cb655-17" aria-hidden="true" tabindex="-1"></a><span class="do">## create a text vector from pdf text and remove unwanted characters</span></span>
-<span id="cb655-18"><a href="miscellaneous.html#cb655-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb655-19"><a href="miscellaneous.html#cb655-19" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">Corpus</span>(<span class="fu">VectorSource</span>(pdf_text))</span>
-<span id="cb655-20"><a href="miscellaneous.html#cb655-20" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeNumbers)</span>
-<span id="cb655-21"><a href="miscellaneous.html#cb655-21" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removePunctuation)</span>
-<span id="cb655-22"><a href="miscellaneous.html#cb655-22" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, stemming)</span>
-<span id="cb655-23"><a href="miscellaneous.html#cb655-23" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, stripWhitespace)</span>
-<span id="cb655-24"><a href="miscellaneous.html#cb655-24" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, <span class="fu">content_transformer</span>(tolower))</span>
-<span id="cb655-25"><a href="miscellaneous.html#cb655-25" aria-hidden="true" tabindex="-1"></a>my_pdf_corpus <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeWords, <span class="fu">stopwords</span>(<span class="st">&quot;english&quot;</span>))</span>
-<span id="cb655-26"><a href="miscellaneous.html#cb655-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb655-27"><a href="miscellaneous.html#cb655-27" aria-hidden="true" tabindex="-1"></a>my_pdf_corpus</span>
-<span id="cb655-28"><a href="miscellaneous.html#cb655-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;&lt;SimpleCorpus&gt;&gt;</span></span>
-<span id="cb655-29"><a href="miscellaneous.html#cb655-29" aria-hidden="true" tabindex="-1"></a><span class="co">#Metadata:  corpus specific: 1, document level (indexed): 0</span></span>
-<span id="cb655-30"><a href="miscellaneous.html#cb655-30" aria-hidden="true" tabindex="-1"></a><span class="co">#Content:  documents: 28</span></span>
-<span id="cb655-31"><a href="miscellaneous.html#cb655-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb655-32"><a href="miscellaneous.html#cb655-32" aria-hidden="true" tabindex="-1"></a><span class="do">## we process the my_text_pdf to a term-document matrix (tdm or TDM). This TDM stores counts of terms for the pdf document using the tm function &#39;TermDocumentMatrix&#39;.</span></span>
-<span id="cb655-33"><a href="miscellaneous.html#cb655-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb655-34"><a href="miscellaneous.html#cb655-34" aria-hidden="true" tabindex="-1"></a>my_pdf_corpus_tdm <span class="ot">&lt;-</span> <span class="fu">TermDocumentMatrix</span>(my_pdf_corpus)</span>
-<span id="cb655-35"><a href="miscellaneous.html#cb655-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb655-36"><a href="miscellaneous.html#cb655-36" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(my_pdf_corpus_tdm) </span>
-<span id="cb655-37"><a href="miscellaneous.html#cb655-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;&lt;TermDocumentMatrix (terms: 4796, documents: 28)&gt;&gt;</span></span>
-<span id="cb655-38"><a href="miscellaneous.html#cb655-38" aria-hidden="true" tabindex="-1"></a><span class="co">#Non-/sparse entries: 9858/124430</span></span>
-<span id="cb655-39"><a href="miscellaneous.html#cb655-39" aria-hidden="true" tabindex="-1"></a><span class="co">#Sparsity           : 93%</span></span>
-<span id="cb655-40"><a href="miscellaneous.html#cb655-40" aria-hidden="true" tabindex="-1"></a><span class="co">#Maximal term length: 50</span></span>
-<span id="cb655-41"><a href="miscellaneous.html#cb655-41" aria-hidden="true" tabindex="-1"></a><span class="co">#Weighting          : term frequency (tf)</span></span>
-<span id="cb655-42"><a href="miscellaneous.html#cb655-42" aria-hidden="true" tabindex="-1"></a><span class="co">#Sample             :</span></span>
-<span id="cb655-43"><a href="miscellaneous.html#cb655-43" aria-hidden="true" tabindex="-1"></a><span class="co">#             Docs</span></span>
-<span id="cb655-44"><a href="miscellaneous.html#cb655-44" aria-hidden="true" tabindex="-1"></a><span class="co">#Terms         16  2 20 21 24 25 26  3  5  8</span></span>
-<span id="cb655-45"><a href="miscellaneous.html#cb655-45" aria-hidden="true" tabindex="-1"></a><span class="co">#  available    5  5  4  6  0  0  0  4  4  8</span></span>
-<span id="cb655-46"><a href="miscellaneous.html#cb655-46" aria-hidden="true" tabindex="-1"></a><span class="co">#  can          6  9  8  7  1  0  0  6  8 13</span></span>
-<span id="cb655-47"><a href="miscellaneous.html#cb655-47" aria-hidden="true" tabindex="-1"></a><span class="co">#  free         2  0  1  2  0  0  0  0  3  2</span></span>
-<span id="cb655-48"><a href="miscellaneous.html#cb655-48" aria-hidden="true" tabindex="-1"></a><span class="co">#  information  6  1  4  7  0  0  1  0  2  4</span></span>
-<span id="cb655-49"><a href="miscellaneous.html#cb655-49" aria-hidden="true" tabindex="-1"></a><span class="co">#  molecular    0  4  0  3  3  7  0  6 14 14</span></span>
-<span id="cb655-50"><a href="miscellaneous.html#cb655-50" aria-hidden="true" tabindex="-1"></a><span class="co">#  protein     50 13 18 15  1  0  5 18  4  3</span></span>
-<span id="cb655-51"><a href="miscellaneous.html#cb655-51" aria-hidden="true" tabindex="-1"></a><span class="co">#  proteins     8  7  8  3  2  3  2  2  3  2</span></span>
-<span id="cb655-52"><a href="miscellaneous.html#cb655-52" aria-hidden="true" tabindex="-1"></a><span class="co">#  structure    1  6  6  7  1  0  2  2  1  4</span></span>
-<span id="cb655-53"><a href="miscellaneous.html#cb655-53" aria-hidden="true" tabindex="-1"></a><span class="co">#  structures   5  7  6  5  0  0  0  6  1  7</span></span>
-<span id="cb655-54"><a href="miscellaneous.html#cb655-54" aria-hidden="true" tabindex="-1"></a><span class="co">#  tool        13  8  5  8  0  0  1  4  9  9</span></span>
-<span id="cb655-55"><a href="miscellaneous.html#cb655-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb655-56"><a href="miscellaneous.html#cb655-56" aria-hidden="true" tabindex="-1"></a><span class="do">## we create a matrix of word as a dataframe to be analyzed</span></span>
-<span id="cb655-57"><a href="miscellaneous.html#cb655-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb655-58"><a href="miscellaneous.html#cb655-58" aria-hidden="true" tabindex="-1"></a>pdf_matrix <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(my_pdf_corpus_tdm) </span>
-<span id="cb655-59"><a href="miscellaneous.html#cb655-59" aria-hidden="true" tabindex="-1"></a>pdf_words <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">rowSums</span>(pdf_matrix),<span class="at">decreasing=</span><span class="cn">TRUE</span>) </span>
-<span id="cb655-60"><a href="miscellaneous.html#cb655-60" aria-hidden="true" tabindex="-1"></a>pdf_df_for_map <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">word =</span> <span class="fu">names</span>(pdf_words),<span class="at">freq=</span>pdf_words)</span>
-<span id="cb655-61"><a href="miscellaneous.html#cb655-61" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pdf_df_for_map)</span>
-<span id="cb655-62"><a href="miscellaneous.html#cb655-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb655-63"><a href="miscellaneous.html#cb655-63" aria-hidden="true" tabindex="-1"></a><span class="co">#               word freq</span></span>
-<span id="cb655-64"><a href="miscellaneous.html#cb655-64" aria-hidden="true" tabindex="-1"></a><span class="co">#protein     protein  260</span></span>
-<span id="cb655-65"><a href="miscellaneous.html#cb655-65" aria-hidden="true" tabindex="-1"></a><span class="co">#can             can  143</span></span>
-<span id="cb655-66"><a href="miscellaneous.html#cb655-66" aria-hidden="true" tabindex="-1"></a><span class="co">#available available  127</span></span>
-<span id="cb655-67"><a href="miscellaneous.html#cb655-67" aria-hidden="true" tabindex="-1"></a><span class="co">#tool           tool  124</span></span>
-<span id="cb655-68"><a href="miscellaneous.html#cb655-68" aria-hidden="true" tabindex="-1"></a><span class="co">#proteins   proteins   98</span></span>
-<span id="cb655-69"><a href="miscellaneous.html#cb655-69" aria-hidden="true" tabindex="-1"></a><span class="co">#molecular molecular   92</span></span></code></pre></div>
+<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="miscellaneous.html#cb662-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install and load some R-packages</span></span>
+<span id="cb662-2"><a href="miscellaneous.html#cb662-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;pdftools&quot;</span>)</span>
+<span id="cb662-3"><a href="miscellaneous.html#cb662-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pdftools)</span>
+<span id="cb662-4"><a href="miscellaneous.html#cb662-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tm&quot;</span>)</span>
+<span id="cb662-5"><a href="miscellaneous.html#cb662-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tm)</span>
+<span id="cb662-6"><a href="miscellaneous.html#cb662-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb662-7"><a href="miscellaneous.html#cb662-7" aria-hidden="true" tabindex="-1"></a><span class="do">## file path to my pdf file</span></span>
+<span id="cb662-8"><a href="miscellaneous.html#cb662-8" aria-hidden="true" tabindex="-1"></a>my_pdf_file_path <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory/Almeida_Paiva_etal_2022.pdf&quot;</span></span>
+<span id="cb662-9"><a href="miscellaneous.html#cb662-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb662-10"><a href="miscellaneous.html#cb662-10" aria-hidden="true" tabindex="-1"></a><span class="do">## read pdf text to a vector</span></span>
+<span id="cb662-11"><a href="miscellaneous.html#cb662-11" aria-hidden="true" tabindex="-1"></a>pdf_text <span class="ot">&lt;-</span> <span class="fu">pdf_text</span>(my_pdf_file_path, <span class="at">opw =</span> <span class="st">&quot;&quot;</span>, <span class="at">upw =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb662-12"><a href="miscellaneous.html#cb662-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb662-13"><a href="miscellaneous.html#cb662-13" aria-hidden="true" tabindex="-1"></a><span class="do">## remove special characters like &quot;–&quot;</span></span>
+<span id="cb662-14"><a href="miscellaneous.html#cb662-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb662-15"><a href="miscellaneous.html#cb662-15" aria-hidden="true" tabindex="-1"></a>pdf_text <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;–&quot;</span>,<span class="st">&quot; &quot;</span>, pdf_text)</span>
+<span id="cb662-16"><a href="miscellaneous.html#cb662-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb662-17"><a href="miscellaneous.html#cb662-17" aria-hidden="true" tabindex="-1"></a><span class="do">## create a text vector from pdf text and remove unwanted characters</span></span>
+<span id="cb662-18"><a href="miscellaneous.html#cb662-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb662-19"><a href="miscellaneous.html#cb662-19" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">Corpus</span>(<span class="fu">VectorSource</span>(pdf_text))</span>
+<span id="cb662-20"><a href="miscellaneous.html#cb662-20" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeNumbers)</span>
+<span id="cb662-21"><a href="miscellaneous.html#cb662-21" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removePunctuation)</span>
+<span id="cb662-22"><a href="miscellaneous.html#cb662-22" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, stemming)</span>
+<span id="cb662-23"><a href="miscellaneous.html#cb662-23" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, stripWhitespace)</span>
+<span id="cb662-24"><a href="miscellaneous.html#cb662-24" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, <span class="fu">content_transformer</span>(tolower))</span>
+<span id="cb662-25"><a href="miscellaneous.html#cb662-25" aria-hidden="true" tabindex="-1"></a>my_pdf_corpus <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeWords, <span class="fu">stopwords</span>(<span class="st">&quot;english&quot;</span>))</span>
+<span id="cb662-26"><a href="miscellaneous.html#cb662-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb662-27"><a href="miscellaneous.html#cb662-27" aria-hidden="true" tabindex="-1"></a>my_pdf_corpus</span>
+<span id="cb662-28"><a href="miscellaneous.html#cb662-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;&lt;SimpleCorpus&gt;&gt;</span></span>
+<span id="cb662-29"><a href="miscellaneous.html#cb662-29" aria-hidden="true" tabindex="-1"></a><span class="co">#Metadata:  corpus specific: 1, document level (indexed): 0</span></span>
+<span id="cb662-30"><a href="miscellaneous.html#cb662-30" aria-hidden="true" tabindex="-1"></a><span class="co">#Content:  documents: 28</span></span>
+<span id="cb662-31"><a href="miscellaneous.html#cb662-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb662-32"><a href="miscellaneous.html#cb662-32" aria-hidden="true" tabindex="-1"></a><span class="do">## we process the my_text_pdf to a term-document matrix (tdm or TDM). This TDM stores counts of terms for the pdf document using the tm function &#39;TermDocumentMatrix&#39;.</span></span>
+<span id="cb662-33"><a href="miscellaneous.html#cb662-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb662-34"><a href="miscellaneous.html#cb662-34" aria-hidden="true" tabindex="-1"></a>my_pdf_corpus_tdm <span class="ot">&lt;-</span> <span class="fu">TermDocumentMatrix</span>(my_pdf_corpus)</span>
+<span id="cb662-35"><a href="miscellaneous.html#cb662-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb662-36"><a href="miscellaneous.html#cb662-36" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(my_pdf_corpus_tdm) </span>
+<span id="cb662-37"><a href="miscellaneous.html#cb662-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;&lt;TermDocumentMatrix (terms: 4796, documents: 28)&gt;&gt;</span></span>
+<span id="cb662-38"><a href="miscellaneous.html#cb662-38" aria-hidden="true" tabindex="-1"></a><span class="co">#Non-/sparse entries: 9858/124430</span></span>
+<span id="cb662-39"><a href="miscellaneous.html#cb662-39" aria-hidden="true" tabindex="-1"></a><span class="co">#Sparsity           : 93%</span></span>
+<span id="cb662-40"><a href="miscellaneous.html#cb662-40" aria-hidden="true" tabindex="-1"></a><span class="co">#Maximal term length: 50</span></span>
+<span id="cb662-41"><a href="miscellaneous.html#cb662-41" aria-hidden="true" tabindex="-1"></a><span class="co">#Weighting          : term frequency (tf)</span></span>
+<span id="cb662-42"><a href="miscellaneous.html#cb662-42" aria-hidden="true" tabindex="-1"></a><span class="co">#Sample             :</span></span>
+<span id="cb662-43"><a href="miscellaneous.html#cb662-43" aria-hidden="true" tabindex="-1"></a><span class="co">#             Docs</span></span>
+<span id="cb662-44"><a href="miscellaneous.html#cb662-44" aria-hidden="true" tabindex="-1"></a><span class="co">#Terms         16  2 20 21 24 25 26  3  5  8</span></span>
+<span id="cb662-45"><a href="miscellaneous.html#cb662-45" aria-hidden="true" tabindex="-1"></a><span class="co">#  available    5  5  4  6  0  0  0  4  4  8</span></span>
+<span id="cb662-46"><a href="miscellaneous.html#cb662-46" aria-hidden="true" tabindex="-1"></a><span class="co">#  can          6  9  8  7  1  0  0  6  8 13</span></span>
+<span id="cb662-47"><a href="miscellaneous.html#cb662-47" aria-hidden="true" tabindex="-1"></a><span class="co">#  free         2  0  1  2  0  0  0  0  3  2</span></span>
+<span id="cb662-48"><a href="miscellaneous.html#cb662-48" aria-hidden="true" tabindex="-1"></a><span class="co">#  information  6  1  4  7  0  0  1  0  2  4</span></span>
+<span id="cb662-49"><a href="miscellaneous.html#cb662-49" aria-hidden="true" tabindex="-1"></a><span class="co">#  molecular    0  4  0  3  3  7  0  6 14 14</span></span>
+<span id="cb662-50"><a href="miscellaneous.html#cb662-50" aria-hidden="true" tabindex="-1"></a><span class="co">#  protein     50 13 18 15  1  0  5 18  4  3</span></span>
+<span id="cb662-51"><a href="miscellaneous.html#cb662-51" aria-hidden="true" tabindex="-1"></a><span class="co">#  proteins     8  7  8  3  2  3  2  2  3  2</span></span>
+<span id="cb662-52"><a href="miscellaneous.html#cb662-52" aria-hidden="true" tabindex="-1"></a><span class="co">#  structure    1  6  6  7  1  0  2  2  1  4</span></span>
+<span id="cb662-53"><a href="miscellaneous.html#cb662-53" aria-hidden="true" tabindex="-1"></a><span class="co">#  structures   5  7  6  5  0  0  0  6  1  7</span></span>
+<span id="cb662-54"><a href="miscellaneous.html#cb662-54" aria-hidden="true" tabindex="-1"></a><span class="co">#  tool        13  8  5  8  0  0  1  4  9  9</span></span>
+<span id="cb662-55"><a href="miscellaneous.html#cb662-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb662-56"><a href="miscellaneous.html#cb662-56" aria-hidden="true" tabindex="-1"></a><span class="do">## we create a matrix of word as a dataframe to be analyzed</span></span>
+<span id="cb662-57"><a href="miscellaneous.html#cb662-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb662-58"><a href="miscellaneous.html#cb662-58" aria-hidden="true" tabindex="-1"></a>pdf_matrix <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(my_pdf_corpus_tdm) </span>
+<span id="cb662-59"><a href="miscellaneous.html#cb662-59" aria-hidden="true" tabindex="-1"></a>pdf_words <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">rowSums</span>(pdf_matrix),<span class="at">decreasing=</span><span class="cn">TRUE</span>) </span>
+<span id="cb662-60"><a href="miscellaneous.html#cb662-60" aria-hidden="true" tabindex="-1"></a>pdf_df_for_map <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">word =</span> <span class="fu">names</span>(pdf_words),<span class="at">freq=</span>pdf_words)</span>
+<span id="cb662-61"><a href="miscellaneous.html#cb662-61" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pdf_df_for_map)</span>
+<span id="cb662-62"><a href="miscellaneous.html#cb662-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb662-63"><a href="miscellaneous.html#cb662-63" aria-hidden="true" tabindex="-1"></a><span class="co">#               word freq</span></span>
+<span id="cb662-64"><a href="miscellaneous.html#cb662-64" aria-hidden="true" tabindex="-1"></a><span class="co">#protein     protein  260</span></span>
+<span id="cb662-65"><a href="miscellaneous.html#cb662-65" aria-hidden="true" tabindex="-1"></a><span class="co">#can             can  143</span></span>
+<span id="cb662-66"><a href="miscellaneous.html#cb662-66" aria-hidden="true" tabindex="-1"></a><span class="co">#available available  127</span></span>
+<span id="cb662-67"><a href="miscellaneous.html#cb662-67" aria-hidden="true" tabindex="-1"></a><span class="co">#tool           tool  124</span></span>
+<span id="cb662-68"><a href="miscellaneous.html#cb662-68" aria-hidden="true" tabindex="-1"></a><span class="co">#proteins   proteins   98</span></span>
+<span id="cb662-69"><a href="miscellaneous.html#cb662-69" aria-hidden="true" tabindex="-1"></a><span class="co">#molecular molecular   92</span></span></code></pre></div>
 </div>
 <div id="read-a-text-from-a-website" class="section level2" number="32.3">
 <h2><span class="header-section-number">32.3</span> Read a text from a website</h2>
 <p>We can often summarize a website using a world cloud. For example, the page on Wikipedia corresponding to <a href="https://en.wikipedia.org/wiki/Bioinformatics" target="_blank"><strong>bioinformatics</strong></a>.</p>
-<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="miscellaneous.html#cb656-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install and load some R-packages</span></span>
-<span id="cb656-2"><a href="miscellaneous.html#cb656-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;htm2txt&quot;</span>)</span>
-<span id="cb656-3"><a href="miscellaneous.html#cb656-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htm2txt)</span>
-<span id="cb656-4"><a href="miscellaneous.html#cb656-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb656-5"><a href="miscellaneous.html#cb656-5" aria-hidden="true" tabindex="-1"></a><span class="do">## create a vector with our selected url (website link address)</span></span>
-<span id="cb656-6"><a href="miscellaneous.html#cb656-6" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://en.wikipedia.org/wiki/Bioinformatics&#39;</span></span>
-<span id="cb656-7"><a href="miscellaneous.html#cb656-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb656-8"><a href="miscellaneous.html#cb656-8" aria-hidden="true" tabindex="-1"></a><span class="do">## get the text on the website as a vector</span></span>
-<span id="cb656-9"><a href="miscellaneous.html#cb656-9" aria-hidden="true" tabindex="-1"></a>my_text_url <span class="ot">&lt;-</span> <span class="fu">gettxt</span>(url)</span>
-<span id="cb656-10"><a href="miscellaneous.html#cb656-10" aria-hidden="true" tabindex="-1"></a>my_text_url</span>
-<span id="cb656-11"><a href="miscellaneous.html#cb656-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb656-12"><a href="miscellaneous.html#cb656-12" aria-hidden="true" tabindex="-1"></a><span class="do">## remove some garbage symbols like •</span></span>
-<span id="cb656-13"><a href="miscellaneous.html#cb656-13" aria-hidden="true" tabindex="-1"></a>my_text_url <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;•&quot;</span>,<span class="st">&quot;&quot;</span>,my_text_url)</span>
-<span id="cb656-14"><a href="miscellaneous.html#cb656-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb656-15"><a href="miscellaneous.html#cb656-15" aria-hidden="true" tabindex="-1"></a><span class="do">## create a text vector from pdf text and remove unwanted characters</span></span>
-<span id="cb656-16"><a href="miscellaneous.html#cb656-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb656-17"><a href="miscellaneous.html#cb656-17" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">Corpus</span>(<span class="fu">VectorSource</span>(my_text_url))</span>
-<span id="cb656-18"><a href="miscellaneous.html#cb656-18" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeNumbers)</span>
-<span id="cb656-19"><a href="miscellaneous.html#cb656-19" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removePunctuation)</span>
-<span id="cb656-20"><a href="miscellaneous.html#cb656-20" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, stemming)</span>
-<span id="cb656-21"><a href="miscellaneous.html#cb656-21" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, stripWhitespace)</span>
-<span id="cb656-22"><a href="miscellaneous.html#cb656-22" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, <span class="fu">content_transformer</span>(tolower))</span>
-<span id="cb656-23"><a href="miscellaneous.html#cb656-23" aria-hidden="true" tabindex="-1"></a>my_url_corpus <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeWords, <span class="fu">stopwords</span>(<span class="st">&quot;english&quot;</span>))</span>
-<span id="cb656-24"><a href="miscellaneous.html#cb656-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb656-25"><a href="miscellaneous.html#cb656-25" aria-hidden="true" tabindex="-1"></a>my_url_corpus</span>
-<span id="cb656-26"><a href="miscellaneous.html#cb656-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;&lt;SimpleCorpus&gt;&gt;</span></span>
-<span id="cb656-27"><a href="miscellaneous.html#cb656-27" aria-hidden="true" tabindex="-1"></a><span class="co">#Metadata:  corpus specific: 1, document level (indexed): 0</span></span>
-<span id="cb656-28"><a href="miscellaneous.html#cb656-28" aria-hidden="true" tabindex="-1"></a><span class="co">#Content:  documents: 1</span></span>
-<span id="cb656-29"><a href="miscellaneous.html#cb656-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb656-30"><a href="miscellaneous.html#cb656-30" aria-hidden="true" tabindex="-1"></a><span class="do">## we process the my_url_corpus to a term-document matrix (tdm or TDM). This TDM stores counts of terms for the url document using the tm function &#39;TermDocumentMatrix&#39;.</span></span>
-<span id="cb656-31"><a href="miscellaneous.html#cb656-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb656-32"><a href="miscellaneous.html#cb656-32" aria-hidden="true" tabindex="-1"></a>my_url_corpus_tdm <span class="ot">&lt;-</span> <span class="fu">TermDocumentMatrix</span>(my_url_corpus)</span>
-<span id="cb656-33"><a href="miscellaneous.html#cb656-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb656-34"><a href="miscellaneous.html#cb656-34" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(my_url_corpus_tdm) </span>
-<span id="cb656-35"><a href="miscellaneous.html#cb656-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;&lt;TermDocumentMatrix (terms: 2709, documents: 1)&gt;&gt;</span></span>
-<span id="cb656-36"><a href="miscellaneous.html#cb656-36" aria-hidden="true" tabindex="-1"></a><span class="co">#Non-/sparse entries: 2709/0</span></span>
-<span id="cb656-37"><a href="miscellaneous.html#cb656-37" aria-hidden="true" tabindex="-1"></a><span class="co">#Sparsity           : 0%</span></span>
-<span id="cb656-38"><a href="miscellaneous.html#cb656-38" aria-hidden="true" tabindex="-1"></a><span class="co">#Maximal term length: 52</span></span>
-<span id="cb656-39"><a href="miscellaneous.html#cb656-39" aria-hidden="true" tabindex="-1"></a><span class="co">#Weighting          : term frequency (tf)</span></span>
-<span id="cb656-40"><a href="miscellaneous.html#cb656-40" aria-hidden="true" tabindex="-1"></a><span class="co">#Sample             :</span></span>
-<span id="cb656-41"><a href="miscellaneous.html#cb656-41" aria-hidden="true" tabindex="-1"></a><span class="co">#                Docs</span></span>
-<span id="cb656-42"><a href="miscellaneous.html#cb656-42" aria-hidden="true" tabindex="-1"></a><span class="co">#Terms              1</span></span>
-<span id="cb656-43"><a href="miscellaneous.html#cb656-43" aria-hidden="true" tabindex="-1"></a><span class="co">#  analysis        74</span></span>
-<span id="cb656-44"><a href="miscellaneous.html#cb656-44" aria-hidden="true" tabindex="-1"></a><span class="co">#  bioinformatics 126</span></span>
-<span id="cb656-45"><a href="miscellaneous.html#cb656-45" aria-hidden="true" tabindex="-1"></a><span class="co">#  biology        112</span></span>
-<span id="cb656-46"><a href="miscellaneous.html#cb656-46" aria-hidden="true" tabindex="-1"></a><span class="co">#  computational   66</span></span>
-<span id="cb656-47"><a href="miscellaneous.html#cb656-47" aria-hidden="true" tabindex="-1"></a><span class="co">#  data            70</span></span>
-<span id="cb656-48"><a href="miscellaneous.html#cb656-48" aria-hidden="true" tabindex="-1"></a><span class="co">#  gene            48</span></span>
-<span id="cb656-49"><a href="miscellaneous.html#cb656-49" aria-hidden="true" tabindex="-1"></a><span class="co">#  genome          52</span></span>
-<span id="cb656-50"><a href="miscellaneous.html#cb656-50" aria-hidden="true" tabindex="-1"></a><span class="co">#  information     49</span></span>
-<span id="cb656-51"><a href="miscellaneous.html#cb656-51" aria-hidden="true" tabindex="-1"></a><span class="co">#  protein         76</span></span>
-<span id="cb656-52"><a href="miscellaneous.html#cb656-52" aria-hidden="true" tabindex="-1"></a><span class="co">#  sequence        62</span></span>
-<span id="cb656-53"><a href="miscellaneous.html#cb656-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb656-54"><a href="miscellaneous.html#cb656-54" aria-hidden="true" tabindex="-1"></a><span class="do">## we create a matrix of word as a dataframe to be analyzed</span></span>
-<span id="cb656-55"><a href="miscellaneous.html#cb656-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb656-56"><a href="miscellaneous.html#cb656-56" aria-hidden="true" tabindex="-1"></a>url_matrix <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(my_url_corpus_tdm) </span>
-<span id="cb656-57"><a href="miscellaneous.html#cb656-57" aria-hidden="true" tabindex="-1"></a>url_words <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">rowSums</span>(url_matrix),<span class="at">decreasing=</span><span class="cn">TRUE</span>) </span>
-<span id="cb656-58"><a href="miscellaneous.html#cb656-58" aria-hidden="true" tabindex="-1"></a>url_df_for_map <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">word =</span> <span class="fu">names</span>(url_words),<span class="at">freq=</span>url_words)</span>
-<span id="cb656-59"><a href="miscellaneous.html#cb656-59" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(url_df_for_map)</span>
-<span id="cb656-60"><a href="miscellaneous.html#cb656-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb656-61"><a href="miscellaneous.html#cb656-61" aria-hidden="true" tabindex="-1"></a><span class="co">#                          word freq</span></span>
-<span id="cb656-62"><a href="miscellaneous.html#cb656-62" aria-hidden="true" tabindex="-1"></a><span class="co">#bioinformatics bioinformatics  126</span></span>
-<span id="cb656-63"><a href="miscellaneous.html#cb656-63" aria-hidden="true" tabindex="-1"></a><span class="co">#biology               biology  112</span></span>
-<span id="cb656-64"><a href="miscellaneous.html#cb656-64" aria-hidden="true" tabindex="-1"></a><span class="co">#protein               protein   76</span></span>
-<span id="cb656-65"><a href="miscellaneous.html#cb656-65" aria-hidden="true" tabindex="-1"></a><span class="co">#analysis             analysis   74</span></span>
-<span id="cb656-66"><a href="miscellaneous.html#cb656-66" aria-hidden="true" tabindex="-1"></a><span class="co">#data                     data   70</span></span>
-<span id="cb656-67"><a href="miscellaneous.html#cb656-67" aria-hidden="true" tabindex="-1"></a><span class="co">#computational   computational   66</span></span></code></pre></div>
+<div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb663-1"><a href="miscellaneous.html#cb663-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install and load some R-packages</span></span>
+<span id="cb663-2"><a href="miscellaneous.html#cb663-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;htm2txt&quot;</span>)</span>
+<span id="cb663-3"><a href="miscellaneous.html#cb663-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htm2txt)</span>
+<span id="cb663-4"><a href="miscellaneous.html#cb663-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb663-5"><a href="miscellaneous.html#cb663-5" aria-hidden="true" tabindex="-1"></a><span class="do">## create a vector with our selected url (website link address)</span></span>
+<span id="cb663-6"><a href="miscellaneous.html#cb663-6" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&#39;https://en.wikipedia.org/wiki/Bioinformatics&#39;</span></span>
+<span id="cb663-7"><a href="miscellaneous.html#cb663-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb663-8"><a href="miscellaneous.html#cb663-8" aria-hidden="true" tabindex="-1"></a><span class="do">## get the text on the website as a vector</span></span>
+<span id="cb663-9"><a href="miscellaneous.html#cb663-9" aria-hidden="true" tabindex="-1"></a>my_text_url <span class="ot">&lt;-</span> <span class="fu">gettxt</span>(url)</span>
+<span id="cb663-10"><a href="miscellaneous.html#cb663-10" aria-hidden="true" tabindex="-1"></a>my_text_url</span>
+<span id="cb663-11"><a href="miscellaneous.html#cb663-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb663-12"><a href="miscellaneous.html#cb663-12" aria-hidden="true" tabindex="-1"></a><span class="do">## remove some garbage symbols like •</span></span>
+<span id="cb663-13"><a href="miscellaneous.html#cb663-13" aria-hidden="true" tabindex="-1"></a>my_text_url <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;•&quot;</span>,<span class="st">&quot;&quot;</span>,my_text_url)</span>
+<span id="cb663-14"><a href="miscellaneous.html#cb663-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb663-15"><a href="miscellaneous.html#cb663-15" aria-hidden="true" tabindex="-1"></a><span class="do">## create a text vector from pdf text and remove unwanted characters</span></span>
+<span id="cb663-16"><a href="miscellaneous.html#cb663-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb663-17"><a href="miscellaneous.html#cb663-17" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">Corpus</span>(<span class="fu">VectorSource</span>(my_text_url))</span>
+<span id="cb663-18"><a href="miscellaneous.html#cb663-18" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeNumbers)</span>
+<span id="cb663-19"><a href="miscellaneous.html#cb663-19" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removePunctuation)</span>
+<span id="cb663-20"><a href="miscellaneous.html#cb663-20" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, stemming)</span>
+<span id="cb663-21"><a href="miscellaneous.html#cb663-21" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, stripWhitespace)</span>
+<span id="cb663-22"><a href="miscellaneous.html#cb663-22" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, <span class="fu">content_transformer</span>(tolower))</span>
+<span id="cb663-23"><a href="miscellaneous.html#cb663-23" aria-hidden="true" tabindex="-1"></a>my_url_corpus <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeWords, <span class="fu">stopwords</span>(<span class="st">&quot;english&quot;</span>))</span>
+<span id="cb663-24"><a href="miscellaneous.html#cb663-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb663-25"><a href="miscellaneous.html#cb663-25" aria-hidden="true" tabindex="-1"></a>my_url_corpus</span>
+<span id="cb663-26"><a href="miscellaneous.html#cb663-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;&lt;SimpleCorpus&gt;&gt;</span></span>
+<span id="cb663-27"><a href="miscellaneous.html#cb663-27" aria-hidden="true" tabindex="-1"></a><span class="co">#Metadata:  corpus specific: 1, document level (indexed): 0</span></span>
+<span id="cb663-28"><a href="miscellaneous.html#cb663-28" aria-hidden="true" tabindex="-1"></a><span class="co">#Content:  documents: 1</span></span>
+<span id="cb663-29"><a href="miscellaneous.html#cb663-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb663-30"><a href="miscellaneous.html#cb663-30" aria-hidden="true" tabindex="-1"></a><span class="do">## we process the my_url_corpus to a term-document matrix (tdm or TDM). This TDM stores counts of terms for the url document using the tm function &#39;TermDocumentMatrix&#39;.</span></span>
+<span id="cb663-31"><a href="miscellaneous.html#cb663-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb663-32"><a href="miscellaneous.html#cb663-32" aria-hidden="true" tabindex="-1"></a>my_url_corpus_tdm <span class="ot">&lt;-</span> <span class="fu">TermDocumentMatrix</span>(my_url_corpus)</span>
+<span id="cb663-33"><a href="miscellaneous.html#cb663-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb663-34"><a href="miscellaneous.html#cb663-34" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(my_url_corpus_tdm) </span>
+<span id="cb663-35"><a href="miscellaneous.html#cb663-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;&lt;TermDocumentMatrix (terms: 2709, documents: 1)&gt;&gt;</span></span>
+<span id="cb663-36"><a href="miscellaneous.html#cb663-36" aria-hidden="true" tabindex="-1"></a><span class="co">#Non-/sparse entries: 2709/0</span></span>
+<span id="cb663-37"><a href="miscellaneous.html#cb663-37" aria-hidden="true" tabindex="-1"></a><span class="co">#Sparsity           : 0%</span></span>
+<span id="cb663-38"><a href="miscellaneous.html#cb663-38" aria-hidden="true" tabindex="-1"></a><span class="co">#Maximal term length: 52</span></span>
+<span id="cb663-39"><a href="miscellaneous.html#cb663-39" aria-hidden="true" tabindex="-1"></a><span class="co">#Weighting          : term frequency (tf)</span></span>
+<span id="cb663-40"><a href="miscellaneous.html#cb663-40" aria-hidden="true" tabindex="-1"></a><span class="co">#Sample             :</span></span>
+<span id="cb663-41"><a href="miscellaneous.html#cb663-41" aria-hidden="true" tabindex="-1"></a><span class="co">#                Docs</span></span>
+<span id="cb663-42"><a href="miscellaneous.html#cb663-42" aria-hidden="true" tabindex="-1"></a><span class="co">#Terms              1</span></span>
+<span id="cb663-43"><a href="miscellaneous.html#cb663-43" aria-hidden="true" tabindex="-1"></a><span class="co">#  analysis        74</span></span>
+<span id="cb663-44"><a href="miscellaneous.html#cb663-44" aria-hidden="true" tabindex="-1"></a><span class="co">#  bioinformatics 126</span></span>
+<span id="cb663-45"><a href="miscellaneous.html#cb663-45" aria-hidden="true" tabindex="-1"></a><span class="co">#  biology        112</span></span>
+<span id="cb663-46"><a href="miscellaneous.html#cb663-46" aria-hidden="true" tabindex="-1"></a><span class="co">#  computational   66</span></span>
+<span id="cb663-47"><a href="miscellaneous.html#cb663-47" aria-hidden="true" tabindex="-1"></a><span class="co">#  data            70</span></span>
+<span id="cb663-48"><a href="miscellaneous.html#cb663-48" aria-hidden="true" tabindex="-1"></a><span class="co">#  gene            48</span></span>
+<span id="cb663-49"><a href="miscellaneous.html#cb663-49" aria-hidden="true" tabindex="-1"></a><span class="co">#  genome          52</span></span>
+<span id="cb663-50"><a href="miscellaneous.html#cb663-50" aria-hidden="true" tabindex="-1"></a><span class="co">#  information     49</span></span>
+<span id="cb663-51"><a href="miscellaneous.html#cb663-51" aria-hidden="true" tabindex="-1"></a><span class="co">#  protein         76</span></span>
+<span id="cb663-52"><a href="miscellaneous.html#cb663-52" aria-hidden="true" tabindex="-1"></a><span class="co">#  sequence        62</span></span>
+<span id="cb663-53"><a href="miscellaneous.html#cb663-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb663-54"><a href="miscellaneous.html#cb663-54" aria-hidden="true" tabindex="-1"></a><span class="do">## we create a matrix of word as a dataframe to be analyzed</span></span>
+<span id="cb663-55"><a href="miscellaneous.html#cb663-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb663-56"><a href="miscellaneous.html#cb663-56" aria-hidden="true" tabindex="-1"></a>url_matrix <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(my_url_corpus_tdm) </span>
+<span id="cb663-57"><a href="miscellaneous.html#cb663-57" aria-hidden="true" tabindex="-1"></a>url_words <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">rowSums</span>(url_matrix),<span class="at">decreasing=</span><span class="cn">TRUE</span>) </span>
+<span id="cb663-58"><a href="miscellaneous.html#cb663-58" aria-hidden="true" tabindex="-1"></a>url_df_for_map <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">word =</span> <span class="fu">names</span>(url_words),<span class="at">freq=</span>url_words)</span>
+<span id="cb663-59"><a href="miscellaneous.html#cb663-59" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(url_df_for_map)</span>
+<span id="cb663-60"><a href="miscellaneous.html#cb663-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb663-61"><a href="miscellaneous.html#cb663-61" aria-hidden="true" tabindex="-1"></a><span class="co">#                          word freq</span></span>
+<span id="cb663-62"><a href="miscellaneous.html#cb663-62" aria-hidden="true" tabindex="-1"></a><span class="co">#bioinformatics bioinformatics  126</span></span>
+<span id="cb663-63"><a href="miscellaneous.html#cb663-63" aria-hidden="true" tabindex="-1"></a><span class="co">#biology               biology  112</span></span>
+<span id="cb663-64"><a href="miscellaneous.html#cb663-64" aria-hidden="true" tabindex="-1"></a><span class="co">#protein               protein   76</span></span>
+<span id="cb663-65"><a href="miscellaneous.html#cb663-65" aria-hidden="true" tabindex="-1"></a><span class="co">#analysis             analysis   74</span></span>
+<span id="cb663-66"><a href="miscellaneous.html#cb663-66" aria-hidden="true" tabindex="-1"></a><span class="co">#data                     data   70</span></span>
+<span id="cb663-67"><a href="miscellaneous.html#cb663-67" aria-hidden="true" tabindex="-1"></a><span class="co">#computational   computational   66</span></span></code></pre></div>
 </div>
 <div id="read-a-text-from-a-file" class="section level2" number="32.4">
 <h2><span class="header-section-number">32.4</span> Read a text from a file</h2>
 <p>We can often summarize a text file using a world cloud. For example, your CANVAS responses about this bioinformatic class. Here is an text derived from this paper
 <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005871" target="_blank"><strong>Ten simple rules for biologists learning to program</strong></a> by Maureen A. Carey and Jason A. Papin.</p>
-<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="miscellaneous.html#cb657-1" aria-hidden="true" tabindex="-1"></a><span class="do">## my path to my text file</span></span>
-<span id="cb657-2"><a href="miscellaneous.html#cb657-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb657-3"><a href="miscellaneous.html#cb657-3" aria-hidden="true" tabindex="-1"></a>my_text_file <span class="ot">&lt;-</span> <span class="st">&#39;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory/Carey_Papin_2018_text.txt&#39;</span></span>
-<span id="cb657-4"><a href="miscellaneous.html#cb657-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb657-5"><a href="miscellaneous.html#cb657-5" aria-hidden="true" tabindex="-1"></a><span class="do">## read text file as a vector</span></span>
-<span id="cb657-6"><a href="miscellaneous.html#cb657-6" aria-hidden="true" tabindex="-1"></a>my_text <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">readLines</span>(my_text_file),<span class="at">collapse=</span><span class="st">&quot; &quot;</span>)</span>
-<span id="cb657-7"><a href="miscellaneous.html#cb657-7" aria-hidden="true" tabindex="-1"></a>my_text</span>
-<span id="cb657-8"><a href="miscellaneous.html#cb657-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb657-9"><a href="miscellaneous.html#cb657-9" aria-hidden="true" tabindex="-1"></a><span class="do">## remove some garbage symbols like •</span></span>
-<span id="cb657-10"><a href="miscellaneous.html#cb657-10" aria-hidden="true" tabindex="-1"></a>my_text <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;•&quot;</span>,<span class="st">&quot;&quot;</span>,my_text)</span>
-<span id="cb657-11"><a href="miscellaneous.html#cb657-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb657-12"><a href="miscellaneous.html#cb657-12" aria-hidden="true" tabindex="-1"></a><span class="do">## create a text vector from pdf text and remove unwanted characters</span></span>
-<span id="cb657-13"><a href="miscellaneous.html#cb657-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb657-14"><a href="miscellaneous.html#cb657-14" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">Corpus</span>(<span class="fu">VectorSource</span>(my_text))</span>
-<span id="cb657-15"><a href="miscellaneous.html#cb657-15" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeNumbers)</span>
-<span id="cb657-16"><a href="miscellaneous.html#cb657-16" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removePunctuation)</span>
-<span id="cb657-17"><a href="miscellaneous.html#cb657-17" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, stemming)</span>
-<span id="cb657-18"><a href="miscellaneous.html#cb657-18" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, stripWhitespace)</span>
-<span id="cb657-19"><a href="miscellaneous.html#cb657-19" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, <span class="fu">content_transformer</span>(tolower))</span>
-<span id="cb657-20"><a href="miscellaneous.html#cb657-20" aria-hidden="true" tabindex="-1"></a>my_text_corpus <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeWords, <span class="fu">stopwords</span>(<span class="st">&quot;english&quot;</span>))</span>
-<span id="cb657-21"><a href="miscellaneous.html#cb657-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb657-22"><a href="miscellaneous.html#cb657-22" aria-hidden="true" tabindex="-1"></a>my_text_corpus</span>
-<span id="cb657-23"><a href="miscellaneous.html#cb657-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;&lt;SimpleCorpus&gt;&gt;</span></span>
-<span id="cb657-24"><a href="miscellaneous.html#cb657-24" aria-hidden="true" tabindex="-1"></a><span class="co">#Metadata:  corpus specific: 1, document level (indexed): 0</span></span>
-<span id="cb657-25"><a href="miscellaneous.html#cb657-25" aria-hidden="true" tabindex="-1"></a><span class="co">#Content:  documents: 1</span></span>
-<span id="cb657-26"><a href="miscellaneous.html#cb657-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb657-27"><a href="miscellaneous.html#cb657-27" aria-hidden="true" tabindex="-1"></a><span class="do">## we process the my_text_corpus to a term-document matrix (tdm or TDM). This TDM stores counts of terms for the text vector using the tm function &#39;TermDocumentMatrix&#39;.</span></span>
-<span id="cb657-28"><a href="miscellaneous.html#cb657-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb657-29"><a href="miscellaneous.html#cb657-29" aria-hidden="true" tabindex="-1"></a>my_text_corpus_tdm <span class="ot">&lt;-</span> <span class="fu">TermDocumentMatrix</span>(my_text_corpus)</span>
-<span id="cb657-30"><a href="miscellaneous.html#cb657-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb657-31"><a href="miscellaneous.html#cb657-31" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(my_text_corpus_tdm) </span>
-<span id="cb657-32"><a href="miscellaneous.html#cb657-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;&lt;&lt;TermDocumentMatrix (terms: 1255, documents: 1)&gt;&gt;</span></span>
-<span id="cb657-33"><a href="miscellaneous.html#cb657-33" aria-hidden="true" tabindex="-1"></a><span class="co">#Non-/sparse entries: 1255/0</span></span>
-<span id="cb657-34"><a href="miscellaneous.html#cb657-34" aria-hidden="true" tabindex="-1"></a><span class="co">#Sparsity           : 0%</span></span>
-<span id="cb657-35"><a href="miscellaneous.html#cb657-35" aria-hidden="true" tabindex="-1"></a><span class="co">#Maximal term length: 70</span></span>
-<span id="cb657-36"><a href="miscellaneous.html#cb657-36" aria-hidden="true" tabindex="-1"></a><span class="co">#Weighting          : term frequency (tf)</span></span>
-<span id="cb657-37"><a href="miscellaneous.html#cb657-37" aria-hidden="true" tabindex="-1"></a><span class="co">#Sample             :</span></span>
-<span id="cb657-38"><a href="miscellaneous.html#cb657-38" aria-hidden="true" tabindex="-1"></a><span class="co">#               Docs</span></span>
-<span id="cb657-39"><a href="miscellaneous.html#cb657-39" aria-hidden="true" tabindex="-1"></a><span class="co">#Terms            1</span></span>
-<span id="cb657-40"><a href="miscellaneous.html#cb657-40" aria-hidden="true" tabindex="-1"></a><span class="co">#  biology       18</span></span>
-<span id="cb657-41"><a href="miscellaneous.html#cb657-41" aria-hidden="true" tabindex="-1"></a><span class="co">#  can           15</span></span>
-<span id="cb657-42"><a href="miscellaneous.html#cb657-42" aria-hidden="true" tabindex="-1"></a><span class="co">#  code          14</span></span>
-<span id="cb657-43"><a href="miscellaneous.html#cb657-43" aria-hidden="true" tabindex="-1"></a><span class="co">#  computational 30</span></span>
-<span id="cb657-44"><a href="miscellaneous.html#cb657-44" aria-hidden="true" tabindex="-1"></a><span class="co">#  data          18</span></span>
-<span id="cb657-45"><a href="miscellaneous.html#cb657-45" aria-hidden="true" tabindex="-1"></a><span class="co">#  language      21</span></span>
-<span id="cb657-46"><a href="miscellaneous.html#cb657-46" aria-hidden="true" tabindex="-1"></a><span class="co">#  languages     19</span></span>
-<span id="cb657-47"><a href="miscellaneous.html#cb657-47" aria-hidden="true" tabindex="-1"></a><span class="co">#  learn         14</span></span>
-<span id="cb657-48"><a href="miscellaneous.html#cb657-48" aria-hidden="true" tabindex="-1"></a><span class="co">#  rules         17</span></span>
-<span id="cb657-49"><a href="miscellaneous.html#cb657-49" aria-hidden="true" tabindex="-1"></a><span class="co">#  simple        16</span></span>
-<span id="cb657-50"><a href="miscellaneous.html#cb657-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb657-51"><a href="miscellaneous.html#cb657-51" aria-hidden="true" tabindex="-1"></a><span class="do">## we create a matrix of word as a dataframe to be analyzed</span></span>
-<span id="cb657-52"><a href="miscellaneous.html#cb657-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb657-53"><a href="miscellaneous.html#cb657-53" aria-hidden="true" tabindex="-1"></a>text_matrix <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(my_text_corpus_tdm) </span>
-<span id="cb657-54"><a href="miscellaneous.html#cb657-54" aria-hidden="true" tabindex="-1"></a>text_words <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">rowSums</span>(text_matrix),<span class="at">decreasing=</span><span class="cn">TRUE</span>) </span>
-<span id="cb657-55"><a href="miscellaneous.html#cb657-55" aria-hidden="true" tabindex="-1"></a>text_df_for_map <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">word =</span> <span class="fu">names</span>(text_words),<span class="at">freq=</span>text_words)</span>
-<span id="cb657-56"><a href="miscellaneous.html#cb657-56" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(text_df_for_map)</span>
-<span id="cb657-57"><a href="miscellaneous.html#cb657-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb657-58"><a href="miscellaneous.html#cb657-58" aria-hidden="true" tabindex="-1"></a><span class="co">#                       word freq</span></span>
-<span id="cb657-59"><a href="miscellaneous.html#cb657-59" aria-hidden="true" tabindex="-1"></a><span class="co">#computational computational   30</span></span>
-<span id="cb657-60"><a href="miscellaneous.html#cb657-60" aria-hidden="true" tabindex="-1"></a><span class="co">#language           language   21</span></span>
-<span id="cb657-61"><a href="miscellaneous.html#cb657-61" aria-hidden="true" tabindex="-1"></a><span class="co">#languages         languages   19</span></span>
-<span id="cb657-62"><a href="miscellaneous.html#cb657-62" aria-hidden="true" tabindex="-1"></a><span class="co">#biology             biology   18</span></span>
-<span id="cb657-63"><a href="miscellaneous.html#cb657-63" aria-hidden="true" tabindex="-1"></a><span class="co">#data                   data   18</span></span>
-<span id="cb657-64"><a href="miscellaneous.html#cb657-64" aria-hidden="true" tabindex="-1"></a><span class="co">#rules                 rules   17</span></span></code></pre></div>
+<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="miscellaneous.html#cb664-1" aria-hidden="true" tabindex="-1"></a><span class="do">## my path to my text file</span></span>
+<span id="cb664-2"><a href="miscellaneous.html#cb664-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb664-3"><a href="miscellaneous.html#cb664-3" aria-hidden="true" tabindex="-1"></a>my_text_file <span class="ot">&lt;-</span> <span class="st">&#39;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory/Carey_Papin_2018_text.txt&#39;</span></span>
+<span id="cb664-4"><a href="miscellaneous.html#cb664-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb664-5"><a href="miscellaneous.html#cb664-5" aria-hidden="true" tabindex="-1"></a><span class="do">## read text file as a vector</span></span>
+<span id="cb664-6"><a href="miscellaneous.html#cb664-6" aria-hidden="true" tabindex="-1"></a>my_text <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">readLines</span>(my_text_file),<span class="at">collapse=</span><span class="st">&quot; &quot;</span>)</span>
+<span id="cb664-7"><a href="miscellaneous.html#cb664-7" aria-hidden="true" tabindex="-1"></a>my_text</span>
+<span id="cb664-8"><a href="miscellaneous.html#cb664-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb664-9"><a href="miscellaneous.html#cb664-9" aria-hidden="true" tabindex="-1"></a><span class="do">## remove some garbage symbols like •</span></span>
+<span id="cb664-10"><a href="miscellaneous.html#cb664-10" aria-hidden="true" tabindex="-1"></a>my_text <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;•&quot;</span>,<span class="st">&quot;&quot;</span>,my_text)</span>
+<span id="cb664-11"><a href="miscellaneous.html#cb664-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb664-12"><a href="miscellaneous.html#cb664-12" aria-hidden="true" tabindex="-1"></a><span class="do">## create a text vector from pdf text and remove unwanted characters</span></span>
+<span id="cb664-13"><a href="miscellaneous.html#cb664-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb664-14"><a href="miscellaneous.html#cb664-14" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">Corpus</span>(<span class="fu">VectorSource</span>(my_text))</span>
+<span id="cb664-15"><a href="miscellaneous.html#cb664-15" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeNumbers)</span>
+<span id="cb664-16"><a href="miscellaneous.html#cb664-16" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removePunctuation)</span>
+<span id="cb664-17"><a href="miscellaneous.html#cb664-17" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, stemming)</span>
+<span id="cb664-18"><a href="miscellaneous.html#cb664-18" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, stripWhitespace)</span>
+<span id="cb664-19"><a href="miscellaneous.html#cb664-19" aria-hidden="true" tabindex="-1"></a>docs <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, <span class="fu">content_transformer</span>(tolower))</span>
+<span id="cb664-20"><a href="miscellaneous.html#cb664-20" aria-hidden="true" tabindex="-1"></a>my_text_corpus <span class="ot">&lt;-</span> <span class="fu">tm_map</span>(docs, removeWords, <span class="fu">stopwords</span>(<span class="st">&quot;english&quot;</span>))</span>
+<span id="cb664-21"><a href="miscellaneous.html#cb664-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb664-22"><a href="miscellaneous.html#cb664-22" aria-hidden="true" tabindex="-1"></a>my_text_corpus</span>
+<span id="cb664-23"><a href="miscellaneous.html#cb664-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;&lt;SimpleCorpus&gt;&gt;</span></span>
+<span id="cb664-24"><a href="miscellaneous.html#cb664-24" aria-hidden="true" tabindex="-1"></a><span class="co">#Metadata:  corpus specific: 1, document level (indexed): 0</span></span>
+<span id="cb664-25"><a href="miscellaneous.html#cb664-25" aria-hidden="true" tabindex="-1"></a><span class="co">#Content:  documents: 1</span></span>
+<span id="cb664-26"><a href="miscellaneous.html#cb664-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb664-27"><a href="miscellaneous.html#cb664-27" aria-hidden="true" tabindex="-1"></a><span class="do">## we process the my_text_corpus to a term-document matrix (tdm or TDM). This TDM stores counts of terms for the text vector using the tm function &#39;TermDocumentMatrix&#39;.</span></span>
+<span id="cb664-28"><a href="miscellaneous.html#cb664-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb664-29"><a href="miscellaneous.html#cb664-29" aria-hidden="true" tabindex="-1"></a>my_text_corpus_tdm <span class="ot">&lt;-</span> <span class="fu">TermDocumentMatrix</span>(my_text_corpus)</span>
+<span id="cb664-30"><a href="miscellaneous.html#cb664-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb664-31"><a href="miscellaneous.html#cb664-31" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(my_text_corpus_tdm) </span>
+<span id="cb664-32"><a href="miscellaneous.html#cb664-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;&lt;&lt;TermDocumentMatrix (terms: 1255, documents: 1)&gt;&gt;</span></span>
+<span id="cb664-33"><a href="miscellaneous.html#cb664-33" aria-hidden="true" tabindex="-1"></a><span class="co">#Non-/sparse entries: 1255/0</span></span>
+<span id="cb664-34"><a href="miscellaneous.html#cb664-34" aria-hidden="true" tabindex="-1"></a><span class="co">#Sparsity           : 0%</span></span>
+<span id="cb664-35"><a href="miscellaneous.html#cb664-35" aria-hidden="true" tabindex="-1"></a><span class="co">#Maximal term length: 70</span></span>
+<span id="cb664-36"><a href="miscellaneous.html#cb664-36" aria-hidden="true" tabindex="-1"></a><span class="co">#Weighting          : term frequency (tf)</span></span>
+<span id="cb664-37"><a href="miscellaneous.html#cb664-37" aria-hidden="true" tabindex="-1"></a><span class="co">#Sample             :</span></span>
+<span id="cb664-38"><a href="miscellaneous.html#cb664-38" aria-hidden="true" tabindex="-1"></a><span class="co">#               Docs</span></span>
+<span id="cb664-39"><a href="miscellaneous.html#cb664-39" aria-hidden="true" tabindex="-1"></a><span class="co">#Terms            1</span></span>
+<span id="cb664-40"><a href="miscellaneous.html#cb664-40" aria-hidden="true" tabindex="-1"></a><span class="co">#  biology       18</span></span>
+<span id="cb664-41"><a href="miscellaneous.html#cb664-41" aria-hidden="true" tabindex="-1"></a><span class="co">#  can           15</span></span>
+<span id="cb664-42"><a href="miscellaneous.html#cb664-42" aria-hidden="true" tabindex="-1"></a><span class="co">#  code          14</span></span>
+<span id="cb664-43"><a href="miscellaneous.html#cb664-43" aria-hidden="true" tabindex="-1"></a><span class="co">#  computational 30</span></span>
+<span id="cb664-44"><a href="miscellaneous.html#cb664-44" aria-hidden="true" tabindex="-1"></a><span class="co">#  data          18</span></span>
+<span id="cb664-45"><a href="miscellaneous.html#cb664-45" aria-hidden="true" tabindex="-1"></a><span class="co">#  language      21</span></span>
+<span id="cb664-46"><a href="miscellaneous.html#cb664-46" aria-hidden="true" tabindex="-1"></a><span class="co">#  languages     19</span></span>
+<span id="cb664-47"><a href="miscellaneous.html#cb664-47" aria-hidden="true" tabindex="-1"></a><span class="co">#  learn         14</span></span>
+<span id="cb664-48"><a href="miscellaneous.html#cb664-48" aria-hidden="true" tabindex="-1"></a><span class="co">#  rules         17</span></span>
+<span id="cb664-49"><a href="miscellaneous.html#cb664-49" aria-hidden="true" tabindex="-1"></a><span class="co">#  simple        16</span></span>
+<span id="cb664-50"><a href="miscellaneous.html#cb664-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb664-51"><a href="miscellaneous.html#cb664-51" aria-hidden="true" tabindex="-1"></a><span class="do">## we create a matrix of word as a dataframe to be analyzed</span></span>
+<span id="cb664-52"><a href="miscellaneous.html#cb664-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb664-53"><a href="miscellaneous.html#cb664-53" aria-hidden="true" tabindex="-1"></a>text_matrix <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(my_text_corpus_tdm) </span>
+<span id="cb664-54"><a href="miscellaneous.html#cb664-54" aria-hidden="true" tabindex="-1"></a>text_words <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">rowSums</span>(text_matrix),<span class="at">decreasing=</span><span class="cn">TRUE</span>) </span>
+<span id="cb664-55"><a href="miscellaneous.html#cb664-55" aria-hidden="true" tabindex="-1"></a>text_df_for_map <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">word =</span> <span class="fu">names</span>(text_words),<span class="at">freq=</span>text_words)</span>
+<span id="cb664-56"><a href="miscellaneous.html#cb664-56" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(text_df_for_map)</span>
+<span id="cb664-57"><a href="miscellaneous.html#cb664-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb664-58"><a href="miscellaneous.html#cb664-58" aria-hidden="true" tabindex="-1"></a><span class="co">#                       word freq</span></span>
+<span id="cb664-59"><a href="miscellaneous.html#cb664-59" aria-hidden="true" tabindex="-1"></a><span class="co">#computational computational   30</span></span>
+<span id="cb664-60"><a href="miscellaneous.html#cb664-60" aria-hidden="true" tabindex="-1"></a><span class="co">#language           language   21</span></span>
+<span id="cb664-61"><a href="miscellaneous.html#cb664-61" aria-hidden="true" tabindex="-1"></a><span class="co">#languages         languages   19</span></span>
+<span id="cb664-62"><a href="miscellaneous.html#cb664-62" aria-hidden="true" tabindex="-1"></a><span class="co">#biology             biology   18</span></span>
+<span id="cb664-63"><a href="miscellaneous.html#cb664-63" aria-hidden="true" tabindex="-1"></a><span class="co">#data                   data   18</span></span>
+<span id="cb664-64"><a href="miscellaneous.html#cb664-64" aria-hidden="true" tabindex="-1"></a><span class="co">#rules                 rules   17</span></span></code></pre></div>
 </div>
 <div id="generate-the-word-cloud" class="section level2" number="32.5">
 <h2><span class="header-section-number">32.5</span> Generate the word cloud</h2>
 <p>There are many visual and descriptive representation or summaries of text data, which usually involve a presentation of key words (e.g., those used more frequently) on text, books, tweets, websites, etc. We can use a world cloud to summarize the frequency of single words, and the importance of each world could be shown with its font size and color. Three main reasons to use a world cloud might include: (1) To present text data in a clear and simple format, (2) To communicate basic insights based on a large corpus of text (e.g., a speech, a publication, a book, a website), and (3) To visually engage an audience so they can get the gist (i.e., essence or the main point) and draw insights quickly and, at the same time, allowing for some flexibility in their interpretation. For more <strong>insight</strong> see these links: <a href="https://towardsdatascience.com/create-a-word-cloud-with-r-bde3e7422e8a" target="_blank"><strong>Céline Van den Rul</strong></a> and <a href="https://en.wikipedia.org/wiki/Tag_cloud" target="_blank"><strong>here</strong></a>.
 We need to read text from a file, pdf, website as indicated previously. There are many online word-cloud, but for this course we use two R-packages: <a href="https://cran.r-project.org/web/packages/wordcloud/" target="_blank"><strong>wordcloud</strong></a> and
 <a href="https://cran.r-project.org/web/packages/wordcloud2/" target="_blank"><strong>wordcloud2</strong></a></p>
-<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb658-1"><a href="miscellaneous.html#cb658-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install and load some R-packages</span></span>
-<span id="cb658-2"><a href="miscellaneous.html#cb658-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;wordcloud&quot;</span>)</span>
-<span id="cb658-3"><a href="miscellaneous.html#cb658-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wordcloud)</span>
-<span id="cb658-4"><a href="miscellaneous.html#cb658-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;wordcloud2&quot;</span>)</span>
-<span id="cb658-5"><a href="miscellaneous.html#cb658-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wordcloud2)</span></code></pre></div>
+<div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb665-1"><a href="miscellaneous.html#cb665-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install and load some R-packages</span></span>
+<span id="cb665-2"><a href="miscellaneous.html#cb665-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;wordcloud&quot;</span>)</span>
+<span id="cb665-3"><a href="miscellaneous.html#cb665-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wordcloud)</span>
+<span id="cb665-4"><a href="miscellaneous.html#cb665-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;wordcloud2&quot;</span>)</span>
+<span id="cb665-5"><a href="miscellaneous.html#cb665-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wordcloud2)</span></code></pre></div>
 </div>
 <div id="worldcloud-pdf" class="section level2" number="32.6">
 <h2><span class="header-section-number">32.6</span> worldcloud – PDF</h2>
-<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb659-1"><a href="miscellaneous.html#cb659-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>) <span class="co"># for reproducibility</span></span>
-<span id="cb659-2"><a href="miscellaneous.html#cb659-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(<span class="at">words =</span> pdf_df_for_map<span class="sc">$</span>word, </span>
-<span id="cb659-3"><a href="miscellaneous.html#cb659-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">freq =</span> pdf_df_for_map<span class="sc">$</span>freq, </span>
-<span id="cb659-4"><a href="miscellaneous.html#cb659-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">min.freq =</span> <span class="dv">2</span>,</span>
-<span id="cb659-5"><a href="miscellaneous.html#cb659-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">max.words =</span> <span class="dv">100</span>, </span>
-<span id="cb659-6"><a href="miscellaneous.html#cb659-6" aria-hidden="true" tabindex="-1"></a>   <span class="at">random.order =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb659-7"><a href="miscellaneous.html#cb659-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">rot.per =</span> <span class="fl">0.35</span>, </span>
-<span id="cb659-8"><a href="miscellaneous.html#cb659-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&quot;Set1&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="miscellaneous.html#cb666-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>) <span class="co"># for reproducibility</span></span>
+<span id="cb666-2"><a href="miscellaneous.html#cb666-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(<span class="at">words =</span> pdf_df_for_map<span class="sc">$</span>word, </span>
+<span id="cb666-3"><a href="miscellaneous.html#cb666-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">freq =</span> pdf_df_for_map<span class="sc">$</span>freq, </span>
+<span id="cb666-4"><a href="miscellaneous.html#cb666-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">min.freq =</span> <span class="dv">2</span>,</span>
+<span id="cb666-5"><a href="miscellaneous.html#cb666-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">max.words =</span> <span class="dv">100</span>, </span>
+<span id="cb666-6"><a href="miscellaneous.html#cb666-6" aria-hidden="true" tabindex="-1"></a>   <span class="at">random.order =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb666-7"><a href="miscellaneous.html#cb666-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">rot.per =</span> <span class="fl">0.35</span>, </span>
+<span id="cb666-8"><a href="miscellaneous.html#cb666-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&quot;Set1&quot;</span>))</span></code></pre></div>
 <p><img src="figures/misc_sessions/1_wordcloud_pdf1.png" width="90%" /></p>
 <p>We can also use wordcloud2, which has more options and opens in a browser.</p>
-<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="miscellaneous.html#cb660-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud2</span>(<span class="at">data=</span>pdf_df_for_map, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;random-light&quot;</span>, <span class="at">backgroundColor =</span> <span class="st">&quot;white&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb667-1"><a href="miscellaneous.html#cb667-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud2</span>(<span class="at">data=</span>pdf_df_for_map, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;random-light&quot;</span>, <span class="at">backgroundColor =</span> <span class="st">&quot;white&quot;</span>)</span></code></pre></div>
 <p><img src="figures/misc_sessions/4_wordcloud_pdf2.png" width="100%" /></p>
 </div>
 <div id="worldcloud-website" class="section level2" number="32.7">
 <h2><span class="header-section-number">32.7</span> worldcloud – website</h2>
-<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="miscellaneous.html#cb661-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>) <span class="co"># for reproducibility</span></span>
-<span id="cb661-2"><a href="miscellaneous.html#cb661-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb661-3"><a href="miscellaneous.html#cb661-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(<span class="at">words =</span> url_df_for_map<span class="sc">$</span>word, </span>
-<span id="cb661-4"><a href="miscellaneous.html#cb661-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">freq =</span> url_df_for_map<span class="sc">$</span>freq, </span>
-<span id="cb661-5"><a href="miscellaneous.html#cb661-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">min.freq =</span> <span class="dv">2</span>,</span>
-<span id="cb661-6"><a href="miscellaneous.html#cb661-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">max.words =</span> <span class="dv">100</span>, </span>
-<span id="cb661-7"><a href="miscellaneous.html#cb661-7" aria-hidden="true" tabindex="-1"></a>   <span class="at">random.order =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb661-8"><a href="miscellaneous.html#cb661-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">7</span>, <span class="st">&quot;Accent&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="miscellaneous.html#cb668-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>) <span class="co"># for reproducibility</span></span>
+<span id="cb668-2"><a href="miscellaneous.html#cb668-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb668-3"><a href="miscellaneous.html#cb668-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(<span class="at">words =</span> url_df_for_map<span class="sc">$</span>word, </span>
+<span id="cb668-4"><a href="miscellaneous.html#cb668-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">freq =</span> url_df_for_map<span class="sc">$</span>freq, </span>
+<span id="cb668-5"><a href="miscellaneous.html#cb668-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">min.freq =</span> <span class="dv">2</span>,</span>
+<span id="cb668-6"><a href="miscellaneous.html#cb668-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">max.words =</span> <span class="dv">100</span>, </span>
+<span id="cb668-7"><a href="miscellaneous.html#cb668-7" aria-hidden="true" tabindex="-1"></a>   <span class="at">random.order =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb668-8"><a href="miscellaneous.html#cb668-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">7</span>, <span class="st">&quot;Accent&quot;</span>))</span></code></pre></div>
 <p><img src="figures/misc_sessions/2_wordcloud_url1.png" width="90%" /></p>
 <p>We can also use wordcloud2, which has more options and opens in a browser.</p>
-<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="miscellaneous.html#cb662-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud2</span>(<span class="at">data=</span>url_df_for_map, <span class="at">size =</span> <span class="fl">0.6</span>, <span class="at">color=</span><span class="st">&#39;random-dark&#39;</span>, <span class="at">shape =</span> <span class="st">&#39;diamond&#39;</span>, <span class="at">backgroundColor =</span> <span class="st">&quot;grey&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb669-1"><a href="miscellaneous.html#cb669-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud2</span>(<span class="at">data=</span>url_df_for_map, <span class="at">size =</span> <span class="fl">0.6</span>, <span class="at">color=</span><span class="st">&#39;random-dark&#39;</span>, <span class="at">shape =</span> <span class="st">&#39;diamond&#39;</span>, <span class="at">backgroundColor =</span> <span class="st">&quot;grey&quot;</span>)</span></code></pre></div>
 <p><img src="figures/misc_sessions/5_wordcloud_url2.png" width="100%" /></p>
 </div>
 <div id="worldcloud-text" class="section level2" number="32.8">
 <h2><span class="header-section-number">32.8</span> worldcloud – text</h2>
-<div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb663-1"><a href="miscellaneous.html#cb663-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>) <span class="co"># for reproducibility</span></span>
-<span id="cb663-2"><a href="miscellaneous.html#cb663-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb663-3"><a href="miscellaneous.html#cb663-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(<span class="at">words =</span> text_df_for_map<span class="sc">$</span>word, </span>
-<span id="cb663-4"><a href="miscellaneous.html#cb663-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">freq =</span> text_df_for_map<span class="sc">$</span>freq, </span>
-<span id="cb663-5"><a href="miscellaneous.html#cb663-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">min.freq =</span> <span class="dv">2</span>,</span>
-<span id="cb663-6"><a href="miscellaneous.html#cb663-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">max.words =</span> <span class="dv">100</span>, </span>
-<span id="cb663-7"><a href="miscellaneous.html#cb663-7" aria-hidden="true" tabindex="-1"></a>   <span class="at">random.order =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb663-8"><a href="miscellaneous.html#cb663-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">rot.per =</span> <span class="fl">0.35</span>, </span>
-<span id="cb663-9"><a href="miscellaneous.html#cb663-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">7</span>, <span class="st">&quot;Dark2&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="miscellaneous.html#cb670-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>) <span class="co"># for reproducibility</span></span>
+<span id="cb670-2"><a href="miscellaneous.html#cb670-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb670-3"><a href="miscellaneous.html#cb670-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(<span class="at">words =</span> text_df_for_map<span class="sc">$</span>word, </span>
+<span id="cb670-4"><a href="miscellaneous.html#cb670-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">freq =</span> text_df_for_map<span class="sc">$</span>freq, </span>
+<span id="cb670-5"><a href="miscellaneous.html#cb670-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">min.freq =</span> <span class="dv">2</span>,</span>
+<span id="cb670-6"><a href="miscellaneous.html#cb670-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">max.words =</span> <span class="dv">100</span>, </span>
+<span id="cb670-7"><a href="miscellaneous.html#cb670-7" aria-hidden="true" tabindex="-1"></a>   <span class="at">random.order =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb670-8"><a href="miscellaneous.html#cb670-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">rot.per =</span> <span class="fl">0.35</span>, </span>
+<span id="cb670-9"><a href="miscellaneous.html#cb670-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">7</span>, <span class="st">&quot;Dark2&quot;</span>))</span></code></pre></div>
 <p><img src="figures/misc_sessions/3_wordcloud_text1.png" width="90%" /></p>
 <p>We can also use wordcloud2, which has more options and opens in a browser.</p>
-<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="miscellaneous.html#cb664-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud2</span>(<span class="at">data=</span>text_df_for_map, <span class="at">size =</span> <span class="fl">0.7</span>, <span class="at">color=</span><span class="st">&#39;random-dark&#39;</span>, <span class="at">backgroundColor =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb671-1"><a href="miscellaneous.html#cb671-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud2</span>(<span class="at">data=</span>text_df_for_map, <span class="at">size =</span> <span class="fl">0.7</span>, <span class="at">color=</span><span class="st">&#39;random-dark&#39;</span>, <span class="at">backgroundColor =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
 <p><img src="figures/misc_sessions/6_wordcloud_text2.png" width="100%" /></p>
 </div>
 <div id="miscellaneous-1" class="section level2" number="32.9">
 <h2><span class="header-section-number">32.9</span> Miscellaneous</h2>
 <p>PLACE HOLDER</p>
-<div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb665-1"><a href="miscellaneous.html#cb665-1" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
-<span id="cb665-2"><a href="miscellaneous.html#cb665-2" aria-hidden="true" tabindex="-1"></a>mtcars_data <span class="ot">&lt;-</span> mtcars</span>
-<span id="cb665-3"><a href="miscellaneous.html#cb665-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb665-4"><a href="miscellaneous.html#cb665-4" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
-<span id="cb665-5"><a href="miscellaneous.html#cb665-5" aria-hidden="true" tabindex="-1"></a>mtcars_names_vector <span class="ot">&lt;-</span> <span class="fu">rownames</span>(mtcars_data)</span></code></pre></div>
+<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="miscellaneous.html#cb672-1" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
+<span id="cb672-2"><a href="miscellaneous.html#cb672-2" aria-hidden="true" tabindex="-1"></a>mtcars_data <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb672-3"><a href="miscellaneous.html#cb672-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb672-4"><a href="miscellaneous.html#cb672-4" aria-hidden="true" tabindex="-1"></a><span class="do">## PLACE HOLDER</span></span>
+<span id="cb672-5"><a href="miscellaneous.html#cb672-5" aria-hidden="true" tabindex="-1"></a>mtcars_names_vector <span class="ot">&lt;-</span> <span class="fu">rownames</span>(mtcars_data)</span></code></pre></div>
 
 </div>
 </div>

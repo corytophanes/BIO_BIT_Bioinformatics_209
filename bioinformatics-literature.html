@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2023-02-22" />
+<meta name="date" content="2023-03-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -199,13 +199,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.11" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-means-t-test"><i class="fa fa-check"></i><b>6.11</b> Comparing means: t-test</a></li>
 <li class="chapter" data-level="6.12" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#two-sample-t-test"><i class="fa fa-check"></i><b>6.12</b> Two sample t-test</a></li>
 <li class="chapter" data-level="6.13" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>6.13</b> Beyond t-test: Wilcoxon signed rank test</a></li>
-<li class="chapter" data-level="6.14" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-binomial-test"><i class="fa fa-check"></i><b>6.14</b> Beyond t-test: Binomial test</a></li>
-<li class="chapter" data-level="6.15" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-chi-square-goodness-of-fit"><i class="fa fa-check"></i><b>6.15</b> Beyond t-test: Chi-square goodness of fit</a></li>
-<li class="chapter" data-level="6.16" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-mcnemars-test"><i class="fa fa-check"></i><b>6.16</b> Beyond t-test: McNemar’s test</a></li>
-<li class="chapter" data-level="6.17" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-fishers-exact-test"><i class="fa fa-check"></i><b>6.17</b> Beyond t-test: Fisher’s exact test</a></li>
-<li class="chapter" data-level="6.18" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.18</b> Correlations</a></li>
-<li class="chapter" data-level="6.19" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.19</b> Comparing distributions</a></li>
-<li class="chapter" data-level="6.20" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#bootstraps"><i class="fa fa-check"></i><b>6.20</b> Bootstraps</a></li>
+<li class="chapter" data-level="6.14" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#tabulation-and-cross-tabulation"><i class="fa fa-check"></i><b>6.14</b> Tabulation and Cross-Tabulation</a></li>
+<li class="chapter" data-level="6.15" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-binomial-test"><i class="fa fa-check"></i><b>6.15</b> Beyond t-test: Binomial test</a></li>
+<li class="chapter" data-level="6.16" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-chi-square-goodness-of-fit"><i class="fa fa-check"></i><b>6.16</b> Beyond t-test: Chi-square goodness of fit</a></li>
+<li class="chapter" data-level="6.17" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-mcnemars-test"><i class="fa fa-check"></i><b>6.17</b> Beyond t-test: McNemar’s test</a></li>
+<li class="chapter" data-level="6.18" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-fishers-exact-test"><i class="fa fa-check"></i><b>6.18</b> Beyond t-test: Fisher’s exact test</a></li>
+<li class="chapter" data-level="6.19" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.19</b> Correlations</a></li>
+<li class="chapter" data-level="6.20" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.20</b> Comparing distributions</a></li>
+<li class="chapter" data-level="6.21" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#bootstraps"><i class="fa fa-check"></i><b>6.21</b> Bootstraps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html"><i class="fa fa-check"></i><b>7</b> – Regressions and ANOVA in R</a>
 <ul>
@@ -554,20 +555,20 @@ draft versions of a research article that precedes formal peer-review process an
 databases such as <a href="https://www.biorxiv.org/" target="_blank"><strong>bioRxiv</strong></a>. For introductory, manuals, application examples, and guidelines on use of specific bioinformatic tools
 (like those written in R language), you might find vignettes associated with a specific R package in the <a href="https://cran.r-project.org/" target="_blank"><strong>CRAN</strong></a> or <a href="https://www.bioconductor.org/" target="_blank"><strong>Bioconductor</strong></a> repositories.</p>
 <p>Here is an example of how to access the <a href="https://www.bioconductor.org/packages/release/bioc/html/DESeq2.html" target="_blank"><strong><code>DESeq2</code></strong></a> R-package vignette, which is a package for the analysis of differential gene expression analysis.</p>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="bioinformatics-literature.html#cb616-1" aria-hidden="true" tabindex="-1"></a><span class="do">## If you need to install this package in your computer:</span></span>
-<span id="cb616-2"><a href="bioinformatics-literature.html#cb616-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb616-3"><a href="bioinformatics-literature.html#cb616-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb616-4"><a href="bioinformatics-literature.html#cb616-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
-<span id="cb616-5"><a href="bioinformatics-literature.html#cb616-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb616-6"><a href="bioinformatics-literature.html#cb616-6" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;DESeq2&quot;</span>)</span>
-<span id="cb616-7"><a href="bioinformatics-literature.html#cb616-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb616-8"><a href="bioinformatics-literature.html#cb616-8" aria-hidden="true" tabindex="-1"></a><span class="do">## If you already have installed the DESeq2 package, load it in R space:</span></span>
-<span id="cb616-9"><a href="bioinformatics-literature.html#cb616-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb616-10"><a href="bioinformatics-literature.html#cb616-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DESeq2)</span>
-<span id="cb616-11"><a href="bioinformatics-literature.html#cb616-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb616-12"><a href="bioinformatics-literature.html#cb616-12" aria-hidden="true" tabindex="-1"></a><span class="do">## To view documentation and vignette associated with DESeq2:</span></span>
-<span id="cb616-13"><a href="bioinformatics-literature.html#cb616-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb616-14"><a href="bioinformatics-literature.html#cb616-14" aria-hidden="true" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">&quot;DESeq2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="bioinformatics-literature.html#cb623-1" aria-hidden="true" tabindex="-1"></a><span class="do">## If you need to install this package in your computer:</span></span>
+<span id="cb623-2"><a href="bioinformatics-literature.html#cb623-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb623-3"><a href="bioinformatics-literature.html#cb623-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb623-4"><a href="bioinformatics-literature.html#cb623-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
+<span id="cb623-5"><a href="bioinformatics-literature.html#cb623-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb623-6"><a href="bioinformatics-literature.html#cb623-6" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;DESeq2&quot;</span>)</span>
+<span id="cb623-7"><a href="bioinformatics-literature.html#cb623-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb623-8"><a href="bioinformatics-literature.html#cb623-8" aria-hidden="true" tabindex="-1"></a><span class="do">## If you already have installed the DESeq2 package, load it in R space:</span></span>
+<span id="cb623-9"><a href="bioinformatics-literature.html#cb623-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb623-10"><a href="bioinformatics-literature.html#cb623-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DESeq2)</span>
+<span id="cb623-11"><a href="bioinformatics-literature.html#cb623-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb623-12"><a href="bioinformatics-literature.html#cb623-12" aria-hidden="true" tabindex="-1"></a><span class="do">## To view documentation and vignette associated with DESeq2:</span></span>
+<span id="cb623-13"><a href="bioinformatics-literature.html#cb623-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb623-14"><a href="bioinformatics-literature.html#cb623-14" aria-hidden="true" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">&quot;DESeq2&quot;</span>)</span></code></pre></div>
 </div>
 <div id="online-bioinformatics-courses" class="section level2" number="29.4">
 <h2><span class="header-section-number">29.4</span> Online bioinformatics courses</h2>
