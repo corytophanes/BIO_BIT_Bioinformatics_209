@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2024-02-07" />
+<meta name="date" content="2024-02-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -512,112 +512,112 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Histogram of Sequence Lengths in Fasta File (Genbank (full) &gt; Export CDS)</p>
 <p>Dataset is in this <a href="https://www.ncbi.nlm.nih.gov/nuccore/CM004466.1" target="_blank"><strong>link</strong></a></p>
 <p>Install matplotlib: $pip install matplotlib (for macOS use: <span class="math inline">\(pip3 install matplotlib). The `\)</span>` indicates that the install in terminal.</p>
-<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="biopython-sequence-parsing-with-plots.html#cb592-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb592-2"><a href="biopython-sequence-parsing-with-plots.html#cb592-2" aria-hidden="true" tabindex="-1"></a>sizes <span class="ot">=</span> [<span class="fu">len</span>(rec) <span class="cf">for</span> rec <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(<span class="st">&quot;XL_1L_fasta.txt&quot;</span>, <span class="st">&quot;fasta&quot;</span>)]</span>
-<span id="cb592-3"><a href="biopython-sequence-parsing-with-plots.html#cb592-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb592-4"><a href="biopython-sequence-parsing-with-plots.html#cb592-4" aria-hidden="true" tabindex="-1"></a>import pylab</span>
-<span id="cb592-5"><a href="biopython-sequence-parsing-with-plots.html#cb592-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.hist</span>(sizes, <span class="at">bins=</span><span class="dv">20</span>)</span>
-<span id="cb592-6"><a href="biopython-sequence-parsing-with-plots.html#cb592-6" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.title</span>(</span>
-<span id="cb592-7"><a href="biopython-sequence-parsing-with-plots.html#cb592-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;%i Xenopus laevis sequences</span><span class="sc">\n</span><span class="st">Lengths %i to %i&quot;</span> % (<span class="fu">len</span>(sizes), <span class="fu">min</span>(sizes), <span class="fu">max</span>(sizes))</span>
-<span id="cb592-8"><a href="biopython-sequence-parsing-with-plots.html#cb592-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb592-9"><a href="biopython-sequence-parsing-with-plots.html#cb592-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlabel</span>(<span class="st">&quot;Sequence length (bp)&quot;</span>)</span>
-<span id="cb592-10"><a href="biopython-sequence-parsing-with-plots.html#cb592-10" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylabel</span>(<span class="st">&quot;Count&quot;</span>)</span>
-<span id="cb592-11"><a href="biopython-sequence-parsing-with-plots.html#cb592-11" aria-hidden="true" tabindex="-1"></a><span class="co">#pylab.show()</span></span>
-<span id="cb592-12"><a href="biopython-sequence-parsing-with-plots.html#cb592-12" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.savefig</span>(<span class="st">&quot;pylab_fig1.pdf&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="biopython-sequence-parsing-with-plots.html#cb594-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb594-2"><a href="biopython-sequence-parsing-with-plots.html#cb594-2" aria-hidden="true" tabindex="-1"></a>sizes <span class="ot">=</span> [<span class="fu">len</span>(rec) <span class="cf">for</span> rec <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(<span class="st">&quot;XL_1L_fasta.txt&quot;</span>, <span class="st">&quot;fasta&quot;</span>)]</span>
+<span id="cb594-3"><a href="biopython-sequence-parsing-with-plots.html#cb594-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb594-4"><a href="biopython-sequence-parsing-with-plots.html#cb594-4" aria-hidden="true" tabindex="-1"></a>import pylab</span>
+<span id="cb594-5"><a href="biopython-sequence-parsing-with-plots.html#cb594-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.hist</span>(sizes, <span class="at">bins=</span><span class="dv">20</span>)</span>
+<span id="cb594-6"><a href="biopython-sequence-parsing-with-plots.html#cb594-6" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.title</span>(</span>
+<span id="cb594-7"><a href="biopython-sequence-parsing-with-plots.html#cb594-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;%i Xenopus laevis sequences</span><span class="sc">\n</span><span class="st">Lengths %i to %i&quot;</span> % (<span class="fu">len</span>(sizes), <span class="fu">min</span>(sizes), <span class="fu">max</span>(sizes))</span>
+<span id="cb594-8"><a href="biopython-sequence-parsing-with-plots.html#cb594-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb594-9"><a href="biopython-sequence-parsing-with-plots.html#cb594-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlabel</span>(<span class="st">&quot;Sequence length (bp)&quot;</span>)</span>
+<span id="cb594-10"><a href="biopython-sequence-parsing-with-plots.html#cb594-10" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylabel</span>(<span class="st">&quot;Count&quot;</span>)</span>
+<span id="cb594-11"><a href="biopython-sequence-parsing-with-plots.html#cb594-11" aria-hidden="true" tabindex="-1"></a><span class="co">#pylab.show()</span></span>
+<span id="cb594-12"><a href="biopython-sequence-parsing-with-plots.html#cb594-12" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.savefig</span>(<span class="st">&quot;pylab_fig1.pdf&quot;</span>)</span></code></pre></div>
 </div>
 <div id="gc-content" class="section level2" number="25.2">
 <h2><span class="header-section-number">25.2</span> GC Content</h2>
 <p>GC content of Xenopus laevis 1L genome fasta file.</p>
-<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="biopython-sequence-parsing-with-plots.html#cb593-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb593-2"><a href="biopython-sequence-parsing-with-plots.html#cb593-2" aria-hidden="true" tabindex="-1"></a>from Bio.SeqUtils import GC</span>
-<span id="cb593-3"><a href="biopython-sequence-parsing-with-plots.html#cb593-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb593-4"><a href="biopython-sequence-parsing-with-plots.html#cb593-4" aria-hidden="true" tabindex="-1"></a>gc_values <span class="ot">=</span> <span class="fu">sorted</span>(<span class="fu">GC</span>(rec.seq) <span class="cf">for</span> rec <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(<span class="st">&quot;XL_1L_fasta.txt&quot;</span>, <span class="st">&quot;fasta&quot;</span>))</span>
-<span id="cb593-5"><a href="biopython-sequence-parsing-with-plots.html#cb593-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb593-6"><a href="biopython-sequence-parsing-with-plots.html#cb593-6" aria-hidden="true" tabindex="-1"></a>import pylab</span>
-<span id="cb593-7"><a href="biopython-sequence-parsing-with-plots.html#cb593-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb593-8"><a href="biopython-sequence-parsing-with-plots.html#cb593-8" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.plot</span>(gc_values)</span>
-<span id="cb593-9"><a href="biopython-sequence-parsing-with-plots.html#cb593-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.title</span>(</span>
-<span id="cb593-10"><a href="biopython-sequence-parsing-with-plots.html#cb593-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;%i orchid sequences</span><span class="sc">\n</span><span class="st">GC%% %0.1f to %0.1f&quot;</span></span>
-<span id="cb593-11"><a href="biopython-sequence-parsing-with-plots.html#cb593-11" aria-hidden="true" tabindex="-1"></a>    % (<span class="fu">len</span>(gc_values), <span class="fu">min</span>(gc_values), <span class="fu">max</span>(gc_values))</span>
-<span id="cb593-12"><a href="biopython-sequence-parsing-with-plots.html#cb593-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb593-13"><a href="biopython-sequence-parsing-with-plots.html#cb593-13" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlabel</span>(<span class="st">&quot;Genes&quot;</span>)</span>
-<span id="cb593-14"><a href="biopython-sequence-parsing-with-plots.html#cb593-14" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylabel</span>(<span class="st">&quot;GC%&quot;</span>)</span>
-<span id="cb593-15"><a href="biopython-sequence-parsing-with-plots.html#cb593-15" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.show</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="biopython-sequence-parsing-with-plots.html#cb595-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb595-2"><a href="biopython-sequence-parsing-with-plots.html#cb595-2" aria-hidden="true" tabindex="-1"></a>from Bio.SeqUtils import GC</span>
+<span id="cb595-3"><a href="biopython-sequence-parsing-with-plots.html#cb595-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb595-4"><a href="biopython-sequence-parsing-with-plots.html#cb595-4" aria-hidden="true" tabindex="-1"></a>gc_values <span class="ot">=</span> <span class="fu">sorted</span>(<span class="fu">GC</span>(rec.seq) <span class="cf">for</span> rec <span class="cf">in</span> <span class="fu">SeqIO.parse</span>(<span class="st">&quot;XL_1L_fasta.txt&quot;</span>, <span class="st">&quot;fasta&quot;</span>))</span>
+<span id="cb595-5"><a href="biopython-sequence-parsing-with-plots.html#cb595-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb595-6"><a href="biopython-sequence-parsing-with-plots.html#cb595-6" aria-hidden="true" tabindex="-1"></a>import pylab</span>
+<span id="cb595-7"><a href="biopython-sequence-parsing-with-plots.html#cb595-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb595-8"><a href="biopython-sequence-parsing-with-plots.html#cb595-8" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.plot</span>(gc_values)</span>
+<span id="cb595-9"><a href="biopython-sequence-parsing-with-plots.html#cb595-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.title</span>(</span>
+<span id="cb595-10"><a href="biopython-sequence-parsing-with-plots.html#cb595-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;%i orchid sequences</span><span class="sc">\n</span><span class="st">GC%% %0.1f to %0.1f&quot;</span></span>
+<span id="cb595-11"><a href="biopython-sequence-parsing-with-plots.html#cb595-11" aria-hidden="true" tabindex="-1"></a>    % (<span class="fu">len</span>(gc_values), <span class="fu">min</span>(gc_values), <span class="fu">max</span>(gc_values))</span>
+<span id="cb595-12"><a href="biopython-sequence-parsing-with-plots.html#cb595-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb595-13"><a href="biopython-sequence-parsing-with-plots.html#cb595-13" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlabel</span>(<span class="st">&quot;Genes&quot;</span>)</span>
+<span id="cb595-14"><a href="biopython-sequence-parsing-with-plots.html#cb595-14" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylabel</span>(<span class="st">&quot;GC%&quot;</span>)</span>
+<span id="cb595-15"><a href="biopython-sequence-parsing-with-plots.html#cb595-15" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.show</span>()</span></code></pre></div>
 </div>
 <div id="nt-alignment-dot-plot" class="section level2" number="25.3">
 <h2><span class="header-section-number">25.3</span> Nt Alignment Dot Plot</h2>
 <p>I will use the previous fasta file from Xenopus laevis genome to provide 2 sequences for the activity below, but you are welcome to align any two genes of your choice as well.</p>
-<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="biopython-sequence-parsing-with-plots.html#cb594-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb594-2"><a href="biopython-sequence-parsing-with-plots.html#cb594-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb594-3"><a href="biopython-sequence-parsing-with-plots.html#cb594-3" aria-hidden="true" tabindex="-1"></a>with <span class="fu">open</span>(<span class="st">&quot;XL_1L_fasta.txt&quot;</span>) as in_handle<span class="sc">:</span></span>
-<span id="cb594-4"><a href="biopython-sequence-parsing-with-plots.html#cb594-4" aria-hidden="true" tabindex="-1"></a>    record_iterator <span class="ot">=</span> <span class="fu">SeqIO.parse</span>(in_handle, <span class="st">&quot;fasta&quot;</span>)</span>
-<span id="cb594-5"><a href="biopython-sequence-parsing-with-plots.html#cb594-5" aria-hidden="true" tabindex="-1"></a>    rec_one <span class="ot">=</span> <span class="cf">next</span>(record_iterator)</span>
-<span id="cb594-6"><a href="biopython-sequence-parsing-with-plots.html#cb594-6" aria-hidden="true" tabindex="-1"></a>    rec_two <span class="ot">=</span> <span class="cf">next</span>(record_iterator)</span>
-<span id="cb594-7"><a href="biopython-sequence-parsing-with-plots.html#cb594-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb594-8"><a href="biopython-sequence-parsing-with-plots.html#cb594-8" aria-hidden="true" tabindex="-1"></a>window <span class="ot">=</span> <span class="dv">7</span></span>
-<span id="cb594-9"><a href="biopython-sequence-parsing-with-plots.html#cb594-9" aria-hidden="true" tabindex="-1"></a>seq_one <span class="ot">=</span> <span class="fu">str</span>(rec_one.seq)<span class="fu">.upper</span>()</span>
-<span id="cb594-10"><a href="biopython-sequence-parsing-with-plots.html#cb594-10" aria-hidden="true" tabindex="-1"></a>seq_two <span class="ot">=</span> <span class="fu">str</span>(rec_two.seq)<span class="fu">.upper</span>()</span>
-<span id="cb594-11"><a href="biopython-sequence-parsing-with-plots.html#cb594-11" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> [</span>
-<span id="cb594-12"><a href="biopython-sequence-parsing-with-plots.html#cb594-12" aria-hidden="true" tabindex="-1"></a>    [</span>
-<span id="cb594-13"><a href="biopython-sequence-parsing-with-plots.html#cb594-13" aria-hidden="true" tabindex="-1"></a>        (seq_one[i <span class="sc">:</span> i <span class="sc">+</span> window] <span class="sc">!=</span> seq_two[j <span class="sc">:</span> j <span class="sc">+</span> window])</span>
-<span id="cb594-14"><a href="biopython-sequence-parsing-with-plots.html#cb594-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="cf">in</span> <span class="fu">range</span>(<span class="fu">len</span>(seq_one) <span class="sc">-</span> window)</span>
-<span id="cb594-15"><a href="biopython-sequence-parsing-with-plots.html#cb594-15" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb594-16"><a href="biopython-sequence-parsing-with-plots.html#cb594-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="cf">in</span> <span class="fu">range</span>(<span class="fu">len</span>(seq_two) <span class="sc">-</span> window)</span>
-<span id="cb594-17"><a href="biopython-sequence-parsing-with-plots.html#cb594-17" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb594-18"><a href="biopython-sequence-parsing-with-plots.html#cb594-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb594-19"><a href="biopython-sequence-parsing-with-plots.html#cb594-19" aria-hidden="true" tabindex="-1"></a>import pylab</span>
-<span id="cb594-20"><a href="biopython-sequence-parsing-with-plots.html#cb594-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb594-21"><a href="biopython-sequence-parsing-with-plots.html#cb594-21" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.gray</span>()</span>
-<span id="cb594-22"><a href="biopython-sequence-parsing-with-plots.html#cb594-22" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.imshow</span>(data)</span>
-<span id="cb594-23"><a href="biopython-sequence-parsing-with-plots.html#cb594-23" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlabel</span>(<span class="st">&quot;%s (length %i bp)&quot;</span> % (rec_one.id, <span class="fu">len</span>(rec_one)))</span>
-<span id="cb594-24"><a href="biopython-sequence-parsing-with-plots.html#cb594-24" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylabel</span>(<span class="st">&quot;%s (length %i bp)&quot;</span> % (rec_two.id, <span class="fu">len</span>(rec_two)))</span>
-<span id="cb594-25"><a href="biopython-sequence-parsing-with-plots.html#cb594-25" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.title</span>(<span class="st">&quot;Dot plot using window size %i</span><span class="sc">\n</span><span class="st">(allowing no mis-matches)&quot;</span> % window)</span>
-<span id="cb594-26"><a href="biopython-sequence-parsing-with-plots.html#cb594-26" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.show</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="biopython-sequence-parsing-with-plots.html#cb596-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb596-2"><a href="biopython-sequence-parsing-with-plots.html#cb596-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb596-3"><a href="biopython-sequence-parsing-with-plots.html#cb596-3" aria-hidden="true" tabindex="-1"></a>with <span class="fu">open</span>(<span class="st">&quot;XL_1L_fasta.txt&quot;</span>) as in_handle<span class="sc">:</span></span>
+<span id="cb596-4"><a href="biopython-sequence-parsing-with-plots.html#cb596-4" aria-hidden="true" tabindex="-1"></a>    record_iterator <span class="ot">=</span> <span class="fu">SeqIO.parse</span>(in_handle, <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb596-5"><a href="biopython-sequence-parsing-with-plots.html#cb596-5" aria-hidden="true" tabindex="-1"></a>    rec_one <span class="ot">=</span> <span class="cf">next</span>(record_iterator)</span>
+<span id="cb596-6"><a href="biopython-sequence-parsing-with-plots.html#cb596-6" aria-hidden="true" tabindex="-1"></a>    rec_two <span class="ot">=</span> <span class="cf">next</span>(record_iterator)</span>
+<span id="cb596-7"><a href="biopython-sequence-parsing-with-plots.html#cb596-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb596-8"><a href="biopython-sequence-parsing-with-plots.html#cb596-8" aria-hidden="true" tabindex="-1"></a>window <span class="ot">=</span> <span class="dv">7</span></span>
+<span id="cb596-9"><a href="biopython-sequence-parsing-with-plots.html#cb596-9" aria-hidden="true" tabindex="-1"></a>seq_one <span class="ot">=</span> <span class="fu">str</span>(rec_one.seq)<span class="fu">.upper</span>()</span>
+<span id="cb596-10"><a href="biopython-sequence-parsing-with-plots.html#cb596-10" aria-hidden="true" tabindex="-1"></a>seq_two <span class="ot">=</span> <span class="fu">str</span>(rec_two.seq)<span class="fu">.upper</span>()</span>
+<span id="cb596-11"><a href="biopython-sequence-parsing-with-plots.html#cb596-11" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> [</span>
+<span id="cb596-12"><a href="biopython-sequence-parsing-with-plots.html#cb596-12" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb596-13"><a href="biopython-sequence-parsing-with-plots.html#cb596-13" aria-hidden="true" tabindex="-1"></a>        (seq_one[i <span class="sc">:</span> i <span class="sc">+</span> window] <span class="sc">!=</span> seq_two[j <span class="sc">:</span> j <span class="sc">+</span> window])</span>
+<span id="cb596-14"><a href="biopython-sequence-parsing-with-plots.html#cb596-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="cf">in</span> <span class="fu">range</span>(<span class="fu">len</span>(seq_one) <span class="sc">-</span> window)</span>
+<span id="cb596-15"><a href="biopython-sequence-parsing-with-plots.html#cb596-15" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb596-16"><a href="biopython-sequence-parsing-with-plots.html#cb596-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="cf">in</span> <span class="fu">range</span>(<span class="fu">len</span>(seq_two) <span class="sc">-</span> window)</span>
+<span id="cb596-17"><a href="biopython-sequence-parsing-with-plots.html#cb596-17" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb596-18"><a href="biopython-sequence-parsing-with-plots.html#cb596-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb596-19"><a href="biopython-sequence-parsing-with-plots.html#cb596-19" aria-hidden="true" tabindex="-1"></a>import pylab</span>
+<span id="cb596-20"><a href="biopython-sequence-parsing-with-plots.html#cb596-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb596-21"><a href="biopython-sequence-parsing-with-plots.html#cb596-21" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.gray</span>()</span>
+<span id="cb596-22"><a href="biopython-sequence-parsing-with-plots.html#cb596-22" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.imshow</span>(data)</span>
+<span id="cb596-23"><a href="biopython-sequence-parsing-with-plots.html#cb596-23" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlabel</span>(<span class="st">&quot;%s (length %i bp)&quot;</span> % (rec_one.id, <span class="fu">len</span>(rec_one)))</span>
+<span id="cb596-24"><a href="biopython-sequence-parsing-with-plots.html#cb596-24" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylabel</span>(<span class="st">&quot;%s (length %i bp)&quot;</span> % (rec_two.id, <span class="fu">len</span>(rec_two)))</span>
+<span id="cb596-25"><a href="biopython-sequence-parsing-with-plots.html#cb596-25" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.title</span>(<span class="st">&quot;Dot plot using window size %i</span><span class="sc">\n</span><span class="st">(allowing no mis-matches)&quot;</span> % window)</span>
+<span id="cb596-26"><a href="biopython-sequence-parsing-with-plots.html#cb596-26" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.show</span>()</span></code></pre></div>
 </div>
 <div id="bigger-dots-for-the-dot-plot" class="section level2" number="25.4">
 <h2><span class="header-section-number">25.4</span> Bigger Dots for the Dot Plot</h2>
 <p>Bigger dots may be better in some scenarios, thus the code below will increase the size of the dots.</p>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="biopython-sequence-parsing-with-plots.html#cb595-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb595-2"><a href="biopython-sequence-parsing-with-plots.html#cb595-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb595-3"><a href="biopython-sequence-parsing-with-plots.html#cb595-3" aria-hidden="true" tabindex="-1"></a>with <span class="fu">open</span>(<span class="st">&quot;XL_1L_fasta.txt&quot;</span>) as in_handle<span class="sc">:</span></span>
-<span id="cb595-4"><a href="biopython-sequence-parsing-with-plots.html#cb595-4" aria-hidden="true" tabindex="-1"></a>    record_iterator <span class="ot">=</span> <span class="fu">SeqIO.parse</span>(in_handle, <span class="st">&quot;fasta&quot;</span>)</span>
-<span id="cb595-5"><a href="biopython-sequence-parsing-with-plots.html#cb595-5" aria-hidden="true" tabindex="-1"></a>    rec_one <span class="ot">=</span> <span class="cf">next</span>(record_iterator)</span>
-<span id="cb595-6"><a href="biopython-sequence-parsing-with-plots.html#cb595-6" aria-hidden="true" tabindex="-1"></a>    rec_two <span class="ot">=</span> <span class="cf">next</span>(record_iterator)</span>
-<span id="cb595-7"><a href="biopython-sequence-parsing-with-plots.html#cb595-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb595-8"><a href="biopython-sequence-parsing-with-plots.html#cb595-8" aria-hidden="true" tabindex="-1"></a>window <span class="ot">=</span> <span class="dv">7</span></span>
-<span id="cb595-9"><a href="biopython-sequence-parsing-with-plots.html#cb595-9" aria-hidden="true" tabindex="-1"></a>dict_one <span class="ot">=</span> {}</span>
-<span id="cb595-10"><a href="biopython-sequence-parsing-with-plots.html#cb595-10" aria-hidden="true" tabindex="-1"></a>dict_two <span class="ot">=</span> {}</span>
-<span id="cb595-11"><a href="biopython-sequence-parsing-with-plots.html#cb595-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (seq, section_dict) <span class="cf">in</span> [</span>
-<span id="cb595-12"><a href="biopython-sequence-parsing-with-plots.html#cb595-12" aria-hidden="true" tabindex="-1"></a>    (<span class="fu">str</span>(rec_one.seq)<span class="fu">.upper</span>(), dict_one),</span>
-<span id="cb595-13"><a href="biopython-sequence-parsing-with-plots.html#cb595-13" aria-hidden="true" tabindex="-1"></a>    (<span class="fu">str</span>(rec_two.seq)<span class="fu">.upper</span>(), dict_two),</span>
-<span id="cb595-14"><a href="biopython-sequence-parsing-with-plots.html#cb595-14" aria-hidden="true" tabindex="-1"></a>]<span class="sc">:</span></span>
-<span id="cb595-15"><a href="biopython-sequence-parsing-with-plots.html#cb595-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="cf">in</span> <span class="fu">range</span>(<span class="fu">len</span>(seq) <span class="sc">-</span> window)<span class="sc">:</span></span>
-<span id="cb595-16"><a href="biopython-sequence-parsing-with-plots.html#cb595-16" aria-hidden="true" tabindex="-1"></a>        section <span class="ot">=</span> seq[i <span class="sc">:</span> i <span class="sc">+</span> window]</span>
-<span id="cb595-17"><a href="biopython-sequence-parsing-with-plots.html#cb595-17" aria-hidden="true" tabindex="-1"></a>        try<span class="sc">:</span></span>
-<span id="cb595-18"><a href="biopython-sequence-parsing-with-plots.html#cb595-18" aria-hidden="true" tabindex="-1"></a>            section_dict[section]<span class="fu">.append</span>(i)</span>
-<span id="cb595-19"><a href="biopython-sequence-parsing-with-plots.html#cb595-19" aria-hidden="true" tabindex="-1"></a>        except KeyError<span class="sc">:</span></span>
-<span id="cb595-20"><a href="biopython-sequence-parsing-with-plots.html#cb595-20" aria-hidden="true" tabindex="-1"></a>            section_dict[section] <span class="ot">=</span> [i]</span>
-<span id="cb595-21"><a href="biopython-sequence-parsing-with-plots.html#cb595-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb595-22"><a href="biopython-sequence-parsing-with-plots.html#cb595-22" aria-hidden="true" tabindex="-1"></a>matches <span class="ot">=</span> <span class="fu">set</span>(dict_one)<span class="fu">.intersection</span>(dict_two)</span>
-<span id="cb595-23"><a href="biopython-sequence-parsing-with-plots.html#cb595-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;%i unique matches&quot;</span> % <span class="fu">len</span>(matches))</span>
-<span id="cb595-24"><a href="biopython-sequence-parsing-with-plots.html#cb595-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb595-25"><a href="biopython-sequence-parsing-with-plots.html#cb595-25" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> []</span>
-<span id="cb595-26"><a href="biopython-sequence-parsing-with-plots.html#cb595-26" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> []</span>
-<span id="cb595-27"><a href="biopython-sequence-parsing-with-plots.html#cb595-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> section <span class="cf">in</span> matches<span class="sc">:</span></span>
-<span id="cb595-28"><a href="biopython-sequence-parsing-with-plots.html#cb595-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="cf">in</span> dict_one[section]<span class="sc">:</span></span>
-<span id="cb595-29"><a href="biopython-sequence-parsing-with-plots.html#cb595-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="cf">in</span> dict_two[section]<span class="sc">:</span></span>
-<span id="cb595-30"><a href="biopython-sequence-parsing-with-plots.html#cb595-30" aria-hidden="true" tabindex="-1"></a>            <span class="fu">x.append</span>(i)</span>
-<span id="cb595-31"><a href="biopython-sequence-parsing-with-plots.html#cb595-31" aria-hidden="true" tabindex="-1"></a>            <span class="fu">y.append</span>(j)</span>
-<span id="cb595-32"><a href="biopython-sequence-parsing-with-plots.html#cb595-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb595-33"><a href="biopython-sequence-parsing-with-plots.html#cb595-33" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.cla</span>()  <span class="co"># clear any prior graph</span></span>
-<span id="cb595-34"><a href="biopython-sequence-parsing-with-plots.html#cb595-34" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.gray</span>()</span>
-<span id="cb595-35"><a href="biopython-sequence-parsing-with-plots.html#cb595-35" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.scatter</span>(x, y)</span>
-<span id="cb595-36"><a href="biopython-sequence-parsing-with-plots.html#cb595-36" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlim</span>(<span class="dv">0</span>, <span class="fu">len</span>(rec_one) <span class="sc">-</span> window)</span>
-<span id="cb595-37"><a href="biopython-sequence-parsing-with-plots.html#cb595-37" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylim</span>(<span class="dv">0</span>, <span class="fu">len</span>(rec_two) <span class="sc">-</span> window)</span>
-<span id="cb595-38"><a href="biopython-sequence-parsing-with-plots.html#cb595-38" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlabel</span>(<span class="st">&quot;%s (length %i bp)&quot;</span> % (rec_one.id, <span class="fu">len</span>(rec_one)))</span>
-<span id="cb595-39"><a href="biopython-sequence-parsing-with-plots.html#cb595-39" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylabel</span>(<span class="st">&quot;%s (length %i bp)&quot;</span> % (rec_two.id, <span class="fu">len</span>(rec_two)))</span>
-<span id="cb595-40"><a href="biopython-sequence-parsing-with-plots.html#cb595-40" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.title</span>(<span class="st">&quot;Dot plot using window size %i</span><span class="sc">\n</span><span class="st">(allowing no mis-matches)&quot;</span> % window)</span>
-<span id="cb595-41"><a href="biopython-sequence-parsing-with-plots.html#cb595-41" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.show</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="biopython-sequence-parsing-with-plots.html#cb597-1" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb597-2"><a href="biopython-sequence-parsing-with-plots.html#cb597-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb597-3"><a href="biopython-sequence-parsing-with-plots.html#cb597-3" aria-hidden="true" tabindex="-1"></a>with <span class="fu">open</span>(<span class="st">&quot;XL_1L_fasta.txt&quot;</span>) as in_handle<span class="sc">:</span></span>
+<span id="cb597-4"><a href="biopython-sequence-parsing-with-plots.html#cb597-4" aria-hidden="true" tabindex="-1"></a>    record_iterator <span class="ot">=</span> <span class="fu">SeqIO.parse</span>(in_handle, <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb597-5"><a href="biopython-sequence-parsing-with-plots.html#cb597-5" aria-hidden="true" tabindex="-1"></a>    rec_one <span class="ot">=</span> <span class="cf">next</span>(record_iterator)</span>
+<span id="cb597-6"><a href="biopython-sequence-parsing-with-plots.html#cb597-6" aria-hidden="true" tabindex="-1"></a>    rec_two <span class="ot">=</span> <span class="cf">next</span>(record_iterator)</span>
+<span id="cb597-7"><a href="biopython-sequence-parsing-with-plots.html#cb597-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb597-8"><a href="biopython-sequence-parsing-with-plots.html#cb597-8" aria-hidden="true" tabindex="-1"></a>window <span class="ot">=</span> <span class="dv">7</span></span>
+<span id="cb597-9"><a href="biopython-sequence-parsing-with-plots.html#cb597-9" aria-hidden="true" tabindex="-1"></a>dict_one <span class="ot">=</span> {}</span>
+<span id="cb597-10"><a href="biopython-sequence-parsing-with-plots.html#cb597-10" aria-hidden="true" tabindex="-1"></a>dict_two <span class="ot">=</span> {}</span>
+<span id="cb597-11"><a href="biopython-sequence-parsing-with-plots.html#cb597-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (seq, section_dict) <span class="cf">in</span> [</span>
+<span id="cb597-12"><a href="biopython-sequence-parsing-with-plots.html#cb597-12" aria-hidden="true" tabindex="-1"></a>    (<span class="fu">str</span>(rec_one.seq)<span class="fu">.upper</span>(), dict_one),</span>
+<span id="cb597-13"><a href="biopython-sequence-parsing-with-plots.html#cb597-13" aria-hidden="true" tabindex="-1"></a>    (<span class="fu">str</span>(rec_two.seq)<span class="fu">.upper</span>(), dict_two),</span>
+<span id="cb597-14"><a href="biopython-sequence-parsing-with-plots.html#cb597-14" aria-hidden="true" tabindex="-1"></a>]<span class="sc">:</span></span>
+<span id="cb597-15"><a href="biopython-sequence-parsing-with-plots.html#cb597-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="cf">in</span> <span class="fu">range</span>(<span class="fu">len</span>(seq) <span class="sc">-</span> window)<span class="sc">:</span></span>
+<span id="cb597-16"><a href="biopython-sequence-parsing-with-plots.html#cb597-16" aria-hidden="true" tabindex="-1"></a>        section <span class="ot">=</span> seq[i <span class="sc">:</span> i <span class="sc">+</span> window]</span>
+<span id="cb597-17"><a href="biopython-sequence-parsing-with-plots.html#cb597-17" aria-hidden="true" tabindex="-1"></a>        try<span class="sc">:</span></span>
+<span id="cb597-18"><a href="biopython-sequence-parsing-with-plots.html#cb597-18" aria-hidden="true" tabindex="-1"></a>            section_dict[section]<span class="fu">.append</span>(i)</span>
+<span id="cb597-19"><a href="biopython-sequence-parsing-with-plots.html#cb597-19" aria-hidden="true" tabindex="-1"></a>        except KeyError<span class="sc">:</span></span>
+<span id="cb597-20"><a href="biopython-sequence-parsing-with-plots.html#cb597-20" aria-hidden="true" tabindex="-1"></a>            section_dict[section] <span class="ot">=</span> [i]</span>
+<span id="cb597-21"><a href="biopython-sequence-parsing-with-plots.html#cb597-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb597-22"><a href="biopython-sequence-parsing-with-plots.html#cb597-22" aria-hidden="true" tabindex="-1"></a>matches <span class="ot">=</span> <span class="fu">set</span>(dict_one)<span class="fu">.intersection</span>(dict_two)</span>
+<span id="cb597-23"><a href="biopython-sequence-parsing-with-plots.html#cb597-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;%i unique matches&quot;</span> % <span class="fu">len</span>(matches))</span>
+<span id="cb597-24"><a href="biopython-sequence-parsing-with-plots.html#cb597-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb597-25"><a href="biopython-sequence-parsing-with-plots.html#cb597-25" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> []</span>
+<span id="cb597-26"><a href="biopython-sequence-parsing-with-plots.html#cb597-26" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> []</span>
+<span id="cb597-27"><a href="biopython-sequence-parsing-with-plots.html#cb597-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> section <span class="cf">in</span> matches<span class="sc">:</span></span>
+<span id="cb597-28"><a href="biopython-sequence-parsing-with-plots.html#cb597-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="cf">in</span> dict_one[section]<span class="sc">:</span></span>
+<span id="cb597-29"><a href="biopython-sequence-parsing-with-plots.html#cb597-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="cf">in</span> dict_two[section]<span class="sc">:</span></span>
+<span id="cb597-30"><a href="biopython-sequence-parsing-with-plots.html#cb597-30" aria-hidden="true" tabindex="-1"></a>            <span class="fu">x.append</span>(i)</span>
+<span id="cb597-31"><a href="biopython-sequence-parsing-with-plots.html#cb597-31" aria-hidden="true" tabindex="-1"></a>            <span class="fu">y.append</span>(j)</span>
+<span id="cb597-32"><a href="biopython-sequence-parsing-with-plots.html#cb597-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb597-33"><a href="biopython-sequence-parsing-with-plots.html#cb597-33" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.cla</span>()  <span class="co"># clear any prior graph</span></span>
+<span id="cb597-34"><a href="biopython-sequence-parsing-with-plots.html#cb597-34" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.gray</span>()</span>
+<span id="cb597-35"><a href="biopython-sequence-parsing-with-plots.html#cb597-35" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.scatter</span>(x, y)</span>
+<span id="cb597-36"><a href="biopython-sequence-parsing-with-plots.html#cb597-36" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlim</span>(<span class="dv">0</span>, <span class="fu">len</span>(rec_one) <span class="sc">-</span> window)</span>
+<span id="cb597-37"><a href="biopython-sequence-parsing-with-plots.html#cb597-37" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylim</span>(<span class="dv">0</span>, <span class="fu">len</span>(rec_two) <span class="sc">-</span> window)</span>
+<span id="cb597-38"><a href="biopython-sequence-parsing-with-plots.html#cb597-38" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.xlabel</span>(<span class="st">&quot;%s (length %i bp)&quot;</span> % (rec_one.id, <span class="fu">len</span>(rec_one)))</span>
+<span id="cb597-39"><a href="biopython-sequence-parsing-with-plots.html#cb597-39" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.ylabel</span>(<span class="st">&quot;%s (length %i bp)&quot;</span> % (rec_two.id, <span class="fu">len</span>(rec_two)))</span>
+<span id="cb597-40"><a href="biopython-sequence-parsing-with-plots.html#cb597-40" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.title</span>(<span class="st">&quot;Dot plot using window size %i</span><span class="sc">\n</span><span class="st">(allowing no mis-matches)&quot;</span> % window)</span>
+<span id="cb597-41"><a href="biopython-sequence-parsing-with-plots.html#cb597-41" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.show</span>()</span></code></pre></div>
 </div>
 <div id="fastq-we-did-not-forget-you" class="section level2" number="25.5">
 <h2><span class="header-section-number">25.5</span> FASTQ we did not forget you</h2>
@@ -625,21 +625,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This is a very large file (500MB), you can skip this activity is its not applicable to your project.</p>
 <p>Dataset: <a href="https://www.ebi.ac.uk/ena/data/view/SRR001666" class="uri">https://www.ebi.ac.uk/ena/data/view/SRR001666</a></p>
 <p>I will utilize a different SRR that is smaller for the below example. You will need to change the filename SRR number if you wish to utilize the code for your own files. Also note that you will have to use files that are not compressed, thus you must uncompress the file before you can analyze it.</p>
-<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="biopython-sequence-parsing-with-plots.html#cb596-1" aria-hidden="true" tabindex="-1"></a>import pylab</span>
-<span id="cb596-2"><a href="biopython-sequence-parsing-with-plots.html#cb596-2" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb596-3"><a href="biopython-sequence-parsing-with-plots.html#cb596-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb596-4"><a href="biopython-sequence-parsing-with-plots.html#cb596-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> subfigure <span class="cf">in</span> [<span class="dv">1</span>, <span class="dv">2</span>]<span class="sc">:</span></span>
-<span id="cb596-5"><a href="biopython-sequence-parsing-with-plots.html#cb596-5" aria-hidden="true" tabindex="-1"></a>    filename <span class="ot">=</span> <span class="st">&quot;SRR11880886_%i.fastq&quot;</span> % subfigure</span>
-<span id="cb596-6"><a href="biopython-sequence-parsing-with-plots.html#cb596-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pylab.subplot</span>(<span class="dv">1</span>, <span class="dv">2</span>, subfigure)</span>
-<span id="cb596-7"><a href="biopython-sequence-parsing-with-plots.html#cb596-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, record <span class="cf">in</span> <span class="fu">enumerate</span>(<span class="fu">SeqIO.parse</span>(filename, <span class="st">&quot;fastq&quot;</span>))<span class="sc">:</span></span>
-<span id="cb596-8"><a href="biopython-sequence-parsing-with-plots.html#cb596-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="sc">&gt;=</span> <span class="dv">50</span><span class="sc">:</span></span>
-<span id="cb596-9"><a href="biopython-sequence-parsing-with-plots.html#cb596-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
-<span id="cb596-10"><a href="biopython-sequence-parsing-with-plots.html#cb596-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">pylab.plot</span>(record.letter_annotations[<span class="st">&quot;phred_quality&quot;</span>])</span>
-<span id="cb596-11"><a href="biopython-sequence-parsing-with-plots.html#cb596-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pylab.ylim</span>(<span class="dv">0</span>, <span class="dv">45</span>)</span>
-<span id="cb596-12"><a href="biopython-sequence-parsing-with-plots.html#cb596-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pylab.ylabel</span>(<span class="st">&quot;PHRED quality score&quot;</span>)</span>
-<span id="cb596-13"><a href="biopython-sequence-parsing-with-plots.html#cb596-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pylab.xlabel</span>(<span class="st">&quot;Position&quot;</span>)</span>
-<span id="cb596-14"><a href="biopython-sequence-parsing-with-plots.html#cb596-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb596-15"><a href="biopython-sequence-parsing-with-plots.html#cb596-15" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.show</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="biopython-sequence-parsing-with-plots.html#cb598-1" aria-hidden="true" tabindex="-1"></a>import pylab</span>
+<span id="cb598-2"><a href="biopython-sequence-parsing-with-plots.html#cb598-2" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb598-3"><a href="biopython-sequence-parsing-with-plots.html#cb598-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb598-4"><a href="biopython-sequence-parsing-with-plots.html#cb598-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> subfigure <span class="cf">in</span> [<span class="dv">1</span>, <span class="dv">2</span>]<span class="sc">:</span></span>
+<span id="cb598-5"><a href="biopython-sequence-parsing-with-plots.html#cb598-5" aria-hidden="true" tabindex="-1"></a>    filename <span class="ot">=</span> <span class="st">&quot;SRR11880886_%i.fastq&quot;</span> % subfigure</span>
+<span id="cb598-6"><a href="biopython-sequence-parsing-with-plots.html#cb598-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pylab.subplot</span>(<span class="dv">1</span>, <span class="dv">2</span>, subfigure)</span>
+<span id="cb598-7"><a href="biopython-sequence-parsing-with-plots.html#cb598-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, record <span class="cf">in</span> <span class="fu">enumerate</span>(<span class="fu">SeqIO.parse</span>(filename, <span class="st">&quot;fastq&quot;</span>))<span class="sc">:</span></span>
+<span id="cb598-8"><a href="biopython-sequence-parsing-with-plots.html#cb598-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="sc">&gt;=</span> <span class="dv">50</span><span class="sc">:</span></span>
+<span id="cb598-9"><a href="biopython-sequence-parsing-with-plots.html#cb598-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb598-10"><a href="biopython-sequence-parsing-with-plots.html#cb598-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">pylab.plot</span>(record.letter_annotations[<span class="st">&quot;phred_quality&quot;</span>])</span>
+<span id="cb598-11"><a href="biopython-sequence-parsing-with-plots.html#cb598-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pylab.ylim</span>(<span class="dv">0</span>, <span class="dv">45</span>)</span>
+<span id="cb598-12"><a href="biopython-sequence-parsing-with-plots.html#cb598-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pylab.ylabel</span>(<span class="st">&quot;PHRED quality score&quot;</span>)</span>
+<span id="cb598-13"><a href="biopython-sequence-parsing-with-plots.html#cb598-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pylab.xlabel</span>(<span class="st">&quot;Position&quot;</span>)</span>
+<span id="cb598-14"><a href="biopython-sequence-parsing-with-plots.html#cb598-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb598-15"><a href="biopython-sequence-parsing-with-plots.html#cb598-15" aria-hidden="true" tabindex="-1"></a><span class="fu">pylab.show</span>()</span></code></pre></div>
 
 </div>
 </div>
