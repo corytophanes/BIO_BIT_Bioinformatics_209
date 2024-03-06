@@ -216,7 +216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#multiple-linear-regressions"><i class="fa fa-check"></i><b>7.3</b> Multiple linear regressions</a></li>
 <li class="chapter" data-level="7.4" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#diagnostic-plots-for-regressions"><i class="fa fa-check"></i><b>7.4</b> Diagnostic plots for regressions</a></li>
 <li class="chapter" data-level="7.5" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#regression-influential-measurements"><i class="fa fa-check"></i><b>7.5</b> Regression influential measurements</a></li>
-<li class="chapter" data-level="7.6" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#regression-anova-coefficients-ci"><i class="fa fa-check"></i><b>7.6</b> Regression (ANOVA, coefficients, CI)</a></li>
+<li class="chapter" data-level="7.6" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#regression-coefficients-and-their-95ci"><i class="fa fa-check"></i><b>7.6</b> Regression coefficients and their 95%CI</a></li>
 <li class="chapter" data-level="7.7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#selecting-predictors"><i class="fa fa-check"></i><b>7.7</b> Selecting predictors</a></li>
 <li class="chapter" data-level="7.8" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#regression-predictions"><i class="fa fa-check"></i><b>7.8</b> Regression predictions</a></li>
 <li class="chapter" data-level="7.9" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#logistic-regressions"><i class="fa fa-check"></i><b>7.9</b> Logistic regressions</a></li>
@@ -522,29 +522,29 @@ MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPK
 VKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFG
 KEFTPPVQAAYQKVVAGVANALAHKYH</p>
 </blockquote>
-<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="biopython-mulitple-sequence-alignments.html#cb584-1" aria-hidden="true" tabindex="-1"></a>from Bio import pairwise2</span>
-<span id="cb584-2"><a href="biopython-mulitple-sequence-alignments.html#cb584-2" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb584-3"><a href="biopython-mulitple-sequence-alignments.html#cb584-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb584-4"><a href="biopython-mulitple-sequence-alignments.html#cb584-4" aria-hidden="true" tabindex="-1"></a>seq1 <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;alpha.faa&quot;</span>, <span class="st">&quot;fasta&quot;</span>)</span>
-<span id="cb584-5"><a href="biopython-mulitple-sequence-alignments.html#cb584-5" aria-hidden="true" tabindex="-1"></a>seq2 <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;beta.faa&quot;</span>, <span class="st">&quot;fasta&quot;</span>)</span>
-<span id="cb584-6"><a href="biopython-mulitple-sequence-alignments.html#cb584-6" aria-hidden="true" tabindex="-1"></a>alignments <span class="ot">=</span> <span class="fu">pairwise2.align.globalxx</span>(seq1.seq, seq2.seq)</span></code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="biopython-mulitple-sequence-alignments.html#cb585-1" aria-hidden="true" tabindex="-1"></a>from Bio import pairwise2</span>
+<span id="cb585-2"><a href="biopython-mulitple-sequence-alignments.html#cb585-2" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb585-3"><a href="biopython-mulitple-sequence-alignments.html#cb585-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb585-4"><a href="biopython-mulitple-sequence-alignments.html#cb585-4" aria-hidden="true" tabindex="-1"></a>seq1 <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;alpha.faa&quot;</span>, <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb585-5"><a href="biopython-mulitple-sequence-alignments.html#cb585-5" aria-hidden="true" tabindex="-1"></a>seq2 <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;beta.faa&quot;</span>, <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb585-6"><a href="biopython-mulitple-sequence-alignments.html#cb585-6" aria-hidden="true" tabindex="-1"></a>alignments <span class="ot">=</span> <span class="fu">pairwise2.align.globalxx</span>(seq1.seq, seq2.seq)</span></code></pre></div>
 </div>
 <div id="pairwisealigner" class="section level2" number="22.2">
 <h2><span class="header-section-number">22.2</span> PairwiseAligner</h2>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="biopython-mulitple-sequence-alignments.html#cb585-1" aria-hidden="true" tabindex="-1"></a>from Bio import Align</span>
-<span id="cb585-2"><a href="biopython-mulitple-sequence-alignments.html#cb585-2" aria-hidden="true" tabindex="-1"></a>aligner <span class="ot">=</span> <span class="fu">Align.PairwiseAligner</span>(<span class="at">match_score=</span><span class="fl">1.0</span>)</span>
-<span id="cb585-3"><a href="biopython-mulitple-sequence-alignments.html#cb585-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(aligner)</span>
-<span id="cb585-4"><a href="biopython-mulitple-sequence-alignments.html#cb585-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb585-5"><a href="biopython-mulitple-sequence-alignments.html#cb585-5" aria-hidden="true" tabindex="-1"></a>aligner.algorithm</span>
-<span id="cb585-6"><a href="biopython-mulitple-sequence-alignments.html#cb585-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb585-7"><a href="biopython-mulitple-sequence-alignments.html#cb585-7" aria-hidden="true" tabindex="-1"></a>seq1 <span class="ot">=</span> <span class="st">&quot;TATACATTAAAGGAGGGGGATGCGGATAAATGGAAAGGCGAAAAAGAAAAAAATGAATCTAAATGATA&quot;</span></span>
-<span id="cb585-8"><a href="biopython-mulitple-sequence-alignments.html#cb585-8" aria-hidden="true" tabindex="-1"></a>seq2 <span class="ot">=</span> <span class="st">&quot;TATACATTAAAGGAGGGGGATGCGGATAAATGGAAAGGCGAAAGAAAGAAAAAAATGAATCTAAATGATA&quot;</span></span>
-<span id="cb585-9"><a href="biopython-mulitple-sequence-alignments.html#cb585-9" aria-hidden="true" tabindex="-1"></a>score <span class="ot">=</span> <span class="fu">aligner.score</span>(seq1, seq2)</span>
-<span id="cb585-10"><a href="biopython-mulitple-sequence-alignments.html#cb585-10" aria-hidden="true" tabindex="-1"></a>score</span>
-<span id="cb585-11"><a href="biopython-mulitple-sequence-alignments.html#cb585-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb585-12"><a href="biopython-mulitple-sequence-alignments.html#cb585-12" aria-hidden="true" tabindex="-1"></a>alignments <span class="ot">=</span> <span class="fu">aligner.align</span>(seq1, seq2)</span>
-<span id="cb585-13"><a href="biopython-mulitple-sequence-alignments.html#cb585-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> alignment <span class="cf">in</span> alignments<span class="sc">:</span></span>
-<span id="cb585-14"><a href="biopython-mulitple-sequence-alignments.html#cb585-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(alignment)</span></code></pre></div>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="biopython-mulitple-sequence-alignments.html#cb586-1" aria-hidden="true" tabindex="-1"></a>from Bio import Align</span>
+<span id="cb586-2"><a href="biopython-mulitple-sequence-alignments.html#cb586-2" aria-hidden="true" tabindex="-1"></a>aligner <span class="ot">=</span> <span class="fu">Align.PairwiseAligner</span>(<span class="at">match_score=</span><span class="fl">1.0</span>)</span>
+<span id="cb586-3"><a href="biopython-mulitple-sequence-alignments.html#cb586-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(aligner)</span>
+<span id="cb586-4"><a href="biopython-mulitple-sequence-alignments.html#cb586-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb586-5"><a href="biopython-mulitple-sequence-alignments.html#cb586-5" aria-hidden="true" tabindex="-1"></a>aligner.algorithm</span>
+<span id="cb586-6"><a href="biopython-mulitple-sequence-alignments.html#cb586-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb586-7"><a href="biopython-mulitple-sequence-alignments.html#cb586-7" aria-hidden="true" tabindex="-1"></a>seq1 <span class="ot">=</span> <span class="st">&quot;TATACATTAAAGGAGGGGGATGCGGATAAATGGAAAGGCGAAAAAGAAAAAAATGAATCTAAATGATA&quot;</span></span>
+<span id="cb586-8"><a href="biopython-mulitple-sequence-alignments.html#cb586-8" aria-hidden="true" tabindex="-1"></a>seq2 <span class="ot">=</span> <span class="st">&quot;TATACATTAAAGGAGGGGGATGCGGATAAATGGAAAGGCGAAAGAAAGAAAAAAATGAATCTAAATGATA&quot;</span></span>
+<span id="cb586-9"><a href="biopython-mulitple-sequence-alignments.html#cb586-9" aria-hidden="true" tabindex="-1"></a>score <span class="ot">=</span> <span class="fu">aligner.score</span>(seq1, seq2)</span>
+<span id="cb586-10"><a href="biopython-mulitple-sequence-alignments.html#cb586-10" aria-hidden="true" tabindex="-1"></a>score</span>
+<span id="cb586-11"><a href="biopython-mulitple-sequence-alignments.html#cb586-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb586-12"><a href="biopython-mulitple-sequence-alignments.html#cb586-12" aria-hidden="true" tabindex="-1"></a>alignments <span class="ot">=</span> <span class="fu">aligner.align</span>(seq1, seq2)</span>
+<span id="cb586-13"><a href="biopython-mulitple-sequence-alignments.html#cb586-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> alignment <span class="cf">in</span> alignments<span class="sc">:</span></span>
+<span id="cb586-14"><a href="biopython-mulitple-sequence-alignments.html#cb586-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(alignment)</span></code></pre></div>
 
 </div>
 </div>
