@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2024-03-05" />
+<meta name="date" content="2024-03-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1818,7 +1818,7 @@ and <code>status</code> (i.e., alive or dead). Two are categorical such as <code
 <span id="cb288-35"><a href="basic-statistics-in-r.html#cb288-35" aria-hidden="true" tabindex="-1"></a><span class="co">#mean of x mean of y </span></span>
 <span id="cb288-36"><a href="basic-statistics-in-r.html#cb288-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 147.5208  139.8889 </span></span></code></pre></div>
 <p>The above results suggest that there is no difference between in the horsepower between these two types of cars based on their origin US versus Non-US.</p>
-<p>Now, Wwill use a t-test this for <code>airway_data</code> data that have several samples from the same group the argument <code>paired = TRUE</code>.</p>
+<p>Now, we will use a similar t-test this for <code>airway_data</code> dataset that has several transcriptome experiments and compare the mean expression and assumed that are the same population under two conditions using the argument <code>paired = TRUE</code>.</p>
 <div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="basic-statistics-in-r.html#cb289-1" aria-hidden="true" tabindex="-1"></a>names_pairs <span class="ot">&lt;-</span> <span class="fu">names</span>(airway_data)[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span>
 <span id="cb289-2"><a href="basic-statistics-in-r.html#cb289-2" aria-hidden="true" tabindex="-1"></a>names_pairs <span class="ot">&lt;-</span> <span class="fu">paste0</span>(names_pairs, <span class="at">collapse =</span> <span class="st">&quot;..vs..&quot;</span>)</span>
 <span id="cb289-3"><a href="basic-statistics-in-r.html#cb289-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;SRR1039508..vs..SRR1039509&quot;</span></span>
@@ -2059,21 +2059,28 @@ you how many times that each unique element appears in the data.</p>
 <span id="cb299-12"><a href="basic-statistics-in-r.html#cb299-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  0   1 </span></span>
 <span id="cb299-13"><a href="basic-statistics-in-r.html#cb299-13" aria-hidden="true" tabindex="-1"></a><span class="co">#487 513 </span></span>
 <span id="cb299-14"><a href="basic-statistics-in-r.html#cb299-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb299-15"><a href="basic-statistics-in-r.html#cb299-15" aria-hidden="true" tabindex="-1"></a><span class="do">## we can perform the bionomial test</span></span>
+<span id="cb299-15"><a href="basic-statistics-in-r.html#cb299-15" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(one_population))</span>
 <span id="cb299-16"><a href="basic-statistics-in-r.html#cb299-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb299-17"><a href="basic-statistics-in-r.html#cb299-17" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="fu">sum</span>(one_population), <span class="fu">length</span>(one_population), <span class="at">p =</span> <span class="fl">0.51</span>)</span>
-<span id="cb299-18"><a href="basic-statistics-in-r.html#cb299-18" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb299-19"><a href="basic-statistics-in-r.html#cb299-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   1-sample proportions test with continuity correction</span></span>
-<span id="cb299-20"><a href="basic-statistics-in-r.html#cb299-20" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb299-21"><a href="basic-statistics-in-r.html#cb299-21" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  sum(one_population) out of length(one_population), null probability 0.51</span></span>
-<span id="cb299-22"><a href="basic-statistics-in-r.html#cb299-22" aria-hidden="true" tabindex="-1"></a><span class="co">#X-squared = 0.04902, df = 1, p-value = 0.8248</span></span>
-<span id="cb299-23"><a href="basic-statistics-in-r.html#cb299-23" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true p is not equal to 0.51</span></span>
-<span id="cb299-24"><a href="basic-statistics-in-r.html#cb299-24" aria-hidden="true" tabindex="-1"></a><span class="co">#95 percent confidence interval:</span></span>
-<span id="cb299-25"><a href="basic-statistics-in-r.html#cb299-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.4745504 0.5374029</span></span>
-<span id="cb299-26"><a href="basic-statistics-in-r.html#cb299-26" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
-<span id="cb299-27"><a href="basic-statistics-in-r.html#cb299-27" aria-hidden="true" tabindex="-1"></a><span class="co">#    p </span></span>
-<span id="cb299-28"><a href="basic-statistics-in-r.html#cb299-28" aria-hidden="true" tabindex="-1"></a><span class="co">#0.506 </span></span></code></pre></div>
-<p>In the case above, we found a non-significant result <code>p-value = 0.8248</code> and this population is likely to have 51% chance of females. However, less create a biased population towards males.</p>
+<span id="cb299-17"><a href="basic-statistics-in-r.html#cb299-17" aria-hidden="true" tabindex="-1"></a><span class="co">#one_population</span></span>
+<span id="cb299-18"><a href="basic-statistics-in-r.html#cb299-18" aria-hidden="true" tabindex="-1"></a><span class="co">#    0     1 </span></span>
+<span id="cb299-19"><a href="basic-statistics-in-r.html#cb299-19" aria-hidden="true" tabindex="-1"></a><span class="co">#0.492 0.508 </span></span>
+<span id="cb299-20"><a href="basic-statistics-in-r.html#cb299-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb299-21"><a href="basic-statistics-in-r.html#cb299-21" aria-hidden="true" tabindex="-1"></a><span class="do">## we can perform the bionomial test for an expected value of propotion of 1 to be p = 0.51</span></span>
+<span id="cb299-22"><a href="basic-statistics-in-r.html#cb299-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb299-23"><a href="basic-statistics-in-r.html#cb299-23" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="fu">sum</span>(one_population), <span class="fu">length</span>(one_population), <span class="at">p =</span> <span class="fl">0.51</span>)</span>
+<span id="cb299-24"><a href="basic-statistics-in-r.html#cb299-24" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb299-25"><a href="basic-statistics-in-r.html#cb299-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   1-sample proportions test with continuity correction</span></span>
+<span id="cb299-26"><a href="basic-statistics-in-r.html#cb299-26" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb299-27"><a href="basic-statistics-in-r.html#cb299-27" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  sum(one_population) out of length(one_population), null probability 0.51</span></span>
+<span id="cb299-28"><a href="basic-statistics-in-r.html#cb299-28" aria-hidden="true" tabindex="-1"></a><span class="co">#X-squared = 0.04902, df = 1, p-value = 0.8248</span></span>
+<span id="cb299-29"><a href="basic-statistics-in-r.html#cb299-29" aria-hidden="true" tabindex="-1"></a><span class="co">#alternative hypothesis: true p is not equal to 0.51</span></span>
+<span id="cb299-30"><a href="basic-statistics-in-r.html#cb299-30" aria-hidden="true" tabindex="-1"></a><span class="co">#95 percent confidence interval:</span></span>
+<span id="cb299-31"><a href="basic-statistics-in-r.html#cb299-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.4745504 0.5374029</span></span>
+<span id="cb299-32"><a href="basic-statistics-in-r.html#cb299-32" aria-hidden="true" tabindex="-1"></a><span class="co">#sample estimates:</span></span>
+<span id="cb299-33"><a href="basic-statistics-in-r.html#cb299-33" aria-hidden="true" tabindex="-1"></a><span class="co">#    p </span></span>
+<span id="cb299-34"><a href="basic-statistics-in-r.html#cb299-34" aria-hidden="true" tabindex="-1"></a><span class="co">#0.506 </span></span></code></pre></div>
+<p>In the case above, we found a non-significant result <code>p-value = 0.8248</code> and this population is likely to have 51% chance of females.</p>
+<p>However, we can create a biased population towards males with probability equal to 0.4 (i.e., males are 0 and females ar 1). In other words, females (represened by 1) will appear only 40% of time on the population the rest will be males (represented by 0).</p>
 <div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="basic-statistics-in-r.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we create a binomial variable assigned to males of females.</span></span>
 <span id="cb300-2"><a href="basic-statistics-in-r.html#cb300-2" aria-hidden="true" tabindex="-1"></a><span class="do">## we assume that if female is 1 and 0 if male</span></span>
 <span id="cb300-3"><a href="basic-statistics-in-r.html#cb300-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2106,35 +2113,37 @@ you how many times that each unique element appears in the data.</p>
 </div>
 <div id="beyond-t-test-chi-square-goodness-of-fit" class="section level2" number="6.16">
 <h2><span class="header-section-number">6.16</span> Beyond t-test: Chi-square goodness of fit</h2>
-<p><strong>13)</strong> The <a href="https://en.wikipedia.org/wiki/Chi-squared_test" target="_blank"><strong>Chi-square goodness of fit test</strong>*</a> will determine the significance of deviations from expected probabilities of multiple categories in a population. For example, you might want to compare the observed distribution of categories of a population to an expected distribution of such categories. We will perform this test using a table object with multiple categories with the function <code>chisq.test()</code> and an argument of probabilities for each category <code>p</code>.</p>
+<p><strong>13)</strong> The <a href="https://en.wikipedia.org/wiki/Chi-squared_test" target="_blank"><strong>Chi-square goodness of fit test</strong></a> will determine the significance of deviations from expected probabilities of multiple categories in a population. For example, you might want to compare the observed distribution of categories of a population to an expected distribution of such categories.</p>
+<p>We will perform this test using a table object with multiple categories with the function <code>chisq.test()</code> and an argument of probabilities for each category provided by<code>p</code>.</p>
 <p>For example, we can test if the proportion of nitrogen fixing bacteria in a population collected of dataset <code>rhizobium</code> from R package <code>ade4</code>.</p>
 <div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="basic-statistics-in-r.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load rhizobium dataset from ade4 R package</span></span>
 <span id="cb301-2"><a href="basic-statistics-in-r.html#cb301-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)</span>
 <span id="cb301-3"><a href="basic-statistics-in-r.html#cb301-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(rhizobium)</span>
-<span id="cb301-4"><a href="basic-statistics-in-r.html#cb301-4" aria-hidden="true" tabindex="-1"></a>rhizobium_pop <span class="ot">&lt;-</span> <span class="fu">as.character</span>(rhizobium<span class="sc">$</span>pop)</span>
-<span id="cb301-5"><a href="basic-statistics-in-r.html#cb301-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(rhizobium_pop)</span>
-<span id="cb301-6"><a href="basic-statistics-in-r.html#cb301-6" aria-hidden="true" tabindex="-1"></a><span class="co">#chr [1:215] &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; ...</span></span>
-<span id="cb301-7"><a href="basic-statistics-in-r.html#cb301-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb301-8"><a href="basic-statistics-in-r.html#cb301-8" aria-hidden="true" tabindex="-1"></a><span class="do">## get a idea of the unique character elements in the rhizobium_pop object</span></span>
-<span id="cb301-9"><a href="basic-statistics-in-r.html#cb301-9" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(rhizobium_pop)</span>
-<span id="cb301-10"><a href="basic-statistics-in-r.html#cb301-10" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;FTmdc&quot;  &quot;FTmlt&quot;  &quot;TETmdc&quot; &quot;THLmlt&quot; &quot;TELmlt&quot; &quot;TETmlt&quot; &quot;THTmlt&quot;</span></span>
-<span id="cb301-11"><a href="basic-statistics-in-r.html#cb301-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb301-12"><a href="basic-statistics-in-r.html#cb301-12" aria-hidden="true" tabindex="-1"></a><span class="co">#we can see 7 unique text elements</span></span>
-<span id="cb301-13"><a href="basic-statistics-in-r.html#cb301-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb301-14"><a href="basic-statistics-in-r.html#cb301-14" aria-hidden="true" tabindex="-1"></a><span class="do">## create a table object</span></span>
-<span id="cb301-15"><a href="basic-statistics-in-r.html#cb301-15" aria-hidden="true" tabindex="-1"></a>rhizobium_pop_table <span class="ot">&lt;-</span> <span class="fu">table</span>(rhizobium_pop)</span>
-<span id="cb301-16"><a href="basic-statistics-in-r.html#cb301-16" aria-hidden="true" tabindex="-1"></a>rhizobium_pop_table</span>
-<span id="cb301-17"><a href="basic-statistics-in-r.html#cb301-17" aria-hidden="true" tabindex="-1"></a><span class="co">#rhizobium_pop</span></span>
-<span id="cb301-18"><a href="basic-statistics-in-r.html#cb301-18" aria-hidden="true" tabindex="-1"></a><span class="co"># FTmdc  FTmlt TELmlt TETmdc TETmlt THLmlt THTmlt </span></span>
-<span id="cb301-19"><a href="basic-statistics-in-r.html#cb301-19" aria-hidden="true" tabindex="-1"></a><span class="co">#    46     43     20     20     24     20     42</span></span>
-<span id="cb301-20"><a href="basic-statistics-in-r.html#cb301-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb301-21"><a href="basic-statistics-in-r.html#cb301-21" aria-hidden="true" tabindex="-1"></a><span class="do">## we have 7 categories. We will assume that they should be in equal proportion (i.e., 1/7 each).</span></span>
-<span id="cb301-22"><a href="basic-statistics-in-r.html#cb301-22" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(rhizobium_pop_table, <span class="at">p =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>))</span>
-<span id="cb301-23"><a href="basic-statistics-in-r.html#cb301-23" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb301-24"><a href="basic-statistics-in-r.html#cb301-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   Chi-squared test for given probabilities</span></span>
-<span id="cb301-25"><a href="basic-statistics-in-r.html#cb301-25" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb301-26"><a href="basic-statistics-in-r.html#cb301-26" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  rhizobium_pop_table</span></span>
-<span id="cb301-27"><a href="basic-statistics-in-r.html#cb301-27" aria-hidden="true" tabindex="-1"></a><span class="co">#X-squared = 29.349, df = 6, p-value = 5.225e-05</span></span></code></pre></div>
+<span id="cb301-4"><a href="basic-statistics-in-r.html#cb301-4" aria-hidden="true" tabindex="-1"></a>?rhizobium</span>
+<span id="cb301-5"><a href="basic-statistics-in-r.html#cb301-5" aria-hidden="true" tabindex="-1"></a>rhizobium_pop <span class="ot">&lt;-</span> <span class="fu">as.character</span>(rhizobium<span class="sc">$</span>pop)</span>
+<span id="cb301-6"><a href="basic-statistics-in-r.html#cb301-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(rhizobium_pop)</span>
+<span id="cb301-7"><a href="basic-statistics-in-r.html#cb301-7" aria-hidden="true" tabindex="-1"></a><span class="co">#chr [1:215] &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; &quot;FTmdc&quot; ...</span></span>
+<span id="cb301-8"><a href="basic-statistics-in-r.html#cb301-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb301-9"><a href="basic-statistics-in-r.html#cb301-9" aria-hidden="true" tabindex="-1"></a><span class="do">## get a idea of the unique character elements in the rhizobium_pop object</span></span>
+<span id="cb301-10"><a href="basic-statistics-in-r.html#cb301-10" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(rhizobium_pop)</span>
+<span id="cb301-11"><a href="basic-statistics-in-r.html#cb301-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;FTmdc&quot;  &quot;FTmlt&quot;  &quot;TETmdc&quot; &quot;THLmlt&quot; &quot;TELmlt&quot; &quot;TETmlt&quot; &quot;THTmlt&quot;</span></span>
+<span id="cb301-12"><a href="basic-statistics-in-r.html#cb301-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb301-13"><a href="basic-statistics-in-r.html#cb301-13" aria-hidden="true" tabindex="-1"></a><span class="co">#we can see 7 unique text elements</span></span>
+<span id="cb301-14"><a href="basic-statistics-in-r.html#cb301-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb301-15"><a href="basic-statistics-in-r.html#cb301-15" aria-hidden="true" tabindex="-1"></a><span class="do">## create a table object</span></span>
+<span id="cb301-16"><a href="basic-statistics-in-r.html#cb301-16" aria-hidden="true" tabindex="-1"></a>rhizobium_pop_table <span class="ot">&lt;-</span> <span class="fu">table</span>(rhizobium_pop)</span>
+<span id="cb301-17"><a href="basic-statistics-in-r.html#cb301-17" aria-hidden="true" tabindex="-1"></a>rhizobium_pop_table</span>
+<span id="cb301-18"><a href="basic-statistics-in-r.html#cb301-18" aria-hidden="true" tabindex="-1"></a><span class="co">#rhizobium_pop</span></span>
+<span id="cb301-19"><a href="basic-statistics-in-r.html#cb301-19" aria-hidden="true" tabindex="-1"></a><span class="co"># FTmdc  FTmlt TELmlt TETmdc TETmlt THLmlt THTmlt </span></span>
+<span id="cb301-20"><a href="basic-statistics-in-r.html#cb301-20" aria-hidden="true" tabindex="-1"></a><span class="co">#    46     43     20     20     24     20     42</span></span>
+<span id="cb301-21"><a href="basic-statistics-in-r.html#cb301-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb301-22"><a href="basic-statistics-in-r.html#cb301-22" aria-hidden="true" tabindex="-1"></a><span class="do">## we have 7 categories. We will assume that they should be in equal proportion (i.e., 1/7 each).</span></span>
+<span id="cb301-23"><a href="basic-statistics-in-r.html#cb301-23" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(rhizobium_pop_table, <span class="at">p =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>))</span>
+<span id="cb301-24"><a href="basic-statistics-in-r.html#cb301-24" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb301-25"><a href="basic-statistics-in-r.html#cb301-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   Chi-squared test for given probabilities</span></span>
+<span id="cb301-26"><a href="basic-statistics-in-r.html#cb301-26" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb301-27"><a href="basic-statistics-in-r.html#cb301-27" aria-hidden="true" tabindex="-1"></a><span class="co">#data:  rhizobium_pop_table</span></span>
+<span id="cb301-28"><a href="basic-statistics-in-r.html#cb301-28" aria-hidden="true" tabindex="-1"></a><span class="co">#X-squared = 29.349, df = 6, p-value = 5.225e-05</span></span></code></pre></div>
 <p><strong>14)</strong> You can also cross tabulate results of two measurements of population that result in two or more categories for each and determine if they are related using a Chi-square goodness of fit test. The goal is to create a contingency table where your compare the outcomes for two different measurements of the same population and determine if they tend to be in agreement or not.</p>
 <div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="basic-statistics-in-r.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we can have a population and determine a categorical variable that result in two category (0, 1) like for example: healthy and sick</span></span>
 <span id="cb302-2"><a href="basic-statistics-in-r.html#cb302-2" aria-hidden="true" tabindex="-1"></a>sample_population <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob=</span> <span class="fl">0.40</span>)</span>
@@ -2166,7 +2175,7 @@ you how many times that each unique element appears in the data.</p>
 <span id="cb304-5"><a href="basic-statistics-in-r.html#cb304-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data:  cross_tab</span></span>
 <span id="cb304-6"><a href="basic-statistics-in-r.html#cb304-6" aria-hidden="true" tabindex="-1"></a><span class="co"># X-squared = 0.069082, df = 1, p-value = 0.7927</span></span></code></pre></div>
 <p>In this case, we found that they were non-significant different. In this case, if the sick people might not have this made-up virus.</p>
-<p>Here is another example, in this case we will make people that are sick more likely to have a virus.test</p>
+<p>Here is another example, in this case we will make people that are sick more likely to have a virus (i.e., more healthy people will not have the virus).</p>
 <div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="basic-statistics-in-r.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="co">#$ we construct a data frame</span></span>
 <span id="cb305-2"><a href="basic-statistics-in-r.html#cb305-2" aria-hidden="true" tabindex="-1"></a>sample_virus_2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span> (<span class="at">population_1_if_sick =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>),</span>
 <span id="cb305-3"><a href="basic-statistics-in-r.html#cb305-3" aria-hidden="true" tabindex="-1"></a>                               <span class="at">virus_1_if_detected =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
@@ -2247,7 +2256,7 @@ you how many times that each unique element appears in the data.</p>
 </div>
 <div id="correlations" class="section level2" number="6.19">
 <h2><span class="header-section-number">6.19</span> Correlations</h2>
-<p><strong>17)</strong> We can determine correlation between two variables using <code>cor()</code> and test for its significance using <code>cor.test()</code>. Correlation is the dependence or association between variables, and it usually refers to the degree to which a pair of variables are linearly related. For practical uses, correlations can provide a predictive relationship that can derived from one variable on the other. However, the evidence of correlation does not mean a causal relationship (i.e., A does not necessarily cause B). Likewise, it is important to determine if such correlations are significant and these can be performed for normal or non-normal distributions (in this case use the use argument <code>method = "spearman"</code>).</p>
+<p><strong>17)</strong> We can determine correlation between two variables using <code>cor()</code> and test for its significance using <code>cor.test()</code>. Correlation is the dependence or association between variables, and it usually refers to the degree to which a pair of variables are linearly related. For practical uses, correlations can provide a predictive relationship that can derived from one variable on the other. However, the evidence of correlation does not mean a causal relationship (i.e., A does not necessarily cause B and viceversa). Likewise, it is important to determine if such correlations are significant and these can be performed for normal or non-normal distributions (in this case use the use argument <code>method = "spearman"</code>).</p>
 <p>We will determine a correlation and test for its significance between two samples of the <code>airway_data</code>.</p>
 <div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="basic-statistics-in-r.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(airway_data[,<span class="dv">2</span>], airway_data[,<span class="dv">3</span>])</span>
 <span id="cb308-2"><a href="basic-statistics-in-r.html#cb308-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 0.9646265</span></span>
