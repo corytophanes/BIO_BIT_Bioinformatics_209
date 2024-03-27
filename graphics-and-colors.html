@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2024-03-19" />
+<meta name="date" content="2024-03-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -567,21 +567,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="graphics-and-colors.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load purrr package and scale the values</span></span>
 <span id="cb398-2"><a href="graphics-and-colors.html#cb398-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(purrr)</span>
 <span id="cb398-3"><a href="graphics-and-colors.html#cb398-3" aria-hidden="true" tabindex="-1"></a>bacteria_espaa_scaled <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">modify</span>(bacteria_espaa, scale)</span>
-<span id="cb398-4"><a href="graphics-and-colors.html#cb398-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bacteria_espaa_scaled)</span>
-<span id="cb398-5"><a href="graphics-and-colors.html#cb398-5" aria-hidden="true" tabindex="-1"></a><span class="co">#               Ala        Arg         Asn        Asp        Cys        Gln        Glu        Gly        His         Ile         Leu</span></span>
-<span id="cb398-6"><a href="graphics-and-colors.html#cb398-6" aria-hidden="true" tabindex="-1"></a><span class="co">#AERPECG  0.3285668  0.7317790 -0.57189998 -0.1194444  0.1648422 -0.3942439  0.2871196  0.4766228  0.1461376 -0.04383607  0.39172834</span></span>
-<span id="cb398-7"><a href="graphics-and-colors.html#cb398-7" aria-hidden="true" tabindex="-1"></a><span class="co">#AQUAECG -0.4008694 -0.2034641 -0.22356528 -0.3025407 -0.3950725 -0.5262848  0.4634441 -0.1820602 -0.3947798  0.06415029 -0.09928685</span></span>
-<span id="cb398-8"><a href="graphics-and-colors.html#cb398-8" aria-hidden="true" tabindex="-1"></a><span class="co">#ARCFUCG  0.1073331  0.2833748  0.04401802  0.2066524  0.5498823 -0.4297732  0.8885965  0.2463444 -0.1330163  0.57892747  0.12987680</span></span>
-<span id="cb398-9"><a href="graphics-and-colors.html#cb398-9" aria-hidden="true" tabindex="-1"></a><span class="co">#BACHDCG  0.9012986  0.9875656  1.72105862  1.5171379  0.8224654  1.6598743  2.2634710  1.2984007  1.9400648  2.16751418  1.40433248</span></span>
-<span id="cb398-10"><a href="graphics-and-colors.html#cb398-10" aria-hidden="true" tabindex="-1"></a><span class="co">#BACSUCG  1.0314722  0.7271505  2.09337260  1.6457327  1.0718724  1.5394241  2.0612524  1.3252195  1.8173099  2.49733951  1.38291228</span></span>
-<span id="cb398-11"><a href="graphics-and-colors.html#cb398-11" aria-hidden="true" tabindex="-1"></a><span class="co">#BORBUCG -0.7597170 -0.7465478  0.01654507 -0.6016028 -0.9081081 -0.7293261 -0.6491864 -0.7234675 -0.8524967 -0.18035597 -0.60867882</span></span>
-<span id="cb398-12"><a href="graphics-and-colors.html#cb398-12" aria-hidden="true" tabindex="-1"></a><span class="co">#                Lys         Met        Phe         Pro        Ser        Stp          Thr         Trp        Tyr         Val</span></span>
-<span id="cb398-13"><a href="graphics-and-colors.html#cb398-13" aria-hidden="true" tabindex="-1"></a><span class="co">#AERPECG -0.36413421  0.09017282 -0.3275198  0.89114307  0.7319805  0.7113529  0.152094962  0.38406553  0.4369524  0.61086466</span></span>
-<span id="cb398-14"><a href="graphics-and-colors.html#cb398-14" aria-hidden="true" tabindex="-1"></a><span class="co">#AQUAECG  0.88477099 -0.28951403  0.1851469 -0.17796712 -0.4145196 -0.2123879 -0.323609531 -0.26598780  0.3076040  0.01812197</span></span>
-<span id="cb398-15"><a href="graphics-and-colors.html#cb398-15" aria-hidden="true" tabindex="-1"></a><span class="co">#ARCFUCG  0.79679827  0.48462587  0.5156315  0.08558657  0.1583118  0.2768920  0.008319353  0.09800132  0.6381195  0.61451548</span></span>
-<span id="cb398-16"><a href="graphics-and-colors.html#cb398-16" aria-hidden="true" tabindex="-1"></a><span class="co">#BACHDCG  2.08829038  2.07351272  2.0439218  1.06116153  1.5330792  1.4796369  1.887894271  1.20439921  2.0999898  1.67959246</span></span>
-<span id="cb398-17"><a href="graphics-and-colors.html#cb398-17" aria-hidden="true" tabindex="-1"></a><span class="co">#BACSUCG  2.95243158  2.18339064  2.1725251  1.03849240  1.9769142  1.5369105  1.887693467  1.04854940  2.2918176  1.46336710</span></span>
-<span id="cb398-18"><a href="graphics-and-colors.html#cb398-18" aria-hidden="true" tabindex="-1"></a><span class="co">#BORBUCG -0.02590849 -0.72066544 -0.3193467 -0.80668435 -0.5156512 -0.7990328 -0.785609156 -0.79075009 -0.4463524 -0.78199455</span></span></code></pre></div>
+<span id="cb398-4"><a href="graphics-and-colors.html#cb398-4" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(bacteria_espaa_scaled) <span class="ot">&lt;-</span> <span class="fu">row.names</span>(bacteria_espaa)</span>
+<span id="cb398-5"><a href="graphics-and-colors.html#cb398-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bacteria_espaa_scaled)</span>
+<span id="cb398-6"><a href="graphics-and-colors.html#cb398-6" aria-hidden="true" tabindex="-1"></a><span class="co">#               Ala        Arg         Asn        Asp        Cys        Gln        Glu        Gly        His         Ile         Leu</span></span>
+<span id="cb398-7"><a href="graphics-and-colors.html#cb398-7" aria-hidden="true" tabindex="-1"></a><span class="co">#AERPECG  0.3285668  0.7317790 -0.57189998 -0.1194444  0.1648422 -0.3942439  0.2871196  0.4766228  0.1461376 -0.04383607  0.39172834</span></span>
+<span id="cb398-8"><a href="graphics-and-colors.html#cb398-8" aria-hidden="true" tabindex="-1"></a><span class="co">#AQUAECG -0.4008694 -0.2034641 -0.22356528 -0.3025407 -0.3950725 -0.5262848  0.4634441 -0.1820602 -0.3947798  0.06415029 -0.09928685</span></span>
+<span id="cb398-9"><a href="graphics-and-colors.html#cb398-9" aria-hidden="true" tabindex="-1"></a><span class="co">#ARCFUCG  0.1073331  0.2833748  0.04401802  0.2066524  0.5498823 -0.4297732  0.8885965  0.2463444 -0.1330163  0.57892747  0.12987680</span></span>
+<span id="cb398-10"><a href="graphics-and-colors.html#cb398-10" aria-hidden="true" tabindex="-1"></a><span class="co">#BACHDCG  0.9012986  0.9875656  1.72105862  1.5171379  0.8224654  1.6598743  2.2634710  1.2984007  1.9400648  2.16751418  1.40433248</span></span>
+<span id="cb398-11"><a href="graphics-and-colors.html#cb398-11" aria-hidden="true" tabindex="-1"></a><span class="co">#BACSUCG  1.0314722  0.7271505  2.09337260  1.6457327  1.0718724  1.5394241  2.0612524  1.3252195  1.8173099  2.49733951  1.38291228</span></span>
+<span id="cb398-12"><a href="graphics-and-colors.html#cb398-12" aria-hidden="true" tabindex="-1"></a><span class="co">#BORBUCG -0.7597170 -0.7465478  0.01654507 -0.6016028 -0.9081081 -0.7293261 -0.6491864 -0.7234675 -0.8524967 -0.18035597 -0.60867882</span></span>
+<span id="cb398-13"><a href="graphics-and-colors.html#cb398-13" aria-hidden="true" tabindex="-1"></a><span class="co">#                Lys         Met        Phe         Pro        Ser        Stp          Thr         Trp        Tyr         Val</span></span>
+<span id="cb398-14"><a href="graphics-and-colors.html#cb398-14" aria-hidden="true" tabindex="-1"></a><span class="co">#AERPECG -0.36413421  0.09017282 -0.3275198  0.89114307  0.7319805  0.7113529  0.152094962  0.38406553  0.4369524  0.61086466</span></span>
+<span id="cb398-15"><a href="graphics-and-colors.html#cb398-15" aria-hidden="true" tabindex="-1"></a><span class="co">#AQUAECG  0.88477099 -0.28951403  0.1851469 -0.17796712 -0.4145196 -0.2123879 -0.323609531 -0.26598780  0.3076040  0.01812197</span></span>
+<span id="cb398-16"><a href="graphics-and-colors.html#cb398-16" aria-hidden="true" tabindex="-1"></a><span class="co">#ARCFUCG  0.79679827  0.48462587  0.5156315  0.08558657  0.1583118  0.2768920  0.008319353  0.09800132  0.6381195  0.61451548</span></span>
+<span id="cb398-17"><a href="graphics-and-colors.html#cb398-17" aria-hidden="true" tabindex="-1"></a><span class="co">#BACHDCG  2.08829038  2.07351272  2.0439218  1.06116153  1.5330792  1.4796369  1.887894271  1.20439921  2.0999898  1.67959246</span></span>
+<span id="cb398-18"><a href="graphics-and-colors.html#cb398-18" aria-hidden="true" tabindex="-1"></a><span class="co">#BACSUCG  2.95243158  2.18339064  2.1725251  1.03849240  1.9769142  1.5369105  1.887693467  1.04854940  2.2918176  1.46336710</span></span>
+<span id="cb398-19"><a href="graphics-and-colors.html#cb398-19" aria-hidden="true" tabindex="-1"></a><span class="co">#BORBUCG -0.02590849 -0.72066544 -0.3193467 -0.80668435 -0.5156512 -0.7990328 -0.785609156 -0.79075009 -0.4463524 -0.78199455</span></span></code></pre></div>
 <p>We can also create a more easy to map plot with using the function <code>melt()</code> of the package <a href="https://cran.r-project.org/web/packages/reshape2/index.html" target="_blank"><strong>reshape2</strong></a>.</p>
 <div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="graphics-and-colors.html#cb399-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load reshape</span></span>
 <span id="cb399-2"><a href="graphics-and-colors.html#cb399-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
@@ -800,22 +801,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb407-8"><a href="graphics-and-colors.html#cb407-8" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(bacteria,  <span class="at">package =</span> <span class="st">&quot;ade4&quot;</span>)</span>
 <span id="cb407-9"><a href="graphics-and-colors.html#cb407-9" aria-hidden="true" tabindex="-1"></a>bacteria_espaa <span class="ot">&lt;-</span> bacteria<span class="sc">$</span>espaa</span>
 <span id="cb407-10"><a href="graphics-and-colors.html#cb407-10" aria-hidden="true" tabindex="-1"></a>bacteria_espaa_scaled <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">modify</span>(bacteria_espaa, scale)</span>
-<span id="cb407-11"><a href="graphics-and-colors.html#cb407-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb407-12"><a href="graphics-and-colors.html#cb407-12" aria-hidden="true" tabindex="-1"></a><span class="do">## reshape dataframe</span></span>
-<span id="cb407-13"><a href="graphics-and-colors.html#cb407-13" aria-hidden="true" tabindex="-1"></a>bacteria_espaa_for_heatmap <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="fu">as.matrix</span>(bacteria_espaa_scaled))</span>
-<span id="cb407-14"><a href="graphics-and-colors.html#cb407-14" aria-hidden="true" tabindex="-1"></a>factor_columns <span class="ot">&lt;-</span> <span class="fu">sapply</span>(bacteria_espaa_for_heatmap, is.factor)</span>
-<span id="cb407-15"><a href="graphics-and-colors.html#cb407-15" aria-hidden="true" tabindex="-1"></a>bacteria_espaa_for_heatmap[factor_columns] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(bacteria_espaa_for_heatmap[factor_columns], as.character)</span>
-<span id="cb407-16"><a href="graphics-and-colors.html#cb407-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb407-17"><a href="graphics-and-colors.html#cb407-17" aria-hidden="true" tabindex="-1"></a><span class="do">## we can rename the columns in this data frame</span></span>
-<span id="cb407-18"><a href="graphics-and-colors.html#cb407-18" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(bacteria_espaa_for_heatmap) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;bacteria_sp&quot;</span>, <span class="st">&quot;Amino_acid&quot;</span>, <span class="st">&quot;scaled_value&quot;</span>)</span>
-<span id="cb407-19"><a href="graphics-and-colors.html#cb407-19" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bacteria_espaa_for_heatmap)</span>
-<span id="cb407-20"><a href="graphics-and-colors.html#cb407-20" aria-hidden="true" tabindex="-1"></a><span class="co">#  bacteria_sp Amino_acid scaled_value</span></span>
-<span id="cb407-21"><a href="graphics-and-colors.html#cb407-21" aria-hidden="true" tabindex="-1"></a><span class="co">#1     AERPECG        Ala    0.3285668</span></span>
-<span id="cb407-22"><a href="graphics-and-colors.html#cb407-22" aria-hidden="true" tabindex="-1"></a><span class="co">#2     AQUAECG        Ala   -0.4008694</span></span>
-<span id="cb407-23"><a href="graphics-and-colors.html#cb407-23" aria-hidden="true" tabindex="-1"></a><span class="co">#3     ARCFUCG        Ala    0.1073331</span></span>
-<span id="cb407-24"><a href="graphics-and-colors.html#cb407-24" aria-hidden="true" tabindex="-1"></a><span class="co">#4     BACHDCG        Ala    0.9012986</span></span>
-<span id="cb407-25"><a href="graphics-and-colors.html#cb407-25" aria-hidden="true" tabindex="-1"></a><span class="co">#5     BACSUCG        Ala    1.0314722</span></span>
-<span id="cb407-26"><a href="graphics-and-colors.html#cb407-26" aria-hidden="true" tabindex="-1"></a><span class="co">#6     BORBUCG        Ala   -0.7597170</span></span></code></pre></div>
+<span id="cb407-11"><a href="graphics-and-colors.html#cb407-11" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(bacteria_espaa_scaled) <span class="ot">&lt;-</span> <span class="fu">row.names</span>(bacteria_espaa)</span>
+<span id="cb407-12"><a href="graphics-and-colors.html#cb407-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb407-13"><a href="graphics-and-colors.html#cb407-13" aria-hidden="true" tabindex="-1"></a><span class="do">## reshape dataframe</span></span>
+<span id="cb407-14"><a href="graphics-and-colors.html#cb407-14" aria-hidden="true" tabindex="-1"></a>bacteria_espaa_for_heatmap <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="fu">as.matrix</span>(bacteria_espaa_scaled))</span>
+<span id="cb407-15"><a href="graphics-and-colors.html#cb407-15" aria-hidden="true" tabindex="-1"></a>factor_columns <span class="ot">&lt;-</span> <span class="fu">sapply</span>(bacteria_espaa_for_heatmap, is.factor)</span>
+<span id="cb407-16"><a href="graphics-and-colors.html#cb407-16" aria-hidden="true" tabindex="-1"></a>bacteria_espaa_for_heatmap[factor_columns] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(bacteria_espaa_for_heatmap[factor_columns], as.character)</span>
+<span id="cb407-17"><a href="graphics-and-colors.html#cb407-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb407-18"><a href="graphics-and-colors.html#cb407-18" aria-hidden="true" tabindex="-1"></a><span class="do">## we can rename the columns in this data frame</span></span>
+<span id="cb407-19"><a href="graphics-and-colors.html#cb407-19" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(bacteria_espaa_for_heatmap) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;bacteria_sp&quot;</span>, <span class="st">&quot;Amino_acid&quot;</span>, <span class="st">&quot;scaled_value&quot;</span>)</span>
+<span id="cb407-20"><a href="graphics-and-colors.html#cb407-20" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bacteria_espaa_for_heatmap)</span>
+<span id="cb407-21"><a href="graphics-and-colors.html#cb407-21" aria-hidden="true" tabindex="-1"></a><span class="co">#  bacteria_sp Amino_acid scaled_value</span></span>
+<span id="cb407-22"><a href="graphics-and-colors.html#cb407-22" aria-hidden="true" tabindex="-1"></a><span class="co">#1     AERPECG        Ala    0.3285668</span></span>
+<span id="cb407-23"><a href="graphics-and-colors.html#cb407-23" aria-hidden="true" tabindex="-1"></a><span class="co">#2     AQUAECG        Ala   -0.4008694</span></span>
+<span id="cb407-24"><a href="graphics-and-colors.html#cb407-24" aria-hidden="true" tabindex="-1"></a><span class="co">#3     ARCFUCG        Ala    0.1073331</span></span>
+<span id="cb407-25"><a href="graphics-and-colors.html#cb407-25" aria-hidden="true" tabindex="-1"></a><span class="co">#4     BACHDCG        Ala    0.9012986</span></span>
+<span id="cb407-26"><a href="graphics-and-colors.html#cb407-26" aria-hidden="true" tabindex="-1"></a><span class="co">#5     BACSUCG        Ala    1.0314722</span></span>
+<span id="cb407-27"><a href="graphics-and-colors.html#cb407-27" aria-hidden="true" tabindex="-1"></a><span class="co">#6     BORBUCG        Ala   -0.7597170</span></span></code></pre></div>
 <p>We can explore some of the colors in <strong>ggplot2</strong>.</p>
 <div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="graphics-and-colors.html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if ggplot2 is loaded</span></span>
 <span id="cb408-2"><a href="graphics-and-colors.html#cb408-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
@@ -838,133 +840,133 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="viridis-package" class="section level3" number="9.7.1">
 <h3><span class="header-section-number">9.7.1</span> <code>viridis</code> package</h3>
 <p><strong>6)</strong> The package <a href="https://cran.r-project.org/web/packages/viridis/index.html" target="_blank"><strong>viridis</strong></a> can create color scales including palettes for those persons with colorblindness. This package has a <a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html" target="_blank"><strong>vignette</strong></a> that help you with more examples.</p>
+<p>Here is the heatmap with <code>magma</code> color scale.</p>
 <div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="graphics-and-colors.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install R-package &#39;viridis&#39; </span></span>
 <span id="cb409-2"><a href="graphics-and-colors.html#cb409-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;viridis&quot;</span>)</span>
 <span id="cb409-3"><a href="graphics-and-colors.html#cb409-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
-<span id="cb409-4"><a href="graphics-and-colors.html#cb409-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Loading required package: viridisLite</span></span></code></pre></div>
+<span id="cb409-4"><a href="graphics-and-colors.html#cb409-4" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if ggplot2 is loaded</span></span>
+<span id="cb409-5"><a href="graphics-and-colors.html#cb409-5" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
+<span id="cb409-6"><a href="graphics-and-colors.html#cb409-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-7"><a href="graphics-and-colors.html#cb409-7" aria-hidden="true" tabindex="-1"></a><span class="do">## we can plot a heatmap with the expression values</span></span>
+<span id="cb409-8"><a href="graphics-and-colors.html#cb409-8" aria-hidden="true" tabindex="-1"></a>heatmap_viridis_bac_magma <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(bacteria_espaa_for_heatmap,<span class="fu">aes</span>(<span class="at">x=</span>Amino_acid,<span class="at">y=</span>bacteria_sp,<span class="at">fill=</span>scaled_value))<span class="sc">+</span></span>
+<span id="cb409-9"><a href="graphics-and-colors.html#cb409-9" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_tile</span>()<span class="sc">+</span></span>
+<span id="cb409-10"><a href="graphics-and-colors.html#cb409-10" aria-hidden="true" tabindex="-1"></a>          <span class="fu">scale_fill_viridis</span>(<span class="at">option=</span><span class="st">&quot;A&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb409-11"><a href="graphics-and-colors.html#cb409-11" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb409-12"><a href="graphics-and-colors.html#cb409-12" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fu">rel</span>(<span class="fl">0.5</span>)),</span>
+<span id="cb409-13"><a href="graphics-and-colors.html#cb409-13" aria-hidden="true" tabindex="-1"></a>                          <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fu">rel</span>(<span class="fl">0.7</span>),<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span>
+<span id="cb409-14"><a href="graphics-and-colors.html#cb409-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-15"><a href="graphics-and-colors.html#cb409-15" aria-hidden="true" tabindex="-1"></a>heatmap_viridis_bac_magma</span>
+<span id="cb409-16"><a href="graphics-and-colors.html#cb409-16" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: you might need to run the plot &#39;heatmap_viridis_bac_magma&#39;, if it gives you an error</span></span></code></pre></div>
+<p><img src="figures/session_9_figs/1_bacteria_heatmap.png" width="100%" /></p>
+<p>We can also run this color example with <code>airway_data_for_heatmap</code>. Here is the heatmap with <code>viridis</code> default color scale.</p>
 <div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="graphics-and-colors.html#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if ggplot2 is loaded</span></span>
 <span id="cb410-2"><a href="graphics-and-colors.html#cb410-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
 <span id="cb410-3"><a href="graphics-and-colors.html#cb410-3" aria-hidden="true" tabindex="-1"></a><span class="do">## we can plot a heatmap with the expression values</span></span>
-<span id="cb410-4"><a href="graphics-and-colors.html#cb410-4" aria-hidden="true" tabindex="-1"></a>heatmap_viridis_bac_magma <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(bacteria_espaa_for_heatmap,<span class="fu">aes</span>(<span class="at">x=</span>Amino_acid,<span class="at">y=</span>bacteria_sp,<span class="at">fill=</span>scaled_value))<span class="sc">+</span></span>
+<span id="cb410-4"><a href="graphics-and-colors.html#cb410-4" aria-hidden="true" tabindex="-1"></a>heatmap_viridis <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(airway_data_for_heatmap,<span class="fu">aes</span>(<span class="at">x=</span>SRR,<span class="at">y=</span>ensgene,<span class="at">fill=</span>expression))<span class="sc">+</span></span>
 <span id="cb410-5"><a href="graphics-and-colors.html#cb410-5" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_tile</span>()<span class="sc">+</span></span>
-<span id="cb410-6"><a href="graphics-and-colors.html#cb410-6" aria-hidden="true" tabindex="-1"></a>          <span class="fu">scale_fill_viridis</span>(<span class="at">option=</span><span class="st">&quot;A&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb410-6"><a href="graphics-and-colors.html#cb410-6" aria-hidden="true" tabindex="-1"></a>          <span class="fu">scale_fill_viridis</span>()<span class="sc">+</span> </span>
 <span id="cb410-7"><a href="graphics-and-colors.html#cb410-7" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
 <span id="cb410-8"><a href="graphics-and-colors.html#cb410-8" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fu">rel</span>(<span class="fl">0.5</span>)),</span>
 <span id="cb410-9"><a href="graphics-and-colors.html#cb410-9" aria-hidden="true" tabindex="-1"></a>                          <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fu">rel</span>(<span class="fl">0.7</span>),<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span>
 <span id="cb410-10"><a href="graphics-and-colors.html#cb410-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb410-11"><a href="graphics-and-colors.html#cb410-11" aria-hidden="true" tabindex="-1"></a>heatmap_viridis_bac_magma</span>
-<span id="cb410-12"><a href="graphics-and-colors.html#cb410-12" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: you might need to run the plot &#39;heatmap_viridis_bac_magma&#39;, if it gives you an error</span></span></code></pre></div>
-<p><img src="figures/session_9_figs/1_bacteria_heatmap.png" width="100%" /></p>
-<p>We can also run this color example with <code>airway_data_for_heatmap</code>.</p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="graphics-and-colors.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if ggplot2 is loaded</span></span>
-<span id="cb411-2"><a href="graphics-and-colors.html#cb411-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
-<span id="cb411-3"><a href="graphics-and-colors.html#cb411-3" aria-hidden="true" tabindex="-1"></a><span class="do">## we can plot a heatmap with the expression values</span></span>
-<span id="cb411-4"><a href="graphics-and-colors.html#cb411-4" aria-hidden="true" tabindex="-1"></a>heatmap_viridis <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(airway_data_for_heatmap,<span class="fu">aes</span>(<span class="at">x=</span>SRR,<span class="at">y=</span>ensgene,<span class="at">fill=</span>expression))<span class="sc">+</span></span>
-<span id="cb411-5"><a href="graphics-and-colors.html#cb411-5" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_tile</span>()<span class="sc">+</span></span>
-<span id="cb411-6"><a href="graphics-and-colors.html#cb411-6" aria-hidden="true" tabindex="-1"></a>          <span class="fu">scale_fill_viridis</span>()<span class="sc">+</span> </span>
-<span id="cb411-7"><a href="graphics-and-colors.html#cb411-7" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb411-8"><a href="graphics-and-colors.html#cb411-8" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fu">rel</span>(<span class="fl">0.5</span>)),</span>
-<span id="cb411-9"><a href="graphics-and-colors.html#cb411-9" aria-hidden="true" tabindex="-1"></a>                          <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="fu">rel</span>(<span class="fl">0.7</span>),<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span>
-<span id="cb411-10"><a href="graphics-and-colors.html#cb411-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb411-11"><a href="graphics-and-colors.html#cb411-11" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: this will require time to load (if it is huge) -- you might not want to run this plot</span></span>
-<span id="cb411-12"><a href="graphics-and-colors.html#cb411-12" aria-hidden="true" tabindex="-1"></a>heatmap_viridis</span></code></pre></div>
+<span id="cb410-11"><a href="graphics-and-colors.html#cb410-11" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: this will require time to load (if it is huge) -- you might not want to run this plot</span></span>
+<span id="cb410-12"><a href="graphics-and-colors.html#cb410-12" aria-hidden="true" tabindex="-1"></a>heatmap_viridis</span></code></pre></div>
 <p><img src="figures/session_9_figs/2_ensgene_heatmap.png" width="100%" /></p>
 </div>
 <div id="rcolorbrewer-package" class="section level3" number="9.7.2">
 <h3><span class="header-section-number">9.7.2</span> <code>RColorBrewer</code> package</h3>
 <p><strong>7)</strong> The package <a href="https://cran.r-project.org/web/packages/RColorBrewer/index.html" target="_blank"><strong>RColorBrewer</strong></a>. This package is a collection of color palettes that can be easily incorporated in plots.</p>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="graphics-and-colors.html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install R-package &#39;RColorBrewer&#39; </span></span>
-<span id="cb412-2"><a href="graphics-and-colors.html#cb412-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;RColorBrewer&quot;</span>)</span>
-<span id="cb412-3"><a href="graphics-and-colors.html#cb412-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="graphics-and-colors.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install R-package &#39;RColorBrewer&#39; </span></span>
+<span id="cb411-2"><a href="graphics-and-colors.html#cb411-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;RColorBrewer&quot;</span>)</span>
+<span id="cb411-3"><a href="graphics-and-colors.html#cb411-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span></code></pre></div>
 <p>We can display available color palettes. Notice that names on the row can be call when using ggplot2.</p>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="graphics-and-colors.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="fu">display.brewer.all</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="graphics-and-colors.html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="fu">display.brewer.all</span>()</span></code></pre></div>
 <p><img src="figures/session_9_figs/3_colorbrewer_all_palettes.png" width="100%" /></p>
 <p>This image provides three types of palettes: diverging, qualitative, and sequential color. The top group are colors for gradient <strong>quantitative</strong> and <strong>sequential</strong> data that progresses from low to higher values (e.g., temperature measurements). The middle group are colors for <strong>discrete</strong> or <strong>categorical</strong> data that do not imply magnitude differences between values or states in the data (e.g., types of fruits). The lower group are colors for <strong>quantitative</strong> and <strong>diverting</strong> data that increases in magnitude toward opposites or extremes (e.g., above and below sea level).</p>
 <p><strong>8)</strong> The package [<strong>RColorBrewer</strong>] also provides colorblind-friendly palettes and these can be call with the argument <code>colorblindFriendly = TRUE</code>.</p>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="graphics-and-colors.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="fu">display.brewer.all</span>(<span class="at">colorblindFriendly =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="graphics-and-colors.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="fu">display.brewer.all</span>(<span class="at">colorblindFriendly =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="figures/session_9_figs/4_colorbrewer_all_colorblind.png" width="100%" /></p>
 <p><strong>9)</strong> For most practical uses, you will need only few colors based on your requirements and <strong>RColorBrewer</strong> allows to select specific palettes and the number of colors that you want.</p>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="graphics-and-colors.html#cb415-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we will load &#39;ade4&#39; and the ‘ichtyo’ dataset</span></span>
-<span id="cb415-2"><a href="graphics-and-colors.html#cb415-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)</span>
-<span id="cb415-3"><a href="graphics-and-colors.html#cb415-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ichtyo)</span>
-<span id="cb415-4"><a href="graphics-and-colors.html#cb415-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb415-5"><a href="graphics-and-colors.html#cb415-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Data of a fish community and sampling points</span></span>
-<span id="cb415-6"><a href="graphics-and-colors.html#cb415-6" aria-hidden="true" tabindex="-1"></a>?ichtyo</span>
-<span id="cb415-7"><a href="graphics-and-colors.html#cb415-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb415-8"><a href="graphics-and-colors.html#cb415-8" aria-hidden="true" tabindex="-1"></a>ichtyo_data <span class="ot">&lt;-</span> ichtyo<span class="sc">$</span>tab</span>
-<span id="cb415-9"><a href="graphics-and-colors.html#cb415-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ichtyo_data)</span>
-<span id="cb415-10"><a href="graphics-and-colors.html#cb415-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  HOT VAN CHE SPI GOU BAF GAR ABL PER</span></span>
-<span id="cb415-11"><a href="graphics-and-colors.html#cb415-11" aria-hidden="true" tabindex="-1"></a><span class="co">#1  57  47  60  11  27  17  10   9  21</span></span>
-<span id="cb415-12"><a href="graphics-and-colors.html#cb415-12" aria-hidden="true" tabindex="-1"></a><span class="co">#2   9  25  19   6   2   5   0   4   6</span></span>
-<span id="cb415-13"><a href="graphics-and-colors.html#cb415-13" aria-hidden="true" tabindex="-1"></a><span class="co">#3  48  60  52  16  25  24  17   8  12</span></span>
-<span id="cb415-14"><a href="graphics-and-colors.html#cb415-14" aria-hidden="true" tabindex="-1"></a><span class="co">#4  26  50  32   8   6  11   2  10   5</span></span>
-<span id="cb415-15"><a href="graphics-and-colors.html#cb415-15" aria-hidden="true" tabindex="-1"></a><span class="co">#5  26  43  31  14   9  18  13  14   2</span></span>
-<span id="cb415-16"><a href="graphics-and-colors.html#cb415-16" aria-hidden="true" tabindex="-1"></a><span class="co">#6  62  43  47  16  11   9  15  16   3</span></span>
-<span id="cb415-17"><a href="graphics-and-colors.html#cb415-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb415-18"><a href="graphics-and-colors.html#cb415-18" aria-hidden="true" tabindex="-1"></a><span class="do">## we use the function &#39;melt()&#39;&#39; of the package &#39;reshape2&#39; to arrange on the &#39;ggplot2&#39; format</span></span>
-<span id="cb415-19"><a href="graphics-and-colors.html#cb415-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
-<span id="cb415-20"><a href="graphics-and-colors.html#cb415-20" aria-hidden="true" tabindex="-1"></a>ichtyo_data_ggplot <span class="ot">&lt;-</span> <span class="fu">melt</span>(ichtyo_data)</span>
-<span id="cb415-21"><a href="graphics-and-colors.html#cb415-21" aria-hidden="true" tabindex="-1"></a><span class="co">#No id variables; using all as measure variables</span></span>
-<span id="cb415-22"><a href="graphics-and-colors.html#cb415-22" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(ichtyo_data_ggplot) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;faunistic_array&quot;</span>, <span class="st">&quot;counts&quot;</span>)</span>
-<span id="cb415-23"><a href="graphics-and-colors.html#cb415-23" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ichtyo_data_ggplot)</span>
-<span id="cb415-24"><a href="graphics-and-colors.html#cb415-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  288 obs. of  2 variables:</span></span>
-<span id="cb415-25"><a href="graphics-and-colors.html#cb415-25" aria-hidden="true" tabindex="-1"></a><span class="co"># $ faunistic_array: Factor w/ 9 levels &quot;HOT&quot;,&quot;VAN&quot;,&quot;CHE&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
-<span id="cb415-26"><a href="graphics-and-colors.html#cb415-26" aria-hidden="true" tabindex="-1"></a><span class="co"># $ counts         : num  57 9 48 26 26 62 17 18 9 12 ...</span></span>
-<span id="cb415-27"><a href="graphics-and-colors.html#cb415-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb415-28"><a href="graphics-and-colors.html#cb415-28" aria-hidden="true" tabindex="-1"></a><span class="do">## View a single RColorBrewer palette by specifying its name (e.g., &#39;Paired&#39;) and 9 colors for each faunistic_array</span></span>
-<span id="cb415-29"><a href="graphics-and-colors.html#cb415-29" aria-hidden="true" tabindex="-1"></a><span class="fu">display.brewer.pal</span>(<span class="at">n =</span> <span class="dv">9</span>, <span class="at">name =</span> <span class="st">&#39;Paired&#39;</span>)</span>
-<span id="cb415-30"><a href="graphics-and-colors.html#cb415-30" aria-hidden="true" tabindex="-1"></a><span class="co"># you can also request the hexadecimal color code</span></span>
-<span id="cb415-31"><a href="graphics-and-colors.html#cb415-31" aria-hidden="true" tabindex="-1"></a><span class="fu">brewer.pal</span>(<span class="at">n =</span> <span class="dv">9</span>, <span class="at">name =</span> <span class="st">&#39;Paired&#39;</span>)</span>
-<span id="cb415-32"><a href="graphics-and-colors.html#cb415-32" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#A6CEE3&quot; &quot;#1F78B4&quot; &quot;#B2DF8A&quot; &quot;#33A02C&quot; &quot;#FB9A99&quot; &quot;#E31A1C&quot; &quot;#FDBF6F&quot; &quot;#FF7F00&quot; &quot;#CAB2D6&quot;</span></span>
-<span id="cb415-33"><a href="graphics-and-colors.html#cb415-33" aria-hidden="true" tabindex="-1"></a>my_paired_palette <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="at">n =</span> <span class="dv">9</span>, <span class="at">name =</span> <span class="st">&#39;Paired&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="graphics-and-colors.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we will load &#39;ade4&#39; and the ‘ichtyo’ dataset</span></span>
+<span id="cb414-2"><a href="graphics-and-colors.html#cb414-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)</span>
+<span id="cb414-3"><a href="graphics-and-colors.html#cb414-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ichtyo)</span>
+<span id="cb414-4"><a href="graphics-and-colors.html#cb414-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb414-5"><a href="graphics-and-colors.html#cb414-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Data of a fish community and sampling points</span></span>
+<span id="cb414-6"><a href="graphics-and-colors.html#cb414-6" aria-hidden="true" tabindex="-1"></a>?ichtyo</span>
+<span id="cb414-7"><a href="graphics-and-colors.html#cb414-7" aria-hidden="true" tabindex="-1"></a>ichtyo_data <span class="ot">&lt;-</span> ichtyo<span class="sc">$</span>tab</span>
+<span id="cb414-8"><a href="graphics-and-colors.html#cb414-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ichtyo_data)</span>
+<span id="cb414-9"><a href="graphics-and-colors.html#cb414-9" aria-hidden="true" tabindex="-1"></a><span class="co">#  HOT VAN CHE SPI GOU BAF GAR ABL PER</span></span>
+<span id="cb414-10"><a href="graphics-and-colors.html#cb414-10" aria-hidden="true" tabindex="-1"></a><span class="co">#1  57  47  60  11  27  17  10   9  21</span></span>
+<span id="cb414-11"><a href="graphics-and-colors.html#cb414-11" aria-hidden="true" tabindex="-1"></a><span class="co">#2   9  25  19   6   2   5   0   4   6</span></span>
+<span id="cb414-12"><a href="graphics-and-colors.html#cb414-12" aria-hidden="true" tabindex="-1"></a><span class="co">#3  48  60  52  16  25  24  17   8  12</span></span>
+<span id="cb414-13"><a href="graphics-and-colors.html#cb414-13" aria-hidden="true" tabindex="-1"></a><span class="co">#4  26  50  32   8   6  11   2  10   5</span></span>
+<span id="cb414-14"><a href="graphics-and-colors.html#cb414-14" aria-hidden="true" tabindex="-1"></a><span class="co">#5  26  43  31  14   9  18  13  14   2</span></span>
+<span id="cb414-15"><a href="graphics-and-colors.html#cb414-15" aria-hidden="true" tabindex="-1"></a><span class="co">#6  62  43  47  16  11   9  15  16   3</span></span>
+<span id="cb414-16"><a href="graphics-and-colors.html#cb414-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb414-17"><a href="graphics-and-colors.html#cb414-17" aria-hidden="true" tabindex="-1"></a><span class="do">## we use the function &#39;melt()&#39;&#39; of the package &#39;reshape2&#39; to arrange on the &#39;ggplot2&#39; format</span></span>
+<span id="cb414-18"><a href="graphics-and-colors.html#cb414-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb414-19"><a href="graphics-and-colors.html#cb414-19" aria-hidden="true" tabindex="-1"></a>ichtyo_data_ggplot <span class="ot">&lt;-</span> <span class="fu">melt</span>(ichtyo_data)</span>
+<span id="cb414-20"><a href="graphics-and-colors.html#cb414-20" aria-hidden="true" tabindex="-1"></a><span class="co">#No id variables; using all as measure variables</span></span>
+<span id="cb414-21"><a href="graphics-and-colors.html#cb414-21" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(ichtyo_data_ggplot) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;faunistic_array&quot;</span>, <span class="st">&quot;counts&quot;</span>)</span>
+<span id="cb414-22"><a href="graphics-and-colors.html#cb414-22" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ichtyo_data_ggplot)</span>
+<span id="cb414-23"><a href="graphics-and-colors.html#cb414-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  288 obs. of  2 variables:</span></span>
+<span id="cb414-24"><a href="graphics-and-colors.html#cb414-24" aria-hidden="true" tabindex="-1"></a><span class="co"># $ faunistic_array: Factor w/ 9 levels &quot;HOT&quot;,&quot;VAN&quot;,&quot;CHE&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span id="cb414-25"><a href="graphics-and-colors.html#cb414-25" aria-hidden="true" tabindex="-1"></a><span class="co"># $ counts         : num  57 9 48 26 26 62 17 18 9 12 ...</span></span>
+<span id="cb414-26"><a href="graphics-and-colors.html#cb414-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb414-27"><a href="graphics-and-colors.html#cb414-27" aria-hidden="true" tabindex="-1"></a><span class="do">## View a single RColorBrewer palette by specifying its name (e.g., &#39;Paired&#39;) and 9 colors for each faunistic_array</span></span>
+<span id="cb414-28"><a href="graphics-and-colors.html#cb414-28" aria-hidden="true" tabindex="-1"></a><span class="fu">display.brewer.pal</span>(<span class="at">n =</span> <span class="dv">9</span>, <span class="at">name =</span> <span class="st">&#39;Paired&#39;</span>)</span>
+<span id="cb414-29"><a href="graphics-and-colors.html#cb414-29" aria-hidden="true" tabindex="-1"></a><span class="co"># you can also request the hexadecimal color code</span></span>
+<span id="cb414-30"><a href="graphics-and-colors.html#cb414-30" aria-hidden="true" tabindex="-1"></a><span class="fu">brewer.pal</span>(<span class="at">n =</span> <span class="dv">9</span>, <span class="at">name =</span> <span class="st">&#39;Paired&#39;</span>)</span>
+<span id="cb414-31"><a href="graphics-and-colors.html#cb414-31" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#A6CEE3&quot; &quot;#1F78B4&quot; &quot;#B2DF8A&quot; &quot;#33A02C&quot; &quot;#FB9A99&quot; &quot;#E31A1C&quot; &quot;#FDBF6F&quot; &quot;#FF7F00&quot; &quot;#CAB2D6&quot;</span></span>
+<span id="cb414-32"><a href="graphics-and-colors.html#cb414-32" aria-hidden="true" tabindex="-1"></a>my_paired_palette <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="at">n =</span> <span class="dv">9</span>, <span class="at">name =</span> <span class="st">&#39;Paired&#39;</span>)</span></code></pre></div>
 <p><img src="figures/session_9_figs/5_colorbrewer_paired_9colors.png" width="100%" />
 <strong>10)</strong> To implement the color palette selected, we then can call if from the ggplot2 function <code>ggplot()</code>. However, <strong>ggplot2</strong> has an standard palette so we will start with that for comparison.</p>
 <p>This is the boxplot with <strong>ggplot2</strong> with its default colors.</p>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="graphics-and-colors.html#cb416-1" aria-hidden="true" tabindex="-1"></a><span class="do">## check that ggplot2 has been loaded</span></span>
-<span id="cb416-2"><a href="graphics-and-colors.html#cb416-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
-<span id="cb416-3"><a href="graphics-and-colors.html#cb416-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Box plot with counts on y-axis and faunistic_array on x-axis and color by faunistic_array</span></span>
-<span id="cb416-4"><a href="graphics-and-colors.html#cb416-4" aria-hidden="true" tabindex="-1"></a>my_ichtyo_boxplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> ichtyo_data_ggplot, <span class="at">mapping =</span> <span class="fu">aes</span>(faunistic_array, counts)) <span class="sc">+</span> </span>
-<span id="cb416-5"><a href="graphics-and-colors.html#cb416-5" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> faunistic_array)) <span class="sc">+</span></span>
-<span id="cb416-6"><a href="graphics-and-colors.html#cb416-6" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb416-7"><a href="graphics-and-colors.html#cb416-7" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb416-8"><a href="graphics-and-colors.html#cb416-8" aria-hidden="true" tabindex="-1"></a>my_ichtyo_boxplot</span></code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="graphics-and-colors.html#cb415-1" aria-hidden="true" tabindex="-1"></a><span class="do">## check that ggplot2 has been loaded</span></span>
+<span id="cb415-2"><a href="graphics-and-colors.html#cb415-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb415-3"><a href="graphics-and-colors.html#cb415-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Box plot with counts on y-axis and faunistic_array on x-axis and color by faunistic_array</span></span>
+<span id="cb415-4"><a href="graphics-and-colors.html#cb415-4" aria-hidden="true" tabindex="-1"></a>my_ichtyo_boxplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> ichtyo_data_ggplot, <span class="at">mapping =</span> <span class="fu">aes</span>(faunistic_array, counts)) <span class="sc">+</span> </span>
+<span id="cb415-5"><a href="graphics-and-colors.html#cb415-5" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> faunistic_array)) <span class="sc">+</span></span>
+<span id="cb415-6"><a href="graphics-and-colors.html#cb415-6" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb415-7"><a href="graphics-and-colors.html#cb415-7" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb415-8"><a href="graphics-and-colors.html#cb415-8" aria-hidden="true" tabindex="-1"></a>my_ichtyo_boxplot</span></code></pre></div>
 <p><img src="figures/session_9_figs/6_colorbrew_paired_ggplot2_std.png" width="100%" /></p>
 <p>This is the boxplot with <strong>ggplot2</strong> with our RColorBrewer <code>Paired</code> color palette using the function <code>scale_fill_brewer()</code>.</p>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="graphics-and-colors.html#cb417-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_boxplot2 <span class="ot">&lt;-</span> my_ichtyo_boxplot <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&#39;Paired&#39;</span>)</span>
-<span id="cb417-2"><a href="graphics-and-colors.html#cb417-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_boxplot2</span></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="graphics-and-colors.html#cb416-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_boxplot2 <span class="ot">&lt;-</span> my_ichtyo_boxplot <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&#39;Paired&#39;</span>)</span>
+<span id="cb416-2"><a href="graphics-and-colors.html#cb416-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_boxplot2</span></code></pre></div>
 <p><img src="figures/session_9_figs/7_colorbrew_paired_ggplot2_Paired.png" width="100%" /></p>
 <p>This is a scatter plot with <strong>ggplot2</strong> with its default colors.</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="graphics-and-colors.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="do">## check that ggplot2 has been loaded</span></span>
-<span id="cb418-2"><a href="graphics-and-colors.html#cb418-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
-<span id="cb418-3"><a href="graphics-and-colors.html#cb418-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Scatter plot with counts on y-axis and faunistic_array on x-axis and color by faunistic_array</span></span>
-<span id="cb418-4"><a href="graphics-and-colors.html#cb418-4" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> ichtyo_data_ggplot, <span class="at">mapping =</span> <span class="fu">aes</span>(faunistic_array, counts)) <span class="sc">+</span> </span>
-<span id="cb418-5"><a href="graphics-and-colors.html#cb418-5" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
-<span id="cb418-6"><a href="graphics-and-colors.html#cb418-6" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> faunistic_array)) <span class="sc">+</span></span>
-<span id="cb418-7"><a href="graphics-and-colors.html#cb418-7" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb418-8"><a href="graphics-and-colors.html#cb418-8" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb418-9"><a href="graphics-and-colors.html#cb418-9" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter</span>
-<span id="cb418-10"><a href="graphics-and-colors.html#cb418-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Notice the violin shapes under the scatter plot.</span></span>
-<span id="cb418-11"><a href="graphics-and-colors.html#cb418-11" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(my_ichtyo_scatter)</span>
-<span id="cb418-12"><a href="graphics-and-colors.html#cb418-12" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;gg&quot;     &quot;ggplot&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="graphics-and-colors.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="do">## check that ggplot2 has been loaded</span></span>
+<span id="cb417-2"><a href="graphics-and-colors.html#cb417-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb417-3"><a href="graphics-and-colors.html#cb417-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Scatter plot with counts on y-axis and faunistic_array on x-axis and color by faunistic_array</span></span>
+<span id="cb417-4"><a href="graphics-and-colors.html#cb417-4" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> ichtyo_data_ggplot, <span class="at">mapping =</span> <span class="fu">aes</span>(faunistic_array, counts)) <span class="sc">+</span> </span>
+<span id="cb417-5"><a href="graphics-and-colors.html#cb417-5" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb417-6"><a href="graphics-and-colors.html#cb417-6" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> faunistic_array)) <span class="sc">+</span></span>
+<span id="cb417-7"><a href="graphics-and-colors.html#cb417-7" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb417-8"><a href="graphics-and-colors.html#cb417-8" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb417-9"><a href="graphics-and-colors.html#cb417-9" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter</span>
+<span id="cb417-10"><a href="graphics-and-colors.html#cb417-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Notice the violin shapes under the scatter plot.</span></span>
+<span id="cb417-11"><a href="graphics-and-colors.html#cb417-11" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(my_ichtyo_scatter)</span>
+<span id="cb417-12"><a href="graphics-and-colors.html#cb417-12" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;gg&quot;     &quot;ggplot&quot;</span></span></code></pre></div>
 <p><img src="figures/session_9_figs/8_colorbrew_scatter_std.png" width="100%" /></p>
 <p>This is the scatter plot with <strong>ggplot2</strong> with 9 colors form RColorBrewer <code>Paired</code> and using <code>scale_colour_manual()</code>.</p>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="graphics-and-colors.html#cb419-1" aria-hidden="true" tabindex="-1"></a>my_paired_palette <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="at">n =</span> <span class="dv">9</span>, <span class="at">name =</span> <span class="st">&#39;Paired&#39;</span>)</span>
-<span id="cb419-2"><a href="graphics-and-colors.html#cb419-2" aria-hidden="true" tabindex="-1"></a>my_paired_palette</span>
-<span id="cb419-3"><a href="graphics-and-colors.html#cb419-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#A6CEE3&quot; &quot;#1F78B4&quot; &quot;#B2DF8A&quot; &quot;#33A02C&quot; &quot;#FB9A99&quot; &quot;#E31A1C&quot; &quot;#FDBF6F&quot; &quot;#FF7F00&quot; &quot;#CAB2D6&quot;</span></span>
-<span id="cb419-4"><a href="graphics-and-colors.html#cb419-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb419-5"><a href="graphics-and-colors.html#cb419-5" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter2 <span class="ot">&lt;-</span> my_ichtyo_scatter <span class="sc">+</span> <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> my_paired_palette)</span>
-<span id="cb419-6"><a href="graphics-and-colors.html#cb419-6" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter2</span>
-<span id="cb419-7"><a href="graphics-and-colors.html#cb419-7" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(my_ichtyo_scatter2)</span>
-<span id="cb419-8"><a href="graphics-and-colors.html#cb419-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;gg&quot;     &quot;ggplot&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="graphics-and-colors.html#cb418-1" aria-hidden="true" tabindex="-1"></a>my_paired_palette <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="at">n =</span> <span class="dv">9</span>, <span class="at">name =</span> <span class="st">&#39;Paired&#39;</span>)</span>
+<span id="cb418-2"><a href="graphics-and-colors.html#cb418-2" aria-hidden="true" tabindex="-1"></a>my_paired_palette</span>
+<span id="cb418-3"><a href="graphics-and-colors.html#cb418-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#A6CEE3&quot; &quot;#1F78B4&quot; &quot;#B2DF8A&quot; &quot;#33A02C&quot; &quot;#FB9A99&quot; &quot;#E31A1C&quot; &quot;#FDBF6F&quot; &quot;#FF7F00&quot; &quot;#CAB2D6&quot;</span></span>
+<span id="cb418-4"><a href="graphics-and-colors.html#cb418-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb418-5"><a href="graphics-and-colors.html#cb418-5" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter2 <span class="ot">&lt;-</span> my_ichtyo_scatter <span class="sc">+</span> <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> my_paired_palette)</span>
+<span id="cb418-6"><a href="graphics-and-colors.html#cb418-6" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter2</span>
+<span id="cb418-7"><a href="graphics-and-colors.html#cb418-7" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(my_ichtyo_scatter2)</span>
+<span id="cb418-8"><a href="graphics-and-colors.html#cb418-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;gg&quot;     &quot;ggplot&quot;</span></span></code></pre></div>
 <p><img src="figures/session_9_figs/9_colorbrew_scatter_Paired.png" width="100%" />
 <strong>Notice</strong> how easy is to change colors from existing <strong>ggplot</strong> object, in this case <code>my_ichtyo_scatter</code>. We will explore this further as we progress on this session.</p>
 </div>
 <div id="ggsci-package" class="section level3" number="9.7.3">
 <h3><span class="header-section-number">9.7.3</span> <code>ggsci</code> package</h3>
 <p><strong>11)</strong> The package <a href="https://cran.r-project.org/web/packages/ggsci/index.html" target="_blank"><strong>ggsci</strong></a> is general collection of scientific journal and sci-fi themed color palettes for <strong>ggplot2</strong>.</p>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="graphics-and-colors.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install R-package &#39;ggsci&#39; </span></span>
-<span id="cb420-2"><a href="graphics-and-colors.html#cb420-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggsci&quot;</span>)</span>
-<span id="cb420-3"><a href="graphics-and-colors.html#cb420-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggsci)</span></code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="graphics-and-colors.html#cb419-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install R-package &#39;ggsci&#39; </span></span>
+<span id="cb419-2"><a href="graphics-and-colors.html#cb419-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggsci&quot;</span>)</span>
+<span id="cb419-3"><a href="graphics-and-colors.html#cb419-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggsci)</span></code></pre></div>
 <p>The <strong>ggsci</strong> has its own <a href="https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html" target="_blank"><strong>vignette</strong></a>. The palettes in this package are diverse and here is a list from their vignette.</p>
 <table>
 <colgroup>
@@ -1094,103 +1096,103 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p><strong>12)</strong> You apply this palettes as we did in <strong>10)</strong> using <code>scale_color_XXX()</code> or <code>scale_fill_XXX()</code>.</p>
 <p>For example, we will use <code>my_ichtyo_boxplot</code> the <code>aaas</code> palette.</p>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="graphics-and-colors.html#cb421-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_ggsci_aaas <span class="ot">&lt;-</span> my_ichtyo_boxplot <span class="sc">+</span> <span class="fu">scale_fill_aaas</span>()</span>
-<span id="cb421-2"><a href="graphics-and-colors.html#cb421-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_ggsci_aaas</span></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="graphics-and-colors.html#cb420-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_ggsci_aaas <span class="ot">&lt;-</span> my_ichtyo_boxplot <span class="sc">+</span> <span class="fu">scale_fill_aaas</span>()</span>
+<span id="cb420-2"><a href="graphics-and-colors.html#cb420-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_ggsci_aaas</span></code></pre></div>
 <p><img src="figures/session_9_figs/13_plot_aaas.png" width="100%" /></p>
 <p>We can use <code>my_ichtyo_scatter</code> the <code>uchicago</code> palette.</p>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="graphics-and-colors.html#cb422-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_ggsci_uchicago <span class="ot">&lt;-</span> my_ichtyo_scatter <span class="sc">+</span> <span class="fu">scale_fill_uchicago</span>()</span>
-<span id="cb422-2"><a href="graphics-and-colors.html#cb422-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_ggsci_uchicago</span></code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="graphics-and-colors.html#cb421-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_ggsci_uchicago <span class="ot">&lt;-</span> my_ichtyo_scatter <span class="sc">+</span> <span class="fu">scale_fill_uchicago</span>()</span>
+<span id="cb421-2"><a href="graphics-and-colors.html#cb421-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_ggsci_uchicago</span></code></pre></div>
 <p><img src="figures/session_9_figs/14_plot_uchicago.png" width="100%" /></p>
 </div>
 <div id="wesanderson-package" class="section level3" number="9.7.4">
 <h3><span class="header-section-number">9.7.4</span> <code>wesanderson</code> package</h3>
 <p><strong>13)</strong> The package <a href="https://cran.r-project.org/web/packages/wesanderson/index.html" target="_blank"><strong>wesanderson</strong></a> is a collection of palettes generated mostly from ‘Wes Anderson’ movies that can be incorporated in <strong>ggplot2</strong>.</p>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="graphics-and-colors.html#cb423-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install R-package &#39;wesanderson&#39; </span></span>
-<span id="cb423-2"><a href="graphics-and-colors.html#cb423-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;wesanderson&quot;</span>)</span>
-<span id="cb423-3"><a href="graphics-and-colors.html#cb423-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="graphics-and-colors.html#cb422-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install R-package &#39;wesanderson&#39; </span></span>
+<span id="cb422-2"><a href="graphics-and-colors.html#cb422-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;wesanderson&quot;</span>)</span>
+<span id="cb422-3"><a href="graphics-and-colors.html#cb422-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span></code></pre></div>
 <p>The list of the palettes present include: BottleRocket1,BottleRocket2,Rushmore1,Royal1,Royal2,Zissou1,Darjeeling1,Darjeeling2,Chevalier1,FantasticFox1,Moonrise1,Moonrise2,Moonrise3,Cavalcanti1,GrandBudapest1,GrandBudapest2,IsleofDogs1,IsleofDogs2.</p>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="graphics-and-colors.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I will need 9 colors in a discrete scale for &#39;my_ichtyo_boxplot&#39;</span></span>
-<span id="cb424-2"><a href="graphics-and-colors.html#cb424-2" aria-hidden="true" tabindex="-1"></a>my_wes_palette <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;IsleofDogs2&quot;</span>, <span class="dv">9</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span>
-<span id="cb424-3"><a href="graphics-and-colors.html#cb424-3" aria-hidden="true" tabindex="-1"></a>my_wes_palette</span>
-<span id="cb424-4"><a href="graphics-and-colors.html#cb424-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(my_wes_palette)</span>
-<span id="cb424-5"><a href="graphics-and-colors.html#cb424-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;palette&#39; chr [1:9] &quot;#EAD3BF&quot; &quot;#CAB3A2&quot; &quot;#AA9486&quot; &quot;#B08C69&quot; &quot;#B6854D&quot; &quot;#775B3E&quot; &quot;#39312F&quot; &quot;#2A2423&quot; &quot;#1C1718&quot;</span></span>
-<span id="cb424-6"><a href="graphics-and-colors.html#cb424-6" aria-hidden="true" tabindex="-1"></a><span class="co"># - attr(*, &quot;name&quot;)= chr &quot;IsleofDogs2&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="graphics-and-colors.html#cb423-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I will need 9 colors in a discrete scale for &#39;my_ichtyo_boxplot&#39;</span></span>
+<span id="cb423-2"><a href="graphics-and-colors.html#cb423-2" aria-hidden="true" tabindex="-1"></a>my_wes_palette <span class="ot">&lt;-</span> <span class="fu">wes_palette</span>(<span class="st">&quot;IsleofDogs2&quot;</span>, <span class="dv">9</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span>
+<span id="cb423-3"><a href="graphics-and-colors.html#cb423-3" aria-hidden="true" tabindex="-1"></a>my_wes_palette</span>
+<span id="cb423-4"><a href="graphics-and-colors.html#cb423-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(my_wes_palette)</span>
+<span id="cb423-5"><a href="graphics-and-colors.html#cb423-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;palette&#39; chr [1:9] &quot;#EAD3BF&quot; &quot;#CAB3A2&quot; &quot;#AA9486&quot; &quot;#B08C69&quot; &quot;#B6854D&quot; &quot;#775B3E&quot; &quot;#39312F&quot; &quot;#2A2423&quot; &quot;#1C1718&quot;</span></span>
+<span id="cb423-6"><a href="graphics-and-colors.html#cb423-6" aria-hidden="true" tabindex="-1"></a><span class="co"># - attr(*, &quot;name&quot;)= chr &quot;IsleofDogs2&quot;</span></span></code></pre></div>
 <p><img src="figures/session_9_figs/15_plot_wes_palette.png" width="100%" /></p>
 <p>We can apply the <code>my_ichtyo_scatter</code> with <strong>ggplot2</strong> with these 9 colors using <code>scale_colour_manual()</code>.</p>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="graphics-and-colors.html#cb425-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_wes <span class="ot">&lt;-</span> my_ichtyo_scatter <span class="sc">+</span> <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> my_wes_palette)</span>
-<span id="cb425-2"><a href="graphics-and-colors.html#cb425-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_wes</span></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="graphics-and-colors.html#cb424-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_wes <span class="ot">&lt;-</span> my_ichtyo_scatter <span class="sc">+</span> <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> my_wes_palette)</span>
+<span id="cb424-2"><a href="graphics-and-colors.html#cb424-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_wes</span></code></pre></div>
 <p><img src="figures/session_9_figs/16_plot_wes_scatter.png" width="100%" /></p>
 </div>
 <div id="rcartocolor-package" class="section level3" number="9.7.5">
 <h3><span class="header-section-number">9.7.5</span> <code>rcartocolor</code> package</h3>
 <p><strong>14)</strong> The package <a href="https://cran.r-project.org/web/packages/rcartocolor/index.html" target="_blank"><strong>rcartocolor</strong></a> is a collection of color schemes for maps and other graphicsdesigned by ‘CARTO’ as described at <a href="https://carto.com/carto-colors/" target="_blank"><strong>https://carto.com/carto-colors/</strong></a>. It includes four types of palettes: aggregation, diverging, qualitative,and quantitative that can be incorporated in <strong>ggplot2</strong>.</p>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="graphics-and-colors.html#cb426-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install R-package &#39;rcartocolor&#39; </span></span>
-<span id="cb426-2"><a href="graphics-and-colors.html#cb426-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rcartocolor&quot;</span>)</span>
-<span id="cb426-3"><a href="graphics-and-colors.html#cb426-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rcartocolor)</span>
-<span id="cb426-4"><a href="graphics-and-colors.html#cb426-4" aria-hidden="true" tabindex="-1"></a><span class="do">## diplay all colors</span></span>
-<span id="cb426-5"><a href="graphics-and-colors.html#cb426-5" aria-hidden="true" tabindex="-1"></a><span class="fu">display_carto_all</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="graphics-and-colors.html#cb425-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We need to install R-package &#39;rcartocolor&#39; </span></span>
+<span id="cb425-2"><a href="graphics-and-colors.html#cb425-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rcartocolor&quot;</span>)</span>
+<span id="cb425-3"><a href="graphics-and-colors.html#cb425-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rcartocolor)</span>
+<span id="cb425-4"><a href="graphics-and-colors.html#cb425-4" aria-hidden="true" tabindex="-1"></a><span class="do">## diplay all colors</span></span>
+<span id="cb425-5"><a href="graphics-and-colors.html#cb425-5" aria-hidden="true" tabindex="-1"></a><span class="fu">display_carto_all</span>()</span></code></pre></div>
 <p><img src="figures/session_9_figs/34_rcartocolor_palette.png" width="100%" /></p>
 <p>The list of 34 palettes presented can be select for a number specific of colors and if you want them to be <code>colorblind_friendly = TRUE</code>.</p>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="graphics-and-colors.html#cb427-1" aria-hidden="true" tabindex="-1"></a><span class="do">## check information about how to change colors in palette</span></span>
-<span id="cb427-2"><a href="graphics-and-colors.html#cb427-2" aria-hidden="true" tabindex="-1"></a>?scale_fill_carto_d</span>
-<span id="cb427-3"><a href="graphics-and-colors.html#cb427-3" aria-hidden="true" tabindex="-1"></a><span class="do">## color the boxplot</span></span>
-<span id="cb427-4"><a href="graphics-and-colors.html#cb427-4" aria-hidden="true" tabindex="-1"></a>my_ichtyo_boxplot_carto <span class="ot">&lt;-</span> my_ichtyo_boxplot <span class="sc">+</span> <span class="fu">scale_fill_carto_d</span>(<span class="at">type =</span> <span class="st">&quot;qualitative&quot;</span>, <span class="at">palette =</span> <span class="st">&quot;Vivid&quot;</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb427-5"><a href="graphics-and-colors.html#cb427-5" aria-hidden="true" tabindex="-1"></a>my_ichtyo_boxplot_carto</span></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="graphics-and-colors.html#cb426-1" aria-hidden="true" tabindex="-1"></a><span class="do">## check information about how to change colors in palette</span></span>
+<span id="cb426-2"><a href="graphics-and-colors.html#cb426-2" aria-hidden="true" tabindex="-1"></a>?scale_fill_carto_d</span>
+<span id="cb426-3"><a href="graphics-and-colors.html#cb426-3" aria-hidden="true" tabindex="-1"></a><span class="do">## color the boxplot</span></span>
+<span id="cb426-4"><a href="graphics-and-colors.html#cb426-4" aria-hidden="true" tabindex="-1"></a>my_ichtyo_boxplot_carto <span class="ot">&lt;-</span> my_ichtyo_boxplot <span class="sc">+</span> <span class="fu">scale_fill_carto_d</span>(<span class="at">type =</span> <span class="st">&quot;qualitative&quot;</span>, <span class="at">palette =</span> <span class="st">&quot;Vivid&quot;</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb426-5"><a href="graphics-and-colors.html#cb426-5" aria-hidden="true" tabindex="-1"></a>my_ichtyo_boxplot_carto</span></code></pre></div>
 <p><img src="figures/session_9_figs/35_rcartcolor_boxplot.png" width="100%" /></p>
 </div>
 <div id="colorspace-package" class="section level3" number="9.7.6">
 <h3><span class="header-section-number">9.7.6</span> <code>colorspace</code> package</h3>
 <p><strong>15)</strong> Exploring and selecting your own colors and palettes can be performed with <a href="https://cran.r-project.org/web/packages/colorspace/index.html" target="_blank"><strong>colorspace</strong></a> that includes an extensive <a href="https://cran.r-project.org/web/packages/colorspace/vignettes/colorspace.html" target="_blank"><strong>manual</strong></a>.</p>
 <p>To use <strong>colorspace</strong>, we can do as follow.</p>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="graphics-and-colors.html#cb428-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install and load package </span></span>
-<span id="cb428-2"><a href="graphics-and-colors.html#cb428-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;colorspace&quot;</span>)</span>
-<span id="cb428-3"><a href="graphics-and-colors.html#cb428-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colorspace)</span>
-<span id="cb428-4"><a href="graphics-and-colors.html#cb428-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb428-5"><a href="graphics-and-colors.html#cb428-5" aria-hidden="true" tabindex="-1"></a><span class="do">## palettes in this package, type and their names</span></span>
-<span id="cb428-6"><a href="graphics-and-colors.html#cb428-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hcl_palettes</span>()</span>
-<span id="cb428-7"><a href="graphics-and-colors.html#cb428-7" aria-hidden="true" tabindex="-1"></a><span class="co">#HCL palettes</span></span>
-<span id="cb428-8"><a href="graphics-and-colors.html#cb428-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb428-9"><a href="graphics-and-colors.html#cb428-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Type:  Qualitative </span></span>
-<span id="cb428-10"><a href="graphics-and-colors.html#cb428-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Names: Pastel 1, Dark 2, Dark 3, Set 2, Set 3, Warm, Cold, Harmonic, Dynamic</span></span>
-<span id="cb428-11"><a href="graphics-and-colors.html#cb428-11" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb428-12"><a href="graphics-and-colors.html#cb428-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Type:  Sequential (single-hue) </span></span>
-<span id="cb428-13"><a href="graphics-and-colors.html#cb428-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Names: Grays, Light Grays, Blues 2, Blues 3, Purples 2, Purples 3, Reds 2, Reds 3, Greens 2, Greens 3, Oslo</span></span>
-<span id="cb428-14"><a href="graphics-and-colors.html#cb428-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb428-15"><a href="graphics-and-colors.html#cb428-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Type:  Sequential (multi-hue) </span></span>
-<span id="cb428-16"><a href="graphics-and-colors.html#cb428-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Names: Purple-Blue, Red-Purple, Red-Blue, Purple-Orange, Purple-Yellow, Blue-Yellow, Green-Yellow, Red-Yellow, Heat, Heat 2, Terrain,</span></span>
-<span id="cb428-17"><a href="graphics-and-colors.html#cb428-17" aria-hidden="true" tabindex="-1"></a><span class="co">#       Terrain 2, Viridis, Plasma, Inferno, Dark Mint, Mint, BluGrn, Teal, TealGrn, Emrld, BluYl, ag_GrnYl, Peach, PinkYl,</span></span>
-<span id="cb428-18"><a href="graphics-and-colors.html#cb428-18" aria-hidden="true" tabindex="-1"></a><span class="co">#       Burg, BurgYl, RedOr, OrYel, Purp, PurpOr, Sunset, Magenta, SunsetDark, ag_Sunset, BrwnYl, YlOrRd, YlOrBr, OrRd, Oranges,</span></span>
-<span id="cb428-19"><a href="graphics-and-colors.html#cb428-19" aria-hidden="true" tabindex="-1"></a><span class="co">#       YlGn, YlGnBu, Reds, RdPu, PuRd, Purples, PuBuGn, PuBu, Greens, BuGn, GnBu, BuPu, Blues, Lajolla, Turku, Hawaii, Batlow</span></span>
-<span id="cb428-20"><a href="graphics-and-colors.html#cb428-20" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb428-21"><a href="graphics-and-colors.html#cb428-21" aria-hidden="true" tabindex="-1"></a><span class="co">#Type:  Diverging </span></span>
-<span id="cb428-22"><a href="graphics-and-colors.html#cb428-22" aria-hidden="true" tabindex="-1"></a><span class="co">#Names: Blue-Red, Blue-Red 2, Blue-Red 3, Red-Green, Purple-Green, Purple-Brown, Green-Brown, Blue-Yellow 2, Blue-Yellow 3,</span></span>
-<span id="cb428-23"><a href="graphics-and-colors.html#cb428-23" aria-hidden="true" tabindex="-1"></a><span class="co">#       Green-Orange, Cyan-Magenta, Tropic, Broc, Cork, Vik, Berlin, Lisbon, Tofino</span></span>
-<span id="cb428-24"><a href="graphics-and-colors.html#cb428-24" aria-hidden="true" tabindex="-1"></a><span class="fu">hcl_palettes</span>(<span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="graphics-and-colors.html#cb427-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install and load package </span></span>
+<span id="cb427-2"><a href="graphics-and-colors.html#cb427-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;colorspace&quot;</span>)</span>
+<span id="cb427-3"><a href="graphics-and-colors.html#cb427-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colorspace)</span>
+<span id="cb427-4"><a href="graphics-and-colors.html#cb427-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb427-5"><a href="graphics-and-colors.html#cb427-5" aria-hidden="true" tabindex="-1"></a><span class="do">## palettes in this package, type and their names</span></span>
+<span id="cb427-6"><a href="graphics-and-colors.html#cb427-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hcl_palettes</span>()</span>
+<span id="cb427-7"><a href="graphics-and-colors.html#cb427-7" aria-hidden="true" tabindex="-1"></a><span class="co">#HCL palettes</span></span>
+<span id="cb427-8"><a href="graphics-and-colors.html#cb427-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb427-9"><a href="graphics-and-colors.html#cb427-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Type:  Qualitative </span></span>
+<span id="cb427-10"><a href="graphics-and-colors.html#cb427-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Names: Pastel 1, Dark 2, Dark 3, Set 2, Set 3, Warm, Cold, Harmonic, Dynamic</span></span>
+<span id="cb427-11"><a href="graphics-and-colors.html#cb427-11" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb427-12"><a href="graphics-and-colors.html#cb427-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Type:  Sequential (single-hue) </span></span>
+<span id="cb427-13"><a href="graphics-and-colors.html#cb427-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Names: Grays, Light Grays, Blues 2, Blues 3, Purples 2, Purples 3, Reds 2, Reds 3, Greens 2, Greens 3, Oslo</span></span>
+<span id="cb427-14"><a href="graphics-and-colors.html#cb427-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb427-15"><a href="graphics-and-colors.html#cb427-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Type:  Sequential (multi-hue) </span></span>
+<span id="cb427-16"><a href="graphics-and-colors.html#cb427-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Names: Purple-Blue, Red-Purple, Red-Blue, Purple-Orange, Purple-Yellow, Blue-Yellow, Green-Yellow, Red-Yellow, Heat, Heat 2, Terrain,</span></span>
+<span id="cb427-17"><a href="graphics-and-colors.html#cb427-17" aria-hidden="true" tabindex="-1"></a><span class="co">#       Terrain 2, Viridis, Plasma, Inferno, Dark Mint, Mint, BluGrn, Teal, TealGrn, Emrld, BluYl, ag_GrnYl, Peach, PinkYl,</span></span>
+<span id="cb427-18"><a href="graphics-and-colors.html#cb427-18" aria-hidden="true" tabindex="-1"></a><span class="co">#       Burg, BurgYl, RedOr, OrYel, Purp, PurpOr, Sunset, Magenta, SunsetDark, ag_Sunset, BrwnYl, YlOrRd, YlOrBr, OrRd, Oranges,</span></span>
+<span id="cb427-19"><a href="graphics-and-colors.html#cb427-19" aria-hidden="true" tabindex="-1"></a><span class="co">#       YlGn, YlGnBu, Reds, RdPu, PuRd, Purples, PuBuGn, PuBu, Greens, BuGn, GnBu, BuPu, Blues, Lajolla, Turku, Hawaii, Batlow</span></span>
+<span id="cb427-20"><a href="graphics-and-colors.html#cb427-20" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb427-21"><a href="graphics-and-colors.html#cb427-21" aria-hidden="true" tabindex="-1"></a><span class="co">#Type:  Diverging </span></span>
+<span id="cb427-22"><a href="graphics-and-colors.html#cb427-22" aria-hidden="true" tabindex="-1"></a><span class="co">#Names: Blue-Red, Blue-Red 2, Blue-Red 3, Red-Green, Purple-Green, Purple-Brown, Green-Brown, Blue-Yellow 2, Blue-Yellow 3,</span></span>
+<span id="cb427-23"><a href="graphics-and-colors.html#cb427-23" aria-hidden="true" tabindex="-1"></a><span class="co">#       Green-Orange, Cyan-Magenta, Tropic, Broc, Cork, Vik, Berlin, Lisbon, Tofino</span></span>
+<span id="cb427-24"><a href="graphics-and-colors.html#cb427-24" aria-hidden="true" tabindex="-1"></a><span class="fu">hcl_palettes</span>(<span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="figures/session_9_figs/36_colorspace_palettes.png" width="100%" /></p>
 <p>You then can select the palette that you want and request the number of colors for your plot. These color will be returned as hexadecimal codes.</p>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="graphics-and-colors.html#cb429-1" aria-hidden="true" tabindex="-1"></a><span class="do">## you want 5 qualitative colors from palette </span></span>
-<span id="cb429-2"><a href="graphics-and-colors.html#cb429-2" aria-hidden="true" tabindex="-1"></a>my_qualitative <span class="ot">&lt;-</span> <span class="fu">qualitative_hcl</span>(<span class="dv">5</span>, <span class="at">palette =</span> <span class="st">&quot;Harmonic&quot;</span>)</span>
-<span id="cb429-3"><a href="graphics-and-colors.html#cb429-3" aria-hidden="true" tabindex="-1"></a>my_qualitative</span>
-<span id="cb429-4"><a href="graphics-and-colors.html#cb429-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#C7A76C&quot; &quot;#99B56B&quot; &quot;#5CBD92&quot; &quot;#3BBCBF&quot; &quot;#7DB0DD&quot;</span></span>
-<span id="cb429-5"><a href="graphics-and-colors.html#cb429-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb429-6"><a href="graphics-and-colors.html#cb429-6" aria-hidden="true" tabindex="-1"></a><span class="do">## you want 5 sequential colors from palette </span></span>
-<span id="cb429-7"><a href="graphics-and-colors.html#cb429-7" aria-hidden="true" tabindex="-1"></a>my_sequential <span class="ot">&lt;-</span> <span class="fu">sequential_hcl</span>(<span class="dv">5</span>, <span class="at">palette =</span> <span class="st">&quot;Batlow&quot;</span>)</span>
-<span id="cb429-8"><a href="graphics-and-colors.html#cb429-8" aria-hidden="true" tabindex="-1"></a>my_sequential</span>
-<span id="cb429-9"><a href="graphics-and-colors.html#cb429-9" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#201158&quot; &quot;#005E5E&quot; &quot;#578B21&quot; &quot;#E89E6B&quot; &quot;#FFCEF4&quot;</span></span>
-<span id="cb429-10"><a href="graphics-and-colors.html#cb429-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb429-11"><a href="graphics-and-colors.html#cb429-11" aria-hidden="true" tabindex="-1"></a><span class="do">## you want 5 diverging colors from palette </span></span>
-<span id="cb429-12"><a href="graphics-and-colors.html#cb429-12" aria-hidden="true" tabindex="-1"></a>my_diverging <span class="ot">&lt;-</span> <span class="fu">diverging_hcl</span>(<span class="dv">5</span>, <span class="at">palette =</span> <span class="st">&quot;Berlin&quot;</span>)</span>
-<span id="cb429-13"><a href="graphics-and-colors.html#cb429-13" aria-hidden="true" tabindex="-1"></a>my_diverging</span>
-<span id="cb429-14"><a href="graphics-and-colors.html#cb429-14" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#7FBFF5&quot; &quot;#004B73&quot; &quot;#111111&quot; &quot;#713430&quot; &quot;#F8A29E&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="graphics-and-colors.html#cb428-1" aria-hidden="true" tabindex="-1"></a><span class="do">## you want 5 qualitative colors from palette </span></span>
+<span id="cb428-2"><a href="graphics-and-colors.html#cb428-2" aria-hidden="true" tabindex="-1"></a>my_qualitative <span class="ot">&lt;-</span> <span class="fu">qualitative_hcl</span>(<span class="dv">5</span>, <span class="at">palette =</span> <span class="st">&quot;Harmonic&quot;</span>)</span>
+<span id="cb428-3"><a href="graphics-and-colors.html#cb428-3" aria-hidden="true" tabindex="-1"></a>my_qualitative</span>
+<span id="cb428-4"><a href="graphics-and-colors.html#cb428-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#C7A76C&quot; &quot;#99B56B&quot; &quot;#5CBD92&quot; &quot;#3BBCBF&quot; &quot;#7DB0DD&quot;</span></span>
+<span id="cb428-5"><a href="graphics-and-colors.html#cb428-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb428-6"><a href="graphics-and-colors.html#cb428-6" aria-hidden="true" tabindex="-1"></a><span class="do">## you want 5 sequential colors from palette </span></span>
+<span id="cb428-7"><a href="graphics-and-colors.html#cb428-7" aria-hidden="true" tabindex="-1"></a>my_sequential <span class="ot">&lt;-</span> <span class="fu">sequential_hcl</span>(<span class="dv">5</span>, <span class="at">palette =</span> <span class="st">&quot;Batlow&quot;</span>)</span>
+<span id="cb428-8"><a href="graphics-and-colors.html#cb428-8" aria-hidden="true" tabindex="-1"></a>my_sequential</span>
+<span id="cb428-9"><a href="graphics-and-colors.html#cb428-9" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#201158&quot; &quot;#005E5E&quot; &quot;#578B21&quot; &quot;#E89E6B&quot; &quot;#FFCEF4&quot;</span></span>
+<span id="cb428-10"><a href="graphics-and-colors.html#cb428-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb428-11"><a href="graphics-and-colors.html#cb428-11" aria-hidden="true" tabindex="-1"></a><span class="do">## you want 5 diverging colors from palette </span></span>
+<span id="cb428-12"><a href="graphics-and-colors.html#cb428-12" aria-hidden="true" tabindex="-1"></a>my_diverging <span class="ot">&lt;-</span> <span class="fu">diverging_hcl</span>(<span class="dv">5</span>, <span class="at">palette =</span> <span class="st">&quot;Berlin&quot;</span>)</span>
+<span id="cb428-13"><a href="graphics-and-colors.html#cb428-13" aria-hidden="true" tabindex="-1"></a>my_diverging</span>
+<span id="cb428-14"><a href="graphics-and-colors.html#cb428-14" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#7FBFF5&quot; &quot;#004B73&quot; &quot;#111111&quot; &quot;#713430&quot; &quot;#F8A29E&quot;</span></span></code></pre></div>
 <p>This R packate provides with some demos to visualize how it will look like.</p>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="graphics-and-colors.html#cb430-1" aria-hidden="true" tabindex="-1"></a><span class="do">## my_qualitative visualization</span></span>
-<span id="cb430-2"><a href="graphics-and-colors.html#cb430-2" aria-hidden="true" tabindex="-1"></a><span class="fu">specplot</span>(my_qualitative, <span class="at">type =</span> <span class="st">&quot;o&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="graphics-and-colors.html#cb429-1" aria-hidden="true" tabindex="-1"></a><span class="do">## my_qualitative visualization</span></span>
+<span id="cb429-2"><a href="graphics-and-colors.html#cb429-2" aria-hidden="true" tabindex="-1"></a><span class="fu">specplot</span>(my_qualitative, <span class="at">type =</span> <span class="st">&quot;o&quot;</span>)</span></code></pre></div>
 <p><img src="figures/session_9_figs/37_colorspace_plot1.png" width="100%" /></p>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="graphics-and-colors.html#cb431-1" aria-hidden="true" tabindex="-1"></a><span class="do">## my_sequential visualization</span></span>
-<span id="cb431-2"><a href="graphics-and-colors.html#cb431-2" aria-hidden="true" tabindex="-1"></a><span class="fu">specplot</span>(my_sequential, <span class="at">type =</span> <span class="st">&quot;o&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="graphics-and-colors.html#cb430-1" aria-hidden="true" tabindex="-1"></a><span class="do">## my_sequential visualization</span></span>
+<span id="cb430-2"><a href="graphics-and-colors.html#cb430-2" aria-hidden="true" tabindex="-1"></a><span class="fu">specplot</span>(my_sequential, <span class="at">type =</span> <span class="st">&quot;o&quot;</span>)</span></code></pre></div>
 <p><img src="figures/session_9_figs/38_colorspace_plot2.png" width="100%" /></p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="graphics-and-colors.html#cb432-1" aria-hidden="true" tabindex="-1"></a><span class="do">## my_diverging visualization</span></span>
-<span id="cb432-2"><a href="graphics-and-colors.html#cb432-2" aria-hidden="true" tabindex="-1"></a><span class="fu">specplot</span>(my_diverging, <span class="at">type =</span> <span class="st">&quot;o&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="graphics-and-colors.html#cb431-1" aria-hidden="true" tabindex="-1"></a><span class="do">## my_diverging visualization</span></span>
+<span id="cb431-2"><a href="graphics-and-colors.html#cb431-2" aria-hidden="true" tabindex="-1"></a><span class="fu">specplot</span>(my_diverging, <span class="at">type =</span> <span class="st">&quot;o&quot;</span>)</span></code></pre></div>
 <p><img src="figures/session_9_figs/39_colorspace_plot3.png" width="100%" /></p>
 </div>
 </div>
@@ -1198,138 +1200,138 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.8</span> Making your own palette</h2>
 <p><strong>16)</strong> In many instances, you want your own palette and this can be done with the base function <code>colorRampPalette()</code>.</p>
 <p>You have to pick your colors by name as in the <a href="https://github.com/corytophanes/BIO_BIT_Bioinformatics_209/tree/main/ref_files_pdfs" target="_blank"><strong>Rcolor.pdf</strong></a>. Alternatively, you can get the names by <code>colors()</code>. We also want to be able to the colors, so we use the function <code>show_col()</code> from the R package <a href="https://cran.r-project.org/web/packages/scales/index.html" target="_blank"><strong>scales</strong></a>.</p>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="graphics-and-colors.html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="do">## get a vector of all colors by name</span></span>
-<span id="cb433-2"><a href="graphics-and-colors.html#cb433-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colors</span>()</span>
-<span id="cb433-3"><a href="graphics-and-colors.html#cb433-3" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;white&quot;                &quot;aliceblue&quot;            &quot;antiquewhite&quot;         &quot;antiquewhite1&quot;        &quot;antiquewhite2&quot;        &quot;antiquewhite3&quot;       </span></span>
-<span id="cb433-4"><a href="graphics-and-colors.html#cb433-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [7] &quot;antiquewhite4&quot;        &quot;aquamarine&quot;           &quot;aquamarine1&quot;          &quot;aquamarine2&quot;          &quot;aquamarine3&quot;          &quot;aquamarine4&quot;         </span></span>
-<span id="cb433-5"><a href="graphics-and-colors.html#cb433-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[13] &quot;azure&quot;                &quot;azure1&quot;               &quot;azure2&quot;               &quot;azure3&quot;               &quot;azure4&quot;               &quot;beige&quot;               </span></span>
-<span id="cb433-6"><a href="graphics-and-colors.html#cb433-6" aria-hidden="true" tabindex="-1"></a><span class="co">#[19] &quot;bisque&quot;               &quot;bisque1&quot;              &quot;bisque2&quot;              &quot;bisque3&quot;              &quot;bisque4&quot;              &quot;black&quot;               </span></span>
-<span id="cb433-7"><a href="graphics-and-colors.html#cb433-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
-<span id="cb433-8"><a href="graphics-and-colors.html#cb433-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb433-9"><a href="graphics-and-colors.html#cb433-9" aria-hidden="true" tabindex="-1"></a><span class="do">## the total number of colors by name</span></span>
-<span id="cb433-10"><a href="graphics-and-colors.html#cb433-10" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">colors</span>())</span>
-<span id="cb433-11"><a href="graphics-and-colors.html#cb433-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 657</span></span>
-<span id="cb433-12"><a href="graphics-and-colors.html#cb433-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb433-13"><a href="graphics-and-colors.html#cb433-13" aria-hidden="true" tabindex="-1"></a><span class="do">## for our example, we will get three colors by name in a vector</span></span>
-<span id="cb433-14"><a href="graphics-and-colors.html#cb433-14" aria-hidden="true" tabindex="-1"></a>my_colors_by_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;firebrick4&quot;</span>, <span class="st">&quot;gray89&quot;</span>, <span class="st">&quot;navyblue&quot;</span>)</span>
-<span id="cb433-15"><a href="graphics-and-colors.html#cb433-15" aria-hidden="true" tabindex="-1"></a>scales<span class="sc">::</span><span class="fu">show_col</span>(my_colors_by_name)</span></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="graphics-and-colors.html#cb432-1" aria-hidden="true" tabindex="-1"></a><span class="do">## get a vector of all colors by name</span></span>
+<span id="cb432-2"><a href="graphics-and-colors.html#cb432-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colors</span>()</span>
+<span id="cb432-3"><a href="graphics-and-colors.html#cb432-3" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;white&quot;                &quot;aliceblue&quot;            &quot;antiquewhite&quot;         &quot;antiquewhite1&quot;        &quot;antiquewhite2&quot;        &quot;antiquewhite3&quot;       </span></span>
+<span id="cb432-4"><a href="graphics-and-colors.html#cb432-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [7] &quot;antiquewhite4&quot;        &quot;aquamarine&quot;           &quot;aquamarine1&quot;          &quot;aquamarine2&quot;          &quot;aquamarine3&quot;          &quot;aquamarine4&quot;         </span></span>
+<span id="cb432-5"><a href="graphics-and-colors.html#cb432-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[13] &quot;azure&quot;                &quot;azure1&quot;               &quot;azure2&quot;               &quot;azure3&quot;               &quot;azure4&quot;               &quot;beige&quot;               </span></span>
+<span id="cb432-6"><a href="graphics-and-colors.html#cb432-6" aria-hidden="true" tabindex="-1"></a><span class="co">#[19] &quot;bisque&quot;               &quot;bisque1&quot;              &quot;bisque2&quot;              &quot;bisque3&quot;              &quot;bisque4&quot;              &quot;black&quot;               </span></span>
+<span id="cb432-7"><a href="graphics-and-colors.html#cb432-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb432-8"><a href="graphics-and-colors.html#cb432-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb432-9"><a href="graphics-and-colors.html#cb432-9" aria-hidden="true" tabindex="-1"></a><span class="do">## the total number of colors by name</span></span>
+<span id="cb432-10"><a href="graphics-and-colors.html#cb432-10" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">colors</span>())</span>
+<span id="cb432-11"><a href="graphics-and-colors.html#cb432-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 657</span></span>
+<span id="cb432-12"><a href="graphics-and-colors.html#cb432-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb432-13"><a href="graphics-and-colors.html#cb432-13" aria-hidden="true" tabindex="-1"></a><span class="do">## for our example, we will get three colors by name in a vector</span></span>
+<span id="cb432-14"><a href="graphics-and-colors.html#cb432-14" aria-hidden="true" tabindex="-1"></a>my_colors_by_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;firebrick4&quot;</span>, <span class="st">&quot;gray89&quot;</span>, <span class="st">&quot;navyblue&quot;</span>)</span>
+<span id="cb432-15"><a href="graphics-and-colors.html#cb432-15" aria-hidden="true" tabindex="-1"></a>scales<span class="sc">::</span><span class="fu">show_col</span>(my_colors_by_name)</span></code></pre></div>
 <p><img src="figures/session_9_figs/52_my_pal_1.png" width="100%" /></p>
 <p>Likewise, you can get some hexadecimal colors codes for those that you want, e.g., <code>#EEBD91</code>, <code>#F5A2A2</code>, <code>#40CB63</code>, <code>#4682B4</code> and <code>#862185</code>.</p>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="graphics-and-colors.html#cb434-1" aria-hidden="true" tabindex="-1"></a><span class="do">## for our example, we will get these 5 hex colors in a vector</span></span>
-<span id="cb434-2"><a href="graphics-and-colors.html#cb434-2" aria-hidden="true" tabindex="-1"></a>my_colors_by_hex <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#EEBD91&quot;</span>, <span class="st">&quot;#F5A2A2&quot;</span>, <span class="st">&quot;#40CB63&quot;</span>, <span class="st">&quot;#4682B4&quot;</span>, <span class="st">&quot;#862185&quot;</span>)</span>
-<span id="cb434-3"><a href="graphics-and-colors.html#cb434-3" aria-hidden="true" tabindex="-1"></a>scales<span class="sc">::</span><span class="fu">show_col</span>(my_colors_by_hex)</span></code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="graphics-and-colors.html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="do">## for our example, we will get these 5 hex colors in a vector</span></span>
+<span id="cb433-2"><a href="graphics-and-colors.html#cb433-2" aria-hidden="true" tabindex="-1"></a>my_colors_by_hex <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#EEBD91&quot;</span>, <span class="st">&quot;#F5A2A2&quot;</span>, <span class="st">&quot;#40CB63&quot;</span>, <span class="st">&quot;#4682B4&quot;</span>, <span class="st">&quot;#862185&quot;</span>)</span>
+<span id="cb433-3"><a href="graphics-and-colors.html#cb433-3" aria-hidden="true" tabindex="-1"></a>scales<span class="sc">::</span><span class="fu">show_col</span>(my_colors_by_hex)</span></code></pre></div>
 <p><img src="figures/session_9_figs/53_my_pal_2.png" width="100%" /></p>
 <p>To generate your palette, you use the function <code>colorRampPalette()</code>.</p>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="graphics-and-colors.html#cb435-1" aria-hidden="true" tabindex="-1"></a><span class="do">##NOTE: the vector of colors that you want to generate in this case 9 and this number is in parenthesis, so it is (9)</span></span>
-<span id="cb435-2"><a href="graphics-and-colors.html#cb435-2" aria-hidden="true" tabindex="-1"></a>my_colors_by_name_ramp <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(my_colors_by_name)(<span class="dv">9</span>)</span>
-<span id="cb435-3"><a href="graphics-and-colors.html#cb435-3" aria-hidden="true" tabindex="-1"></a>my_colors_by_name_ramp</span>
-<span id="cb435-4"><a href="graphics-and-colors.html#cb435-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#8B1A1A&quot; &quot;#A14C4C&quot; &quot;#B67E7E&quot; &quot;#CCB0B0&quot; &quot;#E3E3E3&quot; &quot;#AAAACA&quot; &quot;#7171B1&quot; &quot;#383898&quot; &quot;#000080&quot;</span></span>
-<span id="cb435-5"><a href="graphics-and-colors.html#cb435-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb435-6"><a href="graphics-and-colors.html#cb435-6" aria-hidden="true" tabindex="-1"></a>my_colors_by_hex_ramp <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(my_colors_by_hex)(<span class="dv">9</span>)</span>
-<span id="cb435-7"><a href="graphics-and-colors.html#cb435-7" aria-hidden="true" tabindex="-1"></a>my_colors_by_hex_ramp</span>
-<span id="cb435-8"><a href="graphics-and-colors.html#cb435-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#EEBD91&quot; &quot;#F1AF99&quot; &quot;#F5A2A2&quot; &quot;#9AB682&quot; &quot;#40CB63&quot; &quot;#43A68B&quot; &quot;#4682B4&quot; &quot;#66519C&quot; &quot;#862185&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="graphics-and-colors.html#cb434-1" aria-hidden="true" tabindex="-1"></a><span class="do">##NOTE: the vector of colors that you want to generate in this case 9 and this number is in parenthesis, so it is (9)</span></span>
+<span id="cb434-2"><a href="graphics-and-colors.html#cb434-2" aria-hidden="true" tabindex="-1"></a>my_colors_by_name_ramp <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(my_colors_by_name)(<span class="dv">9</span>)</span>
+<span id="cb434-3"><a href="graphics-and-colors.html#cb434-3" aria-hidden="true" tabindex="-1"></a>my_colors_by_name_ramp</span>
+<span id="cb434-4"><a href="graphics-and-colors.html#cb434-4" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#8B1A1A&quot; &quot;#A14C4C&quot; &quot;#B67E7E&quot; &quot;#CCB0B0&quot; &quot;#E3E3E3&quot; &quot;#AAAACA&quot; &quot;#7171B1&quot; &quot;#383898&quot; &quot;#000080&quot;</span></span>
+<span id="cb434-5"><a href="graphics-and-colors.html#cb434-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb434-6"><a href="graphics-and-colors.html#cb434-6" aria-hidden="true" tabindex="-1"></a>my_colors_by_hex_ramp <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(my_colors_by_hex)(<span class="dv">9</span>)</span>
+<span id="cb434-7"><a href="graphics-and-colors.html#cb434-7" aria-hidden="true" tabindex="-1"></a>my_colors_by_hex_ramp</span>
+<span id="cb434-8"><a href="graphics-and-colors.html#cb434-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#EEBD91&quot; &quot;#F1AF99&quot; &quot;#F5A2A2&quot; &quot;#9AB682&quot; &quot;#40CB63&quot; &quot;#43A68B&quot; &quot;#4682B4&quot; &quot;#66519C&quot; &quot;#862185&quot;</span></span></code></pre></div>
 <p>Finally, we can apply these color ramps to <code>my_ichtyo_scatter</code> with <strong>ggplot2</strong> using <code>scale_colour_manual()</code>.</p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="graphics-and-colors.html#cb436-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_by_name <span class="ot">&lt;-</span> my_ichtyo_scatter <span class="sc">+</span> <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> my_colors_by_name_ramp)</span>
-<span id="cb436-2"><a href="graphics-and-colors.html#cb436-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_by_name</span></code></pre></div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="graphics-and-colors.html#cb435-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_by_name <span class="ot">&lt;-</span> my_ichtyo_scatter <span class="sc">+</span> <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> my_colors_by_name_ramp)</span>
+<span id="cb435-2"><a href="graphics-and-colors.html#cb435-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_by_name</span></code></pre></div>
 <p><img src="figures/session_9_figs/17_plot_ramp_3.png" width="100%" /></p>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="graphics-and-colors.html#cb437-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_by_hex <span class="ot">&lt;-</span> my_ichtyo_scatter <span class="sc">+</span> <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> my_colors_by_hex_ramp)</span>
-<span id="cb437-2"><a href="graphics-and-colors.html#cb437-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_by_hex</span></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="graphics-and-colors.html#cb436-1" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_by_hex <span class="ot">&lt;-</span> my_ichtyo_scatter <span class="sc">+</span> <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> my_colors_by_hex_ramp)</span>
+<span id="cb436-2"><a href="graphics-and-colors.html#cb436-2" aria-hidden="true" tabindex="-1"></a>my_ichtyo_scatter_by_hex</span></code></pre></div>
 <p><img src="figures/session_9_figs/18_plot_ramp_5.png" width="100%" /></p>
 <p><strong>17)</strong> You can extract colors for an image that you like (jpg) from an url (website) or a photo using a clever combination of functions of the R packages:<a href="https://cran.r-project.org/web/packages/magick/index.html" target="_blank"><strong>magick</strong></a>, <a href="https://cran.r-project.org/web/packages/imager/index.html" target="_blank"><strong>imager</strong></a>, <a href="https://cran.r-project.org/web/packages/dplyr/index.html" target="_blank"><strong>dplyr</strong></a>. Other packages like <strong>scales</strong> and <strong>ggplot2</strong> were previously installes.</p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="graphics-and-colors.html#cb438-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Load up packages I&#39;m going to use first.</span></span>
-<span id="cb438-2"><a href="graphics-and-colors.html#cb438-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;magick&quot;</span>)</span>
-<span id="cb438-3"><a href="graphics-and-colors.html#cb438-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;imager&quot;</span>)</span>
-<span id="cb438-4"><a href="graphics-and-colors.html#cb438-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
-<span id="cb438-5"><a href="graphics-and-colors.html#cb438-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb438-6"><a href="graphics-and-colors.html#cb438-6" aria-hidden="true" tabindex="-1"></a><span class="do">## required libraries</span></span>
-<span id="cb438-7"><a href="graphics-and-colors.html#cb438-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb438-8"><a href="graphics-and-colors.html#cb438-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb438-9"><a href="graphics-and-colors.html#cb438-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magick) </span>
-<span id="cb438-10"><a href="graphics-and-colors.html#cb438-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales) </span>
-<span id="cb438-11"><a href="graphics-and-colors.html#cb438-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(imager)</span>
-<span id="cb438-12"><a href="graphics-and-colors.html#cb438-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb438-13"><a href="graphics-and-colors.html#cb438-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb438-14"><a href="graphics-and-colors.html#cb438-14" aria-hidden="true" tabindex="-1"></a><span class="do">## read image to extract color </span></span>
-<span id="cb438-15"><a href="graphics-and-colors.html#cb438-15" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: this has to be your own image, I will not post this jpg.</span></span>
-<span id="cb438-16"><a href="graphics-and-colors.html#cb438-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb438-17"><a href="graphics-and-colors.html#cb438-17" aria-hidden="true" tabindex="-1"></a>my_image <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/figures_emer/samurai_champloo.jpg&quot;</span></span>
-<span id="cb438-18"><a href="graphics-and-colors.html#cb438-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb438-19"><a href="graphics-and-colors.html#cb438-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Function to get your image processed, n number of colors out of your image, and cs as colour space.</span></span>
-<span id="cb438-20"><a href="graphics-and-colors.html#cb438-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb438-21"><a href="graphics-and-colors.html#cb438-21" aria-hidden="true" tabindex="-1"></a>get_colorPal_form_image <span class="ot">&lt;-</span> <span class="cf">function</span>(image_file_input,</span>
-<span id="cb438-22"><a href="graphics-and-colors.html#cb438-22" aria-hidden="true" tabindex="-1"></a>                                           <span class="at">n=</span><span class="dv">8</span>, </span>
-<span id="cb438-23"><a href="graphics-and-colors.html#cb438-23" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">cs=</span><span class="st">&quot;RGB&quot;</span>,</span>
-<span id="cb438-24"><a href="graphics-and-colors.html#cb438-24" aria-hidden="true" tabindex="-1"></a>                        <span class="at">show_image_row_user =</span> <span class="cn">TRUE</span>){</span>
-<span id="cb438-25"><a href="graphics-and-colors.html#cb438-25" aria-hidden="true" tabindex="-1"></a><span class="co">#require libraries</span></span>
-<span id="cb438-26"><a href="graphics-and-colors.html#cb438-26" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
-<span id="cb438-27"><a href="graphics-and-colors.html#cb438-27" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(magick) </span>
-<span id="cb438-28"><a href="graphics-and-colors.html#cb438-28" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(scales) </span>
-<span id="cb438-29"><a href="graphics-and-colors.html#cb438-29" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(imager)</span>
-<span id="cb438-30"><a href="graphics-and-colors.html#cb438-30" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(dplyr)</span>
-<span id="cb438-31"><a href="graphics-and-colors.html#cb438-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb438-32"><a href="graphics-and-colors.html#cb438-32" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st"> *** code modified from: https://www.r-bloggers.com/2019/01/extracting-colours-from-your-images-with-image-quantization/ *** </span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
-<span id="cb438-33"><a href="graphics-and-colors.html#cb438-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb438-34"><a href="graphics-and-colors.html#cb438-34" aria-hidden="true" tabindex="-1"></a>  image_file_input_pros <span class="ot">&lt;-</span> image_file_input</span>
-<span id="cb438-35"><a href="graphics-and-colors.html#cb438-35" aria-hidden="true" tabindex="-1"></a>  show_image_row <span class="ot">&lt;-</span> show_image_row_user</span>
-<span id="cb438-36"><a href="graphics-and-colors.html#cb438-36" aria-hidden="true" tabindex="-1"></a>  raw_image <span class="ot">&lt;-</span> magick<span class="sc">::</span><span class="fu">image_read</span>(image_file_input_pros)</span>
-<span id="cb438-37"><a href="graphics-and-colors.html#cb438-37" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> magick<span class="sc">::</span><span class="fu">image_resize</span>(<span class="at">image =</span> raw_image ,  <span class="st">&quot;100&quot;</span>) </span>
-<span id="cb438-38"><a href="graphics-and-colors.html#cb438-38" aria-hidden="true" tabindex="-1"></a>  <span class="co"># reducing colours! different colorspace gives you different result</span></span>
-<span id="cb438-39"><a href="graphics-and-colors.html#cb438-39" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> magick<span class="sc">::</span><span class="fu">image_quantize</span>(tmp, <span class="at">max=</span>n, <span class="at">colorspace=</span>cs)</span>
-<span id="cb438-40"><a href="graphics-and-colors.html#cb438-40" aria-hidden="true" tabindex="-1"></a>  <span class="co"># converting, becauase I want to use as.data.frame function in imager package.</span></span>
-<span id="cb438-41"><a href="graphics-and-colors.html#cb438-41" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> imager<span class="sc">::</span><span class="fu">magick2cimg</span>(tmp) </span>
-<span id="cb438-42"><a href="graphics-and-colors.html#cb438-42" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sorting colour by hue rather than RGB (red green blue)</span></span>
-<span id="cb438-43"><a href="graphics-and-colors.html#cb438-43" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> imager<span class="sc">::</span><span class="fu">RGBtoHSV</span>(tmp)</span>
-<span id="cb438-44"><a href="graphics-and-colors.html#cb438-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># making it wide makes it easier to output hex colour</span></span>
-<span id="cb438-45"><a href="graphics-and-colors.html#cb438-45" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(tmp, <span class="at">wide=</span><span class="st">&quot;c&quot;</span>)</span>
-<span id="cb438-46"><a href="graphics-and-colors.html#cb438-46" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(tmp, <span class="at">hex =</span> <span class="fu">hsv</span>(<span class="fu">rescale</span>(c<span class="fl">.1</span>, <span class="at">from=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">360</span>)),c<span class="fl">.2</span>,c<span class="fl">.3</span>),</span>
-<span id="cb438-47"><a href="graphics-and-colors.html#cb438-47" aria-hidden="true" tabindex="-1"></a>                            <span class="at">hue =</span> c<span class="fl">.1</span>,</span>
-<span id="cb438-48"><a href="graphics-and-colors.html#cb438-48" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sat =</span> c<span class="fl">.2</span>,</span>
-<span id="cb438-49"><a href="graphics-and-colors.html#cb438-49" aria-hidden="true" tabindex="-1"></a>                          <span class="at">value =</span> c<span class="fl">.3</span>)</span>
-<span id="cb438-50"><a href="graphics-and-colors.html#cb438-50" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">count</span>(tmp, hex, hue, sat,value, <span class="at">sort=</span>T) </span>
-<span id="cb438-51"><a href="graphics-and-colors.html#cb438-51" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(tmp, <span class="at">colorspace =</span> cs)</span>
-<span id="cb438-52"><a href="graphics-and-colors.html#cb438-52" aria-hidden="true" tabindex="-1"></a>  <span class="co"># out colors palette</span></span>
-<span id="cb438-53"><a href="graphics-and-colors.html#cb438-53" aria-hidden="true" tabindex="-1"></a>  color_hex <span class="ot">&lt;-</span> tmp<span class="sc">$</span>hex</span>
-<span id="cb438-54"><a href="graphics-and-colors.html#cb438-54" aria-hidden="true" tabindex="-1"></a>   color_df <span class="ot">&lt;-</span> tmp</span>
-<span id="cb438-55"><a href="graphics-and-colors.html#cb438-55" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb438-56"><a href="graphics-and-colors.html#cb438-56" aria-hidden="true" tabindex="-1"></a>  <span class="co"># plot colors</span></span>
-<span id="cb438-57"><a href="graphics-and-colors.html#cb438-57" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(show_image_row) {magick<span class="sc">::</span><span class="fu">image_browse</span>(raw_image)}</span>
-<span id="cb438-58"><a href="graphics-and-colors.html#cb438-58" aria-hidden="true" tabindex="-1"></a>  scales<span class="sc">::</span><span class="fu">show_col</span>(color_hex)</span>
-<span id="cb438-59"><a href="graphics-and-colors.html#cb438-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb438-60"><a href="graphics-and-colors.html#cb438-60" aria-hidden="true" tabindex="-1"></a>  <span class="co"># return colors</span></span>
-<span id="cb438-61"><a href="graphics-and-colors.html#cb438-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(color_hex, color_df))</span>
-<span id="cb438-62"><a href="graphics-and-colors.html#cb438-62" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb438-63"><a href="graphics-and-colors.html#cb438-63" aria-hidden="true" tabindex="-1"></a>                                           }</span>
-<span id="cb438-64"><a href="graphics-and-colors.html#cb438-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb438-65"><a href="graphics-and-colors.html#cb438-65" aria-hidden="true" tabindex="-1"></a><span class="do">## running the function and asking for 8 colors</span></span>
-<span id="cb438-66"><a href="graphics-and-colors.html#cb438-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb438-67"><a href="graphics-and-colors.html#cb438-67" aria-hidden="true" tabindex="-1"></a>samuari_champloo_color_hex <span class="ot">&lt;-</span> <span class="fu">get_colorPal_form_image</span>(my_image, <span class="at">n=</span> <span class="dv">8</span>)</span>
-<span id="cb438-68"><a href="graphics-and-colors.html#cb438-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb438-69"><a href="graphics-and-colors.html#cb438-69" aria-hidden="true" tabindex="-1"></a><span class="co"># hex codes</span></span>
-<span id="cb438-70"><a href="graphics-and-colors.html#cb438-70" aria-hidden="true" tabindex="-1"></a>samuari_champloo_color_hex[[<span class="dv">1</span>]]</span>
-<span id="cb438-71"><a href="graphics-and-colors.html#cb438-71" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#FFE39D&quot; &quot;#D93907&quot; &quot;#2F1E16&quot; &quot;#F86413&quot; &quot;#A56343&quot; &quot;#F8D894&quot; &quot;#E9A264&quot;</span></span>
-<span id="cb438-72"><a href="graphics-and-colors.html#cb438-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb438-73"><a href="graphics-and-colors.html#cb438-73" aria-hidden="true" tabindex="-1"></a>scales<span class="sc">::</span><span class="fu">show_col</span>(samuari_champloo_color_hex[[<span class="dv">1</span>]])</span></code></pre></div>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="graphics-and-colors.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Load up packages I&#39;m going to use first.</span></span>
+<span id="cb437-2"><a href="graphics-and-colors.html#cb437-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;magick&quot;</span>)</span>
+<span id="cb437-3"><a href="graphics-and-colors.html#cb437-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;imager&quot;</span>)</span>
+<span id="cb437-4"><a href="graphics-and-colors.html#cb437-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
+<span id="cb437-5"><a href="graphics-and-colors.html#cb437-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-6"><a href="graphics-and-colors.html#cb437-6" aria-hidden="true" tabindex="-1"></a><span class="do">## required libraries</span></span>
+<span id="cb437-7"><a href="graphics-and-colors.html#cb437-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-8"><a href="graphics-and-colors.html#cb437-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb437-9"><a href="graphics-and-colors.html#cb437-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magick) </span>
+<span id="cb437-10"><a href="graphics-and-colors.html#cb437-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales) </span>
+<span id="cb437-11"><a href="graphics-and-colors.html#cb437-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(imager)</span>
+<span id="cb437-12"><a href="graphics-and-colors.html#cb437-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb437-13"><a href="graphics-and-colors.html#cb437-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-14"><a href="graphics-and-colors.html#cb437-14" aria-hidden="true" tabindex="-1"></a><span class="do">## read image to extract color </span></span>
+<span id="cb437-15"><a href="graphics-and-colors.html#cb437-15" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: this has to be your own image, I will not post this jpg.</span></span>
+<span id="cb437-16"><a href="graphics-and-colors.html#cb437-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-17"><a href="graphics-and-colors.html#cb437-17" aria-hidden="true" tabindex="-1"></a>my_image <span class="ot">&lt;-</span> <span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/figures_emer/samurai_champloo.jpg&quot;</span></span>
+<span id="cb437-18"><a href="graphics-and-colors.html#cb437-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-19"><a href="graphics-and-colors.html#cb437-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Function to get your image processed, n number of colors out of your image, and cs as colour space.</span></span>
+<span id="cb437-20"><a href="graphics-and-colors.html#cb437-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-21"><a href="graphics-and-colors.html#cb437-21" aria-hidden="true" tabindex="-1"></a>get_colorPal_form_image <span class="ot">&lt;-</span> <span class="cf">function</span>(image_file_input,</span>
+<span id="cb437-22"><a href="graphics-and-colors.html#cb437-22" aria-hidden="true" tabindex="-1"></a>                                           <span class="at">n=</span><span class="dv">8</span>, </span>
+<span id="cb437-23"><a href="graphics-and-colors.html#cb437-23" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">cs=</span><span class="st">&quot;RGB&quot;</span>,</span>
+<span id="cb437-24"><a href="graphics-and-colors.html#cb437-24" aria-hidden="true" tabindex="-1"></a>                        <span class="at">show_image_row_user =</span> <span class="cn">TRUE</span>){</span>
+<span id="cb437-25"><a href="graphics-and-colors.html#cb437-25" aria-hidden="true" tabindex="-1"></a><span class="co">#require libraries</span></span>
+<span id="cb437-26"><a href="graphics-and-colors.html#cb437-26" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
+<span id="cb437-27"><a href="graphics-and-colors.html#cb437-27" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(magick) </span>
+<span id="cb437-28"><a href="graphics-and-colors.html#cb437-28" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(scales) </span>
+<span id="cb437-29"><a href="graphics-and-colors.html#cb437-29" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(imager)</span>
+<span id="cb437-30"><a href="graphics-and-colors.html#cb437-30" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(dplyr)</span>
+<span id="cb437-31"><a href="graphics-and-colors.html#cb437-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-32"><a href="graphics-and-colors.html#cb437-32" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st"> *** code modified from: https://www.r-bloggers.com/2019/01/extracting-colours-from-your-images-with-image-quantization/ *** </span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
+<span id="cb437-33"><a href="graphics-and-colors.html#cb437-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-34"><a href="graphics-and-colors.html#cb437-34" aria-hidden="true" tabindex="-1"></a>  image_file_input_pros <span class="ot">&lt;-</span> image_file_input</span>
+<span id="cb437-35"><a href="graphics-and-colors.html#cb437-35" aria-hidden="true" tabindex="-1"></a>  show_image_row <span class="ot">&lt;-</span> show_image_row_user</span>
+<span id="cb437-36"><a href="graphics-and-colors.html#cb437-36" aria-hidden="true" tabindex="-1"></a>  raw_image <span class="ot">&lt;-</span> magick<span class="sc">::</span><span class="fu">image_read</span>(image_file_input_pros)</span>
+<span id="cb437-37"><a href="graphics-and-colors.html#cb437-37" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> magick<span class="sc">::</span><span class="fu">image_resize</span>(<span class="at">image =</span> raw_image ,  <span class="st">&quot;100&quot;</span>) </span>
+<span id="cb437-38"><a href="graphics-and-colors.html#cb437-38" aria-hidden="true" tabindex="-1"></a>  <span class="co"># reducing colours! different colorspace gives you different result</span></span>
+<span id="cb437-39"><a href="graphics-and-colors.html#cb437-39" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> magick<span class="sc">::</span><span class="fu">image_quantize</span>(tmp, <span class="at">max=</span>n, <span class="at">colorspace=</span>cs)</span>
+<span id="cb437-40"><a href="graphics-and-colors.html#cb437-40" aria-hidden="true" tabindex="-1"></a>  <span class="co"># converting, becauase I want to use as.data.frame function in imager package.</span></span>
+<span id="cb437-41"><a href="graphics-and-colors.html#cb437-41" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> imager<span class="sc">::</span><span class="fu">magick2cimg</span>(tmp) </span>
+<span id="cb437-42"><a href="graphics-and-colors.html#cb437-42" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sorting colour by hue rather than RGB (red green blue)</span></span>
+<span id="cb437-43"><a href="graphics-and-colors.html#cb437-43" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> imager<span class="sc">::</span><span class="fu">RGBtoHSV</span>(tmp)</span>
+<span id="cb437-44"><a href="graphics-and-colors.html#cb437-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># making it wide makes it easier to output hex colour</span></span>
+<span id="cb437-45"><a href="graphics-and-colors.html#cb437-45" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(tmp, <span class="at">wide=</span><span class="st">&quot;c&quot;</span>)</span>
+<span id="cb437-46"><a href="graphics-and-colors.html#cb437-46" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(tmp, <span class="at">hex =</span> <span class="fu">hsv</span>(<span class="fu">rescale</span>(c<span class="fl">.1</span>, <span class="at">from=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">360</span>)),c<span class="fl">.2</span>,c<span class="fl">.3</span>),</span>
+<span id="cb437-47"><a href="graphics-and-colors.html#cb437-47" aria-hidden="true" tabindex="-1"></a>                            <span class="at">hue =</span> c<span class="fl">.1</span>,</span>
+<span id="cb437-48"><a href="graphics-and-colors.html#cb437-48" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sat =</span> c<span class="fl">.2</span>,</span>
+<span id="cb437-49"><a href="graphics-and-colors.html#cb437-49" aria-hidden="true" tabindex="-1"></a>                          <span class="at">value =</span> c<span class="fl">.3</span>)</span>
+<span id="cb437-50"><a href="graphics-and-colors.html#cb437-50" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">count</span>(tmp, hex, hue, sat,value, <span class="at">sort=</span>T) </span>
+<span id="cb437-51"><a href="graphics-and-colors.html#cb437-51" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(tmp, <span class="at">colorspace =</span> cs)</span>
+<span id="cb437-52"><a href="graphics-and-colors.html#cb437-52" aria-hidden="true" tabindex="-1"></a>  <span class="co"># out colors palette</span></span>
+<span id="cb437-53"><a href="graphics-and-colors.html#cb437-53" aria-hidden="true" tabindex="-1"></a>  color_hex <span class="ot">&lt;-</span> tmp<span class="sc">$</span>hex</span>
+<span id="cb437-54"><a href="graphics-and-colors.html#cb437-54" aria-hidden="true" tabindex="-1"></a>   color_df <span class="ot">&lt;-</span> tmp</span>
+<span id="cb437-55"><a href="graphics-and-colors.html#cb437-55" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb437-56"><a href="graphics-and-colors.html#cb437-56" aria-hidden="true" tabindex="-1"></a>  <span class="co"># plot colors</span></span>
+<span id="cb437-57"><a href="graphics-and-colors.html#cb437-57" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(show_image_row) {magick<span class="sc">::</span><span class="fu">image_browse</span>(raw_image)}</span>
+<span id="cb437-58"><a href="graphics-and-colors.html#cb437-58" aria-hidden="true" tabindex="-1"></a>  scales<span class="sc">::</span><span class="fu">show_col</span>(color_hex)</span>
+<span id="cb437-59"><a href="graphics-and-colors.html#cb437-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-60"><a href="graphics-and-colors.html#cb437-60" aria-hidden="true" tabindex="-1"></a>  <span class="co"># return colors</span></span>
+<span id="cb437-61"><a href="graphics-and-colors.html#cb437-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(color_hex, color_df))</span>
+<span id="cb437-62"><a href="graphics-and-colors.html#cb437-62" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb437-63"><a href="graphics-and-colors.html#cb437-63" aria-hidden="true" tabindex="-1"></a>                                           }</span>
+<span id="cb437-64"><a href="graphics-and-colors.html#cb437-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-65"><a href="graphics-and-colors.html#cb437-65" aria-hidden="true" tabindex="-1"></a><span class="do">## running the function and asking for 8 colors</span></span>
+<span id="cb437-66"><a href="graphics-and-colors.html#cb437-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-67"><a href="graphics-and-colors.html#cb437-67" aria-hidden="true" tabindex="-1"></a>samuari_champloo_color_hex <span class="ot">&lt;-</span> <span class="fu">get_colorPal_form_image</span>(my_image, <span class="at">n=</span> <span class="dv">8</span>)</span>
+<span id="cb437-68"><a href="graphics-and-colors.html#cb437-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-69"><a href="graphics-and-colors.html#cb437-69" aria-hidden="true" tabindex="-1"></a><span class="co"># hex codes</span></span>
+<span id="cb437-70"><a href="graphics-and-colors.html#cb437-70" aria-hidden="true" tabindex="-1"></a>samuari_champloo_color_hex[[<span class="dv">1</span>]]</span>
+<span id="cb437-71"><a href="graphics-and-colors.html#cb437-71" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;#FFE39D&quot; &quot;#D93907&quot; &quot;#2F1E16&quot; &quot;#F86413&quot; &quot;#A56343&quot; &quot;#F8D894&quot; &quot;#E9A264&quot;</span></span>
+<span id="cb437-72"><a href="graphics-and-colors.html#cb437-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-73"><a href="graphics-and-colors.html#cb437-73" aria-hidden="true" tabindex="-1"></a>scales<span class="sc">::</span><span class="fu">show_col</span>(samuari_champloo_color_hex[[<span class="dv">1</span>]])</span></code></pre></div>
 <p><img src="figures/session_9_figs/54_samurai_champloo_pal.png" width="100%" /></p>
 <p>Here is an image that is free in its URL to apply the function <code>get_colorPal_form_image()</code>.</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="graphics-and-colors.html#cb439-1" aria-hidden="true" tabindex="-1"></a><span class="do">## from URL from jpg.</span></span>
-<span id="cb439-2"><a href="graphics-and-colors.html#cb439-2" aria-hidden="true" tabindex="-1"></a>my_image <span class="ot">&lt;-</span> <span class="st">&quot;https://upload.wikimedia.org/wikipedia/commons/a/a4/Piet_Mondriaan%2C_1930_-_Mondrian_Composition_II_in_Red%2C_Blue%2C_and_Yellow.jpg&quot;</span></span>
-<span id="cb439-3"><a href="graphics-and-colors.html#cb439-3" aria-hidden="true" tabindex="-1"></a>Mondriaan_color_hex <span class="ot">&lt;-</span> <span class="fu">get_colorPal_form_image</span>(my_image, <span class="at">n=</span> <span class="dv">10</span>)</span>
-<span id="cb439-4"><a href="graphics-and-colors.html#cb439-4" aria-hidden="true" tabindex="-1"></a>Mondriaan_color_hex </span>
-<span id="cb439-5"><a href="graphics-and-colors.html#cb439-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[[1]]</span></span>
-<span id="cb439-6"><a href="graphics-and-colors.html#cb439-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;#DB2920&quot; &quot;#E3312C&quot; &quot;#EAE9E9&quot; &quot;#E5E4DE&quot; &quot;#2E2B2F&quot; &quot;#617098&quot; &quot;#DCD6CD&quot; &quot;#DFCCA4&quot; &quot;#E3DDD8&quot; &quot;#E2AB9C&quot;</span></span>
-<span id="cb439-7"><a href="graphics-and-colors.html#cb439-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb439-8"><a href="graphics-and-colors.html#cb439-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[[2]]</span></span>
-<span id="cb439-9"><a href="graphics-and-colors.html#cb439-9" aria-hidden="true" tabindex="-1"></a><span class="co">#       hex        hue         sat     value    n colorspace</span></span>
-<span id="cb439-10"><a href="graphics-and-colors.html#cb439-10" aria-hidden="true" tabindex="-1"></a><span class="co">#1  #DB2920   2.887701 0.853881279 0.8588235 2669        RGB</span></span>
-<span id="cb439-11"><a href="graphics-and-colors.html#cb439-11" aria-hidden="true" tabindex="-1"></a><span class="co">#2  #E3312C   1.639344 0.806167401 0.8901961 2286        RGB</span></span>
-<span id="cb439-12"><a href="graphics-and-colors.html#cb439-12" aria-hidden="true" tabindex="-1"></a><span class="co">#3  #EAE9E9   0.000000 0.004273504 0.9176471 1636        RGB</span></span>
-<span id="cb439-13"><a href="graphics-and-colors.html#cb439-13" aria-hidden="true" tabindex="-1"></a><span class="co">#4  #E5E4DE  51.428571 0.030567686 0.8980392 1197        RGB</span></span>
-<span id="cb439-14"><a href="graphics-and-colors.html#cb439-14" aria-hidden="true" tabindex="-1"></a><span class="co">#5  #2E2B2F 285.000000 0.085106383 0.1843137  724        RGB</span></span>
-<span id="cb439-15"><a href="graphics-and-colors.html#cb439-15" aria-hidden="true" tabindex="-1"></a><span class="co">#6  #617098 223.636364 0.361842105 0.5960784  670        RGB</span></span>
-<span id="cb439-16"><a href="graphics-and-colors.html#cb439-16" aria-hidden="true" tabindex="-1"></a><span class="co">#7  #DCD6CD  36.000000 0.068181818 0.8627451  412        RGB</span></span>
-<span id="cb439-17"><a href="graphics-and-colors.html#cb439-17" aria-hidden="true" tabindex="-1"></a><span class="co">#8  #DFCCA4  40.677966 0.264573991 0.8745098  203        RGB</span></span>
-<span id="cb439-18"><a href="graphics-and-colors.html#cb439-18" aria-hidden="true" tabindex="-1"></a><span class="co">#9  #E3DDD8  27.272727 0.048458150 0.8901961  161        RGB</span></span>
-<span id="cb439-19"><a href="graphics-and-colors.html#cb439-19" aria-hidden="true" tabindex="-1"></a><span class="co">#10 #E2AB9C  12.857143 0.309734513 0.8862745  142        RGB</span></span></code></pre></div>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="graphics-and-colors.html#cb438-1" aria-hidden="true" tabindex="-1"></a><span class="do">## from URL from jpg.</span></span>
+<span id="cb438-2"><a href="graphics-and-colors.html#cb438-2" aria-hidden="true" tabindex="-1"></a>my_image <span class="ot">&lt;-</span> <span class="st">&quot;https://upload.wikimedia.org/wikipedia/commons/a/a4/Piet_Mondriaan%2C_1930_-_Mondrian_Composition_II_in_Red%2C_Blue%2C_and_Yellow.jpg&quot;</span></span>
+<span id="cb438-3"><a href="graphics-and-colors.html#cb438-3" aria-hidden="true" tabindex="-1"></a>Mondriaan_color_hex <span class="ot">&lt;-</span> <span class="fu">get_colorPal_form_image</span>(my_image, <span class="at">n=</span> <span class="dv">10</span>)</span>
+<span id="cb438-4"><a href="graphics-and-colors.html#cb438-4" aria-hidden="true" tabindex="-1"></a>Mondriaan_color_hex </span>
+<span id="cb438-5"><a href="graphics-and-colors.html#cb438-5" aria-hidden="true" tabindex="-1"></a><span class="co">#[[1]]</span></span>
+<span id="cb438-6"><a href="graphics-and-colors.html#cb438-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;#DB2920&quot; &quot;#E3312C&quot; &quot;#EAE9E9&quot; &quot;#E5E4DE&quot; &quot;#2E2B2F&quot; &quot;#617098&quot; &quot;#DCD6CD&quot; &quot;#DFCCA4&quot; &quot;#E3DDD8&quot; &quot;#E2AB9C&quot;</span></span>
+<span id="cb438-7"><a href="graphics-and-colors.html#cb438-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb438-8"><a href="graphics-and-colors.html#cb438-8" aria-hidden="true" tabindex="-1"></a><span class="co">#[[2]]</span></span>
+<span id="cb438-9"><a href="graphics-and-colors.html#cb438-9" aria-hidden="true" tabindex="-1"></a><span class="co">#       hex        hue         sat     value    n colorspace</span></span>
+<span id="cb438-10"><a href="graphics-and-colors.html#cb438-10" aria-hidden="true" tabindex="-1"></a><span class="co">#1  #DB2920   2.887701 0.853881279 0.8588235 2669        RGB</span></span>
+<span id="cb438-11"><a href="graphics-and-colors.html#cb438-11" aria-hidden="true" tabindex="-1"></a><span class="co">#2  #E3312C   1.639344 0.806167401 0.8901961 2286        RGB</span></span>
+<span id="cb438-12"><a href="graphics-and-colors.html#cb438-12" aria-hidden="true" tabindex="-1"></a><span class="co">#3  #EAE9E9   0.000000 0.004273504 0.9176471 1636        RGB</span></span>
+<span id="cb438-13"><a href="graphics-and-colors.html#cb438-13" aria-hidden="true" tabindex="-1"></a><span class="co">#4  #E5E4DE  51.428571 0.030567686 0.8980392 1197        RGB</span></span>
+<span id="cb438-14"><a href="graphics-and-colors.html#cb438-14" aria-hidden="true" tabindex="-1"></a><span class="co">#5  #2E2B2F 285.000000 0.085106383 0.1843137  724        RGB</span></span>
+<span id="cb438-15"><a href="graphics-and-colors.html#cb438-15" aria-hidden="true" tabindex="-1"></a><span class="co">#6  #617098 223.636364 0.361842105 0.5960784  670        RGB</span></span>
+<span id="cb438-16"><a href="graphics-and-colors.html#cb438-16" aria-hidden="true" tabindex="-1"></a><span class="co">#7  #DCD6CD  36.000000 0.068181818 0.8627451  412        RGB</span></span>
+<span id="cb438-17"><a href="graphics-and-colors.html#cb438-17" aria-hidden="true" tabindex="-1"></a><span class="co">#8  #DFCCA4  40.677966 0.264573991 0.8745098  203        RGB</span></span>
+<span id="cb438-18"><a href="graphics-and-colors.html#cb438-18" aria-hidden="true" tabindex="-1"></a><span class="co">#9  #E3DDD8  27.272727 0.048458150 0.8901961  161        RGB</span></span>
+<span id="cb438-19"><a href="graphics-and-colors.html#cb438-19" aria-hidden="true" tabindex="-1"></a><span class="co">#10 #E2AB9C  12.857143 0.309734513 0.8862745  142        RGB</span></span></code></pre></div>
 <p><img src="figures/session_9_figs/55_mondriaan_pal.png" width="100%" /></p>
 
 </div>
@@ -1371,7 +1373,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-Graphics_Colors_v20.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-Graphics_Colors_v21.Rmd",
 "text": "Edit"
 },
 "history": {
