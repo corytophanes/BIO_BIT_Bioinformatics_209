@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2024-03-27" />
+<meta name="date" content="2024-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1548,7 +1548,23 @@ Each category is assigned a rectangle area with their subcategory rectangles nes
 <span id="cb494-39"><a href="basic-graphics.html#cb494-39" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">colour =</span><span class="st">&quot;black&quot;</span>, <span class="at">fontface =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">min.size =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
 <span id="cb494-40"><a href="basic-graphics.html#cb494-40" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">geom_treemap_text</span>(<span class="at">colour =</span> <span class="st">&quot;white&quot;</span>, <span class="at">place =</span> <span class="st">&quot;topleft&quot;</span>, <span class="at">reflow =</span> <span class="cn">TRUE</span>, <span class="at">grow =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb494-41"><a href="basic-graphics.html#cb494-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb494-42"><a href="basic-graphics.html#cb494-42" aria-hidden="true" tabindex="-1"></a>ichtyo_treemap</span></code></pre></div>
+<span id="cb494-42"><a href="basic-graphics.html#cb494-42" aria-hidden="true" tabindex="-1"></a>ichtyo_treemap</span>
+<span id="cb494-43"><a href="basic-graphics.html#cb494-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb494-44"><a href="basic-graphics.html#cb494-44" aria-hidden="true" tabindex="-1"></a><span class="do">## set your working ditectory to save plot</span></span>
+<span id="cb494-45"><a href="basic-graphics.html#cb494-45" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/A_Class_powerpoints/Spring_2024/session_11/treemap_plot&quot;</span>)</span>
+<span id="cb494-46"><a href="basic-graphics.html#cb494-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb494-47"><a href="basic-graphics.html#cb494-47" aria-hidden="true" tabindex="-1"></a><span class="do">## save &#39;ichtyo_treemapt&#39; graph as pdf</span></span>
+<span id="cb494-48"><a href="basic-graphics.html#cb494-48" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;ichtyo_treemap.pdf&quot;</span>)</span>
+<span id="cb494-49"><a href="basic-graphics.html#cb494-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb494-50"><a href="basic-graphics.html#cb494-50" aria-hidden="true" tabindex="-1"></a><span class="do">## save &#39;chtyo_treemap&#39; graph as png</span></span>
+<span id="cb494-51"><a href="basic-graphics.html#cb494-51" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;chtyo_treemap.png&quot;</span>)</span>
+<span id="cb494-52"><a href="basic-graphics.html#cb494-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb494-53"><a href="basic-graphics.html#cb494-53" aria-hidden="true" tabindex="-1"></a><span class="co"># save &#39;chtyo_treemap&#39; graph as jpg</span></span>
+<span id="cb494-54"><a href="basic-graphics.html#cb494-54" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;chtyo_treemap.jpg&quot;</span>)</span>
+<span id="cb494-55"><a href="basic-graphics.html#cb494-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb494-56"><a href="basic-graphics.html#cb494-56" aria-hidden="true" tabindex="-1"></a><span class="do">## save &#39;chtyo_treemap&quot; as png with some size defintions</span></span>
+<span id="cb494-57"><a href="basic-graphics.html#cb494-57" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;chtyo_treemap_inches.png&quot;</span>, <span class="at">width =</span> <span class="dv">4</span>, <span class="at">height =</span> <span class="dv">4</span>)</span>
+<span id="cb494-58"><a href="basic-graphics.html#cb494-58" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;chtyo_treemap_cm.png&quot;</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">height =</span> <span class="dv">20</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span></code></pre></div>
 <p><img src="figures/session_10_figs/73_treemap_example.png" width="90%" /></p>
 <p>Notice that this plot is similar to the barchart, but presented as a treemap.</p>
 </div>
@@ -1601,7 +1617,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/10-Basic_Graphics_v9.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/10-Basic_Graphics_v10.Rmd",
 "text": "Edit"
 },
 "history": {
