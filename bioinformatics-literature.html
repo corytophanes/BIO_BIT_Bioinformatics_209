@@ -24,7 +24,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2024-04-09" />
+<meta name="date" content="2024-04-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -556,20 +556,20 @@ draft versions of a research article that precedes formal peer-review process an
 databases such as <a href="https://www.biorxiv.org/" target="_blank"><strong>bioRxiv</strong></a>. For introductory, manuals, application examples, and guidelines on use of specific bioinformatic tools
 (like those written in R language), you might find vignettes associated with a specific R package in the <a href="https://cran.r-project.org/" target="_blank"><strong>CRAN</strong></a> or <a href="https://www.bioconductor.org/" target="_blank"><strong>Bioconductor</strong></a> repositories.</p>
 <p>Here is an example of how to access the <a href="https://www.bioconductor.org/packages/release/bioc/html/DESeq2.html" target="_blank"><strong><code>DESeq2</code></strong></a> R-package vignette, which is a package for the analysis of differential gene expression analysis.</p>
-<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="bioinformatics-literature.html#cb630-1" aria-hidden="true" tabindex="-1"></a><span class="do">## If you need to install this package in your computer:</span></span>
-<span id="cb630-2"><a href="bioinformatics-literature.html#cb630-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb630-3"><a href="bioinformatics-literature.html#cb630-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb630-4"><a href="bioinformatics-literature.html#cb630-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
-<span id="cb630-5"><a href="bioinformatics-literature.html#cb630-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb630-6"><a href="bioinformatics-literature.html#cb630-6" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;DESeq2&quot;</span>)</span>
-<span id="cb630-7"><a href="bioinformatics-literature.html#cb630-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb630-8"><a href="bioinformatics-literature.html#cb630-8" aria-hidden="true" tabindex="-1"></a><span class="do">## If you already have installed the DESeq2 package, load it in R space:</span></span>
-<span id="cb630-9"><a href="bioinformatics-literature.html#cb630-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb630-10"><a href="bioinformatics-literature.html#cb630-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DESeq2)</span>
-<span id="cb630-11"><a href="bioinformatics-literature.html#cb630-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb630-12"><a href="bioinformatics-literature.html#cb630-12" aria-hidden="true" tabindex="-1"></a><span class="do">## To view documentation and vignette associated with DESeq2:</span></span>
-<span id="cb630-13"><a href="bioinformatics-literature.html#cb630-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb630-14"><a href="bioinformatics-literature.html#cb630-14" aria-hidden="true" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">&quot;DESeq2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="bioinformatics-literature.html#cb631-1" aria-hidden="true" tabindex="-1"></a><span class="do">## If you need to install this package in your computer:</span></span>
+<span id="cb631-2"><a href="bioinformatics-literature.html#cb631-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb631-3"><a href="bioinformatics-literature.html#cb631-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb631-4"><a href="bioinformatics-literature.html#cb631-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
+<span id="cb631-5"><a href="bioinformatics-literature.html#cb631-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb631-6"><a href="bioinformatics-literature.html#cb631-6" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;DESeq2&quot;</span>)</span>
+<span id="cb631-7"><a href="bioinformatics-literature.html#cb631-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb631-8"><a href="bioinformatics-literature.html#cb631-8" aria-hidden="true" tabindex="-1"></a><span class="do">## If you already have installed the DESeq2 package, load it in R space:</span></span>
+<span id="cb631-9"><a href="bioinformatics-literature.html#cb631-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb631-10"><a href="bioinformatics-literature.html#cb631-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DESeq2)</span>
+<span id="cb631-11"><a href="bioinformatics-literature.html#cb631-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb631-12"><a href="bioinformatics-literature.html#cb631-12" aria-hidden="true" tabindex="-1"></a><span class="do">## To view documentation and vignette associated with DESeq2:</span></span>
+<span id="cb631-13"><a href="bioinformatics-literature.html#cb631-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb631-14"><a href="bioinformatics-literature.html#cb631-14" aria-hidden="true" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">&quot;DESeq2&quot;</span>)</span></code></pre></div>
 </div>
 <div id="online-bioinformatics-courses" class="section level2" number="29.4">
 <h2><span class="header-section-number">29.4</span> Online bioinformatics courses</h2>
