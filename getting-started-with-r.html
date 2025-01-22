@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="none" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2024-04-17" />
+<meta name="date" content="2025-01-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 
 <link rel="next" href="using-r-installing-packages-and-importingexporting-data.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -120,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -509,22 +512,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Bioinformatics Workshop Gitbook</h1>
 <p class="author"><em>Juan C. Santos &amp; Randy Ortiz</em></p>
-<p class="date"><em>2024-04-17</em></p>
+<p class="date"><em>2025-01-22</em></p>
 </div>
-<div id="getting-started-with-r" class="section level1" number="1">
-<h1><span class="header-section-number">Session 1</span> – Getting Started with R</h1>
-<div id="why-do-we-use-r" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Why do we use R?</h2>
+<div id="getting-started-with-r" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Session 1</span> – Getting Started with R<a href="getting-started-with-r.html#getting-started-with-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="why-do-we-use-r" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Why do we use R?<a href="getting-started-with-r.html#why-do-we-use-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>At the core of modern bioinformatics that is the user friendly is <a href="https://www.r-project.org/" target="_blank"><strong>R</strong></a>. This is a programming language and free software environment for easy application of diverse methods for statistical, data mining, file processing and graphics. <a href="https://www.r-project.org/" target="_blank"><strong>R</strong></a> is extremely flexible and provides an easily customizable data processing that ranges from simple to very complex analyses. Here are some advantages of <a href="https://www.r-project.org/" target="_blank"><strong>R</strong></a>:</p>
 <ol style="list-style-type: decimal">
 <li>R is <strong>free</strong> to download and use while other similar environments (e.g., SAS, SPSS, Matlab) require licenses and fees.</li>
 <li>R is <strong>available across platforms</strong> including Windows, Mac and Linux</li>
 <li>R is <strong>always evolving</strong> and at its core nature is being open source. The <strong>R community is huge and global</strong>, yet the core base software tends to be relatively stable, the expanded functionality derived by add-ons packages expand the capabilities of core R.</li>
+<li>R has <strong>extensive libraries</strong> such as <a href="https://cran.r-project.org/" target="_blank"><strong>The Comprehensive R Archive Network (CRAN)</strong></a> that hosts diverse packages that extend functionality, specialized statistical methods, machine learning, and data manipulation.</li>
 <li>R provides easy and accessible data processing. You can import diverse types of datasets from text files, Excel sheets, sequence data, images, etc.</li>
 <li>R provides easy data manipulation including sub-setting (i.e., you filter your source data using filters), transformation, encryption, and export to other formats.</li>
 <li>R provides one of the <strong>most extensive data visualization tools</strong> that are freely available with extensive manuals, vignettes and online boards. Such graphics range from simple boxplots to multipaneled, tiling, and even GIS maps.</li>
 <li>R statistical applications are diverse and easy to implement. Many basic univariate methods are preloaded, and newest tools and models are provided usually as add-ons developed by authors of such methods.</li>
 <li>R provides an easy way to <strong>share your methods</strong> (scripts) and reproduce illustrative examples of their implementation. Many of these reside as add-on packages, others in GitHub pages and supplementary materials of peer-reviewed publications.</li>
+<li>R allows easy scripting and functions to automate repetitive tasks and build customizable workflows.</li>
 </ol>
 <p><strong>A) The R project:</strong></p>
 <p><a href="https://www.r-project.org/" target="_blank">https://www.r-project.org/</a></p>
@@ -534,9 +539,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Probably one of the most useful Q/A sites for quick and practical responses to punctual questions about programming and R use. This site follows a format where someone ask or presents a problem and the community will try to respond with suggestions and practical applications of the R code to address the question. Some answers try to use the data in the question to fix the issue or problem to illustrate an answer the problem. The beauty of this approach is that the readers will vote on the provided answers and those with most votes move up among other competing responses (i.e., an answer with a 50 is considered better than one with a 10). Likewise, readers can provide discussions, comments, other examples to complement responses. Likewise, you can also “google” your questions and it is very likely that you would be pointed to a “stackoverflow” response, which furthers the value that most R users consider of the answers in that site.</p>
 <p>Moreover, the stackoverflow website is oriented to answer most questions from most other programing languages (i.e., Python, java, etc). Therefore, I suggest to finish your questions/queries with “… in R” or use the prefix [r] (e.g., “[r] weighted mean”), so it limits its search to R applicable answers.</p>
 <p><a href="https://stackoverflow.com/tags/r/info" target="_blank">https://stackoverflow.com/tags/r/info</a></p>
-<p>An excellent guide for R related, examples, references, index of answers relevant to R</p>
+<p>An excellent guide for R related, examples, references, index of answers relevant to R. This is a search engine limited to mostly R based websites</p>
 <p><a href="http://rseek.org" target="_blank">http://rseek.org</a></p>
-<p>This is a search engine limited to mostly R based websites</p>
+<p>You can also use artificial intelligence (AI) platforms to ask questions and obtain suggestions for implementing R code, enabling you to translate verbal descriptions of data manipulation into R scripts. This approach represents the likely future of coding, as human-machine interactions increasingly embrace natural (ordinary) language for implementing computing algorithms and functions.</p>
+<p>Here is an example in ‘chatgpt’ with a basic natural language prompt</p>
+<p><a href="https://chatgpt.com/?model=auto" target="_blank">https://chatgpt.com</a></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="getting-started-with-r.html#cb1-1" aria-hidden="true" tabindex="-1"></a>create a basic plot of two vectors <span class="cf">in</span> R</span></code></pre></div>
+<p>Then ‘chatgpt’ will return something like this</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="getting-started-with-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a>Here’s an example of how to create a basic plot of two vectors <span class="cf">in</span> R<span class="sc">:</span></span>
+<span id="cb2-2"><a href="getting-started-with-r.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="getting-started-with-r.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define two vectors</span></span>
+<span id="cb2-4"><a href="getting-started-with-r.html#cb2-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb2-5"><a href="getting-started-with-r.html#cb2-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>)</span>
+<span id="cb2-6"><a href="getting-started-with-r.html#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="getting-started-with-r.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the vectors</span></span>
+<span id="cb2-8"><a href="getting-started-with-r.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;o&quot;</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, </span>
+<span id="cb2-9"><a href="getting-started-with-r.html#cb2-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Basic Plot of Two Vectors&quot;</span>, </span>
+<span id="cb2-10"><a href="getting-started-with-r.html#cb2-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;X Values&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Y Values&quot;</span>)</span>
+<span id="cb2-11"><a href="getting-started-with-r.html#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="getting-started-with-r.html#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Add grid lines</span></span>
+<span id="cb2-13"><a href="getting-started-with-r.html#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()</span></code></pre></div>
+<p>Here is an example in ‘github: Copilot’ with a basic natural language prompt</p>
+<p><a href="https://github.com/copilot" target="_blank">https://github.com/copilot</a></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="getting-started-with-r.html#cb3-1" aria-hidden="true" tabindex="-1"></a>create a basic plot of two vectors <span class="cf">in</span> R</span></code></pre></div>
+<p>Then ‘github: Copilot’ will return something like this</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="getting-started-with-r.html#cb4-1" aria-hidden="true" tabindex="-1"></a>Sure<span class="sc">!</span> Here<span class="st">&#39;s a simple example of how to create a basic plot of two vectors in R:</span></span>
+<span id="cb4-2"><a href="getting-started-with-r.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="getting-started-with-r.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="st"># Create two vectors</span></span>
+<span id="cb4-4"><a href="getting-started-with-r.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">x &lt;- c(1, 2, 3, 4, 5)</span></span>
+<span id="cb4-5"><a href="getting-started-with-r.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">y &lt;- c(2, 4, 6, 8, 10)</span></span>
+<span id="cb4-6"><a href="getting-started-with-r.html#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="getting-started-with-r.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st"># Create a basic plot</span></span>
+<span id="cb4-8"><a href="getting-started-with-r.html#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="st">plot(x, y, type=&quot;b&quot;, col=&quot;blue&quot;, main=&quot;Basic Plot of Vectors&quot;, xlab=&quot;X Axis&quot;, ylab=&quot;Y Axis&quot;)</span></span></code></pre></div>
+<p>In the case of ‘github: Copilot’, the response might include a brief explanation and how to run the code example.</p>
 <p><strong>C) Repositories for R-packages (add-ons to basic R):</strong></p>
 <p><a href="https://cran.r-project.org/" target="_blank">CRAN</a></p>
 <p>This is the main repository. To get the packages that you need, look on your left side for <strong>Software</strong> and then click on <strong>Packages</strong>. You can get packages by: <strong>Table of available packages, sorted by date of publication</strong> or <strong>Table of available packages, sorted by name</strong>.</p>
@@ -552,8 +587,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://www.r-graph-gallery.com/" target="_blank">The R Graph Gallery</a></p>
 <p>This graphics gallery provides a collection of plots, charts and illustrations made with the R. As indicated by this website, hundreds of charts are displayed in several sections, always with their accompanying code. Likewise, this gallery makes a focus on the <a href="https://www.tidyverse.org/" target="_blank">tidyverse</a> and <a href="https://ggplot2.tidyverse.org/" target="_blank">ggplot2</a>.</p>
 </div>
-<div id="get-a-good-text-editor" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Get a good text editor</h2>
+<div id="get-a-good-text-editor" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Get a good text editor<a href="getting-started-with-r.html#get-a-good-text-editor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Any scripting language such as the R language requires you to write code that can be read and annotated (i.e., you add notes that will help you understand what that piece of code is doing). Therefore, finding a good text editor is essential.</p>
 <p>Here are several suggestions for free text editor:</p>
 <p><strong>1) Sublime (macOS, Windows, Linux):</strong></p>
@@ -579,13 +614,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://notepad-plus-plus.org/" target="_blank">https://notepad-plus-plus.org/</a></p>
 <p>It is one of the best for windows and it is free. I am not very familiar with this editor yet it is one of the best for Windows (PC) computers.</p>
 </div>
-<div id="r-studio" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> R studio</h2>
+<div id="r-studio" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> R studio<a href="getting-started-with-r.html#r-studio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="https://rstudio.com/products/rstudio/download/" target="_blank">https://rstudio.com/products/rstudio/download/</a></p>
 <p>This software application defied as an integrated development environment (IDE) is designed to work and interact with R. Many people that use R always prompts new users to use R-studio. Personally, I do not use such application as it obfuscates my coding. However, most of the applications and materials developed in this workshop should be easily implemented within R-studio. If you decide or are familiar with R-studio, you can use it. However, I will be less familiar on their implementation in such IDE and less helpful in fixing errors that prompts within R-studio. If you use this software, choose the free version.</p>
 </div>
-<div id="installing-r" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Installing R</h2>
+<div id="installing-r" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Installing R<a href="getting-started-with-r.html#installing-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here is instructions to guide you in this process:</p>
 <p><strong>1)</strong> You need to define where you want to download R and your personalized R library (more on this later). I recommend the desktop or some easy to access folder (in the documents).</p>
 <p><strong>2)</strong> To install R you need to access the a repository by clicking on the mirrors page:</p>
@@ -602,51 +637,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>5b) Windows:</strong> For computers running on Windows click on <strong>Download R for Windows</strong> and then on <strong>install R for the first time</strong> and then <strong>Download R 4.1.2 for Windows</strong></p>
 <p><strong>5c) Linux:</strong> For computers running on Linux (or its variants) click on <strong>Download R for Linux</strong> and choose your operative system. Ask Randy Ortiz (Santos Lab) for further help.</p>
 </div>
-<div id="annotating-code" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Annotating code</h2>
+<div id="annotating-code" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Annotating code<a href="getting-started-with-r.html#annotating-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Throughout this gitbook, I will use <strong><code>#</code></strong> to indicate annotation for the user (you) to read what the computer will be doing, comments or results that you are expected obtain. The annotation of code is fundamental and good habit to have from the beginning. Annotation helps you to understand what a section of code is trying to accomplish. Any text after the <strong><code>#</code></strong> is ignored by the computer as you copy and paste your code on the console from the text editor.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="getting-started-with-r.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## the next chuck of code will print on the screen &quot;DO NOT FORGET TO ANNOTATE YOUR CODE&quot;</span></span>
-<span id="cb1-2"><a href="getting-started-with-r.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">DO NOT FORGET TO ANNOTATE YOUR CODE</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb1-3"><a href="getting-started-with-r.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#DO NOT FORGET TO ANNOTATE YOUR CODE</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="getting-started-with-r.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## the next chuck of code will print on the screen &quot;DO NOT FORGET TO ANNOTATE YOUR CODE&quot;</span></span>
+<span id="cb5-2"><a href="getting-started-with-r.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">DO NOT FORGET TO ANNOTATE YOUR CODE</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb5-3"><a href="getting-started-with-r.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#DO NOT FORGET TO ANNOTATE YOUR CODE</span></span></code></pre></div>
 </div>
-<div id="defining-a-working-directory-in-r" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Defining a working directory in R</h2>
+<div id="defining-a-working-directory-in-r" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> Defining a working directory in R<a href="getting-started-with-r.html#defining-a-working-directory-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R has a default directory on your computer, which can be one not easily accessible directory, or you might one specific for your project. You can get the information of the current output directory by typing <code>getwd()</code></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="getting-started-with-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Print my current working directory</span></span>
-<span id="cb2-2"><a href="getting-started-with-r.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb2-3"><a href="getting-started-with-r.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/santosj&quot; </span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="getting-started-with-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Print my current working directory</span></span>
+<span id="cb6-2"><a href="getting-started-with-r.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb6-3"><a href="getting-started-with-r.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/santosj&quot; </span></span></code></pre></div>
 <p>In most cases, you might want to use another directory as your working directory. The usual way to change the working directory with different approaches and some are operating system specific.</p>
 <p>You can create your desired directory or select a specific directory as your output by:</p>
 <p><strong>macOS using R menu:</strong> On R console, click on <strong>Misc</strong> then <strong>Change Working Directory…</strong> or pressing <strong>command-D</strong>.</p>
 <p>To make sure that the working directory has change use:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="getting-started-with-r.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb3-2"><a href="getting-started-with-r.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/santosj/Desktop/Teach_R/my_working_directory&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="getting-started-with-r.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb7-2"><a href="getting-started-with-r.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/santosj/Desktop/Teach_R/my_working_directory&quot;</span></span></code></pre></div>
 <p><strong>macOS using drag &amp; drop:</strong> Select you output directory and <strong>drag &amp; drop</strong> this folder in the R console to get its path (i.e., specific address of the folder in your hard drive). For example, you will see the path of the selected working directory</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="getting-started-with-r.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span><span class="er">/</span>Desktop<span class="sc">/</span>Teach_R<span class="sc">/</span>my_working_directory</span>
-<span id="cb4-2"><a href="getting-started-with-r.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Error: unexpected &#39;/&#39; in &quot;~/&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="getting-started-with-r.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span><span class="er">/</span>Desktop<span class="sc">/</span>Teach_R<span class="sc">/</span>my_working_directory</span>
+<span id="cb8-2"><a href="getting-started-with-r.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Error: unexpected &#39;/&#39; in &quot;~/&quot;</span></span></code></pre></div>
 <p>Next, you can copy the path name <code>~/Desktop/Teach_R/my_working_directory</code> and place within the function <code>setwd()</code> within quotations</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="getting-started-with-r.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Change my working directory to the following path</span></span>
-<span id="cb5-2"><a href="getting-started-with-r.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="getting-started-with-r.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Change my working directory to the following path</span></span>
+<span id="cb9-2"><a href="getting-started-with-r.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/my_working_directory&quot;</span>)</span></code></pre></div>
 <p>To make sure that the working directory has change use:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="getting-started-with-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb6-2"><a href="getting-started-with-r.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/santosj/Desktop/Teach_R/my_working_directory&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="getting-started-with-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb10-2"><a href="getting-started-with-r.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;/Users/santosj/Desktop/Teach_R/my_working_directory&quot;</span></span></code></pre></div>
 <p><strong>Windows:</strong> For PCs, you need to find the path of desired working directory. For this you need to highlight this folder, hold down the <strong>Shift</strong> key and <strong>right-click</strong> the file.</p>
 <p>Then, you click on <strong>Properties</strong> and copy the names (text) of <strong>Location</strong> that includes the folder name. For example, if you want to change your working directory to the folder icon <code>my_working_directory</code></p>
 <p>Find its location: <code>C:\Users\myPC\Desktop</code></p>
 <p>You will get its path name as: <code>C:\Users\myPC\Desktop\my_working_directory</code></p>
 <p>Then use the <code>setwd()</code> function as follows</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="getting-started-with-r.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:\Users\myPC\Desktop\my_working_directory&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="getting-started-with-r.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:\Users\myPC\Desktop\my_working_directory&quot;</span>)</span></code></pre></div>
 <p>In some PCs, this will change the working directory to its desired path. However, in most, you will get the following error</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="getting-started-with-r.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:\Users\myPC\Desktop\my_working_directory&quot;</span>)</span>
-<span id="cb8-2"><a href="getting-started-with-r.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Error: &#39;\U&#39; used without hex digits in character string starting &quot;&quot;C:\U&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="getting-started-with-r.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:\Users\myPC\Desktop\my_working_directory&quot;</span>)</span>
+<span id="cb12-2"><a href="getting-started-with-r.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Error: &#39;\U&#39; used without hex digits in character string starting &quot;&quot;C:\U&quot;</span></span></code></pre></div>
 <p>This indicates that the R is recognizing the <code>\</code> (backslashes) as part of regular expressions. To make it work, you will need to change such <code>\</code> character to <code>/</code> (forward slashes).</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="getting-started-with-r.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/myPC/Desktop/my_working_directory&quot;</span>)</span>
-<span id="cb9-2"><a href="getting-started-with-r.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb9-3"><a href="getting-started-with-r.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;C:/Users/myPC/Desktop/my_working_directory&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="getting-started-with-r.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/myPC/Desktop/my_working_directory&quot;</span>)</span>
+<span id="cb13-2"><a href="getting-started-with-r.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb13-3"><a href="getting-started-with-r.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;C:/Users/myPC/Desktop/my_working_directory&quot;</span></span></code></pre></div>
 <p>Other have reported is to use double backslashes <code>\\</code></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="getting-started-with-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">myPC</span><span class="sc">\\</span><span class="st">Desktop</span><span class="sc">\\</span><span class="st">my_working_directory&quot;</span>)</span>
-<span id="cb10-2"><a href="getting-started-with-r.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb10-3"><a href="getting-started-with-r.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;C:/Users/myPC/Desktop/my_working_directory&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="getting-started-with-r.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">myPC</span><span class="sc">\\</span><span class="st">Desktop</span><span class="sc">\\</span><span class="st">my_working_directory&quot;</span>)</span>
+<span id="cb14-2"><a href="getting-started-with-r.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb14-3"><a href="getting-started-with-r.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;C:/Users/myPC/Desktop/my_working_directory&quot;</span></span></code></pre></div>
 <p>This will indicate that you have successfully change the working directory.</p>
 
 </div>
@@ -688,7 +723,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-Getting-Started_v3.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-Getting-Started_v4.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -717,7 +752,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

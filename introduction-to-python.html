@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook</title>
   <meta name="description" content="none" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Session 14 – Introduction to Python | Bioinformatics Workshop Gitbook" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="none" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2024-04-17" />
+<meta name="date" content="2025-01-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="mining-from-a-reference-dataset.html"/>
 <link rel="next" href="python-keywords-and-identifiers.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -120,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -506,40 +509,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction-to-python" class="section level1" number="14">
-<h1><span class="header-section-number">Session 14</span> – Introduction to Python</h1>
-<div id="welcome-to-python-why-python" class="section level2" number="14.1">
-<h2><span class="header-section-number">14.1</span> Welcome to Python! Why Python?</h2>
+<div id="introduction-to-python" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">Session 14</span> – Introduction to Python<a href="introduction-to-python.html#introduction-to-python" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="welcome-to-python-why-python" class="section level2 hasAnchor" number="14.1">
+<h2><span class="header-section-number">14.1</span> Welcome to Python! Why Python?<a href="introduction-to-python.html#welcome-to-python-why-python" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank"><strong>Python</strong></a> is relatively easy to learn compared to most programming languages and is vastly popular among both programmers and employers. Code written in Python is universal among operating systems; allowing code to be carried between Windows, Mac and Linux without the need to re-write the code.</p>
 <p>Python code is quite minimalist compared to other languages, making reading and writing code quicker and easier. Even non-programmers are able to read Python code with little issue. Because there is less to type, it is subsequently easier to debug and maintain Python code.</p>
 <p>Lastly, Python is highly desirable throughout many fields of work. Popular applications of Python include, but are not limited to: web development, machine learning, data science, and analytics. The possibilities with Python are further broadened by its ability to incorporate other languages with easy. Imagine building the foundation of code in Python and utilize other languages like R and Java in places where they exceed Python’s capabilities.</p>
 <p>This Python section was adapted from <a href="https://www.techbeamers.com/python-tutorial-step-by-step/" target="_blank"><strong>techbeamers</strong></a> and <a href="https://www.learnpython.org/" target="_blank"><strong>learnpython</strong></a>.</p>
 </div>
-<div id="which-python-should-i-install" class="section level2" number="14.2">
-<h2><span class="header-section-number">14.2</span> Which Python should I install?</h2>
+<div id="which-python-should-i-install" class="section level2 hasAnchor" number="14.2">
+<h2><span class="header-section-number">14.2</span> Which Python should I install?<a href="introduction-to-python.html#which-python-should-i-install" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Python has releases dating to 1990 but it was first created in the 1980s. It has evolved over the past 40 years and big updates have greatly expanded Python’s utility and changed its syntax to become more user friendly. It is because of these big changes that we have a major divide between Python2 and Python3. Python2 includes any version conforming with the following structure: Python v2.x.x. Ideally you would install Python3 as it is the most recent version; however, there exists code that will only run on Python2 online. Python3 is not backwards compatible.</p>
 <p>Long story short, download both recent versions of Python2 and Python3, but we will use only Python3 in this course. If you encounter a program that operates in Python2 you can always use that version you installed to run it.</p>
 <p>We will install: Python v2.7.18 and Python v3.9.2.</p>
 </div>
-<div id="mac-os-x-python-installations" class="section level2" number="14.3">
-<h2><span class="header-section-number">14.3</span> Mac OS X Python Installations</h2>
+<div id="mac-os-x-python-installations" class="section level2 hasAnchor" number="14.3">
+<h2><span class="header-section-number">14.3</span> Mac OS X Python Installations<a href="introduction-to-python.html#mac-os-x-python-installations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Mac users may download python via its webpage:
 <a href="https://www.python.org/downloads/mac-osx/" class="uri">https://www.python.org/downloads/mac-osx/</a>
 Download both Python2 and Python3</p>
 <p>Or</p>
 <p>If you prefer to practice your command-line skills follow the steps below in terminal:</p>
 <p>Install HomeBrew</p>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="introduction-to-python.html#cb544-1" aria-hidden="true" tabindex="-1"></a>ruby <span class="sc">-</span>e <span class="st">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="introduction-to-python.html#cb548-1" aria-hidden="true" tabindex="-1"></a>ruby <span class="sc">-</span>e <span class="st">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span></span></code></pre></div>
 <p>Install Python</p>
-<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="introduction-to-python.html#cb545-1" aria-hidden="true" tabindex="-1"></a>brew install python2</span>
-<span id="cb545-2"><a href="introduction-to-python.html#cb545-2" aria-hidden="true" tabindex="-1"></a>brew install python3</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="introduction-to-python.html#cb549-1" aria-hidden="true" tabindex="-1"></a>brew install python2</span>
+<span id="cb549-2"><a href="introduction-to-python.html#cb549-2" aria-hidden="true" tabindex="-1"></a>brew install python3</span></code></pre></div>
 </div>
-<div id="windows-python-installations" class="section level2" number="14.4">
-<h2><span class="header-section-number">14.4</span> Windows Python Installations</h2>
+<div id="windows-python-installations" class="section level2 hasAnchor" number="14.4">
+<h2><span class="header-section-number">14.4</span> Windows Python Installations<a href="introduction-to-python.html#windows-python-installations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Windows users may download python via its <a href="https://www.python.org/downloads/windows/" target="_blank"><strong>webpage</strong></a>. Then, download both Python2 and Python3.</p>
 </div>
-<div id="install-an-ide-or-integrated-development-environment" class="section level2" number="14.5">
-<h2><span class="header-section-number">14.5</span> Install an IDE, or integrated development environment</h2>
+<div id="install-an-ide-or-integrated-development-environment" class="section level2 hasAnchor" number="14.5">
+<h2><span class="header-section-number">14.5</span> Install an IDE, or integrated development environment<a href="introduction-to-python.html#install-an-ide-or-integrated-development-environment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s also download PyCharm IDE form <a href="https://www.jetbrains.com/pycharm/download/#section=windows" target="_blank"><strong>here</strong></a>.</p>
 
 </div>
@@ -610,7 +613,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
