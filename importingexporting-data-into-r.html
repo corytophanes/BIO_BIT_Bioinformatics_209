@@ -23,7 +23,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2025-01-22" />
+<meta name="date" content="2025-01-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -463,9 +463,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="30.8" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#save-data-as-excel-formated-file"><i class="fa fa-check"></i><b>30.8</b> Save data as Excel formated file</a></li>
 <li class="chapter" data-level="30.9" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#fixing-problems-while-importing-datasets"><i class="fa fa-check"></i><b>30.9</b> Fixing problems while importing datasets</a></li>
 <li class="chapter" data-level="30.10" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#simplifying-embellished-excel-datasets"><i class="fa fa-check"></i><b>30.10</b> Simplifying embellished excel datasets</a></li>
-<li class="chapter" data-level="30.11" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#accessing-online-data"><i class="fa fa-check"></i><b>30.11</b> Accessing online data</a></li>
-<li class="chapter" data-level="30.12" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-from-clinicaltrials.gov"><i class="fa fa-check"></i><b>30.12</b> Data from clinicaltrials.gov</a></li>
-<li class="chapter" data-level="30.13" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#data-scrapping-from-a-website"><i class="fa fa-check"></i><b>30.13</b> Data scrapping from a website</a></li>
+<li class="chapter" data-level="30.11" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#accessing-online-data-dryad"><i class="fa fa-check"></i><b>30.11</b> Accessing online data: DRYAD</a></li>
+<li class="chapter" data-level="30.12" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#accessing-online-data-gene-expression-omnibus-ncbi-geo"><i class="fa fa-check"></i><b>30.12</b> Accessing online data: Gene Expression Omnibus (NCBI GEO)</a></li>
+<li class="chapter" data-level="30.13" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#accessing-online-data-clinicaltrials.gov"><i class="fa fa-check"></i><b>30.13</b> Accessing online data: clinicaltrials.gov</a></li>
+<li class="chapter" data-level="30.14" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#accessing-online-data-data-scrapping-from-a-website"><i class="fa fa-check"></i><b>30.14</b> Accessing online data: Data scrapping from a website</a></li>
 </ul></li>
 <li class="chapter" data-level="31" data-path="working-with-proteins.html"><a href="working-with-proteins.html"><i class="fa fa-check"></i><b>31</b> – Working with Proteins</a>
 <ul>
@@ -834,10 +835,10 @@ has moved to the next column (e.g., as in rows <code>3</code> and <code>5</code>
 <span id="cb656-17"><a href="importingexporting-data-into-r.html#cb656-17" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &quot;cars&quot;         &quot;Group_1_mpg&quot;  &quot;Group_1_cyl&quot;  &quot;Group_1_disp&quot; &quot;Group_1_hp&quot;   &quot;Group_1_drat&quot; &quot;Group_2_mpg&quot;  &quot;Group_2_wt&quot;   &quot;Group_2_qsec&quot; &quot;Group_2_vs&quot;   &quot;Group_2_am&quot;   &quot;Group_2_gear&quot;</span></span>
 <span id="cb656-18"><a href="importingexporting-data-into-r.html#cb656-18" aria-hidden="true" tabindex="-1"></a><span class="co">#[13] &quot;Group_2_carb&quot;</span></span></code></pre></div>
 </div>
-<div id="accessing-online-data" class="section level2 hasAnchor" number="30.11">
-<h2><span class="header-section-number">30.11</span> Accessing online data<a href="importingexporting-data-into-r.html#accessing-online-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>You might want to access data for your own research, data comparisons with previous published studies, and/or complement your own datasets and projects. This can be done using and accessing several online databases. One of the most important is <a href="https://datadryad.org/stash" target="_blank"><strong>DRYAD</strong></a>. From their website, Dryad Digital Repository mission is to serve as an indefinity repository of curated (i.e., revised) digital resources that makes published data discoverable, freely reusable, and citable. Therefore, these data can then be re-used to create new knowledge. Dryad is an initiative &gt;300 journals and scientific societies that adopted a joint data archiving policy (JDAP) for their publications, and their recognition that open data, easy-to-use, not-for-profit, community-governed data infrastructure is fundamental to maintain such digital resources. Dryad stores mostly biological and medical data used in peer-reviewed journals.</p>
-<p>To access Dryad, you can first determine if the article of interest has archived data in this repository. We will use this article that you can access from <strong>PubMed</strong>:</p>
+<div id="accessing-online-data-dryad" class="section level2 hasAnchor" number="30.11">
+<h2><span class="header-section-number">30.11</span> Accessing online data: DRYAD<a href="importingexporting-data-into-r.html#accessing-online-data-dryad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You might want to access data for your own research, data comparisons with previous published studies, and/or complement your own datasets and projects. This can be done using and accessing several online databases. One of the most important is <a href="https://datadryad.org/stash" target="_blank"><strong>DRYAD</strong></a>. From their website, Dryad Digital Repository mission is to serve as an indefinity repository of curated (i.e., revised) digital resources that makes published data discoverable, freely reusable, and citable. Therefore, these data can then be re-used to create new knowledge. <a href="https://datadryad.org/stash" target="_blank"><strong>DRYAD</strong></a> is an initiative &gt;300 journals and scientific societies that adopted a joint data archiving policy (JDAP) for their publications, and their recognition that open data, easy-to-use, not-for-profit, community-governed data infrastructure is fundamental to maintain such digital resources. Dryad stores mostly biological and medical data used in peer-reviewed journals.</p>
+<p>To access <a href="https://datadryad.org/stash" target="_blank"><strong>DRYAD</strong></a>, you can first determine if the article of interest has archived data in this repository. We will use this article that you can access from <a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank"><strong>PubMed</strong></a>:</p>
 <p><strong>Allen, R. C., Angst, D. C., &amp; Hall, A. R. (2019). Resistance Gene Carriage Predicts Growth of Natural and Clinical Escherichia coli Isolates in the Absence of Antibiotics. Applied and environmental microbiology, 85(4), e02111-18.</strong> <a href="https://doi.org/10.1128/AEM.02111-18" target="_blank">https://doi.org/10.1128/AEM.02111-18</a></p>
 <p><strong>1)</strong> For this example, we find the digital article by searching <a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank"><strong>PubMed</strong></a>. The results show that it can be accessed by a <a href="https://pubmed.ncbi.nlm.nih.gov/30530714/" target="_blank"><strong>PubMed link</strong></a> or by a <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6365833/" target="_blank"><strong>PMC link</strong></a>.</p>
 <p><img src="figures/session_14_figs/1_article_in_PMC.png" width="100%" /></p>
@@ -847,12 +848,12 @@ has moved to the next column (e.g., as in rows <code>3</code> and <code>5</code>
 <img src="figures/session_14_figs/3_dryad_intro.png" width="100%" /></p>
 <p><strong>4)</strong> If associated data files exist for this paper, you will see how many entries are associated to the paper title. In this case, only one exists and you can click on such link.</p>
 <p><img src="figures/session_14_figs/4_dryad_example_1.png" width="100%" /></p>
-<p><strong>5)</strong> In the webpage associated with the data, you will see a title like <strong>Data from:…</strong>, a summary/abstract of the paper, and a link to the <strong>Data Files</strong> with a tab to <strong>Download dataset</strong>. You can click on the latter to get the associated zip file.</p>
+<p><strong>5)</strong> In the webpage associated with the data, you will see a title like <strong>Data from:…</strong>, a summary/abstract of the paper, and a link to the <strong>Data Files</strong> with a tab to <strong>Download dataset</strong>. You can click on the latter to get the associated zip file. For reference, the link for this datset in the DRYAD for this paper is in <a href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.d0q331t"><strong>here</strong></a>.</p>
 <p><img src="figures/session_14_figs/5_dryad_example_2.png" width="100%" /></p>
 <p><strong>6)</strong> The associated data is in a compressed file called <code>doi_10.5061_dryad.d0q331t__v1.zip</code>. After uncompressing this file, you can identify several archives and folders that include a <code>Readme.txt</code> with explanation of the contents of each data file with a <code>*.csv</code> extension.</p>
 <p><img src="figures/session_14_figs/6_dryad_example_3.png" width="100%" /></p>
 <p>I added these files to the <a href="https://github.com/corytophanes/BIO_BIT_Bioinformatics_209/tree/main/ref_files_pdfs" target="_blank"><strong>LINK TO FILES of BIO/BIT 209</strong></a>.</p>
-<p><strong>7)</strong> After downloading, you can explore those files in a text editor and they can be easily imported into R or excel. For reference, we can import two of these datasets (<code>ARG_Raw.csv</code> and <code>Growth_Curves.csv</code>) as explained in section <strong>2.6 Importing and exporting data</strong>.</p>
+<p><strong>7)</strong> After downloading, you can explore those files in a text editor and they can be easily imported into R or excel. For reference, we can import two of these datasets (<code>ARG_Raw.csv</code> and <code>Growth_Curves.csv</code>) as explained above.</p>
 <p>We can start with <code>ARG_Raw.csv</code></p>
 <div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="importingexporting-data-into-r.html#cb657-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We start by readinf the metadata about such file in the text of README_for_Data_Files.txt. </span></span>
 <span id="cb657-2"><a href="importingexporting-data-into-r.html#cb657-2" aria-hidden="true" tabindex="-1"></a><span class="do">## We found the following:</span></span>
@@ -975,7 +976,7 @@ has moved to the next column (e.g., as in rows <code>3</code> and <code>5</code>
 <span id="cb657-119"><a href="importingexporting-data-into-r.html#cb657-119" aria-hidden="true" tabindex="-1"></a><span class="do">## and it is ready for our use in your analyses</span></span>
 <span id="cb657-120"><a href="importingexporting-data-into-r.html#cb657-120" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(ARG_Raw_modified_Allen_etal_2019_df)</span>
 <span id="cb657-121"><a href="importingexporting-data-into-r.html#cb657-121" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 230  14</span></span></code></pre></div>
-<p>Now, we import the next file <code>Growth_Curves.csv</code>. We follow the similar procedure as explained in section <strong>2.6 Importing and exporting data</strong>.</p>
+<p>Now, we import the next file <code>Growth_Curves.csv</code>. We follow the similar procedure as explained above.</p>
 <div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb658-1"><a href="importingexporting-data-into-r.html#cb658-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We start by readinf the metadata about such file in the text of README_for_Data_Files.txt. </span></span>
 <span id="cb658-2"><a href="importingexporting-data-into-r.html#cb658-2" aria-hidden="true" tabindex="-1"></a><span class="do">## We found the following:</span></span>
 <span id="cb658-3"><a href="importingexporting-data-into-r.html#cb658-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1045,8 +1046,57 @@ has moved to the next column (e.g., as in rows <code>3</code> and <code>5</code>
 <span id="cb658-67"><a href="importingexporting-data-into-r.html#cb658-67" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Growth_Curves_Allen_etal_2019_df)</span>
 <span id="cb658-68"><a href="importingexporting-data-into-r.html#cb658-68" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 45756     8</span></span></code></pre></div>
 </div>
-<div id="data-from-clinicaltrials.gov" class="section level2 hasAnchor" number="30.12">
-<h2><span class="header-section-number">30.12</span> Data from clinicaltrials.gov<a href="importingexporting-data-into-r.html#data-from-clinicaltrials.gov" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="accessing-online-data-gene-expression-omnibus-ncbi-geo" class="section level2 hasAnchor" number="30.12">
+<h2><span class="header-section-number">30.12</span> Accessing online data: Gene Expression Omnibus (NCBI GEO)<a href="importingexporting-data-into-r.html#accessing-online-data-gene-expression-omnibus-ncbi-geo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Gene Expression Omnibus (GEO) <a href="https://www.ncbi.nlm.nih.gov/geo/" target="_blank"><strong>NCBI GEO</strong></a> is a public database of gene expression and functional genomics data that is relevant for biomedical research and drug discovery. The data relevant to functional genomics data such as gene expression profiles can be accessed in the <a href="https://www.ncbi.nlm.nih.gov/gds/" target="_blank"><strong>NCBI GEO DataSets</strong></a>. These public datasets include a diversity of data collections from microarrays, transcriptomics, epigenomics, and proteomics experiments. Many dataset are standard text files (tab-delimited, or comma-delimited) that you can download and import in R as described above.</p>
+<p><img src="figures/session_14_figs/20_ncbi_geo.png" width="100%" /></p>
+<p>You can search <a href="https://www.ncbi.nlm.nih.gov/gds/" target="_blank"><strong>NCBI GEO DataSets</strong></a> results based on keywords such as species, gene names, conditions, study types, or diverse filtering schemes. For more information on these see <a href="https://www.ncbi.nlm.nih.gov/geo/info/qqtutorial.html" target="_blank"><strong>GEO DataSets Query Examples</strong></a>.</p>
+<p>For this example, I searched <strong>regeneration AND salamander</strong> and resulted in 2148 studies.</p>
+<p><img src="figures/session_14_figs/21_ncbi_geo_res1.png" width="100%" /></p>
+<p>I explored the first entry corresponding to this <a href="https://pubmed.ncbi.nlm.nih.gov/39575453/" target="_blank"><strong>study</strong></a>. The NCBI GEO included a detailed description of expression profiling experiments in the axolotl salamander <a href="https://en.wikipedia.org/wiki/Axolotl" target="_blank"><strong>Ambystoma mexicanum</strong></a>.
+Including <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE237864" target="_blank"><strong>GEO accession</strong></a>, title, organism, experiment type, summary, overall design,</p>
+<p><img src="figures/session_14_figs/22_ncbi_geo_res2.png" width="100%" /></p>
+<p>contributors, citation, a submission descriptive, relationships with other NCBI submissions,</p>
+<p><img src="figures/session_14_figs/23_ncbi_geo_res3.png" width="100%" /></p>
+<p>and the files that can be download from the <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE237864" target="_blank"><strong>GEO accession</strong></a> submission such as the <code>GSE237864_count_matrix.txt.gz</code> that contain the NGS read counts used for differential gene expression analysis.</p>
+<p><img src="figures/session_14_figs/24_ncbi_geo_res4.png" width="100%" /></p>
+<p>I added this file uncompressed to the <a href="https://github.com/corytophanes/BIO_BIT_Bioinformatics_209/tree/main/ref_files_pdfs" target="_blank"><strong>LINK TO FILES of BIO/BIT 209</strong></a>. For reference, we can import this dataset as explained above.</p>
+<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb659-1"><a href="importingexporting-data-into-r.html#cb659-1" aria-hidden="true" tabindex="-1"></a>Salamander_Moral_Morales_etal_2024_df <span class="ot">&lt;-</span> <span class="fu">read.table</span> (<span class="at">file =</span> <span class="st">&quot;~/Desktop/Teach_R/class_datasets/GSE237864_count_matrix.txt&quot;</span>, </span>
+<span id="cb659-2"><a href="importingexporting-data-into-r.html#cb659-2" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">header =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb659-3"><a href="importingexporting-data-into-r.html#cb659-3" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb659-4"><a href="importingexporting-data-into-r.html#cb659-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb659-5"><a href="importingexporting-data-into-r.html#cb659-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb659-6"><a href="importingexporting-data-into-r.html#cb659-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb659-7"><a href="importingexporting-data-into-r.html#cb659-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Salamander_Moral_Morales_etal_2024_df)</span>
+<span id="cb659-8"><a href="importingexporting-data-into-r.html#cb659-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   ensembl_gene_id_version X18134R.126.01 X18134R.126.02 X18134R.126.03 X18134R.126.04 X18134R.126.05 X18134R.126.06 X18134R.126.07</span></span>
+<span id="cb659-9"><a href="importingexporting-data-into-r.html#cb659-9" aria-hidden="true" tabindex="-1"></a><span class="co">#1          AMEX60DD000001              2              0              8              1              0              3              0</span></span>
+<span id="cb659-10"><a href="importingexporting-data-into-r.html#cb659-10" aria-hidden="true" tabindex="-1"></a><span class="co">#2          AMEX60DD000002              8             14              2              4              2              3              5</span></span>
+<span id="cb659-11"><a href="importingexporting-data-into-r.html#cb659-11" aria-hidden="true" tabindex="-1"></a><span class="co">#3          AMEX60DD000003             88            123             99             53             59            176            121</span></span>
+<span id="cb659-12"><a href="importingexporting-data-into-r.html#cb659-12" aria-hidden="true" tabindex="-1"></a><span class="co">#4          AMEX60DD000004             22             80             27             34             28             45             65</span></span>
+<span id="cb659-13"><a href="importingexporting-data-into-r.html#cb659-13" aria-hidden="true" tabindex="-1"></a><span class="co">#5          AMEX60DD000005             11              2              0             11              1              4             10</span></span>
+<span id="cb659-14"><a href="importingexporting-data-into-r.html#cb659-14" aria-hidden="true" tabindex="-1"></a><span class="co">#6          AMEX60DD000006              2              8              2              3              3              8              2</span></span>
+<span id="cb659-15"><a href="importingexporting-data-into-r.html#cb659-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb659-16"><a href="importingexporting-data-into-r.html#cb659-16" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Salamander_Moral_Morales_etal_2024_df)</span>
+<span id="cb659-17"><a href="importingexporting-data-into-r.html#cb659-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;&#39;data.frame&#39;: 99088 obs. of  13 variables:</span></span>
+<span id="cb659-18"><a href="importingexporting-data-into-r.html#cb659-18" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ensembl_gene_id_version: chr  &quot;AMEX60DD000001&quot; &quot;AMEX60DD000002&quot; &quot;AMEX60DD000003&quot; &quot;AMEX60DD000004&quot; ...</span></span>
+<span id="cb659-19"><a href="importingexporting-data-into-r.html#cb659-19" aria-hidden="true" tabindex="-1"></a><span class="co"># $ X18134R.126.01         : int  2 8 88 22 11 2 0 213 0 0 ...</span></span>
+<span id="cb659-20"><a href="importingexporting-data-into-r.html#cb659-20" aria-hidden="true" tabindex="-1"></a><span class="co"># $ X18134R.126.02         : int  0 14 123 80 2 8 0 156 0 0 ...</span></span>
+<span id="cb659-21"><a href="importingexporting-data-into-r.html#cb659-21" aria-hidden="true" tabindex="-1"></a><span class="co"># $ X18134R.126.03         : int  8 2 99 27 0 2 0 276 0 0 ...</span></span>
+<span id="cb659-22"><a href="importingexporting-data-into-r.html#cb659-22" aria-hidden="true" tabindex="-1"></a><span class="co"># $ X18134R.126.04         : int  1 4 53 34 11 3 0 63 1 0 ...</span></span>
+<span id="cb659-23"><a href="importingexporting-data-into-r.html#cb659-23" aria-hidden="true" tabindex="-1"></a><span class="co"># $ X18134R.126.05         : int  0 2 59 28 1 3 0 63 0 0 ...</span></span>
+<span id="cb659-24"><a href="importingexporting-data-into-r.html#cb659-24" aria-hidden="true" tabindex="-1"></a><span class="co"># $ X18134R.126.06         : int  3 3 176 45 4 8 0 116 0 0 ...</span></span>
+<span id="cb659-25"><a href="importingexporting-data-into-r.html#cb659-25" aria-hidden="true" tabindex="-1"></a><span class="co"># $ X18134R.126.07         : int  0 5 121 65 10 2 0 75 0 0 ...</span></span>
+<span id="cb659-26"><a href="importingexporting-data-into-r.html#cb659-26" aria-hidden="true" tabindex="-1"></a><span class="co"># $ X18134R.126.08         : int  1 4 85 54 7 0 0 122 0 0 ...</span></span>
+<span id="cb659-27"><a href="importingexporting-data-into-r.html#cb659-27" aria-hidden="true" tabindex="-1"></a><span class="co"># $ X18134R.126.09         : int  4 26 164 65 12 6 0 165 0 0 ...</span></span>
+<span id="cb659-28"><a href="importingexporting-data-into-r.html#cb659-28" aria-hidden="true" tabindex="-1"></a><span class="co"># $ X18134R.126.10         : int  6 5 127 41 0 0 0 133 0 0 ...</span></span>
+<span id="cb659-29"><a href="importingexporting-data-into-r.html#cb659-29" aria-hidden="true" tabindex="-1"></a><span class="co"># $ X18134R.126.11         : int  2 20 176 63 9 7 0 195 0 0 ...</span></span>
+<span id="cb659-30"><a href="importingexporting-data-into-r.html#cb659-30" aria-hidden="true" tabindex="-1"></a><span class="co"># $ X18134R.126.12         : int  3 3 73 46 5 4 0 164 0 0 ...</span></span>
+<span id="cb659-31"><a href="importingexporting-data-into-r.html#cb659-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb659-32"><a href="importingexporting-data-into-r.html#cb659-32" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Salamander_Moral_Morales_etal_2024_df)</span>
+<span id="cb659-33"><a href="importingexporting-data-into-r.html#cb659-33" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 99088    13</span></span></code></pre></div>
+</div>
+<div id="accessing-online-data-clinicaltrials.gov" class="section level2 hasAnchor" number="30.13">
+<h2><span class="header-section-number">30.13</span> Accessing online data: clinicaltrials.gov<a href="importingexporting-data-into-r.html#accessing-online-data-clinicaltrials.gov" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Sometimes you have data that is published in a website and you want to extract some for your analyses. For example,
 <a href="https://clinicaltrials.gov/" target="_blank"><strong>NCBI Clinical Trials</strong></a> is an online registry and repository database
 of research studies conducted in the United States and around the world about treatments, diseases, and others.</p>
@@ -1059,80 +1109,80 @@ of research studies conducted in the United States and around the world about tr
 <p><img src="figures/session_14_figs/14_asthma_page3.png" width="100%" /></p>
 <p>On this page, you can click on the <strong>Study Results</strong> tab and you can access the tabular results of this study. You could click on Beta.ClinicalTrials.gov tab for an alternative format view of these results.</p>
 <p><img src="figures/session_14_figs/15_asthma_page4.png" width="100%" /></p>
-<p>I could not find a easy way to get the results as tables other than copy such summary tables in text editor. More in the future.</p>
+<p><strong>Note:</strong> I could not find a easy way to get the results as tables other than copy such summary tables in text editor. More in the future.</p>
 </div>
-<div id="data-scrapping-from-a-website" class="section level2 hasAnchor" number="30.13">
-<h2><span class="header-section-number">30.13</span> Data scrapping from a website<a href="importingexporting-data-into-r.html#data-scrapping-from-a-website" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="accessing-online-data-data-scrapping-from-a-website" class="section level2 hasAnchor" number="30.14">
+<h2><span class="header-section-number">30.14</span> Accessing online data: Data scrapping from a website<a href="importingexporting-data-into-r.html#accessing-online-data-data-scrapping-from-a-website" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You can force text scraping from a website (e.g., the clinical trial results), but will require that you do the cleaning and selection of the data.
 One useful R-package is <a href="https://cran.r-project.org/web/packages/rvest/index.html" target="_blank"><strong>rvest</strong></a> for an easy harvest (scrape) of web pages.
 You can read the <a href="https://cran.r-project.org/web/packages/rvest/vignettes/rvest.html" target="_blank"><strong>rvest vignette</strong></a>.</p>
 <p>A simple scrapping for a not a very complicated webpage.</p>
-<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb659-1"><a href="importingexporting-data-into-r.html#cb659-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load rvest</span></span>
-<span id="cb659-2"><a href="importingexporting-data-into-r.html#cb659-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rvest&quot;</span>)</span>
-<span id="cb659-3"><a href="importingexporting-data-into-r.html#cb659-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (rvest)</span>
-<span id="cb659-4"><a href="importingexporting-data-into-r.html#cb659-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb659-5"><a href="importingexporting-data-into-r.html#cb659-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Change to working directory</span></span>
-<span id="cb659-6"><a href="importingexporting-data-into-r.html#cb659-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb659-7"><a href="importingexporting-data-into-r.html#cb659-7" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/Some_directoty&quot;</span>)</span>
-<span id="cb659-8"><a href="importingexporting-data-into-r.html#cb659-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb659-9"><a href="importingexporting-data-into-r.html#cb659-9" aria-hidden="true" tabindex="-1"></a><span class="co"># create an vector with web address </span></span>
-<span id="cb659-10"><a href="importingexporting-data-into-r.html#cb659-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb659-11"><a href="importingexporting-data-into-r.html#cb659-11" aria-hidden="true" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://www.stjohns.edu/academics/office-registrar/academic-calendar/final-exam-schedule&quot;</span>)</span>
-<span id="cb659-12"><a href="importingexporting-data-into-r.html#cb659-12" aria-hidden="true" tabindex="-1"></a>html</span>
-<span id="cb659-13"><a href="importingexporting-data-into-r.html#cb659-13" aria-hidden="true" tabindex="-1"></a><span class="co">#{{html_document}</span></span>
-<span id="cb659-14"><a href="importingexporting-data-into-r.html#cb659-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot; prefix=&quot;content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# &quot;&gt;</span></span>
-<span id="cb659-15"><a href="importingexporting-data-into-r.html#cb659-15" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &lt;head&gt;\n&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;\n&lt;meta charset=&quot;utf-8&quot;&gt;\n&lt;script type=&quot;text/javascript&quot;&gt;(window.NREUM|| ...</span></span>
-<span id="cb659-16"><a href="importingexporting-data-into-r.html#cb659-16" aria-hidden="true" tabindex="-1"></a><span class="co">#[2] &lt;body&gt;\n    &lt;!-- Google Tag Manager --&gt;\n    &lt;noscript&gt;&lt;iframe src=&quot;//www.googletagmanager.com/ns.html?id=GTM-5STJNB&quot; height=&quot;0&quot; width=&quot;0&quot; style=&quot;d ...</span></span>
-<span id="cb659-17"><a href="importingexporting-data-into-r.html#cb659-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb659-18"><a href="importingexporting-data-into-r.html#cb659-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Get dates as table</span></span>
-<span id="cb659-19"><a href="importingexporting-data-into-r.html#cb659-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb659-20"><a href="importingexporting-data-into-r.html#cb659-20" aria-hidden="true" tabindex="-1"></a>exams_table <span class="ot">&lt;-</span> <span class="fu">html_node</span>(html , <span class="st">&quot;table&quot;</span>)</span>
-<span id="cb659-21"><a href="importingexporting-data-into-r.html#cb659-21" aria-hidden="true" tabindex="-1"></a>exams_table_tibble <span class="ot">&lt;-</span> <span class="fu">html_table</span>(exams_table)</span>
-<span id="cb659-22"><a href="importingexporting-data-into-r.html#cb659-22" aria-hidden="true" tabindex="-1"></a>exams_table_tibble</span>
-<span id="cb659-23"><a href="importingexporting-data-into-r.html#cb659-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb659-24"><a href="importingexporting-data-into-r.html#cb659-24" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 31 × 4</span></span>
-<span id="cb659-25"><a href="importingexporting-data-into-r.html#cb659-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   `Class Meeting` Time                   `Final Exam/Final Class` Time                  </span></span>
-<span id="cb659-26"><a href="importingexporting-data-into-r.html#cb659-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;chr&gt;           &lt;chr&gt;                  &lt;chr&gt;                    &lt;chr&gt;                 </span></span>
-<span id="cb659-27"><a href="importingexporting-data-into-r.html#cb659-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 &quot;Days&quot;          &quot;Time&quot;                 &quot;Date&quot;                   &quot;Time&quot;                </span></span>
-<span id="cb659-28"><a href="importingexporting-data-into-r.html#cb659-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 &quot;M-R&quot;           &quot;9:05 a.m.-10:30 a.m.&quot; &quot;May 4 (R)&quot;              &quot;9:05 a.m.-11:05 a.m.&quot;</span></span>
-<span id="cb659-29"><a href="importingexporting-data-into-r.html#cb659-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 &quot;M-R&quot;           &quot;12:15 p.m.-1:40 p.m.&quot; &quot;May 4 (R)&quot;              &quot;12:15 p.m.-2:15 p.m.&quot;</span></span>
-<span id="cb659-30"><a href="importingexporting-data-into-r.html#cb659-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 &quot;M-R&quot;           &quot;5:00 p.m.-6:25 p.m.&quot;  &quot;May 4 (R)&quot;              &quot;5:00 p.m.-7:00 p.m.&quot; </span></span>
-<span id="cb659-31"><a href="importingexporting-data-into-r.html#cb659-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 &quot;M-R&quot;           &quot;8:45 p.m.-10:10 p.m.&quot; &quot;May 4 (R)&quot;              &quot;8:45 p.m.-10:45 p.m.&quot;</span></span>
-<span id="cb659-32"><a href="importingexporting-data-into-r.html#cb659-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 6 &quot;&quot;              &quot;&quot;                     &quot;&quot;                       &quot;&quot;                    </span></span>
-<span id="cb659-33"><a href="importingexporting-data-into-r.html#cb659-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 7 &quot;T-F&quot;           &quot;9:05 a.m.-10:30 a.m.&quot; &quot;May 5 (F)&quot;              &quot;9:05 a.m.-11:05 a.m.&quot;</span></span>
-<span id="cb659-34"><a href="importingexporting-data-into-r.html#cb659-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 8 &quot;T-F&quot;           &quot;12:15 p.m.-1:40 p.m.&quot; &quot;May 5 (F)&quot;              &quot;12:15 p.m.-2:15 p.m.&quot;</span></span>
-<span id="cb659-35"><a href="importingexporting-data-into-r.html#cb659-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 9 &quot;T-F&quot;           &quot;3:25 p.m.-4:50 p.m.&quot;  &quot;May 5 (F)&quot;              &quot;3:25 p.m.-5:25 p.m.&quot; </span></span>
-<span id="cb659-36"><a href="importingexporting-data-into-r.html#cb659-36" aria-hidden="true" tabindex="-1"></a><span class="co">#10 &quot;T-F&quot;           &quot;7:10 p.m.-8:35 p.m.&quot;  &quot;May 5 (F)&quot;              &quot;7:10 p.m.-9:10 p.m.&quot; </span></span>
-<span id="cb659-37"><a href="importingexporting-data-into-r.html#cb659-37" aria-hidden="true" tabindex="-1"></a><span class="co"># … with 21 more rows</span></span>
-<span id="cb659-38"><a href="importingexporting-data-into-r.html#cb659-38" aria-hidden="true" tabindex="-1"></a><span class="co"># ℹ Use `print(n = ...)` to see more rows</span></span>
-<span id="cb659-39"><a href="importingexporting-data-into-r.html#cb659-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb659-40"><a href="importingexporting-data-into-r.html#cb659-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb659-41"><a href="importingexporting-data-into-r.html#cb659-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Write such table in a text file in your working directory</span></span>
-<span id="cb659-42"><a href="importingexporting-data-into-r.html#cb659-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb659-43"><a href="importingexporting-data-into-r.html#cb659-43" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(exams_table_tibble, <span class="st">&quot;sju_academic_calendar_scrap.csv&quot;</span>)</span>
-<span id="cb659-44"><a href="importingexporting-data-into-r.html#cb659-44" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(exams_table_tibble, <span class="st">&quot;sju_academic_calendar_scrap.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
-<p>A scrapping from more complex web pages will require you to work on the text data derived from it.</p>
-<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="importingexporting-data-into-r.html#cb660-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change to working directory</span></span>
-<span id="cb660-2"><a href="importingexporting-data-into-r.html#cb660-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb660-3"><a href="importingexporting-data-into-r.html#cb660-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/Some_directoty&quot;</span>)</span>
+<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="importingexporting-data-into-r.html#cb660-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load rvest</span></span>
+<span id="cb660-2"><a href="importingexporting-data-into-r.html#cb660-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rvest&quot;</span>)</span>
+<span id="cb660-3"><a href="importingexporting-data-into-r.html#cb660-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (rvest)</span>
 <span id="cb660-4"><a href="importingexporting-data-into-r.html#cb660-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb660-5"><a href="importingexporting-data-into-r.html#cb660-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an vector with web address (for example a clinical trial results)</span></span>
+<span id="cb660-5"><a href="importingexporting-data-into-r.html#cb660-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Change to working directory</span></span>
 <span id="cb660-6"><a href="importingexporting-data-into-r.html#cb660-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb660-7"><a href="importingexporting-data-into-r.html#cb660-7" aria-hidden="true" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://clinicaltrials.gov/ct2/show/results/NCT02414854?cond=Asthma&amp;cntry=US&amp;state=US%3ANY&amp;city=Jamaica&amp;draw=2&amp;rank=1&quot;</span>)</span>
-<span id="cb660-8"><a href="importingexporting-data-into-r.html#cb660-8" aria-hidden="true" tabindex="-1"></a>html</span>
-<span id="cb660-9"><a href="importingexporting-data-into-r.html#cb660-9" aria-hidden="true" tabindex="-1"></a><span class="co">#{html_document}</span></span>
-<span id="cb660-10"><a href="importingexporting-data-into-r.html#cb660-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;html xmlns=&quot;https://www.w3.org/1999/xhtml&quot; lang=&quot;en&quot;&gt;</span></span>
-<span id="cb660-11"><a href="importingexporting-data-into-r.html#cb660-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &lt;head&gt;\n&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;\n&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;\n&lt;meta http-equ ...</span></span>
-<span id="cb660-12"><a href="importingexporting-data-into-r.html#cb660-12" aria-hidden="true" tabindex="-1"></a><span class="co">#[2] &lt;body&gt; \n&lt;script type=&quot;text/javascript&quot;&gt;\n    jQuery.getScript(&quot;https://www.ncbi.nlm.nih.gov/core/alerts/alerts.js&quot;, function () {\n      galert([&#39; ...</span></span>
-<span id="cb660-13"><a href="importingexporting-data-into-r.html#cb660-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb660-14"><a href="importingexporting-data-into-r.html#cb660-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Get all the text in a vector</span></span>
-<span id="cb660-15"><a href="importingexporting-data-into-r.html#cb660-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb660-16"><a href="importingexporting-data-into-r.html#cb660-16" aria-hidden="true" tabindex="-1"></a>text_on_webpage <span class="ot">&lt;-</span> <span class="fu">html_text</span>(html)</span>
-<span id="cb660-17"><a href="importingexporting-data-into-r.html#cb660-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(text_on_webpage)</span>
-<span id="cb660-18"><a href="importingexporting-data-into-r.html#cb660-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb660-19"><a href="importingexporting-data-into-r.html#cb660-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Write such vector in a text file in your working directory</span></span>
-<span id="cb660-20"><a href="importingexporting-data-into-r.html#cb660-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb660-21"><a href="importingexporting-data-into-r.html#cb660-21" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(text_on_webpage, <span class="st">&quot;text_on_webapge.txt&quot;</span>)</span></code></pre></div>
+<span id="cb660-7"><a href="importingexporting-data-into-r.html#cb660-7" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/Some_directoty&quot;</span>)</span>
+<span id="cb660-8"><a href="importingexporting-data-into-r.html#cb660-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb660-9"><a href="importingexporting-data-into-r.html#cb660-9" aria-hidden="true" tabindex="-1"></a><span class="co"># create an vector with web address </span></span>
+<span id="cb660-10"><a href="importingexporting-data-into-r.html#cb660-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb660-11"><a href="importingexporting-data-into-r.html#cb660-11" aria-hidden="true" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://www.stjohns.edu/academics/office-registrar/academic-calendar/final-exam-schedule&quot;</span>)</span>
+<span id="cb660-12"><a href="importingexporting-data-into-r.html#cb660-12" aria-hidden="true" tabindex="-1"></a>html</span>
+<span id="cb660-13"><a href="importingexporting-data-into-r.html#cb660-13" aria-hidden="true" tabindex="-1"></a><span class="co">#{{html_document}</span></span>
+<span id="cb660-14"><a href="importingexporting-data-into-r.html#cb660-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot; prefix=&quot;content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# &quot;&gt;</span></span>
+<span id="cb660-15"><a href="importingexporting-data-into-r.html#cb660-15" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &lt;head&gt;\n&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;\n&lt;meta charset=&quot;utf-8&quot;&gt;\n&lt;script type=&quot;text/javascript&quot;&gt;(window.NREUM|| ...</span></span>
+<span id="cb660-16"><a href="importingexporting-data-into-r.html#cb660-16" aria-hidden="true" tabindex="-1"></a><span class="co">#[2] &lt;body&gt;\n    &lt;!-- Google Tag Manager --&gt;\n    &lt;noscript&gt;&lt;iframe src=&quot;//www.googletagmanager.com/ns.html?id=GTM-5STJNB&quot; height=&quot;0&quot; width=&quot;0&quot; style=&quot;d ...</span></span>
+<span id="cb660-17"><a href="importingexporting-data-into-r.html#cb660-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb660-18"><a href="importingexporting-data-into-r.html#cb660-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Get dates as table</span></span>
+<span id="cb660-19"><a href="importingexporting-data-into-r.html#cb660-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb660-20"><a href="importingexporting-data-into-r.html#cb660-20" aria-hidden="true" tabindex="-1"></a>exams_table <span class="ot">&lt;-</span> <span class="fu">html_node</span>(html , <span class="st">&quot;table&quot;</span>)</span>
+<span id="cb660-21"><a href="importingexporting-data-into-r.html#cb660-21" aria-hidden="true" tabindex="-1"></a>exams_table_tibble <span class="ot">&lt;-</span> <span class="fu">html_table</span>(exams_table)</span>
+<span id="cb660-22"><a href="importingexporting-data-into-r.html#cb660-22" aria-hidden="true" tabindex="-1"></a>exams_table_tibble</span>
+<span id="cb660-23"><a href="importingexporting-data-into-r.html#cb660-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb660-24"><a href="importingexporting-data-into-r.html#cb660-24" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 31 × 4</span></span>
+<span id="cb660-25"><a href="importingexporting-data-into-r.html#cb660-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   `Class Meeting` Time                   `Final Exam/Final Class` Time                  </span></span>
+<span id="cb660-26"><a href="importingexporting-data-into-r.html#cb660-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;chr&gt;           &lt;chr&gt;                  &lt;chr&gt;                    &lt;chr&gt;                 </span></span>
+<span id="cb660-27"><a href="importingexporting-data-into-r.html#cb660-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 &quot;Days&quot;          &quot;Time&quot;                 &quot;Date&quot;                   &quot;Time&quot;                </span></span>
+<span id="cb660-28"><a href="importingexporting-data-into-r.html#cb660-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 &quot;M-R&quot;           &quot;9:05 a.m.-10:30 a.m.&quot; &quot;May 4 (R)&quot;              &quot;9:05 a.m.-11:05 a.m.&quot;</span></span>
+<span id="cb660-29"><a href="importingexporting-data-into-r.html#cb660-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 &quot;M-R&quot;           &quot;12:15 p.m.-1:40 p.m.&quot; &quot;May 4 (R)&quot;              &quot;12:15 p.m.-2:15 p.m.&quot;</span></span>
+<span id="cb660-30"><a href="importingexporting-data-into-r.html#cb660-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 &quot;M-R&quot;           &quot;5:00 p.m.-6:25 p.m.&quot;  &quot;May 4 (R)&quot;              &quot;5:00 p.m.-7:00 p.m.&quot; </span></span>
+<span id="cb660-31"><a href="importingexporting-data-into-r.html#cb660-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 &quot;M-R&quot;           &quot;8:45 p.m.-10:10 p.m.&quot; &quot;May 4 (R)&quot;              &quot;8:45 p.m.-10:45 p.m.&quot;</span></span>
+<span id="cb660-32"><a href="importingexporting-data-into-r.html#cb660-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 6 &quot;&quot;              &quot;&quot;                     &quot;&quot;                       &quot;&quot;                    </span></span>
+<span id="cb660-33"><a href="importingexporting-data-into-r.html#cb660-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 7 &quot;T-F&quot;           &quot;9:05 a.m.-10:30 a.m.&quot; &quot;May 5 (F)&quot;              &quot;9:05 a.m.-11:05 a.m.&quot;</span></span>
+<span id="cb660-34"><a href="importingexporting-data-into-r.html#cb660-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 8 &quot;T-F&quot;           &quot;12:15 p.m.-1:40 p.m.&quot; &quot;May 5 (F)&quot;              &quot;12:15 p.m.-2:15 p.m.&quot;</span></span>
+<span id="cb660-35"><a href="importingexporting-data-into-r.html#cb660-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 9 &quot;T-F&quot;           &quot;3:25 p.m.-4:50 p.m.&quot;  &quot;May 5 (F)&quot;              &quot;3:25 p.m.-5:25 p.m.&quot; </span></span>
+<span id="cb660-36"><a href="importingexporting-data-into-r.html#cb660-36" aria-hidden="true" tabindex="-1"></a><span class="co">#10 &quot;T-F&quot;           &quot;7:10 p.m.-8:35 p.m.&quot;  &quot;May 5 (F)&quot;              &quot;7:10 p.m.-9:10 p.m.&quot; </span></span>
+<span id="cb660-37"><a href="importingexporting-data-into-r.html#cb660-37" aria-hidden="true" tabindex="-1"></a><span class="co"># … with 21 more rows</span></span>
+<span id="cb660-38"><a href="importingexporting-data-into-r.html#cb660-38" aria-hidden="true" tabindex="-1"></a><span class="co"># ℹ Use `print(n = ...)` to see more rows</span></span>
+<span id="cb660-39"><a href="importingexporting-data-into-r.html#cb660-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb660-40"><a href="importingexporting-data-into-r.html#cb660-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb660-41"><a href="importingexporting-data-into-r.html#cb660-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Write such table in a text file in your working directory</span></span>
+<span id="cb660-42"><a href="importingexporting-data-into-r.html#cb660-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb660-43"><a href="importingexporting-data-into-r.html#cb660-43" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(exams_table_tibble, <span class="st">&quot;sju_academic_calendar_scrap.csv&quot;</span>)</span>
+<span id="cb660-44"><a href="importingexporting-data-into-r.html#cb660-44" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(exams_table_tibble, <span class="st">&quot;sju_academic_calendar_scrap.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<p>A scrapping from more complex web pages will require you to work on the text data derived from it.</p>
+<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="importingexporting-data-into-r.html#cb661-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change to working directory</span></span>
+<span id="cb661-2"><a href="importingexporting-data-into-r.html#cb661-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-3"><a href="importingexporting-data-into-r.html#cb661-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Desktop/Teach_R/Some_directoty&quot;</span>)</span>
+<span id="cb661-4"><a href="importingexporting-data-into-r.html#cb661-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-5"><a href="importingexporting-data-into-r.html#cb661-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an vector with web address (for example a clinical trial results)</span></span>
+<span id="cb661-6"><a href="importingexporting-data-into-r.html#cb661-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-7"><a href="importingexporting-data-into-r.html#cb661-7" aria-hidden="true" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://clinicaltrials.gov/ct2/show/results/NCT02414854?cond=Asthma&amp;cntry=US&amp;state=US%3ANY&amp;city=Jamaica&amp;draw=2&amp;rank=1&quot;</span>)</span>
+<span id="cb661-8"><a href="importingexporting-data-into-r.html#cb661-8" aria-hidden="true" tabindex="-1"></a>html</span>
+<span id="cb661-9"><a href="importingexporting-data-into-r.html#cb661-9" aria-hidden="true" tabindex="-1"></a><span class="co">#{html_document}</span></span>
+<span id="cb661-10"><a href="importingexporting-data-into-r.html#cb661-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;html xmlns=&quot;https://www.w3.org/1999/xhtml&quot; lang=&quot;en&quot;&gt;</span></span>
+<span id="cb661-11"><a href="importingexporting-data-into-r.html#cb661-11" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] &lt;head&gt;\n&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;\n&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;\n&lt;meta http-equ ...</span></span>
+<span id="cb661-12"><a href="importingexporting-data-into-r.html#cb661-12" aria-hidden="true" tabindex="-1"></a><span class="co">#[2] &lt;body&gt; \n&lt;script type=&quot;text/javascript&quot;&gt;\n    jQuery.getScript(&quot;https://www.ncbi.nlm.nih.gov/core/alerts/alerts.js&quot;, function () {\n      galert([&#39; ...</span></span>
+<span id="cb661-13"><a href="importingexporting-data-into-r.html#cb661-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-14"><a href="importingexporting-data-into-r.html#cb661-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Get all the text in a vector</span></span>
+<span id="cb661-15"><a href="importingexporting-data-into-r.html#cb661-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-16"><a href="importingexporting-data-into-r.html#cb661-16" aria-hidden="true" tabindex="-1"></a>text_on_webpage <span class="ot">&lt;-</span> <span class="fu">html_text</span>(html)</span>
+<span id="cb661-17"><a href="importingexporting-data-into-r.html#cb661-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(text_on_webpage)</span>
+<span id="cb661-18"><a href="importingexporting-data-into-r.html#cb661-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-19"><a href="importingexporting-data-into-r.html#cb661-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Write such vector in a text file in your working directory</span></span>
+<span id="cb661-20"><a href="importingexporting-data-into-r.html#cb661-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb661-21"><a href="importingexporting-data-into-r.html#cb661-21" aria-hidden="true" tabindex="-1"></a><span class="fu">write</span>(text_on_webpage, <span class="st">&quot;text_on_webapge.txt&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>
@@ -1173,7 +1223,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/30-Import_data_in_R_v14.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/30-Import_data_in_R_v15.Rmd",
 "text": "Edit"
 },
 "history": {
