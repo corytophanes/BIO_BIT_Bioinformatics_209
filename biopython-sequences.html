@@ -23,7 +23,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2025-01-28" />
+<meta name="date" content="2025-02-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -515,106 +515,106 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="sequence-objects" class="section level2 hasAnchor" number="21.1">
 <h2><span class="header-section-number">21.1</span> Sequence Objects<a href="biopython-sequences.html#sequence-objects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Sequence objects behave similar to strings and can be treated as such in Biopython. However, sequence objects are largely immutable unless converted to an actual string.</p>
-<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="biopython-sequences.html#cb586-1" aria-hidden="true" tabindex="-1"></a><span class="co"># old stuff we have introduced before</span></span>
-<span id="cb586-2"><a href="biopython-sequences.html#cb586-2" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
-<span id="cb586-3"><a href="biopython-sequences.html#cb586-3" aria-hidden="true" tabindex="-1"></a>my_first_seq <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;CATGCAT&quot;</span>)</span>
-<span id="cb586-4"><a href="biopython-sequences.html#cb586-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-5"><a href="biopython-sequences.html#cb586-5" aria-hidden="true" tabindex="-1"></a><span class="co"># new part, separate sequence into rows</span></span>
-<span id="cb586-6"><a href="biopython-sequences.html#cb586-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, letter <span class="cf">in</span> <span class="fu">enumerate</span>(my_first_seq)<span class="sc">:</span></span>
-<span id="cb586-7"><a href="biopython-sequences.html#cb586-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;%i %s&quot;</span> % (index, letter))</span>
-<span id="cb586-8"><a href="biopython-sequences.html#cb586-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-9"><a href="biopython-sequences.html#cb586-9" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieving specific elements</span></span>
-<span id="cb586-10"><a href="biopython-sequences.html#cb586-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq[<span class="dv">0</span>])</span>
-<span id="cb586-11"><a href="biopython-sequences.html#cb586-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq[<span class="dv">5</span>])</span>
-<span id="cb586-12"><a href="biopython-sequences.html#cb586-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq[<span class="sc">-</span><span class="dv">1</span>])</span>
-<span id="cb586-13"><a href="biopython-sequences.html#cb586-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq[<span class="sc">-</span><span class="dv">2</span>])</span>
-<span id="cb586-14"><a href="biopython-sequences.html#cb586-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-15"><a href="biopython-sequences.html#cb586-15" aria-hidden="true" tabindex="-1"></a><span class="co"># counting repeat sequences within a sequence</span></span>
-<span id="cb586-16"><a href="biopython-sequences.html#cb586-16" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.count</span>(<span class="st">&quot;CAT&quot;</span>)</span>
-<span id="cb586-17"><a href="biopython-sequences.html#cb586-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-18"><a href="biopython-sequences.html#cb586-18" aria-hidden="true" tabindex="-1"></a><span class="co"># counting base content</span></span>
-<span id="cb586-19"><a href="biopython-sequences.html#cb586-19" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.count</span>(<span class="st">&quot;C&quot;</span>)</span>
-<span id="cb586-20"><a href="biopython-sequences.html#cb586-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-21"><a href="biopython-sequences.html#cb586-21" aria-hidden="true" tabindex="-1"></a><span class="co"># determining GC percentage</span></span>
-<span id="cb586-22"><a href="biopython-sequences.html#cb586-22" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="sc">*</span> <span class="fu">float</span>(</span>
-<span id="cb586-23"><a href="biopython-sequences.html#cb586-23" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.count</span>(<span class="st">&quot;G&quot;</span>) <span class="sc">+</span> <span class="fu">my_first_seq.count</span>(<span class="st">&quot;C&quot;</span>)</span>
-<span id="cb586-24"><a href="biopython-sequences.html#cb586-24" aria-hidden="true" tabindex="-1"></a>) <span class="sc">/</span> <span class="fu">len</span>(my_first_seq)</span>
-<span id="cb586-25"><a href="biopython-sequences.html#cb586-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-26"><a href="biopython-sequences.html#cb586-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Improved simplicity in GC percentage calculation</span></span>
-<span id="cb586-27"><a href="biopython-sequences.html#cb586-27" aria-hidden="true" tabindex="-1"></a>from Bio.SeqUtils import GC</span>
-<span id="cb586-28"><a href="biopython-sequences.html#cb586-28" aria-hidden="true" tabindex="-1"></a><span class="fu">GC</span>(my_first_seq)</span>
-<span id="cb586-29"><a href="biopython-sequences.html#cb586-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-30"><a href="biopython-sequences.html#cb586-30" aria-hidden="true" tabindex="-1"></a><span class="co"># slicing your sequence</span></span>
-<span id="cb586-31"><a href="biopython-sequences.html#cb586-31" aria-hidden="true" tabindex="-1"></a>my_first_seq[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="biopython-sequences.html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="co"># old stuff we have introduced before</span></span>
+<span id="cb588-2"><a href="biopython-sequences.html#cb588-2" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
+<span id="cb588-3"><a href="biopython-sequences.html#cb588-3" aria-hidden="true" tabindex="-1"></a>my_first_seq <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;CATGCAT&quot;</span>)</span>
+<span id="cb588-4"><a href="biopython-sequences.html#cb588-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-5"><a href="biopython-sequences.html#cb588-5" aria-hidden="true" tabindex="-1"></a><span class="co"># new part, separate sequence into rows</span></span>
+<span id="cb588-6"><a href="biopython-sequences.html#cb588-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, letter <span class="cf">in</span> <span class="fu">enumerate</span>(my_first_seq)<span class="sc">:</span></span>
+<span id="cb588-7"><a href="biopython-sequences.html#cb588-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;%i %s&quot;</span> % (index, letter))</span>
+<span id="cb588-8"><a href="biopython-sequences.html#cb588-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-9"><a href="biopython-sequences.html#cb588-9" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieving specific elements</span></span>
+<span id="cb588-10"><a href="biopython-sequences.html#cb588-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq[<span class="dv">0</span>])</span>
+<span id="cb588-11"><a href="biopython-sequences.html#cb588-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq[<span class="dv">5</span>])</span>
+<span id="cb588-12"><a href="biopython-sequences.html#cb588-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq[<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb588-13"><a href="biopython-sequences.html#cb588-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_first_seq[<span class="sc">-</span><span class="dv">2</span>])</span>
+<span id="cb588-14"><a href="biopython-sequences.html#cb588-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-15"><a href="biopython-sequences.html#cb588-15" aria-hidden="true" tabindex="-1"></a><span class="co"># counting repeat sequences within a sequence</span></span>
+<span id="cb588-16"><a href="biopython-sequences.html#cb588-16" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.count</span>(<span class="st">&quot;CAT&quot;</span>)</span>
+<span id="cb588-17"><a href="biopython-sequences.html#cb588-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-18"><a href="biopython-sequences.html#cb588-18" aria-hidden="true" tabindex="-1"></a><span class="co"># counting base content</span></span>
+<span id="cb588-19"><a href="biopython-sequences.html#cb588-19" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.count</span>(<span class="st">&quot;C&quot;</span>)</span>
+<span id="cb588-20"><a href="biopython-sequences.html#cb588-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-21"><a href="biopython-sequences.html#cb588-21" aria-hidden="true" tabindex="-1"></a><span class="co"># determining GC percentage</span></span>
+<span id="cb588-22"><a href="biopython-sequences.html#cb588-22" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="sc">*</span> <span class="fu">float</span>(</span>
+<span id="cb588-23"><a href="biopython-sequences.html#cb588-23" aria-hidden="true" tabindex="-1"></a><span class="fu">my_first_seq.count</span>(<span class="st">&quot;G&quot;</span>) <span class="sc">+</span> <span class="fu">my_first_seq.count</span>(<span class="st">&quot;C&quot;</span>)</span>
+<span id="cb588-24"><a href="biopython-sequences.html#cb588-24" aria-hidden="true" tabindex="-1"></a>) <span class="sc">/</span> <span class="fu">len</span>(my_first_seq)</span>
+<span id="cb588-25"><a href="biopython-sequences.html#cb588-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-26"><a href="biopython-sequences.html#cb588-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Improved simplicity in GC percentage calculation</span></span>
+<span id="cb588-27"><a href="biopython-sequences.html#cb588-27" aria-hidden="true" tabindex="-1"></a>from Bio.SeqUtils import GC</span>
+<span id="cb588-28"><a href="biopython-sequences.html#cb588-28" aria-hidden="true" tabindex="-1"></a><span class="fu">GC</span>(my_first_seq)</span>
+<span id="cb588-29"><a href="biopython-sequences.html#cb588-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-30"><a href="biopython-sequences.html#cb588-30" aria-hidden="true" tabindex="-1"></a><span class="co"># slicing your sequence</span></span>
+<span id="cb588-31"><a href="biopython-sequences.html#cb588-31" aria-hidden="true" tabindex="-1"></a>my_first_seq[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 </div>
 <div id="concatenation-with-sequences" class="section level2 hasAnchor" number="21.2">
 <h2><span class="header-section-number">21.2</span> Concatenation with Sequences<a href="biopython-sequences.html#concatenation-with-sequences" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="biopython-sequences.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Simple Cat?</span></span>
-<span id="cb587-2"><a href="biopython-sequences.html#cb587-2" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
-<span id="cb587-3"><a href="biopython-sequences.html#cb587-3" aria-hidden="true" tabindex="-1"></a>seq_list <span class="ot">=</span> [<span class="fu">Seq</span>(<span class="st">&quot;CCC&quot;</span>), <span class="fu">Seq</span>(<span class="st">&quot;AAA&quot;</span>), <span class="fu">Seq</span>(<span class="st">&quot;TTT&quot;</span>)]</span>
-<span id="cb587-4"><a href="biopython-sequences.html#cb587-4" aria-hidden="true" tabindex="-1"></a>cat_list <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;&quot;</span>)</span>
-<span id="cb587-5"><a href="biopython-sequences.html#cb587-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="cf">in</span> seq_list<span class="sc">:</span></span>
-<span id="cb587-6"><a href="biopython-sequences.html#cb587-6" aria-hidden="true" tabindex="-1"></a>    cat_list <span class="sc">+</span><span class="er">=</span> s</span>
-<span id="cb587-7"><a href="biopython-sequences.html#cb587-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-8"><a href="biopython-sequences.html#cb587-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cat_list)</span>
-<span id="cb587-9"><a href="biopython-sequences.html#cb587-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-10"><a href="biopython-sequences.html#cb587-10" aria-hidden="true" tabindex="-1"></a><span class="co">#BioPython Cat w/ spacer seqs</span></span>
-<span id="cb587-11"><a href="biopython-sequences.html#cb587-11" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
-<span id="cb587-12"><a href="biopython-sequences.html#cb587-12" aria-hidden="true" tabindex="-1"></a>seq_list <span class="ot">=</span> [<span class="fu">Seq</span>(<span class="st">&quot;CCC&quot;</span>), <span class="fu">Seq</span>(<span class="st">&quot;AAA&quot;</span>), <span class="fu">Seq</span>(<span class="st">&quot;TTT&quot;</span>)]</span>
-<span id="cb587-13"><a href="biopython-sequences.html#cb587-13" aria-hidden="true" tabindex="-1"></a>spacer <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;N&quot;</span><span class="sc">*</span><span class="dv">3</span>)</span>
-<span id="cb587-14"><a href="biopython-sequences.html#cb587-14" aria-hidden="true" tabindex="-1"></a><span class="fu">spacer.join</span>(seq_list)</span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="biopython-sequences.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Simple Cat?</span></span>
+<span id="cb589-2"><a href="biopython-sequences.html#cb589-2" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
+<span id="cb589-3"><a href="biopython-sequences.html#cb589-3" aria-hidden="true" tabindex="-1"></a>seq_list <span class="ot">=</span> [<span class="fu">Seq</span>(<span class="st">&quot;CCC&quot;</span>), <span class="fu">Seq</span>(<span class="st">&quot;AAA&quot;</span>), <span class="fu">Seq</span>(<span class="st">&quot;TTT&quot;</span>)]</span>
+<span id="cb589-4"><a href="biopython-sequences.html#cb589-4" aria-hidden="true" tabindex="-1"></a>cat_list <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;&quot;</span>)</span>
+<span id="cb589-5"><a href="biopython-sequences.html#cb589-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="cf">in</span> seq_list<span class="sc">:</span></span>
+<span id="cb589-6"><a href="biopython-sequences.html#cb589-6" aria-hidden="true" tabindex="-1"></a>    cat_list <span class="sc">+</span><span class="er">=</span> s</span>
+<span id="cb589-7"><a href="biopython-sequences.html#cb589-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb589-8"><a href="biopython-sequences.html#cb589-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cat_list)</span>
+<span id="cb589-9"><a href="biopython-sequences.html#cb589-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb589-10"><a href="biopython-sequences.html#cb589-10" aria-hidden="true" tabindex="-1"></a><span class="co">#BioPython Cat w/ spacer seqs</span></span>
+<span id="cb589-11"><a href="biopython-sequences.html#cb589-11" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
+<span id="cb589-12"><a href="biopython-sequences.html#cb589-12" aria-hidden="true" tabindex="-1"></a>seq_list <span class="ot">=</span> [<span class="fu">Seq</span>(<span class="st">&quot;CCC&quot;</span>), <span class="fu">Seq</span>(<span class="st">&quot;AAA&quot;</span>), <span class="fu">Seq</span>(<span class="st">&quot;TTT&quot;</span>)]</span>
+<span id="cb589-13"><a href="biopython-sequences.html#cb589-13" aria-hidden="true" tabindex="-1"></a>spacer <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;N&quot;</span><span class="sc">*</span><span class="dv">3</span>)</span>
+<span id="cb589-14"><a href="biopython-sequences.html#cb589-14" aria-hidden="true" tabindex="-1"></a><span class="fu">spacer.join</span>(seq_list)</span></code></pre></div>
 </div>
 <div id="transcription-dna-to-mrna" class="section level2 hasAnchor" number="21.3">
 <h2><span class="header-section-number">21.3</span> Transcription: DNA to mRNA<a href="biopython-sequences.html#transcription-dna-to-mrna" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="biopython-sequences.html#cb588-1" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
-<span id="cb588-2"><a href="biopython-sequences.html#cb588-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb588-3"><a href="biopython-sequences.html#cb588-3" aria-hidden="true" tabindex="-1"></a><span class="co"># coding DNA strand</span></span>
-<span id="cb588-4"><a href="biopython-sequences.html#cb588-4" aria-hidden="true" tabindex="-1"></a>coding_dna <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;ACTGCATCGATCGTATGTGATGTGACACAC&quot;</span>)</span>
-<span id="cb588-5"><a href="biopython-sequences.html#cb588-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(coding_dna)</span>
-<span id="cb588-6"><a href="biopython-sequences.html#cb588-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb588-7"><a href="biopython-sequences.html#cb588-7" aria-hidden="true" tabindex="-1"></a><span class="co"># template DNA strand</span></span>
-<span id="cb588-8"><a href="biopython-sequences.html#cb588-8" aria-hidden="true" tabindex="-1"></a>template_dna <span class="ot">=</span> <span class="fu">coding_dna.reverse_complement</span>()</span>
-<span id="cb588-9"><a href="biopython-sequences.html#cb588-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(template_dna)</span>
-<span id="cb588-10"><a href="biopython-sequences.html#cb588-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb588-11"><a href="biopython-sequences.html#cb588-11" aria-hidden="true" tabindex="-1"></a><span class="co"># coding &gt;&gt;&gt; mRNA</span></span>
-<span id="cb588-12"><a href="biopython-sequences.html#cb588-12" aria-hidden="true" tabindex="-1"></a>m_rna <span class="ot">=</span> <span class="fu">coding_dna.transcribe</span>()</span>
-<span id="cb588-13"><a href="biopython-sequences.html#cb588-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m_rna)</span>
-<span id="cb588-14"><a href="biopython-sequences.html#cb588-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb588-15"><a href="biopython-sequences.html#cb588-15" aria-hidden="true" tabindex="-1"></a><span class="co"># template &gt;&gt;&gt; mRNA</span></span>
-<span id="cb588-16"><a href="biopython-sequences.html#cb588-16" aria-hidden="true" tabindex="-1"></a><span class="fu">template_dna.reverse_complement</span>()<span class="fu">.transcribe</span>()</span>
-<span id="cb588-17"><a href="biopython-sequences.html#cb588-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb588-18"><a href="biopython-sequences.html#cb588-18" aria-hidden="true" tabindex="-1"></a><span class="co"># mRNA &gt;&gt;&gt; cDNA</span></span>
-<span id="cb588-19"><a href="biopython-sequences.html#cb588-19" aria-hidden="true" tabindex="-1"></a><span class="fu">m_rna.back_transcribe</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="biopython-sequences.html#cb590-1" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
+<span id="cb590-2"><a href="biopython-sequences.html#cb590-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb590-3"><a href="biopython-sequences.html#cb590-3" aria-hidden="true" tabindex="-1"></a><span class="co"># coding DNA strand</span></span>
+<span id="cb590-4"><a href="biopython-sequences.html#cb590-4" aria-hidden="true" tabindex="-1"></a>coding_dna <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;ACTGCATCGATCGTATGTGATGTGACACAC&quot;</span>)</span>
+<span id="cb590-5"><a href="biopython-sequences.html#cb590-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(coding_dna)</span>
+<span id="cb590-6"><a href="biopython-sequences.html#cb590-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb590-7"><a href="biopython-sequences.html#cb590-7" aria-hidden="true" tabindex="-1"></a><span class="co"># template DNA strand</span></span>
+<span id="cb590-8"><a href="biopython-sequences.html#cb590-8" aria-hidden="true" tabindex="-1"></a>template_dna <span class="ot">=</span> <span class="fu">coding_dna.reverse_complement</span>()</span>
+<span id="cb590-9"><a href="biopython-sequences.html#cb590-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(template_dna)</span>
+<span id="cb590-10"><a href="biopython-sequences.html#cb590-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb590-11"><a href="biopython-sequences.html#cb590-11" aria-hidden="true" tabindex="-1"></a><span class="co"># coding &gt;&gt;&gt; mRNA</span></span>
+<span id="cb590-12"><a href="biopython-sequences.html#cb590-12" aria-hidden="true" tabindex="-1"></a>m_rna <span class="ot">=</span> <span class="fu">coding_dna.transcribe</span>()</span>
+<span id="cb590-13"><a href="biopython-sequences.html#cb590-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m_rna)</span>
+<span id="cb590-14"><a href="biopython-sequences.html#cb590-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb590-15"><a href="biopython-sequences.html#cb590-15" aria-hidden="true" tabindex="-1"></a><span class="co"># template &gt;&gt;&gt; mRNA</span></span>
+<span id="cb590-16"><a href="biopython-sequences.html#cb590-16" aria-hidden="true" tabindex="-1"></a><span class="fu">template_dna.reverse_complement</span>()<span class="fu">.transcribe</span>()</span>
+<span id="cb590-17"><a href="biopython-sequences.html#cb590-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb590-18"><a href="biopython-sequences.html#cb590-18" aria-hidden="true" tabindex="-1"></a><span class="co"># mRNA &gt;&gt;&gt; cDNA</span></span>
+<span id="cb590-19"><a href="biopython-sequences.html#cb590-19" aria-hidden="true" tabindex="-1"></a><span class="fu">m_rna.back_transcribe</span>()</span></code></pre></div>
 </div>
 <div id="translation-rna-to-prot" class="section level2 hasAnchor" number="21.4">
 <h2><span class="header-section-number">21.4</span> Translation: RNA to PROT<a href="biopython-sequences.html#translation-rna-to-prot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="biopython-sequences.html#cb589-1" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
-<span id="cb589-2"><a href="biopython-sequences.html#cb589-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb589-3"><a href="biopython-sequences.html#cb589-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mRNA to PROT</span></span>
-<span id="cb589-4"><a href="biopython-sequences.html#cb589-4" aria-hidden="true" tabindex="-1"></a>m_rna <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;ACUGAUCGAUAGAUGGUGUGUACUCAUAUCACUGACUAG&quot;</span>)</span>
-<span id="cb589-5"><a href="biopython-sequences.html#cb589-5" aria-hidden="true" tabindex="-1"></a><span class="fu">m_rna.translate</span>()</span>
-<span id="cb589-6"><a href="biopython-sequences.html#cb589-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb589-7"><a href="biopython-sequences.html#cb589-7" aria-hidden="true" tabindex="-1"></a><span class="co"># coding DNA &gt;&gt;&gt; PROT</span></span>
-<span id="cb589-8"><a href="biopython-sequences.html#cb589-8" aria-hidden="true" tabindex="-1"></a>coding_dna <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;ATCGATCGATAGATCGATCGTCGATCGATCGATCGTTAG&quot;</span>)</span>
-<span id="cb589-9"><a href="biopython-sequences.html#cb589-9" aria-hidden="true" tabindex="-1"></a><span class="fu">coding_dna.translate</span>()</span>
-<span id="cb589-10"><a href="biopython-sequences.html#cb589-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb589-11"><a href="biopython-sequences.html#cb589-11" aria-hidden="true" tabindex="-1"></a><span class="co"># change translation table type (mitochondrial)</span></span>
-<span id="cb589-12"><a href="biopython-sequences.html#cb589-12" aria-hidden="true" tabindex="-1"></a><span class="fu">coding_dna.translate</span>(<span class="at">table=</span><span class="st">&quot;Vertebrate Mitochondrial&quot;</span>)</span>
-<span id="cb589-13"><a href="biopython-sequences.html#cb589-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb589-14"><a href="biopython-sequences.html#cb589-14" aria-hidden="true" tabindex="-1"></a><span class="co"># translate to first stop codon</span></span>
-<span id="cb589-15"><a href="biopython-sequences.html#cb589-15" aria-hidden="true" tabindex="-1"></a><span class="fu">coding_dna.translate</span>(<span class="at">to_stop=</span>True)</span>
-<span id="cb589-16"><a href="biopython-sequences.html#cb589-16" aria-hidden="true" tabindex="-1"></a><span class="fu">coding_dna.translate</span>(<span class="at">table=</span><span class="st">&quot;Vertebrate Mitochondrial&quot;</span>, <span class="at">to_stop=</span>True)</span>
-<span id="cb589-17"><a href="biopython-sequences.html#cb589-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb589-18"><a href="biopython-sequences.html#cb589-18" aria-hidden="true" tabindex="-1"></a><span class="co"># bacterial gene full example from biopython.org</span></span>
-<span id="cb589-19"><a href="biopython-sequences.html#cb589-19" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
-<span id="cb589-20"><a href="biopython-sequences.html#cb589-20" aria-hidden="true" tabindex="-1"></a>gene <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;GTGAAAAAGATGCAATCTATCGTACTCGCACTTTCCCTGGTTCTGGTCGCTCCCATGGCA&quot;</span></span>
-<span id="cb589-21"><a href="biopython-sequences.html#cb589-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;GCACAGGCTGCGGAAATTACGTTAGTCCCGTCAGTAAAATTACAGATAGGCGATCGTGAT&quot;</span></span>
-<span id="cb589-22"><a href="biopython-sequences.html#cb589-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;AATCGTGGCTATTACTGGGATGGAGGTCACTGGCGCGACCACGGCTGGTGGAAACAACAT&quot;</span></span>
-<span id="cb589-23"><a href="biopython-sequences.html#cb589-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;TATGAATGGCGAGGCAATCGCTGGCACCTACACGGACCGCCGCCACCGCCGCGCCACCAT&quot;</span></span>
-<span id="cb589-24"><a href="biopython-sequences.html#cb589-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;AAGAAAGCTCCTCATGATCATCACGGCGGTCATGGTCCAGGCAAACATCACCGCTAA&quot;</span>)</span>
-<span id="cb589-25"><a href="biopython-sequences.html#cb589-25" aria-hidden="true" tabindex="-1"></a><span class="fu">gene.translate</span>(<span class="at">table=</span><span class="st">&quot;Bacterial&quot;</span>)</span>
-<span id="cb589-26"><a href="biopython-sequences.html#cb589-26" aria-hidden="true" tabindex="-1"></a><span class="fu">gene.translate</span>(<span class="at">table=</span><span class="st">&quot;Bacterial&quot;</span>, <span class="at">to_stop=</span>True)</span>
-<span id="cb589-27"><a href="biopython-sequences.html#cb589-27" aria-hidden="true" tabindex="-1"></a><span class="fu">gene.translate</span>(<span class="at">table=</span><span class="st">&quot;Bacterial&quot;</span>, <span class="at">cds=</span>True)</span></code></pre></div>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="biopython-sequences.html#cb591-1" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
+<span id="cb591-2"><a href="biopython-sequences.html#cb591-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb591-3"><a href="biopython-sequences.html#cb591-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mRNA to PROT</span></span>
+<span id="cb591-4"><a href="biopython-sequences.html#cb591-4" aria-hidden="true" tabindex="-1"></a>m_rna <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;ACUGAUCGAUAGAUGGUGUGUACUCAUAUCACUGACUAG&quot;</span>)</span>
+<span id="cb591-5"><a href="biopython-sequences.html#cb591-5" aria-hidden="true" tabindex="-1"></a><span class="fu">m_rna.translate</span>()</span>
+<span id="cb591-6"><a href="biopython-sequences.html#cb591-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb591-7"><a href="biopython-sequences.html#cb591-7" aria-hidden="true" tabindex="-1"></a><span class="co"># coding DNA &gt;&gt;&gt; PROT</span></span>
+<span id="cb591-8"><a href="biopython-sequences.html#cb591-8" aria-hidden="true" tabindex="-1"></a>coding_dna <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;ATCGATCGATAGATCGATCGTCGATCGATCGATCGTTAG&quot;</span>)</span>
+<span id="cb591-9"><a href="biopython-sequences.html#cb591-9" aria-hidden="true" tabindex="-1"></a><span class="fu">coding_dna.translate</span>()</span>
+<span id="cb591-10"><a href="biopython-sequences.html#cb591-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb591-11"><a href="biopython-sequences.html#cb591-11" aria-hidden="true" tabindex="-1"></a><span class="co"># change translation table type (mitochondrial)</span></span>
+<span id="cb591-12"><a href="biopython-sequences.html#cb591-12" aria-hidden="true" tabindex="-1"></a><span class="fu">coding_dna.translate</span>(<span class="at">table=</span><span class="st">&quot;Vertebrate Mitochondrial&quot;</span>)</span>
+<span id="cb591-13"><a href="biopython-sequences.html#cb591-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb591-14"><a href="biopython-sequences.html#cb591-14" aria-hidden="true" tabindex="-1"></a><span class="co"># translate to first stop codon</span></span>
+<span id="cb591-15"><a href="biopython-sequences.html#cb591-15" aria-hidden="true" tabindex="-1"></a><span class="fu">coding_dna.translate</span>(<span class="at">to_stop=</span>True)</span>
+<span id="cb591-16"><a href="biopython-sequences.html#cb591-16" aria-hidden="true" tabindex="-1"></a><span class="fu">coding_dna.translate</span>(<span class="at">table=</span><span class="st">&quot;Vertebrate Mitochondrial&quot;</span>, <span class="at">to_stop=</span>True)</span>
+<span id="cb591-17"><a href="biopython-sequences.html#cb591-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb591-18"><a href="biopython-sequences.html#cb591-18" aria-hidden="true" tabindex="-1"></a><span class="co"># bacterial gene full example from biopython.org</span></span>
+<span id="cb591-19"><a href="biopython-sequences.html#cb591-19" aria-hidden="true" tabindex="-1"></a>from Bio.Seq import Seq</span>
+<span id="cb591-20"><a href="biopython-sequences.html#cb591-20" aria-hidden="true" tabindex="-1"></a>gene <span class="ot">=</span> <span class="fu">Seq</span>(<span class="st">&quot;GTGAAAAAGATGCAATCTATCGTACTCGCACTTTCCCTGGTTCTGGTCGCTCCCATGGCA&quot;</span></span>
+<span id="cb591-21"><a href="biopython-sequences.html#cb591-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;GCACAGGCTGCGGAAATTACGTTAGTCCCGTCAGTAAAATTACAGATAGGCGATCGTGAT&quot;</span></span>
+<span id="cb591-22"><a href="biopython-sequences.html#cb591-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;AATCGTGGCTATTACTGGGATGGAGGTCACTGGCGCGACCACGGCTGGTGGAAACAACAT&quot;</span></span>
+<span id="cb591-23"><a href="biopython-sequences.html#cb591-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;TATGAATGGCGAGGCAATCGCTGGCACCTACACGGACCGCCGCCACCGCCGCGCCACCAT&quot;</span></span>
+<span id="cb591-24"><a href="biopython-sequences.html#cb591-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;AAGAAAGCTCCTCATGATCATCACGGCGGTCATGGTCCAGGCAAACATCACCGCTAA&quot;</span>)</span>
+<span id="cb591-25"><a href="biopython-sequences.html#cb591-25" aria-hidden="true" tabindex="-1"></a><span class="fu">gene.translate</span>(<span class="at">table=</span><span class="st">&quot;Bacterial&quot;</span>)</span>
+<span id="cb591-26"><a href="biopython-sequences.html#cb591-26" aria-hidden="true" tabindex="-1"></a><span class="fu">gene.translate</span>(<span class="at">table=</span><span class="st">&quot;Bacterial&quot;</span>, <span class="at">to_stop=</span>True)</span>
+<span id="cb591-27"><a href="biopython-sequences.html#cb591-27" aria-hidden="true" tabindex="-1"></a><span class="fu">gene.translate</span>(<span class="at">table=</span><span class="st">&quot;Bacterial&quot;</span>, <span class="at">cds=</span>True)</span></code></pre></div>
 
 </div>
 </div>
