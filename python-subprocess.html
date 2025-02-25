@@ -23,7 +23,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2025-02-19" />
+<meta name="date" content="2025-02-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -525,45 +525,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Once you have downloaded and uncompressed BBTools they should be ready to be used. So now we can focus on creating a python pipeline to connect several features of BBTools. Note this is just for an example.</p>
 <p>Very Important!!! Be sure to place the bbmap folder inside of your class work folder. This will make it easier for python to find the bbtools without you stating the path every time.</p>
 <p>Before we begin copy the following FASTQ data into a new file labeled: ‘data.fasta’</p>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="python-subprocess.html#cb616-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.001</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
-<span id="cb616-2"><a href="python-subprocess.html#cb616-2" aria-hidden="true" tabindex="-1"></a>TTTCGTAGCTAGATCGACTGACTGCTGCTACTACGATCGACTGCTGCGGG</span>
-<span id="cb616-3"><a href="python-subprocess.html#cb616-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.002</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
-<span id="cb616-4"><a href="python-subprocess.html#cb616-4" aria-hidden="true" tabindex="-1"></a>TTTCGTAGCTAGATCGACTGACTGCTGCTACTACGATCGACTGCTGCGGG</span>
-<span id="cb616-5"><a href="python-subprocess.html#cb616-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.003</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
-<span id="cb616-6"><a href="python-subprocess.html#cb616-6" aria-hidden="true" tabindex="-1"></a>TTTCGTAGCTAGATCGACTGACTGCTGCTACTACGATCGACTGCTGCTTT</span>
-<span id="cb616-7"><a href="python-subprocess.html#cb616-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.004</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
-<span id="cb616-8"><a href="python-subprocess.html#cb616-8" aria-hidden="true" tabindex="-1"></a>TTTCGTAGCTAGATCGACTGACTGCTGCTACTACGATCGACTGCTGCGGG</span>
-<span id="cb616-9"><a href="python-subprocess.html#cb616-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.005</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
-<span id="cb616-10"><a href="python-subprocess.html#cb616-10" aria-hidden="true" tabindex="-1"></a>ACTGATCGATCGTCGATCGATCGCTCGTACGTGATCGATCGATCGTACGG</span>
-<span id="cb616-11"><a href="python-subprocess.html#cb616-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.006</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
-<span id="cb616-12"><a href="python-subprocess.html#cb616-12" aria-hidden="true" tabindex="-1"></a>ACTGATCGATCGTCGATCGATCGCTCGTACGTGATCGATCGATCGTACGG</span></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="python-subprocess.html#cb619-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.001</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
+<span id="cb619-2"><a href="python-subprocess.html#cb619-2" aria-hidden="true" tabindex="-1"></a>TTTCGTAGCTAGATCGACTGACTGCTGCTACTACGATCGACTGCTGCGGG</span>
+<span id="cb619-3"><a href="python-subprocess.html#cb619-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.002</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
+<span id="cb619-4"><a href="python-subprocess.html#cb619-4" aria-hidden="true" tabindex="-1"></a>TTTCGTAGCTAGATCGACTGACTGCTGCTACTACGATCGACTGCTGCGGG</span>
+<span id="cb619-5"><a href="python-subprocess.html#cb619-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.003</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
+<span id="cb619-6"><a href="python-subprocess.html#cb619-6" aria-hidden="true" tabindex="-1"></a>TTTCGTAGCTAGATCGACTGACTGCTGCTACTACGATCGACTGCTGCTTT</span>
+<span id="cb619-7"><a href="python-subprocess.html#cb619-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.004</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
+<span id="cb619-8"><a href="python-subprocess.html#cb619-8" aria-hidden="true" tabindex="-1"></a>TTTCGTAGCTAGATCGACTGACTGCTGCTACTACGATCGACTGCTGCGGG</span>
+<span id="cb619-9"><a href="python-subprocess.html#cb619-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.005</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
+<span id="cb619-10"><a href="python-subprocess.html#cb619-10" aria-hidden="true" tabindex="-1"></a>ACTGATCGATCGTCGATCGATCGCTCGTACGTGATCGATCGATCGTACGG</span>
+<span id="cb619-11"><a href="python-subprocess.html#cb619-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>SRR123456789<span class="fl">.006</span> HWUSI<span class="sc">-</span>EAS1673_11067_FC7070M<span class="sc">:</span><span class="dv">4</span><span class="sc">:</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2299</span><span class="sc">:</span><span class="dv">1109</span> length<span class="ot">=</span><span class="dv">50</span></span>
+<span id="cb619-12"><a href="python-subprocess.html#cb619-12" aria-hidden="true" tabindex="-1"></a>ACTGATCGATCGTCGATCGATCGCTCGTACGTGATCGATCGATCGTACGG</span></code></pre></div>
 <p>We will now construct our own script, save the script below which will be called: ‘my_first_script.py’</p>
-<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="python-subprocess.html#cb617-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env python3</span></span>
-<span id="cb617-2"><a href="python-subprocess.html#cb617-2" aria-hidden="true" tabindex="-1"></a>import subprocess</span>
-<span id="cb617-3"><a href="python-subprocess.html#cb617-3" aria-hidden="true" tabindex="-1"></a>import os</span>
-<span id="cb617-4"><a href="python-subprocess.html#cb617-4" aria-hidden="true" tabindex="-1"></a>import tkinter as tk</span>
-<span id="cb617-5"><a href="python-subprocess.html#cb617-5" aria-hidden="true" tabindex="-1"></a>from tkinter import filedialog</span>
-<span id="cb617-6"><a href="python-subprocess.html#cb617-6" aria-hidden="true" tabindex="-1"></a>from my_first_script import <span class="sc">*</span></span>
-<span id="cb617-7"><a href="python-subprocess.html#cb617-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb617-8"><a href="python-subprocess.html#cb617-8" aria-hidden="true" tabindex="-1"></a>def <span class="fu">main</span>()<span class="sc">:</span> <span class="co"># this can be the main backbone to call the rest of your functions</span></span>
-<span id="cb617-9"><a href="python-subprocess.html#cb617-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">function_one</span>() <span class="co"># this is one of many of the functions you can create to fuel your experiment</span></span>
-<span id="cb617-10"><a href="python-subprocess.html#cb617-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">function_two</span>()</span>
-<span id="cb617-11"><a href="python-subprocess.html#cb617-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb617-12"><a href="python-subprocess.html#cb617-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> __name__ <span class="sc">==</span> <span class="st">&#39;__main__&#39;</span><span class="sc">:</span> <span class="co"># guards script from accidental usage outside of context</span></span>
-<span id="cb617-13"><a href="python-subprocess.html#cb617-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">main</span>()  <span class="co"># run main script</span></span>
-<span id="cb617-14"><a href="python-subprocess.html#cb617-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb617-15"><a href="python-subprocess.html#cb617-15" aria-hidden="true" tabindex="-1"></a>def <span class="fu">function_one</span>()<span class="sc">:</span></span>
-<span id="cb617-16"><a href="python-subprocess.html#cb617-16" aria-hidden="true" tabindex="-1"></a>    cwd <span class="ot">=</span> <span class="fu">os.getcwd</span>()</span>
-<span id="cb617-17"><a href="python-subprocess.html#cb617-17" aria-hidden="true" tabindex="-1"></a>    root <span class="ot">=</span> <span class="fu">tk.Tk</span>()</span>
-<span id="cb617-18"><a href="python-subprocess.html#cb617-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">root.withdraw</span>()</span>
-<span id="cb617-19"><a href="python-subprocess.html#cb617-19" aria-hidden="true" tabindex="-1"></a>    in_file <span class="ot">=</span> <span class="fu">filedialog.askopenfilename</span>()</span>
-<span id="cb617-20"><a href="python-subprocess.html#cb617-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">subprocess.run</span>(f<span class="st">&quot;{cwd}/bbmap/reformat.sh in={in_file} out=reformat_result.fasta trd&quot;</span>, <span class="at">shell=</span>True)</span>
-<span id="cb617-21"><a href="python-subprocess.html#cb617-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># reformat: trim headers</span></span>
-<span id="cb617-22"><a href="python-subprocess.html#cb617-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb617-23"><a href="python-subprocess.html#cb617-23" aria-hidden="true" tabindex="-1"></a>def <span class="fu">function_two</span>()<span class="sc">:</span></span>
-<span id="cb617-24"><a href="python-subprocess.html#cb617-24" aria-hidden="true" tabindex="-1"></a>    cwd <span class="ot">=</span> <span class="fu">os.getcwd</span>()</span>
-<span id="cb617-25"><a href="python-subprocess.html#cb617-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">subprocess.run</span>(f<span class="st">&quot;{cwd}/bbmap/dedupe.sh in=reformat_result.fasta out=dedupe_result.fasta&quot;</span>, <span class="at">shell=</span>True)</span>
-<span id="cb617-26"><a href="python-subprocess.html#cb617-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dedupe: Remove duplicate contigs</span></span></code></pre></div>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="python-subprocess.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env python3</span></span>
+<span id="cb620-2"><a href="python-subprocess.html#cb620-2" aria-hidden="true" tabindex="-1"></a>import subprocess</span>
+<span id="cb620-3"><a href="python-subprocess.html#cb620-3" aria-hidden="true" tabindex="-1"></a>import os</span>
+<span id="cb620-4"><a href="python-subprocess.html#cb620-4" aria-hidden="true" tabindex="-1"></a>import tkinter as tk</span>
+<span id="cb620-5"><a href="python-subprocess.html#cb620-5" aria-hidden="true" tabindex="-1"></a>from tkinter import filedialog</span>
+<span id="cb620-6"><a href="python-subprocess.html#cb620-6" aria-hidden="true" tabindex="-1"></a>from my_first_script import <span class="sc">*</span></span>
+<span id="cb620-7"><a href="python-subprocess.html#cb620-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb620-8"><a href="python-subprocess.html#cb620-8" aria-hidden="true" tabindex="-1"></a>def <span class="fu">main</span>()<span class="sc">:</span> <span class="co"># this can be the main backbone to call the rest of your functions</span></span>
+<span id="cb620-9"><a href="python-subprocess.html#cb620-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">function_one</span>() <span class="co"># this is one of many of the functions you can create to fuel your experiment</span></span>
+<span id="cb620-10"><a href="python-subprocess.html#cb620-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">function_two</span>()</span>
+<span id="cb620-11"><a href="python-subprocess.html#cb620-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb620-12"><a href="python-subprocess.html#cb620-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> __name__ <span class="sc">==</span> <span class="st">&#39;__main__&#39;</span><span class="sc">:</span> <span class="co"># guards script from accidental usage outside of context</span></span>
+<span id="cb620-13"><a href="python-subprocess.html#cb620-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">main</span>()  <span class="co"># run main script</span></span>
+<span id="cb620-14"><a href="python-subprocess.html#cb620-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb620-15"><a href="python-subprocess.html#cb620-15" aria-hidden="true" tabindex="-1"></a>def <span class="fu">function_one</span>()<span class="sc">:</span></span>
+<span id="cb620-16"><a href="python-subprocess.html#cb620-16" aria-hidden="true" tabindex="-1"></a>    cwd <span class="ot">=</span> <span class="fu">os.getcwd</span>()</span>
+<span id="cb620-17"><a href="python-subprocess.html#cb620-17" aria-hidden="true" tabindex="-1"></a>    root <span class="ot">=</span> <span class="fu">tk.Tk</span>()</span>
+<span id="cb620-18"><a href="python-subprocess.html#cb620-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">root.withdraw</span>()</span>
+<span id="cb620-19"><a href="python-subprocess.html#cb620-19" aria-hidden="true" tabindex="-1"></a>    in_file <span class="ot">=</span> <span class="fu">filedialog.askopenfilename</span>()</span>
+<span id="cb620-20"><a href="python-subprocess.html#cb620-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">subprocess.run</span>(f<span class="st">&quot;{cwd}/bbmap/reformat.sh in={in_file} out=reformat_result.fasta trd&quot;</span>, <span class="at">shell=</span>True)</span>
+<span id="cb620-21"><a href="python-subprocess.html#cb620-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># reformat: trim headers</span></span>
+<span id="cb620-22"><a href="python-subprocess.html#cb620-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb620-23"><a href="python-subprocess.html#cb620-23" aria-hidden="true" tabindex="-1"></a>def <span class="fu">function_two</span>()<span class="sc">:</span></span>
+<span id="cb620-24"><a href="python-subprocess.html#cb620-24" aria-hidden="true" tabindex="-1"></a>    cwd <span class="ot">=</span> <span class="fu">os.getcwd</span>()</span>
+<span id="cb620-25"><a href="python-subprocess.html#cb620-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">subprocess.run</span>(f<span class="st">&quot;{cwd}/bbmap/dedupe.sh in=reformat_result.fasta out=dedupe_result.fasta&quot;</span>, <span class="at">shell=</span>True)</span>
+<span id="cb620-26"><a href="python-subprocess.html#cb620-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dedupe: Remove duplicate contigs</span></span></code></pre></div>
 <p>Now we are ready to use our new script with our outside software.</p>
 <ol style="list-style-type: decimal">
 <li><p>Open terminal in your system and change the working directory to your python work folder that we created for all our python stuff.</p></li>
