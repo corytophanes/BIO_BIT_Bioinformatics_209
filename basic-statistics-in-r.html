@@ -23,7 +23,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2025-02-25" />
+<meta name="date" content="2025-03-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -533,14 +533,15 @@ As graduate students, you are encouraged to use your own datasets (i.e., this is
 <span id="cb259-14"><a href="basic-statistics-in-r.html#cb259-14" aria-hidden="true" tabindex="-1"></a><span class="co">#load get &#39;airway_scaledcounts.csv&#39; dataset </span></span>
 <span id="cb259-15"><a href="basic-statistics-in-r.html#cb259-15" aria-hidden="true" tabindex="-1"></a>airway_data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;~/Desktop/Teach_R/class_pages_reference/bioinformatics_gitbook_1/my_working_directory/airway_scaledcounts.csv&quot;</span>,</span>
 <span id="cb259-16"><a href="basic-statistics-in-r.html#cb259-16" aria-hidden="true" tabindex="-1"></a>               <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb259-17"><a href="basic-statistics-in-r.html#cb259-17" aria-hidden="true" tabindex="-1"></a><span class="co">#          ensgene SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
-<span id="cb259-18"><a href="basic-statistics-in-r.html#cb259-18" aria-hidden="true" tabindex="-1"></a><span class="co">#1 ENSG00000000003        723        486        904        445       1170       1097        806        604</span></span>
-<span id="cb259-19"><a href="basic-statistics-in-r.html#cb259-19" aria-hidden="true" tabindex="-1"></a><span class="co">#2 ENSG00000000005          0          0          0          0          0          0          0          0</span></span>
-<span id="cb259-20"><a href="basic-statistics-in-r.html#cb259-20" aria-hidden="true" tabindex="-1"></a><span class="co">#3 ENSG00000000419        467        523        616        371        582        781        417        509</span></span>
-<span id="cb259-21"><a href="basic-statistics-in-r.html#cb259-21" aria-hidden="true" tabindex="-1"></a><span class="co">#4 ENSG00000000457        347        258        364        237        318        447        330        324</span></span>
-<span id="cb259-22"><a href="basic-statistics-in-r.html#cb259-22" aria-hidden="true" tabindex="-1"></a><span class="co">#5 ENSG00000000460         96         81         73         66        118         94        102         74</span></span>
-<span id="cb259-23"><a href="basic-statistics-in-r.html#cb259-23" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000000938          0          0          1          0          2          0          0          0</span></span>
-<span id="cb259-24"><a href="basic-statistics-in-r.html#cb259-24" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
+<span id="cb259-17"><a href="basic-statistics-in-r.html#cb259-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data)</span>
+<span id="cb259-18"><a href="basic-statistics-in-r.html#cb259-18" aria-hidden="true" tabindex="-1"></a><span class="co">#          ensgene SRR1039508 SRR1039509 SRR1039512 SRR1039513 SRR1039516 SRR1039517 SRR1039520 SRR1039521</span></span>
+<span id="cb259-19"><a href="basic-statistics-in-r.html#cb259-19" aria-hidden="true" tabindex="-1"></a><span class="co">#1 ENSG00000000003        723        486        904        445       1170       1097        806        604</span></span>
+<span id="cb259-20"><a href="basic-statistics-in-r.html#cb259-20" aria-hidden="true" tabindex="-1"></a><span class="co">#2 ENSG00000000005          0          0          0          0          0          0          0          0</span></span>
+<span id="cb259-21"><a href="basic-statistics-in-r.html#cb259-21" aria-hidden="true" tabindex="-1"></a><span class="co">#3 ENSG00000000419        467        523        616        371        582        781        417        509</span></span>
+<span id="cb259-22"><a href="basic-statistics-in-r.html#cb259-22" aria-hidden="true" tabindex="-1"></a><span class="co">#4 ENSG00000000457        347        258        364        237        318        447        330        324</span></span>
+<span id="cb259-23"><a href="basic-statistics-in-r.html#cb259-23" aria-hidden="true" tabindex="-1"></a><span class="co">#5 ENSG00000000460         96         81         73         66        118         94        102         74</span></span>
+<span id="cb259-24"><a href="basic-statistics-in-r.html#cb259-24" aria-hidden="true" tabindex="-1"></a><span class="co">#6 ENSG00000000938          0          0          1          0          2          0          0          0</span></span>
+<span id="cb259-25"><a href="basic-statistics-in-r.html#cb259-25" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span></code></pre></div>
 <p><strong>2)</strong> We can get some basic descriptive parameters of each data set including number of entries, number and names of the columns (i.e., variables), type of variables (e.g., numbers or characters), number of <code>NA</code> values.</p>
 <p>For this purpose, the easiest approach is to use the function <code>summary()</code></p>
 <div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="basic-statistics-in-r.html#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars_data)</span>
@@ -607,8 +608,28 @@ As graduate students, you are encouraged to use your own datasets (i.e., this is
 <span id="cb262-26"><a href="basic-statistics-in-r.html#cb262-26" aria-hidden="true" tabindex="-1"></a><span class="co">#5 SRR1039508    96</span></span>
 <span id="cb262-27"><a href="basic-statistics-in-r.html#cb262-27" aria-hidden="true" tabindex="-1"></a><span class="co">#6 SRR1039508     0</span></span>
 <span id="cb262-28"><a href="basic-statistics-in-r.html#cb262-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-29"><a href="basic-statistics-in-r.html#cb262-29" aria-hidden="true" tabindex="-1"></a><span class="co">#airway_data boxplots</span></span>
-<span id="cb262-30"><a href="basic-statistics-in-r.html#cb262-30" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(expression<span class="sc">~</span>sample, <span class="at">data=</span>airway_data_reduced2_melted, <span class="at">main=</span><span class="st">&quot;airway_data boxplots&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;samples&quot;</span>) </span></code></pre></div>
+<span id="cb262-29"><a href="basic-statistics-in-r.html#cb262-29" aria-hidden="true" tabindex="-1"></a>airway_data_reduced2_melted<span class="sc">$</span>expression <span class="ot">&lt;-</span> <span class="fu">log10</span>(airway_data_reduced2_melted<span class="sc">$</span>expression <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb262-30"><a href="basic-statistics-in-r.html#cb262-30" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(airway_data_reduced2_melted)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;log10_expression&quot;</span></span>
+<span id="cb262-31"><a href="basic-statistics-in-r.html#cb262-31" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airway_data_reduced2_melted)</span>
+<span id="cb262-32"><a href="basic-statistics-in-r.html#cb262-32" aria-hidden="true" tabindex="-1"></a><span class="co">#      sample log10_expression</span></span>
+<span id="cb262-33"><a href="basic-statistics-in-r.html#cb262-33" aria-hidden="true" tabindex="-1"></a><span class="co">#1 SRR1039508         2.859739</span></span>
+<span id="cb262-34"><a href="basic-statistics-in-r.html#cb262-34" aria-hidden="true" tabindex="-1"></a><span class="co">#2 SRR1039508         0.000000</span></span>
+<span id="cb262-35"><a href="basic-statistics-in-r.html#cb262-35" aria-hidden="true" tabindex="-1"></a><span class="co">#3 SRR1039508         2.670246</span></span>
+<span id="cb262-36"><a href="basic-statistics-in-r.html#cb262-36" aria-hidden="true" tabindex="-1"></a><span class="co">#4 SRR1039508         2.541579</span></span>
+<span id="cb262-37"><a href="basic-statistics-in-r.html#cb262-37" aria-hidden="true" tabindex="-1"></a><span class="co">#5 SRR1039508         1.986772</span></span>
+<span id="cb262-38"><a href="basic-statistics-in-r.html#cb262-38" aria-hidden="true" tabindex="-1"></a><span class="co">#6 SRR1039508         0.000000</span></span>
+<span id="cb262-39"><a href="basic-statistics-in-r.html#cb262-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb262-40"><a href="basic-statistics-in-r.html#cb262-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb262-41"><a href="basic-statistics-in-r.html#cb262-41" aria-hidden="true" tabindex="-1"></a><span class="co">#airway_data boxplots using ggplot2</span></span>
+<span id="cb262-42"><a href="basic-statistics-in-r.html#cb262-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb262-43"><a href="basic-statistics-in-r.html#cb262-43" aria-hidden="true" tabindex="-1"></a><span class="fu">install.library</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb262-44"><a href="basic-statistics-in-r.html#cb262-44" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb262-45"><a href="basic-statistics-in-r.html#cb262-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb262-46"><a href="basic-statistics-in-r.html#cb262-46" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(airway_data_reduced2_melted, <span class="fu">aes</span>(<span class="at">x =</span> sample, <span class="at">y =</span> log10_expression, <span class="at">fill =</span> sample)) <span class="sc">+</span> </span>
+<span id="cb262-47"><a href="basic-statistics-in-r.html#cb262-47" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb262-48"><a href="basic-statistics-in-r.html#cb262-48" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">stat_summary</span>(<span class="at">fun =</span> <span class="st">&quot;mean&quot;</span>, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">shape =</span> <span class="dv">8</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>)<span class="sc">+</span></span>
+<span id="cb262-49"><a href="basic-statistics-in-r.html#cb262-49" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">100</span>,<span class="dv">1000</span>,<span class="dv">10000</span>,<span class="dv">100000</span>)) <span class="sc">+</span></span>
+<span id="cb262-50"><a href="basic-statistics-in-r.html#cb262-50" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;log10 expression&quot;</span>) </span></code></pre></div>
 <p><img src="figures/session_6_figs/1_2_boxplot_airway_sample.png" width="100%" /></p>
 <p>This figure is not very elegant (we will work with graph in that section). However, these boxplots are extremely skewed to low expression values.</p>
 <p><strong>3)</strong> We can discretize our data by creating groups based on criterium (e.g., threshold value). Such discrete groups can help us to define if a treatment or condition is reflected in our data or experimental groups. We will create a binary data frame for <code>airway_data</code> for the columns (variables) that represent the normalized gene expression for the samples that start with<code>SRR</code>. For this example, we will consider an arbitrary scale to divide into groups as: <strong>very high</strong> (x =&gt; 10000), <strong>high</strong> (10000 &gt; x =&gt; 100) and <strong>low</strong> (x &lt; 100) expression levels.</p>
