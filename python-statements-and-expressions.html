@@ -519,54 +519,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="expressions-in-python" class="section level2 hasAnchor" number="16.2">
 <h2><span class="header-section-number">16.2</span> Expressions in Python<a href="python-statements-and-expressions.html#expressions-in-python" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>An expression always contains a logical sequence of either numbers, strings, operators, or objects.</p>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="python-statements-and-expressions.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Arithmetic Expression: Calculate an average test score...</span></span>
-<span id="cb558-2"><a href="python-statements-and-expressions.html#cb558-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">95</span><span class="sc">+</span><span class="dv">55</span><span class="sc">+</span><span class="dv">45</span>)<span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb558-3"><a href="python-statements-and-expressions.html#cb558-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb558-4"><a href="python-statements-and-expressions.html#cb558-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Does not have to contain all numbers: 2 to the 4th power...</span></span>
-<span id="cb558-5"><a href="python-statements-and-expressions.html#cb558-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pow</span>(<span class="dv">2</span>,<span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="python-statements-and-expressions.html#cb559-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Arithmetic Expression: Calculate an average test score...</span></span>
+<span id="cb559-2"><a href="python-statements-and-expressions.html#cb559-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">95</span><span class="sc">+</span><span class="dv">55</span><span class="sc">+</span><span class="dv">45</span>)<span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb559-3"><a href="python-statements-and-expressions.html#cb559-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-4"><a href="python-statements-and-expressions.html#cb559-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Does not have to contain all numbers: 2 to the 4th power...</span></span>
+<span id="cb559-5"><a href="python-statements-and-expressions.html#cb559-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pow</span>(<span class="dv">2</span>,<span class="dv">4</span>)</span></code></pre></div>
 <p>Again, Expressions do not have to simply be arithmetic but can also deal with strings, operators, and objects.</p>
 </div>
 <div id="simple-assignment-statements-in-python" class="section level2 hasAnchor" number="16.3">
 <h2><span class="header-section-number">16.3</span> Simple Assignment Statements in Python<a href="python-statements-and-expressions.html#simple-assignment-statements-in-python" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This is something that should look very familiar as we just identifiers. In an assignment statement we list our identifier along with its definition.</p>
-<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="python-statements-and-expressions.html#cb559-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can think of this as a variable or identifier will equal an expression</span></span>
-<span id="cb559-2"><a href="python-statements-and-expressions.html#cb559-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-3"><a href="python-statements-and-expressions.html#cb559-3" aria-hidden="true" tabindex="-1"></a>wills_in_store <span class="ot">=</span> <span class="st">&quot;10 people named Will in store&quot;</span></span>
-<span id="cb559-4"><a href="python-statements-and-expressions.html#cb559-4" aria-hidden="true" tabindex="-1"></a><span class="co"># variable = expression</span></span>
-<span id="cb559-5"><a href="python-statements-and-expressions.html#cb559-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-6"><a href="python-statements-and-expressions.html#cb559-6" aria-hidden="true" tabindex="-1"></a><span class="co">#use id() to see where your expression lies in your computers&#39; memory</span></span>
-<span id="cb559-7"><a href="python-statements-and-expressions.html#cb559-7" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(wills_in_store)</span>
-<span id="cb559-8"><a href="python-statements-and-expressions.html#cb559-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-9"><a href="python-statements-and-expressions.html#cb559-9" aria-hidden="true" tabindex="-1"></a><span class="co">#this may seem like a tangent but it is important to note what your computer does with information and where it is stored. </span></span>
-<span id="cb559-10"><a href="python-statements-and-expressions.html#cb559-10" aria-hidden="true" tabindex="-1"></a><span class="co">#we discussed that Python will overwrite the definition of a identifier if reassigned, but what will happen if you assign the same content to two different identifiers?</span></span>
-<span id="cb559-11"><a href="python-statements-and-expressions.html#cb559-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-12"><a href="python-statements-and-expressions.html#cb559-12" aria-hidden="true" tabindex="-1"></a><span class="co">#scenario 1:</span></span>
-<span id="cb559-13"><a href="python-statements-and-expressions.html#cb559-13" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="st">&quot;data&quot;</span></span>
-<span id="cb559-14"><a href="python-statements-and-expressions.html#cb559-14" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(my_data)</span>
-<span id="cb559-15"><a href="python-statements-and-expressions.html#cb559-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-16"><a href="python-statements-and-expressions.html#cb559-16" aria-hidden="true" tabindex="-1"></a>my_data2 <span class="ot">=</span> <span class="st">&quot;data&quot;</span></span>
-<span id="cb559-17"><a href="python-statements-and-expressions.html#cb559-17" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(my_data2)</span>
-<span id="cb559-18"><a href="python-statements-and-expressions.html#cb559-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-19"><a href="python-statements-and-expressions.html#cb559-19" aria-hidden="true" tabindex="-1"></a><span class="co">#scenario 2:</span></span>
-<span id="cb559-20"><a href="python-statements-and-expressions.html#cb559-20" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="st">&quot;data here&quot;</span></span>
-<span id="cb559-21"><a href="python-statements-and-expressions.html#cb559-21" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(my_data)</span>
-<span id="cb559-22"><a href="python-statements-and-expressions.html#cb559-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-23"><a href="python-statements-and-expressions.html#cb559-23" aria-hidden="true" tabindex="-1"></a>my_data2 <span class="ot">=</span> <span class="st">&quot;data here&quot;</span></span>
-<span id="cb559-24"><a href="python-statements-and-expressions.html#cb559-24" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(my_data2)</span>
-<span id="cb559-25"><a href="python-statements-and-expressions.html#cb559-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-26"><a href="python-statements-and-expressions.html#cb559-26" aria-hidden="true" tabindex="-1"></a><span class="co">#scenario 3:</span></span>
-<span id="cb559-27"><a href="python-statements-and-expressions.html#cb559-27" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="dv">20</span></span>
-<span id="cb559-28"><a href="python-statements-and-expressions.html#cb559-28" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(my_data)</span>
-<span id="cb559-29"><a href="python-statements-and-expressions.html#cb559-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-30"><a href="python-statements-and-expressions.html#cb559-30" aria-hidden="true" tabindex="-1"></a>my_data2 <span class="ot">=</span> <span class="dv">20</span></span>
-<span id="cb559-31"><a href="python-statements-and-expressions.html#cb559-31" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(my_data2)</span>
-<span id="cb559-32"><a href="python-statements-and-expressions.html#cb559-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-33"><a href="python-statements-and-expressions.html#cb559-33" aria-hidden="true" tabindex="-1"></a><span class="co">#scenario 4:</span></span>
-<span id="cb559-34"><a href="python-statements-and-expressions.html#cb559-34" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="dv">2000</span></span>
-<span id="cb559-35"><a href="python-statements-and-expressions.html#cb559-35" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(my_data)</span>
-<span id="cb559-36"><a href="python-statements-and-expressions.html#cb559-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-37"><a href="python-statements-and-expressions.html#cb559-37" aria-hidden="true" tabindex="-1"></a>my_data2 <span class="ot">=</span> <span class="dv">2000</span></span>
-<span id="cb559-38"><a href="python-statements-and-expressions.html#cb559-38" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(my_data2)</span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="python-statements-and-expressions.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can think of this as a variable or identifier will equal an expression</span></span>
+<span id="cb560-2"><a href="python-statements-and-expressions.html#cb560-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-3"><a href="python-statements-and-expressions.html#cb560-3" aria-hidden="true" tabindex="-1"></a>wills_in_store <span class="ot">=</span> <span class="st">&quot;10 people named Will in store&quot;</span></span>
+<span id="cb560-4"><a href="python-statements-and-expressions.html#cb560-4" aria-hidden="true" tabindex="-1"></a><span class="co"># variable = expression</span></span>
+<span id="cb560-5"><a href="python-statements-and-expressions.html#cb560-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-6"><a href="python-statements-and-expressions.html#cb560-6" aria-hidden="true" tabindex="-1"></a><span class="co">#use id() to see where your expression lies in your computers&#39; memory</span></span>
+<span id="cb560-7"><a href="python-statements-and-expressions.html#cb560-7" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(wills_in_store)</span>
+<span id="cb560-8"><a href="python-statements-and-expressions.html#cb560-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-9"><a href="python-statements-and-expressions.html#cb560-9" aria-hidden="true" tabindex="-1"></a><span class="co">#this may seem like a tangent but it is important to note what your computer does with information and where it is stored. </span></span>
+<span id="cb560-10"><a href="python-statements-and-expressions.html#cb560-10" aria-hidden="true" tabindex="-1"></a><span class="co">#we discussed that Python will overwrite the definition of a identifier if reassigned, but what will happen if you assign the same content to two different identifiers?</span></span>
+<span id="cb560-11"><a href="python-statements-and-expressions.html#cb560-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-12"><a href="python-statements-and-expressions.html#cb560-12" aria-hidden="true" tabindex="-1"></a><span class="co">#scenario 1:</span></span>
+<span id="cb560-13"><a href="python-statements-and-expressions.html#cb560-13" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="st">&quot;data&quot;</span></span>
+<span id="cb560-14"><a href="python-statements-and-expressions.html#cb560-14" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(my_data)</span>
+<span id="cb560-15"><a href="python-statements-and-expressions.html#cb560-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-16"><a href="python-statements-and-expressions.html#cb560-16" aria-hidden="true" tabindex="-1"></a>my_data2 <span class="ot">=</span> <span class="st">&quot;data&quot;</span></span>
+<span id="cb560-17"><a href="python-statements-and-expressions.html#cb560-17" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(my_data2)</span>
+<span id="cb560-18"><a href="python-statements-and-expressions.html#cb560-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-19"><a href="python-statements-and-expressions.html#cb560-19" aria-hidden="true" tabindex="-1"></a><span class="co">#scenario 2:</span></span>
+<span id="cb560-20"><a href="python-statements-and-expressions.html#cb560-20" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="st">&quot;data here&quot;</span></span>
+<span id="cb560-21"><a href="python-statements-and-expressions.html#cb560-21" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(my_data)</span>
+<span id="cb560-22"><a href="python-statements-and-expressions.html#cb560-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-23"><a href="python-statements-and-expressions.html#cb560-23" aria-hidden="true" tabindex="-1"></a>my_data2 <span class="ot">=</span> <span class="st">&quot;data here&quot;</span></span>
+<span id="cb560-24"><a href="python-statements-and-expressions.html#cb560-24" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(my_data2)</span>
+<span id="cb560-25"><a href="python-statements-and-expressions.html#cb560-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-26"><a href="python-statements-and-expressions.html#cb560-26" aria-hidden="true" tabindex="-1"></a><span class="co">#scenario 3:</span></span>
+<span id="cb560-27"><a href="python-statements-and-expressions.html#cb560-27" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="dv">20</span></span>
+<span id="cb560-28"><a href="python-statements-and-expressions.html#cb560-28" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(my_data)</span>
+<span id="cb560-29"><a href="python-statements-and-expressions.html#cb560-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-30"><a href="python-statements-and-expressions.html#cb560-30" aria-hidden="true" tabindex="-1"></a>my_data2 <span class="ot">=</span> <span class="dv">20</span></span>
+<span id="cb560-31"><a href="python-statements-and-expressions.html#cb560-31" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(my_data2)</span>
+<span id="cb560-32"><a href="python-statements-and-expressions.html#cb560-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-33"><a href="python-statements-and-expressions.html#cb560-33" aria-hidden="true" tabindex="-1"></a><span class="co">#scenario 4:</span></span>
+<span id="cb560-34"><a href="python-statements-and-expressions.html#cb560-34" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="dv">2000</span></span>
+<span id="cb560-35"><a href="python-statements-and-expressions.html#cb560-35" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(my_data)</span>
+<span id="cb560-36"><a href="python-statements-and-expressions.html#cb560-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-37"><a href="python-statements-and-expressions.html#cb560-37" aria-hidden="true" tabindex="-1"></a>my_data2 <span class="ot">=</span> <span class="dv">2000</span></span>
+<span id="cb560-38"><a href="python-statements-and-expressions.html#cb560-38" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span>(my_data2)</span></code></pre></div>
 <p>The general rules for data allocation in memory, in respect to duplicate expressions is:</p>
 <ol style="list-style-type: decimal">
 <li><p>String duplicates under 20 characters that do not contain whitespaces will share memory locations</p></li>
@@ -578,72 +578,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">16.4</span> Augmented Assignment Statements in Python<a href="python-statements-and-expressions.html#augmented-assignment-statements-in-python" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Assignment statements can be more complex, adding additional commands along with a simple assignment, thus labeled an augmented assignment.</p>
 <p>Below are examples of augmented assignments:</p>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="python-statements-and-expressions.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="co">#simple assignments</span></span>
-<span id="cb560-2"><a href="python-statements-and-expressions.html#cb560-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb560-3"><a href="python-statements-and-expressions.html#cb560-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="dv">2</span></span>
-<span id="cb560-4"><a href="python-statements-and-expressions.html#cb560-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb560-5"><a href="python-statements-and-expressions.html#cb560-5" aria-hidden="true" tabindex="-1"></a><span class="co">#augmented assignments</span></span>
-<span id="cb560-6"><a href="python-statements-and-expressions.html#cb560-6" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span><span class="er">=</span> y</span>
-<span id="cb560-7"><a href="python-statements-and-expressions.html#cb560-7" aria-hidden="true" tabindex="-1"></a><span class="co">#or</span></span>
-<span id="cb560-8"><a href="python-statements-and-expressions.html#cb560-8" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> x <span class="sc">+</span> y</span>
-<span id="cb560-9"><a href="python-statements-and-expressions.html#cb560-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb560-10"><a href="python-statements-and-expressions.html#cb560-10" aria-hidden="true" tabindex="-1"></a><span class="co">#simple tuple</span></span>
-<span id="cb560-11"><a href="python-statements-and-expressions.html#cb560-11" aria-hidden="true" tabindex="-1"></a>tuple_1 <span class="ot">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb560-12"><a href="python-statements-and-expressions.html#cb560-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tuple_1)</span>
-<span id="cb560-13"><a href="python-statements-and-expressions.html#cb560-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb560-14"><a href="python-statements-and-expressions.html#cb560-14" aria-hidden="true" tabindex="-1"></a><span class="co">#augment tuple</span></span>
-<span id="cb560-15"><a href="python-statements-and-expressions.html#cb560-15" aria-hidden="true" tabindex="-1"></a>tuple_1 <span class="sc">+</span><span class="er">=</span> (<span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb560-16"><a href="python-statements-and-expressions.html#cb560-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tuple_1)</span>
-<span id="cb560-17"><a href="python-statements-and-expressions.html#cb560-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb560-18"><a href="python-statements-and-expressions.html#cb560-18" aria-hidden="true" tabindex="-1"></a><span class="co">#simple tuple 2</span></span>
-<span id="cb560-19"><a href="python-statements-and-expressions.html#cb560-19" aria-hidden="true" tabindex="-1"></a>tuple_2 <span class="ot">=</span> (<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;bannana&#39;</span>, <span class="st">&#39;pear&#39;</span>)</span>
-<span id="cb560-20"><a href="python-statements-and-expressions.html#cb560-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tuple_2)</span>
-<span id="cb560-21"><a href="python-statements-and-expressions.html#cb560-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb560-22"><a href="python-statements-and-expressions.html#cb560-22" aria-hidden="true" tabindex="-1"></a><span class="co">#augment tuple 2</span></span>
-<span id="cb560-23"><a href="python-statements-and-expressions.html#cb560-23" aria-hidden="true" tabindex="-1"></a>tuple_2 <span class="sc">+</span><span class="er">=</span> (<span class="st">&#39;grape&#39;</span>, <span class="st">&#39;tomato&#39;</span>)</span>
-<span id="cb560-24"><a href="python-statements-and-expressions.html#cb560-24" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tuple_2)</span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="python-statements-and-expressions.html#cb561-1" aria-hidden="true" tabindex="-1"></a><span class="co">#simple assignments</span></span>
+<span id="cb561-2"><a href="python-statements-and-expressions.html#cb561-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb561-3"><a href="python-statements-and-expressions.html#cb561-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb561-4"><a href="python-statements-and-expressions.html#cb561-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb561-5"><a href="python-statements-and-expressions.html#cb561-5" aria-hidden="true" tabindex="-1"></a><span class="co">#augmented assignments</span></span>
+<span id="cb561-6"><a href="python-statements-and-expressions.html#cb561-6" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span><span class="er">=</span> y</span>
+<span id="cb561-7"><a href="python-statements-and-expressions.html#cb561-7" aria-hidden="true" tabindex="-1"></a><span class="co">#or</span></span>
+<span id="cb561-8"><a href="python-statements-and-expressions.html#cb561-8" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> x <span class="sc">+</span> y</span>
+<span id="cb561-9"><a href="python-statements-and-expressions.html#cb561-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb561-10"><a href="python-statements-and-expressions.html#cb561-10" aria-hidden="true" tabindex="-1"></a><span class="co">#simple tuple</span></span>
+<span id="cb561-11"><a href="python-statements-and-expressions.html#cb561-11" aria-hidden="true" tabindex="-1"></a>tuple_1 <span class="ot">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb561-12"><a href="python-statements-and-expressions.html#cb561-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tuple_1)</span>
+<span id="cb561-13"><a href="python-statements-and-expressions.html#cb561-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb561-14"><a href="python-statements-and-expressions.html#cb561-14" aria-hidden="true" tabindex="-1"></a><span class="co">#augment tuple</span></span>
+<span id="cb561-15"><a href="python-statements-and-expressions.html#cb561-15" aria-hidden="true" tabindex="-1"></a>tuple_1 <span class="sc">+</span><span class="er">=</span> (<span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb561-16"><a href="python-statements-and-expressions.html#cb561-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tuple_1)</span>
+<span id="cb561-17"><a href="python-statements-and-expressions.html#cb561-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb561-18"><a href="python-statements-and-expressions.html#cb561-18" aria-hidden="true" tabindex="-1"></a><span class="co">#simple tuple 2</span></span>
+<span id="cb561-19"><a href="python-statements-and-expressions.html#cb561-19" aria-hidden="true" tabindex="-1"></a>tuple_2 <span class="ot">=</span> (<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;bannana&#39;</span>, <span class="st">&#39;pear&#39;</span>)</span>
+<span id="cb561-20"><a href="python-statements-and-expressions.html#cb561-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tuple_2)</span>
+<span id="cb561-21"><a href="python-statements-and-expressions.html#cb561-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb561-22"><a href="python-statements-and-expressions.html#cb561-22" aria-hidden="true" tabindex="-1"></a><span class="co">#augment tuple 2</span></span>
+<span id="cb561-23"><a href="python-statements-and-expressions.html#cb561-23" aria-hidden="true" tabindex="-1"></a>tuple_2 <span class="sc">+</span><span class="er">=</span> (<span class="st">&#39;grape&#39;</span>, <span class="st">&#39;tomato&#39;</span>)</span>
+<span id="cb561-24"><a href="python-statements-and-expressions.html#cb561-24" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tuple_2)</span></code></pre></div>
 </div>
 <div id="explicit-and-implicit-line-continuation" class="section level2 hasAnchor" number="16.5">
 <h2><span class="header-section-number">16.5</span> Explicit and Implicit Line Continuation<a href="python-statements-and-expressions.html#explicit-and-implicit-line-continuation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In most programming languages, programmers try to not make lines of code too long. This is turn makes the code more readable and easier to debug. Long lines fatigue the reader and some text editors make it difficult to view these lines. There are two methods of splitting long lines of code into numerous lines: explicit and implicit line continuation methods.</p>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="python-statements-and-expressions.html#cb561-1" aria-hidden="true" tabindex="-1"></a><span class="co">#explicit line continuation: use backslash</span></span>
-<span id="cb561-2"><a href="python-statements-and-expressions.html#cb561-2" aria-hidden="true" tabindex="-1"></a>list_1 <span class="ot">=</span> [<span class="dv">1</span>, \</span>
-<span id="cb561-3"><a href="python-statements-and-expressions.html#cb561-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>, <span class="dv">3</span>, \</span>
-<span id="cb561-4"><a href="python-statements-and-expressions.html#cb561-4" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> \</span>
-<span id="cb561-5"><a href="python-statements-and-expressions.html#cb561-5" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb561-6"><a href="python-statements-and-expressions.html#cb561-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(list_1)</span>
-<span id="cb561-7"><a href="python-statements-and-expressions.html#cb561-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb561-8"><a href="python-statements-and-expressions.html#cb561-8" aria-hidden="true" tabindex="-1"></a><span class="co">#implicit line continuation: use open parentheses (), braces {}, and brackets []</span></span>
-<span id="cb561-9"><a href="python-statements-and-expressions.html#cb561-9" aria-hidden="true" tabindex="-1"></a>list_1 <span class="ot">=</span> [<span class="dv">1</span>,</span>
-<span id="cb561-10"><a href="python-statements-and-expressions.html#cb561-10" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>, <span class="dv">3</span>,</span>
-<span id="cb561-11"><a href="python-statements-and-expressions.html#cb561-11" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span></span>
-<span id="cb561-12"><a href="python-statements-and-expressions.html#cb561-12" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb561-13"><a href="python-statements-and-expressions.html#cb561-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(list_1)</span></code></pre></div>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="python-statements-and-expressions.html#cb562-1" aria-hidden="true" tabindex="-1"></a><span class="co">#explicit line continuation: use backslash</span></span>
+<span id="cb562-2"><a href="python-statements-and-expressions.html#cb562-2" aria-hidden="true" tabindex="-1"></a>list_1 <span class="ot">=</span> [<span class="dv">1</span>, \</span>
+<span id="cb562-3"><a href="python-statements-and-expressions.html#cb562-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>, <span class="dv">3</span>, \</span>
+<span id="cb562-4"><a href="python-statements-and-expressions.html#cb562-4" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> \</span>
+<span id="cb562-5"><a href="python-statements-and-expressions.html#cb562-5" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb562-6"><a href="python-statements-and-expressions.html#cb562-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(list_1)</span>
+<span id="cb562-7"><a href="python-statements-and-expressions.html#cb562-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb562-8"><a href="python-statements-and-expressions.html#cb562-8" aria-hidden="true" tabindex="-1"></a><span class="co">#implicit line continuation: use open parentheses (), braces {}, and brackets []</span></span>
+<span id="cb562-9"><a href="python-statements-and-expressions.html#cb562-9" aria-hidden="true" tabindex="-1"></a>list_1 <span class="ot">=</span> [<span class="dv">1</span>,</span>
+<span id="cb562-10"><a href="python-statements-and-expressions.html#cb562-10" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>, <span class="dv">3</span>,</span>
+<span id="cb562-11"><a href="python-statements-and-expressions.html#cb562-11" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span></span>
+<span id="cb562-12"><a href="python-statements-and-expressions.html#cb562-12" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb562-13"><a href="python-statements-and-expressions.html#cb562-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(list_1)</span></code></pre></div>
 </div>
 <div id="indentation-in-python-is-crucial-to-proper-code-function" class="section level2 hasAnchor" number="16.6">
 <h2><span class="header-section-number">16.6</span> Indentation in Python is Crucial to Proper Code function<a href="python-statements-and-expressions.html#indentation-in-python-is-crucial-to-proper-code-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Python constructs blocks of code via an indentation structure. Other programming langauges vary in the method in which they create blocks of code. Most commonly braces are used to do this outside of Python.</p>
 <p>In Python the first line of a code block is written normally. The subsequent lines of code, if they are in the same code block, must be indented accordingly. If you recieve any error in Python while learning, it will mostly be indentation errors as it is a strange concept to pickup and learn.</p>
 <p>Indentation is not needed for simple statements, but compound expressions require indents. Let us practice with some of the examples below:</p>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="python-statements-and-expressions.html#cb562-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets define a function with proper indentation</span></span>
-<span id="cb562-2"><a href="python-statements-and-expressions.html#cb562-2" aria-hidden="true" tabindex="-1"></a>def <span class="fu">even_or_odd</span>(num)<span class="sc">:</span></span>
-<span id="cb562-3"><a href="python-statements-and-expressions.html#cb562-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Starting Analysis of Number&quot;</span>)</span>
-<span id="cb562-4"><a href="python-statements-and-expressions.html#cb562-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> num % <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span><span class="sc">:</span></span>
-<span id="cb562-5"><a href="python-statements-and-expressions.html#cb562-5" aria-hidden="true" tabindex="-1"></a>        return True</span>
-<span id="cb562-6"><a href="python-statements-and-expressions.html#cb562-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span><span class="sc">:</span></span>
-<span id="cb562-7"><a href="python-statements-and-expressions.html#cb562-7" aria-hidden="true" tabindex="-1"></a>        return False </span>
-<span id="cb562-8"><a href="python-statements-and-expressions.html#cb562-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb562-9"><a href="python-statements-and-expressions.html#cb562-9" aria-hidden="true" tabindex="-1"></a>num <span class="ot">=</span> <span class="dv">7</span></span>
-<span id="cb562-10"><a href="python-statements-and-expressions.html#cb562-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="fu">even_or_odd</span>(num) is True<span class="sc">:</span></span>
-<span id="cb562-11"><a href="python-statements-and-expressions.html#cb562-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(num, <span class="st">&#39;is an even number&#39;</span>)</span>
-<span id="cb562-12"><a href="python-statements-and-expressions.html#cb562-12" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
-<span id="cb562-13"><a href="python-statements-and-expressions.html#cb562-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(num, <span class="st">&#39;is an odd number&#39;</span>)</span></code></pre></div>
-</div>
-<div id="comments" class="section level2 hasAnchor" number="16.7">
-<h2><span class="header-section-number">16.7</span> Comments<a href="python-statements-and-expressions.html#comments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Be sure to annotate your code with hashtags followed by the code description. This is similar to R so there is not much new ground to cover. As you build more complex programs it will be essential to accurately recall what you wrote and why.</p>
-<p>In addition to traditional hashtags for comments you may use docstrings for large notes:</p>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="python-statements-and-expressions.html#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets introduce docstrings to our previous code</span></span>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="python-statements-and-expressions.html#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets define a function with proper indentation</span></span>
 <span id="cb563-2"><a href="python-statements-and-expressions.html#cb563-2" aria-hidden="true" tabindex="-1"></a>def <span class="fu">even_or_odd</span>(num)<span class="sc">:</span></span>
 <span id="cb563-3"><a href="python-statements-and-expressions.html#cb563-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Starting Analysis of Number&quot;</span>)</span>
 <span id="cb563-4"><a href="python-statements-and-expressions.html#cb563-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> num % <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span><span class="sc">:</span></span>
@@ -651,18 +633,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb563-6"><a href="python-statements-and-expressions.html#cb563-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span><span class="sc">:</span></span>
 <span id="cb563-7"><a href="python-statements-and-expressions.html#cb563-7" aria-hidden="true" tabindex="-1"></a>        return False </span>
 <span id="cb563-8"><a href="python-statements-and-expressions.html#cb563-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb563-9"><a href="python-statements-and-expressions.html#cb563-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb563-10"><a href="python-statements-and-expressions.html#cb563-10" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb563-11"><a href="python-statements-and-expressions.html#cb563-11" aria-hidden="true" tabindex="-1"></a><span class="st">These lines will not count</span></span>
-<span id="cb563-12"><a href="python-statements-and-expressions.html#cb563-12" aria-hidden="true" tabindex="-1"></a><span class="st">They are between the triple quotes</span></span>
-<span id="cb563-13"><a href="python-statements-and-expressions.html#cb563-13" aria-hidden="true" tabindex="-1"></a><span class="st">So they will not be used as code, but instead a comment</span></span>
-<span id="cb563-14"><a href="python-statements-and-expressions.html#cb563-14" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb563-15"><a href="python-statements-and-expressions.html#cb563-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb563-16"><a href="python-statements-and-expressions.html#cb563-16" aria-hidden="true" tabindex="-1"></a>num <span class="ot">=</span> <span class="dv">7</span></span>
-<span id="cb563-17"><a href="python-statements-and-expressions.html#cb563-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="fu">even_or_odd</span>(num) is True<span class="sc">:</span></span>
-<span id="cb563-18"><a href="python-statements-and-expressions.html#cb563-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(num, <span class="st">&#39;is an even number&#39;</span>)</span>
-<span id="cb563-19"><a href="python-statements-and-expressions.html#cb563-19" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
-<span id="cb563-20"><a href="python-statements-and-expressions.html#cb563-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(num, <span class="st">&#39;is an odd number&#39;</span>)</span></code></pre></div>
+<span id="cb563-9"><a href="python-statements-and-expressions.html#cb563-9" aria-hidden="true" tabindex="-1"></a>num <span class="ot">=</span> <span class="dv">7</span></span>
+<span id="cb563-10"><a href="python-statements-and-expressions.html#cb563-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="fu">even_or_odd</span>(num) is True<span class="sc">:</span></span>
+<span id="cb563-11"><a href="python-statements-and-expressions.html#cb563-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(num, <span class="st">&#39;is an even number&#39;</span>)</span>
+<span id="cb563-12"><a href="python-statements-and-expressions.html#cb563-12" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb563-13"><a href="python-statements-and-expressions.html#cb563-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(num, <span class="st">&#39;is an odd number&#39;</span>)</span></code></pre></div>
+</div>
+<div id="comments" class="section level2 hasAnchor" number="16.7">
+<h2><span class="header-section-number">16.7</span> Comments<a href="python-statements-and-expressions.html#comments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Be sure to annotate your code with hashtags followed by the code description. This is similar to R so there is not much new ground to cover. As you build more complex programs it will be essential to accurately recall what you wrote and why.</p>
+<p>In addition to traditional hashtags for comments you may use docstrings for large notes:</p>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="python-statements-and-expressions.html#cb564-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets introduce docstrings to our previous code</span></span>
+<span id="cb564-2"><a href="python-statements-and-expressions.html#cb564-2" aria-hidden="true" tabindex="-1"></a>def <span class="fu">even_or_odd</span>(num)<span class="sc">:</span></span>
+<span id="cb564-3"><a href="python-statements-and-expressions.html#cb564-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Starting Analysis of Number&quot;</span>)</span>
+<span id="cb564-4"><a href="python-statements-and-expressions.html#cb564-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> num % <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span><span class="sc">:</span></span>
+<span id="cb564-5"><a href="python-statements-and-expressions.html#cb564-5" aria-hidden="true" tabindex="-1"></a>        return True</span>
+<span id="cb564-6"><a href="python-statements-and-expressions.html#cb564-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb564-7"><a href="python-statements-and-expressions.html#cb564-7" aria-hidden="true" tabindex="-1"></a>        return False </span>
+<span id="cb564-8"><a href="python-statements-and-expressions.html#cb564-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb564-9"><a href="python-statements-and-expressions.html#cb564-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb564-10"><a href="python-statements-and-expressions.html#cb564-10" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb564-11"><a href="python-statements-and-expressions.html#cb564-11" aria-hidden="true" tabindex="-1"></a><span class="st">These lines will not count</span></span>
+<span id="cb564-12"><a href="python-statements-and-expressions.html#cb564-12" aria-hidden="true" tabindex="-1"></a><span class="st">They are between the triple quotes</span></span>
+<span id="cb564-13"><a href="python-statements-and-expressions.html#cb564-13" aria-hidden="true" tabindex="-1"></a><span class="st">So they will not be used as code, but instead a comment</span></span>
+<span id="cb564-14"><a href="python-statements-and-expressions.html#cb564-14" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb564-15"><a href="python-statements-and-expressions.html#cb564-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb564-16"><a href="python-statements-and-expressions.html#cb564-16" aria-hidden="true" tabindex="-1"></a>num <span class="ot">=</span> <span class="dv">7</span></span>
+<span id="cb564-17"><a href="python-statements-and-expressions.html#cb564-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="fu">even_or_odd</span>(num) is True<span class="sc">:</span></span>
+<span id="cb564-18"><a href="python-statements-and-expressions.html#cb564-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(num, <span class="st">&#39;is an even number&#39;</span>)</span>
+<span id="cb564-19"><a href="python-statements-and-expressions.html#cb564-19" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb564-20"><a href="python-statements-and-expressions.html#cb564-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(num, <span class="st">&#39;is an odd number&#39;</span>)</span></code></pre></div>
 
 </div>
 </div>
