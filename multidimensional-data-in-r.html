@@ -23,7 +23,7 @@
 <meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
 
 
-<meta name="date" content="2025-03-25" />
+<meta name="date" content="2025-03-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -528,7 +528,7 @@ For instance, PCA reduce the data complexity from many variables into few summar
 <span id="cb379-5"><a href="multidimensional-data-in-r.html#cb379-5" aria-hidden="true" tabindex="-1"></a><span class="do">##load the doubs dataset into the R environment</span></span>
 <span id="cb379-6"><a href="multidimensional-data-in-r.html#cb379-6" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(doubs)</span>
 <span id="cb379-7"><a href="multidimensional-data-in-r.html#cb379-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb379-8"><a href="multidimensional-data-in-r.html#cb379-8" aria-hidden="true" tabindex="-1"></a><span class="do">## dataset of eological tables for environmental variables, fish species and spatial coordinates for 30 sites.</span></span>
+<span id="cb379-8"><a href="multidimensional-data-in-r.html#cb379-8" aria-hidden="true" tabindex="-1"></a><span class="do">## dataset of ecological tables for environmental variables, fish species and spatial coordinates for 30 sites.</span></span>
 <span id="cb379-9"><a href="multidimensional-data-in-r.html#cb379-9" aria-hidden="true" tabindex="-1"></a>?doubs</span>
 <span id="cb379-10"><a href="multidimensional-data-in-r.html#cb379-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb379-11"><a href="multidimensional-data-in-r.html#cb379-11" aria-hidden="true" tabindex="-1"></a><span class="do">## we will use only the environmental variables</span></span>
@@ -569,8 +569,11 @@ For instance, PCA reduce the data complexity from many variables into few summar
 <span id="cb381-21"><a href="multidimensional-data-in-r.html#cb381-21" aria-hidden="true" tabindex="-1"></a><span class="co">#5 5.370638 6.744059 1.156252 5.575949 4.394449 4.430817 3.6375862 3.951244 4.382027 4.127134</span></span>
 <span id="cb381-22"><a href="multidimensional-data-in-r.html#cb381-22" aria-hidden="true" tabindex="-1"></a><span class="co">#6 5.780744 6.740519 1.251905 5.655992 4.369448 4.094345 2.9957323 2.708050 4.624973 3.970292</span></span>
 <span id="cb381-23"><a href="multidimensional-data-in-r.html#cb381-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb381-24"><a href="multidimensional-data-in-r.html#cb381-24" aria-hidden="true" tabindex="-1"></a><span class="do">## we can install ade4 and load the modified dataset for this example</span></span>
-<span id="cb381-25"><a href="multidimensional-data-in-r.html#cb381-25" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(env_log_red, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<span id="cb381-24"><a href="multidimensional-data-in-r.html#cb381-24" aria-hidden="true" tabindex="-1"></a><span class="do">## dataset of ecological tables for environmental variables, fish species and spatial coordinates for 30 sites.</span></span>
+<span id="cb381-25"><a href="multidimensional-data-in-r.html#cb381-25" aria-hidden="true" tabindex="-1"></a>?doubs</span>
+<span id="cb381-26"><a href="multidimensional-data-in-r.html#cb381-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb381-27"><a href="multidimensional-data-in-r.html#cb381-27" aria-hidden="true" tabindex="-1"></a><span class="do">## we can install ade4 and load the modified dataset for this example</span></span>
+<span id="cb381-28"><a href="multidimensional-data-in-r.html#cb381-28" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(env_log_red, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex=</span><span class="fl">0.5</span>)</span></code></pre></div>
 <p>We can run PCA using the preloaded function in R or with several specialized packages. We will start with the functions <code>prcomp()</code> and <code>summary()</code>.</p>
 <div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="multidimensional-data-in-r.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="do">## apply PCA - scale. = TRUE is highly advisable, but default is FALSE. </span></span>
 <span id="cb382-2"><a href="multidimensional-data-in-r.html#cb382-2" aria-hidden="true" tabindex="-1"></a>env_prcomp <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(env_log_red, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale. =</span> <span class="cn">TRUE</span>) </span>
@@ -589,7 +592,10 @@ For instance, PCA reduce the data complexity from many variables into few summar
 <span id="cb382-15"><a href="multidimensional-data-in-r.html#cb382-15" aria-hidden="true" tabindex="-1"></a><span class="co">#pho  0.35978479  0.15025127 -0.2384279 -0.09780973  0.004998182  0.59283974  0.493290882 -0.25929815  0.33522306  0.084468872</span></span>
 <span id="cb382-16"><a href="multidimensional-data-in-r.html#cb382-16" aria-hidden="true" tabindex="-1"></a><span class="co">#nit  0.36509191 -0.03139547  0.1053406  0.23840435 -0.511528294  0.41078684 -0.313263865  0.51006660 -0.09509725 -0.006021563</span></span>
 <span id="cb382-17"><a href="multidimensional-data-in-r.html#cb382-17" aria-hidden="true" tabindex="-1"></a><span class="co">#oxy -0.25192228 -0.56073462  0.2173434 -0.06473107 -0.174757541 -0.08405657  0.438140938  0.36832297  0.39110186  0.229102408</span></span>
-<span id="cb382-18"><a href="multidimensional-data-in-r.html#cb382-18" aria-hidden="true" tabindex="-1"></a><span class="co">#bdo  0.24827761  0.55517993 -0.1762335 -0.13016095 -0.252295130 -0.55318468  0.254587830  0.33694829  0.18286003  0.026082994</span></span></code></pre></div>
+<span id="cb382-18"><a href="multidimensional-data-in-r.html#cb382-18" aria-hidden="true" tabindex="-1"></a><span class="co">#bdo  0.24827761  0.55517993 -0.1762335 -0.13016095 -0.252295130 -0.55318468  0.254587830  0.33694829  0.18286003  0.026082994</span></span>
+<span id="cb382-19"><a href="multidimensional-data-in-r.html#cb382-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb382-20"><a href="multidimensional-data-in-r.html#cb382-20" aria-hidden="true" tabindex="-1"></a><span class="do">## dataset of ecological tables for environmental variables, fish species and spatial coordinates for 30 sites.</span></span>
+<span id="cb382-21"><a href="multidimensional-data-in-r.html#cb382-21" aria-hidden="true" tabindex="-1"></a>?doubs</span></code></pre></div>
 <p>The output of <code>env_prcomp</code> includes the standard deviation of each of the 10 principal components (PCs). You should expect as many PCs as the number of variables in your dataset (i.e., 10 variables, 10 PCs). The values under <code>Rotation (n x k)</code> are the loadings of each of the variables in each component (PC) and provide information about how each variables contribute to their calculation. Loadings range from -1 to 1 and higher the absolute value of these loadings on a PC, the more that variable is related to that PC (i.e., it is better represented). Loadings with absolute values &gt;0.4 are usually consider to have a strong relationship with that components. Notice the sign of the loading, some are positive, and some are negative. Positive is direct relationship, while a negative is an inverse relationship.</p>
 <div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="multidimensional-data-in-r.html#cb383-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we can see the structure of the analysis</span></span>
 <span id="cb383-2"><a href="multidimensional-data-in-r.html#cb383-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(env_prcomp)</span>
@@ -640,10 +646,13 @@ For instance, PCA reduce the data complexity from many variables into few summar
 <span id="cb386-3"><a href="multidimensional-data-in-r.html#cb386-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  no applicable method for &#39;depth&#39; applied to an object of class &quot;NULL&quot;</span></span>
 <span id="cb386-4"><a href="multidimensional-data-in-r.html#cb386-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Try to resubmit the fviz_pca_ind() after closing the graph window.</span></span></code></pre></div>
 <p>We can also graph of variables that we used in our PCA using the function <code>fviz_pca_var()</code>.</p>
-<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="multidimensional-data-in-r.html#cb387-1" aria-hidden="true" tabindex="-1"></a>factoextra<span class="sc">::</span><span class="fu">fviz_pca_var</span>(env_prcomp,</span>
-<span id="cb387-2"><a href="multidimensional-data-in-r.html#cb387-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">col.var =</span> <span class="st">&quot;contrib&quot;</span>, </span>
-<span id="cb387-3"><a href="multidimensional-data-in-r.html#cb387-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">&quot;dodgerblue4&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;firebrick4&quot;</span>),</span>
-<span id="cb387-4"><a href="multidimensional-data-in-r.html#cb387-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="multidimensional-data-in-r.html#cb387-1" aria-hidden="true" tabindex="-1"></a><span class="do">## dataset of ecological tables for environmental variables, fish species and spatial coordinates for 30 sites.</span></span>
+<span id="cb387-2"><a href="multidimensional-data-in-r.html#cb387-2" aria-hidden="true" tabindex="-1"></a>?doubs</span>
+<span id="cb387-3"><a href="multidimensional-data-in-r.html#cb387-3" aria-hidden="true" tabindex="-1"></a><span class="do">## plot</span></span>
+<span id="cb387-4"><a href="multidimensional-data-in-r.html#cb387-4" aria-hidden="true" tabindex="-1"></a>factoextra<span class="sc">::</span><span class="fu">fviz_pca_var</span>(env_prcomp,</span>
+<span id="cb387-5"><a href="multidimensional-data-in-r.html#cb387-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">col.var =</span> <span class="st">&quot;contrib&quot;</span>, </span>
+<span id="cb387-6"><a href="multidimensional-data-in-r.html#cb387-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">&quot;dodgerblue4&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;firebrick4&quot;</span>),</span>
+<span id="cb387-7"><a href="multidimensional-data-in-r.html#cb387-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="figures/session_8_figs/5_variable_plot.png" width="100%" /></p>
 <p>We can see that positive correlated variables point to the same side of the plot, while negative correlated variables point to opposite sides of the graph. Notice that you can choose the color gradient that you want with the argument <code>gradient.cols</code>, it might need 3 colors.</p>
 <div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="multidimensional-data-in-r.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="do">### </span><span class="al">NOTE</span><span class="do">: Sometimes you get this error. </span></span>
@@ -673,14 +682,17 @@ For instance, PCA reduce the data complexity from many variables into few summar
 <span id="cb390-13"><a href="multidimensional-data-in-r.html#cb390-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Dim.9  0.06659361        0.6659361                    99.77132</span></span>
 <span id="cb390-14"><a href="multidimensional-data-in-r.html#cb390-14" aria-hidden="true" tabindex="-1"></a><span class="co">#Dim.10 0.02286757        0.2286757                   100.00000</span></span></code></pre></div>
 <p>The variable results can be printed with the function <code>get_pca_var()</code>.</p>
-<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="multidimensional-data-in-r.html#cb391-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Results for Variables</span></span>
-<span id="cb391-2"><a href="multidimensional-data-in-r.html#cb391-2" aria-hidden="true" tabindex="-1"></a>res_var_env_prcomp <span class="ot">&lt;-</span> factoextra<span class="sc">::</span><span class="fu">get_pca_var</span>(env_prcomp)</span>
-<span id="cb391-3"><a href="multidimensional-data-in-r.html#cb391-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Coordinates</span></span>
-<span id="cb391-4"><a href="multidimensional-data-in-r.html#cb391-4" aria-hidden="true" tabindex="-1"></a>res_var_env_prcomp<span class="sc">$</span>coord </span>
-<span id="cb391-5"><a href="multidimensional-data-in-r.html#cb391-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Contributions to the PCs     </span></span>
-<span id="cb391-6"><a href="multidimensional-data-in-r.html#cb391-6" aria-hidden="true" tabindex="-1"></a>res_var_env_prcomp<span class="sc">$</span>contrib </span>
-<span id="cb391-7"><a href="multidimensional-data-in-r.html#cb391-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Quality of representation </span></span>
-<span id="cb391-8"><a href="multidimensional-data-in-r.html#cb391-8" aria-hidden="true" tabindex="-1"></a>res_var_env_prcomp<span class="sc">$</span>cos2           </span></code></pre></div>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="multidimensional-data-in-r.html#cb391-1" aria-hidden="true" tabindex="-1"></a><span class="do">## dataset of ecological tables for environmental variables, fish species and spatial coordinates for 30 sites.</span></span>
+<span id="cb391-2"><a href="multidimensional-data-in-r.html#cb391-2" aria-hidden="true" tabindex="-1"></a>?doubs</span>
+<span id="cb391-3"><a href="multidimensional-data-in-r.html#cb391-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb391-4"><a href="multidimensional-data-in-r.html#cb391-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Results for Variables</span></span>
+<span id="cb391-5"><a href="multidimensional-data-in-r.html#cb391-5" aria-hidden="true" tabindex="-1"></a>res_var_env_prcomp <span class="ot">&lt;-</span> factoextra<span class="sc">::</span><span class="fu">get_pca_var</span>(env_prcomp)</span>
+<span id="cb391-6"><a href="multidimensional-data-in-r.html#cb391-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Coordinates</span></span>
+<span id="cb391-7"><a href="multidimensional-data-in-r.html#cb391-7" aria-hidden="true" tabindex="-1"></a>res_var_env_prcomp<span class="sc">$</span>coord </span>
+<span id="cb391-8"><a href="multidimensional-data-in-r.html#cb391-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Contributions to the PCs     </span></span>
+<span id="cb391-9"><a href="multidimensional-data-in-r.html#cb391-9" aria-hidden="true" tabindex="-1"></a>res_var_env_prcomp<span class="sc">$</span>contrib </span>
+<span id="cb391-10"><a href="multidimensional-data-in-r.html#cb391-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Quality of representation </span></span>
+<span id="cb391-11"><a href="multidimensional-data-in-r.html#cb391-11" aria-hidden="true" tabindex="-1"></a>res_var_env_prcomp<span class="sc">$</span>cos2           </span></code></pre></div>
 <p>The individual (i.e., samples) associated results can be printed with the function <code>get_pca_ind()</code>.</p>
 <div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="multidimensional-data-in-r.html#cb392-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Results for individuals</span></span>
 <span id="cb392-2"><a href="multidimensional-data-in-r.html#cb392-2" aria-hidden="true" tabindex="-1"></a>res_ind_env_prcomp <span class="ot">&lt;-</span> factoextra<span class="sc">::</span><span class="fu">get_pca_ind</span>(env_prcomp)</span>
@@ -695,17 +707,20 @@ For instance, PCA reduce the data complexity from many variables into few summar
 <h2><span class="header-section-number">8.2</span> Multidimensional scaling<a href="multidimensional-data-in-r.html#multidimensional-scaling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We use multidimensional scaling helps to <strong>visualize similarities</strong> of individual cases or samples of a dataset. In this analysis, we reduce dimensions to be able to visualize or represent data points in a more friendly manner. We start with a set of samples or individuals measured on several numeric variables. After the analysis, we get a representation of the distances among these samples or individuals in a lower dimensional space (e.g., 2 dimensions), so we can infer the relative relationship (distance) between them. In other words, individuals or samples that are closer are more similar.</p>
 <p>We will use our example `env_log_red, but we need to add names to the sites for visualization.</p>
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="multidimensional-data-in-r.html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We can name our samples by assigned a unique row name.</span></span>
-<span id="cb393-2"><a href="multidimensional-data-in-r.html#cb393-2" aria-hidden="true" tabindex="-1"></a>env_log_red_MDS <span class="ot">&lt;-</span> env_log_red</span>
-<span id="cb393-3"><a href="multidimensional-data-in-r.html#cb393-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(env_log_red_MDS) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;site_&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(env_log_red_MDS))</span>
-<span id="cb393-4"><a href="multidimensional-data-in-r.html#cb393-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(env_log_red_MDS)</span>
-<span id="cb393-5"><a href="multidimensional-data-in-r.html#cb393-5" aria-hidden="true" tabindex="-1"></a><span class="co">#            dfs      alt      slo      flo       pH      har       pho      nit      oxy      bdo</span></span>
-<span id="cb393-6"><a href="multidimensional-data-in-r.html#cb393-6" aria-hidden="true" tabindex="-1"></a><span class="co">#site_1 1.098612 6.839476 1.820671 4.430817 4.369448 3.806662 0.0000000 2.995732 4.804021 3.295837</span></span>
-<span id="cb393-7"><a href="multidimensional-data-in-r.html#cb393-7" aria-hidden="true" tabindex="-1"></a><span class="co">#site_2 3.091042 6.837333 1.233726 4.605170 4.382027 3.688879 0.6931472 2.995732 4.634729 2.944439</span></span>
-<span id="cb393-8"><a href="multidimensional-data-in-r.html#cb393-8" aria-hidden="true" tabindex="-1"></a><span class="co">#site_3 4.624973 6.817831 1.291434 5.192957 4.418841 3.951244 1.6094379 3.091042 4.653960 3.555348</span></span>
-<span id="cb393-9"><a href="multidimensional-data-in-r.html#cb393-9" aria-hidden="true" tabindex="-1"></a><span class="co">#site_4 5.220356 6.749931 1.251905 5.533389 4.382027 4.276666 2.3025851 3.044522 4.700480 2.564949</span></span>
-<span id="cb393-10"><a href="multidimensional-data-in-r.html#cb393-10" aria-hidden="true" tabindex="-1"></a><span class="co">#site_5 5.370638 6.744059 1.156252 5.575949 4.394449 4.430817 3.6375862 3.951244 4.382027 4.127134</span></span>
-<span id="cb393-11"><a href="multidimensional-data-in-r.html#cb393-11" aria-hidden="true" tabindex="-1"></a><span class="co">#site_6 5.780744 6.740519 1.251905 5.655992 4.369448 4.094345 2.9957323 2.708050 4.624973 3.970292</span></span></code></pre></div>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="multidimensional-data-in-r.html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="do">## dataset of ecological tables for environmental variables, fish species and spatial coordinates for 30 sites.</span></span>
+<span id="cb393-2"><a href="multidimensional-data-in-r.html#cb393-2" aria-hidden="true" tabindex="-1"></a>?doubs</span>
+<span id="cb393-3"><a href="multidimensional-data-in-r.html#cb393-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb393-4"><a href="multidimensional-data-in-r.html#cb393-4" aria-hidden="true" tabindex="-1"></a><span class="do">## We can name our samples by assigned a unique row name.</span></span>
+<span id="cb393-5"><a href="multidimensional-data-in-r.html#cb393-5" aria-hidden="true" tabindex="-1"></a>env_log_red_MDS <span class="ot">&lt;-</span> env_log_red</span>
+<span id="cb393-6"><a href="multidimensional-data-in-r.html#cb393-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(env_log_red_MDS) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;site_&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(env_log_red_MDS))</span>
+<span id="cb393-7"><a href="multidimensional-data-in-r.html#cb393-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(env_log_red_MDS)</span>
+<span id="cb393-8"><a href="multidimensional-data-in-r.html#cb393-8" aria-hidden="true" tabindex="-1"></a><span class="co">#            dfs      alt      slo      flo       pH      har       pho      nit      oxy      bdo</span></span>
+<span id="cb393-9"><a href="multidimensional-data-in-r.html#cb393-9" aria-hidden="true" tabindex="-1"></a><span class="co">#site_1 1.098612 6.839476 1.820671 4.430817 4.369448 3.806662 0.0000000 2.995732 4.804021 3.295837</span></span>
+<span id="cb393-10"><a href="multidimensional-data-in-r.html#cb393-10" aria-hidden="true" tabindex="-1"></a><span class="co">#site_2 3.091042 6.837333 1.233726 4.605170 4.382027 3.688879 0.6931472 2.995732 4.634729 2.944439</span></span>
+<span id="cb393-11"><a href="multidimensional-data-in-r.html#cb393-11" aria-hidden="true" tabindex="-1"></a><span class="co">#site_3 4.624973 6.817831 1.291434 5.192957 4.418841 3.951244 1.6094379 3.091042 4.653960 3.555348</span></span>
+<span id="cb393-12"><a href="multidimensional-data-in-r.html#cb393-12" aria-hidden="true" tabindex="-1"></a><span class="co">#site_4 5.220356 6.749931 1.251905 5.533389 4.382027 4.276666 2.3025851 3.044522 4.700480 2.564949</span></span>
+<span id="cb393-13"><a href="multidimensional-data-in-r.html#cb393-13" aria-hidden="true" tabindex="-1"></a><span class="co">#site_5 5.370638 6.744059 1.156252 5.575949 4.394449 4.430817 3.6375862 3.951244 4.382027 4.127134</span></span>
+<span id="cb393-14"><a href="multidimensional-data-in-r.html#cb393-14" aria-hidden="true" tabindex="-1"></a><span class="co">#site_6 5.780744 6.740519 1.251905 5.655992 4.369448 4.094345 2.9957323 2.708050 4.624973 3.970292</span></span></code></pre></div>
 <p>We can perform MDS using the function <code>dis()</code> and <code>cmdscale()</code>for metric or classical MDS with two dimensions <code>k = 2</code>.</p>
 <div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="multidimensional-data-in-r.html#cb394-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Classical MDS: N rows (objects) x p columns (variables)</span></span>
 <span id="cb394-2"><a href="multidimensional-data-in-r.html#cb394-2" aria-hidden="true" tabindex="-1"></a><span class="co"># get Euclidean distances between the rows</span></span>
@@ -757,23 +772,25 @@ This dataset can be loaded from the R-package <a href="https://stat.ethz.ch/R-ma
 <div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="multidimensional-data-in-r.html#cb397-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;datasets&quot;</span>)</span>
 <span id="cb397-2"><a href="multidimensional-data-in-r.html#cb397-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasets)</span>
 <span id="cb397-3"><a href="multidimensional-data-in-r.html#cb397-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
-<span id="cb397-4"><a href="multidimensional-data-in-r.html#cb397-4" aria-hidden="true" tabindex="-1"></a>iris_dataset <span class="ot">&lt;-</span> iris</span>
-<span id="cb397-5"><a href="multidimensional-data-in-r.html#cb397-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris_dataset)</span>
-<span id="cb397-6"><a href="multidimensional-data-in-r.html#cb397-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width          Species  </span></span>
-<span id="cb397-7"><a href="multidimensional-data-in-r.html#cb397-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100   setosa    :50  </span></span>
-<span id="cb397-8"><a href="multidimensional-data-in-r.html#cb397-8" aria-hidden="true" tabindex="-1"></a><span class="co">#1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300   versicolor:50  </span></span>
-<span id="cb397-9"><a href="multidimensional-data-in-r.html#cb397-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Median :5.800   Median :3.000   Median :4.350   Median :1.300   virginica :50  </span></span>
-<span id="cb397-10"><a href="multidimensional-data-in-r.html#cb397-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199                  </span></span>
-<span id="cb397-11"><a href="multidimensional-data-in-r.html#cb397-11" aria-hidden="true" tabindex="-1"></a><span class="co">#3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800                  </span></span>
-<span id="cb397-12"><a href="multidimensional-data-in-r.html#cb397-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500                  </span></span>
-<span id="cb397-13"><a href="multidimensional-data-in-r.html#cb397-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris_dataset)</span>
-<span id="cb397-14"><a href="multidimensional-data-in-r.html#cb397-14" aria-hidden="true" tabindex="-1"></a><span class="co">#  Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
-<span id="cb397-15"><a href="multidimensional-data-in-r.html#cb397-15" aria-hidden="true" tabindex="-1"></a><span class="co">#1          5.1         3.5          1.4         0.2  setosa</span></span>
-<span id="cb397-16"><a href="multidimensional-data-in-r.html#cb397-16" aria-hidden="true" tabindex="-1"></a><span class="co">#2          4.9         3.0          1.4         0.2  setosa</span></span>
-<span id="cb397-17"><a href="multidimensional-data-in-r.html#cb397-17" aria-hidden="true" tabindex="-1"></a><span class="co">#3          4.7         3.2          1.3         0.2  setosa</span></span>
-<span id="cb397-18"><a href="multidimensional-data-in-r.html#cb397-18" aria-hidden="true" tabindex="-1"></a><span class="co">#4          4.6         3.1          1.5         0.2  setosa</span></span>
-<span id="cb397-19"><a href="multidimensional-data-in-r.html#cb397-19" aria-hidden="true" tabindex="-1"></a><span class="co">#5          5.0         3.6          1.4         0.2  setosa</span></span>
-<span id="cb397-20"><a href="multidimensional-data-in-r.html#cb397-20" aria-hidden="true" tabindex="-1"></a><span class="co">#6          5.4         3.9          1.7         0.4  setosa</span></span></code></pre></div>
+<span id="cb397-4"><a href="multidimensional-data-in-r.html#cb397-4" aria-hidden="true" tabindex="-1"></a>?iris</span>
+<span id="cb397-5"><a href="multidimensional-data-in-r.html#cb397-5" aria-hidden="true" tabindex="-1"></a>iris_dataset <span class="ot">&lt;-</span> iris</span>
+<span id="cb397-6"><a href="multidimensional-data-in-r.html#cb397-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb397-7"><a href="multidimensional-data-in-r.html#cb397-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris_dataset)</span>
+<span id="cb397-8"><a href="multidimensional-data-in-r.html#cb397-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width          Species  </span></span>
+<span id="cb397-9"><a href="multidimensional-data-in-r.html#cb397-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100   setosa    :50  </span></span>
+<span id="cb397-10"><a href="multidimensional-data-in-r.html#cb397-10" aria-hidden="true" tabindex="-1"></a><span class="co">#1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300   versicolor:50  </span></span>
+<span id="cb397-11"><a href="multidimensional-data-in-r.html#cb397-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Median :5.800   Median :3.000   Median :4.350   Median :1.300   virginica :50  </span></span>
+<span id="cb397-12"><a href="multidimensional-data-in-r.html#cb397-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199                  </span></span>
+<span id="cb397-13"><a href="multidimensional-data-in-r.html#cb397-13" aria-hidden="true" tabindex="-1"></a><span class="co">#3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800                  </span></span>
+<span id="cb397-14"><a href="multidimensional-data-in-r.html#cb397-14" aria-hidden="true" tabindex="-1"></a><span class="co">#Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500                  </span></span>
+<span id="cb397-15"><a href="multidimensional-data-in-r.html#cb397-15" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris_dataset)</span>
+<span id="cb397-16"><a href="multidimensional-data-in-r.html#cb397-16" aria-hidden="true" tabindex="-1"></a><span class="co">#  Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
+<span id="cb397-17"><a href="multidimensional-data-in-r.html#cb397-17" aria-hidden="true" tabindex="-1"></a><span class="co">#1          5.1         3.5          1.4         0.2  setosa</span></span>
+<span id="cb397-18"><a href="multidimensional-data-in-r.html#cb397-18" aria-hidden="true" tabindex="-1"></a><span class="co">#2          4.9         3.0          1.4         0.2  setosa</span></span>
+<span id="cb397-19"><a href="multidimensional-data-in-r.html#cb397-19" aria-hidden="true" tabindex="-1"></a><span class="co">#3          4.7         3.2          1.3         0.2  setosa</span></span>
+<span id="cb397-20"><a href="multidimensional-data-in-r.html#cb397-20" aria-hidden="true" tabindex="-1"></a><span class="co">#4          4.6         3.1          1.5         0.2  setosa</span></span>
+<span id="cb397-21"><a href="multidimensional-data-in-r.html#cb397-21" aria-hidden="true" tabindex="-1"></a><span class="co">#5          5.0         3.6          1.4         0.2  setosa</span></span>
+<span id="cb397-22"><a href="multidimensional-data-in-r.html#cb397-22" aria-hidden="true" tabindex="-1"></a><span class="co">#6          5.4         3.9          1.7         0.4  setosa</span></span></code></pre></div>
 <p>We can perform <a href="https://en.wikipedia.org/wiki/Linear_discriminant_analysis" target="_blank"><strong>discriminant function analysis (DFA) or Linear Discriminant Analysis (LDA)</strong></a> to find a function (e.g., linear classifier) to separate samples in to two or more classes. For this analysis, we will the function <code>lda()</code> from the package <strong>MASS</strong>.</p>
 <div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="multidimensional-data-in-r.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we have used the packages MASS and ggplot2.</span></span>
 <span id="cb398-2"><a href="multidimensional-data-in-r.html#cb398-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
@@ -915,13 +932,13 @@ This dataset can be loaded from the R-package <a href="https://stat.ethz.ch/R-ma
 <span id="cb403-21"><a href="multidimensional-data-in-r.html#cb403-21" aria-hidden="true" tabindex="-1"></a><span class="co">#6  setosa 7.701947  1.4617210</span></span>
 <span id="cb403-22"><a href="multidimensional-data-in-r.html#cb403-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb403-23"><a href="multidimensional-data-in-r.html#cb403-23" aria-hidden="true" tabindex="-1"></a><span class="do">## show original groups</span></span>
-<span id="cb403-24"><a href="multidimensional-data-in-r.html#cb403-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb403-24"><a href="multidimensional-data-in-r.html#cb403-24" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.new</span>()</span>
 <span id="cb403-25"><a href="multidimensional-data-in-r.html#cb403-25" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris_dataset, <span class="fu">aes</span>(LD1, LD2)) <span class="sc">+</span></span>
 <span id="cb403-26"><a href="multidimensional-data-in-r.html#cb403-26" aria-hidden="true" tabindex="-1"></a>       <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Species)) <span class="sc">+</span></span>
 <span id="cb403-27"><a href="multidimensional-data-in-r.html#cb403-27" aria-hidden="true" tabindex="-1"></a>           <span class="fu">ggtitle</span>(<span class="st">&quot;Iris Original Groups&quot;</span>)</span>
 <span id="cb403-28"><a href="multidimensional-data-in-r.html#cb403-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb403-29"><a href="multidimensional-data-in-r.html#cb403-29" aria-hidden="true" tabindex="-1"></a><span class="do">## show LDA predicted groups</span></span>
-<span id="cb403-30"><a href="multidimensional-data-in-r.html#cb403-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb403-30"><a href="multidimensional-data-in-r.html#cb403-30" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.new</span>()</span>
 <span id="cb403-31"><a href="multidimensional-data-in-r.html#cb403-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris_dataset, <span class="fu">aes</span>(LD1, LD2)) <span class="sc">+</span></span>
 <span id="cb403-32"><a href="multidimensional-data-in-r.html#cb403-32" aria-hidden="true" tabindex="-1"></a>       <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> lda_species_prediction)) <span class="sc">+</span></span>
 <span id="cb403-33"><a href="multidimensional-data-in-r.html#cb403-33" aria-hidden="true" tabindex="-1"></a>           <span class="fu">ggtitle</span>(<span class="st">&quot;Iris LDA Predicted Groups&quot;</span>)</span></code></pre></div>
@@ -995,7 +1012,7 @@ This dataset can be loaded from the R-package <a href="https://stat.ethz.ch/R-ma
 <span id="cb406-14"><a href="multidimensional-data-in-r.html#cb406-14" aria-hidden="true" tabindex="-1"></a><span class="co">#6  setosa 7.701947  1.4617210              1</span></span>
 <span id="cb406-15"><a href="multidimensional-data-in-r.html#cb406-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb406-16"><a href="multidimensional-data-in-r.html#cb406-16" aria-hidden="true" tabindex="-1"></a><span class="do">## we can plot these groups using the lda coordinates to visualize.</span></span>
-<span id="cb406-17"><a href="multidimensional-data-in-r.html#cb406-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb406-17"><a href="multidimensional-data-in-r.html#cb406-17" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.new</span>()</span>
 <span id="cb406-18"><a href="multidimensional-data-in-r.html#cb406-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris_dataset_original, <span class="fu">aes</span>(LD1, LD2)) <span class="sc">+</span></span>
 <span id="cb406-19"><a href="multidimensional-data-in-r.html#cb406-19" aria-hidden="true" tabindex="-1"></a>       <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> kmeans_cluster)) <span class="sc">+</span></span>
 <span id="cb406-20"><a href="multidimensional-data-in-r.html#cb406-20" aria-hidden="true" tabindex="-1"></a>           <span class="fu">ggtitle</span>(<span class="st">&quot;Iris kmeans with 3 Groups&quot;</span>)</span></code></pre></div>
@@ -1040,7 +1057,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-PCA_DFA_exploratory_v7.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-PCA_DFA_exploratory_v8.Rmd",
 "text": "Edit"
 },
 "history": {
