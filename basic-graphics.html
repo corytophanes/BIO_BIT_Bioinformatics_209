@@ -20,10 +20,10 @@
   <meta name="twitter:description" content="none" />
   
 
-<meta name="author" content="Juan C. Santos &amp; Randy Ortiz" />
+<meta name="author" content="Juan C. Santos, Randy Ortiz &amp; Genrietta Yagudayeva" />
 
 
-<meta name="date" content="2025-03-26" />
+<meta name="date" content="2025-04-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -492,6 +492,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="32.8" data-path="miscellaneous.html"><a href="miscellaneous.html#worldcloud-text"><i class="fa fa-check"></i><b>32.8</b> worldcloud – text</a></li>
 <li class="chapter" data-level="32.9" data-path="miscellaneous.html"><a href="miscellaneous.html#miscellaneous-1"><i class="fa fa-check"></i><b>32.9</b> Miscellaneous</a></li>
 </ul></li>
+<li class="chapter" data-level="33" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html"><i class="fa fa-check"></i><b>33</b> – Galaxy: Getting Started (Part I)</a>
+<ul>
+<li class="chapter" data-level="33.1" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html#introduction-to-galaxy"><i class="fa fa-check"></i><b>33.1</b> Introduction to Galaxy</a></li>
+<li class="chapter" data-level="33.2" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html#hands-on-activity-lets-navigate-galaxy"><i class="fa fa-check"></i><b>33.2</b> Hands-on Activity: Let’s navigate Galaxy!</a></li>
+<li class="chapter" data-level="33.3" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html#what-is-galaxy-training-and-why-should-we-all-do-it"><i class="fa fa-check"></i><b>33.3</b> What is Galaxy Training, and why should we all do it?</a></li>
+<li class="chapter" data-level="33.4" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html#hands-on-activity-uploading-files-understanding-metadata-and-running-a-simple-workflow"><i class="fa fa-check"></i><b>33.4</b> Hands-on Activity: Uploading files, understanding metadata, and running a simple workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="34" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html"><i class="fa fa-check"></i><b>34</b> – Galaxy: Workflows (Part II)</a>
+<ul>
+<li class="chapter" data-level="34.1" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#introduction-to-workflows"><i class="fa fa-check"></i><b>34.1</b> Introduction to Workflows</a></li>
+<li class="chapter" data-level="34.2" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#export-and-use-a-simple-existing-genomic-workflow"><i class="fa fa-check"></i><b>34.2</b> 34.2 Export and use a simple existing genomic workflow</a></li>
+<li class="chapter" data-level="34.3" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#build-a-complete-history-made-genomic-aligning-workflow"><i class="fa fa-check"></i><b>34.3</b> 34.3 Build a complete history-made genomic aligning workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="35" data-path="what-are-the-pros-and-cons-of-galaxy-is-it-all-that-perfect-or-are-there-limitations.html"><a href="what-are-the-pros-and-cons-of-galaxy-is-it-all-that-perfect-or-are-there-limitations.html"><i class="fa fa-check"></i><b>35</b> 33.5: What are the pros and cons of Galaxy? Is it all that perfect, or are there limitations?</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -538,26 +552,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="basic-graphics.html#cb451-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we will load &#39;ade4&#39; and the ‘ichtyo’ dataset</span></span>
 <span id="cb451-2"><a href="basic-graphics.html#cb451-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)</span>
 <span id="cb451-3"><a href="basic-graphics.html#cb451-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ichtyo)</span>
-<span id="cb451-4"><a href="basic-graphics.html#cb451-4" aria-hidden="true" tabindex="-1"></a>ichtyo_data <span class="ot">&lt;-</span> ichtyo<span class="sc">$</span>tab</span>
-<span id="cb451-5"><a href="basic-graphics.html#cb451-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ichtyo_data)</span>
-<span id="cb451-6"><a href="basic-graphics.html#cb451-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  HOT VAN CHE SPI GOU BAF GAR ABL PER</span></span>
-<span id="cb451-7"><a href="basic-graphics.html#cb451-7" aria-hidden="true" tabindex="-1"></a><span class="co">#1  57  47  60  11  27  17  10   9  21</span></span>
-<span id="cb451-8"><a href="basic-graphics.html#cb451-8" aria-hidden="true" tabindex="-1"></a><span class="co">#2   9  25  19   6   2   5   0   4   6</span></span>
-<span id="cb451-9"><a href="basic-graphics.html#cb451-9" aria-hidden="true" tabindex="-1"></a><span class="co">#3  48  60  52  16  25  24  17   8  12</span></span>
-<span id="cb451-10"><a href="basic-graphics.html#cb451-10" aria-hidden="true" tabindex="-1"></a><span class="co">#4  26  50  32   8   6  11   2  10   5</span></span>
-<span id="cb451-11"><a href="basic-graphics.html#cb451-11" aria-hidden="true" tabindex="-1"></a><span class="co">#5  26  43  31  14   9  18  13  14   2</span></span>
-<span id="cb451-12"><a href="basic-graphics.html#cb451-12" aria-hidden="true" tabindex="-1"></a><span class="co">#6  62  43  47  16  11   9  15  16   3</span></span>
-<span id="cb451-13"><a href="basic-graphics.html#cb451-13" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ichtyo_data)</span>
-<span id="cb451-14"><a href="basic-graphics.html#cb451-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  32 obs. of  9 variables:</span></span>
-<span id="cb451-15"><a href="basic-graphics.html#cb451-15" aria-hidden="true" tabindex="-1"></a><span class="co"># $ HOT: num  57 9 48 26 26 62 17 18 9 12 ...</span></span>
-<span id="cb451-16"><a href="basic-graphics.html#cb451-16" aria-hidden="true" tabindex="-1"></a><span class="co"># $ VAN: num  47 25 60 50 43 43 34 22 14 9 ...</span></span>
-<span id="cb451-17"><a href="basic-graphics.html#cb451-17" aria-hidden="true" tabindex="-1"></a><span class="co"># $ CHE: num  60 19 52 32 31 47 28 18 8 9 ...</span></span>
-<span id="cb451-18"><a href="basic-graphics.html#cb451-18" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SPI: num  11 6 16 8 14 16 13 9 5 10 ...</span></span>
-<span id="cb451-19"><a href="basic-graphics.html#cb451-19" aria-hidden="true" tabindex="-1"></a><span class="co"># $ GOU: num  27 2 25 6 9 11 8 3 8 2 ...</span></span>
-<span id="cb451-20"><a href="basic-graphics.html#cb451-20" aria-hidden="true" tabindex="-1"></a><span class="co"># $ BAF: num  17 5 24 11 18 9 13 7 8 2 ...</span></span>
-<span id="cb451-21"><a href="basic-graphics.html#cb451-21" aria-hidden="true" tabindex="-1"></a><span class="co"># $ GAR: num  10 0 17 2 13 15 14 6 1 10 ...</span></span>
-<span id="cb451-22"><a href="basic-graphics.html#cb451-22" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ABL: num  9 4 8 10 14 16 5 8 1 5 ...</span></span>
-<span id="cb451-23"><a href="basic-graphics.html#cb451-23" aria-hidden="true" tabindex="-1"></a><span class="co"># $ PER: num  21 6 12 5 2 3 4 4 0 0 ...</span></span></code></pre></div>
+<span id="cb451-4"><a href="basic-graphics.html#cb451-4" aria-hidden="true" tabindex="-1"></a>?ichtyo</span>
+<span id="cb451-5"><a href="basic-graphics.html#cb451-5" aria-hidden="true" tabindex="-1"></a>ichtyo_data <span class="ot">&lt;-</span> ichtyo<span class="sc">$</span>tab</span>
+<span id="cb451-6"><a href="basic-graphics.html#cb451-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ichtyo_data)</span>
+<span id="cb451-7"><a href="basic-graphics.html#cb451-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  HOT VAN CHE SPI GOU BAF GAR ABL PER</span></span>
+<span id="cb451-8"><a href="basic-graphics.html#cb451-8" aria-hidden="true" tabindex="-1"></a><span class="co">#1  57  47  60  11  27  17  10   9  21</span></span>
+<span id="cb451-9"><a href="basic-graphics.html#cb451-9" aria-hidden="true" tabindex="-1"></a><span class="co">#2   9  25  19   6   2   5   0   4   6</span></span>
+<span id="cb451-10"><a href="basic-graphics.html#cb451-10" aria-hidden="true" tabindex="-1"></a><span class="co">#3  48  60  52  16  25  24  17   8  12</span></span>
+<span id="cb451-11"><a href="basic-graphics.html#cb451-11" aria-hidden="true" tabindex="-1"></a><span class="co">#4  26  50  32   8   6  11   2  10   5</span></span>
+<span id="cb451-12"><a href="basic-graphics.html#cb451-12" aria-hidden="true" tabindex="-1"></a><span class="co">#5  26  43  31  14   9  18  13  14   2</span></span>
+<span id="cb451-13"><a href="basic-graphics.html#cb451-13" aria-hidden="true" tabindex="-1"></a><span class="co">#6  62  43  47  16  11   9  15  16   3</span></span>
+<span id="cb451-14"><a href="basic-graphics.html#cb451-14" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ichtyo_data)</span>
+<span id="cb451-15"><a href="basic-graphics.html#cb451-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  32 obs. of  9 variables:</span></span>
+<span id="cb451-16"><a href="basic-graphics.html#cb451-16" aria-hidden="true" tabindex="-1"></a><span class="co"># $ HOT: num  57 9 48 26 26 62 17 18 9 12 ...</span></span>
+<span id="cb451-17"><a href="basic-graphics.html#cb451-17" aria-hidden="true" tabindex="-1"></a><span class="co"># $ VAN: num  47 25 60 50 43 43 34 22 14 9 ...</span></span>
+<span id="cb451-18"><a href="basic-graphics.html#cb451-18" aria-hidden="true" tabindex="-1"></a><span class="co"># $ CHE: num  60 19 52 32 31 47 28 18 8 9 ...</span></span>
+<span id="cb451-19"><a href="basic-graphics.html#cb451-19" aria-hidden="true" tabindex="-1"></a><span class="co"># $ SPI: num  11 6 16 8 14 16 13 9 5 10 ...</span></span>
+<span id="cb451-20"><a href="basic-graphics.html#cb451-20" aria-hidden="true" tabindex="-1"></a><span class="co"># $ GOU: num  27 2 25 6 9 11 8 3 8 2 ...</span></span>
+<span id="cb451-21"><a href="basic-graphics.html#cb451-21" aria-hidden="true" tabindex="-1"></a><span class="co"># $ BAF: num  17 5 24 11 18 9 13 7 8 2 ...</span></span>
+<span id="cb451-22"><a href="basic-graphics.html#cb451-22" aria-hidden="true" tabindex="-1"></a><span class="co"># $ GAR: num  10 0 17 2 13 15 14 6 1 10 ...</span></span>
+<span id="cb451-23"><a href="basic-graphics.html#cb451-23" aria-hidden="true" tabindex="-1"></a><span class="co"># $ ABL: num  9 4 8 10 14 16 5 8 1 5 ...</span></span>
+<span id="cb451-24"><a href="basic-graphics.html#cb451-24" aria-hidden="true" tabindex="-1"></a><span class="co"># $ PER: num  21 6 12 5 2 3 4 4 0 0 ...</span></span></code></pre></div>
 <p>For a bar chart, we need total counts. Therefore, we need to get the total sums per each column using <code>colSums()</code> and as a data frame using <code>as.data.frame()</code>.</p>
 <div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="basic-graphics.html#cb452-1" aria-hidden="true" tabindex="-1"></a><span class="do">## colum sum as data frame</span></span>
 <span id="cb452-2"><a href="basic-graphics.html#cb452-2" aria-hidden="true" tabindex="-1"></a>ichtyo_sum_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colSums</span> (ichtyo_data, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
@@ -638,82 +653,83 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="basic-graphics.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we will load &#39;ade4&#39; and the ‘ecomor’ dataset</span></span>
 <span id="cb456-2"><a href="basic-graphics.html#cb456-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)</span>
 <span id="cb456-3"><a href="basic-graphics.html#cb456-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ecomor)</span>
-<span id="cb456-4"><a href="basic-graphics.html#cb456-4" aria-hidden="true" tabindex="-1"></a><span class="co">#taxois a data frame with 129 species and 3 factors: Genus, Family and Order. It is a data frame of class&#39;taxo&#39;: the variables are factors giving nested classifications.</span></span>
-<span id="cb456-5"><a href="basic-graphics.html#cb456-5" aria-hidden="true" tabindex="-1"></a>ecomor_data <span class="ot">&lt;-</span> ecomor<span class="sc">$</span>taxo</span>
-<span id="cb456-6"><a href="basic-graphics.html#cb456-6" aria-hidden="true" tabindex="-1"></a><span class="co">#categ is a data frame with 129 species, 2 factors : ’forsub’ summarizing the feeding place and ’diet’the diet type.</span></span>
-<span id="cb456-7"><a href="basic-graphics.html#cb456-7" aria-hidden="true" tabindex="-1"></a>ecomor_data <span class="ot">&lt;-</span> <span class="fu">cbind</span>(ecomor_data,ecomor<span class="sc">$</span>categ)</span>
-<span id="cb456-8"><a href="basic-graphics.html#cb456-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ecomor_data)</span>
-<span id="cb456-9"><a href="basic-graphics.html#cb456-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  129 obs. of  5 variables:</span></span>
-<span id="cb456-10"><a href="basic-graphics.html#cb456-10" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Genus : Factor w/ 86 levels &quot;Acanithis&quot;,&quot;Aegithalos&quot;,..: 11 12 12 49 70 21 21 73 85 85 ...</span></span>
-<span id="cb456-11"><a href="basic-graphics.html#cb456-11" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Family: Factor w/ 35 levels &quot;Aegithalidae&quot;,..: 31 31 31 31 31 6 6 6 6 6 ...</span></span>
-<span id="cb456-12"><a href="basic-graphics.html#cb456-12" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Ordre : Factor w/ 7 levels &quot;Apodiformes&quot;,..: 1 1 1 1 1 2 2 2 2 2 ...</span></span>
-<span id="cb456-13"><a href="basic-graphics.html#cb456-13" aria-hidden="true" tabindex="-1"></a><span class="co"># $ forsub: Factor w/ 7 levels &quot;A&quot;,&quot;B&quot;,&quot;F&quot;,&quot;G&quot;,..: 5 5 5 1 3 5 5 4 4 4 ...</span></span>
-<span id="cb456-14"><a href="basic-graphics.html#cb456-14" aria-hidden="true" tabindex="-1"></a><span class="co"># $ diet  : Factor w/ 8 levels &quot;F&quot;,&quot;G&quot;,&quot;H&quot;,&quot;I&quot;,..: 7 7 7 7 7 2 6 2 2 2 ...</span></span>
-<span id="cb456-15"><a href="basic-graphics.html#cb456-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb456-16"><a href="basic-graphics.html#cb456-16" aria-hidden="true" tabindex="-1"></a><span class="do">## we subset to families and diet</span></span>
-<span id="cb456-17"><a href="basic-graphics.html#cb456-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb456-18"><a href="basic-graphics.html#cb456-18" aria-hidden="true" tabindex="-1"></a>ecomor_data_set <span class="ot">&lt;-</span> <span class="fu">subset</span>(ecomor_data, <span class="at">select =</span> <span class="fu">c</span>(Family, diet)) </span>
-<span id="cb456-19"><a href="basic-graphics.html#cb456-19" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ecomor_data_set)</span>
-<span id="cb456-20"><a href="basic-graphics.html#cb456-20" aria-hidden="true" tabindex="-1"></a><span class="co">#          Family diet</span></span>
-<span id="cb456-21"><a href="basic-graphics.html#cb456-21" aria-hidden="true" tabindex="-1"></a><span class="co">#E033 Trochilidae    N</span></span>
-<span id="cb456-22"><a href="basic-graphics.html#cb456-22" aria-hidden="true" tabindex="-1"></a><span class="co">#E034 Trochilidae    N</span></span>
-<span id="cb456-23"><a href="basic-graphics.html#cb456-23" aria-hidden="true" tabindex="-1"></a><span class="co">#E035 Trochilidae    N</span></span>
-<span id="cb456-24"><a href="basic-graphics.html#cb456-24" aria-hidden="true" tabindex="-1"></a><span class="co">#E070 Trochilidae    N</span></span>
-<span id="cb456-25"><a href="basic-graphics.html#cb456-25" aria-hidden="true" tabindex="-1"></a><span class="co">#E071 Trochilidae    N</span></span>
-<span id="cb456-26"><a href="basic-graphics.html#cb456-26" aria-hidden="true" tabindex="-1"></a><span class="co">#E001  Columbidae    G</span></span>
-<span id="cb456-27"><a href="basic-graphics.html#cb456-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb456-28"><a href="basic-graphics.html#cb456-28" aria-hidden="true" tabindex="-1"></a><span class="do">## we split by family</span></span>
-<span id="cb456-29"><a href="basic-graphics.html#cb456-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb456-30"><a href="basic-graphics.html#cb456-30" aria-hidden="true" tabindex="-1"></a>list_of_families <span class="ot">&lt;-</span> <span class="fu">split</span>(ecomor_data_set, ecomor_data_set<span class="sc">$</span>Family)</span>
-<span id="cb456-31"><a href="basic-graphics.html#cb456-31" aria-hidden="true" tabindex="-1"></a>list_of_families</span>
-<span id="cb456-32"><a href="basic-graphics.html#cb456-32" aria-hidden="true" tabindex="-1"></a><span class="co">#$Aegithalidae</span></span>
-<span id="cb456-33"><a href="basic-graphics.html#cb456-33" aria-hidden="true" tabindex="-1"></a><span class="co">#           Family diet</span></span>
-<span id="cb456-34"><a href="basic-graphics.html#cb456-34" aria-hidden="true" tabindex="-1"></a><span class="co">#E121 Aegithalidae    I</span></span>
-<span id="cb456-35"><a href="basic-graphics.html#cb456-35" aria-hidden="true" tabindex="-1"></a><span class="co">#E048 Aegithalidae    I</span></span>
-<span id="cb456-36"><a href="basic-graphics.html#cb456-36" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb456-37"><a href="basic-graphics.html#cb456-37" aria-hidden="true" tabindex="-1"></a><span class="co">#$Alaudidae</span></span>
-<span id="cb456-38"><a href="basic-graphics.html#cb456-38" aria-hidden="true" tabindex="-1"></a><span class="co">#        Family diet</span></span>
-<span id="cb456-39"><a href="basic-graphics.html#cb456-39" aria-hidden="true" tabindex="-1"></a><span class="co">#E104 Alaudidae    H</span></span>
-<span id="cb456-40"><a href="basic-graphics.html#cb456-40" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb456-41"><a href="basic-graphics.html#cb456-41" aria-hidden="true" tabindex="-1"></a><span class="co">#$Cardinalidae</span></span>
-<span id="cb456-42"><a href="basic-graphics.html#cb456-42" aria-hidden="true" tabindex="-1"></a><span class="co">#           Family diet</span></span>
-<span id="cb456-43"><a href="basic-graphics.html#cb456-43" aria-hidden="true" tabindex="-1"></a><span class="co">#E057 Cardinalidae    G</span></span>
-<span id="cb456-44"><a href="basic-graphics.html#cb456-44" aria-hidden="true" tabindex="-1"></a><span class="co">#E056 Cardinalidae    G</span></span>
-<span id="cb456-45"><a href="basic-graphics.html#cb456-45" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
-<span id="cb456-46"><a href="basic-graphics.html#cb456-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb456-47"><a href="basic-graphics.html#cb456-47" aria-hidden="true" tabindex="-1"></a><span class="do">## we can calculate the frequency of diet types by each family of these birds</span></span>
-<span id="cb456-48"><a href="basic-graphics.html#cb456-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb456-49"><a href="basic-graphics.html#cb456-49" aria-hidden="true" tabindex="-1"></a>collect_families_processed <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
-<span id="cb456-50"><a href="basic-graphics.html#cb456-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb456-51"><a href="basic-graphics.html#cb456-51" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(list_of_families)) {</span>
-<span id="cb456-52"><a href="basic-graphics.html#cb456-52" aria-hidden="true" tabindex="-1"></a>  <span class="co"># i &lt;- 1</span></span>
-<span id="cb456-53"><a href="basic-graphics.html#cb456-53" aria-hidden="true" tabindex="-1"></a>              one_family <span class="ot">&lt;-</span> list_of_families[[i]]</span>
-<span id="cb456-54"><a href="basic-graphics.html#cb456-54" aria-hidden="true" tabindex="-1"></a>             name_family <span class="ot">&lt;-</span> <span class="fu">unique</span>(one_family[,<span class="dv">1</span>])</span>
-<span id="cb456-55"><a href="basic-graphics.html#cb456-55" aria-hidden="true" tabindex="-1"></a>           one_family_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">table</span>(one_family [,<span class="dv">2</span>]), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb456-56"><a href="basic-graphics.html#cb456-56" aria-hidden="true" tabindex="-1"></a>       one_family_df_sum <span class="ot">&lt;-</span> <span class="fu">sum</span>(one_family_df<span class="sc">$</span>Freq)</span>
-<span id="cb456-57"><a href="basic-graphics.html#cb456-57" aria-hidden="true" tabindex="-1"></a>      one_family_df<span class="sc">$</span>Freq <span class="ot">&lt;-</span> one_family_df<span class="sc">$</span>Freq<span class="sc">/</span>one_family_df_sum</span>
-<span id="cb456-58"><a href="basic-graphics.html#cb456-58" aria-hidden="true" tabindex="-1"></a>    <span class="fu">names</span>(one_family_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;type_diet&quot;</span>,<span class="st">&quot;Freq&quot;</span>)</span>
-<span id="cb456-59"><a href="basic-graphics.html#cb456-59" aria-hidden="true" tabindex="-1"></a>    one_family_df<span class="sc">$</span>Family <span class="ot">&lt;-</span> name_family</span>
-<span id="cb456-60"><a href="basic-graphics.html#cb456-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb456-61"><a href="basic-graphics.html#cb456-61" aria-hidden="true" tabindex="-1"></a>    collect_families_processed [[i]] <span class="ot">&lt;-</span> one_family_df</span>
-<span id="cb456-62"><a href="basic-graphics.html#cb456-62" aria-hidden="true" tabindex="-1"></a>                       }</span>
-<span id="cb456-63"><a href="basic-graphics.html#cb456-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb456-64"><a href="basic-graphics.html#cb456-64" aria-hidden="true" tabindex="-1"></a><span class="do">## we put all of these in a single data frame</span></span>
-<span id="cb456-65"><a href="basic-graphics.html#cb456-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb456-66"><a href="basic-graphics.html#cb456-66" aria-hidden="true" tabindex="-1"></a>collect_families_processed_df <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, collect_families_processed)</span>
-<span id="cb456-67"><a href="basic-graphics.html#cb456-67" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(collect_families_processed_df)</span>
-<span id="cb456-68"><a href="basic-graphics.html#cb456-68" aria-hidden="true" tabindex="-1"></a><span class="co">#  type_diet Freq       Family</span></span>
-<span id="cb456-69"><a href="basic-graphics.html#cb456-69" aria-hidden="true" tabindex="-1"></a><span class="co">#1         F    0 Aegithalidae</span></span>
-<span id="cb456-70"><a href="basic-graphics.html#cb456-70" aria-hidden="true" tabindex="-1"></a><span class="co">#2         G    0 Aegithalidae</span></span>
-<span id="cb456-71"><a href="basic-graphics.html#cb456-71" aria-hidden="true" tabindex="-1"></a><span class="co">#3         H    0 Aegithalidae</span></span>
-<span id="cb456-72"><a href="basic-graphics.html#cb456-72" aria-hidden="true" tabindex="-1"></a><span class="co">#4         I    1 Aegithalidae</span></span>
-<span id="cb456-73"><a href="basic-graphics.html#cb456-73" aria-hidden="true" tabindex="-1"></a><span class="co">#5         J    0 Aegithalidae</span></span>
-<span id="cb456-74"><a href="basic-graphics.html#cb456-74" aria-hidden="true" tabindex="-1"></a><span class="co">#6         K    0 Aegithalidae</span></span>
-<span id="cb456-75"><a href="basic-graphics.html#cb456-75" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(collect_families_processed_df)</span>
-<span id="cb456-76"><a href="basic-graphics.html#cb456-76" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;: 280 obs. of  3 variables:</span></span>
-<span id="cb456-77"><a href="basic-graphics.html#cb456-77" aria-hidden="true" tabindex="-1"></a><span class="co"># $ type_diet: chr  &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; ...</span></span>
-<span id="cb456-78"><a href="basic-graphics.html#cb456-78" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Freq     : num  0 0 0 1 0 0 0 0 0 0 ...</span></span>
-<span id="cb456-79"><a href="basic-graphics.html#cb456-79" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Family   : Factor w/ 35 levels &quot;Aegithalidae&quot;,..: 1 1 1 1 1 1 1 1 2 2 ...</span></span></code></pre></div>
+<span id="cb456-4"><a href="basic-graphics.html#cb456-4" aria-hidden="true" tabindex="-1"></a>?ecomor</span>
+<span id="cb456-5"><a href="basic-graphics.html#cb456-5" aria-hidden="true" tabindex="-1"></a><span class="co">#taxois a data frame with 129 species and 3 factors: Genus, Family and Order. It is a data frame of class&#39;taxo&#39;: the variables are factors giving nested classifications.</span></span>
+<span id="cb456-6"><a href="basic-graphics.html#cb456-6" aria-hidden="true" tabindex="-1"></a>ecomor_data <span class="ot">&lt;-</span> ecomor<span class="sc">$</span>taxo</span>
+<span id="cb456-7"><a href="basic-graphics.html#cb456-7" aria-hidden="true" tabindex="-1"></a><span class="co">#categ is a data frame with 129 species, 2 factors : ’forsub’ summarizing the feeding place and ’diet’the diet type.</span></span>
+<span id="cb456-8"><a href="basic-graphics.html#cb456-8" aria-hidden="true" tabindex="-1"></a>ecomor_data <span class="ot">&lt;-</span> <span class="fu">cbind</span>(ecomor_data,ecomor<span class="sc">$</span>categ)</span>
+<span id="cb456-9"><a href="basic-graphics.html#cb456-9" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ecomor_data)</span>
+<span id="cb456-10"><a href="basic-graphics.html#cb456-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;:  129 obs. of  5 variables:</span></span>
+<span id="cb456-11"><a href="basic-graphics.html#cb456-11" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Genus : Factor w/ 86 levels &quot;Acanithis&quot;,&quot;Aegithalos&quot;,..: 11 12 12 49 70 21 21 73 85 85 ...</span></span>
+<span id="cb456-12"><a href="basic-graphics.html#cb456-12" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Family: Factor w/ 35 levels &quot;Aegithalidae&quot;,..: 31 31 31 31 31 6 6 6 6 6 ...</span></span>
+<span id="cb456-13"><a href="basic-graphics.html#cb456-13" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Ordre : Factor w/ 7 levels &quot;Apodiformes&quot;,..: 1 1 1 1 1 2 2 2 2 2 ...</span></span>
+<span id="cb456-14"><a href="basic-graphics.html#cb456-14" aria-hidden="true" tabindex="-1"></a><span class="co"># $ forsub: Factor w/ 7 levels &quot;A&quot;,&quot;B&quot;,&quot;F&quot;,&quot;G&quot;,..: 5 5 5 1 3 5 5 4 4 4 ...</span></span>
+<span id="cb456-15"><a href="basic-graphics.html#cb456-15" aria-hidden="true" tabindex="-1"></a><span class="co"># $ diet  : Factor w/ 8 levels &quot;F&quot;,&quot;G&quot;,&quot;H&quot;,&quot;I&quot;,..: 7 7 7 7 7 2 6 2 2 2 ...</span></span>
+<span id="cb456-16"><a href="basic-graphics.html#cb456-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-17"><a href="basic-graphics.html#cb456-17" aria-hidden="true" tabindex="-1"></a><span class="do">## we subset to families and diet</span></span>
+<span id="cb456-18"><a href="basic-graphics.html#cb456-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-19"><a href="basic-graphics.html#cb456-19" aria-hidden="true" tabindex="-1"></a>ecomor_data_set <span class="ot">&lt;-</span> <span class="fu">subset</span>(ecomor_data, <span class="at">select =</span> <span class="fu">c</span>(Family, diet)) </span>
+<span id="cb456-20"><a href="basic-graphics.html#cb456-20" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ecomor_data_set)</span>
+<span id="cb456-21"><a href="basic-graphics.html#cb456-21" aria-hidden="true" tabindex="-1"></a><span class="co">#          Family diet</span></span>
+<span id="cb456-22"><a href="basic-graphics.html#cb456-22" aria-hidden="true" tabindex="-1"></a><span class="co">#E033 Trochilidae    N</span></span>
+<span id="cb456-23"><a href="basic-graphics.html#cb456-23" aria-hidden="true" tabindex="-1"></a><span class="co">#E034 Trochilidae    N</span></span>
+<span id="cb456-24"><a href="basic-graphics.html#cb456-24" aria-hidden="true" tabindex="-1"></a><span class="co">#E035 Trochilidae    N</span></span>
+<span id="cb456-25"><a href="basic-graphics.html#cb456-25" aria-hidden="true" tabindex="-1"></a><span class="co">#E070 Trochilidae    N</span></span>
+<span id="cb456-26"><a href="basic-graphics.html#cb456-26" aria-hidden="true" tabindex="-1"></a><span class="co">#E071 Trochilidae    N</span></span>
+<span id="cb456-27"><a href="basic-graphics.html#cb456-27" aria-hidden="true" tabindex="-1"></a><span class="co">#E001  Columbidae    G</span></span>
+<span id="cb456-28"><a href="basic-graphics.html#cb456-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-29"><a href="basic-graphics.html#cb456-29" aria-hidden="true" tabindex="-1"></a><span class="do">## we split by family</span></span>
+<span id="cb456-30"><a href="basic-graphics.html#cb456-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-31"><a href="basic-graphics.html#cb456-31" aria-hidden="true" tabindex="-1"></a>list_of_families <span class="ot">&lt;-</span> <span class="fu">split</span>(ecomor_data_set, ecomor_data_set<span class="sc">$</span>Family)</span>
+<span id="cb456-32"><a href="basic-graphics.html#cb456-32" aria-hidden="true" tabindex="-1"></a>list_of_families</span>
+<span id="cb456-33"><a href="basic-graphics.html#cb456-33" aria-hidden="true" tabindex="-1"></a><span class="co">#$Aegithalidae</span></span>
+<span id="cb456-34"><a href="basic-graphics.html#cb456-34" aria-hidden="true" tabindex="-1"></a><span class="co">#           Family diet</span></span>
+<span id="cb456-35"><a href="basic-graphics.html#cb456-35" aria-hidden="true" tabindex="-1"></a><span class="co">#E121 Aegithalidae    I</span></span>
+<span id="cb456-36"><a href="basic-graphics.html#cb456-36" aria-hidden="true" tabindex="-1"></a><span class="co">#E048 Aegithalidae    I</span></span>
+<span id="cb456-37"><a href="basic-graphics.html#cb456-37" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb456-38"><a href="basic-graphics.html#cb456-38" aria-hidden="true" tabindex="-1"></a><span class="co">#$Alaudidae</span></span>
+<span id="cb456-39"><a href="basic-graphics.html#cb456-39" aria-hidden="true" tabindex="-1"></a><span class="co">#        Family diet</span></span>
+<span id="cb456-40"><a href="basic-graphics.html#cb456-40" aria-hidden="true" tabindex="-1"></a><span class="co">#E104 Alaudidae    H</span></span>
+<span id="cb456-41"><a href="basic-graphics.html#cb456-41" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb456-42"><a href="basic-graphics.html#cb456-42" aria-hidden="true" tabindex="-1"></a><span class="co">#$Cardinalidae</span></span>
+<span id="cb456-43"><a href="basic-graphics.html#cb456-43" aria-hidden="true" tabindex="-1"></a><span class="co">#           Family diet</span></span>
+<span id="cb456-44"><a href="basic-graphics.html#cb456-44" aria-hidden="true" tabindex="-1"></a><span class="co">#E057 Cardinalidae    G</span></span>
+<span id="cb456-45"><a href="basic-graphics.html#cb456-45" aria-hidden="true" tabindex="-1"></a><span class="co">#E056 Cardinalidae    G</span></span>
+<span id="cb456-46"><a href="basic-graphics.html#cb456-46" aria-hidden="true" tabindex="-1"></a><span class="co">#...</span></span>
+<span id="cb456-47"><a href="basic-graphics.html#cb456-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-48"><a href="basic-graphics.html#cb456-48" aria-hidden="true" tabindex="-1"></a><span class="do">## we can calculate the frequency of diet types by each family of these birds</span></span>
+<span id="cb456-49"><a href="basic-graphics.html#cb456-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-50"><a href="basic-graphics.html#cb456-50" aria-hidden="true" tabindex="-1"></a>collect_families_processed <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb456-51"><a href="basic-graphics.html#cb456-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-52"><a href="basic-graphics.html#cb456-52" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(list_of_families)) {</span>
+<span id="cb456-53"><a href="basic-graphics.html#cb456-53" aria-hidden="true" tabindex="-1"></a>  <span class="co"># i &lt;- 1</span></span>
+<span id="cb456-54"><a href="basic-graphics.html#cb456-54" aria-hidden="true" tabindex="-1"></a>              one_family <span class="ot">&lt;-</span> list_of_families[[i]]</span>
+<span id="cb456-55"><a href="basic-graphics.html#cb456-55" aria-hidden="true" tabindex="-1"></a>             name_family <span class="ot">&lt;-</span> <span class="fu">unique</span>(one_family[,<span class="dv">1</span>])</span>
+<span id="cb456-56"><a href="basic-graphics.html#cb456-56" aria-hidden="true" tabindex="-1"></a>           one_family_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">table</span>(one_family [,<span class="dv">2</span>]), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb456-57"><a href="basic-graphics.html#cb456-57" aria-hidden="true" tabindex="-1"></a>       one_family_df_sum <span class="ot">&lt;-</span> <span class="fu">sum</span>(one_family_df<span class="sc">$</span>Freq)</span>
+<span id="cb456-58"><a href="basic-graphics.html#cb456-58" aria-hidden="true" tabindex="-1"></a>      one_family_df<span class="sc">$</span>Freq <span class="ot">&lt;-</span> one_family_df<span class="sc">$</span>Freq<span class="sc">/</span>one_family_df_sum</span>
+<span id="cb456-59"><a href="basic-graphics.html#cb456-59" aria-hidden="true" tabindex="-1"></a>    <span class="fu">names</span>(one_family_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;type_diet&quot;</span>,<span class="st">&quot;Freq&quot;</span>)</span>
+<span id="cb456-60"><a href="basic-graphics.html#cb456-60" aria-hidden="true" tabindex="-1"></a>    one_family_df<span class="sc">$</span>Family <span class="ot">&lt;-</span> name_family</span>
+<span id="cb456-61"><a href="basic-graphics.html#cb456-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-62"><a href="basic-graphics.html#cb456-62" aria-hidden="true" tabindex="-1"></a>    collect_families_processed [[i]] <span class="ot">&lt;-</span> one_family_df</span>
+<span id="cb456-63"><a href="basic-graphics.html#cb456-63" aria-hidden="true" tabindex="-1"></a>                       }</span>
+<span id="cb456-64"><a href="basic-graphics.html#cb456-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-65"><a href="basic-graphics.html#cb456-65" aria-hidden="true" tabindex="-1"></a><span class="do">## we put all of these in a single data frame</span></span>
+<span id="cb456-66"><a href="basic-graphics.html#cb456-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-67"><a href="basic-graphics.html#cb456-67" aria-hidden="true" tabindex="-1"></a>collect_families_processed_df <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, collect_families_processed)</span>
+<span id="cb456-68"><a href="basic-graphics.html#cb456-68" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(collect_families_processed_df)</span>
+<span id="cb456-69"><a href="basic-graphics.html#cb456-69" aria-hidden="true" tabindex="-1"></a><span class="co">#  type_diet Freq       Family</span></span>
+<span id="cb456-70"><a href="basic-graphics.html#cb456-70" aria-hidden="true" tabindex="-1"></a><span class="co">#1         F    0 Aegithalidae</span></span>
+<span id="cb456-71"><a href="basic-graphics.html#cb456-71" aria-hidden="true" tabindex="-1"></a><span class="co">#2         G    0 Aegithalidae</span></span>
+<span id="cb456-72"><a href="basic-graphics.html#cb456-72" aria-hidden="true" tabindex="-1"></a><span class="co">#3         H    0 Aegithalidae</span></span>
+<span id="cb456-73"><a href="basic-graphics.html#cb456-73" aria-hidden="true" tabindex="-1"></a><span class="co">#4         I    1 Aegithalidae</span></span>
+<span id="cb456-74"><a href="basic-graphics.html#cb456-74" aria-hidden="true" tabindex="-1"></a><span class="co">#5         J    0 Aegithalidae</span></span>
+<span id="cb456-75"><a href="basic-graphics.html#cb456-75" aria-hidden="true" tabindex="-1"></a><span class="co">#6         K    0 Aegithalidae</span></span>
+<span id="cb456-76"><a href="basic-graphics.html#cb456-76" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(collect_families_processed_df)</span>
+<span id="cb456-77"><a href="basic-graphics.html#cb456-77" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;data.frame&#39;: 280 obs. of  3 variables:</span></span>
+<span id="cb456-78"><a href="basic-graphics.html#cb456-78" aria-hidden="true" tabindex="-1"></a><span class="co"># $ type_diet: chr  &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; ...</span></span>
+<span id="cb456-79"><a href="basic-graphics.html#cb456-79" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Freq     : num  0 0 0 1 0 0 0 0 0 0 ...</span></span>
+<span id="cb456-80"><a href="basic-graphics.html#cb456-80" aria-hidden="true" tabindex="-1"></a><span class="co"># $ Family   : Factor w/ 35 levels &quot;Aegithalidae&quot;,..: 1 1 1 1 1 1 1 1 2 2 ...</span></span></code></pre></div>
 <p>We can now plot a stacked bar plot. Notice we need 3 variables (columns): 2 categorical and 1 numeric. In this case the two categorical are <code>type_of_diet</code> and <code>Family</code>, and the one continuous is <code>Freq</code>.</p>
 <div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="basic-graphics.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="do">## checking if ggplot2  and ggsci are loaded</span></span>
 <span id="cb457-2"><a href="basic-graphics.html#cb457-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
@@ -905,11 +921,18 @@ We can also remove some low expressed genes (e.g., values less than 100) and ove
 <span id="cb469-25"><a href="basic-graphics.html#cb469-25" aria-hidden="true" tabindex="-1"></a><span class="co">#B  30.058  B</span></span>
 <span id="cb469-26"><a href="basic-graphics.html#cb469-26" aria-hidden="true" tabindex="-1"></a><span class="co">#O  34.153  O</span></span></code></pre></div>
 <p>We can add a line to indicate the location of the mean of the histogram of each species with <code>geom_vline()</code>.</p>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="basic-graphics.html#cb470-1" aria-hidden="true" tabindex="-1"></a><span class="do">## add mean line</span></span>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="basic-graphics.html#cb470-1" aria-hidden="true" tabindex="-1"></a><span class="do">## add mean line with a deprecated argument size=0.5. Notice that some packages will warn you of an obsolete argument</span></span>
 <span id="cb470-2"><a href="basic-graphics.html#cb470-2" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_plot <span class="ot">&lt;-</span> crabs_sp_CL_plot <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="at">data=</span>means_out_df, </span>
 <span id="cb470-3"><a href="basic-graphics.html#cb470-3" aria-hidden="true" tabindex="-1"></a>                                            <span class="fu">aes</span>(<span class="at">xintercept=</span>sp_mean,  <span class="at">colour=</span>sp),</span>
 <span id="cb470-4"><a href="basic-graphics.html#cb470-4" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">size=</span><span class="fl">0.5</span>)</span>
-<span id="cb470-5"><a href="basic-graphics.html#cb470-5" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_plot</span></code></pre></div>
+<span id="cb470-5"><a href="basic-graphics.html#cb470-5" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_plot</span>
+<span id="cb470-6"><a href="basic-graphics.html#cb470-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb470-7"><a href="basic-graphics.html#cb470-7" aria-hidden="true" tabindex="-1"></a><span class="do">## add mean line current argument linewidth=0.5</span></span>
+<span id="cb470-8"><a href="basic-graphics.html#cb470-8" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_plot <span class="ot">&lt;-</span> crabs_sp_CL_plot <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="at">data=</span>means_out_df, </span>
+<span id="cb470-9"><a href="basic-graphics.html#cb470-9" aria-hidden="true" tabindex="-1"></a>                                            <span class="fu">aes</span>(<span class="at">xintercept=</span>sp_mean,  <span class="at">colour=</span>sp),</span>
+<span id="cb470-10"><a href="basic-graphics.html#cb470-10" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">linewidth=</span><span class="fl">0.5</span>)</span>
+<span id="cb470-11"><a href="basic-graphics.html#cb470-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb470-12"><a href="basic-graphics.html#cb470-12" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_plot</span></code></pre></div>
 <p><img src="figures/session_9_figs/28_two_his_ver_2.png" width="90%" /></p>
 </div>
 <div id="density-plots" class="section level2 hasAnchor" number="10.6">
@@ -939,7 +962,7 @@ We can also remove some low expressed genes (e.g., values less than 100) and ove
 <p><img src="figures/session_9_figs/29_two_density_plots_1.png" width="90%" /></p>
 <p><strong>22)</strong> The flexibility of <strong>ggplot2</strong> can be evidenced by combining histograms and density plots with the mean values.</p>
 <div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="basic-graphics.html#cb473-1" aria-hidden="true" tabindex="-1"></a>crabs_sp_CL_plot_his_den <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(crabs_data, <span class="fu">aes</span>(<span class="at">x=</span>CL, <span class="at">fill=</span>sp)) <span class="sc">+</span> </span>
-<span id="cb473-2"><a href="basic-graphics.html#cb473-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span>..density.., <span class="at">fill=</span>sp), </span>
+<span id="cb473-2"><a href="basic-graphics.html#cb473-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fu">after_stat</span>(density), <span class="at">fill=</span>sp), </span>
 <span id="cb473-3"><a href="basic-graphics.html#cb473-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">binwidth =</span> <span class="dv">1</span>,</span>
 <span id="cb473-4"><a href="basic-graphics.html#cb473-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">alpha =</span> .<span class="dv">6</span>, </span>
 <span id="cb473-5"><a href="basic-graphics.html#cb473-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, </span>
