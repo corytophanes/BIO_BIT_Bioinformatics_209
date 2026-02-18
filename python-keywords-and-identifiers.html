@@ -553,85 +553,85 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">15.1</span> Keywords in Python<a href="python-keywords-and-identifiers.html#keywords-in-python" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Keywords is a term to describe stock Python one word commands. Keywords are always interpreted as a command and thus cannot be used in any other context. Keywords are case-sensitive.</p>
 <p>Lets take a look at all the Python keywords with the code below:</p>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="python-keywords-and-identifiers.html#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import keyword module, also known as defining what keyword is to Python</span></span>
-<span id="cb563-2"><a href="python-keywords-and-identifiers.html#cb563-2" aria-hidden="true" tabindex="-1"></a>import keyword</span>
-<span id="cb563-3"><a href="python-keywords-and-identifiers.html#cb563-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb563-4"><a href="python-keywords-and-identifiers.html#cb563-4" aria-hidden="true" tabindex="-1"></a><span class="co">#from keyword, list all keywords (kw)</span></span>
-<span id="cb563-5"><a href="python-keywords-and-identifiers.html#cb563-5" aria-hidden="true" tabindex="-1"></a>keyword.kwlist</span></code></pre></div>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="python-keywords-and-identifiers.html#cb566-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import keyword module, also known as defining what keyword is to Python</span></span>
+<span id="cb566-2"><a href="python-keywords-and-identifiers.html#cb566-2" aria-hidden="true" tabindex="-1"></a>import keyword</span>
+<span id="cb566-3"><a href="python-keywords-and-identifiers.html#cb566-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb566-4"><a href="python-keywords-and-identifiers.html#cb566-4" aria-hidden="true" tabindex="-1"></a><span class="co">#from keyword, list all keywords (kw)</span></span>
+<span id="cb566-5"><a href="python-keywords-and-identifiers.html#cb566-5" aria-hidden="true" tabindex="-1"></a>keyword.kwlist</span></code></pre></div>
 <p>For more information regarding keyword see documentation <a href="https://docs.python.org/3/library/keyword.html" target="_blank"><strong>here</strong></a>.</p>
 <p>The first command uses the word ‘import’ which is similar to R’s ‘library’ function. ‘import’ will import the module entirely from Python for immediate use. It must be restated every time you start a new Python shell (terminal). It is common practice to include all ‘import’ commands first in your scripts, we will revisit this later.</p>
 <p>You are not restricted to ‘import’ everything from a module. If you would like to use a specific part of the ‘keyword’ module for example, you can simply state ‘from keyword import [whatever part you want]’. However, in this case keyword is such a small module that this option is not available to us as it does not contain smaller parts to import.</p>
 <p>Let us practice with a few of these keywords:</p>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="python-keywords-and-identifiers.html#cb564-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Set variable as an interger</span></span>
-<span id="cb564-2"><a href="python-keywords-and-identifiers.html#cb564-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">2</span></span>
-<span id="cb564-3"><a href="python-keywords-and-identifiers.html#cb564-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb564-4"><a href="python-keywords-and-identifiers.html#cb564-4" aria-hidden="true" tabindex="-1"></a><span class="co">#IF</span></span>
-<span id="cb564-5"><a href="python-keywords-and-identifiers.html#cb564-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">:</span></span>
-<span id="cb564-6"><a href="python-keywords-and-identifiers.html#cb564-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 1&quot;</span>)</span>
-<span id="cb564-7"><a href="python-keywords-and-identifiers.html#cb564-7" aria-hidden="true" tabindex="-1"></a><span class="co">#notice no output for the script below:</span></span>
-<span id="cb564-8"><a href="python-keywords-and-identifiers.html#cb564-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">3</span><span class="sc">:</span></span>
-<span id="cb564-9"><a href="python-keywords-and-identifiers.html#cb564-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 3&quot;</span>)</span>
-<span id="cb564-10"><a href="python-keywords-and-identifiers.html#cb564-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb564-11"><a href="python-keywords-and-identifiers.html#cb564-11" aria-hidden="true" tabindex="-1"></a><span class="co">#ELSE</span></span>
-<span id="cb564-12"><a href="python-keywords-and-identifiers.html#cb564-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">3</span><span class="sc">:</span></span>
-<span id="cb564-13"><a href="python-keywords-and-identifiers.html#cb564-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 3&quot;</span>)</span>
-<span id="cb564-14"><a href="python-keywords-and-identifiers.html#cb564-14" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
-<span id="cb564-15"><a href="python-keywords-and-identifiers.html#cb564-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 3&quot;</span>)</span>
-<span id="cb564-16"><a href="python-keywords-and-identifiers.html#cb564-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb564-17"><a href="python-keywords-and-identifiers.html#cb564-17" aria-hidden="true" tabindex="-1"></a><span class="co">#ELSE</span></span>
-<span id="cb564-18"><a href="python-keywords-and-identifiers.html#cb564-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">:</span></span>
-<span id="cb564-19"><a href="python-keywords-and-identifiers.html#cb564-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 1&quot;</span>)</span>
-<span id="cb564-20"><a href="python-keywords-and-identifiers.html#cb564-20" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
-<span id="cb564-21"><a href="python-keywords-and-identifiers.html#cb564-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 1&quot;</span>)</span>
-<span id="cb564-22"><a href="python-keywords-and-identifiers.html#cb564-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb564-23"><a href="python-keywords-and-identifiers.html#cb564-23" aria-hidden="true" tabindex="-1"></a><span class="co">#OR</span></span>
-<span id="cb564-24"><a href="python-keywords-and-identifiers.html#cb564-24" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">3</span> or x <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">:</span></span>
-<span id="cb564-25"><a href="python-keywords-and-identifiers.html#cb564-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 3 -OR- x is greater than 1&quot;</span>)</span>
-<span id="cb564-26"><a href="python-keywords-and-identifiers.html#cb564-26" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
-<span id="cb564-27"><a href="python-keywords-and-identifiers.html#cb564-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 3 -AND- x is not greater than 1&quot;</span>)</span>
-<span id="cb564-28"><a href="python-keywords-and-identifiers.html#cb564-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb564-29"><a href="python-keywords-and-identifiers.html#cb564-29" aria-hidden="true" tabindex="-1"></a><span class="co">#AND</span></span>
-<span id="cb564-30"><a href="python-keywords-and-identifiers.html#cb564-30" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">3</span> and x <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">:</span></span>
-<span id="cb564-31"><a href="python-keywords-and-identifiers.html#cb564-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 3 -AND- x is greater than 1&quot;</span>)</span>
-<span id="cb564-32"><a href="python-keywords-and-identifiers.html#cb564-32" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
-<span id="cb564-33"><a href="python-keywords-and-identifiers.html#cb564-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 3 -OR- x is not greater than 1&quot;</span>)</span>
-<span id="cb564-34"><a href="python-keywords-and-identifiers.html#cb564-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb564-35"><a href="python-keywords-and-identifiers.html#cb564-35" aria-hidden="true" tabindex="-1"></a><span class="co">#ELIF</span></span>
-<span id="cb564-36"><a href="python-keywords-and-identifiers.html#cb564-36" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">3</span><span class="sc">:</span></span>
-<span id="cb564-37"><a href="python-keywords-and-identifiers.html#cb564-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 3&quot;</span>)</span>
-<span id="cb564-38"><a href="python-keywords-and-identifiers.html#cb564-38" aria-hidden="true" tabindex="-1"></a>elif x <span class="sc">==</span> <span class="dv">2</span><span class="sc">:</span></span>
-<span id="cb564-39"><a href="python-keywords-and-identifiers.html#cb564-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 3, but x is equal to 2&quot;</span>)</span>
-<span id="cb564-40"><a href="python-keywords-and-identifiers.html#cb564-40" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
-<span id="cb564-41"><a href="python-keywords-and-identifiers.html#cb564-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 3 AND x is not equal to 2&quot;</span>)</span>
-<span id="cb564-42"><a href="python-keywords-and-identifiers.html#cb564-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb564-43"><a href="python-keywords-and-identifiers.html#cb564-43" aria-hidden="true" tabindex="-1"></a><span class="co">#TRY #EXCEPT</span></span>
-<span id="cb564-44"><a href="python-keywords-and-identifiers.html#cb564-44" aria-hidden="true" tabindex="-1"></a>try<span class="sc">:</span></span>
-<span id="cb564-45"><a href="python-keywords-and-identifiers.html#cb564-45" aria-hidden="true" tabindex="-1"></a>    y <span class="sc">&gt;</span> x</span>
-<span id="cb564-46"><a href="python-keywords-and-identifiers.html#cb564-46" aria-hidden="true" tabindex="-1"></a>except NameError<span class="sc">:</span> y <span class="ot">=</span> <span class="dv">4</span></span>
-<span id="cb564-47"><a href="python-keywords-and-identifiers.html#cb564-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb564-48"><a href="python-keywords-and-identifiers.html#cb564-48" aria-hidden="true" tabindex="-1"></a><span class="co">#NONE</span></span>
-<span id="cb564-49"><a href="python-keywords-and-identifiers.html#cb564-49" aria-hidden="true" tabindex="-1"></a>try<span class="sc">:</span></span>
-<span id="cb564-50"><a href="python-keywords-and-identifiers.html#cb564-50" aria-hidden="true" tabindex="-1"></a>    y <span class="sc">&gt;</span> x</span>
-<span id="cb564-51"><a href="python-keywords-and-identifiers.html#cb564-51" aria-hidden="true" tabindex="-1"></a>except NameError<span class="sc">:</span> y <span class="ot">=</span> None</span>
-<span id="cb564-52"><a href="python-keywords-and-identifiers.html#cb564-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb564-53"><a href="python-keywords-and-identifiers.html#cb564-53" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span>
-<span id="cb564-54"><a href="python-keywords-and-identifiers.html#cb564-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb564-55"><a href="python-keywords-and-identifiers.html#cb564-55" aria-hidden="true" tabindex="-1"></a><span class="co">#IS</span></span>
-<span id="cb564-56"><a href="python-keywords-and-identifiers.html#cb564-56" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> y is None<span class="sc">:</span></span>
-<span id="cb564-57"><a href="python-keywords-and-identifiers.html#cb564-57" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;y is none&quot;</span>)</span>
-<span id="cb564-58"><a href="python-keywords-and-identifiers.html#cb564-58" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
-<span id="cb564-59"><a href="python-keywords-and-identifiers.html#cb564-59" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;y was not none&quot;</span>)</span>
-<span id="cb564-60"><a href="python-keywords-and-identifiers.html#cb564-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb564-61"><a href="python-keywords-and-identifiers.html#cb564-61" aria-hidden="true" tabindex="-1"></a><span class="co">#NOT</span></span>
-<span id="cb564-62"><a href="python-keywords-and-identifiers.html#cb564-62" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> y is not None<span class="sc">:</span></span>
-<span id="cb564-63"><a href="python-keywords-and-identifiers.html#cb564-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;y is defined&quot;</span>)</span>
-<span id="cb564-64"><a href="python-keywords-and-identifiers.html#cb564-64" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
-<span id="cb564-65"><a href="python-keywords-and-identifiers.html#cb564-65" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;y was not defined&quot;</span>)</span>
-<span id="cb564-66"><a href="python-keywords-and-identifiers.html#cb564-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb564-67"><a href="python-keywords-and-identifiers.html#cb564-67" aria-hidden="true" tabindex="-1"></a><span class="co">#IMPORT #AS</span></span>
-<span id="cb564-68"><a href="python-keywords-and-identifiers.html#cb564-68" aria-hidden="true" tabindex="-1"></a>import keyword as squidward</span>
-<span id="cb564-69"><a href="python-keywords-and-identifiers.html#cb564-69" aria-hidden="true" tabindex="-1"></a><span class="fu">squidward.iskeyword</span>(<span class="st">&quot;else&quot;</span>)</span>
-<span id="cb564-70"><a href="python-keywords-and-identifiers.html#cb564-70" aria-hidden="true" tabindex="-1"></a><span class="fu">squidward.iskeyword</span>(<span class="st">&quot;cans&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="python-keywords-and-identifiers.html#cb567-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Set variable as an interger</span></span>
+<span id="cb567-2"><a href="python-keywords-and-identifiers.html#cb567-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb567-3"><a href="python-keywords-and-identifiers.html#cb567-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb567-4"><a href="python-keywords-and-identifiers.html#cb567-4" aria-hidden="true" tabindex="-1"></a><span class="co">#IF</span></span>
+<span id="cb567-5"><a href="python-keywords-and-identifiers.html#cb567-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">:</span></span>
+<span id="cb567-6"><a href="python-keywords-and-identifiers.html#cb567-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 1&quot;</span>)</span>
+<span id="cb567-7"><a href="python-keywords-and-identifiers.html#cb567-7" aria-hidden="true" tabindex="-1"></a><span class="co">#notice no output for the script below:</span></span>
+<span id="cb567-8"><a href="python-keywords-and-identifiers.html#cb567-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">3</span><span class="sc">:</span></span>
+<span id="cb567-9"><a href="python-keywords-and-identifiers.html#cb567-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 3&quot;</span>)</span>
+<span id="cb567-10"><a href="python-keywords-and-identifiers.html#cb567-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb567-11"><a href="python-keywords-and-identifiers.html#cb567-11" aria-hidden="true" tabindex="-1"></a><span class="co">#ELSE</span></span>
+<span id="cb567-12"><a href="python-keywords-and-identifiers.html#cb567-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">3</span><span class="sc">:</span></span>
+<span id="cb567-13"><a href="python-keywords-and-identifiers.html#cb567-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 3&quot;</span>)</span>
+<span id="cb567-14"><a href="python-keywords-and-identifiers.html#cb567-14" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb567-15"><a href="python-keywords-and-identifiers.html#cb567-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 3&quot;</span>)</span>
+<span id="cb567-16"><a href="python-keywords-and-identifiers.html#cb567-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb567-17"><a href="python-keywords-and-identifiers.html#cb567-17" aria-hidden="true" tabindex="-1"></a><span class="co">#ELSE</span></span>
+<span id="cb567-18"><a href="python-keywords-and-identifiers.html#cb567-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">:</span></span>
+<span id="cb567-19"><a href="python-keywords-and-identifiers.html#cb567-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 1&quot;</span>)</span>
+<span id="cb567-20"><a href="python-keywords-and-identifiers.html#cb567-20" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb567-21"><a href="python-keywords-and-identifiers.html#cb567-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 1&quot;</span>)</span>
+<span id="cb567-22"><a href="python-keywords-and-identifiers.html#cb567-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb567-23"><a href="python-keywords-and-identifiers.html#cb567-23" aria-hidden="true" tabindex="-1"></a><span class="co">#OR</span></span>
+<span id="cb567-24"><a href="python-keywords-and-identifiers.html#cb567-24" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">3</span> or x <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">:</span></span>
+<span id="cb567-25"><a href="python-keywords-and-identifiers.html#cb567-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 3 -OR- x is greater than 1&quot;</span>)</span>
+<span id="cb567-26"><a href="python-keywords-and-identifiers.html#cb567-26" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb567-27"><a href="python-keywords-and-identifiers.html#cb567-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 3 -AND- x is not greater than 1&quot;</span>)</span>
+<span id="cb567-28"><a href="python-keywords-and-identifiers.html#cb567-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb567-29"><a href="python-keywords-and-identifiers.html#cb567-29" aria-hidden="true" tabindex="-1"></a><span class="co">#AND</span></span>
+<span id="cb567-30"><a href="python-keywords-and-identifiers.html#cb567-30" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">3</span> and x <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">:</span></span>
+<span id="cb567-31"><a href="python-keywords-and-identifiers.html#cb567-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 3 -AND- x is greater than 1&quot;</span>)</span>
+<span id="cb567-32"><a href="python-keywords-and-identifiers.html#cb567-32" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb567-33"><a href="python-keywords-and-identifiers.html#cb567-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 3 -OR- x is not greater than 1&quot;</span>)</span>
+<span id="cb567-34"><a href="python-keywords-and-identifiers.html#cb567-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb567-35"><a href="python-keywords-and-identifiers.html#cb567-35" aria-hidden="true" tabindex="-1"></a><span class="co">#ELIF</span></span>
+<span id="cb567-36"><a href="python-keywords-and-identifiers.html#cb567-36" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="sc">&gt;</span> <span class="dv">3</span><span class="sc">:</span></span>
+<span id="cb567-37"><a href="python-keywords-and-identifiers.html#cb567-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is greater than 3&quot;</span>)</span>
+<span id="cb567-38"><a href="python-keywords-and-identifiers.html#cb567-38" aria-hidden="true" tabindex="-1"></a>elif x <span class="sc">==</span> <span class="dv">2</span><span class="sc">:</span></span>
+<span id="cb567-39"><a href="python-keywords-and-identifiers.html#cb567-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 3, but x is equal to 2&quot;</span>)</span>
+<span id="cb567-40"><a href="python-keywords-and-identifiers.html#cb567-40" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb567-41"><a href="python-keywords-and-identifiers.html#cb567-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x is not greater than 3 AND x is not equal to 2&quot;</span>)</span>
+<span id="cb567-42"><a href="python-keywords-and-identifiers.html#cb567-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb567-43"><a href="python-keywords-and-identifiers.html#cb567-43" aria-hidden="true" tabindex="-1"></a><span class="co">#TRY #EXCEPT</span></span>
+<span id="cb567-44"><a href="python-keywords-and-identifiers.html#cb567-44" aria-hidden="true" tabindex="-1"></a>try<span class="sc">:</span></span>
+<span id="cb567-45"><a href="python-keywords-and-identifiers.html#cb567-45" aria-hidden="true" tabindex="-1"></a>    y <span class="sc">&gt;</span> x</span>
+<span id="cb567-46"><a href="python-keywords-and-identifiers.html#cb567-46" aria-hidden="true" tabindex="-1"></a>except NameError<span class="sc">:</span> y <span class="ot">=</span> <span class="dv">4</span></span>
+<span id="cb567-47"><a href="python-keywords-and-identifiers.html#cb567-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb567-48"><a href="python-keywords-and-identifiers.html#cb567-48" aria-hidden="true" tabindex="-1"></a><span class="co">#NONE</span></span>
+<span id="cb567-49"><a href="python-keywords-and-identifiers.html#cb567-49" aria-hidden="true" tabindex="-1"></a>try<span class="sc">:</span></span>
+<span id="cb567-50"><a href="python-keywords-and-identifiers.html#cb567-50" aria-hidden="true" tabindex="-1"></a>    y <span class="sc">&gt;</span> x</span>
+<span id="cb567-51"><a href="python-keywords-and-identifiers.html#cb567-51" aria-hidden="true" tabindex="-1"></a>except NameError<span class="sc">:</span> y <span class="ot">=</span> None</span>
+<span id="cb567-52"><a href="python-keywords-and-identifiers.html#cb567-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb567-53"><a href="python-keywords-and-identifiers.html#cb567-53" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span>
+<span id="cb567-54"><a href="python-keywords-and-identifiers.html#cb567-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb567-55"><a href="python-keywords-and-identifiers.html#cb567-55" aria-hidden="true" tabindex="-1"></a><span class="co">#IS</span></span>
+<span id="cb567-56"><a href="python-keywords-and-identifiers.html#cb567-56" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> y is None<span class="sc">:</span></span>
+<span id="cb567-57"><a href="python-keywords-and-identifiers.html#cb567-57" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;y is none&quot;</span>)</span>
+<span id="cb567-58"><a href="python-keywords-and-identifiers.html#cb567-58" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb567-59"><a href="python-keywords-and-identifiers.html#cb567-59" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;y was not none&quot;</span>)</span>
+<span id="cb567-60"><a href="python-keywords-and-identifiers.html#cb567-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb567-61"><a href="python-keywords-and-identifiers.html#cb567-61" aria-hidden="true" tabindex="-1"></a><span class="co">#NOT</span></span>
+<span id="cb567-62"><a href="python-keywords-and-identifiers.html#cb567-62" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> y is not None<span class="sc">:</span></span>
+<span id="cb567-63"><a href="python-keywords-and-identifiers.html#cb567-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;y is defined&quot;</span>)</span>
+<span id="cb567-64"><a href="python-keywords-and-identifiers.html#cb567-64" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb567-65"><a href="python-keywords-and-identifiers.html#cb567-65" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;y was not defined&quot;</span>)</span>
+<span id="cb567-66"><a href="python-keywords-and-identifiers.html#cb567-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb567-67"><a href="python-keywords-and-identifiers.html#cb567-67" aria-hidden="true" tabindex="-1"></a><span class="co">#IMPORT #AS</span></span>
+<span id="cb567-68"><a href="python-keywords-and-identifiers.html#cb567-68" aria-hidden="true" tabindex="-1"></a>import keyword as squidward</span>
+<span id="cb567-69"><a href="python-keywords-and-identifiers.html#cb567-69" aria-hidden="true" tabindex="-1"></a><span class="fu">squidward.iskeyword</span>(<span class="st">&quot;else&quot;</span>)</span>
+<span id="cb567-70"><a href="python-keywords-and-identifiers.html#cb567-70" aria-hidden="true" tabindex="-1"></a><span class="fu">squidward.iskeyword</span>(<span class="st">&quot;cans&quot;</span>)</span></code></pre></div>
 <p>There are 33+ keywords that are listed with our keyboard list command. It is important to learn these keywords. The best way to learn is by practicing these keywords in the python shell. You should be able to write a few lines of code for each keyword with thorough practice.</p>
 <p>Keywords are key to a successful understanding of python.</p>
 </div>
@@ -646,29 +646,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Some advice: Make identifiers short but descriptive, we are looking for a concise meaning behind the term(s) chosen to help aid in code readiblity, which will in turn assist in code debugging.</p></li>
 </ol>
 <p>Let us make some identifiers and test their validity:</p>
-<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="python-keywords-and-identifiers.html#cb565-1" aria-hidden="true" tabindex="-1"></a><span class="co">#for python3 we can use the .isidentifier() command to check our identifiers to see if they are valid (True) or not (False).</span></span>
-<span id="cb565-2"><a href="python-keywords-and-identifiers.html#cb565-2" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;My_file_2&#39;</span>.isidentifier</span>
-<span id="cb565-3"><a href="python-keywords-and-identifiers.html#cb565-3" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;2_My_file&#39;</span>.isidentifier</span>
-<span id="cb565-4"><a href="python-keywords-and-identifiers.html#cb565-4" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;My_file_@&#39;</span>.isidentifier</span>
-<span id="cb565-5"><a href="python-keywords-and-identifiers.html#cb565-5" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;for&#39;</span>.isidentifier</span>
-<span id="cb565-6"><a href="python-keywords-and-identifiers.html#cb565-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb565-7"><a href="python-keywords-and-identifiers.html#cb565-7" aria-hidden="true" tabindex="-1"></a><span class="co">#we can create variables</span></span>
-<span id="cb565-8"><a href="python-keywords-and-identifiers.html#cb565-8" aria-hidden="true" tabindex="-1"></a>score_1 <span class="ot">=</span> <span class="dv">95</span></span>
-<span id="cb565-9"><a href="python-keywords-and-identifiers.html#cb565-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(score_1)</span>
-<span id="cb565-10"><a href="python-keywords-and-identifiers.html#cb565-10" aria-hidden="true" tabindex="-1"></a>score_2 <span class="ot">=</span> <span class="dv">45</span></span>
-<span id="cb565-11"><a href="python-keywords-and-identifiers.html#cb565-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(score_2)</span>
-<span id="cb565-12"><a href="python-keywords-and-identifiers.html#cb565-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb565-13"><a href="python-keywords-and-identifiers.html#cb565-13" aria-hidden="true" tabindex="-1"></a><span class="co">#we can add variables</span></span>
-<span id="cb565-14"><a href="python-keywords-and-identifiers.html#cb565-14" aria-hidden="true" tabindex="-1"></a>score_1 <span class="sc">+</span> score_2</span>
-<span id="cb565-15"><a href="python-keywords-and-identifiers.html#cb565-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb565-16"><a href="python-keywords-and-identifiers.html#cb565-16" aria-hidden="true" tabindex="-1"></a><span class="co">#we can add variables and store the information</span></span>
-<span id="cb565-17"><a href="python-keywords-and-identifiers.html#cb565-17" aria-hidden="true" tabindex="-1"></a>sum_of_scores <span class="ot">=</span> score_1 <span class="sc">+</span> score_2</span>
-<span id="cb565-18"><a href="python-keywords-and-identifiers.html#cb565-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb565-19"><a href="python-keywords-and-identifiers.html#cb565-19" aria-hidden="true" tabindex="-1"></a><span class="co">#beware, if intended or not redeclaring a variable will replace the contents</span></span>
-<span id="cb565-20"><a href="python-keywords-and-identifiers.html#cb565-20" aria-hidden="true" tabindex="-1"></a>score_1 <span class="ot">=</span> <span class="dv">95</span></span>
-<span id="cb565-21"><a href="python-keywords-and-identifiers.html#cb565-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(score_1)</span>
-<span id="cb565-22"><a href="python-keywords-and-identifiers.html#cb565-22" aria-hidden="true" tabindex="-1"></a>score_1 <span class="ot">=</span> <span class="dv">55</span></span>
-<span id="cb565-23"><a href="python-keywords-and-identifiers.html#cb565-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(score_1)</span></code></pre></div>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="python-keywords-and-identifiers.html#cb568-1" aria-hidden="true" tabindex="-1"></a><span class="co">#for python3 we can use the .isidentifier() command to check our identifiers to see if they are valid (True) or not (False).</span></span>
+<span id="cb568-2"><a href="python-keywords-and-identifiers.html#cb568-2" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;My_file_2&#39;</span>.isidentifier</span>
+<span id="cb568-3"><a href="python-keywords-and-identifiers.html#cb568-3" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;2_My_file&#39;</span>.isidentifier</span>
+<span id="cb568-4"><a href="python-keywords-and-identifiers.html#cb568-4" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;My_file_@&#39;</span>.isidentifier</span>
+<span id="cb568-5"><a href="python-keywords-and-identifiers.html#cb568-5" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;for&#39;</span>.isidentifier</span>
+<span id="cb568-6"><a href="python-keywords-and-identifiers.html#cb568-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb568-7"><a href="python-keywords-and-identifiers.html#cb568-7" aria-hidden="true" tabindex="-1"></a><span class="co">#we can create variables</span></span>
+<span id="cb568-8"><a href="python-keywords-and-identifiers.html#cb568-8" aria-hidden="true" tabindex="-1"></a>score_1 <span class="ot">=</span> <span class="dv">95</span></span>
+<span id="cb568-9"><a href="python-keywords-and-identifiers.html#cb568-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(score_1)</span>
+<span id="cb568-10"><a href="python-keywords-and-identifiers.html#cb568-10" aria-hidden="true" tabindex="-1"></a>score_2 <span class="ot">=</span> <span class="dv">45</span></span>
+<span id="cb568-11"><a href="python-keywords-and-identifiers.html#cb568-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(score_2)</span>
+<span id="cb568-12"><a href="python-keywords-and-identifiers.html#cb568-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb568-13"><a href="python-keywords-and-identifiers.html#cb568-13" aria-hidden="true" tabindex="-1"></a><span class="co">#we can add variables</span></span>
+<span id="cb568-14"><a href="python-keywords-and-identifiers.html#cb568-14" aria-hidden="true" tabindex="-1"></a>score_1 <span class="sc">+</span> score_2</span>
+<span id="cb568-15"><a href="python-keywords-and-identifiers.html#cb568-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb568-16"><a href="python-keywords-and-identifiers.html#cb568-16" aria-hidden="true" tabindex="-1"></a><span class="co">#we can add variables and store the information</span></span>
+<span id="cb568-17"><a href="python-keywords-and-identifiers.html#cb568-17" aria-hidden="true" tabindex="-1"></a>sum_of_scores <span class="ot">=</span> score_1 <span class="sc">+</span> score_2</span>
+<span id="cb568-18"><a href="python-keywords-and-identifiers.html#cb568-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb568-19"><a href="python-keywords-and-identifiers.html#cb568-19" aria-hidden="true" tabindex="-1"></a><span class="co">#beware, if intended or not redeclaring a variable will replace the contents</span></span>
+<span id="cb568-20"><a href="python-keywords-and-identifiers.html#cb568-20" aria-hidden="true" tabindex="-1"></a>score_1 <span class="ot">=</span> <span class="dv">95</span></span>
+<span id="cb568-21"><a href="python-keywords-and-identifiers.html#cb568-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(score_1)</span>
+<span id="cb568-22"><a href="python-keywords-and-identifiers.html#cb568-22" aria-hidden="true" tabindex="-1"></a>score_1 <span class="ot">=</span> <span class="dv">55</span></span>
+<span id="cb568-23"><a href="python-keywords-and-identifiers.html#cb568-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(score_1)</span></code></pre></div>
 
 </div>
 </div>

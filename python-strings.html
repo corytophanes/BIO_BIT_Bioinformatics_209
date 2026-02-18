@@ -550,103 +550,103 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="python-strings" class="section level1 hasAnchor" number="18">
 <h1><span class="header-section-number">Session 18</span> – Python: Strings<a href="python-strings.html#python-strings" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Strings are lines of code encased in either single or double quotes.</p>
-<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="python-strings.html#cb579-1" aria-hidden="true" tabindex="-1"></a><span class="co">#types of quotes that can be used</span></span>
-<span id="cb579-2"><a href="python-strings.html#cb579-2" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&#39;apple&#39;</span></span>
-<span id="cb579-3"><a href="python-strings.html#cb579-3" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&quot;apple&quot;</span></span>
-<span id="cb579-4"><a href="python-strings.html#cb579-4" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&quot;&quot;&quot;apple&quot;&quot;&quot;</span></span>
-<span id="cb579-5"><a href="python-strings.html#cb579-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb579-6"><a href="python-strings.html#cb579-6" aria-hidden="true" tabindex="-1"></a><span class="co">#you can replace items in a string easily</span></span>
-<span id="cb579-7"><a href="python-strings.html#cb579-7" aria-hidden="true" tabindex="-1"></a>str</span>
-<span id="cb579-8"><a href="python-strings.html#cb579-8" aria-hidden="true" tabindex="-1"></a>new_str <span class="ot">=</span> <span class="fu">str.replace</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pear&quot;</span>)</span>
-<span id="cb579-9"><a href="python-strings.html#cb579-9" aria-hidden="true" tabindex="-1"></a>new_str</span>
-<span id="cb579-10"><a href="python-strings.html#cb579-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb579-11"><a href="python-strings.html#cb579-11" aria-hidden="true" tabindex="-1"></a><span class="co">#you can obtain items from a string just like a list</span></span>
-<span id="cb579-12"><a href="python-strings.html#cb579-12" aria-hidden="true" tabindex="-1"></a>str_2 <span class="ot">=</span> <span class="st">&#39;There are 10 apples in the store&#39;</span></span>
-<span id="cb579-13"><a href="python-strings.html#cb579-13" aria-hidden="true" tabindex="-1"></a>str_2[<span class="dv">0</span>]</span>
-<span id="cb579-14"><a href="python-strings.html#cb579-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb579-15"><a href="python-strings.html#cb579-15" aria-hidden="true" tabindex="-1"></a>str_2[<span class="dv">1</span>]</span>
-<span id="cb579-16"><a href="python-strings.html#cb579-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb579-17"><a href="python-strings.html#cb579-17" aria-hidden="true" tabindex="-1"></a>str_2[<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb579-18"><a href="python-strings.html#cb579-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb579-19"><a href="python-strings.html#cb579-19" aria-hidden="true" tabindex="-1"></a><span class="co">#you can slice a string</span></span>
-<span id="cb579-20"><a href="python-strings.html#cb579-20" aria-hidden="true" tabindex="-1"></a>str_2[<span class="dv">0</span><span class="sc">:</span><span class="dv">3</span>]</span>
-<span id="cb579-21"><a href="python-strings.html#cb579-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb579-22"><a href="python-strings.html#cb579-22" aria-hidden="true" tabindex="-1"></a>str_2[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
-<span id="cb579-23"><a href="python-strings.html#cb579-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb579-24"><a href="python-strings.html#cb579-24" aria-hidden="true" tabindex="-1"></a>str_2[<span class="dv">4</span><span class="sc">:-</span><span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="python-strings.html#cb582-1" aria-hidden="true" tabindex="-1"></a><span class="co">#types of quotes that can be used</span></span>
+<span id="cb582-2"><a href="python-strings.html#cb582-2" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&#39;apple&#39;</span></span>
+<span id="cb582-3"><a href="python-strings.html#cb582-3" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&quot;apple&quot;</span></span>
+<span id="cb582-4"><a href="python-strings.html#cb582-4" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&quot;&quot;&quot;apple&quot;&quot;&quot;</span></span>
+<span id="cb582-5"><a href="python-strings.html#cb582-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb582-6"><a href="python-strings.html#cb582-6" aria-hidden="true" tabindex="-1"></a><span class="co">#you can replace items in a string easily</span></span>
+<span id="cb582-7"><a href="python-strings.html#cb582-7" aria-hidden="true" tabindex="-1"></a>str</span>
+<span id="cb582-8"><a href="python-strings.html#cb582-8" aria-hidden="true" tabindex="-1"></a>new_str <span class="ot">=</span> <span class="fu">str.replace</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pear&quot;</span>)</span>
+<span id="cb582-9"><a href="python-strings.html#cb582-9" aria-hidden="true" tabindex="-1"></a>new_str</span>
+<span id="cb582-10"><a href="python-strings.html#cb582-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb582-11"><a href="python-strings.html#cb582-11" aria-hidden="true" tabindex="-1"></a><span class="co">#you can obtain items from a string just like a list</span></span>
+<span id="cb582-12"><a href="python-strings.html#cb582-12" aria-hidden="true" tabindex="-1"></a>str_2 <span class="ot">=</span> <span class="st">&#39;There are 10 apples in the store&#39;</span></span>
+<span id="cb582-13"><a href="python-strings.html#cb582-13" aria-hidden="true" tabindex="-1"></a>str_2[<span class="dv">0</span>]</span>
+<span id="cb582-14"><a href="python-strings.html#cb582-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb582-15"><a href="python-strings.html#cb582-15" aria-hidden="true" tabindex="-1"></a>str_2[<span class="dv">1</span>]</span>
+<span id="cb582-16"><a href="python-strings.html#cb582-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb582-17"><a href="python-strings.html#cb582-17" aria-hidden="true" tabindex="-1"></a>str_2[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb582-18"><a href="python-strings.html#cb582-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb582-19"><a href="python-strings.html#cb582-19" aria-hidden="true" tabindex="-1"></a><span class="co">#you can slice a string</span></span>
+<span id="cb582-20"><a href="python-strings.html#cb582-20" aria-hidden="true" tabindex="-1"></a>str_2[<span class="dv">0</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb582-21"><a href="python-strings.html#cb582-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb582-22"><a href="python-strings.html#cb582-22" aria-hidden="true" tabindex="-1"></a>str_2[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb582-23"><a href="python-strings.html#cb582-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb582-24"><a href="python-strings.html#cb582-24" aria-hidden="true" tabindex="-1"></a>str_2[<span class="dv">4</span><span class="sc">:-</span><span class="dv">1</span>]</span></code></pre></div>
 <p>Strings cannot be changed once they are assigned to a variable. You can change them via variable reassignment or you can simply delete them with the ‘del’ command followed by the variable.</p>
 <div id="string-operators" class="section level2 hasAnchor" number="18.1">
 <h2><span class="header-section-number">18.1</span> String Operators<a href="python-strings.html#string-operators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="python-strings.html#cb580-1" aria-hidden="true" tabindex="-1"></a><span class="co">#cat strings together</span></span>
-<span id="cb580-2"><a href="python-strings.html#cb580-2" aria-hidden="true" tabindex="-1"></a>word_1 <span class="ot">=</span> <span class="st">&#39;hey! &#39;</span></span>
-<span id="cb580-3"><a href="python-strings.html#cb580-3" aria-hidden="true" tabindex="-1"></a>word_2 <span class="ot">=</span> <span class="st">&#39;hi! &#39;</span></span>
-<span id="cb580-4"><a href="python-strings.html#cb580-4" aria-hidden="true" tabindex="-1"></a>phrase_1 <span class="ot">=</span> <span class="st">&#39;How you doing?&#39;</span></span>
-<span id="cb580-5"><a href="python-strings.html#cb580-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(word_1 <span class="sc">+</span> word_2 <span class="sc">+</span> phrase_1)</span>
-<span id="cb580-6"><a href="python-strings.html#cb580-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb580-7"><a href="python-strings.html#cb580-7" aria-hidden="true" tabindex="-1"></a><span class="co">#repeat words or phrases</span></span>
-<span id="cb580-8"><a href="python-strings.html#cb580-8" aria-hidden="true" tabindex="-1"></a>fruit <span class="ot">=</span> <span class="st">&quot;apples&quot;</span></span>
-<span id="cb580-9"><a href="python-strings.html#cb580-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fruit<span class="sc">*</span><span class="dv">6</span>)</span>
-<span id="cb580-10"><a href="python-strings.html#cb580-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb580-11"><a href="python-strings.html#cb580-11" aria-hidden="true" tabindex="-1"></a><span class="co">#membership</span></span>
-<span id="cb580-12"><a href="python-strings.html#cb580-12" aria-hidden="true" tabindex="-1"></a>fruit <span class="ot">=</span> <span class="st">&quot;apples&quot;</span></span>
-<span id="cb580-13"><a href="python-strings.html#cb580-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;e&quot;</span> <span class="cf">in</span> fruit)</span>
-<span id="cb580-14"><a href="python-strings.html#cb580-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb580-15"><a href="python-strings.html#cb580-15" aria-hidden="true" tabindex="-1"></a><span class="co">#no membership</span></span>
-<span id="cb580-16"><a href="python-strings.html#cb580-16" aria-hidden="true" tabindex="-1"></a>fruit <span class="ot">=</span> <span class="st">&quot;apples&quot;</span></span>
-<span id="cb580-17"><a href="python-strings.html#cb580-17" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;e&quot;</span> not <span class="cf">in</span> fruit)</span></code></pre></div>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="python-strings.html#cb583-1" aria-hidden="true" tabindex="-1"></a><span class="co">#cat strings together</span></span>
+<span id="cb583-2"><a href="python-strings.html#cb583-2" aria-hidden="true" tabindex="-1"></a>word_1 <span class="ot">=</span> <span class="st">&#39;hey! &#39;</span></span>
+<span id="cb583-3"><a href="python-strings.html#cb583-3" aria-hidden="true" tabindex="-1"></a>word_2 <span class="ot">=</span> <span class="st">&#39;hi! &#39;</span></span>
+<span id="cb583-4"><a href="python-strings.html#cb583-4" aria-hidden="true" tabindex="-1"></a>phrase_1 <span class="ot">=</span> <span class="st">&#39;How you doing?&#39;</span></span>
+<span id="cb583-5"><a href="python-strings.html#cb583-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(word_1 <span class="sc">+</span> word_2 <span class="sc">+</span> phrase_1)</span>
+<span id="cb583-6"><a href="python-strings.html#cb583-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb583-7"><a href="python-strings.html#cb583-7" aria-hidden="true" tabindex="-1"></a><span class="co">#repeat words or phrases</span></span>
+<span id="cb583-8"><a href="python-strings.html#cb583-8" aria-hidden="true" tabindex="-1"></a>fruit <span class="ot">=</span> <span class="st">&quot;apples&quot;</span></span>
+<span id="cb583-9"><a href="python-strings.html#cb583-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fruit<span class="sc">*</span><span class="dv">6</span>)</span>
+<span id="cb583-10"><a href="python-strings.html#cb583-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb583-11"><a href="python-strings.html#cb583-11" aria-hidden="true" tabindex="-1"></a><span class="co">#membership</span></span>
+<span id="cb583-12"><a href="python-strings.html#cb583-12" aria-hidden="true" tabindex="-1"></a>fruit <span class="ot">=</span> <span class="st">&quot;apples&quot;</span></span>
+<span id="cb583-13"><a href="python-strings.html#cb583-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;e&quot;</span> <span class="cf">in</span> fruit)</span>
+<span id="cb583-14"><a href="python-strings.html#cb583-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb583-15"><a href="python-strings.html#cb583-15" aria-hidden="true" tabindex="-1"></a><span class="co">#no membership</span></span>
+<span id="cb583-16"><a href="python-strings.html#cb583-16" aria-hidden="true" tabindex="-1"></a>fruit <span class="ot">=</span> <span class="st">&quot;apples&quot;</span></span>
+<span id="cb583-17"><a href="python-strings.html#cb583-17" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;e&quot;</span> not <span class="cf">in</span> fruit)</span></code></pre></div>
 </div>
 <div id="other-string-modifiers" class="section level2 hasAnchor" number="18.2">
 <h2><span class="header-section-number">18.2</span> Other String Modifiers<a href="python-strings.html#other-string-modifiers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="python-strings.html#cb581-1" aria-hidden="true" tabindex="-1"></a><span class="co">#iteration through a string</span></span>
-<span id="cb581-2"><a href="python-strings.html#cb581-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fruit_letter <span class="cf">in</span> fruit<span class="sc">:</span> <span class="fu">print</span>(fruit_letter, <span class="at">end =</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb581-3"><a href="python-strings.html#cb581-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-4"><a href="python-strings.html#cb581-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fruit_letter <span class="cf">in</span> fruit<span class="sc">:</span> <span class="fu">print</span>(fruit_letter)</span>
-<span id="cb581-5"><a href="python-strings.html#cb581-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-6"><a href="python-strings.html#cb581-6" aria-hidden="true" tabindex="-1"></a><span class="co">#count number of occurances</span></span>
-<span id="cb581-7"><a href="python-strings.html#cb581-7" aria-hidden="true" tabindex="-1"></a>suspect_description <span class="ot">=</span> <span class="st">&#39;two short teenage males wearing one long brown coat and one brown hat&#39;</span></span>
-<span id="cb581-8"><a href="python-strings.html#cb581-8" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&#39;one&#39;</span></span>
-<span id="cb581-9"><a href="python-strings.html#cb581-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">suspect_description.count</span>(str))</span>
-<span id="cb581-10"><a href="python-strings.html#cb581-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-11"><a href="python-strings.html#cb581-11" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&#39;two&#39;</span></span>
-<span id="cb581-12"><a href="python-strings.html#cb581-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">suspect_description.count</span>(str))</span>
-<span id="cb581-13"><a href="python-strings.html#cb581-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-14"><a href="python-strings.html#cb581-14" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&#39;brown&#39;</span></span>
-<span id="cb581-15"><a href="python-strings.html#cb581-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">suspect_description.count</span>(str))</span>
-<span id="cb581-16"><a href="python-strings.html#cb581-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-17"><a href="python-strings.html#cb581-17" aria-hidden="true" tabindex="-1"></a><span class="co">#the power of es-cap-e (escape)</span></span>
-<span id="cb581-18"><a href="python-strings.html#cb581-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>)</span>
-<span id="cb581-19"><a href="python-strings.html#cb581-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-20"><a href="python-strings.html#cb581-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(r<span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>)</span>
-<span id="cb581-21"><a href="python-strings.html#cb581-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-22"><a href="python-strings.html#cb581-22" aria-hidden="true" tabindex="-1"></a><span class="co">#in-line es-cap-e</span></span>
-<span id="cb581-23"><a href="python-strings.html#cb581-23" aria-hidden="true" tabindex="-1"></a>sentence <span class="ot">=</span> <span class="st">&quot;It was </span><span class="sc">\&quot;</span><span class="st">him</span><span class="sc">\&quot;</span><span class="st"> your honor!&quot;</span></span>
-<span id="cb581-24"><a href="python-strings.html#cb581-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-25"><a href="python-strings.html#cb581-25" aria-hidden="true" tabindex="-1"></a><span class="co">#notice how the example below will not work</span></span>
-<span id="cb581-26"><a href="python-strings.html#cb581-26" aria-hidden="true" tabindex="-1"></a>sentence <span class="ot">=</span> <span class="st">&quot;It was &quot;</span>him<span class="st">&quot; your honor!&quot;</span></span>
-<span id="cb581-27"><a href="python-strings.html#cb581-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-28"><a href="python-strings.html#cb581-28" aria-hidden="true" tabindex="-1"></a><span class="co">#capitalize first letter</span></span>
-<span id="cb581-29"><a href="python-strings.html#cb581-29" aria-hidden="true" tabindex="-1"></a>name_1 <span class="ot">=</span> <span class="st">&#39;TOM&#39;</span></span>
-<span id="cb581-30"><a href="python-strings.html#cb581-30" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_1.capitalize</span>())</span>
-<span id="cb581-31"><a href="python-strings.html#cb581-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-32"><a href="python-strings.html#cb581-32" aria-hidden="true" tabindex="-1"></a>name_2 <span class="ot">=</span> <span class="st">&#39;tom&#39;</span></span>
-<span id="cb581-33"><a href="python-strings.html#cb581-33" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_2.capitalize</span>())</span>
-<span id="cb581-34"><a href="python-strings.html#cb581-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-35"><a href="python-strings.html#cb581-35" aria-hidden="true" tabindex="-1"></a><span class="co">#lowercase letters</span></span>
-<span id="cb581-36"><a href="python-strings.html#cb581-36" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_1.lower</span>())</span>
-<span id="cb581-37"><a href="python-strings.html#cb581-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-38"><a href="python-strings.html#cb581-38" aria-hidden="true" tabindex="-1"></a><span class="co">#uppercase letters</span></span>
-<span id="cb581-39"><a href="python-strings.html#cb581-39" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_2.upper</span>())</span>
-<span id="cb581-40"><a href="python-strings.html#cb581-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-41"><a href="python-strings.html#cb581-41" aria-hidden="true" tabindex="-1"></a><span class="co">#swapcase of characters</span></span>
-<span id="cb581-42"><a href="python-strings.html#cb581-42" aria-hidden="true" tabindex="-1"></a>name_3 <span class="ot">=</span> <span class="st">&#39;ToM HollAnD&#39;</span></span>
-<span id="cb581-43"><a href="python-strings.html#cb581-43" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_3.swapcase</span>())</span>
-<span id="cb581-44"><a href="python-strings.html#cb581-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-45"><a href="python-strings.html#cb581-45" aria-hidden="true" tabindex="-1"></a><span class="co">#title, capitalize first letters of each word</span></span>
-<span id="cb581-46"><a href="python-strings.html#cb581-46" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_3.title</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="python-strings.html#cb584-1" aria-hidden="true" tabindex="-1"></a><span class="co">#iteration through a string</span></span>
+<span id="cb584-2"><a href="python-strings.html#cb584-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fruit_letter <span class="cf">in</span> fruit<span class="sc">:</span> <span class="fu">print</span>(fruit_letter, <span class="at">end =</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb584-3"><a href="python-strings.html#cb584-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-4"><a href="python-strings.html#cb584-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fruit_letter <span class="cf">in</span> fruit<span class="sc">:</span> <span class="fu">print</span>(fruit_letter)</span>
+<span id="cb584-5"><a href="python-strings.html#cb584-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-6"><a href="python-strings.html#cb584-6" aria-hidden="true" tabindex="-1"></a><span class="co">#count number of occurances</span></span>
+<span id="cb584-7"><a href="python-strings.html#cb584-7" aria-hidden="true" tabindex="-1"></a>suspect_description <span class="ot">=</span> <span class="st">&#39;two short teenage males wearing one long brown coat and one brown hat&#39;</span></span>
+<span id="cb584-8"><a href="python-strings.html#cb584-8" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&#39;one&#39;</span></span>
+<span id="cb584-9"><a href="python-strings.html#cb584-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">suspect_description.count</span>(str))</span>
+<span id="cb584-10"><a href="python-strings.html#cb584-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-11"><a href="python-strings.html#cb584-11" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&#39;two&#39;</span></span>
+<span id="cb584-12"><a href="python-strings.html#cb584-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">suspect_description.count</span>(str))</span>
+<span id="cb584-13"><a href="python-strings.html#cb584-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-14"><a href="python-strings.html#cb584-14" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&#39;brown&#39;</span></span>
+<span id="cb584-15"><a href="python-strings.html#cb584-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">suspect_description.count</span>(str))</span>
+<span id="cb584-16"><a href="python-strings.html#cb584-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-17"><a href="python-strings.html#cb584-17" aria-hidden="true" tabindex="-1"></a><span class="co">#the power of es-cap-e (escape)</span></span>
+<span id="cb584-18"><a href="python-strings.html#cb584-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>)</span>
+<span id="cb584-19"><a href="python-strings.html#cb584-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-20"><a href="python-strings.html#cb584-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(r<span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>)</span>
+<span id="cb584-21"><a href="python-strings.html#cb584-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-22"><a href="python-strings.html#cb584-22" aria-hidden="true" tabindex="-1"></a><span class="co">#in-line es-cap-e</span></span>
+<span id="cb584-23"><a href="python-strings.html#cb584-23" aria-hidden="true" tabindex="-1"></a>sentence <span class="ot">=</span> <span class="st">&quot;It was </span><span class="sc">\&quot;</span><span class="st">him</span><span class="sc">\&quot;</span><span class="st"> your honor!&quot;</span></span>
+<span id="cb584-24"><a href="python-strings.html#cb584-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-25"><a href="python-strings.html#cb584-25" aria-hidden="true" tabindex="-1"></a><span class="co">#notice how the example below will not work</span></span>
+<span id="cb584-26"><a href="python-strings.html#cb584-26" aria-hidden="true" tabindex="-1"></a>sentence <span class="ot">=</span> <span class="st">&quot;It was &quot;</span>him<span class="st">&quot; your honor!&quot;</span></span>
+<span id="cb584-27"><a href="python-strings.html#cb584-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-28"><a href="python-strings.html#cb584-28" aria-hidden="true" tabindex="-1"></a><span class="co">#capitalize first letter</span></span>
+<span id="cb584-29"><a href="python-strings.html#cb584-29" aria-hidden="true" tabindex="-1"></a>name_1 <span class="ot">=</span> <span class="st">&#39;TOM&#39;</span></span>
+<span id="cb584-30"><a href="python-strings.html#cb584-30" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_1.capitalize</span>())</span>
+<span id="cb584-31"><a href="python-strings.html#cb584-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-32"><a href="python-strings.html#cb584-32" aria-hidden="true" tabindex="-1"></a>name_2 <span class="ot">=</span> <span class="st">&#39;tom&#39;</span></span>
+<span id="cb584-33"><a href="python-strings.html#cb584-33" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_2.capitalize</span>())</span>
+<span id="cb584-34"><a href="python-strings.html#cb584-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-35"><a href="python-strings.html#cb584-35" aria-hidden="true" tabindex="-1"></a><span class="co">#lowercase letters</span></span>
+<span id="cb584-36"><a href="python-strings.html#cb584-36" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_1.lower</span>())</span>
+<span id="cb584-37"><a href="python-strings.html#cb584-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-38"><a href="python-strings.html#cb584-38" aria-hidden="true" tabindex="-1"></a><span class="co">#uppercase letters</span></span>
+<span id="cb584-39"><a href="python-strings.html#cb584-39" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_2.upper</span>())</span>
+<span id="cb584-40"><a href="python-strings.html#cb584-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-41"><a href="python-strings.html#cb584-41" aria-hidden="true" tabindex="-1"></a><span class="co">#swapcase of characters</span></span>
+<span id="cb584-42"><a href="python-strings.html#cb584-42" aria-hidden="true" tabindex="-1"></a>name_3 <span class="ot">=</span> <span class="st">&#39;ToM HollAnD&#39;</span></span>
+<span id="cb584-43"><a href="python-strings.html#cb584-43" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_3.swapcase</span>())</span>
+<span id="cb584-44"><a href="python-strings.html#cb584-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-45"><a href="python-strings.html#cb584-45" aria-hidden="true" tabindex="-1"></a><span class="co">#title, capitalize first letters of each word</span></span>
+<span id="cb584-46"><a href="python-strings.html#cb584-46" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">name_3.title</span>())</span></code></pre></div>
 </div>
 <div id="format-characters-in-strings" class="section level2 hasAnchor" number="18.3">
 <h2><span class="header-section-number">18.3</span> Format-Characters in Strings<a href="python-strings.html#format-characters-in-strings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="python-strings.html#cb582-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Last Name: %s,</span><span class="sc">\n</span><span class="st">First Name: %s,</span><span class="sc">\n</span><span class="st">Last Name: %s&quot;</span> % (<span class="st">&#39;Bond&#39;</span>,<span class="st">&#39;James&#39;</span>,<span class="st">&#39;Bond&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="python-strings.html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Last Name: %s,</span><span class="sc">\n</span><span class="st">First Name: %s,</span><span class="sc">\n</span><span class="st">Last Name: %s&quot;</span> % (<span class="st">&#39;Bond&#39;</span>,<span class="st">&#39;James&#39;</span>,<span class="st">&#39;Bond&#39;</span>))</span></code></pre></div>
 <p>Most common format characters:
 %s = string
 %d = decimal
@@ -657,117 +657,117 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="comparisons-with-strings" class="section level2 hasAnchor" number="18.4">
 <h2><span class="header-section-number">18.4</span> Comparisons with Strings<a href="python-strings.html#comparisons-with-strings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="python-strings.html#cb583-1" aria-hidden="true" tabindex="-1"></a><span class="co">#check case type</span></span>
-<span id="cb583-2"><a href="python-strings.html#cb583-2" aria-hidden="true" tabindex="-1"></a>term1 <span class="ot">=</span> <span class="st">&quot;highlands&quot;</span></span>
-<span id="cb583-3"><a href="python-strings.html#cb583-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb583-4"><a href="python-strings.html#cb583-4" aria-hidden="true" tabindex="-1"></a><span class="co">#check if all lowercase</span></span>
-<span id="cb583-5"><a href="python-strings.html#cb583-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term1.islower</span>())</span>
-<span id="cb583-6"><a href="python-strings.html#cb583-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb583-7"><a href="python-strings.html#cb583-7" aria-hidden="true" tabindex="-1"></a><span class="co">#check if all uppercase</span></span>
-<span id="cb583-8"><a href="python-strings.html#cb583-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term1.isupper</span>())</span>
-<span id="cb583-9"><a href="python-strings.html#cb583-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb583-10"><a href="python-strings.html#cb583-10" aria-hidden="true" tabindex="-1"></a><span class="co">#check if characters are decimals</span></span>
-<span id="cb583-11"><a href="python-strings.html#cb583-11" aria-hidden="true" tabindex="-1"></a>term2 <span class="ot">=</span> <span class="st">&#39;20.2&#39;</span></span>
-<span id="cb583-12"><a href="python-strings.html#cb583-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isdecimal</span>())</span>
-<span id="cb583-13"><a href="python-strings.html#cb583-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb583-14"><a href="python-strings.html#cb583-14" aria-hidden="true" tabindex="-1"></a>term2 <span class="ot">=</span> <span class="st">&#39;202&#39;</span></span>
-<span id="cb583-15"><a href="python-strings.html#cb583-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isdecimal</span>())</span>
-<span id="cb583-16"><a href="python-strings.html#cb583-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb583-17"><a href="python-strings.html#cb583-17" aria-hidden="true" tabindex="-1"></a><span class="co">#check if characters are digits</span></span>
-<span id="cb583-18"><a href="python-strings.html#cb583-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isdigit</span>())</span>
-<span id="cb583-19"><a href="python-strings.html#cb583-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb583-20"><a href="python-strings.html#cb583-20" aria-hidden="true" tabindex="-1"></a><span class="co">#check if characters are numeric</span></span>
-<span id="cb583-21"><a href="python-strings.html#cb583-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isnumeric</span>())</span>
-<span id="cb583-22"><a href="python-strings.html#cb583-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb583-23"><a href="python-strings.html#cb583-23" aria-hidden="true" tabindex="-1"></a><span class="co">#check if string contains at least one character, all alphabetic</span></span>
-<span id="cb583-24"><a href="python-strings.html#cb583-24" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isalpha</span>())</span>
-<span id="cb583-25"><a href="python-strings.html#cb583-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb583-26"><a href="python-strings.html#cb583-26" aria-hidden="true" tabindex="-1"></a>term3 <span class="ot">=</span> <span class="st">&#39;wow5&#39;</span></span>
-<span id="cb583-27"><a href="python-strings.html#cb583-27" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term3.isalpha</span>())</span>
-<span id="cb583-28"><a href="python-strings.html#cb583-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb583-29"><a href="python-strings.html#cb583-29" aria-hidden="true" tabindex="-1"></a><span class="co">#same as alpha but includes decimal digits</span></span>
-<span id="cb583-30"><a href="python-strings.html#cb583-30" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isalnum</span>())</span>
-<span id="cb583-31"><a href="python-strings.html#cb583-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb583-32"><a href="python-strings.html#cb583-32" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term3.isalnum</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="python-strings.html#cb586-1" aria-hidden="true" tabindex="-1"></a><span class="co">#check case type</span></span>
+<span id="cb586-2"><a href="python-strings.html#cb586-2" aria-hidden="true" tabindex="-1"></a>term1 <span class="ot">=</span> <span class="st">&quot;highlands&quot;</span></span>
+<span id="cb586-3"><a href="python-strings.html#cb586-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb586-4"><a href="python-strings.html#cb586-4" aria-hidden="true" tabindex="-1"></a><span class="co">#check if all lowercase</span></span>
+<span id="cb586-5"><a href="python-strings.html#cb586-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term1.islower</span>())</span>
+<span id="cb586-6"><a href="python-strings.html#cb586-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb586-7"><a href="python-strings.html#cb586-7" aria-hidden="true" tabindex="-1"></a><span class="co">#check if all uppercase</span></span>
+<span id="cb586-8"><a href="python-strings.html#cb586-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term1.isupper</span>())</span>
+<span id="cb586-9"><a href="python-strings.html#cb586-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb586-10"><a href="python-strings.html#cb586-10" aria-hidden="true" tabindex="-1"></a><span class="co">#check if characters are decimals</span></span>
+<span id="cb586-11"><a href="python-strings.html#cb586-11" aria-hidden="true" tabindex="-1"></a>term2 <span class="ot">=</span> <span class="st">&#39;20.2&#39;</span></span>
+<span id="cb586-12"><a href="python-strings.html#cb586-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isdecimal</span>())</span>
+<span id="cb586-13"><a href="python-strings.html#cb586-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb586-14"><a href="python-strings.html#cb586-14" aria-hidden="true" tabindex="-1"></a>term2 <span class="ot">=</span> <span class="st">&#39;202&#39;</span></span>
+<span id="cb586-15"><a href="python-strings.html#cb586-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isdecimal</span>())</span>
+<span id="cb586-16"><a href="python-strings.html#cb586-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb586-17"><a href="python-strings.html#cb586-17" aria-hidden="true" tabindex="-1"></a><span class="co">#check if characters are digits</span></span>
+<span id="cb586-18"><a href="python-strings.html#cb586-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isdigit</span>())</span>
+<span id="cb586-19"><a href="python-strings.html#cb586-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb586-20"><a href="python-strings.html#cb586-20" aria-hidden="true" tabindex="-1"></a><span class="co">#check if characters are numeric</span></span>
+<span id="cb586-21"><a href="python-strings.html#cb586-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isnumeric</span>())</span>
+<span id="cb586-22"><a href="python-strings.html#cb586-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb586-23"><a href="python-strings.html#cb586-23" aria-hidden="true" tabindex="-1"></a><span class="co">#check if string contains at least one character, all alphabetic</span></span>
+<span id="cb586-24"><a href="python-strings.html#cb586-24" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isalpha</span>())</span>
+<span id="cb586-25"><a href="python-strings.html#cb586-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb586-26"><a href="python-strings.html#cb586-26" aria-hidden="true" tabindex="-1"></a>term3 <span class="ot">=</span> <span class="st">&#39;wow5&#39;</span></span>
+<span id="cb586-27"><a href="python-strings.html#cb586-27" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term3.isalpha</span>())</span>
+<span id="cb586-28"><a href="python-strings.html#cb586-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb586-29"><a href="python-strings.html#cb586-29" aria-hidden="true" tabindex="-1"></a><span class="co">#same as alpha but includes decimal digits</span></span>
+<span id="cb586-30"><a href="python-strings.html#cb586-30" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term2.isalnum</span>())</span>
+<span id="cb586-31"><a href="python-strings.html#cb586-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb586-32"><a href="python-strings.html#cb586-32" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">term3.isalnum</span>())</span></code></pre></div>
 </div>
 <div id="padding-strings" class="section level2 hasAnchor" number="18.5">
 <h2><span class="header-section-number">18.5</span> Padding strings<a href="python-strings.html#padding-strings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="python-strings.html#cb584-1" aria-hidden="true" tabindex="-1"></a><span class="co">#padding with rjust, rightsided</span></span>
-<span id="cb584-2"><a href="python-strings.html#cb584-2" aria-hidden="true" tabindex="-1"></a>readme <span class="ot">=</span> <span class="st">&quot;Start App&quot;</span></span>
-<span id="cb584-3"><a href="python-strings.html#cb584-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.rjust</span>(<span class="dv">15</span>))</span>
-<span id="cb584-4"><a href="python-strings.html#cb584-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb584-5"><a href="python-strings.html#cb584-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.rjust</span>(<span class="dv">15</span>, <span class="st">&#39;~&#39;</span>))</span>
-<span id="cb584-6"><a href="python-strings.html#cb584-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb584-7"><a href="python-strings.html#cb584-7" aria-hidden="true" tabindex="-1"></a><span class="co">#padding with ljust, leftsided</span></span>
-<span id="cb584-8"><a href="python-strings.html#cb584-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.ljust</span>(<span class="dv">15</span>))</span>
-<span id="cb584-9"><a href="python-strings.html#cb584-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb584-10"><a href="python-strings.html#cb584-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.ljust</span>(<span class="dv">15</span>, <span class="st">&#39;~&#39;</span>))</span>
-<span id="cb584-11"><a href="python-strings.html#cb584-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb584-12"><a href="python-strings.html#cb584-12" aria-hidden="true" tabindex="-1"></a><span class="co">#padding with center, centered</span></span>
-<span id="cb584-13"><a href="python-strings.html#cb584-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.center</span>(<span class="dv">25</span>))</span>
-<span id="cb584-14"><a href="python-strings.html#cb584-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb584-15"><a href="python-strings.html#cb584-15" aria-hidden="true" tabindex="-1"></a><span class="co">#padding with zfill, fills after a + or -</span></span>
-<span id="cb584-16"><a href="python-strings.html#cb584-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.zfill</span>(<span class="dv">25</span>))</span>
-<span id="cb584-17"><a href="python-strings.html#cb584-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb584-18"><a href="python-strings.html#cb584-18" aria-hidden="true" tabindex="-1"></a>readme_aug <span class="ot">=</span> <span class="st">&#39;-Start App-&#39;</span></span>
-<span id="cb584-19"><a href="python-strings.html#cb584-19" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme_aug.zfill</span>(<span class="dv">25</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="python-strings.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="co">#padding with rjust, rightsided</span></span>
+<span id="cb587-2"><a href="python-strings.html#cb587-2" aria-hidden="true" tabindex="-1"></a>readme <span class="ot">=</span> <span class="st">&quot;Start App&quot;</span></span>
+<span id="cb587-3"><a href="python-strings.html#cb587-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.rjust</span>(<span class="dv">15</span>))</span>
+<span id="cb587-4"><a href="python-strings.html#cb587-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb587-5"><a href="python-strings.html#cb587-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.rjust</span>(<span class="dv">15</span>, <span class="st">&#39;~&#39;</span>))</span>
+<span id="cb587-6"><a href="python-strings.html#cb587-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb587-7"><a href="python-strings.html#cb587-7" aria-hidden="true" tabindex="-1"></a><span class="co">#padding with ljust, leftsided</span></span>
+<span id="cb587-8"><a href="python-strings.html#cb587-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.ljust</span>(<span class="dv">15</span>))</span>
+<span id="cb587-9"><a href="python-strings.html#cb587-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb587-10"><a href="python-strings.html#cb587-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.ljust</span>(<span class="dv">15</span>, <span class="st">&#39;~&#39;</span>))</span>
+<span id="cb587-11"><a href="python-strings.html#cb587-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb587-12"><a href="python-strings.html#cb587-12" aria-hidden="true" tabindex="-1"></a><span class="co">#padding with center, centered</span></span>
+<span id="cb587-13"><a href="python-strings.html#cb587-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.center</span>(<span class="dv">25</span>))</span>
+<span id="cb587-14"><a href="python-strings.html#cb587-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb587-15"><a href="python-strings.html#cb587-15" aria-hidden="true" tabindex="-1"></a><span class="co">#padding with zfill, fills after a + or -</span></span>
+<span id="cb587-16"><a href="python-strings.html#cb587-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme.zfill</span>(<span class="dv">25</span>))</span>
+<span id="cb587-17"><a href="python-strings.html#cb587-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb587-18"><a href="python-strings.html#cb587-18" aria-hidden="true" tabindex="-1"></a>readme_aug <span class="ot">=</span> <span class="st">&#39;-Start App-&#39;</span></span>
+<span id="cb587-19"><a href="python-strings.html#cb587-19" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">readme_aug.zfill</span>(<span class="dv">25</span>))</span></code></pre></div>
 </div>
 <div id="search-for-words-in-string-and-output-location" class="section level2 hasAnchor" number="18.6">
 <h2><span class="header-section-number">18.6</span> Search for words in string and output location<a href="python-strings.html#search-for-words-in-string-and-output-location" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="python-strings.html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find function</span></span>
-<span id="cb585-2"><a href="python-strings.html#cb585-2" aria-hidden="true" tabindex="-1"></a>house <span class="ot">=</span> <span class="st">&quot;green two-story home&quot;</span></span>
-<span id="cb585-3"><a href="python-strings.html#cb585-3" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&quot;two&quot;</span></span>
-<span id="cb585-4"><a href="python-strings.html#cb585-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.find</span>(str))</span>
-<span id="cb585-5"><a href="python-strings.html#cb585-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb585-6"><a href="python-strings.html#cb585-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.find</span>(str,<span class="dv">5</span>))</span>
-<span id="cb585-7"><a href="python-strings.html#cb585-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb585-8"><a href="python-strings.html#cb585-8" aria-hidden="true" tabindex="-1"></a><span class="co">#what happens below, when we pass the location of &#39;two&#39;</span></span>
-<span id="cb585-9"><a href="python-strings.html#cb585-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.find</span>(str,<span class="dv">10</span>))</span>
-<span id="cb585-10"><a href="python-strings.html#cb585-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb585-11"><a href="python-strings.html#cb585-11" aria-hidden="true" tabindex="-1"></a><span class="co">#for this case above, we should use index instead of find</span></span>
-<span id="cb585-12"><a href="python-strings.html#cb585-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.index</span>(str,<span class="dv">10</span>))</span>
-<span id="cb585-13"><a href="python-strings.html#cb585-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb585-14"><a href="python-strings.html#cb585-14" aria-hidden="true" tabindex="-1"></a><span class="co">#count</span></span>
-<span id="cb585-15"><a href="python-strings.html#cb585-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.count</span>(str))</span>
-<span id="cb585-16"><a href="python-strings.html#cb585-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb585-17"><a href="python-strings.html#cb585-17" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.count</span>(str, <span class="dv">10</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="python-strings.html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find function</span></span>
+<span id="cb588-2"><a href="python-strings.html#cb588-2" aria-hidden="true" tabindex="-1"></a>house <span class="ot">=</span> <span class="st">&quot;green two-story home&quot;</span></span>
+<span id="cb588-3"><a href="python-strings.html#cb588-3" aria-hidden="true" tabindex="-1"></a>str <span class="ot">=</span> <span class="st">&quot;two&quot;</span></span>
+<span id="cb588-4"><a href="python-strings.html#cb588-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.find</span>(str))</span>
+<span id="cb588-5"><a href="python-strings.html#cb588-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-6"><a href="python-strings.html#cb588-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.find</span>(str,<span class="dv">5</span>))</span>
+<span id="cb588-7"><a href="python-strings.html#cb588-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-8"><a href="python-strings.html#cb588-8" aria-hidden="true" tabindex="-1"></a><span class="co">#what happens below, when we pass the location of &#39;two&#39;</span></span>
+<span id="cb588-9"><a href="python-strings.html#cb588-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.find</span>(str,<span class="dv">10</span>))</span>
+<span id="cb588-10"><a href="python-strings.html#cb588-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-11"><a href="python-strings.html#cb588-11" aria-hidden="true" tabindex="-1"></a><span class="co">#for this case above, we should use index instead of find</span></span>
+<span id="cb588-12"><a href="python-strings.html#cb588-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.index</span>(str,<span class="dv">10</span>))</span>
+<span id="cb588-13"><a href="python-strings.html#cb588-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-14"><a href="python-strings.html#cb588-14" aria-hidden="true" tabindex="-1"></a><span class="co">#count</span></span>
+<span id="cb588-15"><a href="python-strings.html#cb588-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.count</span>(str))</span>
+<span id="cb588-16"><a href="python-strings.html#cb588-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-17"><a href="python-strings.html#cb588-17" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">house.count</span>(str, <span class="dv">10</span>))</span></code></pre></div>
 </div>
 <div id="seek-and-replace-in-strings" class="section level2 hasAnchor" number="18.7">
 <h2><span class="header-section-number">18.7</span> Seek and replace in strings<a href="python-strings.html#seek-and-replace-in-strings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="python-strings.html#cb586-1" aria-hidden="true" tabindex="-1"></a><span class="co">#replace</span></span>
-<span id="cb586-2"><a href="python-strings.html#cb586-2" aria-hidden="true" tabindex="-1"></a>smthg_he_wrote <span class="ot">=</span> <span class="st">&#39;I am moving out&#39;</span></span>
-<span id="cb586-3"><a href="python-strings.html#cb586-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">smthg_he_wrote.replace</span>(<span class="st">&#39;out&#39;</span>,<span class="st">&#39;away&#39;</span>))</span>
-<span id="cb586-4"><a href="python-strings.html#cb586-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-5"><a href="python-strings.html#cb586-5" aria-hidden="true" tabindex="-1"></a><span class="co">#split</span></span>
-<span id="cb586-6"><a href="python-strings.html#cb586-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">smthg_he_wrote.split</span>())</span>
-<span id="cb586-7"><a href="python-strings.html#cb586-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-8"><a href="python-strings.html#cb586-8" aria-hidden="true" tabindex="-1"></a><span class="co">#splitlines</span></span>
-<span id="cb586-9"><a href="python-strings.html#cb586-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">smthg_he_wrote.splitlines</span>())</span>
-<span id="cb586-10"><a href="python-strings.html#cb586-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-11"><a href="python-strings.html#cb586-11" aria-hidden="true" tabindex="-1"></a>smthg_he_wrote_2 <span class="ot">=</span> <span class="st">&#39;I am definately </span><span class="sc">\n</span><span class="st">without a doubt </span><span class="sc">\n</span><span class="st">moving out&#39;</span></span>
-<span id="cb586-12"><a href="python-strings.html#cb586-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(smthg_he_wrote_2)</span>
-<span id="cb586-13"><a href="python-strings.html#cb586-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-14"><a href="python-strings.html#cb586-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">smthg_he_wrote_2.splitlines</span>())</span>
-<span id="cb586-15"><a href="python-strings.html#cb586-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-16"><a href="python-strings.html#cb586-16" aria-hidden="true" tabindex="-1"></a><span class="co">#join</span></span>
-<span id="cb586-17"><a href="python-strings.html#cb586-17" aria-hidden="true" tabindex="-1"></a>alphabet <span class="ot">=</span> (<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>)</span>
-<span id="cb586-18"><a href="python-strings.html#cb586-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39; &#39;</span><span class="fu">.join</span>(alphabet))</span>
-<span id="cb586-19"><a href="python-strings.html#cb586-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-20"><a href="python-strings.html#cb586-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;+&#39;</span><span class="fu">.join</span>(alphabet))</span>
-<span id="cb586-21"><a href="python-strings.html#cb586-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-22"><a href="python-strings.html#cb586-22" aria-hidden="true" tabindex="-1"></a><span class="co">#remove leftsided whitespaces</span></span>
-<span id="cb586-23"><a href="python-strings.html#cb586-23" aria-hidden="true" tabindex="-1"></a>extra_spaces <span class="ot">=</span> <span class="st">&#39;     hi     hey     &#39;</span></span>
-<span id="cb586-24"><a href="python-strings.html#cb586-24" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">extra_spaces.lstrip</span>())</span>
-<span id="cb586-25"><a href="python-strings.html#cb586-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-26"><a href="python-strings.html#cb586-26" aria-hidden="true" tabindex="-1"></a><span class="co">#remove rightsided whitespaces</span></span>
-<span id="cb586-27"><a href="python-strings.html#cb586-27" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">extra_spaces.rstrip</span>())</span>
-<span id="cb586-28"><a href="python-strings.html#cb586-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-29"><a href="python-strings.html#cb586-29" aria-hidden="true" tabindex="-1"></a><span class="co">#remove any type of character, not just whitespaces</span></span>
-<span id="cb586-30"><a href="python-strings.html#cb586-30" aria-hidden="true" tabindex="-1"></a>extra_char <span class="ot">=</span> <span class="st">&#39;-----hi-----&#39;</span></span>
-<span id="cb586-31"><a href="python-strings.html#cb586-31" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">extra_spaces.rstrip</span>(<span class="st">&#39;-&#39;</span>))</span>
-<span id="cb586-32"><a href="python-strings.html#cb586-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-33"><a href="python-strings.html#cb586-33" aria-hidden="true" tabindex="-1"></a><span class="co">#print length of string</span></span>
-<span id="cb586-34"><a href="python-strings.html#cb586-34" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">len</span>(extra_spaces))</span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="python-strings.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="co">#replace</span></span>
+<span id="cb589-2"><a href="python-strings.html#cb589-2" aria-hidden="true" tabindex="-1"></a>smthg_he_wrote <span class="ot">=</span> <span class="st">&#39;I am moving out&#39;</span></span>
+<span id="cb589-3"><a href="python-strings.html#cb589-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">smthg_he_wrote.replace</span>(<span class="st">&#39;out&#39;</span>,<span class="st">&#39;away&#39;</span>))</span>
+<span id="cb589-4"><a href="python-strings.html#cb589-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb589-5"><a href="python-strings.html#cb589-5" aria-hidden="true" tabindex="-1"></a><span class="co">#split</span></span>
+<span id="cb589-6"><a href="python-strings.html#cb589-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">smthg_he_wrote.split</span>())</span>
+<span id="cb589-7"><a href="python-strings.html#cb589-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb589-8"><a href="python-strings.html#cb589-8" aria-hidden="true" tabindex="-1"></a><span class="co">#splitlines</span></span>
+<span id="cb589-9"><a href="python-strings.html#cb589-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">smthg_he_wrote.splitlines</span>())</span>
+<span id="cb589-10"><a href="python-strings.html#cb589-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb589-11"><a href="python-strings.html#cb589-11" aria-hidden="true" tabindex="-1"></a>smthg_he_wrote_2 <span class="ot">=</span> <span class="st">&#39;I am definately </span><span class="sc">\n</span><span class="st">without a doubt </span><span class="sc">\n</span><span class="st">moving out&#39;</span></span>
+<span id="cb589-12"><a href="python-strings.html#cb589-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(smthg_he_wrote_2)</span>
+<span id="cb589-13"><a href="python-strings.html#cb589-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb589-14"><a href="python-strings.html#cb589-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">smthg_he_wrote_2.splitlines</span>())</span>
+<span id="cb589-15"><a href="python-strings.html#cb589-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb589-16"><a href="python-strings.html#cb589-16" aria-hidden="true" tabindex="-1"></a><span class="co">#join</span></span>
+<span id="cb589-17"><a href="python-strings.html#cb589-17" aria-hidden="true" tabindex="-1"></a>alphabet <span class="ot">=</span> (<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>)</span>
+<span id="cb589-18"><a href="python-strings.html#cb589-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39; &#39;</span><span class="fu">.join</span>(alphabet))</span>
+<span id="cb589-19"><a href="python-strings.html#cb589-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb589-20"><a href="python-strings.html#cb589-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;+&#39;</span><span class="fu">.join</span>(alphabet))</span>
+<span id="cb589-21"><a href="python-strings.html#cb589-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb589-22"><a href="python-strings.html#cb589-22" aria-hidden="true" tabindex="-1"></a><span class="co">#remove leftsided whitespaces</span></span>
+<span id="cb589-23"><a href="python-strings.html#cb589-23" aria-hidden="true" tabindex="-1"></a>extra_spaces <span class="ot">=</span> <span class="st">&#39;     hi     hey     &#39;</span></span>
+<span id="cb589-24"><a href="python-strings.html#cb589-24" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">extra_spaces.lstrip</span>())</span>
+<span id="cb589-25"><a href="python-strings.html#cb589-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb589-26"><a href="python-strings.html#cb589-26" aria-hidden="true" tabindex="-1"></a><span class="co">#remove rightsided whitespaces</span></span>
+<span id="cb589-27"><a href="python-strings.html#cb589-27" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">extra_spaces.rstrip</span>())</span>
+<span id="cb589-28"><a href="python-strings.html#cb589-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb589-29"><a href="python-strings.html#cb589-29" aria-hidden="true" tabindex="-1"></a><span class="co">#remove any type of character, not just whitespaces</span></span>
+<span id="cb589-30"><a href="python-strings.html#cb589-30" aria-hidden="true" tabindex="-1"></a>extra_char <span class="ot">=</span> <span class="st">&#39;-----hi-----&#39;</span></span>
+<span id="cb589-31"><a href="python-strings.html#cb589-31" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">extra_spaces.rstrip</span>(<span class="st">&#39;-&#39;</span>))</span>
+<span id="cb589-32"><a href="python-strings.html#cb589-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb589-33"><a href="python-strings.html#cb589-33" aria-hidden="true" tabindex="-1"></a><span class="co">#print length of string</span></span>
+<span id="cb589-34"><a href="python-strings.html#cb589-34" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">len</span>(extra_spaces))</span></code></pre></div>
 
 </div>
 </div>
