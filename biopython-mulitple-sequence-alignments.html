@@ -23,7 +23,7 @@
 <meta name="author" content="Juan C. Santos, Randy Ortiz &amp; Genrietta Yagudayeva" />
 
 
-<meta name="date" content="2026-02-11" />
+<meta name="date" content="2026-02-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -160,15 +160,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html"><i class="fa fa-check"></i><b>3</b> – Basic Data Structures in R</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#scalars-and-vectors"><i class="fa fa-check"></i><b>3.1</b> Scalars and vectors</a></li>
-<li class="chapter" data-level="3.2" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#matrices"><i class="fa fa-check"></i><b>3.2</b> Matrices</a></li>
-<li class="chapter" data-level="3.3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#arrays"><i class="fa fa-check"></i><b>3.3</b> Arrays</a></li>
-<li class="chapter" data-level="3.4" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-frames"><i class="fa fa-check"></i><b>3.4</b> Data Frames</a></li>
-<li class="chapter" data-level="3.5" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tables"><i class="fa fa-check"></i><b>3.5</b> Tables</a></li>
-<li class="chapter" data-level="3.6" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#lists"><i class="fa fa-check"></i><b>3.6</b> Lists</a></li>
-<li class="chapter" data-level="3.7" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-tables"><i class="fa fa-check"></i><b>3.7</b> Data Tables</a></li>
-<li class="chapter" data-level="3.8" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tibbles"><i class="fa fa-check"></i><b>3.8</b> Tibbles</a></li>
-<li class="chapter" data-level="3.9" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#dnastringsets-rnastringsets-and-aastringsets"><i class="fa fa-check"></i><b>3.9</b> DNAStringSets, RNAStringSets and AAStringSets</a></li>
+<li class="chapter" data-level="3.1" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#the-assignment-operator--"><i class="fa fa-check"></i><b>3.1</b> The assignment operator <code>&lt;-</code></a></li>
+<li class="chapter" data-level="3.2" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#scalars-and-vectors"><i class="fa fa-check"></i><b>3.2</b> Scalars and vectors</a></li>
+<li class="chapter" data-level="3.3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#matrices"><i class="fa fa-check"></i><b>3.3</b> Matrices</a></li>
+<li class="chapter" data-level="3.4" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#arrays"><i class="fa fa-check"></i><b>3.4</b> Arrays</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-frames"><i class="fa fa-check"></i><b>3.5</b> Data Frames</a></li>
+<li class="chapter" data-level="3.6" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tables"><i class="fa fa-check"></i><b>3.6</b> Tables</a></li>
+<li class="chapter" data-level="3.7" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#lists"><i class="fa fa-check"></i><b>3.7</b> Lists</a></li>
+<li class="chapter" data-level="3.8" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-tables"><i class="fa fa-check"></i><b>3.8</b> Data Tables</a></li>
+<li class="chapter" data-level="3.9" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tibbles"><i class="fa fa-check"></i><b>3.9</b> Tibbles</a></li>
+<li class="chapter" data-level="3.10" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#dnastringsets-rnastringsets-and-aastringsets"><i class="fa fa-check"></i><b>3.10</b> DNAStringSets, RNAStringSets and AAStringSets</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html"><i class="fa fa-check"></i><b>4</b> – Text Editing and Data Transformations</a>
 <ul>
@@ -563,29 +564,29 @@ MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPK
 VKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFG
 KEFTPPVQAAYQKVVAGVANALAHKYH</p>
 </blockquote>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="biopython-mulitple-sequence-alignments.html#cb598-1" aria-hidden="true" tabindex="-1"></a>from Bio import pairwise2</span>
-<span id="cb598-2"><a href="biopython-mulitple-sequence-alignments.html#cb598-2" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb598-3"><a href="biopython-mulitple-sequence-alignments.html#cb598-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb598-4"><a href="biopython-mulitple-sequence-alignments.html#cb598-4" aria-hidden="true" tabindex="-1"></a>seq1 <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;alpha.faa&quot;</span>, <span class="st">&quot;fasta&quot;</span>)</span>
-<span id="cb598-5"><a href="biopython-mulitple-sequence-alignments.html#cb598-5" aria-hidden="true" tabindex="-1"></a>seq2 <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;beta.faa&quot;</span>, <span class="st">&quot;fasta&quot;</span>)</span>
-<span id="cb598-6"><a href="biopython-mulitple-sequence-alignments.html#cb598-6" aria-hidden="true" tabindex="-1"></a>alignments <span class="ot">=</span> <span class="fu">pairwise2.align.globalxx</span>(seq1.seq, seq2.seq)</span></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="biopython-mulitple-sequence-alignments.html#cb603-1" aria-hidden="true" tabindex="-1"></a>from Bio import pairwise2</span>
+<span id="cb603-2"><a href="biopython-mulitple-sequence-alignments.html#cb603-2" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb603-3"><a href="biopython-mulitple-sequence-alignments.html#cb603-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-4"><a href="biopython-mulitple-sequence-alignments.html#cb603-4" aria-hidden="true" tabindex="-1"></a>seq1 <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;alpha.faa&quot;</span>, <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb603-5"><a href="biopython-mulitple-sequence-alignments.html#cb603-5" aria-hidden="true" tabindex="-1"></a>seq2 <span class="ot">=</span> <span class="fu">SeqIO.read</span>(<span class="st">&quot;beta.faa&quot;</span>, <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb603-6"><a href="biopython-mulitple-sequence-alignments.html#cb603-6" aria-hidden="true" tabindex="-1"></a>alignments <span class="ot">=</span> <span class="fu">pairwise2.align.globalxx</span>(seq1.seq, seq2.seq)</span></code></pre></div>
 </div>
 <div id="pairwisealigner" class="section level2 hasAnchor" number="22.2">
 <h2><span class="header-section-number">22.2</span> PairwiseAligner<a href="biopython-mulitple-sequence-alignments.html#pairwisealigner" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="biopython-mulitple-sequence-alignments.html#cb599-1" aria-hidden="true" tabindex="-1"></a>from Bio import Align</span>
-<span id="cb599-2"><a href="biopython-mulitple-sequence-alignments.html#cb599-2" aria-hidden="true" tabindex="-1"></a>aligner <span class="ot">=</span> <span class="fu">Align.PairwiseAligner</span>(<span class="at">match_score=</span><span class="fl">1.0</span>)</span>
-<span id="cb599-3"><a href="biopython-mulitple-sequence-alignments.html#cb599-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(aligner)</span>
-<span id="cb599-4"><a href="biopython-mulitple-sequence-alignments.html#cb599-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb599-5"><a href="biopython-mulitple-sequence-alignments.html#cb599-5" aria-hidden="true" tabindex="-1"></a>aligner.algorithm</span>
-<span id="cb599-6"><a href="biopython-mulitple-sequence-alignments.html#cb599-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb599-7"><a href="biopython-mulitple-sequence-alignments.html#cb599-7" aria-hidden="true" tabindex="-1"></a>seq1 <span class="ot">=</span> <span class="st">&quot;TATACATTAAAGGAGGGGGATGCGGATAAATGGAAAGGCGAAAAAGAAAAAAATGAATCTAAATGATA&quot;</span></span>
-<span id="cb599-8"><a href="biopython-mulitple-sequence-alignments.html#cb599-8" aria-hidden="true" tabindex="-1"></a>seq2 <span class="ot">=</span> <span class="st">&quot;TATACATTAAAGGAGGGGGATGCGGATAAATGGAAAGGCGAAAGAAAGAAAAAAATGAATCTAAATGATA&quot;</span></span>
-<span id="cb599-9"><a href="biopython-mulitple-sequence-alignments.html#cb599-9" aria-hidden="true" tabindex="-1"></a>score <span class="ot">=</span> <span class="fu">aligner.score</span>(seq1, seq2)</span>
-<span id="cb599-10"><a href="biopython-mulitple-sequence-alignments.html#cb599-10" aria-hidden="true" tabindex="-1"></a>score</span>
-<span id="cb599-11"><a href="biopython-mulitple-sequence-alignments.html#cb599-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb599-12"><a href="biopython-mulitple-sequence-alignments.html#cb599-12" aria-hidden="true" tabindex="-1"></a>alignments <span class="ot">=</span> <span class="fu">aligner.align</span>(seq1, seq2)</span>
-<span id="cb599-13"><a href="biopython-mulitple-sequence-alignments.html#cb599-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> alignment <span class="cf">in</span> alignments<span class="sc">:</span></span>
-<span id="cb599-14"><a href="biopython-mulitple-sequence-alignments.html#cb599-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(alignment)</span></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="biopython-mulitple-sequence-alignments.html#cb604-1" aria-hidden="true" tabindex="-1"></a>from Bio import Align</span>
+<span id="cb604-2"><a href="biopython-mulitple-sequence-alignments.html#cb604-2" aria-hidden="true" tabindex="-1"></a>aligner <span class="ot">=</span> <span class="fu">Align.PairwiseAligner</span>(<span class="at">match_score=</span><span class="fl">1.0</span>)</span>
+<span id="cb604-3"><a href="biopython-mulitple-sequence-alignments.html#cb604-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(aligner)</span>
+<span id="cb604-4"><a href="biopython-mulitple-sequence-alignments.html#cb604-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb604-5"><a href="biopython-mulitple-sequence-alignments.html#cb604-5" aria-hidden="true" tabindex="-1"></a>aligner.algorithm</span>
+<span id="cb604-6"><a href="biopython-mulitple-sequence-alignments.html#cb604-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb604-7"><a href="biopython-mulitple-sequence-alignments.html#cb604-7" aria-hidden="true" tabindex="-1"></a>seq1 <span class="ot">=</span> <span class="st">&quot;TATACATTAAAGGAGGGGGATGCGGATAAATGGAAAGGCGAAAAAGAAAAAAATGAATCTAAATGATA&quot;</span></span>
+<span id="cb604-8"><a href="biopython-mulitple-sequence-alignments.html#cb604-8" aria-hidden="true" tabindex="-1"></a>seq2 <span class="ot">=</span> <span class="st">&quot;TATACATTAAAGGAGGGGGATGCGGATAAATGGAAAGGCGAAAGAAAGAAAAAAATGAATCTAAATGATA&quot;</span></span>
+<span id="cb604-9"><a href="biopython-mulitple-sequence-alignments.html#cb604-9" aria-hidden="true" tabindex="-1"></a>score <span class="ot">=</span> <span class="fu">aligner.score</span>(seq1, seq2)</span>
+<span id="cb604-10"><a href="biopython-mulitple-sequence-alignments.html#cb604-10" aria-hidden="true" tabindex="-1"></a>score</span>
+<span id="cb604-11"><a href="biopython-mulitple-sequence-alignments.html#cb604-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb604-12"><a href="biopython-mulitple-sequence-alignments.html#cb604-12" aria-hidden="true" tabindex="-1"></a>alignments <span class="ot">=</span> <span class="fu">aligner.align</span>(seq1, seq2)</span>
+<span id="cb604-13"><a href="biopython-mulitple-sequence-alignments.html#cb604-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> alignment <span class="cf">in</span> alignments<span class="sc">:</span></span>
+<span id="cb604-14"><a href="biopython-mulitple-sequence-alignments.html#cb604-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(alignment)</span></code></pre></div>
 
 </div>
 </div>

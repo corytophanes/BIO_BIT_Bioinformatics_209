@@ -23,7 +23,7 @@
 <meta name="author" content="Juan C. Santos, Randy Ortiz &amp; Genrietta Yagudayeva" />
 
 
-<meta name="date" content="2026-02-11" />
+<meta name="date" content="2026-02-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -160,15 +160,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html"><i class="fa fa-check"></i><b>3</b> – Basic Data Structures in R</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#scalars-and-vectors"><i class="fa fa-check"></i><b>3.1</b> Scalars and vectors</a></li>
-<li class="chapter" data-level="3.2" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#matrices"><i class="fa fa-check"></i><b>3.2</b> Matrices</a></li>
-<li class="chapter" data-level="3.3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#arrays"><i class="fa fa-check"></i><b>3.3</b> Arrays</a></li>
-<li class="chapter" data-level="3.4" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-frames"><i class="fa fa-check"></i><b>3.4</b> Data Frames</a></li>
-<li class="chapter" data-level="3.5" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tables"><i class="fa fa-check"></i><b>3.5</b> Tables</a></li>
-<li class="chapter" data-level="3.6" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#lists"><i class="fa fa-check"></i><b>3.6</b> Lists</a></li>
-<li class="chapter" data-level="3.7" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-tables"><i class="fa fa-check"></i><b>3.7</b> Data Tables</a></li>
-<li class="chapter" data-level="3.8" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tibbles"><i class="fa fa-check"></i><b>3.8</b> Tibbles</a></li>
-<li class="chapter" data-level="3.9" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#dnastringsets-rnastringsets-and-aastringsets"><i class="fa fa-check"></i><b>3.9</b> DNAStringSets, RNAStringSets and AAStringSets</a></li>
+<li class="chapter" data-level="3.1" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#the-assignment-operator--"><i class="fa fa-check"></i><b>3.1</b> The assignment operator <code>&lt;-</code></a></li>
+<li class="chapter" data-level="3.2" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#scalars-and-vectors"><i class="fa fa-check"></i><b>3.2</b> Scalars and vectors</a></li>
+<li class="chapter" data-level="3.3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#matrices"><i class="fa fa-check"></i><b>3.3</b> Matrices</a></li>
+<li class="chapter" data-level="3.4" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#arrays"><i class="fa fa-check"></i><b>3.4</b> Arrays</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-frames"><i class="fa fa-check"></i><b>3.5</b> Data Frames</a></li>
+<li class="chapter" data-level="3.6" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tables"><i class="fa fa-check"></i><b>3.6</b> Tables</a></li>
+<li class="chapter" data-level="3.7" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#lists"><i class="fa fa-check"></i><b>3.7</b> Lists</a></li>
+<li class="chapter" data-level="3.8" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-tables"><i class="fa fa-check"></i><b>3.8</b> Data Tables</a></li>
+<li class="chapter" data-level="3.9" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tibbles"><i class="fa fa-check"></i><b>3.9</b> Tibbles</a></li>
+<li class="chapter" data-level="3.10" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#dnastringsets-rnastringsets-and-aastringsets"><i class="fa fa-check"></i><b>3.10</b> DNAStringSets, RNAStringSets and AAStringSets</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html"><i class="fa fa-check"></i><b>4</b> – Text Editing and Data Transformations</a>
 <ul>
@@ -599,20 +600,20 @@ draft versions of a research article that precedes formal peer-review process an
 databases such as <a href="https://www.biorxiv.org/" target="_blank"><strong>bioRxiv</strong></a>. For introductory, manuals, application examples, and guidelines on use of specific bioinformatic tools
 (like those written in R language), you might find vignettes associated with a specific R package in the <a href="https://cran.r-project.org/" target="_blank"><strong>CRAN</strong></a> or <a href="https://www.bioconductor.org/" target="_blank"><strong>Bioconductor</strong></a> repositories.</p>
 <p>Here is an example of how to access the <a href="https://www.bioconductor.org/packages/release/bioc/html/DESeq2.html" target="_blank"><strong><code>DESeq2</code></strong></a> R-package vignette, which is a package for the analysis of differential gene expression analysis.</p>
-<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="bioinformatics-literature.html#cb643-1" aria-hidden="true" tabindex="-1"></a><span class="do">## If you need to install this package in your computer:</span></span>
-<span id="cb643-2"><a href="bioinformatics-literature.html#cb643-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb643-3"><a href="bioinformatics-literature.html#cb643-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb643-4"><a href="bioinformatics-literature.html#cb643-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
-<span id="cb643-5"><a href="bioinformatics-literature.html#cb643-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb643-6"><a href="bioinformatics-literature.html#cb643-6" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;DESeq2&quot;</span>)</span>
-<span id="cb643-7"><a href="bioinformatics-literature.html#cb643-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb643-8"><a href="bioinformatics-literature.html#cb643-8" aria-hidden="true" tabindex="-1"></a><span class="do">## If you already have installed the DESeq2 package, load it in R space:</span></span>
-<span id="cb643-9"><a href="bioinformatics-literature.html#cb643-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb643-10"><a href="bioinformatics-literature.html#cb643-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DESeq2)</span>
-<span id="cb643-11"><a href="bioinformatics-literature.html#cb643-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb643-12"><a href="bioinformatics-literature.html#cb643-12" aria-hidden="true" tabindex="-1"></a><span class="do">## To view documentation and vignette associated with DESeq2:</span></span>
-<span id="cb643-13"><a href="bioinformatics-literature.html#cb643-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb643-14"><a href="bioinformatics-literature.html#cb643-14" aria-hidden="true" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">&quot;DESeq2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="bioinformatics-literature.html#cb648-1" aria-hidden="true" tabindex="-1"></a><span class="do">## If you need to install this package in your computer:</span></span>
+<span id="cb648-2"><a href="bioinformatics-literature.html#cb648-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb648-3"><a href="bioinformatics-literature.html#cb648-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb648-4"><a href="bioinformatics-literature.html#cb648-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
+<span id="cb648-5"><a href="bioinformatics-literature.html#cb648-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb648-6"><a href="bioinformatics-literature.html#cb648-6" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;DESeq2&quot;</span>)</span>
+<span id="cb648-7"><a href="bioinformatics-literature.html#cb648-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb648-8"><a href="bioinformatics-literature.html#cb648-8" aria-hidden="true" tabindex="-1"></a><span class="do">## If you already have installed the DESeq2 package, load it in R space:</span></span>
+<span id="cb648-9"><a href="bioinformatics-literature.html#cb648-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb648-10"><a href="bioinformatics-literature.html#cb648-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DESeq2)</span>
+<span id="cb648-11"><a href="bioinformatics-literature.html#cb648-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb648-12"><a href="bioinformatics-literature.html#cb648-12" aria-hidden="true" tabindex="-1"></a><span class="do">## To view documentation and vignette associated with DESeq2:</span></span>
+<span id="cb648-13"><a href="bioinformatics-literature.html#cb648-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb648-14"><a href="bioinformatics-literature.html#cb648-14" aria-hidden="true" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">&quot;DESeq2&quot;</span>)</span></code></pre></div>
 </div>
 <div id="online-bioinformatics-courses" class="section level2 hasAnchor" number="29.4">
 <h2><span class="header-section-number">29.4</span> Online bioinformatics courses<a href="bioinformatics-literature.html#online-bioinformatics-courses" class="anchor-section" aria-label="Anchor link to header"></a></h2>

@@ -23,7 +23,7 @@
 <meta name="author" content="Juan C. Santos, Randy Ortiz &amp; Genrietta Yagudayeva" />
 
 
-<meta name="date" content="2026-02-11" />
+<meta name="date" content="2026-02-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -160,15 +160,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html"><i class="fa fa-check"></i><b>3</b> – Basic Data Structures in R</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#scalars-and-vectors"><i class="fa fa-check"></i><b>3.1</b> Scalars and vectors</a></li>
-<li class="chapter" data-level="3.2" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#matrices"><i class="fa fa-check"></i><b>3.2</b> Matrices</a></li>
-<li class="chapter" data-level="3.3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#arrays"><i class="fa fa-check"></i><b>3.3</b> Arrays</a></li>
-<li class="chapter" data-level="3.4" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-frames"><i class="fa fa-check"></i><b>3.4</b> Data Frames</a></li>
-<li class="chapter" data-level="3.5" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tables"><i class="fa fa-check"></i><b>3.5</b> Tables</a></li>
-<li class="chapter" data-level="3.6" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#lists"><i class="fa fa-check"></i><b>3.6</b> Lists</a></li>
-<li class="chapter" data-level="3.7" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-tables"><i class="fa fa-check"></i><b>3.7</b> Data Tables</a></li>
-<li class="chapter" data-level="3.8" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tibbles"><i class="fa fa-check"></i><b>3.8</b> Tibbles</a></li>
-<li class="chapter" data-level="3.9" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#dnastringsets-rnastringsets-and-aastringsets"><i class="fa fa-check"></i><b>3.9</b> DNAStringSets, RNAStringSets and AAStringSets</a></li>
+<li class="chapter" data-level="3.1" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#the-assignment-operator--"><i class="fa fa-check"></i><b>3.1</b> The assignment operator <code>&lt;-</code></a></li>
+<li class="chapter" data-level="3.2" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#scalars-and-vectors"><i class="fa fa-check"></i><b>3.2</b> Scalars and vectors</a></li>
+<li class="chapter" data-level="3.3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#matrices"><i class="fa fa-check"></i><b>3.3</b> Matrices</a></li>
+<li class="chapter" data-level="3.4" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#arrays"><i class="fa fa-check"></i><b>3.4</b> Arrays</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-frames"><i class="fa fa-check"></i><b>3.5</b> Data Frames</a></li>
+<li class="chapter" data-level="3.6" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tables"><i class="fa fa-check"></i><b>3.6</b> Tables</a></li>
+<li class="chapter" data-level="3.7" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#lists"><i class="fa fa-check"></i><b>3.7</b> Lists</a></li>
+<li class="chapter" data-level="3.8" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-tables"><i class="fa fa-check"></i><b>3.8</b> Data Tables</a></li>
+<li class="chapter" data-level="3.9" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tibbles"><i class="fa fa-check"></i><b>3.9</b> Tibbles</a></li>
+<li class="chapter" data-level="3.10" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#dnastringsets-rnastringsets-and-aastringsets"><i class="fa fa-check"></i><b>3.10</b> DNAStringSets, RNAStringSets and AAStringSets</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html"><i class="fa fa-check"></i><b>4</b> – Text Editing and Data Transformations</a>
 <ul>
@@ -551,44 +552,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="gene-feature-modeling" class="section level2 hasAnchor" number="24.1">
 <h2><span class="header-section-number">24.1</span> Gene Feature Modeling<a href="biopython-chromosome-modeling.html#gene-feature-modeling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Dataset is in this <a href="https://www.ncbi.nlm.nih.gov/assembly/GCF_001663975.1" target="_blank"><strong>link</strong></a></p>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="biopython-chromosome-modeling.html#cb608-1" aria-hidden="true" tabindex="-1"></a>from reportlab.lib.units import cm</span>
-<span id="cb608-2"><a href="biopython-chromosome-modeling.html#cb608-2" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
-<span id="cb608-3"><a href="biopython-chromosome-modeling.html#cb608-3" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics import BasicChromosome</span>
-<span id="cb608-4"><a href="biopython-chromosome-modeling.html#cb608-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb608-5"><a href="biopython-chromosome-modeling.html#cb608-5" aria-hidden="true" tabindex="-1"></a>entries <span class="ot">=</span> [</span>
-<span id="cb608-6"><a href="biopython-chromosome-modeling.html#cb608-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr I&quot;</span>, <span class="st">&quot;L1.gb&quot;</span>),</span>
-<span id="cb608-7"><a href="biopython-chromosome-modeling.html#cb608-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr II&quot;</span>, <span class="st">&quot;L2.gb&quot;</span>),</span>
-<span id="cb608-8"><a href="biopython-chromosome-modeling.html#cb608-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr III&quot;</span>, <span class="st">&quot;L3.gb&quot;</span>),</span>
-<span id="cb608-9"><a href="biopython-chromosome-modeling.html#cb608-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr IV&quot;</span>, <span class="st">&quot;L4.gb&quot;</span>),</span>
-<span id="cb608-10"><a href="biopython-chromosome-modeling.html#cb608-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr V&quot;</span>, <span class="st">&quot;L5.gb&quot;</span>),</span>
-<span id="cb608-11"><a href="biopython-chromosome-modeling.html#cb608-11" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb608-12"><a href="biopython-chromosome-modeling.html#cb608-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb608-13"><a href="biopython-chromosome-modeling.html#cb608-13" aria-hidden="true" tabindex="-1"></a>max_len <span class="ot">=</span> <span class="dv">219802468</span>  <span class="co"># Could compute this from the entries dict</span></span>
-<span id="cb608-14"><a href="biopython-chromosome-modeling.html#cb608-14" aria-hidden="true" tabindex="-1"></a>telomere_length <span class="ot">=</span> <span class="dv">100000</span>  <span class="co"># For illustration</span></span>
-<span id="cb608-15"><a href="biopython-chromosome-modeling.html#cb608-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb608-16"><a href="biopython-chromosome-modeling.html#cb608-16" aria-hidden="true" tabindex="-1"></a>chr_diagram <span class="ot">=</span> <span class="fu">BasicChromosome.Organism</span>()</span>
-<span id="cb608-17"><a href="biopython-chromosome-modeling.html#cb608-17" aria-hidden="true" tabindex="-1"></a>chr_diagram.page_size <span class="ot">=</span> (<span class="dv">45</span> <span class="sc">*</span> cm, <span class="dv">500</span> <span class="sc">*</span> cm)  <span class="co"># A4 landscape</span></span>
-<span id="cb608-18"><a href="biopython-chromosome-modeling.html#cb608-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb608-19"><a href="biopython-chromosome-modeling.html#cb608-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, (name, filename) <span class="cf">in</span> <span class="fu">enumerate</span>(entries)<span class="sc">:</span></span>
-<span id="cb608-20"><a href="biopython-chromosome-modeling.html#cb608-20" aria-hidden="true" tabindex="-1"></a>    record <span class="ot">=</span> <span class="fu">SeqIO.read</span>(filename, <span class="st">&quot;genbank&quot;</span>)</span>
-<span id="cb608-21"><a href="biopython-chromosome-modeling.html#cb608-21" aria-hidden="true" tabindex="-1"></a>    length <span class="ot">=</span> <span class="fu">len</span>(record)</span>
-<span id="cb608-22"><a href="biopython-chromosome-modeling.html#cb608-22" aria-hidden="true" tabindex="-1"></a>    features <span class="ot">=</span> [f <span class="cf">for</span> f <span class="cf">in</span> record.features <span class="cf">if</span> f.type <span class="sc">==</span> <span class="st">&quot;gene&quot;</span>]</span>
-<span id="cb608-23"><a href="biopython-chromosome-modeling.html#cb608-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="cf">in</span> features<span class="sc">:</span></span>
-<span id="cb608-24"><a href="biopython-chromosome-modeling.html#cb608-24" aria-hidden="true" tabindex="-1"></a>        f.qualifiers[<span class="st">&quot;color&quot;</span>] <span class="ot">=</span> [index <span class="sc">+</span> <span class="dv">2</span>]</span>
-<span id="cb608-25"><a href="biopython-chromosome-modeling.html#cb608-25" aria-hidden="true" tabindex="-1"></a>    cur_chromosome <span class="ot">=</span> <span class="fu">BasicChromosome.Chromosome</span>(name)</span>
-<span id="cb608-26"><a href="biopython-chromosome-modeling.html#cb608-26" aria-hidden="true" tabindex="-1"></a>    cur_chromosome.scale_num <span class="ot">=</span> max_len <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> telomere_length</span>
-<span id="cb608-27"><a href="biopython-chromosome-modeling.html#cb608-27" aria-hidden="true" tabindex="-1"></a>    start <span class="ot">=</span> <span class="fu">BasicChromosome.TelomereSegment</span>()</span>
-<span id="cb608-28"><a href="biopython-chromosome-modeling.html#cb608-28" aria-hidden="true" tabindex="-1"></a>    start.scale <span class="ot">=</span> telomere_length</span>
-<span id="cb608-29"><a href="biopython-chromosome-modeling.html#cb608-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cur_chromosome.add</span>(start)</span>
-<span id="cb608-30"><a href="biopython-chromosome-modeling.html#cb608-30" aria-hidden="true" tabindex="-1"></a>    body <span class="ot">=</span> <span class="fu">BasicChromosome.AnnotatedChromosomeSegment</span>(length, features)</span>
-<span id="cb608-31"><a href="biopython-chromosome-modeling.html#cb608-31" aria-hidden="true" tabindex="-1"></a>    body.scale <span class="ot">=</span> length</span>
-<span id="cb608-32"><a href="biopython-chromosome-modeling.html#cb608-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cur_chromosome.add</span>(body)</span>
-<span id="cb608-33"><a href="biopython-chromosome-modeling.html#cb608-33" aria-hidden="true" tabindex="-1"></a>    end <span class="ot">=</span> <span class="fu">BasicChromosome.TelomereSegment</span>(<span class="at">inverted=</span>True)</span>
-<span id="cb608-34"><a href="biopython-chromosome-modeling.html#cb608-34" aria-hidden="true" tabindex="-1"></a>    end.scale <span class="ot">=</span> telomere_length</span>
-<span id="cb608-35"><a href="biopython-chromosome-modeling.html#cb608-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cur_chromosome.add</span>(end)</span>
-<span id="cb608-36"><a href="biopython-chromosome-modeling.html#cb608-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">chr_diagram.add</span>(cur_chromosome)</span>
-<span id="cb608-37"><a href="biopython-chromosome-modeling.html#cb608-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb608-38"><a href="biopython-chromosome-modeling.html#cb608-38" aria-hidden="true" tabindex="-1"></a><span class="fu">chr_diagram.draw</span>(<span class="st">&quot;Chromosome.pdf&quot;</span>, <span class="st">&quot;Xenopus laevis&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="biopython-chromosome-modeling.html#cb613-1" aria-hidden="true" tabindex="-1"></a>from reportlab.lib.units import cm</span>
+<span id="cb613-2"><a href="biopython-chromosome-modeling.html#cb613-2" aria-hidden="true" tabindex="-1"></a>from Bio import SeqIO</span>
+<span id="cb613-3"><a href="biopython-chromosome-modeling.html#cb613-3" aria-hidden="true" tabindex="-1"></a>from Bio.Graphics import BasicChromosome</span>
+<span id="cb613-4"><a href="biopython-chromosome-modeling.html#cb613-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb613-5"><a href="biopython-chromosome-modeling.html#cb613-5" aria-hidden="true" tabindex="-1"></a>entries <span class="ot">=</span> [</span>
+<span id="cb613-6"><a href="biopython-chromosome-modeling.html#cb613-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr I&quot;</span>, <span class="st">&quot;L1.gb&quot;</span>),</span>
+<span id="cb613-7"><a href="biopython-chromosome-modeling.html#cb613-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr II&quot;</span>, <span class="st">&quot;L2.gb&quot;</span>),</span>
+<span id="cb613-8"><a href="biopython-chromosome-modeling.html#cb613-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr III&quot;</span>, <span class="st">&quot;L3.gb&quot;</span>),</span>
+<span id="cb613-9"><a href="biopython-chromosome-modeling.html#cb613-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr IV&quot;</span>, <span class="st">&quot;L4.gb&quot;</span>),</span>
+<span id="cb613-10"><a href="biopython-chromosome-modeling.html#cb613-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;Chr V&quot;</span>, <span class="st">&quot;L5.gb&quot;</span>),</span>
+<span id="cb613-11"><a href="biopython-chromosome-modeling.html#cb613-11" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb613-12"><a href="biopython-chromosome-modeling.html#cb613-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb613-13"><a href="biopython-chromosome-modeling.html#cb613-13" aria-hidden="true" tabindex="-1"></a>max_len <span class="ot">=</span> <span class="dv">219802468</span>  <span class="co"># Could compute this from the entries dict</span></span>
+<span id="cb613-14"><a href="biopython-chromosome-modeling.html#cb613-14" aria-hidden="true" tabindex="-1"></a>telomere_length <span class="ot">=</span> <span class="dv">100000</span>  <span class="co"># For illustration</span></span>
+<span id="cb613-15"><a href="biopython-chromosome-modeling.html#cb613-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb613-16"><a href="biopython-chromosome-modeling.html#cb613-16" aria-hidden="true" tabindex="-1"></a>chr_diagram <span class="ot">=</span> <span class="fu">BasicChromosome.Organism</span>()</span>
+<span id="cb613-17"><a href="biopython-chromosome-modeling.html#cb613-17" aria-hidden="true" tabindex="-1"></a>chr_diagram.page_size <span class="ot">=</span> (<span class="dv">45</span> <span class="sc">*</span> cm, <span class="dv">500</span> <span class="sc">*</span> cm)  <span class="co"># A4 landscape</span></span>
+<span id="cb613-18"><a href="biopython-chromosome-modeling.html#cb613-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb613-19"><a href="biopython-chromosome-modeling.html#cb613-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, (name, filename) <span class="cf">in</span> <span class="fu">enumerate</span>(entries)<span class="sc">:</span></span>
+<span id="cb613-20"><a href="biopython-chromosome-modeling.html#cb613-20" aria-hidden="true" tabindex="-1"></a>    record <span class="ot">=</span> <span class="fu">SeqIO.read</span>(filename, <span class="st">&quot;genbank&quot;</span>)</span>
+<span id="cb613-21"><a href="biopython-chromosome-modeling.html#cb613-21" aria-hidden="true" tabindex="-1"></a>    length <span class="ot">=</span> <span class="fu">len</span>(record)</span>
+<span id="cb613-22"><a href="biopython-chromosome-modeling.html#cb613-22" aria-hidden="true" tabindex="-1"></a>    features <span class="ot">=</span> [f <span class="cf">for</span> f <span class="cf">in</span> record.features <span class="cf">if</span> f.type <span class="sc">==</span> <span class="st">&quot;gene&quot;</span>]</span>
+<span id="cb613-23"><a href="biopython-chromosome-modeling.html#cb613-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="cf">in</span> features<span class="sc">:</span></span>
+<span id="cb613-24"><a href="biopython-chromosome-modeling.html#cb613-24" aria-hidden="true" tabindex="-1"></a>        f.qualifiers[<span class="st">&quot;color&quot;</span>] <span class="ot">=</span> [index <span class="sc">+</span> <span class="dv">2</span>]</span>
+<span id="cb613-25"><a href="biopython-chromosome-modeling.html#cb613-25" aria-hidden="true" tabindex="-1"></a>    cur_chromosome <span class="ot">=</span> <span class="fu">BasicChromosome.Chromosome</span>(name)</span>
+<span id="cb613-26"><a href="biopython-chromosome-modeling.html#cb613-26" aria-hidden="true" tabindex="-1"></a>    cur_chromosome.scale_num <span class="ot">=</span> max_len <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> telomere_length</span>
+<span id="cb613-27"><a href="biopython-chromosome-modeling.html#cb613-27" aria-hidden="true" tabindex="-1"></a>    start <span class="ot">=</span> <span class="fu">BasicChromosome.TelomereSegment</span>()</span>
+<span id="cb613-28"><a href="biopython-chromosome-modeling.html#cb613-28" aria-hidden="true" tabindex="-1"></a>    start.scale <span class="ot">=</span> telomere_length</span>
+<span id="cb613-29"><a href="biopython-chromosome-modeling.html#cb613-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cur_chromosome.add</span>(start)</span>
+<span id="cb613-30"><a href="biopython-chromosome-modeling.html#cb613-30" aria-hidden="true" tabindex="-1"></a>    body <span class="ot">=</span> <span class="fu">BasicChromosome.AnnotatedChromosomeSegment</span>(length, features)</span>
+<span id="cb613-31"><a href="biopython-chromosome-modeling.html#cb613-31" aria-hidden="true" tabindex="-1"></a>    body.scale <span class="ot">=</span> length</span>
+<span id="cb613-32"><a href="biopython-chromosome-modeling.html#cb613-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cur_chromosome.add</span>(body)</span>
+<span id="cb613-33"><a href="biopython-chromosome-modeling.html#cb613-33" aria-hidden="true" tabindex="-1"></a>    end <span class="ot">=</span> <span class="fu">BasicChromosome.TelomereSegment</span>(<span class="at">inverted=</span>True)</span>
+<span id="cb613-34"><a href="biopython-chromosome-modeling.html#cb613-34" aria-hidden="true" tabindex="-1"></a>    end.scale <span class="ot">=</span> telomere_length</span>
+<span id="cb613-35"><a href="biopython-chromosome-modeling.html#cb613-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cur_chromosome.add</span>(end)</span>
+<span id="cb613-36"><a href="biopython-chromosome-modeling.html#cb613-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">chr_diagram.add</span>(cur_chromosome)</span>
+<span id="cb613-37"><a href="biopython-chromosome-modeling.html#cb613-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb613-38"><a href="biopython-chromosome-modeling.html#cb613-38" aria-hidden="true" tabindex="-1"></a><span class="fu">chr_diagram.draw</span>(<span class="st">&quot;Chromosome.pdf&quot;</span>, <span class="st">&quot;Xenopus laevis&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>
