@@ -1151,15 +1151,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb119-3"><a href="basic-data-structures-in-r.html#cb119-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">my_boroughs =</span> <span class="st">&quot;not_NYC&quot;</span>,</span>
 <span id="cb119-4"><a href="basic-data-structures-in-r.html#cb119-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">my_colors =</span> <span class="st">&quot;purple&quot;</span>,</span>
 <span id="cb119-5"><a href="basic-data-structures-in-r.html#cb119-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb119-6"><a href="basic-data-structures-in-r.html#cb119-6" aria-hidden="true" tabindex="-1"></a>my_dataframe_2 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(my_dataframe,not_NYC)</span>
-<span id="cb119-7"><a href="basic-data-structures-in-r.html#cb119-7" aria-hidden="true" tabindex="-1"></a>my_dataframe_2</span>
-<span id="cb119-8"><a href="basic-data-structures-in-r.html#cb119-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  my_numbers     my_text   my_boroughs my_colors</span></span>
-<span id="cb119-9"><a href="basic-data-structures-in-r.html#cb119-9" aria-hidden="true" tabindex="-1"></a><span class="co">#1          1       apple        queens       red</span></span>
-<span id="cb119-10"><a href="basic-data-structures-in-r.html#cb119-10" aria-hidden="true" tabindex="-1"></a><span class="co">#2          2        pear     the_bronx    orange</span></span>
-<span id="cb119-11"><a href="basic-data-structures-in-r.html#cb119-11" aria-hidden="true" tabindex="-1"></a><span class="co">#3          3       grape      brooklyn      blue</span></span>
-<span id="cb119-12"><a href="basic-data-structures-in-r.html#cb119-12" aria-hidden="true" tabindex="-1"></a><span class="co">#4          4 pomegranate     manhattan     black</span></span>
-<span id="cb119-13"><a href="basic-data-structures-in-r.html#cb119-13" aria-hidden="true" tabindex="-1"></a><span class="co">#5          5      banana staten_island     green</span></span>
-<span id="cb119-14"><a href="basic-data-structures-in-r.html#cb119-14" aria-hidden="true" tabindex="-1"></a><span class="co">#6          6      potato       not_NYC    purple</span></span></code></pre></div>
+<span id="cb119-6"><a href="basic-data-structures-in-r.html#cb119-6" aria-hidden="true" tabindex="-1"></a>not_NYC</span>
+<span id="cb119-7"><a href="basic-data-structures-in-r.html#cb119-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  my_numbers my_text my_boroughs my_colors</span></span>
+<span id="cb119-8"><a href="basic-data-structures-in-r.html#cb119-8" aria-hidden="true" tabindex="-1"></a><span class="co">#1          6  potato     not_NYC    purple</span></span>
+<span id="cb119-9"><a href="basic-data-structures-in-r.html#cb119-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-10"><a href="basic-data-structures-in-r.html#cb119-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-11"><a href="basic-data-structures-in-r.html#cb119-11" aria-hidden="true" tabindex="-1"></a>my_dataframe_2 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(my_dataframe,not_NYC)</span>
+<span id="cb119-12"><a href="basic-data-structures-in-r.html#cb119-12" aria-hidden="true" tabindex="-1"></a>my_dataframe_2</span>
+<span id="cb119-13"><a href="basic-data-structures-in-r.html#cb119-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  my_numbers     my_text   my_boroughs my_colors</span></span>
+<span id="cb119-14"><a href="basic-data-structures-in-r.html#cb119-14" aria-hidden="true" tabindex="-1"></a><span class="co">#1          1       apple        queens       red</span></span>
+<span id="cb119-15"><a href="basic-data-structures-in-r.html#cb119-15" aria-hidden="true" tabindex="-1"></a><span class="co">#2          2        pear     the_bronx    orange</span></span>
+<span id="cb119-16"><a href="basic-data-structures-in-r.html#cb119-16" aria-hidden="true" tabindex="-1"></a><span class="co">#3          3       grape      brooklyn      blue</span></span>
+<span id="cb119-17"><a href="basic-data-structures-in-r.html#cb119-17" aria-hidden="true" tabindex="-1"></a><span class="co">#4          4 pomegranate     manhattan     black</span></span>
+<span id="cb119-18"><a href="basic-data-structures-in-r.html#cb119-18" aria-hidden="true" tabindex="-1"></a><span class="co">#5          5      banana staten_island     green</span></span>
+<span id="cb119-19"><a href="basic-data-structures-in-r.html#cb119-19" aria-hidden="true" tabindex="-1"></a><span class="co">#6          6      potato       not_NYC    purple</span></span></code></pre></div>
 <p><strong>27)</strong> You can remove columns and rows from a data frame in similar fashion as we did for vectors.</p>
 <p>This will remove last row (i.e., row 6) of <code>my_dataframe_2</code>.</p>
 <div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="basic-data-structures-in-r.html#cb120-1" aria-hidden="true" tabindex="-1"></a>my_dataframe_2[<span class="sc">-</span><span class="dv">6</span>,]</span>
@@ -1293,7 +1298,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>32)</strong> A table object is similar to a data frame, but it can be used to <strong>summarizing</strong> or <strong>tabulating</strong> your data, especially with categorical variables. Usually, you can use a table object to summarize a data frame.</p>
 <p>A contingency table is creates using the function <code>table()</code> to create an object for tabulation of counts and percentages for one or more variables. Missing values <strong><code>NA</code></strong> are excluded from the counts unless you specify the argument <code>useNA=“ifany”</code> or <code>useNA=“always”</code>.</p>
 <p>To exemplify a table, we create a version with different number of rows of <code>my_dataframe</code> and append those together.</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="basic-data-structures-in-r.html#cb134-1" aria-hidden="true" tabindex="-1"></a>my_dataframe_3 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(my_dataframe,my_dataframe_2, my_dataframe_2[<span class="sc">-</span><span class="dv">1</span>,])</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="basic-data-structures-in-r.html#cb134-1" aria-hidden="true" tabindex="-1"></a>my_dataframe_3 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(my_dataframe,my_dataframe_2, my_dataframe_2[<span class="sc">-</span><span class="dv">1</span>,])</span>
+<span id="cb134-2"><a href="basic-data-structures-in-r.html#cb134-2" aria-hidden="true" tabindex="-1"></a>my_dataframe_3</span>
+<span id="cb134-3"><a href="basic-data-structures-in-r.html#cb134-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   my_numbers     my_text   my_boroughs my_colors</span></span>
+<span id="cb134-4"><a href="basic-data-structures-in-r.html#cb134-4" aria-hidden="true" tabindex="-1"></a><span class="co">#1           1       apple        queens       red</span></span>
+<span id="cb134-5"><a href="basic-data-structures-in-r.html#cb134-5" aria-hidden="true" tabindex="-1"></a><span class="co">#2           2        pear     the_bronx    orange</span></span>
+<span id="cb134-6"><a href="basic-data-structures-in-r.html#cb134-6" aria-hidden="true" tabindex="-1"></a><span class="co">#3           3       grape      brooklyn      blue</span></span>
+<span id="cb134-7"><a href="basic-data-structures-in-r.html#cb134-7" aria-hidden="true" tabindex="-1"></a><span class="co">#4           4 pomegranate     manhattan     black</span></span>
+<span id="cb134-8"><a href="basic-data-structures-in-r.html#cb134-8" aria-hidden="true" tabindex="-1"></a><span class="co">#5           5      banana staten_island     green</span></span>
+<span id="cb134-9"><a href="basic-data-structures-in-r.html#cb134-9" aria-hidden="true" tabindex="-1"></a><span class="co">#6           1       apple        queens       red</span></span>
+<span id="cb134-10"><a href="basic-data-structures-in-r.html#cb134-10" aria-hidden="true" tabindex="-1"></a><span class="co">#7           2        pear     the_bronx    orange</span></span>
+<span id="cb134-11"><a href="basic-data-structures-in-r.html#cb134-11" aria-hidden="true" tabindex="-1"></a><span class="co">#8           3       grape      brooklyn      blue</span></span>
+<span id="cb134-12"><a href="basic-data-structures-in-r.html#cb134-12" aria-hidden="true" tabindex="-1"></a><span class="co">#9           4 pomegranate     manhattan     black</span></span>
+<span id="cb134-13"><a href="basic-data-structures-in-r.html#cb134-13" aria-hidden="true" tabindex="-1"></a><span class="co">#10          5      banana staten_island     green</span></span>
+<span id="cb134-14"><a href="basic-data-structures-in-r.html#cb134-14" aria-hidden="true" tabindex="-1"></a><span class="co">#11          6      potato       not_NYC    purple</span></span>
+<span id="cb134-15"><a href="basic-data-structures-in-r.html#cb134-15" aria-hidden="true" tabindex="-1"></a><span class="co">#21          2        pear     the_bronx    orange</span></span>
+<span id="cb134-16"><a href="basic-data-structures-in-r.html#cb134-16" aria-hidden="true" tabindex="-1"></a><span class="co">#31          3       grape      brooklyn      blue</span></span>
+<span id="cb134-17"><a href="basic-data-structures-in-r.html#cb134-17" aria-hidden="true" tabindex="-1"></a><span class="co">#41          4 pomegranate     manhattan     black</span></span>
+<span id="cb134-18"><a href="basic-data-structures-in-r.html#cb134-18" aria-hidden="true" tabindex="-1"></a><span class="co">#51          5      banana staten_island     green</span></span>
+<span id="cb134-19"><a href="basic-data-structures-in-r.html#cb134-19" aria-hidden="true" tabindex="-1"></a><span class="co">#61          6      potato       not_NYC    purple</span></span></code></pre></div>
 <p>Now, we can tabulate values on <code>my_dataframe_3</code>. For example, a table for number of times each borough is repeated.</p>
 <div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="basic-data-structures-in-r.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(my_dataframe_3<span class="sc">$</span>my_boroughs)</span>
 <span id="cb135-2"><a href="basic-data-structures-in-r.html#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="co"># brooklyn     manhattan       not_NYC        queens staten_island     the_bronx </span></span>
@@ -1318,7 +1341,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb138-3"><a href="basic-data-structures-in-r.html#cb138-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">my_boroughs =</span> <span class="fu">c</span>(<span class="st">&quot;not_NYC&quot;</span>,<span class="cn">NA</span>),</span>
 <span id="cb138-4"><a href="basic-data-structures-in-r.html#cb138-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">my_colors =</span> <span class="fu">c</span>(<span class="cn">NA</span>,<span class="st">&quot;purple&quot;</span>),</span>
 <span id="cb138-5"><a href="basic-data-structures-in-r.html#cb138-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb138-6"><a href="basic-data-structures-in-r.html#cb138-6" aria-hidden="true" tabindex="-1"></a>my_dataframe_5 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(my_dataframe_3,my_dataframe_4)</span></code></pre></div>
+<span id="cb138-6"><a href="basic-data-structures-in-r.html#cb138-6" aria-hidden="true" tabindex="-1"></a>my_dataframe_5 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(my_dataframe_3,my_dataframe_4)</span>
+<span id="cb138-7"><a href="basic-data-structures-in-r.html#cb138-7" aria-hidden="true" tabindex="-1"></a>my_dataframe_5</span>
+<span id="cb138-8"><a href="basic-data-structures-in-r.html#cb138-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   my_numbers     my_text   my_boroughs my_colors</span></span>
+<span id="cb138-9"><a href="basic-data-structures-in-r.html#cb138-9" aria-hidden="true" tabindex="-1"></a><span class="co">#1           1       apple        queens       red</span></span>
+<span id="cb138-10"><a href="basic-data-structures-in-r.html#cb138-10" aria-hidden="true" tabindex="-1"></a><span class="co">#2           2        pear     the_bronx    orange</span></span>
+<span id="cb138-11"><a href="basic-data-structures-in-r.html#cb138-11" aria-hidden="true" tabindex="-1"></a><span class="co">#3           3       grape      brooklyn      blue</span></span>
+<span id="cb138-12"><a href="basic-data-structures-in-r.html#cb138-12" aria-hidden="true" tabindex="-1"></a><span class="co">#4           4 pomegranate     manhattan     black</span></span>
+<span id="cb138-13"><a href="basic-data-structures-in-r.html#cb138-13" aria-hidden="true" tabindex="-1"></a><span class="co">#5           5      banana staten_island     green</span></span>
+<span id="cb138-14"><a href="basic-data-structures-in-r.html#cb138-14" aria-hidden="true" tabindex="-1"></a><span class="co">#6           1       apple        queens       red</span></span>
+<span id="cb138-15"><a href="basic-data-structures-in-r.html#cb138-15" aria-hidden="true" tabindex="-1"></a><span class="co">#7           2        pear     the_bronx    orange</span></span>
+<span id="cb138-16"><a href="basic-data-structures-in-r.html#cb138-16" aria-hidden="true" tabindex="-1"></a><span class="co">#8           3       grape      brooklyn      blue</span></span>
+<span id="cb138-17"><a href="basic-data-structures-in-r.html#cb138-17" aria-hidden="true" tabindex="-1"></a><span class="co">#9           4 pomegranate     manhattan     black</span></span>
+<span id="cb138-18"><a href="basic-data-structures-in-r.html#cb138-18" aria-hidden="true" tabindex="-1"></a><span class="co">#10          5      banana staten_island     green</span></span>
+<span id="cb138-19"><a href="basic-data-structures-in-r.html#cb138-19" aria-hidden="true" tabindex="-1"></a><span class="co">#11          6      potato       not_NYC    purple</span></span>
+<span id="cb138-20"><a href="basic-data-structures-in-r.html#cb138-20" aria-hidden="true" tabindex="-1"></a><span class="co">#21          2        pear     the_bronx    orange</span></span>
+<span id="cb138-21"><a href="basic-data-structures-in-r.html#cb138-21" aria-hidden="true" tabindex="-1"></a><span class="co">#31          3       grape      brooklyn      blue</span></span>
+<span id="cb138-22"><a href="basic-data-structures-in-r.html#cb138-22" aria-hidden="true" tabindex="-1"></a><span class="co">#41          4 pomegranate     manhattan     black</span></span>
+<span id="cb138-23"><a href="basic-data-structures-in-r.html#cb138-23" aria-hidden="true" tabindex="-1"></a><span class="co">#51          5      banana staten_island     green</span></span>
+<span id="cb138-24"><a href="basic-data-structures-in-r.html#cb138-24" aria-hidden="true" tabindex="-1"></a><span class="co">#61          6      potato       not_NYC    purple</span></span>
+<span id="cb138-25"><a href="basic-data-structures-in-r.html#cb138-25" aria-hidden="true" tabindex="-1"></a><span class="co">#12          6        &lt;NA&gt;       not_NYC      &lt;NA&gt;</span></span>
+<span id="cb138-26"><a href="basic-data-structures-in-r.html#cb138-26" aria-hidden="true" tabindex="-1"></a><span class="co">#22         NA      potato          &lt;NA&gt;    purple</span></span></code></pre></div>
 <p>As indicated, we tabulated this <code>my_dataframe_5</code>. This will by default excluding <strong><code>NA</code></strong> values.</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="basic-data-structures-in-r.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(my_dataframe_5<span class="sc">$</span>my_boroughs, my_dataframe_5<span class="sc">$</span>my_text)</span>
 <span id="cb139-2"><a href="basic-data-structures-in-r.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="co">#               apple banana grape pear pomegranate potato</span></span>
