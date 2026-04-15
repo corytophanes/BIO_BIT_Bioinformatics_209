@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Session 35 – Coding with Artificial Intelligence | Bioinformatics Workshop Gitbook</title>
+  <meta name="description" content="none" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Session 35 – Coding with Artificial Intelligence | Bioinformatics Workshop Gitbook" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="none" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Session 35 – Coding with Artificial Intelligence | Bioinformatics Workshop Gitbook" />
+  
+  <meta name="twitter:description" content="none" />
+  
+
+<meta name="author" content="Juan C. Santos, Randy Ortiz &amp; Genrietta Yagudayeva" />
+
+
+<meta name="date" content="2026-04-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="galaxy-workflows-part-ii.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Bioinformatics Workshop Gitbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i><b>1</b> – Getting Started with R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#why-do-we-use-r"><i class="fa fa-check"></i><b>1.1</b> Why do we use R?</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#get-a-good-text-editor"><i class="fa fa-check"></i><b>1.2</b> Get a good text editor</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#r-studio"><i class="fa fa-check"></i><b>1.3</b> R studio</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#installing-r"><i class="fa fa-check"></i><b>1.4</b> Installing R</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#annotating-code"><i class="fa fa-check"></i><b>1.5</b> Annotating code</a></li>
+<li class="chapter" data-level="1.6" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html#defining-a-working-directory-in-r"><i class="fa fa-check"></i><b>1.6</b> Defining a working directory in R</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html"><i class="fa fa-check"></i><b>2</b> – Using R, Installing Packages and Importing/Exporting Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#your-first-session"><i class="fa fa-check"></i><b>2.1</b> Your first session</a></li>
+<li class="chapter" data-level="2.2" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#doing-some-base-functions-and-getting-help"><i class="fa fa-check"></i><b>2.2</b> Doing some base functions and getting help</a></li>
+<li class="chapter" data-level="2.3" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#functions-between-two-or-more-vectors"><i class="fa fa-check"></i><b>2.3</b> Functions between two or more vectors</a></li>
+<li class="chapter" data-level="2.4" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#about-r-packages"><i class="fa fa-check"></i><b>2.4</b> About R-packages</a></li>
+<li class="chapter" data-level="2.5" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#cran-task-views-expert-opinion-on-useful-packages"><i class="fa fa-check"></i><b>2.5</b> CRAN Task Views – Expert opinion on useful packages</a></li>
+<li class="chapter" data-level="2.6" data-path="using-r-installing-packages-and-importingexporting-data.html"><a href="using-r-installing-packages-and-importingexporting-data.html#installing-packages"><i class="fa fa-check"></i><b>2.6</b> Installing packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html"><i class="fa fa-check"></i><b>3</b> – Basic Data Structures in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#the-assignment-operator--"><i class="fa fa-check"></i><b>3.1</b> The assignment operator <code>&lt;-</code></a></li>
+<li class="chapter" data-level="3.2" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#scalars-and-vectors"><i class="fa fa-check"></i><b>3.2</b> Scalars and vectors</a></li>
+<li class="chapter" data-level="3.3" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#matrices"><i class="fa fa-check"></i><b>3.3</b> Matrices</a></li>
+<li class="chapter" data-level="3.4" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#arrays"><i class="fa fa-check"></i><b>3.4</b> Arrays</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-frames"><i class="fa fa-check"></i><b>3.5</b> Data Frames</a></li>
+<li class="chapter" data-level="3.6" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tables"><i class="fa fa-check"></i><b>3.6</b> Tables</a></li>
+<li class="chapter" data-level="3.7" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#lists"><i class="fa fa-check"></i><b>3.7</b> Lists</a></li>
+<li class="chapter" data-level="3.8" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#data-tables"><i class="fa fa-check"></i><b>3.8</b> Data Tables</a></li>
+<li class="chapter" data-level="3.9" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#tibbles"><i class="fa fa-check"></i><b>3.9</b> Tibbles</a></li>
+<li class="chapter" data-level="3.10" data-path="basic-data-structures-in-r.html"><a href="basic-data-structures-in-r.html#dnastringsets-rnastringsets-and-aastringsets"><i class="fa fa-check"></i><b>3.10</b> DNAStringSets, RNAStringSets and AAStringSets</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html"><i class="fa fa-check"></i><b>4</b> – Text Editing and Data Transformations</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#working-with-character-strings"><i class="fa fa-check"></i><b>4.1</b> Working with character strings</a></li>
+<li class="chapter" data-level="4.2" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#regular-expressions-regex"><i class="fa fa-check"></i><b>4.2</b> Regular expressions (Regex)</a></li>
+<li class="chapter" data-level="4.3" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#comparing-ordering-and-simplifying-vectors"><i class="fa fa-check"></i><b>4.3</b> Comparing, ordering and simplifying vectors</a></li>
+<li class="chapter" data-level="4.4" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#useful-functions-of-stringr"><i class="fa fa-check"></i><b>4.4</b> Useful functions of <code>stringr</code></a></li>
+<li class="chapter" data-level="4.5" data-path="text-editing-and-data-transformations.html"><a href="text-editing-and-data-transformations.html#data-transformations"><i class="fa fa-check"></i><b>4.5</b> Data transformations</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html"><i class="fa fa-check"></i><b>5</b> – Getting Biological Data from Public Repositories</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#ncbi-databases-genbank-and-others"><i class="fa fa-check"></i><b>5.1</b> NCBI databases: GenBank and others</a></li>
+<li class="chapter" data-level="5.2" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#accessing-ncbi-within-r-rentrez"><i class="fa fa-check"></i><b>5.2</b> Accessing NCBI within R: <code>rentrez</code></a></li>
+<li class="chapter" data-level="5.3" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#retrieving-pubmed-references"><i class="fa fa-check"></i><b>5.3</b> Retrieving PubMed references</a></li>
+<li class="chapter" data-level="5.4" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#comparing-sequences-blast"><i class="fa fa-check"></i><b>5.4</b> Comparing sequences: BLAST</a></li>
+<li class="chapter" data-level="5.5" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-uniprot"><i class="fa fa-check"></i><b>5.5</b> Other databases: UniProt</a></li>
+<li class="chapter" data-level="5.6" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-ensembl"><i class="fa fa-check"></i><b>5.6</b> Other databases: Ensembl</a></li>
+<li class="chapter" data-level="5.7" data-path="getting-biological-data-from-public-repositories.html"><a href="getting-biological-data-from-public-repositories.html#other-databases-taxonomy-phylogenetic-trees-and-species-distributions"><i class="fa fa-check"></i><b>5.7</b> Other databases: Taxonomy, phylogenetic trees and species distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html"><i class="fa fa-check"></i><b>6</b> – Basic Statistics in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#exploring-your-data"><i class="fa fa-check"></i><b>6.1</b> Exploring your data</a></li>
+<li class="chapter" data-level="6.2" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#sub-setting-your-dataset"><i class="fa fa-check"></i><b>6.2</b> Sub-setting your dataset</a></li>
+<li class="chapter" data-level="6.3" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#transposing-rotating-your-dataset"><i class="fa fa-check"></i><b>6.3</b> Transposing (rotating) your dataset</a></li>
+<li class="chapter" data-level="6.4" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#dealing-with-missing-na-values"><i class="fa fa-check"></i><b>6.4</b> Dealing with missing (NA) values</a></li>
+<li class="chapter" data-level="6.5" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#about-p-values"><i class="fa fa-check"></i><b>6.5</b> About p-values</a></li>
+<li class="chapter" data-level="6.6" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#how-to-read-p-values"><i class="fa fa-check"></i><b>6.6</b> How to read p-values</a></li>
+<li class="chapter" data-level="6.7" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#multiple-testing-corrections"><i class="fa fa-check"></i><b>6.7</b> Multiple testing corrections</a></li>
+<li class="chapter" data-level="6.8" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#normalizing-your-data"><i class="fa fa-check"></i><b>6.8</b> Normalizing your data</a></li>
+<li class="chapter" data-level="6.9" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#what-test-should-i-use"><i class="fa fa-check"></i><b>6.9</b> What test should I use?</a></li>
+<li class="chapter" data-level="6.10" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#type-of-variables-in-dataset"><i class="fa fa-check"></i><b>6.10</b> Type of variables in dataset</a></li>
+<li class="chapter" data-level="6.11" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-means-t-test"><i class="fa fa-check"></i><b>6.11</b> Comparing means: t-test</a></li>
+<li class="chapter" data-level="6.12" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#two-sample-t-test"><i class="fa fa-check"></i><b>6.12</b> Two sample t-test</a></li>
+<li class="chapter" data-level="6.13" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>6.13</b> Beyond t-test: Wilcoxon signed rank test</a></li>
+<li class="chapter" data-level="6.14" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#tabulation-and-cross-tabulation"><i class="fa fa-check"></i><b>6.14</b> Tabulation and Cross-Tabulation</a></li>
+<li class="chapter" data-level="6.15" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-binomial-test"><i class="fa fa-check"></i><b>6.15</b> Beyond t-test: Binomial test</a></li>
+<li class="chapter" data-level="6.16" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-chi-square-goodness-of-fit"><i class="fa fa-check"></i><b>6.16</b> Beyond t-test: Chi-square goodness of fit</a></li>
+<li class="chapter" data-level="6.17" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-mcnemars-test"><i class="fa fa-check"></i><b>6.17</b> Beyond t-test: McNemar’s test</a></li>
+<li class="chapter" data-level="6.18" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#beyond-t-test-fishers-exact-test"><i class="fa fa-check"></i><b>6.18</b> Beyond t-test: Fisher’s exact test</a></li>
+<li class="chapter" data-level="6.19" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#correlations"><i class="fa fa-check"></i><b>6.19</b> Correlations</a></li>
+<li class="chapter" data-level="6.20" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#the-magic-criteria"><i class="fa fa-check"></i><b>6.20</b> The MAGIC criteria</a></li>
+<li class="chapter" data-level="6.21" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#effect-size"><i class="fa fa-check"></i><b>6.21</b> Effect size</a></li>
+<li class="chapter" data-level="6.22" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#comparing-distributions"><i class="fa fa-check"></i><b>6.22</b> Comparing distributions</a></li>
+<li class="chapter" data-level="6.23" data-path="basic-statistics-in-r.html"><a href="basic-statistics-in-r.html#bootstraps"><i class="fa fa-check"></i><b>6.23</b> Bootstraps</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html"><i class="fa fa-check"></i><b>7</b> – Regressions and ANOVA in R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#linear-regressions"><i class="fa fa-check"></i><b>7.1</b> Linear regressions</a></li>
+<li class="chapter" data-level="7.2" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#anatomy-of-a-linear-regression"><i class="fa fa-check"></i><b>7.2</b> Anatomy of a linear regression</a></li>
+<li class="chapter" data-level="7.3" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#multiple-linear-regressions"><i class="fa fa-check"></i><b>7.3</b> Multiple linear regressions</a></li>
+<li class="chapter" data-level="7.4" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#diagnostic-plots-for-regressions"><i class="fa fa-check"></i><b>7.4</b> Diagnostic plots for regressions</a></li>
+<li class="chapter" data-level="7.5" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#regression-influential-measurements"><i class="fa fa-check"></i><b>7.5</b> Regression influential measurements</a></li>
+<li class="chapter" data-level="7.6" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#regression-coefficients-and-their-95ci"><i class="fa fa-check"></i><b>7.6</b> Regression coefficients and their 95%CI</a></li>
+<li class="chapter" data-level="7.7" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#selecting-predictors"><i class="fa fa-check"></i><b>7.7</b> Selecting predictors</a></li>
+<li class="chapter" data-level="7.8" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#regression-predictions"><i class="fa fa-check"></i><b>7.8</b> Regression predictions</a></li>
+<li class="chapter" data-level="7.9" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#logistic-regressions"><i class="fa fa-check"></i><b>7.9</b> Logistic regressions</a></li>
+<li class="chapter" data-level="7.10" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#logistic-regressions-requirements"><i class="fa fa-check"></i><b>7.10</b> Logistic regressions requirements</a></li>
+<li class="chapter" data-level="7.11" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#non-linear-regressions"><i class="fa fa-check"></i><b>7.11</b> Non-linear regressions</a></li>
+<li class="chapter" data-level="7.12" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#toy-datasets-for-regressions"><i class="fa fa-check"></i><b>7.12</b> Toy datasets for regressions</a></li>
+<li class="chapter" data-level="7.13" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#anova"><i class="fa fa-check"></i><b>7.13</b> ANOVA</a></li>
+<li class="chapter" data-level="7.14" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#one-way-anova"><i class="fa fa-check"></i><b>7.14</b> One-way ANOVA</a></li>
+<li class="chapter" data-level="7.15" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#two-way-anova"><i class="fa fa-check"></i><b>7.15</b> Two-way ANOVA</a></li>
+<li class="chapter" data-level="7.16" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#anova-post-hoc-tests"><i class="fa fa-check"></i><b>7.16</b> ANOVA Post-hoc tests</a></li>
+<li class="chapter" data-level="7.17" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#beyond-anova-kruskal-wallis-test"><i class="fa fa-check"></i><b>7.17</b> Beyond ANOVA: Kruskal-Wallis Test</a></li>
+<li class="chapter" data-level="7.18" data-path="regressions-and-anova-in-r.html"><a href="regressions-and-anova-in-r.html#toy-datasets-for-anova"><i class="fa fa-check"></i><b>7.18</b> Toy datasets for ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="multidimensional-data-in-r.html"><a href="multidimensional-data-in-r.html"><i class="fa fa-check"></i><b>8</b> – Multidimensional Data in R</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="multidimensional-data-in-r.html"><a href="multidimensional-data-in-r.html#principal-component-analysis"><i class="fa fa-check"></i><b>8.1</b> Principal Component Analysis</a></li>
+<li class="chapter" data-level="8.2" data-path="multidimensional-data-in-r.html"><a href="multidimensional-data-in-r.html#multidimensional-scaling"><i class="fa fa-check"></i><b>8.2</b> Multidimensional scaling</a></li>
+<li class="chapter" data-level="8.3" data-path="multidimensional-data-in-r.html"><a href="multidimensional-data-in-r.html#cluster-analysis-dfa"><i class="fa fa-check"></i><b>8.3</b> Cluster analysis: DFA</a></li>
+<li class="chapter" data-level="8.4" data-path="multidimensional-data-in-r.html"><a href="multidimensional-data-in-r.html#cluster-analysis-k-means-unsupervised"><i class="fa fa-check"></i><b>8.4</b> Cluster analysis: <em>k</em>-means (unsupervised)</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html"><i class="fa fa-check"></i><b>9</b> – Graphics and Colors</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#avoid-bad-graphics"><i class="fa fa-check"></i><b>9.1</b> Avoid bad graphics</a></li>
+<li class="chapter" data-level="9.2" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#graphics-in-r-ggplot2"><i class="fa fa-check"></i><b>9.2</b> Graphics in R – ggplot2</a></li>
+<li class="chapter" data-level="9.3" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#preparing-your-dataset"><i class="fa fa-check"></i><b>9.3</b> Preparing your dataset</a></li>
+<li class="chapter" data-level="9.4" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#color-palettes-online"><i class="fa fa-check"></i><b>9.4</b> Color palettes online</a></li>
+<li class="chapter" data-level="9.5" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#hexadecimal-color-codes"><i class="fa fa-check"></i><b>9.5</b> Hexadecimal color codes</a></li>
+<li class="chapter" data-level="9.6" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#ggplot2-default-palette"><i class="fa fa-check"></i><b>9.6</b> <code>ggplot2</code> default palette</a></li>
+<li class="chapter" data-level="9.7" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#heatmaps-or-tiled-charts"><i class="fa fa-check"></i><b>9.7</b> Heatmaps or tiled charts</a></li>
+<li class="chapter" data-level="9.8" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#r-packages-about-color"><i class="fa fa-check"></i><b>9.8</b> R-packages about color</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#viridis-package"><i class="fa fa-check"></i><b>9.8.1</b> <code>viridis</code> package</a></li>
+<li class="chapter" data-level="9.8.2" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#rcolorbrewer-package"><i class="fa fa-check"></i><b>9.8.2</b> <code>RColorBrewer</code> package</a></li>
+<li class="chapter" data-level="9.8.3" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#ggsci-package"><i class="fa fa-check"></i><b>9.8.3</b> <code>ggsci</code> package</a></li>
+<li class="chapter" data-level="9.8.4" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#wesanderson-package"><i class="fa fa-check"></i><b>9.8.4</b> <code>wesanderson</code> package</a></li>
+<li class="chapter" data-level="9.8.5" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#rcartocolor-package"><i class="fa fa-check"></i><b>9.8.5</b> <code>rcartocolor</code> package</a></li>
+<li class="chapter" data-level="9.8.6" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#colorspace-package"><i class="fa fa-check"></i><b>9.8.6</b> <code>colorspace</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="graphics-and-colors.html"><a href="graphics-and-colors.html#making-your-own-palette"><i class="fa fa-check"></i><b>9.9</b> Making your own palette</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="basic-graphics.html"><a href="basic-graphics.html"><i class="fa fa-check"></i><b>10</b> – Basic Graphics</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="basic-graphics.html"><a href="basic-graphics.html#what-would-you-like-to-show"><i class="fa fa-check"></i><b>10.1</b> What would you like to show?</a></li>
+<li class="chapter" data-level="10.2" data-path="basic-graphics.html"><a href="basic-graphics.html#bar-charts"><i class="fa fa-check"></i><b>10.2</b> Bar charts</a></li>
+<li class="chapter" data-level="10.3" data-path="basic-graphics.html"><a href="basic-graphics.html#stacked-bar-charts"><i class="fa fa-check"></i><b>10.3</b> Stacked bar charts</a></li>
+<li class="chapter" data-level="10.4" data-path="basic-graphics.html"><a href="basic-graphics.html#histograms"><i class="fa fa-check"></i><b>10.4</b> Histograms</a></li>
+<li class="chapter" data-level="10.5" data-path="basic-graphics.html"><a href="basic-graphics.html#multiple-histograms"><i class="fa fa-check"></i><b>10.5</b> Multiple histograms</a></li>
+<li class="chapter" data-level="10.6" data-path="basic-graphics.html"><a href="basic-graphics.html#density-plots"><i class="fa fa-check"></i><b>10.6</b> Density plots</a></li>
+<li class="chapter" data-level="10.7" data-path="basic-graphics.html"><a href="basic-graphics.html#box-plots"><i class="fa fa-check"></i><b>10.7</b> Box plots</a></li>
+<li class="chapter" data-level="10.8" data-path="basic-graphics.html"><a href="basic-graphics.html#violin-plots"><i class="fa fa-check"></i><b>10.8</b> Violin plots</a></li>
+<li class="chapter" data-level="10.9" data-path="basic-graphics.html"><a href="basic-graphics.html#beeswarm-plots"><i class="fa fa-check"></i><b>10.9</b> Beeswarm plots</a></li>
+<li class="chapter" data-level="10.10" data-path="basic-graphics.html"><a href="basic-graphics.html#scatterplots"><i class="fa fa-check"></i><b>10.10</b> Scatterplots</a></li>
+<li class="chapter" data-level="10.11" data-path="basic-graphics.html"><a href="basic-graphics.html#lines-with-scatterplots"><i class="fa fa-check"></i><b>10.11</b> Lines with scatterplots</a></li>
+<li class="chapter" data-level="10.12" data-path="basic-graphics.html"><a href="basic-graphics.html#correlation-plots"><i class="fa fa-check"></i><b>10.12</b> Correlation plots</a></li>
+<li class="chapter" data-level="10.13" data-path="basic-graphics.html"><a href="basic-graphics.html#treemaps"><i class="fa fa-check"></i><b>10.13</b> Treemaps</a></li>
+<li class="chapter" data-level="10.14" data-path="basic-graphics.html"><a href="basic-graphics.html#multiple-graphs-at-once-with-cowplot"><i class="fa fa-check"></i><b>10.14</b> Multiple graphs at once with <code>cowplot</code></a></li>
+<li class="chapter" data-level="10.15" data-path="basic-graphics.html"><a href="basic-graphics.html#save-your-plots-as-pdf-or-png"><i class="fa fa-check"></i><b>10.15</b> Save your plots as PDF or PNG</a></li>
+<li class="chapter" data-level="10.16" data-path="basic-graphics.html"><a href="basic-graphics.html#other-resources"><i class="fa fa-check"></i><b>10.16</b> Other resources</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="sequence-alignments.html"><a href="sequence-alignments.html"><i class="fa fa-check"></i><b>11</b> – Sequence Alignments</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="sequence-alignments.html"><a href="sequence-alignments.html#retrieving-sequences-using-rentrez"><i class="fa fa-check"></i><b>11.1</b> Retrieving sequences using ‘rentrez’</a></li>
+<li class="chapter" data-level="11.2" data-path="sequence-alignments.html"><a href="sequence-alignments.html#retrieving-sequences-manually-from-ncbi"><i class="fa fa-check"></i><b>11.2</b> Retrieving sequences manually from NCBI</a></li>
+<li class="chapter" data-level="11.3" data-path="sequence-alignments.html"><a href="sequence-alignments.html#retrieving-accession-numbers"><i class="fa fa-check"></i><b>11.3</b> Retrieving accession numbers</a></li>
+<li class="chapter" data-level="11.4" data-path="sequence-alignments.html"><a href="sequence-alignments.html#alignment-with-decipher"><i class="fa fa-check"></i><b>11.4</b> Alignment with <code>DECIPHER</code></a></li>
+<li class="chapter" data-level="11.5" data-path="sequence-alignments.html"><a href="sequence-alignments.html#visualize-alignment"><i class="fa fa-check"></i><b>11.5</b> Visualize alignment</a></li>
+<li class="chapter" data-level="11.6" data-path="sequence-alignments.html"><a href="sequence-alignments.html#save-alignment-to-file"><i class="fa fa-check"></i><b>11.6</b> Save alignment to file</a></li>
+<li class="chapter" data-level="11.7" data-path="sequence-alignments.html"><a href="sequence-alignments.html#concatenate-and-align-several-markers"><i class="fa fa-check"></i><b>11.7</b> Concatenate and align several markers</a></li>
+<li class="chapter" data-level="11.8" data-path="sequence-alignments.html"><a href="sequence-alignments.html#concatenate-with-data.table"><i class="fa fa-check"></i><b>11.8</b> Concatenate with <code>data.table</code></a></li>
+<li class="chapter" data-level="11.9" data-path="sequence-alignments.html"><a href="sequence-alignments.html#concatenate-with-biostrings"><i class="fa fa-check"></i><b>11.9</b> Concatenate with <code>Biostrings</code></a></li>
+<li class="chapter" data-level="11.10" data-path="sequence-alignments.html"><a href="sequence-alignments.html#visualizing-alignments-in-r"><i class="fa fa-check"></i><b>11.10</b> Visualizing alignments in R</a></li>
+<li class="chapter" data-level="11.11" data-path="sequence-alignments.html"><a href="sequence-alignments.html#other-sequence-alignment-software"><i class="fa fa-check"></i><b>11.11</b> Other sequence alignment software</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html"><i class="fa fa-check"></i><b>12</b> – Estimating Phylogenetic Trees</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#phylogeny-inference-with-iqtree2"><i class="fa fa-check"></i><b>12.1</b> Phylogeny inference with <code>iqtree2</code></a></li>
+<li class="chapter" data-level="12.2" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#installing-iqtree2-in-macos"><i class="fa fa-check"></i><b>12.2</b> Installing <code>iqtree2</code> in macOS</a></li>
+<li class="chapter" data-level="12.3" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#installing-and-running-iqtree2-in-a-pc"><i class="fa fa-check"></i><b>12.3</b> Installing and running <code>iqtree2</code> in a PC</a></li>
+<li class="chapter" data-level="12.4" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#loading-the-iqtree_runner_r-function"><i class="fa fa-check"></i><b>12.4</b> Loading the <code>iqtree_runner_R</code> function</a></li>
+<li class="chapter" data-level="12.5" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#running-iqtree2-from-r"><i class="fa fa-check"></i><b>12.5</b> Running <code>iqtree2</code> from R</a></li>
+<li class="chapter" data-level="12.6" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#one-marker-and-no-partitions"><i class="fa fa-check"></i><b>12.6</b> One marker and no partitions</a></li>
+<li class="chapter" data-level="12.7" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#one-marker-and-with-partitions"><i class="fa fa-check"></i><b>12.7</b> One marker and with partitions</a></li>
+<li class="chapter" data-level="12.8" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#bootstrap-support"><i class="fa fa-check"></i><b>12.8</b> Bootstrap support</a></li>
+<li class="chapter" data-level="12.9" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#many-markers-and-with-partitions"><i class="fa fa-check"></i><b>12.9</b> Many markers and with partitions</a></li>
+<li class="chapter" data-level="12.10" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#other-sequence-phylogenetic-tree-estimation-software"><i class="fa fa-check"></i><b>12.10</b> Other sequence phylogenetic tree estimation software</a></li>
+<li class="chapter" data-level="12.11" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#drawing-phylogenetic-trees-with-ggtree"><i class="fa fa-check"></i><b>12.11</b> Drawing phylogenetic trees with <code>ggtree</code></a></li>
+<li class="chapter" data-level="12.12" data-path="estimating-phylogenetic-trees.html"><a href="estimating-phylogenetic-trees.html#save-ggtree-plots-as-pdf-or-png"><i class="fa fa-check"></i><b>12.12</b> Save ggtree plots as PDF or PNG</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html"><i class="fa fa-check"></i><b>13</b> – Mining from a reference dataset</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#a-worked-example-using-the-mtcars-dataset"><i class="fa fa-check"></i><b>13.1</b> A worked example using the <code>mtcars</code> dataset</a></li>
+<li class="chapter" data-level="13.2" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#build-a-reference-dataset"><i class="fa fa-check"></i><b>13.2</b> Build a reference dataset</a></li>
+<li class="chapter" data-level="13.3" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#build-a-sampling-dataset"><i class="fa fa-check"></i><b>13.3</b> Build a sampling dataset</a></li>
+<li class="chapter" data-level="13.4" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#extracting-from-reference-dataset"><i class="fa fa-check"></i><b>13.4</b> Extracting from reference dataset</a></li>
+<li class="chapter" data-level="13.5" data-path="mining-from-a-reference-dataset.html"><a href="mining-from-a-reference-dataset.html#plots-of-the-extracted-data"><i class="fa fa-check"></i><b>13.5</b> Plots of the extracted data</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="introduction-to-python.html"><a href="introduction-to-python.html"><i class="fa fa-check"></i><b>14</b> – Introduction to Python</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="introduction-to-python.html"><a href="introduction-to-python.html#welcome-to-python-why-python"><i class="fa fa-check"></i><b>14.1</b> Welcome to Python! Why Python?</a></li>
+<li class="chapter" data-level="14.2" data-path="introduction-to-python.html"><a href="introduction-to-python.html#which-python-should-i-install"><i class="fa fa-check"></i><b>14.2</b> Which Python should I install?</a></li>
+<li class="chapter" data-level="14.3" data-path="introduction-to-python.html"><a href="introduction-to-python.html#mac-os-x-python-installations"><i class="fa fa-check"></i><b>14.3</b> Mac OS X Python Installations</a></li>
+<li class="chapter" data-level="14.4" data-path="introduction-to-python.html"><a href="introduction-to-python.html#windows-python-installations"><i class="fa fa-check"></i><b>14.4</b> Windows Python Installations</a></li>
+<li class="chapter" data-level="14.5" data-path="introduction-to-python.html"><a href="introduction-to-python.html#install-an-ide-or-integrated-development-environment"><i class="fa fa-check"></i><b>14.5</b> Install an IDE, or integrated development environment</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="python-keywords-and-identifiers.html"><a href="python-keywords-and-identifiers.html"><i class="fa fa-check"></i><b>15</b> – Python: Keywords and Identifiers</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="python-keywords-and-identifiers.html"><a href="python-keywords-and-identifiers.html#keywords-in-python"><i class="fa fa-check"></i><b>15.1</b> Keywords in Python</a></li>
+<li class="chapter" data-level="15.2" data-path="python-keywords-and-identifiers.html"><a href="python-keywords-and-identifiers.html#identifiers-in-python"><i class="fa fa-check"></i><b>15.2</b> Identifiers in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html"><i class="fa fa-check"></i><b>16</b> – Python: Statements and Expressions</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#what-are-statements"><i class="fa fa-check"></i><b>16.1</b> What are statements?</a></li>
+<li class="chapter" data-level="16.2" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#expressions-in-python"><i class="fa fa-check"></i><b>16.2</b> Expressions in Python</a></li>
+<li class="chapter" data-level="16.3" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#simple-assignment-statements-in-python"><i class="fa fa-check"></i><b>16.3</b> Simple Assignment Statements in Python</a></li>
+<li class="chapter" data-level="16.4" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#augmented-assignment-statements-in-python"><i class="fa fa-check"></i><b>16.4</b> Augmented Assignment Statements in Python</a></li>
+<li class="chapter" data-level="16.5" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#explicit-and-implicit-line-continuation"><i class="fa fa-check"></i><b>16.5</b> Explicit and Implicit Line Continuation</a></li>
+<li class="chapter" data-level="16.6" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#indentation-in-python-is-crucial-to-proper-code-function"><i class="fa fa-check"></i><b>16.6</b> Indentation in Python is Crucial to Proper Code function</a></li>
+<li class="chapter" data-level="16.7" data-path="python-statements-and-expressions.html"><a href="python-statements-and-expressions.html#comments"><i class="fa fa-check"></i><b>16.7</b> Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="python-data-types.html"><a href="python-data-types.html"><i class="fa fa-check"></i><b>17</b> – Python: Data Types</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="python-data-types.html"><a href="python-data-types.html#booleans"><i class="fa fa-check"></i><b>17.1</b> Booleans</a></li>
+<li class="chapter" data-level="17.2" data-path="python-data-types.html"><a href="python-data-types.html#numbers-int-float-and-complex"><i class="fa fa-check"></i><b>17.2</b> Numbers: int, float and complex</a></li>
+<li class="chapter" data-level="17.3" data-path="python-data-types.html"><a href="python-data-types.html#strings"><i class="fa fa-check"></i><b>17.3</b> Strings</a></li>
+<li class="chapter" data-level="17.4" data-path="python-data-types.html"><a href="python-data-types.html#bytes"><i class="fa fa-check"></i><b>17.4</b> Bytes</a></li>
+<li class="chapter" data-level="17.5" data-path="python-data-types.html"><a href="python-data-types.html#lists-1"><i class="fa fa-check"></i><b>17.5</b> Lists</a></li>
+<li class="chapter" data-level="17.6" data-path="python-data-types.html"><a href="python-data-types.html#tuples"><i class="fa fa-check"></i><b>17.6</b> Tuples</a></li>
+<li class="chapter" data-level="17.7" data-path="python-data-types.html"><a href="python-data-types.html#sets"><i class="fa fa-check"></i><b>17.7</b> Sets</a></li>
+<li class="chapter" data-level="17.8" data-path="python-data-types.html"><a href="python-data-types.html#dictionary"><i class="fa fa-check"></i><b>17.8</b> Dictionary</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="python-strings.html"><a href="python-strings.html"><i class="fa fa-check"></i><b>18</b> – Python: Strings</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="python-strings.html"><a href="python-strings.html#string-operators"><i class="fa fa-check"></i><b>18.1</b> String Operators</a></li>
+<li class="chapter" data-level="18.2" data-path="python-strings.html"><a href="python-strings.html#other-string-modifiers"><i class="fa fa-check"></i><b>18.2</b> Other String Modifiers</a></li>
+<li class="chapter" data-level="18.3" data-path="python-strings.html"><a href="python-strings.html#format-characters-in-strings"><i class="fa fa-check"></i><b>18.3</b> Format-Characters in Strings</a></li>
+<li class="chapter" data-level="18.4" data-path="python-strings.html"><a href="python-strings.html#comparisons-with-strings"><i class="fa fa-check"></i><b>18.4</b> Comparisons with Strings</a></li>
+<li class="chapter" data-level="18.5" data-path="python-strings.html"><a href="python-strings.html#padding-strings"><i class="fa fa-check"></i><b>18.5</b> Padding strings</a></li>
+<li class="chapter" data-level="18.6" data-path="python-strings.html"><a href="python-strings.html#search-for-words-in-string-and-output-location"><i class="fa fa-check"></i><b>18.6</b> Search for words in string and output location</a></li>
+<li class="chapter" data-level="18.7" data-path="python-strings.html"><a href="python-strings.html#seek-and-replace-in-strings"><i class="fa fa-check"></i><b>18.7</b> Seek and replace in strings</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="python-operators.html"><a href="python-operators.html"><i class="fa fa-check"></i><b>19</b> – Python: Operators</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="python-operators.html"><a href="python-operators.html#many-types-of-operators"><i class="fa fa-check"></i><b>19.1</b> Many types of operators</a></li>
+<li class="chapter" data-level="19.2" data-path="python-operators.html"><a href="python-operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>19.2</b> Arithmetic operators</a></li>
+<li class="chapter" data-level="19.3" data-path="python-operators.html"><a href="python-operators.html#comparison-operators"><i class="fa fa-check"></i><b>19.3</b> Comparison operators</a></li>
+<li class="chapter" data-level="19.4" data-path="python-operators.html"><a href="python-operators.html#logical-operators"><i class="fa fa-check"></i><b>19.4</b> Logical operators</a></li>
+<li class="chapter" data-level="19.5" data-path="python-operators.html"><a href="python-operators.html#bitwise-operators"><i class="fa fa-check"></i><b>19.5</b> Bitwise operators</a></li>
+<li class="chapter" data-level="19.6" data-path="python-operators.html"><a href="python-operators.html#identity-operators"><i class="fa fa-check"></i><b>19.6</b> Identity Operators</a></li>
+<li class="chapter" data-level="19.7" data-path="python-operators.html"><a href="python-operators.html#membership-operators"><i class="fa fa-check"></i><b>19.7</b> Membership operators</a></li>
+<li class="chapter" data-level="19.8" data-path="python-operators.html"><a href="python-operators.html#what-is-the-order-of-operations-with-operators"><i class="fa fa-check"></i><b>19.8</b> What is the order of operations with operators?</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="biopython.html"><a href="biopython.html"><i class="fa fa-check"></i><b>20</b> – Biopython</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="biopython.html"><a href="biopython.html#introduction-to-biopython"><i class="fa fa-check"></i><b>20.1</b> Introduction to Biopython</a></li>
+<li class="chapter" data-level="20.2" data-path="biopython.html"><a href="biopython.html#biopython-installation"><i class="fa fa-check"></i><b>20.2</b> Biopython Installation</a></li>
+<li class="chapter" data-level="20.3" data-path="biopython.html"><a href="biopython.html#getting-started"><i class="fa fa-check"></i><b>20.3</b> Getting Started</a></li>
+<li class="chapter" data-level="20.4" data-path="biopython.html"><a href="biopython.html#parsing-my-fasta"><i class="fa fa-check"></i><b>20.4</b> Parsing my FASTA</a></li>
+<li class="chapter" data-level="20.5" data-path="biopython.html"><a href="biopython.html#parsing-my-genbank-or-genpept"><i class="fa fa-check"></i><b>20.5</b> Parsing my GenBank or GenPept</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="biopython-sequences.html"><a href="biopython-sequences.html"><i class="fa fa-check"></i><b>21</b> – Biopython: Sequences</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="biopython-sequences.html"><a href="biopython-sequences.html#sequence-objects"><i class="fa fa-check"></i><b>21.1</b> Sequence Objects</a></li>
+<li class="chapter" data-level="21.2" data-path="biopython-sequences.html"><a href="biopython-sequences.html#concatenation-with-sequences"><i class="fa fa-check"></i><b>21.2</b> Concatenation with Sequences</a></li>
+<li class="chapter" data-level="21.3" data-path="biopython-sequences.html"><a href="biopython-sequences.html#transcription-dna-to-mrna"><i class="fa fa-check"></i><b>21.3</b> Transcription: DNA to mRNA</a></li>
+<li class="chapter" data-level="21.4" data-path="biopython-sequences.html"><a href="biopython-sequences.html#translation-rna-to-prot"><i class="fa fa-check"></i><b>21.4</b> Translation: RNA to PROT</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="biopython-mulitple-sequence-alignments.html"><a href="biopython-mulitple-sequence-alignments.html"><i class="fa fa-check"></i><b>22</b> – Biopython: Mulitple Sequence Alignments</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="biopython-mulitple-sequence-alignments.html"><a href="biopython-mulitple-sequence-alignments.html#pairwise2"><i class="fa fa-check"></i><b>22.1</b> pairwise2</a></li>
+<li class="chapter" data-level="22.2" data-path="biopython-mulitple-sequence-alignments.html"><a href="biopython-mulitple-sequence-alignments.html#pairwisealigner"><i class="fa fa-check"></i><b>22.2</b> PairwiseAligner</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html"><i class="fa fa-check"></i><b>23</b> – Biopython: GenomeDiagram</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#linearcircular-gene-diagrams"><i class="fa fa-check"></i><b>23.1</b> Linear/Circular Gene Diagrams</a></li>
+<li class="chapter" data-level="23.2" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#diagram-readability"><i class="fa fa-check"></i><b>23.2</b> Diagram Readability</a></li>
+<li class="chapter" data-level="23.3" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#box-shape"><i class="fa fa-check"></i><b>23.3</b> Box Shape</a></li>
+<li class="chapter" data-level="23.4" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#edit-box-shape-arrows"><i class="fa fa-check"></i><b>23.4</b> Edit Box Shape: Arrows</a></li>
+<li class="chapter" data-level="23.5" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#restriction-map"><i class="fa fa-check"></i><b>23.5</b> Restriction Map</a></li>
+<li class="chapter" data-level="23.6" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#tracks-on-tracks"><i class="fa fa-check"></i><b>23.6</b> Tracks on Tracks</a></li>
+<li class="chapter" data-level="23.7" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#cross-link-data"><i class="fa fa-check"></i><b>23.7</b> Cross-link Data</a></li>
+<li class="chapter" data-level="23.8" data-path="biopython-genomediagram.html"><a href="biopython-genomediagram.html#clean-cross-link"><i class="fa fa-check"></i><b>23.8</b> Clean Cross-Link</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="biopython-chromosome-modeling.html"><a href="biopython-chromosome-modeling.html"><i class="fa fa-check"></i><b>24</b> – Biopython: Chromosome Modeling</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="biopython-chromosome-modeling.html"><a href="biopython-chromosome-modeling.html#gene-feature-modeling"><i class="fa fa-check"></i><b>24.1</b> Gene Feature Modeling</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html"><i class="fa fa-check"></i><b>25</b> – Biopython: Sequence Parsing with Plots</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#histograms-1"><i class="fa fa-check"></i><b>25.1</b> Histograms</a></li>
+<li class="chapter" data-level="25.2" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#gc-content"><i class="fa fa-check"></i><b>25.2</b> GC Content</a></li>
+<li class="chapter" data-level="25.3" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#nt-alignment-dot-plot"><i class="fa fa-check"></i><b>25.3</b> Nt Alignment Dot Plot</a></li>
+<li class="chapter" data-level="25.4" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#bigger-dots-for-the-dot-plot"><i class="fa fa-check"></i><b>25.4</b> Bigger Dots for the Dot Plot</a></li>
+<li class="chapter" data-level="25.5" data-path="biopython-sequence-parsing-with-plots.html"><a href="biopython-sequence-parsing-with-plots.html#fastq-we-did-not-forget-you"><i class="fa fa-check"></i><b>25.5</b> FASTQ we did not forget you</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html"><i class="fa fa-check"></i><b>26</b> – Python: Web Scraping w/ BeautifulSoup</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#introduction"><i class="fa fa-check"></i><b>26.1</b> Introduction</a></li>
+<li class="chapter" data-level="26.2" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#installation"><i class="fa fa-check"></i><b>26.2</b> Installation</a></li>
+<li class="chapter" data-level="26.3" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#getting-started-1"><i class="fa fa-check"></i><b>26.3</b> Getting started</a></li>
+<li class="chapter" data-level="26.4" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#mining-all-matching-tags"><i class="fa fa-check"></i><b>26.4</b> Mining all matching tags</a></li>
+<li class="chapter" data-level="26.5" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#mining-tags-by-class-or-id"><i class="fa fa-check"></i><b>26.5</b> Mining tags by class or id</a></li>
+<li class="chapter" data-level="26.6" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#use-css-selectors-for-positional-mining"><i class="fa fa-check"></i><b>26.6</b> Use CSS Selectors for positional mining</a></li>
+<li class="chapter" data-level="26.7" data-path="python-web-scraping-w-beautifulsoup.html"><a href="python-web-scraping-w-beautifulsoup.html#weather-page-example"><i class="fa fa-check"></i><b>26.7</b> Weather Page Example</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="python-subprocess.html"><a href="python-subprocess.html"><i class="fa fa-check"></i><b>27</b> – Python Subprocess</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="python-subprocess.html"><a href="python-subprocess.html#introduction-and-installation"><i class="fa fa-check"></i><b>27.1</b> Introduction and Installation</a></li>
+<li class="chapter" data-level="27.2" data-path="python-subprocess.html"><a href="python-subprocess.html#creating-your-first-python-script-w-bbtools"><i class="fa fa-check"></i><b>27.2</b> Creating your first python script w/ BBTools</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html"><i class="fa fa-check"></i><b>28</b> – Control Structures &amp; Loops in R</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#controling-the-flow"><i class="fa fa-check"></i><b>28.1</b> Controling the flow</a></li>
+<li class="chapter" data-level="28.2" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#conditional-if"><i class="fa fa-check"></i><b>28.2</b> Conditional <code>if</code></a></li>
+<li class="chapter" data-level="28.3" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#conditional-if-and-else"><i class="fa fa-check"></i><b>28.3</b> Conditional <code>if</code> and <code>else</code></a></li>
+<li class="chapter" data-level="28.4" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#nested-conditionals-if-else-and-if-else"><i class="fa fa-check"></i><b>28.4</b> Nested conditionals <code>if</code>, <code>else</code>, and <code>if else</code></a></li>
+<li class="chapter" data-level="28.5" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#conditional-ifelse"><i class="fa fa-check"></i><b>28.5</b> Conditional <code>ifelse</code></a></li>
+<li class="chapter" data-level="28.6" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#loops-that-control-iterations-and-repeations"><i class="fa fa-check"></i><b>28.6</b> Loops that control iterations and repeations</a></li>
+<li class="chapter" data-level="28.7" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-for-loop"><i class="fa fa-check"></i><b>28.7</b> The <code>for</code> Loop</a></li>
+<li class="chapter" data-level="28.8" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-while-loop"><i class="fa fa-check"></i><b>28.8</b> The <code>while</code> Loop</a></li>
+<li class="chapter" data-level="28.9" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-repeat-loop"><i class="fa fa-check"></i><b>28.9</b> The <code>repeat</code> Loop</a></li>
+<li class="chapter" data-level="28.10" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#the-next-and-break-statements"><i class="fa fa-check"></i><b>28.10</b> The <code>next</code> and <code>break</code> statements</a></li>
+<li class="chapter" data-level="28.11" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functions"><i class="fa fa-check"></i><b>28.11</b> Other loop functions</a></li>
+<li class="chapter" data-level="28.12" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#lapply-functions"><i class="fa fa-check"></i><b>28.12</b> <code>lapply</code> functions</a></li>
+<li class="chapter" data-level="28.13" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsapply"><i class="fa fa-check"></i><b>28.13</b> Other loop functions:<code>apply</code></a></li>
+<li class="chapter" data-level="28.14" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionsmapply"><i class="fa fa-check"></i><b>28.14</b> Other loop functions:<code>mapply</code></a></li>
+<li class="chapter" data-level="28.15" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionstapply"><i class="fa fa-check"></i><b>28.15</b> Other loop functions:<code>tapply</code></a></li>
+<li class="chapter" data-level="28.16" data-path="control-structures-loops-in-r.html"><a href="control-structures-loops-in-r.html#other-loop-functionssplit"><i class="fa fa-check"></i><b>28.16</b> Other loop functions:<code>split</code></a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html"><i class="fa fa-check"></i><b>29</b> – Bioinformatics Literature</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#peer-reviewed-bioinformatics-journals"><i class="fa fa-check"></i><b>29.1</b> Peer-reviewed bioinformatics journals</a></li>
+<li class="chapter" data-level="29.2" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#access-to-journals-articles"><i class="fa fa-check"></i><b>29.2</b> Access to journals articles</a></li>
+<li class="chapter" data-level="29.3" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#informal-access-to-code-preprints-and-vignettes"><i class="fa fa-check"></i><b>29.3</b> Informal access to code: Preprints and vignettes</a></li>
+<li class="chapter" data-level="29.4" data-path="bioinformatics-literature.html"><a href="bioinformatics-literature.html#online-bioinformatics-courses"><i class="fa fa-check"></i><b>29.4</b> Online bioinformatics courses</a></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html"><i class="fa fa-check"></i><b>30</b> – Importing/Exporting Data into R</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#typing-directly"><i class="fa fa-check"></i><b>30.1</b> Typing directly</a></li>
+<li class="chapter" data-level="30.2" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#summary-versus-raw-data"><i class="fa fa-check"></i><b>30.2</b> Summary versus raw data</a></li>
+<li class="chapter" data-level="30.3" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#downloading-data-files-github"><i class="fa fa-check"></i><b>30.3</b> Downloading data files (GitHub)</a></li>
+<li class="chapter" data-level="30.4" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#importing-data-from-a-file"><i class="fa fa-check"></i><b>30.4</b> Importing data from a file</a></li>
+<li class="chapter" data-level="30.5" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#saving-data-to-a-file"><i class="fa fa-check"></i><b>30.5</b> Saving data to a file</a></li>
+<li class="chapter" data-level="30.6" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#saving-data-as-rdata-.rdata-.rda"><i class="fa fa-check"></i><b>30.6</b> Saving data as Rdata (.rdata, .rda)</a></li>
+<li class="chapter" data-level="30.7" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#import-excel-formated-data"><i class="fa fa-check"></i><b>30.7</b> Import Excel formated data</a></li>
+<li class="chapter" data-level="30.8" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#save-data-as-excel-formated-file"><i class="fa fa-check"></i><b>30.8</b> Save data as Excel formated file</a></li>
+<li class="chapter" data-level="30.9" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#fixing-problems-while-importing-datasets"><i class="fa fa-check"></i><b>30.9</b> Fixing problems while importing datasets</a></li>
+<li class="chapter" data-level="30.10" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#simplifying-embellished-excel-datasets"><i class="fa fa-check"></i><b>30.10</b> Simplifying embellished excel datasets</a></li>
+<li class="chapter" data-level="30.11" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#accessing-online-data-dryad"><i class="fa fa-check"></i><b>30.11</b> Accessing online data: DRYAD</a></li>
+<li class="chapter" data-level="30.12" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#accessing-online-data-gene-expression-omnibus-ncbi-geo"><i class="fa fa-check"></i><b>30.12</b> Accessing online data: Gene Expression Omnibus (NCBI GEO)</a></li>
+<li class="chapter" data-level="30.13" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#accessing-online-data-clinicaltrials.gov"><i class="fa fa-check"></i><b>30.13</b> Accessing online data: clinicaltrials.gov</a></li>
+<li class="chapter" data-level="30.14" data-path="importingexporting-data-into-r.html"><a href="importingexporting-data-into-r.html#accessing-online-data-data-scrapping-from-a-website"><i class="fa fa-check"></i><b>30.14</b> Accessing online data: Data scrapping from a website</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="working-with-proteins.html"><a href="working-with-proteins.html"><i class="fa fa-check"></i><b>31</b> – Working with Proteins</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="working-with-proteins.html"><a href="working-with-proteins.html#sequences-in-fasta-format"><i class="fa fa-check"></i><b>31.1</b> Sequences in FASTA format</a></li>
+<li class="chapter" data-level="31.2" data-path="working-with-proteins.html"><a href="working-with-proteins.html#fetching-aa-sequences-from-ncbi"><i class="fa fa-check"></i><b>31.2</b> Fetching AA sequences from NCBI</a></li>
+<li class="chapter" data-level="31.3" data-path="working-with-proteins.html"><a href="working-with-proteins.html#importing-aa-sequences-in-r"><i class="fa fa-check"></i><b>31.3</b> Importing AA sequences in R</a></li>
+<li class="chapter" data-level="31.4" data-path="working-with-proteins.html"><a href="working-with-proteins.html#importing-nucleotide-sequences-in-r"><i class="fa fa-check"></i><b>31.4</b> Importing nucleotide sequences in R</a></li>
+<li class="chapter" data-level="31.5" data-path="working-with-proteins.html"><a href="working-with-proteins.html#translating-a-nucleotides-to-aa"><i class="fa fa-check"></i><b>31.5</b> Translating a nucleotides to AA</a></li>
+<li class="chapter" data-level="31.6" data-path="working-with-proteins.html"><a href="working-with-proteins.html#finding-orfs-in-a-nucleotide-sequence"><i class="fa fa-check"></i><b>31.6</b> Finding ORFs in a nucleotide sequence</a></li>
+<li class="chapter" data-level="31.7" data-path="working-with-proteins.html"><a href="working-with-proteins.html#physochemical-properties-of-an-amino-acid-sequence"><i class="fa fa-check"></i><b>31.7</b> Physochemical properties of an amino acid sequence</a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>32</b> – Miscellaneous</a>
+<ul>
+<li class="chapter" data-level="32.1" data-path="miscellaneous.html"><a href="miscellaneous.html#sampling-from-a-vector-of-names"><i class="fa fa-check"></i><b>32.1</b> Sampling from a vector of names</a></li>
+<li class="chapter" data-level="32.2" data-path="miscellaneous.html"><a href="miscellaneous.html#read-a-text-from-an-article-pdf"><i class="fa fa-check"></i><b>32.2</b> Read a text from an article pdf</a></li>
+<li class="chapter" data-level="32.3" data-path="miscellaneous.html"><a href="miscellaneous.html#read-a-text-from-a-website"><i class="fa fa-check"></i><b>32.3</b> Read a text from a website</a></li>
+<li class="chapter" data-level="32.4" data-path="miscellaneous.html"><a href="miscellaneous.html#read-a-text-from-a-file"><i class="fa fa-check"></i><b>32.4</b> Read a text from a file</a></li>
+<li class="chapter" data-level="32.5" data-path="miscellaneous.html"><a href="miscellaneous.html#generate-the-word-cloud"><i class="fa fa-check"></i><b>32.5</b> Generate the word cloud</a></li>
+<li class="chapter" data-level="32.6" data-path="miscellaneous.html"><a href="miscellaneous.html#worldcloud-pdf"><i class="fa fa-check"></i><b>32.6</b> worldcloud – PDF</a></li>
+<li class="chapter" data-level="32.7" data-path="miscellaneous.html"><a href="miscellaneous.html#worldcloud-website"><i class="fa fa-check"></i><b>32.7</b> Worldcloud – website</a></li>
+<li class="chapter" data-level="32.8" data-path="miscellaneous.html"><a href="miscellaneous.html#worldcloud-text"><i class="fa fa-check"></i><b>32.8</b> Worldcloud – text</a></li>
+<li class="chapter" data-level="32.9" data-path="miscellaneous.html"><a href="miscellaneous.html#more-miscellaneous"><i class="fa fa-check"></i><b>32.9</b> More miscellaneous</a></li>
+</ul></li>
+<li class="chapter" data-level="33" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html"><i class="fa fa-check"></i><b>33</b> – Galaxy: Getting Started (Part I)</a>
+<ul>
+<li class="chapter" data-level="33.1" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html#introduction-to-galaxy"><i class="fa fa-check"></i><b>33.1</b> Introduction to Galaxy</a></li>
+<li class="chapter" data-level="33.2" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html#hands-on-lets-navigate-galaxy"><i class="fa fa-check"></i><b>33.2</b> Hands-on: Let’s Navigate Galaxy!</a></li>
+<li class="chapter" data-level="33.3" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html#make-a-galaxy-account"><i class="fa fa-check"></i><b>33.3</b> Make a Galaxy account</a></li>
+<li class="chapter" data-level="33.4" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html#explore-menu-options"><i class="fa fa-check"></i><b>33.4</b> Explore Menu Options</a></li>
+<li class="chapter" data-level="33.5" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html#galaxy-training"><i class="fa fa-check"></i><b>33.5</b> Galaxy Training</a></li>
+<li class="chapter" data-level="33.6" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html#hands-on-uploading-reviewing-and-running-workflows"><i class="fa fa-check"></i><b>33.6</b> Hands-on: Uploading, Reviewing, and Running Workflows</a></li>
+<li class="chapter" data-level="33.7" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html#creating-a-new-history"><i class="fa fa-check"></i><b>33.7</b> Creating a New History</a></li>
+<li class="chapter" data-level="33.8" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html#fastq-format"><i class="fa fa-check"></i><b>33.8</b> FASTQ Format</a></li>
+<li class="chapter" data-level="33.9" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html#uploading-data"><i class="fa fa-check"></i><b>33.9</b> Uploading Data</a></li>
+<li class="chapter" data-level="33.10" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html#understanding-metadata"><i class="fa fa-check"></i><b>33.10</b> Understanding Metadata</a></li>
+<li class="chapter" data-level="33.11" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html#a-simple-workflow-step-by-step-fastqc"><i class="fa fa-check"></i><b>33.11</b> A Simple Workflow (Step-by-Step): FastQC</a></li>
+<li class="chapter" data-level="33.12" data-path="galaxy-getting-started-part-i.html"><a href="galaxy-getting-started-part-i.html#running-a-workflow-automatically"><i class="fa fa-check"></i><b>33.12</b> Running a Workflow Automatically</a></li>
+</ul></li>
+<li class="chapter" data-level="34" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html"><i class="fa fa-check"></i><b>34</b> – Galaxy: Workflows (Part II)</a>
+<ul>
+<li class="chapter" data-level="34.1" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#introduction-to-workflows"><i class="fa fa-check"></i><b>34.1</b> Introduction to Workflows</a></li>
+<li class="chapter" data-level="34.2" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#hands-on-activity-1-navigate-workflows"><i class="fa fa-check"></i><b>34.2</b> Hands-on: Activity 1 – Navigate Workflows</a></li>
+<li class="chapter" data-level="34.3" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#export-existing-workflows"><i class="fa fa-check"></i><b>34.3</b> Export Existing Workflows</a></li>
+<li class="chapter" data-level="34.4" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#hands-on-activity-2a-run-workflow"><i class="fa fa-check"></i><b>34.4</b> Hands-on: Activity 2A – Run Workflow</a></li>
+<li class="chapter" data-level="34.5" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#hands-on-activity-2b-output-files"><i class="fa fa-check"></i><b>34.5</b> Hands-on: Activity 2B – Output Files</a></li>
+<li class="chapter" data-level="34.6" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#hands-on-activity-2c-visualize-genomic-data"><i class="fa fa-check"></i><b>34.6</b> Hands-on: Activity 2C – Visualize Genomic Data</a></li>
+<li class="chapter" data-level="34.7" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#build-a-workflow"><i class="fa fa-check"></i><b>34.7</b> Build a Workflow</a></li>
+<li class="chapter" data-level="34.8" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#hands-on-activity-3a-genomic-analysis-workflow"><i class="fa fa-check"></i><b>34.8</b> Hands-on: Activity 3A – Genomic Analysis Workflow</a></li>
+<li class="chapter" data-level="34.9" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#hands-on-activity-3b-visualize-bam-file"><i class="fa fa-check"></i><b>34.9</b> Hands-on: Activity 3B – Visualize BAM file</a></li>
+<li class="chapter" data-level="34.10" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#hands-on-activity-3c-replicate"><i class="fa fa-check"></i><b>34.10</b> Hands-on: Activity 3C – Replicate</a></li>
+<li class="chapter" data-level="34.11" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#citing-and-sharing-workflows"><i class="fa fa-check"></i><b>34.11</b> Citing and Sharing Workflows</a></li>
+<li class="chapter" data-level="34.12" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#importing-workflows"><i class="fa fa-check"></i><b>34.12</b> Importing Workflows</a></li>
+<li class="chapter" data-level="34.13" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#citing-workflows"><i class="fa fa-check"></i><b>34.13</b> Citing Workflows</a></li>
+<li class="chapter" data-level="34.14" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#exporting-workflows"><i class="fa fa-check"></i><b>34.14</b> Exporting Workflows</a></li>
+<li class="chapter" data-level="34.15" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#sharing-workflows"><i class="fa fa-check"></i><b>34.15</b> Sharing Workflows</a></li>
+<li class="chapter" data-level="34.16" data-path="galaxy-workflows-part-ii.html"><a href="galaxy-workflows-part-ii.html#pros-and-cons-of-galaxy"><i class="fa fa-check"></i><b>34.16</b> Pros and Cons of Galaxy</a></li>
+</ul></li>
+<li class="chapter" data-level="35" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html"><i class="fa fa-check"></i><b>35</b> – Coding with Artificial Intelligence</a>
+<ul>
+<li class="chapter" data-level="35.1" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#what-is-artificial-intelligence"><i class="fa fa-check"></i><b>35.1</b> What is artificial intelligence?</a></li>
+<li class="chapter" data-level="35.2" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#what-are-large-language-models-llms"><i class="fa fa-check"></i><b>35.2</b> What are Large Language Models (LLMs)?</a></li>
+<li class="chapter" data-level="35.3" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#prompting-as-the-basis-of-interaction-with-llms"><i class="fa fa-check"></i><b>35.3</b> Prompting as the basis of interaction with LLMs</a></li>
+<li class="chapter" data-level="35.4" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#anatomy-of-a-prompt"><i class="fa fa-check"></i><b>35.4</b> Anatomy of a prompt</a></li>
+<li class="chapter" data-level="35.5" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#why-prompting-matters"><i class="fa fa-check"></i><b>35.5</b> Why prompting matters?</a></li>
+<li class="chapter" data-level="35.6" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#comparing-strong-and-weak-prompts"><i class="fa fa-check"></i><b>35.6</b> Comparing strong and weak prompts</a></li>
+<li class="chapter" data-level="35.7" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#prompting-for-research"><i class="fa fa-check"></i><b>35.7</b> Prompting for research</a></li>
+<li class="chapter" data-level="35.8" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#prompting-for-building-a-presentation"><i class="fa fa-check"></i><b>35.8</b> Prompting for building a presentation</a></li>
+<li class="chapter" data-level="35.9" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#prompting-for-data-mining"><i class="fa fa-check"></i><b>35.9</b> Prompting for data mining</a></li>
+<li class="chapter" data-level="35.10" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#prompting-for-literature-search"><i class="fa fa-check"></i><b>35.10</b> Prompting for literature search</a></li>
+<li class="chapter" data-level="35.11" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#prompting-for-coding"><i class="fa fa-check"></i><b>35.11</b> Prompting for coding</a></li>
+<li class="chapter" data-level="35.12" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#a-basic-prompting-template-for-coding"><i class="fa fa-check"></i><b>35.12</b> A basic prompting template for coding</a></li>
+<li class="chapter" data-level="35.13" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#prompting-for-bioinformatics-in-r"><i class="fa fa-check"></i><b>35.13</b> Prompting for bioinformatics in R</a></li>
+<li class="chapter" data-level="35.14" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#iterative-prompting"><i class="fa fa-check"></i><b>35.14</b> Iterative prompting</a></li>
+<li class="chapter" data-level="35.15" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#prompting-to-debug-code"><i class="fa fa-check"></i><b>35.15</b> Prompting to debug code</a></li>
+<li class="chapter" data-level="35.16" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#asking-an-llm-to-explain-code"><i class="fa fa-check"></i><b>35.16</b> Asking an LLM to explain code</a></li>
+<li class="chapter" data-level="35.17" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#using-multiple-llms-to-improve-a-starting-code"><i class="fa fa-check"></i><b>35.17</b> Using multiple LLMs to improve a starting code</a></li>
+<li class="chapter" data-level="35.18" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#comparing-answers-from-multiple-llms"><i class="fa fa-check"></i><b>35.18</b> Comparing answers from multiple LLMs</a></li>
+<li class="chapter" data-level="35.19" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#good-practices-when-using-llms-for-coding"><i class="fa fa-check"></i><b>35.19</b> Good practices when using LLMs for coding</a></li>
+<li class="chapter" data-level="35.20" data-path="coding-with-artificial-intelligence.html"><a href="coding-with-artificial-intelligence.html#limitations-of-llms-for-coding"><i class="fa fa-check"></i><b>35.20</b> Limitations of LLMs for coding</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bioinformatics Workshop Gitbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="coding-with-artificial-intelligence" class="section level1 hasAnchor" number="35">
+<h1><span class="header-section-number">Session 35</span> – Coding with Artificial Intelligence<a href="coding-with-artificial-intelligence.html#coding-with-artificial-intelligence" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Artificial intelligence (AI) is a fast-developing topic in computer science that focuses on building systems that can perform tasks usually associated with human intelligence capabilities. These tasks can include diverse topics such as recognizing patterns, understanding written language, learning from data, making predictions, solving problems, and helping with decisions.</p>
+<p>In coding, <strong>AI can help researchers move fast from an idea written in plain language to a working computer code</strong>, improve existing scripts, explaining error messages, converting code between languages, documenting functions, and suggesting better workflows. However, <strong>AI does not replace the responsible implementation and understanding of its resulting output</strong>. These include detecting errors, debugging, or biological implications of the results. As for now, <strong>AI can be considered an effective assistant, but it is not a replacement for your own understanding</strong>.</p>
+<p><strong>IMPORTANT:</strong> Most people fail at trusting the AI as free of errors, biases, and contradictions. In other words, <strong>copy-and-paste</strong> AI output must not bypass its evaluation by humans.</p>
+<div id="what-is-artificial-intelligence" class="section level2 hasAnchor" number="35.1">
+<h2><span class="header-section-number">35.1</span> What is artificial intelligence?<a href="coding-with-artificial-intelligence.html#what-is-artificial-intelligence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Artificial_intelligence" target="_blank"><strong>Artificial intelligence (AI)</strong></a> is a broad area of computing designed to emulate and perform tasks that usually require human-like reasoning. The current AI can understand language, learn from data and examples, adapt and develop new tools rather than only following fixed instructions.</p>
+<p>As of now, AI is expected to continue improving and becoming more general, while its limits and potential dangers remain to be defined. Some practical examples of AI use in biology include: (1) Classification of nucleotide and protein sequences or biological images; (2) Pattern recognition such as predicting structure or function from large datasets; (3) Summarizing text, papers, or documentation; (4) Helping in making decisions and predictions, explaining statistical or biological concepts, and generate text or output images; and (5) Suggesting code from natural language instructions.</p>
+<p>For bioinformatic students, AI can help you in translating a biological questions into computational steps that can be implemented in a script that can be run. For example, you can ask AI to develop a script or a guided workflow to import a tab-delimited file, remove or deal with missing values, suggest statistical test, interpret such results against known outcomes, and create plots using ggplot2 with a R script that you can modify.</p>
+</div>
+<div id="what-are-large-language-models-llms" class="section level2 hasAnchor" number="35.2">
+<h2><span class="header-section-number">35.2</span> What are Large Language Models (LLMs)?<a href="coding-with-artificial-intelligence.html#what-are-large-language-models-llms" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Large_language_model" target="_blank"><strong>Large language models (LLMs)</strong></a> are artificial intelligence (AI) systems trained on very large amounts of text so that they can learn patterns in language. Because of this training, they can generate text, answer questions, summarize information, translate languages, help with coding, and explain ideas. LLMs can also be understood as advanced <strong>prediction systems for language</strong>, so an LLM reads the words that came before and predicts what is likely to come next.</p>
+<p>Modern LLMs are typically based on the <a href="https://en.wikipedia.org/wiki/Transformer_(deep_learning)" target="_blank"><strong>Transformer architecture</strong></a>, which uses attention mechanisms to learn statistical structure across syntax, semantics, discourse, and style. They are often further refined through instruction tuning and reinforcement learning from human/AI feedback. At very large scales, these models can support not only text generation, but also computer code writing, document/research article analysis, image understanding and generation, and automated task execution.</p>
+<p>However, <strong>LLMs should not be treated as conscious agents</strong>. They can still make mistakes, invent facts, or sound confident when they are wrong. Important limitations include hallucination, sensitivity to prompting, bias inherited from training data, and occasional unreliability. Therefore, humans (users) must evaluate LLM outputs carefully whenever accuracy matters.</p>
+<p>Here is a table with important LLM families and some examples</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model family</th>
+<th>Brief explanation</th>
+<th>Main use</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>OpenAI GPT-5.4 / GPT-4.1 / GPT-4o</strong></td>
+<td>General-purpose frontier models. GPT-5.4 is positioned for complex reasoning and professional workflows; GPT-4.1 is strong for instruction following and coding; GPT-4o is a versatile multimodal model.</td>
+<td>Research assistance, writing, coding, agents, multimodal applications</td>
+<td><a href="https://developers.openai.com/api/docs/models" target="_blank">OpenAI Models</a></td>
+</tr>
+<tr class="even">
+<td><strong>Google Gemini 2.5 Pro / Flash</strong></td>
+<td>Gemini 2.5 Pro is Google’s advanced reasoning model, while Flash variants emphasize speed and efficiency. Gemini is also strong for long-context and document-centered workflows.</td>
+<td>Long-context analysis, STEM reasoning, document understanding, multimodal applications</td>
+<td><a href="https://ai.google.dev/gemini-api/docs/models" target="_blank">Gemini Models</a></td>
+</tr>
+<tr class="odd">
+<td><strong>Anthropic Claude Sonnet 4.6 / Opus 4.6</strong></td>
+<td>Claude models are known for strong writing quality, long-context work, coding, and agent-style task execution. Sonnet is the practical workhorse; Opus is the higher-end line.</td>
+<td>Knowledge work, coding, long documents, enterprise assistants</td>
+<td><a href="https://www.anthropic.com/claude" target="_blank">Claude Models</a></td>
+</tr>
+<tr class="even">
+<td><strong>Meta Llama 4</strong></td>
+<td>A major open-weight family with strong ecosystem adoption. Llama 4 includes models such as Scout and Maverick and is important for research, customization, and self-hosted deployment.</td>
+<td>Research, fine-tuning, private deployment, open-model experimentation</td>
+<td><a href="https://www.llama.com/models/llama-4/" target="_blank">Llama 4</a></td>
+</tr>
+<tr class="odd">
+<td><strong>Mistral Large 3</strong></td>
+<td>A leading open-weight multilingual and multimodal model from Mistral AI. It is important because it offers strong performance with more flexible deployment than fully closed models.</td>
+<td>Enterprise deployment, multilingual tasks, open-weight production use</td>
+<td><a href="https://docs.mistral.ai/getting-started/models" target="_blank">Mistral Models</a></td>
+</tr>
+<tr class="even">
+<td><strong>Qwen3 family</strong></td>
+<td>Qwen has become one of the most important model families for open and commercial use, with strong coding, reasoning, multilingual, and multimodal variants.</td>
+<td>Research, multilingual NLP, coding, open-model development</td>
+<td><a href="https://qwen.ai/blog" target="_blank">Qwen</a></td>
+</tr>
+<tr class="odd">
+<td><strong>DeepSeek V3.1 / R1</strong></td>
+<td>DeepSeek is especially notable for efficient high-performance models and strong reasoning-focused releases such as R1, which became influential in discussions of open models and cost efficiency.</td>
+<td>Reasoning tasks, coding, lower-cost deployment, open-model benchmarking</td>
+<td><a href="https://chat.deepseek.com/%20/" target="_blank">DeepSeek</a></td>
+</tr>
+</tbody>
+</table>
+<p>During code development, you can ask the LLM to annotate the script by adding comments, more arguments, or command-line options. LLMs can also suggest test cases, example inputs, and debugging strategies. For example, instead of searching across many webpages for separate answers, you can ask a tool such as ChatGPT, when web search is enabled, to search across the web for you. You can also ask to produce code in R, so you can ‘copy and paste’, yet a detailed prompting is key to achieve a desired outcome. In other words, you must know how the output looks like, so the LLM can described it.</p>
+<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="coding-with-artificial-intelligence.html#cb713-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of a natural-language coding request to search the web</span></span>
+<span id="cb713-2"><a href="coding-with-artificial-intelligence.html#cb713-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Find papers and their citation relevant to pigment production in birds, compare such results with human literature, provide links, and citations of relevant papers&quot;</span></span>
+<span id="cb713-3"><a href="coding-with-artificial-intelligence.html#cb713-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb713-4"><a href="coding-with-artificial-intelligence.html#cb713-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of a natural-language coding request for R code</span></span>
+<span id="cb713-5"><a href="coding-with-artificial-intelligence.html#cb713-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Write an R script that imports a tab-delimited file, removes rows with missing values in a column called expression, and makes a boxplot of expression by tissue. Explain each step for a beginner.&quot;</span></span></code></pre></div>
+</div>
+<div id="prompting-as-the-basis-of-interaction-with-llms" class="section level2 hasAnchor" number="35.3">
+<h2><span class="header-section-number">35.3</span> Prompting as the basis of interaction with LLMs<a href="coding-with-artificial-intelligence.html#prompting-as-the-basis-of-interaction-with-llms" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A <strong>prompt</strong> is a set of instructions, usually as a text, that you give to the LLM to perform a useful task or response. These prompts can be a question, a command, a request for explanation, a task description, or a combination of these.</p>
+<p>For example, if you write:</p>
+<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="coding-with-artificial-intelligence.html#cb714-1" aria-hidden="true" tabindex="-1"></a>Explain natural selection <span class="cf">for</span> both first<span class="sc">-</span>year biology and master<span class="sc">-</span>level students.</span></code></pre></div>
+<p>This sentence is the prompt and the LLM then uses this information and the given instructions in that prompt to generate an answer. Current LLMs are more flexible, and you can specify a task so that the model can better align its response with the user’s defined needs. In coding, the quality of the prompt strongly affects the quality of the answer. <strong>A vague prompt usually gives a vague answer</strong>.</p>
+</div>
+<div id="anatomy-of-a-prompt" class="section level2 hasAnchor" number="35.4">
+<h2><span class="header-section-number">35.4</span> Anatomy of a prompt<a href="coding-with-artificial-intelligence.html#anatomy-of-a-prompt" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A prompt as defined is a <strong>structured request in a text form</strong> that frames a task, provides necessary context, and specifies the desired form of the expected answer. The future of LLM interaction will be central to an effective <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank"><strong>prompt engineering</strong></a>. In general, a good prompt might contain a goal; enough context for its achievement; constraints or limits of its generality; desired output format such as text, code, image, etc. As a researcher, you should aim for prompts that reduces ambiguity, increases reproducibility, and improves the relevance, accuracy, and usability of the generated output.</p>
+<p>More generally, a prompt may contain one or more of the following components that help define a clear and effective prompt for an LLM:</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Element</th>
+<th align="left">Improved description</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Task</strong></td>
+<td align="left">Defines the main action the model should perform. A strong task statement makes the goal explicit and avoids ambiguity.</td>
+<td align="left"><em>Summarize the results section of this paper.</em></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Context</strong></td>
+<td align="left">Provides the background, purpose, or situation needed so the model can produce a more relevant and accurate response.</td>
+<td align="left"><em>This summary will be used in an undergraduate genetics lecture.</em></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Input data</strong></td>
+<td align="left">Specifies the material the model should analyze, transform, compare, rewrite, or emulate. This may include raw text, code, tables, or an example to follow.</td>
+<td align="left"><em>Use the following abstract and discussion section as input.</em></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Constraints</strong></td>
+<td align="left">Establishes the rules or limits the response must follow, such as length, scope, allowed sources, or things to avoid.</td>
+<td align="left"><em>Do not use bullet points; keep the answer under 200 words.</em></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Output format</strong></td>
+<td align="left">States how the response should be structured or presented so it is easy to use directly.</td>
+<td align="left"><em>Return the answer as a three-column table.</em></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Audience</strong></td>
+<td align="left">Identifies who the response is intended for, which helps determine the level of detail, terminology, and explanation.</td>
+<td align="left"><em>Write for graduate students in evolutionary biology.</em></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Tone or style</strong></td>
+<td align="left">Describes the voice, level, and presentation style of the response. This helps shape whether the output is formal, technical, concise, accessible, or persuasive.</td>
+<td align="left"><em>Use a formal, clear, and beginner-friendly style.</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="why-prompting-matters" class="section level2 hasAnchor" number="35.5">
+<h2><span class="header-section-number">35.5</span> Why prompting matters?<a href="coding-with-artificial-intelligence.html#why-prompting-matters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A model can only respond based on the instructions it receives. If the prompt is vague, the answer will often be vague. If the prompt is precise, the answer is more likely to be accurate, relevant, and easy to use.</p>
+<p>Some of the characteristics of <strong>good prompts</strong> include:</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Characteristic</th>
+<th align="left">Description</th>
+<th align="left">Bad example</th>
+<th align="left">Good example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Clear</strong></td>
+<td align="left">The request is easy to understand and does not force the model to guess what is being asked.</td>
+<td align="left"><em>Tell me something about evolution.</em></td>
+<td align="left"><em>Explain natural selection in simple terms.</em></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Specific</strong></td>
+<td align="left">The task is defined in enough detail to reduce ambiguity and improve relevance.</td>
+<td align="left"><em>Write about amphibians.</em></td>
+<td align="left"><em>Write a 200-word summary of chemical defenses in amphibians.</em></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Context-rich</strong></td>
+<td align="left">The model is given relevant background information so the response matches the user’s purpose.</td>
+<td align="left"><em>Summarize this paper.</em></td>
+<td align="left"><em>Summarize this paper for an undergraduate lecture in genomics.</em></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Goal-oriented</strong></td>
+<td align="left">The prompt explains the intended outcome or purpose of the response.</td>
+<td align="left"><em>Describe this dataset.</em></td>
+<td align="left"><em>Describe this dataset so I can decide whether it is suitable for differential gene expression analysis.</em></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Constrained when needed</strong></td>
+<td align="left">The prompt includes rules such as word limits, file formats, assumptions, or methods to avoid.</td>
+<td align="left"><em>Write a report on AI.</em></td>
+<td align="left"><em>Write a 300-word report on AI in biology without using jargon or bullet points.</em></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Explicit about output format</strong></td>
+<td align="left">The prompt states how the answer should be organized, such as a table, code, bullet points, summary, or full report.</td>
+<td align="left"><em>Compare these methods.</em></td>
+<td align="left"><em>Compare these methods in a four-column table with strengths, weaknesses, assumptions, and applications.</em></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Audience-aware</strong></td>
+<td align="left">The prompt identifies the intended audience so the explanation level and terminology are appropriate.</td>
+<td align="left"><em>Explain CRISPR.</em></td>
+<td align="left"><em>Explain CRISPR for first-year undergraduate biology students.</em></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Testable or evaluable</strong></td>
+<td align="left">A good prompt makes it easier to judge whether the response satisfies the request because the expected result is concrete.</td>
+<td align="left"><em>Help me understand this better.</em></td>
+<td align="left"><em>List three reasons why this analysis may be biased and give one way to test each reason.</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="comparing-strong-and-weak-prompts" class="section level2 hasAnchor" number="35.6">
+<h2><span class="header-section-number">35.6</span> Comparing strong and weak prompts<a href="coding-with-artificial-intelligence.html#comparing-strong-and-weak-prompts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A weak prompt often has one or more of the following problems:</p>
+<ul>
+<li>It is too brief to define the task clearly.</li>
+<li>It does not specify the kind of output that is needed, such as a summary, table, code, report, or presentation.</li>
+<li>It leaves out important context that would help the LLM understand the purpose, background, or scope of the request.</li>
+<li>It does not identify the intended audience, such as undergraduates, graduate students, researchers, or the general-public.</li>
+<li>It uses vague instructions such as “analyze this,” “explain it,” or “make it better” without stating what kind of analysis, explanation, or improvement is expected.</li>
+<li>It may ignore useful constraints, such as length, format, tone, level of detail, citation style, file type, or assumptions to follow.</li>
+</ul>
+<p>Because of all these weaknesses, any vague prompt often leads to responses that are too general, incomplete, incorrect, or difficult to evaluate.</p>
+<p>A strong prompt, in contrast, gives enough information for the task to be understood and completed effectively. It usually includes:</p>
+<ul>
+<li>It is usually long and detailed to allow clear statement of the intended task and its goals</li>
+<li>The relevant context or background is described</li>
+<li>The expected output format is described. If you can provide an example of the desired output, this will provide the model what type of result you are expecting</li>
+<li>Any important constraints or requirements as guidelines on generality or specificity</li>
+<li>The intended audience if such output is a presentation, a summary, an image, a figure, a table, etc.</li>
+</ul>
+</div>
+<div id="prompting-for-research" class="section level2 hasAnchor" number="35.7">
+<h2><span class="header-section-number">35.7</span> Prompting for research<a href="coding-with-artificial-intelligence.html#prompting-for-research" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You should consider LLMs as an extension of your capabilities to do targeted research. In other words, you need to know first your topic with detail before you venture on having an AI perform tasks for you such improvement on your data gathering, analysis, reporting, and summarization.</p>
+<p>Some examples on prompts for biology research.</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prompt quality</th>
+<th>Good example</th>
+<th>Bad example (vague)</th>
+<th>Expected results</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Biological system or organism</strong></td>
+<td>Compare potential immunity gene candidates across Platyrrhini, using amino acid positions homologous to human IL-7.</td>
+<td>Study IL-7 in monkeys.</td>
+<td>The response focuses on the correct organism group and biological problem.</td>
+</tr>
+<tr class="even">
+<td><strong>Research task</strong></td>
+<td>Summarize which residues differ at candidate functional positions and identify patterns by Platyrrhini clades.</td>
+<td>Analyze these sequences.</td>
+<td>The output addresses a specific analytical goal rather than giving a generic summary.</td>
+</tr>
+<tr class="odd">
+<td><strong>Input format</strong></td>
+<td>Use the attached file of amino acid sequences in FASTA format.</td>
+<td>Use my data.</td>
+<td>The model knows what data structure to expect and can organize the analysis appropriately.</td>
+</tr>
+<tr class="even">
+<td><strong>Desired output format</strong></td>
+<td>Return a tab-delimited summary table with the most common polarity estimate per each residue, give a numeric value such Grantham polarity metric</td>
+<td>Summarize amino acid properties.</td>
+<td>The output is directly reusable in a manuscript or downstream analysis.</td>
+</tr>
+<tr class="odd">
+<td><strong>Important constraints</strong></td>
+<td>Do not overstate causation; distinguish clearly between observed patterns and functional hypotheses. Use terminology appropriate for comparative genomics.</td>
+<td>Be scientific.</td>
+<td>The answer becomes more rigorous, cautious, and suitable for research use.</td>
+</tr>
+<tr class="even">
+<td><strong>Level of explanation you want</strong></td>
+<td>Explain first at an undergraduate level and then provide a more technical interpretation for graduate students.</td>
+<td>Explain the results.</td>
+<td>The answer becomes layered, accessible, and appropriately detailed for different audiences.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="prompting-for-building-a-presentation" class="section level2 hasAnchor" number="35.8">
+<h2><span class="header-section-number">35.8</span> Prompting for building a presentation<a href="coding-with-artificial-intelligence.html#prompting-for-building-a-presentation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It has become very common for students to use AI output for presentations. Yet the quality of such presentations vary, and they should be considered as first drafts rather than final products. Again, the quality prompts determine how this first draft might be produced. As such, these prompts should specify the audience, presentation length, learning goals, slide structure, and preferred visual style. This is especially important in research presentations where the audience is known (e.g., your fellow classmates or colleagues). In this case, it is desirable that the prompting is aimed at producing one slide or figure at a time, and then, progressively improve them with your feedback. It is also <strong>very important to proofread</strong> and consider them as draft presentations. LLMs do produce factual errors, inventions (hallucinations), and tend to be repetitive or shallow.</p>
+<p>Here are some examples of good prompts for research presentation building.</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prompt quality</th>
+<th>Good example</th>
+<th>Bad example (vague)</th>
+<th>Expected results</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Audience</strong></td>
+<td>Build a presentation for upper-level undergraduate biology majors on genome assembly using PacBio HiFi and Hi-C data.</td>
+<td>Make a biology presentation about genomics.</td>
+<td>The slides are pitched at the correct level of background knowledge.</td>
+</tr>
+<tr class="even">
+<td><strong>Presentation task</strong></td>
+<td>Create a 12-slide lecture explaining genome assembly workflow, contamination screening, annotation, and quality statistics.</td>
+<td>Make slides about genomic workflows.</td>
+<td>The presentation has a defined scope and logical structure.</td>
+</tr>
+<tr class="odd">
+<td><strong>Input format or source material</strong></td>
+<td>Use the attached text, convert sections that have a title into 2-3 slides with one key message per slide, and also add speaker notes.</td>
+<td>Use this text for a genomics presentaiton.</td>
+<td>The model organizes the material rather than simply paraphrasing it.</td>
+</tr>
+<tr class="even">
+<td><strong>Desired output format</strong></td>
+<td>Return the presentation as PDF slide outline text, with slide titles, bullet points, figure suggestions, and speaker notes.</td>
+<td>Make this presentation nice for my Bioinformatics class.</td>
+<td>The output is structured and ready to transfer into slides.</td>
+</tr>
+<tr class="odd">
+<td><strong>Important constraints</strong></td>
+<td>Keep terminology accurate, revise it before producing a final output, avoid crowded slides to no more than 30 words per slide, define technical terms the first time they appear, and suggest only figures that would genuinely help explain the concept. If citations are pertinent, include those as notes in a separated text file.</td>
+<td>Make my presentation professional.</td>
+<td>The presentation is clearer, more teachable, and better designed.</td>
+</tr>
+<tr class="even">
+<td><strong>Level of explanation you want</strong></td>
+<td>Provide content understandable to undergraduates, but add optional advanced notes for graduate students.</td>
+<td>Explain it well for my class of bioinformatics.</td>
+<td>The slides can serve mixed audiences more effectively.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="prompting-for-data-mining" class="section level2 hasAnchor" number="35.9">
+<h2><span class="header-section-number">35.9</span> Prompting for data mining<a href="coding-with-artificial-intelligence.html#prompting-for-data-mining" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You should think of LLMs as tools that can help you structure, refine, and accelerate <strong>data mining</strong> tasks. The task of searching for data requires defining the scope of the search such as the taxonomic/gene/function topic, selecting the type of data to search, deciding which databases to search, identifying filtering criteria, and specifying how results should be returned.</p>
+<p>For that reason, good prompting for data mining is not simply asking an LLM to “find genes” or “find cases.” A good prompt tells the model:</p>
+<ul>
+<li><strong>What</strong> biological target you want</li>
+<li><strong>Where</strong> the information should come from</li>
+<li><strong>How</strong> the information should be filtered</li>
+<li><strong>What output</strong> structure you need</li>
+<li><strong>What assumptions or limitations</strong> must be respected</li>
+</ul>
+<p>Likewise, the quality of the prompt strongly affects:</p>
+<ul>
+<li><strong>Precision</strong> Whether the model retrieves the correct biological target rather than a large amount of irrelevant material.</li>
+<li><strong>Reproducibility</strong> Whether another person could repeat the same search using the same criteria.</li>
+<li><strong>Interpretability</strong> Whether the output is organized in a way that can be checked, edited, and incorporated into a manuscript or report.</li>
+<li><strong>Scope</strong> Whether the model distinguishes between an annotation, a similarity-based inference, and a demonstrated biological function.</li>
+<li><strong>Downstream usability</strong> Whether the result can be reused in a spreadsheet, script, figure legend, methods section, or supplementary table.</li>
+</ul>
+<p>This is especially important in bioinformatics and research literature review. Again, vague prompts can lead to incorrect answers or data retrieved (e.g., wrong gene search, overly broad literature suggestions, wrong or invented references, or outputs in the incorrect format).</p>
+<p>Some examples of prompt characteristics for data mining are shown below.</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Prompt quality</th>
+<th align="left">Good example</th>
+<th align="left">Bad example (vague)</th>
+<th align="left">Expected results</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Biological target</strong></td>
+<td align="left">Search for candidate chitinase-like protein sequences in reptile proteomes, focusing on genes annotated as CHIT1, CHIA, CHID1, or chitotriosidase-like proteins.</td>
+<td align="left">Find chitinases in reptiles.</td>
+<td align="left">The model focuses on a defined gene family instead of broadly collecting unrelated proteins.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Taxonomic scope</strong></td>
+<td align="left">Restrict the search to Squamata, Testudines, Crocodylia, and representative non-avian reptiles; exclude birds and mammals.</td>
+<td align="left">Search vertebrates.</td>
+<td align="left">The results match the intended clade and avoid unnecessary noise.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Research task</strong></td>
+<td align="left">Identify candidate sequences, summarize annotation names, sequence lengths, and species, and flag possible duplicates or partial records.</td>
+<td align="left">Analyze these genes.</td>
+<td align="left">The task becomes operational and produces a reusable summary.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Input or data source</strong></td>
+<td align="left">Use the attached FASTA file, plus NCBI protein annotations if needed for cross-checking names.</td>
+<td align="left">Use available data.</td>
+<td align="left">The model knows what evidence to rely on and can separate uploaded data from external annotations.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Search or filtering criteria</strong></td>
+<td align="left">Keep only sequences with annotations suggesting chitinase or chitinase-like function, and note whether the entry appears complete or partial.</td>
+<td align="left">Keep the best ones.</td>
+<td align="left">The selection process becomes transparent and easier to reproduce.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Desired output format</strong></td>
+<td align="left">Return a tab-delimited table with Species, Accession, Annotation, Length, Completeness, and Notes.</td>
+<td align="left">Summarize the results.</td>
+<td align="left">The output can be reused directly in spreadsheets or downstream analyses.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Important constraints</strong></td>
+<td align="left">Do not assume homology from annotation alone; flag uncertain entries and separate observed annotations from functional interpretation.</td>
+<td align="left">Be accurate.</td>
+<td align="left">The response becomes more cautious and scientifically appropriate.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Level of explanation you want</strong></td>
+<td align="left">First explain the workflow for undergraduate students, then provide a more technical version for graduate students.</td>
+<td align="left">Explain it well.</td>
+<td align="left">The response becomes layered and useful for teaching and research.</td>
+</tr>
+</tbody>
+</table>
+<p>Here is an example for data mining for sequences about chitinases in reptiles. This shows how a weak prompt can be improved into a strong prompt for a sequence-based data mining task.</p>
+<div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb715-1"><a href="coding-with-artificial-intelligence.html#cb715-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Weak prompt</span></span>
+<span id="cb715-2"><a href="coding-with-artificial-intelligence.html#cb715-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb715-3"><a href="coding-with-artificial-intelligence.html#cb715-3" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Find chitinase sequences in reptiles.&quot;</span></span></code></pre></div>
+<p>The most important problem with this prompt is it is too broad. It does not specify:</p>
+<ul>
+<li>Which reptiles</li>
+<li>Which gene names or gene family members</li>
+<li>Whether the task uses uploaded files or online databases</li>
+<li>How candidate sequences should be filtered</li>
+<li>How the results should be returned.</li>
+</ul>
+<p>Because of that, the response may be incomplete and broad. Here is an improved prompt.</p>
+<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="coding-with-artificial-intelligence.html#cb716-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Strong prompt</span></span>
+<span id="cb716-2"><a href="coding-with-artificial-intelligence.html#cb716-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb716-3"><a href="coding-with-artificial-intelligence.html#cb716-3" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Use the attached FASTA file and identify candidate chitinase-related protein sequences in reptiles. Restrict the analysis to non-avian reptiles and organize the results by major clade when possible (for example, Squamata, Testudines, and Crocodylia). Search for annotations or headers suggesting CHIT1, CHIA, CHID1, chitotriosidase, acidic mammalian chitinase, chitinase-like proteins, or related naming variants.</span></span>
+<span id="cb716-4"><a href="coding-with-artificial-intelligence.html#cb716-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb716-5"><a href="coding-with-artificial-intelligence.html#cb716-5" aria-hidden="true" tabindex="-1"></a><span class="st">For each candidate sequence, return a tab-delimited table with the following columns:</span></span>
+<span id="cb716-6"><a href="coding-with-artificial-intelligence.html#cb716-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb716-7"><a href="coding-with-artificial-intelligence.html#cb716-7" aria-hidden="true" tabindex="-1"></a><span class="st">Species  </span></span>
+<span id="cb716-8"><a href="coding-with-artificial-intelligence.html#cb716-8" aria-hidden="true" tabindex="-1"></a><span class="st">Major_clade  </span></span>
+<span id="cb716-9"><a href="coding-with-artificial-intelligence.html#cb716-9" aria-hidden="true" tabindex="-1"></a><span class="st">FASTA_ID  </span></span>
+<span id="cb716-10"><a href="coding-with-artificial-intelligence.html#cb716-10" aria-hidden="true" tabindex="-1"></a><span class="st">Annotation  </span></span>
+<span id="cb716-11"><a href="coding-with-artificial-intelligence.html#cb716-11" aria-hidden="true" tabindex="-1"></a><span class="st">Sequence_length_aa  </span></span>
+<span id="cb716-12"><a href="coding-with-artificial-intelligence.html#cb716-12" aria-hidden="true" tabindex="-1"></a><span class="st">Complete_or_partial  </span></span>
+<span id="cb716-13"><a href="coding-with-artificial-intelligence.html#cb716-13" aria-hidden="true" tabindex="-1"></a><span class="st">Evidence_type  </span></span>
+<span id="cb716-14"><a href="coding-with-artificial-intelligence.html#cb716-14" aria-hidden="true" tabindex="-1"></a><span class="st">Notes</span></span>
+<span id="cb716-15"><a href="coding-with-artificial-intelligence.html#cb716-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb716-16"><a href="coding-with-artificial-intelligence.html#cb716-16" aria-hidden="true" tabindex="-1"></a><span class="st">Use the following rules:</span></span>
+<span id="cb716-17"><a href="coding-with-artificial-intelligence.html#cb716-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb716-18"><a href="coding-with-artificial-intelligence.html#cb716-18" aria-hidden="true" tabindex="-1"></a><span class="st">1. Separate direct evidence from inferred evidence.  </span></span>
+<span id="cb716-19"><a href="coding-with-artificial-intelligence.html#cb716-19" aria-hidden="true" tabindex="-1"></a><span class="st">2. If the sequence name clearly indicates a chitinase-related gene, label the evidence as annotation-based.  </span></span>
+<span id="cb716-20"><a href="coding-with-artificial-intelligence.html#cb716-20" aria-hidden="true" tabindex="-1"></a><span class="st">3. If the entry is ambiguous, place it in the Notes column rather than over-interpreting it.  </span></span>
+<span id="cb716-21"><a href="coding-with-artificial-intelligence.html#cb716-21" aria-hidden="true" tabindex="-1"></a><span class="st">4. Do not assume that all glycosyl hydrolase family proteins are true chitinases.  </span></span>
+<span id="cb716-22"><a href="coding-with-artificial-intelligence.html#cb716-22" aria-hidden="true" tabindex="-1"></a><span class="st">5. If multiple nearly identical entries occur for the same species and gene, flag them as possible duplicates.  </span></span>
+<span id="cb716-23"><a href="coding-with-artificial-intelligence.html#cb716-23" aria-hidden="true" tabindex="-1"></a><span class="st">6. After the table, provide a short summary indicating which reptile groups appear to have more candidate entries and where uncertainty remains.</span></span>
+<span id="cb716-24"><a href="coding-with-artificial-intelligence.html#cb716-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb716-25"><a href="coding-with-artificial-intelligence.html#cb716-25" aria-hidden="true" tabindex="-1"></a><span class="st">Explain first at an undergraduate level and then add a more technical interpretation suitable for graduate students.&quot;</span></span></code></pre></div>
+<p>This prompt improves the LLM task because the resulting answer easier to verify and much more useful for downstream work. For example, the output might include:</p>
+<ul>
+<li>A candidate list of reptile sequences with chitinase-related annotations</li>
+<li>Clear indication of whether evidence comes from explicit annotation or weaker inference</li>
+<li>Identification of duplicate or partial entries,</li>
+<li>Short summary of patterns by reptile clade</li>
+</ul>
+</div>
+<div id="prompting-for-literature-search" class="section level2 hasAnchor" number="35.10">
+<h2><span class="header-section-number">35.10</span> Prompting for literature search<a href="coding-with-artificial-intelligence.html#prompting-for-literature-search" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You can also use LLMs for literature research and this is a subtype of a <strong>data mining</strong> task. The task of searching for literature defining a topic, selecting the type of publication (e.g., peer-reviewd), deciding which databases to search (e.g., PubMed), identifying filtering criteria (e.g., from 2010 to the present), and specifying how results should be returned (e.g., a table, Endnote ready citation, PDF with links, etc.)</p>
+<p>Here is an example for literature review about chitinases in amphibians. This shows how a weak prompt can be improved into a strong prompt for this type of searches.</p>
+<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="coding-with-artificial-intelligence.html#cb717-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Weak prompt</span></span>
+<span id="cb717-2"><a href="coding-with-artificial-intelligence.html#cb717-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb717-3"><a href="coding-with-artificial-intelligence.html#cb717-3" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Find papers about chitinases in amphibians.&quot;</span></span></code></pre></div>
+<p>This prompt does not specify:</p>
+<ul>
+<li>Whether the goal is a broad literature overview or a narrow question</li>
+<li>Whether to include only peer-reviewed work</li>
+<li>Whether to focus on gene expression, enzyme function, immunity, skin, gut, development, or evolution</li>
+<li>How references should be organized</li>
+<li>How uncertainty should be handled</li>
+</ul>
+<p>The result may therefore be too general or contain irrelevant (even <strong>invented</strong>) references.</p>
+<p><strong>Always revise the existence of references returned by an LLM</strong></p>
+<p>This prompt can be improved as follows:</p>
+<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="coding-with-artificial-intelligence.html#cb718-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Strong prompt</span></span>
+<span id="cb718-2"><a href="coding-with-artificial-intelligence.html#cb718-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb718-3"><a href="coding-with-artificial-intelligence.html#cb718-3" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Conduct a literature-oriented search strategy for chitinases in amphibians. Focus on peer-reviewed studies, reviews, or genomic/transcriptomic reports that mention chitinase genes, chitinase-like proteins, chitotriosidase, CHIT1, CHIA, CHID1, or related chitin-degrading enzymes in amphibians.</span></span>
+<span id="cb718-4"><a href="coding-with-artificial-intelligence.html#cb718-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb718-5"><a href="coding-with-artificial-intelligence.html#cb718-5" aria-hidden="true" tabindex="-1"></a><span class="st">Use amphibian terms that include *Amphibia*, *Anura*, *Caudata*, *Gymnophiona*, frogs, salamanders, and caecilians. Organize the output into a table with these columns:</span></span>
+<span id="cb718-6"><a href="coding-with-artificial-intelligence.html#cb718-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb718-7"><a href="coding-with-artificial-intelligence.html#cb718-7" aria-hidden="true" tabindex="-1"></a><span class="st">- `Reference`</span></span>
+<span id="cb718-8"><a href="coding-with-artificial-intelligence.html#cb718-8" aria-hidden="true" tabindex="-1"></a><span class="st">- `Year`</span></span>
+<span id="cb718-9"><a href="coding-with-artificial-intelligence.html#cb718-9" aria-hidden="true" tabindex="-1"></a><span class="st">- `Amphibian_group`</span></span>
+<span id="cb718-10"><a href="coding-with-artificial-intelligence.html#cb718-10" aria-hidden="true" tabindex="-1"></a><span class="st">- `Species`</span></span>
+<span id="cb718-11"><a href="coding-with-artificial-intelligence.html#cb718-11" aria-hidden="true" tabindex="-1"></a><span class="st">- `Study_type`</span></span>
+<span id="cb718-12"><a href="coding-with-artificial-intelligence.html#cb718-12" aria-hidden="true" tabindex="-1"></a><span class="st">- `Main_topic`</span></span>
+<span id="cb718-13"><a href="coding-with-artificial-intelligence.html#cb718-13" aria-hidden="true" tabindex="-1"></a><span class="st">- `Evidence_for_chitinase`</span></span>
+<span id="cb718-14"><a href="coding-with-artificial-intelligence.html#cb718-14" aria-hidden="true" tabindex="-1"></a><span class="st">- `Key_finding`</span></span>
+<span id="cb718-15"><a href="coding-with-artificial-intelligence.html#cb718-15" aria-hidden="true" tabindex="-1"></a><span class="st">- `Limitations`</span></span>
+<span id="cb718-16"><a href="coding-with-artificial-intelligence.html#cb718-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb718-17"><a href="coding-with-artificial-intelligence.html#cb718-17" aria-hidden="true" tabindex="-1"></a><span class="st">Return in a tab-delimited *.txt file with the number of reference return as amphibia_paper_XXXX.txt where XXXX is the number of papers found.</span></span>
+<span id="cb718-18"><a href="coding-with-artificial-intelligence.html#cb718-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb718-19"><a href="coding-with-artificial-intelligence.html#cb718-19" aria-hidden="true" tabindex="-1"></a><span class="st">Check that all references found are real and not invented.</span></span>
+<span id="cb718-20"><a href="coding-with-artificial-intelligence.html#cb718-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb718-21"><a href="coding-with-artificial-intelligence.html#cb718-21" aria-hidden="true" tabindex="-1"></a><span class="st">Use the following rules:</span></span>
+<span id="cb718-22"><a href="coding-with-artificial-intelligence.html#cb718-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb718-23"><a href="coding-with-artificial-intelligence.html#cb718-23" aria-hidden="true" tabindex="-1"></a><span class="st">1. Distinguish clearly between direct studies in amphibians and broader vertebrate studies that only mention amphibians briefly.</span></span>
+<span id="cb718-24"><a href="coding-with-artificial-intelligence.html#cb718-24" aria-hidden="true" tabindex="-1"></a><span class="st">2. Do not invent citations.</span></span>
+<span id="cb718-25"><a href="coding-with-artificial-intelligence.html#cb718-25" aria-hidden="true" tabindex="-1"></a><span class="st">3. If a paper appears relevant but the role of chitinase is indirect or uncertain, note that explicitly in the `Limitations` column.</span></span>
+<span id="cb718-26"><a href="coding-with-artificial-intelligence.html#cb718-26" aria-hidden="true" tabindex="-1"></a><span class="st">4. Separate studies on gene identification, expression, immunity, digestion, development, and evolution when possible.</span></span>
+<span id="cb718-27"><a href="coding-with-artificial-intelligence.html#cb718-27" aria-hidden="true" tabindex="-1"></a><span class="st">5. After the table, provide a short narrative summary of major themes and major gaps in amphibian chitinase research.</span></span>
+<span id="cb718-28"><a href="coding-with-artificial-intelligence.html#cb718-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb718-29"><a href="coding-with-artificial-intelligence.html#cb718-29" aria-hidden="true" tabindex="-1"></a><span class="st">Explain the search strategy first at an undergraduate level and then provide a more technical version for graduate students.&quot;</span></span></code></pre></div>
+</div>
+<div id="prompting-for-coding" class="section level2 hasAnchor" number="35.11">
+<h2><span class="header-section-number">35.11</span> Prompting for coding<a href="coding-with-artificial-intelligence.html#prompting-for-coding" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The prompts for coding should follow similar guidelines as prompting for research in general. However, the LLM needs to know further guidelines such as the programming language, the exact task dissected in logical and usually chronological steps (e.g., a protocol), the structure of the input dataset, if data need to be downloaded from the web such as NCBI, UniProt, NCBI-SRA, PubMed, the desired output, and any constraints such as speed, and package restrictions.</p>
+<p>Here are some examples of good prompts for coding.</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prompt quality</th>
+<th>Good example</th>
+<th>Bad example (vague)</th>
+<th>Expected results</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Programming language</strong></td>
+<td>Write a Python 3 script that reads a FASTA file and returns a tab-delimited table with sequence ID and nucleotide length.</td>
+<td>Write code for FASTA lengths.</td>
+<td>The model produces Python code instead of guessing another language.</td>
+</tr>
+<tr class="even">
+<td><strong>Task to perform</strong></td>
+<td>Create a script that removes sequences shorter than 300 bp from a multi-FASTA file.</td>
+<td>Filter this file.</td>
+<td>The task is explicit, so the output is targeted and usable.</td>
+</tr>
+<tr class="odd">
+<td><strong>Input format</strong></td>
+<td>Input is a multi-FASTA file provided with the argument <code>--input_fasta_file</code>. Headers should be preserved exactly.</td>
+<td>Use my file.</td>
+<td>The model knows how data enter the script and can design argument parsing correctly.</td>
+</tr>
+<tr class="even">
+<td><strong>Desired output format</strong></td>
+<td>Return a tab-delimited file with columns <code>FASTA_ID</code> and <code>N_nucleotides</code>, and also save a filtered FASTA file.</td>
+<td>Give me the output.</td>
+<td>The result includes the exact files and column names requested.</td>
+</tr>
+<tr class="odd">
+<td><strong>Important constraints</strong></td>
+<td>Do not use pandas. Use only Biopython and argparse. Sequences must remain on one line in the output FASTA. Include error handling for empty files.</td>
+<td>Make it efficient.</td>
+<td>The code follows package, formatting, and robustness requirements more closely.</td>
+</tr>
+<tr class="even">
+<td><strong>Level of explanation you want</strong></td>
+<td>Explain the code at a level suitable for undergraduate biology students learning Python 3, and include comments in the script.</td>
+<td>Explain it.</td>
+<td>The explanation matches the user’s background and is more educational.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="a-basic-prompting-template-for-coding" class="section level2 hasAnchor" number="35.12">
+<h2><span class="header-section-number">35.12</span> A basic prompting template for coding<a href="coding-with-artificial-intelligence.html#a-basic-prompting-template-for-coding" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The following template can be adapted for most beginner coding tasks:</p>
+<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb719-1"><a href="coding-with-artificial-intelligence.html#cb719-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Write a [LANGUAGE] script that does the following:</span></span>
+<span id="cb719-2"><a href="coding-with-artificial-intelligence.html#cb719-2" aria-hidden="true" tabindex="-1"></a><span class="st">1) [TASK 1]</span></span>
+<span id="cb719-3"><a href="coding-with-artificial-intelligence.html#cb719-3" aria-hidden="true" tabindex="-1"></a><span class="st">2) [TASK 2]</span></span>
+<span id="cb719-4"><a href="coding-with-artificial-intelligence.html#cb719-4" aria-hidden="true" tabindex="-1"></a><span class="st">3) [TASK 3]</span></span>
+<span id="cb719-5"><a href="coding-with-artificial-intelligence.html#cb719-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb719-6"><a href="coding-with-artificial-intelligence.html#cb719-6" aria-hidden="true" tabindex="-1"></a><span class="st">The input file looks like this: [DESCRIBE INPUT]</span></span>
+<span id="cb719-7"><a href="coding-with-artificial-intelligence.html#cb719-7" aria-hidden="true" tabindex="-1"></a><span class="st">The output should be: [DESCRIBE OUTPUT]</span></span>
+<span id="cb719-8"><a href="coding-with-artificial-intelligence.html#cb719-8" aria-hidden="true" tabindex="-1"></a><span class="st">Please add comments explaining each step.</span></span>
+<span id="cb719-9"><a href="coding-with-artificial-intelligence.html#cb719-9" aria-hidden="true" tabindex="-1"></a><span class="st">Assume the user is a beginner.</span></span>
+<span id="cb719-10"><a href="coding-with-artificial-intelligence.html#cb719-10" aria-hidden="true" tabindex="-1"></a><span class="st">If there are possible edge cases, explain them after the code.&quot;</span></span></code></pre></div>
+<p>Here is an example for a basic analysis and plots using R</p>
+<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="coding-with-artificial-intelligence.html#cb720-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Write an R script that does the following:</span></span>
+<span id="cb720-2"><a href="coding-with-artificial-intelligence.html#cb720-2" aria-hidden="true" tabindex="-1"></a><span class="st">1) imports a tab-delimited file called expression_data.txt</span></span>
+<span id="cb720-3"><a href="coding-with-artificial-intelligence.html#cb720-3" aria-hidden="true" tabindex="-1"></a><span class="st">2) removes rows where column TPM is NA</span></span>
+<span id="cb720-4"><a href="coding-with-artificial-intelligence.html#cb720-4" aria-hidden="true" tabindex="-1"></a><span class="st">3) calculates the mean TPM per tissue</span></span>
+<span id="cb720-5"><a href="coding-with-artificial-intelligence.html#cb720-5" aria-hidden="true" tabindex="-1"></a><span class="st">4) plots the results as a barplot</span></span>
+<span id="cb720-6"><a href="coding-with-artificial-intelligence.html#cb720-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb720-7"><a href="coding-with-artificial-intelligence.html#cb720-7" aria-hidden="true" tabindex="-1"></a><span class="st">The input file is tab-delimited and it has headers and the columns named gene_id, tissue, and TPM.</span></span>
+<span id="cb720-8"><a href="coding-with-artificial-intelligence.html#cb720-8" aria-hidden="true" tabindex="-1"></a><span class="st">The output should be a plot and a table printed in the console, provide a code using ggplot2.</span></span>
+<span id="cb720-9"><a href="coding-with-artificial-intelligence.html#cb720-9" aria-hidden="true" tabindex="-1"></a><span class="st">Please add comments explaining each step.</span></span>
+<span id="cb720-10"><a href="coding-with-artificial-intelligence.html#cb720-10" aria-hidden="true" tabindex="-1"></a><span class="st">Assume the user is a beginner.&quot;</span></span></code></pre></div>
+</div>
+<div id="prompting-for-bioinformatics-in-r" class="section level2 hasAnchor" number="35.13">
+<h2><span class="header-section-number">35.13</span> Prompting for bioinformatics in R<a href="coding-with-artificial-intelligence.html#prompting-for-bioinformatics-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Bioinformatics prompts are usually better when they include a biological context, file structure, and expected output. This is important because the same coding task may be implemented differently depending on whether you are working with FASTA, data matrices, molecular data, or experimental result tables.</p>
+<p>For example, a weak bioinformatics prompt would be:</p>
+<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="coding-with-artificial-intelligence.html#cb721-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Write R code for my sequences.&quot;</span></span></code></pre></div>
+<p>A stronger prompt would be:</p>
+<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="coding-with-artificial-intelligence.html#cb722-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Write an R script that reads a FASTA file using Biostrings, calculates the sequence length of each entry, removes sequences shorter than 300 base pairs, and writes the retained sequences to a new FASTA file. Add comments and explain what packages need to be installed.&quot;</span></span></code></pre></div>
+<p>Another good example for tabular bioinformatics data is:</p>
+<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="coding-with-artificial-intelligence.html#cb723-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Write an R script that imports a tab-delimited differential expression table with columns gene_id, log2FC, and padj. Keep only rows where padj &lt; 0.05 and absolute log2FC &gt; 1. Then create a volcano plot with ggplot2 and label the 10 genes with the smallest padj values. Explain the code for a starting graduate student in bioinformatics.&quot;</span></span></code></pre></div>
+<p>A good prompt for sequence summaries in R might be:</p>
+<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="coding-with-artificial-intelligence.html#cb724-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Write an R script that imports a DNA FASTA file, calculates GC content for each sequence, stores sequence names, lengths, and GC content in a data.frame, and writes the result as a tab-delimited file. Use Biostrings if needed and comment the script.&quot;</span></span></code></pre></div>
+<p>Below is another example of a prompt followed by the type of code structure that it is expect as an output.</p>
+<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="coding-with-artificial-intelligence.html#cb725-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Write an R script for a beginner that imports a tab-delimited file called my_counts.txt, filters rows where count is greater than or equal to 10, and makes a histogram of count values. Include comments and use base R only.&quot;</span></span></code></pre></div>
+<p>A typical answer from an LLM may resemble the following:</p>
+<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb726-1"><a href="coding-with-artificial-intelligence.html#cb726-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import the table</span></span>
+<span id="cb726-2"><a href="coding-with-artificial-intelligence.html#cb726-2" aria-hidden="true" tabindex="-1"></a>my_counts <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;my_counts.txt&quot;</span>,</span>
+<span id="cb726-3"><a href="coding-with-artificial-intelligence.html#cb726-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">header =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb726-4"><a href="coding-with-artificial-intelligence.html#cb726-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb726-5"><a href="coding-with-artificial-intelligence.html#cb726-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb726-6"><a href="coding-with-artificial-intelligence.html#cb726-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb726-7"><a href="coding-with-artificial-intelligence.html#cb726-7" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect the first rows</span></span>
+<span id="cb726-8"><a href="coding-with-artificial-intelligence.html#cb726-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_counts)</span>
+<span id="cb726-9"><a href="coding-with-artificial-intelligence.html#cb726-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb726-10"><a href="coding-with-artificial-intelligence.html#cb726-10" aria-hidden="true" tabindex="-1"></a><span class="co"># keep only rows where count &gt;= 10</span></span>
+<span id="cb726-11"><a href="coding-with-artificial-intelligence.html#cb726-11" aria-hidden="true" tabindex="-1"></a>my_counts_filtered <span class="ot">&lt;-</span> <span class="fu">subset</span>(my_counts, count <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
+<span id="cb726-12"><a href="coding-with-artificial-intelligence.html#cb726-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb726-13"><a href="coding-with-artificial-intelligence.html#cb726-13" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect the filtered result</span></span>
+<span id="cb726-14"><a href="coding-with-artificial-intelligence.html#cb726-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_counts_filtered)</span>
+<span id="cb726-15"><a href="coding-with-artificial-intelligence.html#cb726-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb726-16"><a href="coding-with-artificial-intelligence.html#cb726-16" aria-hidden="true" tabindex="-1"></a><span class="co"># draw a histogram of count values</span></span>
+<span id="cb726-17"><a href="coding-with-artificial-intelligence.html#cb726-17" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(my_counts_filtered<span class="sc">$</span>count,</span>
+<span id="cb726-18"><a href="coding-with-artificial-intelligence.html#cb726-18" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Histogram of filtered counts&quot;</span>,</span>
+<span id="cb726-19"><a href="coding-with-artificial-intelligence.html#cb726-19" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Count&quot;</span>)</span></code></pre></div>
+<p>This result is useful as a starting point, and it should be carefully revised for accuracy. You can suggest fixing an error if you find one. Describe the error or any further desired improvements with follow-up questions while pasting the original code.</p>
+<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="coding-with-artificial-intelligence.html#cb727-1" aria-hidden="true" tabindex="-1"></a>Prompt<span class="sc">:</span> <span class="st">&quot;Improve the following R code by adding a line that writes the filtered table to a tab-delimited file. Then, rewrite the same script using dplyr and ggplot2. Include an explanation of what subset() does in this script. Provide notes for what will happen if the file contains NA values in the count column?&quot;</span></span>
+<span id="cb727-2"><a href="coding-with-artificial-intelligence.html#cb727-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb727-3"><a href="coding-with-artificial-intelligence.html#cb727-3" aria-hidden="true" tabindex="-1"></a>Here is the original code<span class="sc">:</span></span>
+<span id="cb727-4"><a href="coding-with-artificial-intelligence.html#cb727-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb727-5"><a href="coding-with-artificial-intelligence.html#cb727-5" aria-hidden="true" tabindex="-1"></a><span class="co"># import the table</span></span>
+<span id="cb727-6"><a href="coding-with-artificial-intelligence.html#cb727-6" aria-hidden="true" tabindex="-1"></a>my_counts <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;my_counts.txt&quot;</span>,</span>
+<span id="cb727-7"><a href="coding-with-artificial-intelligence.html#cb727-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">header =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb727-8"><a href="coding-with-artificial-intelligence.html#cb727-8" aria-hidden="true" tabindex="-1"></a>                        <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb727-9"><a href="coding-with-artificial-intelligence.html#cb727-9" aria-hidden="true" tabindex="-1"></a>                        <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb727-10"><a href="coding-with-artificial-intelligence.html#cb727-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb727-11"><a href="coding-with-artificial-intelligence.html#cb727-11" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect the first rows</span></span>
+<span id="cb727-12"><a href="coding-with-artificial-intelligence.html#cb727-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_counts)</span>
+<span id="cb727-13"><a href="coding-with-artificial-intelligence.html#cb727-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb727-14"><a href="coding-with-artificial-intelligence.html#cb727-14" aria-hidden="true" tabindex="-1"></a><span class="co"># keep only rows where count &gt;= 10</span></span>
+<span id="cb727-15"><a href="coding-with-artificial-intelligence.html#cb727-15" aria-hidden="true" tabindex="-1"></a>my_counts_filtered <span class="ot">&lt;-</span> <span class="fu">subset</span>(my_counts, count <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
+<span id="cb727-16"><a href="coding-with-artificial-intelligence.html#cb727-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb727-17"><a href="coding-with-artificial-intelligence.html#cb727-17" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect the filtered result</span></span>
+<span id="cb727-18"><a href="coding-with-artificial-intelligence.html#cb727-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_counts_filtered)</span>
+<span id="cb727-19"><a href="coding-with-artificial-intelligence.html#cb727-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb727-20"><a href="coding-with-artificial-intelligence.html#cb727-20" aria-hidden="true" tabindex="-1"></a><span class="co"># draw a histogram of count values</span></span>
+<span id="cb727-21"><a href="coding-with-artificial-intelligence.html#cb727-21" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(my_counts_filtered<span class="sc">$</span>count,</span>
+<span id="cb727-22"><a href="coding-with-artificial-intelligence.html#cb727-22" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Histogram of filtered counts&quot;</span>,</span>
+<span id="cb727-23"><a href="coding-with-artificial-intelligence.html#cb727-23" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Count&quot;</span>)</span></code></pre></div>
+</div>
+<div id="iterative-prompting" class="section level2 hasAnchor" number="35.14">
+<h2><span class="header-section-number">35.14</span> Iterative prompting<a href="coding-with-artificial-intelligence.html#iterative-prompting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One of the most powerful ways to use LLMs is to progressively improve an original code by asking improvements on code successively (i.e., <a href="https://en.wikipedia.org/wiki/Iteration" target="_blank"><strong>iteratively</strong></a>). This means you progressively refine the code through multiple prompts using your previous code as part of each successive prompt, then run the updated code, see its output, find errors, suggest new improvements, add analyses or graphs.</p>
+<p>A very effective iterative prompting workflow is the following:</p>
+<ol style="list-style-type: decimal">
+<li>Ask for a first working version</li>
+<li>Run the code and inspect errors or weak points</li>
+<li>Return to the LLM with the code and explain what must be improved</li>
+<li><strong>Repeat</strong> until the script is correct, clear, and efficient</li>
+</ol>
+<p>For example, imagine that the first code works but lacks flexibility. You can improve it step by step.</p>
+<p><strong>Step 1:</strong> Ask for the first version</p>
+<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="coding-with-artificial-intelligence.html#cb728-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Write an R script that imports a tab-delimited file and filters rows where value &gt; 5.&quot;</span></span></code></pre></div>
+<p><strong>Step 2:</strong> Ask for comments and explanation after the first draft code has been output</p>
+<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb729-1"><a href="coding-with-artificial-intelligence.html#cb729-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Add comments for each line and explain the code for a beginner.&quot;</span></span></code></pre></div>
+<p><strong>Step 3:</strong> Ask for generalization by pasting the first draft code (second iteration)</p>
+<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="coding-with-artificial-intelligence.html#cb730-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Now modify the script so the user can define the input file name, output file name, and threshold value at the top of the script.&quot;</span></span></code></pre></div>
+<p><strong>Step 4:</strong> Ask for better error handling by pasting the second draft code (third iteration)</p>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="coding-with-artificial-intelligence.html#cb731-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Add checks so the script stops with a clear message if the input file does not exist or if the column named value is missing.&quot;</span></span></code></pre></div>
+<p><strong>Step 5:</strong> Ask for style improvement by pasting the third draft code (fourth iteration)</p>
+<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb732-1"><a href="coding-with-artificial-intelligence.html#cb732-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Rewrite the script to be cleaner and more readable, but keep base R only and do not change the output.&quot;</span></span></code></pre></div>
+<p>This type of progressive prompting usually gives much better results than trying to get the perfect script in a single request. Here is another example of a sequence of prompts for improving a beginner script in R.</p>
+<p>Original prompt</p>
+<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb733-1"><a href="coding-with-artificial-intelligence.html#cb733-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Write an R script that imports a tab-delimited file with columns gene and expression, removes rows with NA in expression, and makes a boxplot of expression.&quot;</span></span></code></pre></div>
+<p>First improvement</p>
+<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb734-1"><a href="coding-with-artificial-intelligence.html#cb734-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Modify the script so the boxplot shows expression by tissue, where tissue is another column in the table. Use ggplot2 instead of base R.&quot;</span></span></code></pre></div>
+<p>Second improvement</p>
+<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb735-1"><a href="coding-with-artificial-intelligence.html#cb735-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Add a step that writes the cleaned data to a file named cleaned_expression.txt as a tab-delimited table.&quot;</span></span></code></pre></div>
+<p>Third improvement</p>
+<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb736-1"><a href="coding-with-artificial-intelligence.html#cb736-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Add checks so the script verifies that the columns gene, expression, and tissue exist before plotting.&quot;</span></span></code></pre></div>
+<p>Fourth improvement</p>
+<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="coding-with-artificial-intelligence.html#cb737-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Now explain which parts of this script are data import, data cleaning, and plotting, and describe why each step is needed.&quot;</span></span></code></pre></div>
+</div>
+<div id="prompting-to-debug-code" class="section level2 hasAnchor" number="35.15">
+<h2><span class="header-section-number">35.15</span> Prompting to debug code<a href="coding-with-artificial-intelligence.html#prompting-to-debug-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A code might have errors (i.e., <a href="https://en.wikipedia.org/wiki/Software_bug" target="_blank"><strong>bugs</strong></a>) and not run or return undesired results. These errors are usually the result of some mistake in the code that the user must locate based on the reported error (if the program did not run). In the past, this activity was very tedious and required knowledge of the coding language and several bouts of testing. With LLMs, this activity can be outsourced as these tools can be very effective at debugging, but your prompting should include the original code, the error message, and what your expected output should look like (or a description of the expected output).</p>
+<p>A weak debugging prompt:</p>
+<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb738-1"><a href="coding-with-artificial-intelligence.html#cb738-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;My code does not work.&quot;</span></span></code></pre></div>
+<p>A much better debugging prompt:</p>
+<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb739-1"><a href="coding-with-artificial-intelligence.html#cb739-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;This R code returns an error &#39;object tissue not found&#39;. Based on this, improve the following code:</span></span>
+<span id="cb739-2"><a href="coding-with-artificial-intelligence.html#cb739-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb739-3"><a href="coding-with-artificial-intelligence.html#cb739-3" aria-hidden="true" tabindex="-1"></a><span class="st">my_data &lt;- read.table(&#39;my_file.txt&#39;, header = TRUE, sep = &#39;</span><span class="sc">\t</span><span class="st">&#39;)</span></span>
+<span id="cb739-4"><a href="coding-with-artificial-intelligence.html#cb739-4" aria-hidden="true" tabindex="-1"></a><span class="st">boxplot(expression ~ tissue, data = my_data)</span></span>
+<span id="cb739-5"><a href="coding-with-artificial-intelligence.html#cb739-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb739-6"><a href="coding-with-artificial-intelligence.html#cb739-6" aria-hidden="true" tabindex="-1"></a><span class="st">Explain the possible causes of this error, how to inspect the imported columns, and then provide a corrected version of the code.&quot;</span></span></code></pre></div>
+<p>This helps the LLM focus on the actual problem rather than guessing.</p>
+</div>
+<div id="asking-an-llm-to-explain-code" class="section level2 hasAnchor" number="35.16">
+<h2><span class="header-section-number">35.16</span> Asking an LLM to explain code<a href="coding-with-artificial-intelligence.html#asking-an-llm-to-explain-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You should ask the LLMs not only to generate code, but also to annotate it. This helps transform the tool from a simple generator into a teaching assistant that helps in debugging.</p>
+<p>Here are some prompts aimed at increasing code annotation</p>
+<div class="sourceCode" id="cb740"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb740-1"><a href="coding-with-artificial-intelligence.html#cb740-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Explain the following R function line by line for an undergraduate bioinformatics student. After the explanation, define what each argument does and provide a simple example of use.&quot;</span></span>
+<span id="cb740-2"><a href="coding-with-artificial-intelligence.html#cb740-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb740-3"><a href="coding-with-artificial-intelligence.html#cb740-3" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Rewrite this code with better comments and then explain what subset(), grepl(), and complete.cases() do in this context.&quot;</span></span></code></pre></div>
+<p>These explanation prompts are especially useful when you use pre-genetated code from another source such as GitHub, a supplementary material associated with an article, a lab script used for a bioinformatics protocol or any type code examples.</p>
+</div>
+<div id="using-multiple-llms-to-improve-a-starting-code" class="section level2 hasAnchor" number="35.17">
+<h2><span class="header-section-number">35.17</span> Using multiple LLMs to improve a starting code<a href="coding-with-artificial-intelligence.html#using-multiple-llms-to-improve-a-starting-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are diverse strategies to improve or generate complex bioinformatic pipelines. As expected, sometimes an LLM might get stuck and return an ineffective code or progressively generate a ‘Frankenstein’ patchwork of code that has become too long or too complex to understand. An alternative strategy is to use more than one LLM for different purposes or ask two or more LLMs to generate the same code. You can generate a third code by asking to compare both codes, find strengths and weaknesses on both, and generate a third version that has the best of both.</p>
+<p>Here is an example of such prompts aimed to compare and generate a hybrid code</p>
+<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="coding-with-artificial-intelligence.html#cb741-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Compare these two uploaded versions of this Python code to annotate proteins using BLASTn with a user-provided library. Provide in a table the strengths and weaknesses of each. Then, using this information, generate a third version that combines the best of both.&quot;</span></span></code></pre></div>
+<p>You can think of this as using different reviewers with different strengths. However, you need to test each version of the code to see if the desired output has been generated or errors have been introduced. As in some cases with LLMs generating text, AI generated code can also <a href="https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)" target="_blank"><strong>hallucinate</strong></a> and generate numeric calculations, classifications, or images that are factually wrong or misleading. A common example of this type of error is that numeric values for property or measurement differ substantially between both version of the code. If you have knowledge of what is being measured, you can eyeball such error and confirm the miscalculation in a specific code version. In other cases, the judging LLM will determine that an error was introduced and proceed to correct it by transplanting part of the code from one version to the other.</p>
+<p>There are several reasons for differences in the output code between different LLMs. Some include the existence of different functions or packages that are redundant, and each LLM is choosing a different one. Some LLMs are spending on <strong>thinking</strong> less and try to provide a shorter version of the code that might be more flexible or prefers to use shortcuts. The calculations requested have been done using different metrics and the prompt did not specify what specific metric is needed (e.g., amino acid Kyte-Doolittle versus Hopp-Woods hydrophobicity scales).</p>
+<p>Here is an example of a workflow that will allow some comparison and hybrid code construction:</p>
+<ol style="list-style-type: decimal">
+<li>Use one LLM to generate the first script</li>
+<li>Use a second LLM to review the script for logic, edge cases, and clarity</li>
+<li>Use a third LLM to explain the revised script in simpler language or compare the first and second version</li>
+<li>Use this LLM to generate a hybrid code with the best of both previous versions</li>
+<li>Manually test the final script yourself every version. If you detect an error or miscalculation, include the explicit location and type of error (rounding, different values, etc.)</li>
+<li>You can guide LLM by indicating what type of output are you expecting by giving an example of the input data the expected output</li>
+</ol>
+<p>Here is an example multi-LLM workflow.</p>
+<p><strong>Prompt to LLM 1:</strong> generate code in ChatGPT (thinking):</p>
+<div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb742-1"><a href="coding-with-artificial-intelligence.html#cb742-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Write an R script that imports a FASTA file, calculates sequence lengths, and outputs a tab-delimited table with sequence name and length. Assume the user is a beginner and add comments.&quot;</span></span></code></pre></div>
+<p><strong>Prompt to LLM 2:</strong> generate a similar code in DeepSeek:</p>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="coding-with-artificial-intelligence.html#cb743-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Write an R script that imports a FASTA file, calculates sequence lengths, and outputs a tab-delimited table with sequence name and length. Assume the user is a beginner and add comments.&quot;</span></span></code></pre></div>
+<p><strong>Prompt to LLM 3:</strong> Review both versions of the code in ChatGPT (thinking):</p>
+<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="coding-with-artificial-intelligence.html#cb744-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Review the uploaded versions the following R script for correctness, readability, and edge cases. Identify similarities, strengths, and weaknesses of each in a table format. Suggest at least three possible improvements, then provide a revised version.&quot;</span></span></code></pre></div>
+<p><strong>Prompt to LLM 4:</strong> Generate a hybrid final version in ChatGPT (thinking):</p>
+<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="coding-with-artificial-intelligence.html#cb745-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Generate third version of the code using the best of both uploaded versions. Explain this revised R script step by step for a starting graduate student in bioinformatics. Define the purpose of each package and function, and mention possible input problems the user should check before running it.&quot;</span></span></code></pre></div>
+</div>
+<div id="comparing-answers-from-multiple-llms" class="section level2 hasAnchor" number="35.18">
+<h2><span class="header-section-number">35.18</span> Comparing answers from multiple LLMs<a href="coding-with-artificial-intelligence.html#comparing-answers-from-multiple-llms" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When comparing outputs from different LLMs, consider the following:</p>
+<ol style="list-style-type: decimal">
+<li>Does the code actually run?</li>
+<li>Does it solve the requested problem?</li>
+<li>Is the code readable and well commented?</li>
+<li>Does it make unnecessary assumptions?</li>
+<li>Does it handle missing values, wrong file names, or absent columns?</li>
+<li>Does it use packages that are appropriate for the task?</li>
+<li>Does it explain the logic clearly?</li>
+</ol>
+<p>It is often useful to paste the answers into a text file and compare them side by side. You can then create a combined prompt such as:</p>
+<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="coding-with-artificial-intelligence.html#cb746-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;I have two versions of an R script below. Compare them for correctness, readability, and performance. Then create a third version that combines the best parts of both. Explain why your final version is better.&quot;</span></span></code></pre></div>
+<p>This is an excellent strategy for learning because it forces the student to think critically about code quality rather than accepting the first answer.</p>
+</div>
+<div id="good-practices-when-using-llms-for-coding" class="section level2 hasAnchor" number="35.19">
+<h2><span class="header-section-number">35.19</span> Good practices when using LLMs for coding<a href="coding-with-artificial-intelligence.html#good-practices-when-using-llms-for-coding" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When using LLMs for coding in class, in lab work, or in bioinformatics projects, it is a good practice to store your prompts in comments like most do as if it were a lab notebook.</p>
+<ol style="list-style-type: decimal">
+<li>Keep a record of the prompts you used</li>
+<li>Keep the original version of the code and the revised versions</li>
+<li>Annotate what you changed manually</li>
+<li>Test the code on a small example dataset first</li>
+<li>Verify that packages and functions are real (i.e., exist) and they are correctly used</li>
+<li>Inspect the output carefully</li>
+<li>Make sure that you do not upload sensitive or restricted data as many of the LLMs keep such data</li>
+<li>Think that the prompts should help with code reproducibility and make your workflow more transparent</li>
+</ol>
+</div>
+<div id="limitations-of-llms-for-coding" class="section level2 hasAnchor" number="35.20">
+<h2><span class="header-section-number">35.20</span> Limitations of LLMs for coding<a href="coding-with-artificial-intelligence.html#limitations-of-llms-for-coding" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>LLMs can be very useful for coding because they can generate scripts quickly, explain syntax, suggest workflows, and help debug errors. However, one major limitation is that <strong>LLMs do not truly understand the data, software environment, or biological system</strong> in the way a researcher does. LLMs predict the next text based on patterns used in training. As a result, they may generate code that is syntactically valid but logically wrong, especially when the task involves unusual input formats, hidden assumptions, or edge cases. For example, a script may run without errors but parse the wrong column, mishandle missing values, reverse sequence orientation incorrectly, or apply the wrong filtering threshold.</p>
+<p>Another limitation is that <strong>LLMs can hallucinate</strong> technical details. They may <strong>invent</strong> package names, functions, arguments, command-line flags, file formats, or even expected outputs. This can be especially problematic in bioinformatics, where tools often have highly specific options and version-dependent behavior. A generated command <strong>may look realistic</strong> but fail immediately because the <strong>option does not exist</strong>.</p>
+<p>LLMs may also misunderstand the structure of the user’s data. If the prompt does not fully specify limits, headers, sequence formats, missing-value conventions, column meanings, encoding, or naming rules, the <strong>LLMs may fill in the gaps in logic or data with assumptions</strong>. In biological datasets, these assumptions can be dangerous because a small mismatch between what the user intended and what the script does can alter downstream conclusions.</p>
+<p>A further issue is <strong>incomplete treatment of edge cases</strong>. These are data points that are outliers and their handling usually require specific instructions. LLM-generated code often works best for the most case that resembles examples used in their training data. However, they may fail on empty files, duplicated identifiers, malformed FASTA headers, multistate amino acid entries, unexpected characters, uneven tabular structures, or very large files. In research workflows, these edge cases and dirty data are the norm and not the exception.</p>
+<p><strong>LLMs can also produce overconfident explanations</strong>. They may describe an approach as correct, optimal, or standard even when it is only one possible option, or when it contains hidden errors. This can <strong>create a false sense of security</strong> for users who are still learning programming or who are unfamiliar with the data or research question. The LLM’s explanation may sound authoritative while masking uncertainty, omitted assumptions, or incorrect reasoning.</p>
+<p>For bioinformatics, small coding errors can result in major analytical mistakes. Therefore, <strong>LLM-generated code should always be treated as a draft to be checked</strong>, not as a final answer to be trusted automatically. In practice, LLMs should be used as an assistant rather than as an authority. It can speed up drafting, debugging, and brainstorming, but the user must still verify correctness, confirm assumptions, and decide whether the approach is biologically appropriate.</p>
+<p>Here are common Limitations of LLMs for coding</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Limitation</th>
+<th align="left">Description</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Code may look correct but fail</strong></td>
+<td align="left">An LLM can generate code that appears polished and well-structured but does not run or does not solve the problem correctly.</td>
+<td align="left">A Python script is generated with valid syntax, but it uses the wrong column name and crashes when run on the real dataset.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Invented functions or packages</strong></td>
+<td align="left">The model may hallucinate functions, arguments, package names, or command-line options that do not exist.</td>
+<td align="left">An R answer suggests a function such as <code>read_fasta_table()</code> from a package that is not real.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Misunderstanding input structure</strong></td>
+<td align="left">The model may assume the wrong delimiter, header format, missing-value style, or column meaning.</td>
+<td align="left">A script assumes a comma-separated file when the real file is tab-delimited, causing the entire row to be read as one column.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Poor handling of edge cases</strong></td>
+<td align="left">LLM-generated code often works only for the most typical input and ignores unusual but important cases.</td>
+<td align="left">A FASTA parser works for simple headers but fails when sequence names contain spaces or repeated identifiers.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Omission of assumptions</strong></td>
+<td align="left">The code may ignore biological, statistical, or methodological assumptions needed for valid interpretation.</td>
+<td align="left">A filtering script removes short sequences without considering that biologically meaningful loci may differ in expected length.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Overconfident explanations</strong></td>
+<td align="left">The model may present uncertain or flawed reasoning as if it were definitely correct.</td>
+<td align="left">It states that a given alignment strategy is “the best method” without discussing alternatives or limitations.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Version-specific errors</strong></td>
+<td align="left">LLMs may suggest syntax or options that apply only to different software versions.</td>
+<td align="left">A command for a bioinformatics tool uses an argument that existed in an older release but not in the installed version.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Shallow debugging</strong></td>
+<td align="left">The model may explain an error message in a generic way without identifying the true source of the problem.</td>
+<td align="left">It blames file corruption when the real issue is an empty variable or wrong command-line argument.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Weak reproducibility practices</strong></td>
+<td align="left">Generated code may omit logging, validation, comments, or clear file naming, reducing reproducibility.</td>
+<td align="left">A script writes output files but does not document parameters or record which filters were applied.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Hidden inefficiency</strong></td>
+<td align="left">The model may generate code that works on small examples but performs poorly on large biological datasets.</td>
+<td align="left">A script repeatedly loops through a large FASTA file in memory instead of streaming records efficiently.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="galaxy-workflows-part-ii.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/35-Working_with_LLMs_5.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
